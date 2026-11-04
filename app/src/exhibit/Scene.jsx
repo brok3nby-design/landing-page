@@ -3,7 +3,7 @@
 import { Suspense, useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
 import * as THREE from "three";
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
-import { CameraControls, PerformanceMonitor, useGLTF, useProgress } from "@react-three/drei";
+import { CameraControls, ContactShadows, PerformanceMonitor, useGLTF, useProgress } from "@react-three/drei";
 import { EffectComposer, Bloom, ToneMapping } from "@react-three/postprocessing";
 import { ToneMappingMode } from "postprocessing";
 import { KTX2Loader } from "three/examples/jsm/loaders/KTX2Loader.js";
@@ -36,7 +36,7 @@ function setGlow(node, on) {
 }
 
 // ---------------------------------------------------------------- model
-function Model({ url, scope, selectedId, onSelect, onLoaded }) {
+function Model({ url, scope, targets, selectGlow = true, selectedId, onSelect, onLoaded }) {
   const gl = useThree((s) => s.gl);
   const { scene } = useGLTF(url, false, true, (loader) => loader.setKTX2Loader(ktx2For(gl)));
   const [hovered, setHovered] = useState(null);
@@ -51,6 +51,10 @@ function Model({ url, scope, selectedId, onSelect, onLoaded }) {
           o.material.userData.tuned = true;
         }
       }
+      if (targets && targets[o.name]) {                    // page-defined click targets (no re-export needed)
+        o.userData.interactive_id = targets[o.name];
+        o.userData.interactive_scope = scope;
+      }
       const id = o.userData?.interactive_id;
       if (id && (!o.userData.interactive_scope || o.userData.interactive_scope === scope)) {
         byId[id] = byId[id] || o;
@@ -64,10 +68,14 @@ function Model({ url, scope, selectedId, onSelect, onLoaded }) {
       }
     });
     return byId;
-  }, [scene, scope]);
+  }, [scene, scope, targets]);
 
   useLayoutEffect(() => { onLoaded(scene, index); }, [scene, index, onLoaded]);
-  useEffect(() => { setGlow(index[selectedId], true); return () => setGlow(index[selectedId], false); }, [selectedId, index]);
+  useEffect(() => {
+    if (!selectGlow) return;
+    setGlow(index[selectedId], true);
+    return () => setGlow(index[selectedId], false);
+  }, [selectedId, index, selectGlow]);
   useEffect(() => {
     if (!hovered || hovered === index[selectedId]) return;
     setGlow(hovered, true);
@@ -91,6 +99,58 @@ function Model({ url, scope, selectedId, onSelect, onLoaded }) {
       }}
     />
   );
+}
+
+// ---------------------------------------------------------------- per-page animations
+const damp = (dt, k = 7) => 1 - Math.exp(-k * dt);
+
+// Games page: the selected case lifts out of the crate and turns its label toward the camera;
+// every other case eases back to the exact transform it had in the GLB.
+function LiftTurn({ index, selectedId, lift = 0.11 }) {
+  const camera = useThree((s) => s.camera);
+  const tmp = useMemo(() => ({ v: new THREE.Vector3(), q: new THREE.Quaternion(), e: new THREE.Euler(0, 0, 0, "YXZ") }), []);
+  useFrame((_, dt) => {
+    for (const node of Object.values(index)) {
+      const u = node.userData;
+      if (!u.home) u.home = { p: node.position.clone(), q: node.quaternion.clone() };
+      const active = node.userData.interactive_id === selectedId;
+      if (active) {
+        const cam = node.parent.worldToLocal(tmp.v.copy(camera.position));
+        tmp.e.set(-0.16, Math.atan2(cam.x - u.home.p.x, cam.z - u.home.p.z), 0);
+        tmp.q.setFromEuler(tmp.e);
+        const toward = new THREE.Vector3(cam.x - u.home.p.x, 0, cam.z - u.home.p.z).setLength(0.03);
+        node.position.lerp(tmp.v.copy(u.home.p).add(toward).setY(u.home.p.y + lift), damp(dt));
+        node.quaternion.slerp(tmp.q, damp(dt, 6));
+      } else {
+        node.position.lerp(u.home.p, damp(dt));
+        node.quaternion.slerp(u.home.q, damp(dt));
+      }
+    }
+  });
+  return null;
+}
+
+// About page: the right-hand side of the notebook (front cover, page block, top page) rotates about
+// the spine. Rotating about an axis raised by H keeps the closed book stacked instead of sinking
+// through the desk. The pen hides while the book isn't open.
+const NOTEBOOK_RIGHT = ["NOTE_Cover_Front", "NOTE_PageBlock_R", "NOTE_Page_R"];
+function NotebookOpen({ scene, open }) {
+  const parts = useMemo(() => NOTEBOOK_RIGHT.map((n) => scene.getObjectByName(n)).filter(Boolean), [scene]);
+  const pen = useMemo(() => ["NOTE_Pen", "NOTE_Pen_Clip"].map((n) => scene.getObjectByName(n)).filter(Boolean), [scene]);
+  const angle = useRef(Math.PI);                       // start closed -> animates open on arrival
+  const H = 0.0135;
+  useFrame((_, dt) => {
+    const target = open ? 0 : Math.PI;
+    angle.current += (target - angle.current) * damp(dt, reducedMotion() ? 60 : 3.2);
+    const t = angle.current;
+    for (const p of parts) {
+      p.quaternion.setFromAxisAngle(new THREE.Vector3(0, 0, 1), t);
+      p.position.set(H * Math.sin(t), H * (1 - Math.cos(t)), 0);
+    }
+    for (const p of pen) p.visible = t < 0.05;
+    scene.userData.bookAngle = t;
+  });
+  return null;
 }
 
 // ---------------------------------------------------------------- lights (runtime part of the hybrid)
@@ -132,7 +192,7 @@ function Reflections() {
 }
 
 // ---------------------------------------------------------------- camera rig
-function Rig({ box, view, under, selected, apiRef, colliders }) {
+function Rig({ box, view, under, selected, apiRef, colliders, focusLift = 0, focusScale = 2.1 }) {
   const ctl = useRef();
   const camera = useThree((s) => s.camera);
   const size = useThree((s) => s.size);
@@ -145,7 +205,7 @@ function Rig({ box, view, under, selected, apiRef, colliders }) {
     const fwd = view ? new THREE.Vector3(...view.forward).normalize() : new THREE.Vector3(-0.3, -0.45, -0.85).normalize();
     const vfov = THREE.MathUtils.degToRad(camera.fov);
     const hfov = 2 * Math.atan(Math.tan(vfov / 2) * (size.width / size.height));
-    const d = (r / Math.sin(Math.min(vfov, hfov) / 2)) * 0.86;
+    const d = (r / Math.sin(Math.min(vfov, hfov) / 2)) * (size.width < 600 ? 1.08 : 0.86);   // more margin on phones
     return { pos: c.clone().addScaledVector(fwd, -d), target: c, r, d };
   };
 
@@ -175,8 +235,9 @@ function Rig({ box, view, under, selected, apiRef, colliders }) {
     const smooth = !reducedMotion();
     if (selected) {
       const sphere = new THREE.Box3().setFromObject(selected).getBoundingSphere(new THREE.Sphere());
-      const r = Math.max(sphere.radius, 0.1);
-      sphere.radius = r * 2.1;                          // keep some context around the object
+      sphere.center.y += focusLift;                     // frame where the object is going (lifted case)
+      const r = Math.max(sphere.radius, focusLift ? 0.06 : 0.1);
+      sphere.radius = r * focusScale;                   // keep some context around the object
       cc.fitToSphere(sphere, smooth);
       // shift the framing so the object sits upper-right, clear of the info panel (bottom-left)
       const wide = size.width > 900;
@@ -204,7 +265,7 @@ function Rig({ box, view, under, selected, apiRef, colliders }) {
 }
 
 // ---------------------------------------------------------------- page-level scene
-function Content({ config, selectedId, onSelect, under, apiRef, quality }) {
+function Content({ config, selectedId, onSelect, under, apiRef, quality, animState }) {
   const [state, setState] = useState(null);           // { scene, index, box }
   const [views, setViews] = useState(null);
   const camera = useThree((s) => s.camera);
@@ -236,6 +297,12 @@ function Content({ config, selectedId, onSelect, under, apiRef, quality }) {
     window.__exhibit = {
       ready: !!state, selected: selectedId, invalidate,
       select: (id) => onSelect(id),
+      nodeWorld: (name) => {
+        const o = state?.scene.getObjectByName(name);
+        if (!o) return null;
+        const p = o.getWorldPosition(new THREE.Vector3());
+        return { x: p.x, y: p.y, z: p.z, bookAngle: state.scene.userData.bookAngle };
+      },
       project: (name) => {
         const o = state?.scene.getObjectByName(name);
         if (!o) return null;
@@ -246,14 +313,25 @@ function Content({ config, selectedId, onSelect, under, apiRef, quality }) {
   }, [state, selectedId, onSelect, camera, size]);
 
   const selected = state && selectedId ? state.index[selectedId] : null;
+  const view = typeof config.view === "string" ? views?.cameras?.[config.view] : config.view;
+  const lifting = config.animation === "lift-turn";
   return (
     <>
-      <Model url={`${BASE}${config.model}`} scope={config.scope} selectedId={selectedId} onSelect={onSelect} onLoaded={onLoaded} />
+      <Model url={`${BASE}${config.model}`} scope={config.scope} targets={config.targets} selectGlow={config.selectGlow !== false}
+             selectedId={selectedId}
+             onSelect={onSelect} onLoaded={onLoaded} />
       {state && views && (
         <>
           <Lights box={state.box} under={under} shadows={quality.shadows} />
-          <Rig box={state.box} view={views.cameras?.[config.view]} under={under} selected={selected}
-               apiRef={apiRef} colliders={colliders} />
+          <Rig box={state.box} view={view} under={under} selected={selected} apiRef={apiRef} colliders={colliders}
+               focusLift={lifting ? 0.07 : 0} focusScale={config.focusScale} />
+          {lifting && <LiftTurn index={state.index} selectedId={selectedId} />}
+          {config.animation === "notebook" && <NotebookOpen scene={state.scene} open={animState?.open ?? true} />}
+          {config.contactShadow && (() => {
+            const c = state.box.getCenter(new THREE.Vector3()), sz = state.box.getSize(new THREE.Vector3());
+            return <ContactShadows position={[c.x, state.box.min.y + 0.0005, c.z]} scale={Math.max(sz.x, sz.z) * 2.2}
+                                   far={sz.y * 1.5 + 0.05} blur={2.6} opacity={0.6} resolution={512} color="#000000" />;
+          })()}
         </>
       )}
     </>
@@ -273,7 +351,11 @@ function Loading() {
 // ?test: render on demand + readable canvas, for automated (software-GL) browser tests
 const TEST = new URLSearchParams(location.search).has("test");
 
-export default function Scene({ config, selectedId, onSelect, under, apiRef, safe = false, onContextLost }) {
+export default function Scene({ config, selectedId, onSelect, under, apiRef, safe = false, onContextLost, animState }) {
+  // R3F deliberately drops the GL context when the canvas unmounts (leaving the page): that is not a
+  // crash. The flag is set in a layout-effect cleanup, which runs before the canvas tears down.
+  const leaving = useRef(false);
+  useLayoutEffect(() => () => { leaving.current = true; }, []);
   // safe mode (after a lost GPU context, or ?quality=low): no post-processing, no shadows, 1x pixels
   const [quality, setQuality] = useState(safe
     ? { dpr: 1, shadows: false, bloom: false, post: false }
@@ -286,6 +368,7 @@ export default function Scene({ config, selectedId, onSelect, under, apiRef, saf
               onCreated={({ gl }) => {
                 if (!quality.post) { gl.toneMapping = THREE.AgXToneMapping; gl.toneMappingExposure = 0.92; }
                 gl.domElement.addEventListener("webglcontextlost", (e) => {
+                  if (leaving.current) return;
                   e.preventDefault();
                   console.error("WebGL context lost - showing the image fallback");
                   onContextLost?.();
@@ -296,7 +379,8 @@ export default function Scene({ config, selectedId, onSelect, under, apiRef, saf
         {!TEST && !safe && <PerformanceMonitor onDecline={() => setQuality((q) => ({ ...q, dpr: [1, 1.25], shadows: false, bloom: false }))} />}
         <Reflections />
         <Suspense fallback={null}>
-          <Content config={config} selectedId={selectedId} onSelect={onSelect} under={under} apiRef={apiRef} quality={quality} />
+          <Content config={config} selectedId={selectedId} onSelect={onSelect} under={under} apiRef={apiRef} quality={quality}
+                   animState={animState} />
         </Suspense>
         {quality.post && (
           <EffectComposer multisampling={4}>

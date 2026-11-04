@@ -73,6 +73,15 @@ a { color: inherit; }
 .loading .bar { width: 160px; height: 1px; background: var(--faint); margin-top: 14px; position: relative; overflow: hidden; }
 .loading .bar i { position: absolute; inset: 0; background: var(--fg); transform-origin: left; }
 
+.route { animation: fade .55s ease both; }
+@keyframes fade { from { opacity: 0; } to { opacity: 1; } }
+.list { flex-direction: column; }
+.chip.wide { width: 100%; text-align: left; display: flex; gap: 14px; align-items: baseline; padding: 12px 14px; font-size: 13px; }
+.chip .num { color: var(--red-hi); font-size: 11px; letter-spacing: .2em; }
+.chip.dim { color: var(--faint); }
+.todo h2 { font: 600 11px/1 var(--sans); letter-spacing: .3em; text-transform: uppercase; color: var(--muted); margin: 6px 0 10px; }
+.todo ul { margin: 0; padding-left: 18px; color: var(--muted); font-size: 14px; }
+
 /* ---------- info panel ---------- */
 .panel { position: absolute; left: 24px; bottom: 24px; width: min(380px, calc(100% - 48px)); background: rgba(8,8,8,.88);
          border-left: 2px solid var(--red); padding: 22px 24px 20px; z-index: 3; backdrop-filter: blur(6px);

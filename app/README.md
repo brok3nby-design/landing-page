@@ -1,4 +1,4 @@
-# BROK3N BY DESIGN — website prototype (Phase 5)
+# BROK3N BY DESIGN — website prototype (Phases 5–6)
 
 A **local prototype** of the new interactive 3D studio site. It is completely separate from the production website:
 no hosting, DNS or GitHub Pages settings are touched, and nothing is deployed.
@@ -38,19 +38,31 @@ cd landing-page/app && npm install && npm run dev
 - **Fallbacks:** an image fallback if WebGL2 is missing or the 3D fails (or `?no3d`), plus an "Image view" toggle.
 - **Performance:** quality drops automatically on slow devices (no bloom/shadows, lower pixel ratio). Bloom is subtle: only LEDs, lamp and screens glow.
 - **Routing:** clean URLs that survive refresh on GitHub Pages. `npm run build` writes `dist/<route>/index.html` and `404.html`. `SITE_BASE=/sub/path/ npm run build` builds for a sub-path.
-- **Not yet:** Games, About, Projects, WRFM and Contact are placeholder pages using the same layout. The Games (crate) and About (notebook) exhibits are Phase 6.
+- **Games page (`/games`), Phase 6:**
+  - the standalone crate with a soft contact shadow, and a game list built from `diorama/data/games.json`;
+  - selecting a case (click or list) lifts it out and turns it to the camera, and the panel shows **VIEW GAME** → `/games/<id>`;
+  - closing returns the case to its exact place; empty slots say "Coming soon".
+- **About page (`/about`), Phase 6:**
+  - the notebook opens on arrival, with an Open/Close toggle;
+  - the left page, right page and bookmark are clickable (made clickable by page config, no re-export).
+- **Game pages (`/games/<id>`):** one per game in `games.json`, with sections to fill after the audit; unknown ids show not found.
+- **Not yet:** Projects, WRFM and Contact are placeholder pages. Each game's own miniature exhibit is a future phase.
 
 ## Tests
 ```bash
 npm run test:browser
 ```
-This builds the site and drives headless Chromium. Results go to `diorama/renders/phase5/` (screenshots + `results.json`):
+This builds the site and drives headless Chromium. Results go to `diorama/renders/phase6/` (screenshots + `results.json`):
 - desktop and mobile screenshots;
 - crate click → panel → EXPLORE GAMES → /games;
 - drag doesn't select;
 - keyboard hotspot path;
 - direct routes and the 404 page;
-- the fallback image.
+- the fallback image;
+- Games: case click → lift (11 cm) + panel + VIEW GAME, return on close, empty slot, keyboard list;
+- About: opens on arrival, page click → panel, close/open;
+- direct game routes;
+- a simulated GPU reset, and safe mode.
 
 The `?test` URL flag renders on demand, for software-GL screenshots.
 

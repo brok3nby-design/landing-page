@@ -7,6 +7,9 @@ import { fileURLToPath } from "node:url";
 const APP = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const dist = path.join(APP, "dist");
 const routes = JSON.parse(fs.readFileSync(path.join(APP, "src", "content", "routes.json"), "utf8"));
+// one page per game in games.json (adding a game adds its URL)
+const games = JSON.parse(fs.readFileSync(path.join(APP, "public", "data", "games.json"), "utf8")).games || [];
+for (const g of games) if (g.route) routes.push(g.route);
 const html = fs.readFileSync(path.join(dist, "index.html"));
 for (const r of routes.filter((r) => r !== "/")) {
   fs.mkdirSync(path.join(dist, r), { recursive: true });

@@ -33,7 +33,7 @@ function Fallback({ config, reason, detail, onRetry }) {
   );
 }
 
-export default function Exhibit({ config, selectedId, onSelect, children }) {
+export default function Exhibit({ config, selectedId, onSelect, animState, tools, children }) {
   const params = useMemo(() => new URLSearchParams(location.search), []);
   const forced2D = params.has("no3d");
   const [safe, setSafe] = useState(params.get("quality") === "low");
@@ -69,7 +69,7 @@ export default function Exhibit({ config, selectedId, onSelect, children }) {
           <Boundary key={mountKey} fallback={crashed}>
             <Suspense fallback={<div className="loading">Loading exhibit</div>}>
               <Scene config={config} selectedId={selectedId} onSelect={onSelect} under={under} apiRef={api}
-                     safe={safe} onContextLost={() => setLost((n) => n + 1)} />
+                     safe={safe} onContextLost={() => setLost((n) => n + 1)} animState={animState} />
             </Suspense>
           </Boundary>
           <span className="hint" style={{ opacity: touched ? 0 : 1 }}>
@@ -79,6 +79,7 @@ export default function Exhibit({ config, selectedId, onSelect, children }) {
       ) : fallback}
       {children}
       <div className="exhibit-tools">
+        {show3D && tools}
         {show3D && config.underView && (
           <button className="tool" aria-pressed={under} onClick={() => setUnder(!under)}
                   title="Allow the camera below the desktop, with an inspection light">Look underneath</button>

@@ -13,7 +13,7 @@ catch { ({ chromium } = await import(pathToFileURL(path.join(execSync("npm root 
 
 const APP = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const DIST = path.join(APP, "dist");
-const OUT = path.resolve(APP, "..", "diorama", "renders", "phase5");
+const OUT = path.resolve(APP, "..", "diorama", "renders", "phase6");
 fs.mkdirSync(OUT, { recursive: true });
 const TYPES = { ".html": "text/html", ".js": "text/javascript", ".css": "text/css", ".json": "application/json",
                 ".wasm": "application/wasm", ".png": "image/png", ".woff2": "font/woff2", ".woff": "font/woff", ".glb": "model/gltf-binary" };
@@ -30,8 +30,8 @@ const browser = await chromium.launch({ args: ["--use-angle=swiftshader", "--ena
 const results = {};
 const errors = [];
 
-async function openHome(page, q = "?test") {
-  await page.goto(`${URL}/${q}`);
+async function openHome(page, q = "?test", route = "/") {
+  await page.goto(`${URL}${route}${q}`);
   await page.waitForFunction(() => window.__exhibit && window.__exhibit.ready, null, { timeout: 240000 });
   await page.waitForTimeout(1500);
 }
@@ -113,6 +113,84 @@ await shot(mob, "home_mobile.png");
 await mob.evaluate(() => window.scrollTo(0, document.body.scrollHeight));
 await shot(mob, "home_mobile_scrolled.png");
 results.mobile_scrollable = await mob.evaluate(() => document.documentElement.scrollHeight > innerHeight);
+await mob.close();
+
+// ---------- Games page: case lifts + turns, panel, VIEW GAME, returns on close
+const games = await browser.newPage({ viewport: { width: 1600, height: 900 } });
+games.on("pageerror", (e) => errors.push("games: " + String(e)));
+games.on("console", (m) => m.type() === "error" && errors.push("games: " + m.text()));
+await openHome(games, "?test", "/games");
+await shot(games, "games_page.png");
+const y0 = await games.evaluate(() => window.__exhibit.nodeWorld("GAME_Case_01").y);
+const cp = await games.evaluate(() => {
+  const p = window.__exhibit.project("GAME_Case_01");
+  const r = document.querySelector(".exhibit-canvas canvas").getBoundingClientRect();
+  return { x: r.left + p.x, y: r.top + p.y - 10 };
+});
+await games.mouse.click(cp.x, cp.y);
+await frames(games, 45);
+const y1 = await games.evaluate(() => window.__exhibit.nodeWorld("GAME_Case_01").y);
+results.games = {
+  click_selected: await games.evaluate(() => window.__exhibit.selected),
+  panel: await games.locator(".panel h2").textContent(),
+  view_game: await games.locator(".panel a.btn").getAttribute("href"),
+  case_lift_m: +(y1 - y0).toFixed(3),
+};
+await shot(games, "games_case_selected.png");
+await games.keyboard.press("Escape");
+await frames(games, 60);
+results.games.returned_m = +((await games.evaluate(() => window.__exhibit.nodeWorld("GAME_Case_01").y)) - y0).toFixed(4);
+await games.locator("button.chip", { hasText: "Coming soon" }).first().click();
+await frames(games, 20);
+results.games.empty_slot = { panel: await games.locator(".panel h2").textContent(),
+                             has_button: await games.locator(".panel a.btn").count() };
+await games.keyboard.press("Escape");
+await games.locator("button.chip", { hasText: "Locker Auction" }).focus();
+await games.keyboard.press("Enter");
+await frames(games, 45);
+results.games.keyboard = await games.evaluate(() => window.__exhibit.selected);
+await shot(games, "games_keyboard_locker.png");
+await games.locator(".panel a.btn").click();
+await games.waitForTimeout(600);
+results.games.view_game_url = games.url();
+results.games.game_page_h1 = await games.locator("h1").first().textContent();
+await games.screenshot({ path: path.join(OUT, "game_page_locker_auction.png") });
+await games.close();
+
+// ---------- About page: notebook opens on arrival, pages clickable, close/open toggle
+const about = await browser.newPage({ viewport: { width: 1600, height: 900 } });
+about.on("pageerror", (e) => errors.push("about: " + String(e)));
+await openHome(about, "?test", "/about");
+await frames(about, 60);
+results.about = { angle_after_open: +(await about.evaluate(() => window.__exhibit.nodeWorld("NOTE_Cover_Front").bookAngle)).toFixed(3) };
+await shot(about, "about_page.png");
+const pp = await about.evaluate(() => {
+  const p = window.__exhibit.project("NOTE_Page_R");
+  const r = document.querySelector(".exhibit-canvas canvas").getBoundingClientRect();
+  return { x: r.left + p.x, y: r.top + p.y };
+});
+await about.mouse.click(pp.x, pp.y);
+await frames(about, 30);
+results.about.click_page = { selected: await about.evaluate(() => window.__exhibit.selected), panel: await about.locator(".panel h2").textContent() };
+await shot(about, "about_page_selected.png");
+await about.keyboard.press("Escape");
+await about.locator("button.tool", { hasText: "Close notebook" }).click();
+await frames(about, 70);
+results.about.angle_after_close = +(await about.evaluate(() => window.__exhibit.nodeWorld("NOTE_Cover_Front").bookAngle)).toFixed(3);
+await shot(about, "about_notebook_closed.png");
+await about.close();
+
+// ---------- direct game routes
+for (const r of ["/games/glass-and-fortune", "/games/nope"]) {
+  const p2 = await browser.newPage();
+  await p2.goto(`${URL}${r}`);
+  results.direct_routes[r] = await p2.locator("h1").first().textContent();
+  await p2.close();
+}
+const gm = await browser.newPage({ viewport: { width: 390, height: 844 }, isMobile: true, hasTouch: true });
+await openHome(gm, "?test", "/games");
+await shot(gm, "games_mobile.png");
+await gm.close();
 
 // ---------- simulated GPU reset (lost WebGL context) -> image + Retry -> 3D back in safe mode
 const lost = await browser.newPage({ viewport: { width: 1600, height: 900 } });

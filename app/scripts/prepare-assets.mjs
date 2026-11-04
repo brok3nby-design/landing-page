@@ -15,4 +15,6 @@ const basis = path.join(APP, "node_modules", "three", "examples", "jsm", "libs",
 for (const f of fs.readdirSync(basis)) copy(path.join(basis, f), pub("basis", f));
 copy(path.join(DIORAMA, "renders", "phase3", "10_beauty_hero.png"), pub("fallback", "desk.png"));
 copy(path.join(DIORAMA, "renders", "phase3", "09_asset_games_crate.png"), pub("fallback", "crate.png"));
+const nb = path.join(DIORAMA, "renders", "phase6", "notebook_fallback.png");
+if (fs.existsSync(nb)) copy(nb, pub("fallback", "notebook.png"));
 console.log("assets prepared from diorama/exports + diorama/data");

@@ -1,5 +1,5 @@
 {
- "desktop_ready_ms": 4540,
+ "desktop_ready_ms": 5949,
  "crate_click": {
   "selected": "games_crate",
   "panel": "The Collection",
@@ -18,17 +18,39 @@
  },
  "explore_games_url": "http://127.0.0.1:4180/games",
  "direct_routes": {
-  "/about": "About",
+  "/about": "About the studio.",
   "/contact": "Contact",
-  "/does-not-exist": "Not found"
+  "/does-not-exist": "Not found",
+  "/games/glass-and-fortune": "Glass & Fortune",
+  "/games/nope": "Not found"
  },
  "mobile_scrollable": true,
+ "games": {
+  "click_selected": "game_slot_01",
+  "panel": "Glass & Fortune",
+  "view_game": "/games/glass-and-fortune",
+  "case_lift_m": 0.11,
+  "returned_m": 0,
+  "empty_slot": {
+   "panel": "Coming soon",
+   "has_button": 0
+  },
+  "keyboard": "game_slot_03",
+  "view_game_url": "http://127.0.0.1:4180/games/locker-auction",
+  "game_page_h1": "Locker Auction"
+ },
+ "about": {
+  "angle_after_open": 0,
+  "click_page": {
+   "selected": "page_studio",
+   "panel": "The studio"
+  },
+  "angle_after_close": 3.142
+ },
  "context_lost": {
   "fallback": "The 3D view stopped (the graphics driver reset) · Retry 3D",
   "recovered": true
  },
  "fallback_img": "A handcrafted miniature developer desk on a wooden display base: two glowing monitors, a gaming chair with a red plaid blanket, shelves with plants, books and collectible figures, and a crate of game cartridges under the desk.",
- "errors": [
-  "WebGL context lost - showing the image fallback"
- ]
+ "errors": []
 }

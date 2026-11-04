@@ -1,7 +1,8 @@
-import { NavLink, Link, Outlet } from "react-router-dom";
+import { NavLink, Link, Outlet, useLocation } from "react-router-dom";
 import { BRAND, NAV } from "../content/site.js";
 
 export default function Layout() {
+  const { pathname } = useLocation();
   return (
     <div className="site">
       <a className="skip" href="#main">Skip to content</a>
@@ -15,7 +16,8 @@ export default function Layout() {
           </ul>
         </nav>
       </header>
-      <main id="main"><Outlet /></main>
+      {/* keyed by route: each page fades in (CSS), and its exhibit starts fresh */}
+      <main id="main" key={pathname} className="route"><Outlet /></main>
       <footer className="footer">© {new Date().getFullYear()} {BRAND} · local prototype</footer>
     </div>
   );

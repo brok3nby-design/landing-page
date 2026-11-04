@@ -108,3 +108,21 @@
 - **`?quality=low`** forces safe mode.
 - **Shadow type:** set to PCF (the removed PCFSoft type is no longer requested).
 - **Browser test** now also simulates a GPU reset and runs safe mode. All pass.
+
+## Phase 6 — connected pages (2026-11-04)
+- **Games page:**
+  - `games_collection.glb` exhibit with a contact shadow, and a game list from `games.json`;
+  - selecting a case lifts it 11 cm, turns it to face the camera, and frames the camera on the lifted case;
+  - the panel has VIEW GAME → `/games/<id>`; closing restores the case's original transform exactly;
+  - empty slots show "Coming soon".
+- **About page:** `studio_notebook.glb` exhibit.
+  - It opens on arrival: the right-hand pivots rotate about the spine, with a raised axis so the closed book stacks. There's an Open/Close toggle, and the pen hides while closed.
+  - The pages and bookmark are clickable via runtime `targets` (no re-export).
+- **Game pages** `/games/<id>` come from `games.json` (placeholder sections); unknown ids show not found.
+- **Shared viewer additions:**
+  - per-page `view` (a camera name or an explicit direction), `targets`, `animation` (`lift-turn` / `notebook`), `contactShadow`, `selectGlow`, `focusScale`;
+  - more margin on phones;
+  - page fade-in between routes.
+- Static route pages for every game URL. New `blender/render_fallbacks.py` renders the About fallback image (`renders/phase6/notebook_fallback.png`).
+- **Fix:** leaving an exhibit page no longer reports a false "3D view stopped" (the viewer's own context teardown is ignored).
+- **Browser test** extended; all checks pass with no console errors.
