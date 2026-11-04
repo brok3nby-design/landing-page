@@ -156,3 +156,14 @@
   - the inspection light is always mounted, so toggling "Look underneath" no longer recompiles every shader (that caused a visible hitch);
   - `?fps` shows an overlay with frame rate, draw calls, triangles, pixel ratio and quality level.
 
+## Phase 9 — existing website audit (brought forward; 2026-11-04)
+- Read-only audit of `brok3nby-design/brok3nby-design.github.io` (commit `b66fb99`). Nothing in production was changed. The live domain isn't reachable from the build environment, so the repository was the source.
+- `AUDIT.md` covers:
+  - a site map of all 25 pages plus the teasers;
+  - the homepage and About copy mapped to new-site slots;
+  - the full project catalogue (11 projects from `studio-data.js`: status, hooks, cover art, media, progress);
+  - corrections to the placeholder data ("Locker Auction" is Bid & Buried; DOQI);
+  - old features → 3D equivalents, and an old→new URL preservation map;
+  - problems found on the current site (missing share images, private notes publicly served, a stray page, unlinked teasers);
+  - open questions.
+
