@@ -6,18 +6,18 @@ from mathutils import Vector
 from . import scene as S
 
 
-def model_corners():
+def model_corners(objs=None):
     pts = []
-    for obj in bpy.data.objects:
+    for obj in (objs if objs is not None else bpy.data.objects):
         if obj.type != 'MESH':
             continue
         pts += [obj.matrix_world @ Vector(c) for c in obj.bound_box]
     return pts
 
 
-def add_view(name, az, el, lens, fill, res):
+def add_view(name, az, el, lens, fill, res, objs=None):
     bpy.context.view_layer.update()
-    pts = model_corners()
+    pts = model_corners(objs)
     lo = Vector((min(p.x for p in pts), min(p.y for p in pts), min(p.z for p in pts)))
     hi = Vector((max(p.x for p in pts), max(p.y for p in pts), max(p.z for p in pts)))
     target = (lo + hi) / 2

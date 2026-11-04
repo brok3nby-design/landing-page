@@ -1,0 +1,15 @@
+{
+  "_note": "Maps interactive_id tags (stored on Blender objects, exported as glTF extras) to website behaviour. Kept separate from model generation. 'scope' says which exhibit uses the tag. Routes are internal site paths; external URLs are never invented - placeholders stay null until provided.",
+  "home": {
+    "games_crate":   { "object": "NAV_GamesCrate", "action": "focus+panel", "panel": { "title": "The Collection", "text": "PLACEHOLDER - introduction to the studio's game collection." }, "button": { "label": "EXPLORE GAMES", "route": "/games" } },
+    "monitor_left":  { "object": "MON_L_Screen", "action": "focus+panel", "panel": { "title": "Projects", "text": "PLACEHOLDER" }, "button": { "label": "VIEW PROJECTS", "route": null } },
+    "monitor_right": { "object": "MON_R_Screen", "action": "focus+panel", "panel": { "title": "Projects", "text": "PLACEHOLDER" }, "button": { "label": "VIEW PROJECTS", "route": null } },
+    "notebook":      { "object": "PROP_Notebook", "action": "focus+panel", "panel": { "title": "About / Process", "text": "PLACEHOLDER" }, "button": { "label": "ABOUT THE STUDIO", "route": null } },
+    "mug":           { "object": "PROP_Mug", "action": "easter-egg", "panel": null, "button": null },
+    "collectible_a": { "object": "COLL_FigureA", "action": "popover", "panel": { "title": "Collectible", "text": "PLACEHOLDER" }, "button": null },
+    "collectible_b": { "object": "COLL_FigureB", "action": "popover", "panel": { "title": "Collectible", "text": "PLACEHOLDER" }, "button": null }
+  },
+  "games": {
+    "game_slot_XX":  { "object": "GAME_Case_XX", "action": "lift+turn+panel", "data": "games.json (by slot)", "button": { "label": "VIEW GAME", "route": "from games.json" }, "close": "return case to its original transform" }
+  }
+}

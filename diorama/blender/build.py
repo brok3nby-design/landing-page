@@ -41,7 +41,7 @@ def build(retex=False):
     shelf_props.build(root, h)
     plants.pothos(root, h["upper_top"], h["upper_y"], h["upper_front"], h["x0"])
     plants.upright(root, -0.46, h["upper_y"], h["upper_top"])
-    storage.build(root, d)
+    crate = storage.build(root, d)
     cables.build(root, d, h)
     collectibles.build(root, h)
     lights.build(root)
@@ -52,6 +52,10 @@ def build(retex=False):
         camera.add_view(v["name"], v["az"], v["el"], v["lens"], config.FRAME_FILL, config.RENDER["res"])
     for c in config.CLOSEUPS:
         camera.add_closeup(c["name"], c["target"], c["az"], c["el"], c["lens"], c["dist"])
+    for a in config.ASSET_VIEWS:
+        objs = [bpy.data.objects[a["root"]]] + list(bpy.data.objects[a["root"]].children_recursive)
+        camera.add_view(a["name"], a["az"], a["el"], a["lens"], a["fill"], config.RENDER["res"], objs=objs)
+    lights.exhibit_spot(crate)
     bpy.context.scene.camera = bpy.data.objects["CAM_Hero"]
 
 
@@ -83,6 +87,29 @@ def render(out_dir, only=None):
     sc.camera = bpy.data.objects["CAM_Hero"]
 
 
+def render_assets(out_dir, only=None):
+    """Render each reusable asset alone: everything outside its hierarchy is hidden and the
+    exhibit spotlight replaces the desk lighting. Proves the asset works as a standalone exhibit."""
+    sc = bpy.context.scene
+    for a in config.ASSET_VIEWS:
+        if only and a["file"][:2] not in only:
+            continue
+        keep = {bpy.data.objects[a["root"]]} | set(bpy.data.objects[a["root"]].children_recursive)
+        saved = {o: o.hide_render for o in bpy.data.objects}
+        for o in bpy.data.objects:
+            if o.type == 'LIGHT':
+                o.hide_render = not o.name.startswith("LIGHT_Exhibit")
+            elif o.type != 'CAMERA':
+                o.hide_render = o not in keep
+        sc.camera = bpy.data.objects[a["name"]]
+        sc.render.filepath = os.path.join(out_dir, a["file"])
+        bpy.ops.render.render(write_still=True)
+        print("rendered", sc.render.filepath)
+        for o, h in saved.items():
+            o.hide_render = h
+    sc.camera = bpy.data.objects["CAM_Hero"]
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--phase", type=int, default=2)
@@ -110,7 +137,9 @@ def main():
 
     if args.render:
         out = os.path.join(ROOT, "renders", f"phase{args.phase}")
-        render(out, [v.strip() for v in args.views.split(",") if v.strip()] or None)
+        only = [v.strip() for v in args.views.split(",") if v.strip()] or None
+        render(out, only)
+        render_assets(out, only)
         with open(os.path.join(out, "checks.txt"), "w") as f:
             f.write(report + "\n")
 

@@ -73,6 +73,14 @@ CLOSEUPS = [
     dict(name="CAM_Close_Desk",  file="05_close_desk.png",  target=(0.05, 0.45, 0.85), az=15, el=30, lens=60, dist=1.4),
     dict(name="CAM_Close_Shelf", file="06_close_shelf.png", target=(0.05, 0.72, 1.55), az=10, el=12, lens=60, dist=1.5),
     dict(name="CAM_Close_Chair", file="07_close_chair.png", target=(-0.32, -0.12, 0.62), az=25, el=22, lens=60, dist=1.7),
+    dict(name="CAM_Close_Crate", file="08_close_crate.png", target=(0.30, 0.48, 0.16), az=12, el=14, lens=60, dist=1.15),
+]
+
+# Standalone asset previews: only the named hierarchy is rendered, lit by an exhibit spotlight
+# (preview of how the asset will be presented on its own page).
+ASSET_VIEWS = [
+    dict(name="CAM_Asset_GamesCrate", file="09_asset_games_crate.png", root="NAV_GamesCrate",
+         az=28, el=26, lens=85, fill=0.55),
 ]
 
 # Files that must never be overwritten by a rebuild once you approve them.

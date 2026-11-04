@@ -31,9 +31,12 @@ def empty(name, collection, loc=(0, 0, 0), rot=(0, 0, 0), parent=None, size=0.1)
     return obj
 
 
-def mark_interactive(obj, target_id, label):
-    """Tag an object as clickable. The tag is exported to glTF as 'extras'.
-    The object is also linked into INTERACTIVE_TARGETS for easy selection."""
+def mark_interactive(obj, target_id, label, scope="home"):
+    """Tag an object as clickable. Tags export to glTF as node 'extras'.
+    scope: which website exhibit uses the tag ("home" = desk homepage, "games" = Games page).
+    A click on any child mesh resolves to the nearest ancestor carrying an interactive_id.
+    The object is also linked into INTERACTIVE_TARGETS for easy selection in Blender."""
     obj["interactive_id"] = target_id
     obj["interactive_label"] = label
+    obj["interactive_scope"] = scope
     coll("INTERACTIVE_TARGETS").objects.link(obj)

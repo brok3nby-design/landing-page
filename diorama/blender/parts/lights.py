@@ -28,3 +28,24 @@ def build(root):
     obj = bpy.data.objects.new("LIGHT_DeskLamp", lamp)
     obj.location = (-0.615, 0.71, 1.065)   # at the filament (glass casts no shadow)
     S.coll("LIGHTS").objects.link(obj)
+
+
+def exhibit_spot(target):
+    """Spotlight + soft fill used for standalone asset previews (hidden in the desk renders)."""
+    bpy.context.view_layer.update()
+    c = target.matrix_world.translation + Vector((0, 0, 0.06))
+    spot = bpy.data.lights.new("LIGHT_Exhibit_Spot", 'SPOT')
+    spot.energy, spot.spot_size, spot.spot_blend, spot.shadow_soft_size = 60, 0.7, 0.6, 0.08
+    spot.color = (1.0, 0.93, 0.85)
+    so = bpy.data.objects.new("LIGHT_Exhibit_Spot", spot)
+    so.location = c + Vector((0.35, -0.55, 1.1))
+    so.rotation_euler = (c - so.location).to_track_quat('-Z', 'Y').to_euler()
+    so.hide_render = True
+    S.coll("LIGHTS").objects.link(so)
+    fill = bpy.data.lights.new("LIGHT_Exhibit_Fill", 'AREA')
+    fill.energy, fill.size, fill.color = 6, 1.0, (0.7, 0.6, 1.0)
+    fo = bpy.data.objects.new("LIGHT_Exhibit_Fill", fill)
+    fo.location = c + Vector((-0.6, 0.5, 0.4))
+    fo.rotation_euler = (c - fo.location).to_track_quat('-Z', 'Y').to_euler()
+    fo.hide_render = True
+    S.coll("LIGHTS").objects.link(fo)

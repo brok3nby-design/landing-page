@@ -442,10 +442,10 @@ def add_cyl(bm, r, h, loc=(0, 0, 0), rot=(0, 0, 0), verts=12, r_top=None):
 
 
 def add_open_box(bm, dims, wall, loc=(0, 0, 0), rot=(0, 0, 0)):
-    """Open-top container (bottom + 4 walls)."""
+    """Open-top container (floor + 4 walls; walls run to the ground so no faces are coplanar)."""
     w, d, h = dims
     m = mtx(loc, rot)
-    parts = [((w, d, wall), (0, 0, 0)),
+    parts = [((w - 2 * wall, d - 2 * wall, wall), (0, 0, 0)),   # floor sits between the walls
              ((w, wall, h), (0, -d / 2 + wall / 2, 0)), ((w, wall, h), (0, d / 2 - wall / 2, 0)),
              ((wall, d - 2 * wall, h), (-w / 2 + wall / 2, 0, 0)), ((wall, d - 2 * wall, h), (w / 2 - wall / 2, 0, 0))]
     for dm, lc in parts:

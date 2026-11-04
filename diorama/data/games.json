@@ -1,0 +1,40 @@
+{
+  "_note": "Game metadata for the Games page. Kept separate from the 3D geometry: each entry maps to a GAME_Case_XX slot inside NAV_GamesCrate. Add a game by adding an entry (and, if all slots are used, raising CRATE['slots'] in diorama/blender/parts/storage.py). Descriptions and links are placeholders until provided - no URLs are invented.",
+  "games": [
+    {
+      "slot": 1,
+      "id": "glass-and-fortune",
+      "title": "Glass & Fortune",
+      "route": "/games/glass-and-fortune",
+      "description": "PLACEHOLDER - description to be provided.",
+      "links": [],
+      "label_texture": null,
+      "exhibit": "Future: miniature antique dice table with glass dice and fortune-themed objects.",
+      "status": "placeholder"
+    },
+    {
+      "slot": 2,
+      "id": "department-of-questionable-inventions",
+      "title": "Department of Questionable Inventions",
+      "route": "/games/department-of-questionable-inventions",
+      "description": "PLACEHOLDER - description to be provided.",
+      "links": [],
+      "label_texture": null,
+      "exhibit": "Future: miniature 1950s corporate office terminal or strange invention.",
+      "status": "placeholder"
+    },
+    {
+      "slot": 3,
+      "id": "locker-auction",
+      "title": "Locker Auction",
+      "route": "/games/locker-auction",
+      "description": "PLACEHOLDER - description to be provided.",
+      "links": [],
+      "label_texture": null,
+      "exhibit": "Future: miniature storage locker or auction-themed exhibit.",
+      "status": "placeholder"
+    },
+    { "slot": 4, "id": null, "title": "Coming soon", "route": null, "description": null, "links": [], "label_texture": null, "status": "empty" },
+    { "slot": 5, "id": null, "title": "Coming soon", "route": null, "description": null, "links": [], "label_texture": null, "status": "empty" }
+  ]
+}

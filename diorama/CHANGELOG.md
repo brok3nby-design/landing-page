@@ -16,3 +16,15 @@
 - Added `FAN_ART` switch for the figurines/logos (user requested the reference characters).
 - Added close-up cameras (desk, shelf, chair).
 - Fixes after review renders: finer/lower-contrast wood grain, keyboard and mouse glow toned down, blanket no longer clips the chair wing, figurine hair reshaped, denser pothos.
+
+### Phase 2 addendum — website direction (2026-11-04)
+- Recorded the expanded direction (interactive 3D studio website) in `PROJECT_DIRECTION.md`. The desk stays the homepage exhibit; no rebuild.
+- Reuse review found that only the crate needed changes. The crate and its cartridges were separate objects under the scene root, the cases had no stable names, and their labels shared meshes with the bin. Low-risk fixes:
+  - New reusable `NAV_GamesCrate` hierarchy (`storage.games_crate()`), same position under the desk.
+  - Crate cartridges became `GAME_Case_01..05`: groups with origins at their bases, `game_slot` metadata, their own label mesh and per-slot label material, and `game_slot_XX` tags (scope `games`).
+  - The crate is tagged `games_crate` (scope `home`). The bin's `cartridge` tag is retired.
+  - Interactive tags gained `interactive_scope`.
+- Added `data/games.json` (slots 1–3: Glass & Fortune, Department of Questionable Inventions, Locker Auction, all placeholder text; 4–5 empty) and `data/interactions.json`.
+- Added crate close-up (`08`) and a standalone asset render (`09`) with a hidden-by-default exhibit spotlight.
+- Fixed coplanar floor/wall faces in open containers (dark strip on crate/bin bottom edges).
+- Tested exporting only the `NAV_GamesCrate` hierarchy to GLB and re-importing it: names, extras and local transforms intact.

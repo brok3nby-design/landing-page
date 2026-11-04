@@ -25,20 +25,25 @@ Repeated small parts (keycaps, rug fringe, leaves, blanket fringe) are **merged 
 | PROPS | Edison lamp (glass dome, bulb, glowing filament), 2 speakers (woofer/tweeter/brass rings), headphone stand + headphones (padded band, cushions, purple rings) | D | |
 | PROPS | Trailing pothos (6 vines, merged leaves), upright plant | D | |
 | PROPS | 5 books (spine atlas) + leaning book, crystal cluster on rock, retro gadget box, 3 stacked game boxes | D | |
-| PROPS | Fabric bin + crate (original pixel-creature print), 11 cartridges with pixel-art labels | D | |
+| PROPS | Fabric bin + 6 decorative cartridges | D | |
+| PROPS | **`NAV_GamesCrate`** — reusable crate asset (body with original pixel-creature print + `GAME_Case_01..05`) | D | Standalone-exportable; see STATUS |
 | PROPS | Cable management: monitors, speakers, lamp, keyboard → grommet → tray; power lead | D | |
 | COLLECTIBLES | Figure A — hooded sniper w/ eyepatch, rifle, logo base (FAN_ART) | D | Fan art: see licensing note in STATUS |
 | COLLECTIBLES | Figure B — office manager w/ "World's Best Boss" mug (FAN_ART) | D | |
 | LIGHTS | Key / fill / rim area lights, desk-lamp point light | B | Phase 3 |
 | CAMERAS | Hero, Opposite, Back, Top + 3 close-ups | done | |
 
-## Interactive targets (tag `interactive_id`, exported as glTF extras; also in INTERACTIVE_TARGETS)
-| interactive_id | Object | Placeholder action |
-|---|---|---|
-| `monitor_left`, `monitor_right` | `MON_L_Screen`, `MON_R_Screen` | Projects |
-| `cartridge` | `PROP_Cartridge_0` (group) | Game details |
-| `notebook` | `PROP_Notebook` (group) | About / process |
-| `mug` | `PROP_Mug` | Easter egg |
-| `collectible_a`, `collectible_b` | `COLL_FigureA`, `COLL_FigureB` (groups) | Detail popover |
+## Interactive targets (tag `interactive_id` + `interactive_scope`, exported as glTF extras; also in INTERACTIVE_TARGETS)
+Website behaviour for each id lives in `data/interactions.json`; game details in `data/games.json`.
 
-Groups: a click on any child mesh resolves to the nearest ancestor that has an `interactive_id`.
+| interactive_id | scope | Object | Website action (placeholders until content is provided) |
+|---|---|---|---|
+| `games_crate` | home | `NAV_GamesCrate` (group) | Camera focuses crate → panel introducing the collection → **EXPLORE GAMES** → /games |
+| `game_slot_01..05` | games | `GAME_Case_01..05` (groups, `game_slot` = 1..5) | Case lifts + turns to camera → panel from games.json → **VIEW GAME**; close returns it |
+| `monitor_left`, `monitor_right` | home | `MON_L_Screen`, `MON_R_Screen` | Projects panel (route TBD) |
+| `notebook` | home | `PROP_Notebook` (group) | About / process panel (route TBD) |
+| `mug` | home | `PROP_Mug` | Easter egg |
+| `collectible_a`, `collectible_b` | home | `COLL_FigureA`, `COLL_FigureB` (groups) | Detail popover |
+
+A click on any child mesh resolves to the nearest ancestor that carries an `interactive_id`.
+The former `cartridge` tag on a fabric-bin cartridge was retired: the games crate is now the single games entry point, and the bin cartridges are decorative.
