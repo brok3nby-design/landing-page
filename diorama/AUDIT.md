@@ -89,7 +89,7 @@ Order, status, hook and description come straight from `globalThis.B3DProjects`.
 | 2 | **Bid & Buried** (`bid-and-buried.html`) | In development | "Buy blind. Dig deep. Get rich." | `cover/bid-and-buried.webp` | 5 screenshots, YouTube trailer `txFCiU7ykMw`; teaser (unlinked) | 50% · Q1–Q2 2027 · Q4 2027 |
 | 3 | **Speck** (`speck.html`) | Private development | "Start small. Leave something behind." | `cover/speck.webp` | 10 images, `Speck_Trailer_01b.mp4` (9.5 MB); teaser (unlinked) | 65% · Q1–Q2 2027 · Q4 2027 |
 | 4 | **Under the Radar** (`under-the-radar.html`) | In development, marked `secret` | "Your next favourite is one you've never heard of." | `radar/Under_Radar_logo.png` only | — | not reported |
-| 5 | **WRFM Radio** (`wrfm.html`) | Completed · Live now | "Smooth jazz for people who ship code." | `cover/wrfm.webp` (941×1672) | 8 images, 17 audio clips, live embed | released |
+| 5 | **WRFM Radio** (`wrfm.html`) | Completed · Live now | "Smooth jazz for people who ship code." | `cover/wrfm.webp` (941×1672) | 8 images, 16 audio clips, live embed | released |
 | 6 | **Pocket Wilds** (`pocket-wilds.html`) | Private development · not playable | "Explore the wilds. Face the dice." | `cover/pocket-wilds.webp` | 25 images, `PW_Trailer.mp4` (11.9 MB), update log | 65% · Q1–Q2 2027 · Q3–Q4 2027 |
 | 7 | **DOQI**, Department of Questionable Inventions (`doqi.html`) | Prototype · on hold | "Your answers have been filed." | `cover/doqi.webp` | 15 images; five-question teaser (unlinked) | 40% · 2028 · 2028 |
 | 8 | **Macabre Dolls** (`macabre-dolls.html`) | Concept · not developed | "Every doll has a past." | `cover/macabre-dolls.webp` | 19 concept images | 25% · no ETA |
