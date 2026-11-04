@@ -273,23 +273,38 @@ function Loading() {
 // ?test: render on demand + readable canvas, for automated (software-GL) browser tests
 const TEST = new URLSearchParams(location.search).has("test");
 
-export default function Scene({ config, selectedId, onSelect, under, apiRef }) {
-  const [quality, setQuality] = useState({ dpr: TEST ? 1 : [1, 2], shadows: true, bloom: true });
+export default function Scene({ config, selectedId, onSelect, under, apiRef, safe = false, onContextLost }) {
+  // safe mode (after a lost GPU context, or ?quality=low): no post-processing, no shadows, 1x pixels
+  const [quality, setQuality] = useState(safe
+    ? { dpr: 1, shadows: false, bloom: false, post: false }
+    : { dpr: TEST ? 1 : [1, 2], shadows: true, bloom: true, post: true });
   return (
     <>
-      <Canvas flat shadows dpr={quality.dpr} camera={{ fov: 30, near: 0.01, far: 100 }} frameloop={TEST ? "demand" : "always"}
-              gl={{ antialias: true, powerPreference: "high-performance", preserveDrawingBuffer: TEST }}>
-        <color attach="background" args={[BG]} />
-        {!TEST && <PerformanceMonitor onDecline={() => setQuality({ dpr: [1, 1.25], shadows: false, bloom: false })} />}
+      <Canvas flat={quality.post} shadows={quality.shadows ? "percentage" : false} dpr={quality.dpr}
+              camera={{ fov: 30, near: 0.01, far: 100 }} frameloop={TEST ? "demand" : "always"}
+              gl={{ antialias: true, powerPreference: "high-performance", preserveDrawingBuffer: TEST }}
+              onCreated={({ gl }) => {
+                if (!quality.post) { gl.toneMapping = THREE.AgXToneMapping; gl.toneMappingExposure = 0.92; }
+                gl.domElement.addEventListener("webglcontextlost", (e) => {
+                  e.preventDefault();
+                  console.error("WebGL context lost - showing the image fallback");
+                  onContextLost?.();
+                }, { once: true });
+              }}>
+        {/* background is tone-mapped only through the post-processing chain, hence the compensated value */}
+        <color attach="background" args={[quality.post ? BG : "#080808"]} />
+        {!TEST && !safe && <PerformanceMonitor onDecline={() => setQuality((q) => ({ ...q, dpr: [1, 1.25], shadows: false, bloom: false }))} />}
         <Reflections />
         <Suspense fallback={null}>
           <Content config={config} selectedId={selectedId} onSelect={onSelect} under={under} apiRef={apiRef} quality={quality} />
         </Suspense>
-        <EffectComposer multisampling={4}>
-          {/* subtle: only the LEDs, lamp filament and screens should glow */}
-          <Bloom mipmapBlur intensity={quality.bloom ? 0.32 : 0} luminanceThreshold={0.92} luminanceSmoothing={0.08} />
-          <ToneMapping mode={ToneMappingMode.AGX} />
-        </EffectComposer>
+        {quality.post && (
+          <EffectComposer multisampling={4}>
+            {/* subtle: only the LEDs, lamp filament and screens should glow */}
+            <Bloom mipmapBlur intensity={quality.bloom ? 0.32 : 0} luminanceThreshold={0.92} luminanceSmoothing={0.08} />
+            <ToneMapping mode={ToneMappingMode.AGX} />
+          </EffectComposer>
+        )}
       </Canvas>
       <Loading />
     </>

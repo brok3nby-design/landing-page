@@ -1,5 +1,5 @@
 {
- "desktop_ready_ms": 4214,
+ "desktop_ready_ms": 4540,
  "crate_click": {
   "selected": "games_crate",
   "panel": "The Collection",
@@ -23,6 +23,12 @@
   "/does-not-exist": "Not found"
  },
  "mobile_scrollable": true,
+ "context_lost": {
+  "fallback": "The 3D view stopped (the graphics driver reset) · Retry 3D",
+  "recovered": true
+ },
  "fallback_img": "A handcrafted miniature developer desk on a wooden display base: two glowing monitors, a gaming chair with a red plaid blanket, shelves with plants, books and collectible figures, and a crate of game cartridges under the desk.",
- "errors": []
+ "errors": [
+  "WebGL context lost - showing the image fallback"
+ ]
 }

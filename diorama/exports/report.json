@@ -362,266 +362,313 @@
     "name": "desk_glow",
     "mime": "image/png",
     "size": "1024x1024",
-    "kb": 510
+    "kb": 510,
+    "gpu_safe": true
    },
    {
     "name": "planks_n",
     "mime": "image/png",
     "size": "1024x1024",
-    "kb": 1120
+    "kb": 1120,
+    "gpu_safe": true
    },
    {
     "name": "desk_ao",
     "mime": "image/png",
     "size": "1024x1024",
-    "kb": 549
+    "kb": 549,
+    "gpu_safe": true
    },
    {
     "name": "planks",
     "mime": "image/png",
     "size": "1024x1024",
-    "kb": 1243
+    "kb": 1243,
+    "gpu_safe": true
    },
    {
     "name": "planks_r",
     "mime": "image/png",
     "size": "512x512",
-    "kb": 190
+    "kb": 190,
+    "gpu_safe": true
    },
    {
     "name": "rug_n",
     "mime": "image/png",
     "size": "1024x640",
-    "kb": 825
+    "kb": 825,
+    "gpu_safe": true
    },
    {
     "name": "rug",
     "mime": "image/png",
     "size": "1024x640",
-    "kb": 601
+    "kb": 601,
+    "gpu_safe": true
    },
    {
     "name": "quilt_n",
     "mime": "image/png",
     "size": "256x256",
-    "kb": 96
+    "kb": 96,
+    "gpu_safe": true
    },
    {
     "name": "quilt",
     "mime": "image/png",
     "size": "256x256",
-    "kb": 87
+    "kb": 87,
+    "gpu_safe": true
    },
    {
     "name": "plaid_n",
     "mime": "image/png",
     "size": "256x512",
-    "kb": 135
+    "kb": 135,
+    "gpu_safe": true
    },
    {
     "name": "plaid",
     "mime": "image/png",
     "size": "512x1024",
-    "kb": 477
+    "kb": 477,
+    "gpu_safe": true
    },
    {
     "name": "mug_boss",
     "mime": "image/png",
     "size": "256x128",
-    "kb": 18
+    "kb": 18,
+    "gpu_safe": true
    },
    {
     "name": "sticker_qa",
     "mime": "image/png",
     "size": "640x400",
-    "kb": 186
+    "kb": 186,
+    "gpu_safe": true
    },
    {
     "name": "maker_plate",
     "mime": "image/png",
     "size": "1200x300",
-    "kb": 159
+    "kb": 159,
+    "gpu_safe": true
    },
    {
     "name": "screen_left",
     "mime": "image/png",
     "size": "1024x576",
-    "kb": 45
+    "kb": 45,
+    "gpu_safe": true
    },
    {
     "name": "screen_right",
     "mime": "image/png",
     "size": "1024x576",
-    "kb": 55
+    "kb": 55,
+    "gpu_safe": true
    },
    {
     "name": "business_card",
     "mime": "image/png",
     "size": "1050x600",
-    "kb": 315
+    "kb": 315,
+    "gpu_safe": false
    },
    {
     "name": "game_label_01",
     "mime": "image/png",
     "size": "256x256",
-    "kb": 4
+    "kb": 4,
+    "gpu_safe": true
    },
    {
     "name": "game_label_02",
     "mime": "image/png",
     "size": "256x256",
-    "kb": 4
+    "kb": 4,
+    "gpu_safe": true
    },
    {
     "name": "game_label_03",
     "mime": "image/png",
     "size": "256x256",
-    "kb": 4
+    "kb": 4,
+    "gpu_safe": true
    },
    {
     "name": "game_label_04",
     "mime": "image/png",
     "size": "256x256",
-    "kb": 4
+    "kb": 4,
+    "gpu_safe": true
    },
    {
     "name": "game_label_05",
     "mime": "image/png",
     "size": "256x256",
-    "kb": 4
+    "kb": 4,
+    "gpu_safe": true
    },
    {
     "name": "crate_n",
     "mime": "image/png",
     "size": "512x512",
-    "kb": 333
+    "kb": 333,
+    "gpu_safe": true
    },
    {
     "name": "crate",
     "mime": "image/png",
     "size": "512x512",
-    "kb": 315
+    "kb": 315,
+    "gpu_safe": true
    },
    {
     "name": "sketchbook",
     "mime": "image/png",
     "size": "1024x640",
-    "kb": 477
+    "kb": 477,
+    "gpu_safe": true
    },
    {
     "name": "spines",
     "mime": "image/png",
     "size": "512x512",
-    "kb": 165
+    "kb": 165,
+    "gpu_safe": true
    },
    {
     "name": "deskmat_n",
     "mime": "image/png",
     "size": "512x192",
-    "kb": 80
+    "kb": 80,
+    "gpu_safe": true
    },
    {
     "name": "deskmat",
     "mime": "image/png",
     "size": "1024x384",
-    "kb": 201
+    "kb": 201,
+    "gpu_safe": true
    },
    {
     "name": "leather_n",
     "mime": "image/png",
     "size": "512x512",
-    "kb": 229
+    "kb": 229,
+    "gpu_safe": true
    },
    {
     "name": "leather",
     "mime": "image/png",
     "size": "512x512",
-    "kb": 167
+    "kb": 167,
+    "gpu_safe": true
    },
    {
     "name": "leather_r",
     "mime": "image/png",
     "size": "512x512",
-    "kb": 136
+    "kb": 136,
+    "gpu_safe": true
    },
    {
     "name": "mug",
     "mime": "image/png",
     "size": "512x256",
-    "kb": 59
+    "kb": 59,
+    "gpu_safe": true
    },
    {
     "name": "fabric_bin_n",
     "mime": "image/png",
     "size": "256x256",
-    "kb": 76
+    "kb": 76,
+    "gpu_safe": true
    },
    {
     "name": "fabric_bin",
     "mime": "image/png",
     "size": "256x256",
-    "kb": 61
+    "kb": 61,
+    "gpu_safe": true
    },
    {
     "name": "cartridges",
     "mime": "image/png",
     "size": "512x512",
-    "kb": 12
+    "kb": 12,
+    "gpu_safe": true
    },
    {
     "name": "leather_brown_n",
     "mime": "image/png",
     "size": "512x512",
-    "kb": 308
+    "kb": 308,
+    "gpu_safe": true
    },
    {
     "name": "leather_brown",
     "mime": "image/png",
     "size": "512x512",
-    "kb": 251
+    "kb": 251,
+    "gpu_safe": true
    },
    {
     "name": "wood_desk_n",
     "mime": "image/png",
     "size": "1024x1024",
-    "kb": 1165
+    "kb": 1165,
+    "gpu_safe": true
    },
    {
     "name": "wood_desk",
     "mime": "image/png",
     "size": "1024x1024",
-    "kb": 1366
+    "kb": 1366,
+    "gpu_safe": true
    },
    {
     "name": "wood_desk_r",
     "mime": "image/png",
     "size": "512x512",
-    "kb": 234
+    "kb": 234,
+    "gpu_safe": true
    },
    {
     "name": "wood_dark_n",
     "mime": "image/png",
     "size": "512x512",
-    "kb": 252
+    "kb": 252,
+    "gpu_safe": true
    },
    {
     "name": "wood_dark",
     "mime": "image/png",
     "size": "1024x1024",
-    "kb": 1250
+    "kb": 1250,
+    "gpu_safe": true
    },
    {
     "name": "wood_light_n",
     "mime": "image/png",
     "size": "512x512",
-    "kb": 320
+    "kb": 320,
+    "gpu_safe": true
    },
    {
     "name": "wood_light",
     "mime": "image/png",
     "size": "1024x1024",
-    "kb": 1375
+    "kb": 1375,
+    "gpu_safe": true
    }
+  ],
+  "textures_not_multiple_of_4": [
+   "business_card 1050x600"
   ]
  },
  {
@@ -989,261 +1036,305 @@
     "name": "desk_glow",
     "mime": "image/ktx2",
     "size": "1024x1024",
-    "kb": 376
+    "kb": 376,
+    "gpu_safe": true
    },
    {
     "name": "planks_n",
     "mime": "image/ktx2",
     "size": "512x512",
-    "kb": 154
+    "kb": 154,
+    "gpu_safe": true
    },
    {
     "name": "desk_ao",
     "mime": "image/ktx2",
     "size": "1024x1024",
-    "kb": 559
+    "kb": 559,
+    "gpu_safe": true
    },
    {
     "name": "planks",
     "mime": "image/ktx2",
     "size": "1024x1024",
-    "kb": 611
+    "kb": 611,
+    "gpu_safe": true
    },
    {
     "name": "planks_r",
     "mime": "image/ktx2",
     "size": "512x512",
-    "kb": 122
+    "kb": 122,
+    "gpu_safe": true
    },
    {
     "name": "rug_n",
     "mime": "image/ktx2",
     "size": "512x320",
-    "kb": 114
+    "kb": 114,
+    "gpu_safe": true
    },
    {
     "name": "rug",
     "mime": "image/ktx2",
     "size": "1024x640",
-    "kb": 357
+    "kb": 357,
+    "gpu_safe": true
    },
    {
     "name": "quilt_n",
     "mime": "image/ktx2",
     "size": "256x256",
-    "kb": 37
+    "kb": 37,
+    "gpu_safe": true
    },
    {
     "name": "quilt",
     "mime": "image/ktx2",
     "size": "256x256",
-    "kb": 37
+    "kb": 37,
+    "gpu_safe": true
    },
    {
     "name": "plaid_n",
     "mime": "image/ktx2",
     "size": "256x512",
-    "kb": 69
+    "kb": 69,
+    "gpu_safe": true
    },
    {
     "name": "plaid",
     "mime": "image/ktx2",
     "size": "512x1024",
-    "kb": 162
+    "kb": 162,
+    "gpu_safe": true
    },
    {
     "name": "mug_boss",
     "mime": "image/ktx2",
     "size": "256x128",
-    "kb": 16
+    "kb": 16,
+    "gpu_safe": true
    },
    {
     "name": "sticker_qa",
     "mime": "image/ktx2",
     "size": "640x400",
-    "kb": 114
+    "kb": 114,
+    "gpu_safe": true
    },
    {
     "name": "maker_plate",
     "mime": "image/ktx2",
     "size": "1024x256",
-    "kb": 119
+    "kb": 119,
+    "gpu_safe": true
    },
    {
     "name": "screen_left",
     "mime": "image/ktx2",
     "size": "1024x576",
-    "kb": 79
+    "kb": 79,
+    "gpu_safe": true
    },
    {
     "name": "screen_right",
     "mime": "image/ktx2",
     "size": "1024x576",
-    "kb": 71
+    "kb": 71,
+    "gpu_safe": true
    },
    {
     "name": "business_card",
     "mime": "image/ktx2",
-    "size": "1024x585",
-    "kb": 228
+    "size": "1024x584",
+    "kb": 232,
+    "gpu_safe": true
    },
    {
     "name": "game_label_01",
     "mime": "image/ktx2",
     "size": "256x256",
-    "kb": 11
+    "kb": 11,
+    "gpu_safe": true
    },
    {
     "name": "game_label_02",
     "mime": "image/ktx2",
     "size": "256x256",
-    "kb": 11
+    "kb": 11,
+    "gpu_safe": true
    },
    {
     "name": "game_label_03",
     "mime": "image/ktx2",
     "size": "256x256",
-    "kb": 10
+    "kb": 10,
+    "gpu_safe": true
    },
    {
     "name": "game_label_04",
     "mime": "image/ktx2",
     "size": "256x256",
-    "kb": 9
+    "kb": 9,
+    "gpu_safe": true
    },
    {
     "name": "crate_n",
     "mime": "image/ktx2",
     "size": "512x512",
-    "kb": 125
+    "kb": 125,
+    "gpu_safe": true
    },
    {
     "name": "crate",
     "mime": "image/ktx2",
     "size": "512x512",
-    "kb": 187
+    "kb": 187,
+    "gpu_safe": true
    },
    {
     "name": "sketchbook",
     "mime": "image/ktx2",
     "size": "1024x640",
-    "kb": 273
+    "kb": 273,
+    "gpu_safe": true
    },
    {
     "name": "spines",
     "mime": "image/ktx2",
     "size": "512x512",
-    "kb": 130
+    "kb": 130,
+    "gpu_safe": true
    },
    {
     "name": "deskmat_n",
     "mime": "image/ktx2",
     "size": "512x192",
-    "kb": 57
+    "kb": 57,
+    "gpu_safe": true
    },
    {
     "name": "deskmat",
     "mime": "image/ktx2",
     "size": "1024x384",
-    "kb": 133
+    "kb": 133,
+    "gpu_safe": true
    },
    {
     "name": "leather_n",
     "mime": "image/ktx2",
     "size": "512x512",
-    "kb": 164
+    "kb": 164,
+    "gpu_safe": true
    },
    {
     "name": "leather",
     "mime": "image/ktx2",
     "size": "512x512",
-    "kb": 72
+    "kb": 72,
+    "gpu_safe": true
    },
    {
     "name": "leather_r",
     "mime": "image/ktx2",
     "size": "512x512",
-    "kb": 142
+    "kb": 142,
+    "gpu_safe": true
    },
    {
     "name": "mug",
     "mime": "image/ktx2",
     "size": "512x256",
-    "kb": 45
+    "kb": 45,
+    "gpu_safe": true
    },
    {
     "name": "fabric_bin_n",
     "mime": "image/ktx2",
     "size": "256x256",
-    "kb": 17
+    "kb": 17,
+    "gpu_safe": true
    },
    {
     "name": "fabric_bin",
     "mime": "image/ktx2",
     "size": "256x256",
-    "kb": 15
+    "kb": 15,
+    "gpu_safe": true
    },
    {
     "name": "cartridges",
     "mime": "image/ktx2",
     "size": "512x512",
-    "kb": 31
+    "kb": 31,
+    "gpu_safe": true
    },
    {
     "name": "leather_brown_n",
     "mime": "image/ktx2",
     "size": "512x512",
-    "kb": 94
+    "kb": 94,
+    "gpu_safe": true
    },
    {
     "name": "leather_brown",
     "mime": "image/ktx2",
     "size": "512x512",
-    "kb": 108
+    "kb": 108,
+    "gpu_safe": true
    },
    {
     "name": "wood_desk_n",
     "mime": "image/ktx2",
     "size": "512x512",
-    "kb": 126
+    "kb": 126,
+    "gpu_safe": true
    },
    {
     "name": "wood_desk",
     "mime": "image/ktx2",
     "size": "1024x1024",
-    "kb": 598
+    "kb": 598,
+    "gpu_safe": true
    },
    {
     "name": "wood_desk_r",
     "mime": "image/ktx2",
     "size": "512x512",
-    "kb": 123
+    "kb": 123,
+    "gpu_safe": true
    },
    {
     "name": "wood_dark_n",
     "mime": "image/ktx2",
     "size": "512x512",
-    "kb": 88
+    "kb": 88,
+    "gpu_safe": true
    },
    {
     "name": "wood_dark",
     "mime": "image/ktx2",
     "size": "1024x1024",
-    "kb": 463
+    "kb": 463,
+    "gpu_safe": true
    },
    {
     "name": "wood_light_n",
     "mime": "image/ktx2",
     "size": "512x512",
-    "kb": 125
+    "kb": 125,
+    "gpu_safe": true
    },
    {
     "name": "wood_light",
     "mime": "image/ktx2",
     "size": "1024x1024",
-    "kb": 639
+    "kb": 639,
+    "gpu_safe": true
    }
-  ]
+  ],
+  "textures_not_multiple_of_4": []
  },
  {
   "file": "studio_desk_webp.glb",
@@ -1610,261 +1701,305 @@
     "name": "desk_glow",
     "mime": "image/webp",
     "size": "1024x1024",
-    "kb": 99
+    "kb": 99,
+    "gpu_safe": true
    },
    {
     "name": "planks_n",
     "mime": "image/webp",
     "size": "512x512",
-    "kb": 32
+    "kb": 32,
+    "gpu_safe": true
    },
    {
     "name": "desk_ao",
     "mime": "image/webp",
     "size": "1024x1024",
-    "kb": 220
+    "kb": 220,
+    "gpu_safe": true
    },
    {
     "name": "planks",
     "mime": "image/webp",
     "size": "1024x1024",
-    "kb": 114
+    "kb": 114,
+    "gpu_safe": true
    },
    {
     "name": "planks_r",
     "mime": "image/webp",
     "size": "512x512",
-    "kb": 30
+    "kb": 30,
+    "gpu_safe": true
    },
    {
     "name": "rug_n",
     "mime": "image/webp",
     "size": "512x320",
-    "kb": 48
+    "kb": 48,
+    "gpu_safe": true
    },
    {
     "name": "rug",
     "mime": "image/webp",
     "size": "1024x640",
-    "kb": 157
+    "kb": 157,
+    "gpu_safe": true
    },
    {
     "name": "quilt_n",
     "mime": "image/webp",
     "size": "256x256",
-    "kb": 8
+    "kb": 8,
+    "gpu_safe": true
    },
    {
     "name": "quilt",
     "mime": "image/webp",
     "size": "256x256",
-    "kb": 11
+    "kb": 11,
+    "gpu_safe": true
    },
    {
     "name": "plaid_n",
     "mime": "image/webp",
     "size": "256x512",
-    "kb": 20
+    "kb": 20,
+    "gpu_safe": true
    },
    {
     "name": "plaid",
     "mime": "image/webp",
     "size": "512x1024",
-    "kb": 118
+    "kb": 118,
+    "gpu_safe": true
    },
    {
     "name": "mug_boss",
     "mime": "image/webp",
     "size": "256x128",
-    "kb": 3
+    "kb": 3,
+    "gpu_safe": true
    },
    {
     "name": "sticker_qa",
     "mime": "image/webp",
     "size": "640x400",
-    "kb": 12
+    "kb": 12,
+    "gpu_safe": true
    },
    {
     "name": "maker_plate",
     "mime": "image/webp",
     "size": "1024x256",
-    "kb": 25
+    "kb": 25,
+    "gpu_safe": true
    },
    {
     "name": "screen_left",
     "mime": "image/webp",
     "size": "1024x576",
-    "kb": 23
+    "kb": 23,
+    "gpu_safe": true
    },
    {
     "name": "screen_right",
     "mime": "image/webp",
     "size": "1024x576",
-    "kb": 19
+    "kb": 19,
+    "gpu_safe": true
    },
    {
     "name": "business_card",
     "mime": "image/webp",
-    "size": "1024x585",
-    "kb": 23
+    "size": "1024x584",
+    "kb": 24,
+    "gpu_safe": true
    },
    {
     "name": "game_label_01",
     "mime": "image/webp",
     "size": "256x256",
-    "kb": 2
+    "kb": 2,
+    "gpu_safe": true
    },
    {
     "name": "game_label_02",
     "mime": "image/webp",
     "size": "256x256",
-    "kb": 2
+    "kb": 2,
+    "gpu_safe": true
    },
    {
     "name": "game_label_03",
     "mime": "image/webp",
     "size": "256x256",
-    "kb": 1
+    "kb": 1,
+    "gpu_safe": true
    },
    {
     "name": "game_label_04",
     "mime": "image/webp",
     "size": "256x256",
-    "kb": 1
+    "kb": 1,
+    "gpu_safe": true
    },
    {
     "name": "crate_n",
     "mime": "image/webp",
     "size": "512x512",
-    "kb": 25
+    "kb": 25,
+    "gpu_safe": true
    },
    {
     "name": "crate",
     "mime": "image/webp",
     "size": "512x512",
-    "kb": 54
+    "kb": 54,
+    "gpu_safe": true
    },
    {
     "name": "sketchbook",
     "mime": "image/webp",
     "size": "1024x640",
-    "kb": 28
+    "kb": 28,
+    "gpu_safe": true
    },
    {
     "name": "spines",
     "mime": "image/webp",
     "size": "512x512",
-    "kb": 13
+    "kb": 13,
+    "gpu_safe": true
    },
    {
     "name": "deskmat_n",
     "mime": "image/webp",
     "size": "512x192",
-    "kb": 5
+    "kb": 5,
+    "gpu_safe": true
    },
    {
     "name": "deskmat",
     "mime": "image/webp",
     "size": "1024x384",
-    "kb": 26
+    "kb": 26,
+    "gpu_safe": true
    },
    {
     "name": "leather_n",
     "mime": "image/webp",
     "size": "512x512",
-    "kb": 1
+    "kb": 1,
+    "gpu_safe": true
    },
    {
     "name": "leather",
     "mime": "image/webp",
     "size": "512x512",
-    "kb": 2
+    "kb": 2,
+    "gpu_safe": true
    },
    {
     "name": "leather_r",
     "mime": "image/webp",
     "size": "512x512",
-    "kb": 17
+    "kb": 17,
+    "gpu_safe": true
    },
    {
     "name": "mug",
     "mime": "image/webp",
     "size": "512x256",
-    "kb": 3
+    "kb": 3,
+    "gpu_safe": true
    },
    {
     "name": "fabric_bin_n",
     "mime": "image/webp",
     "size": "256x256",
-    "kb": 10
+    "kb": 10,
+    "gpu_safe": true
    },
    {
     "name": "fabric_bin",
     "mime": "image/webp",
     "size": "256x256",
-    "kb": 8
+    "kb": 8,
+    "gpu_safe": true
    },
    {
     "name": "cartridges",
     "mime": "image/webp",
     "size": "512x512",
-    "kb": 5
+    "kb": 5,
+    "gpu_safe": true
    },
    {
     "name": "leather_brown_n",
     "mime": "image/webp",
     "size": "512x512",
-    "kb": 13
+    "kb": 13,
+    "gpu_safe": true
    },
    {
     "name": "leather_brown",
     "mime": "image/webp",
     "size": "512x512",
-    "kb": 5
+    "kb": 5,
+    "gpu_safe": true
    },
    {
     "name": "wood_desk_n",
     "mime": "image/webp",
     "size": "512x512",
-    "kb": 24
+    "kb": 24,
+    "gpu_safe": true
    },
    {
     "name": "wood_desk",
     "mime": "image/webp",
     "size": "1024x1024",
-    "kb": 138
+    "kb": 138,
+    "gpu_safe": true
    },
    {
     "name": "wood_desk_r",
     "mime": "image/webp",
     "size": "512x512",
-    "kb": 52
+    "kb": 52,
+    "gpu_safe": true
    },
    {
     "name": "wood_dark_n",
     "mime": "image/webp",
     "size": "512x512",
-    "kb": 15
+    "kb": 15,
+    "gpu_safe": true
    },
    {
     "name": "wood_dark",
     "mime": "image/webp",
     "size": "1024x1024",
-    "kb": 89
+    "kb": 89,
+    "gpu_safe": true
    },
    {
     "name": "wood_light_n",
     "mime": "image/webp",
     "size": "512x512",
-    "kb": 21
+    "kb": 21,
+    "gpu_safe": true
    },
    {
     "name": "wood_light",
     "mime": "image/webp",
     "size": "1024x1024",
-    "kb": 124
+    "kb": 124,
+    "gpu_safe": true
    }
-  ]
+  ],
+  "textures_not_multiple_of_4": []
  },
  {
   "file": "raw/games_collection.glb",
@@ -1970,51 +2105,60 @@
     "name": "game_label_01",
     "mime": "image/png",
     "size": "256x256",
-    "kb": 4
+    "kb": 4,
+    "gpu_safe": true
    },
    {
     "name": "game_label_02",
     "mime": "image/png",
     "size": "256x256",
-    "kb": 4
+    "kb": 4,
+    "gpu_safe": true
    },
    {
     "name": "game_label_03",
     "mime": "image/png",
     "size": "256x256",
-    "kb": 4
+    "kb": 4,
+    "gpu_safe": true
    },
    {
     "name": "game_label_04",
     "mime": "image/png",
     "size": "256x256",
-    "kb": 4
+    "kb": 4,
+    "gpu_safe": true
    },
    {
     "name": "game_label_05",
     "mime": "image/png",
     "size": "256x256",
-    "kb": 4
+    "kb": 4,
+    "gpu_safe": true
    },
    {
     "name": "crate_n",
     "mime": "image/png",
     "size": "512x512",
-    "kb": 333
+    "kb": 333,
+    "gpu_safe": true
    },
    {
     "name": "crate_ao",
     "mime": "image/png",
     "size": "512x512",
-    "kb": 99
+    "kb": 99,
+    "gpu_safe": true
    },
    {
     "name": "crate",
     "mime": "image/png",
     "size": "512x512",
-    "kb": 315
+    "kb": 315,
+    "gpu_safe": true
    }
-  ]
+  ],
+  "textures_not_multiple_of_4": []
  },
  {
   "file": "games_collection.glb",
@@ -2127,45 +2271,53 @@
     "name": "game_label_01",
     "mime": "image/ktx2",
     "size": "256x256",
-    "kb": 11
+    "kb": 11,
+    "gpu_safe": true
    },
    {
     "name": "game_label_02",
     "mime": "image/ktx2",
     "size": "256x256",
-    "kb": 11
+    "kb": 11,
+    "gpu_safe": true
    },
    {
     "name": "game_label_03",
     "mime": "image/ktx2",
     "size": "256x256",
-    "kb": 10
+    "kb": 10,
+    "gpu_safe": true
    },
    {
     "name": "game_label_04",
     "mime": "image/ktx2",
     "size": "256x256",
-    "kb": 9
+    "kb": 9,
+    "gpu_safe": true
    },
    {
     "name": "crate_n",
     "mime": "image/ktx2",
     "size": "512x512",
-    "kb": 125
+    "kb": 125,
+    "gpu_safe": true
    },
    {
     "name": "crate_ao",
     "mime": "image/ktx2",
     "size": "512x512",
-    "kb": 103
+    "kb": 103,
+    "gpu_safe": true
    },
    {
     "name": "crate",
     "mime": "image/ktx2",
     "size": "512x512",
-    "kb": 187
+    "kb": 187,
+    "gpu_safe": true
    }
-  ]
+  ],
+  "textures_not_multiple_of_4": []
  },
  {
   "file": "games_collection_webp.glb",
@@ -2271,45 +2423,53 @@
     "name": "game_label_01",
     "mime": "image/webp",
     "size": "256x256",
-    "kb": 2
+    "kb": 2,
+    "gpu_safe": true
    },
    {
     "name": "game_label_02",
     "mime": "image/webp",
     "size": "256x256",
-    "kb": 2
+    "kb": 2,
+    "gpu_safe": true
    },
    {
     "name": "game_label_03",
     "mime": "image/webp",
     "size": "256x256",
-    "kb": 1
+    "kb": 1,
+    "gpu_safe": true
    },
    {
     "name": "game_label_04",
     "mime": "image/webp",
     "size": "256x256",
-    "kb": 1
+    "kb": 1,
+    "gpu_safe": true
    },
    {
     "name": "crate_n",
     "mime": "image/webp",
     "size": "512x512",
-    "kb": 25
+    "kb": 25,
+    "gpu_safe": true
    },
    {
     "name": "crate_ao",
     "mime": "image/webp",
     "size": "512x512",
-    "kb": 16
+    "kb": 16,
+    "gpu_safe": true
    },
    {
     "name": "crate",
     "mime": "image/webp",
     "size": "512x512",
-    "kb": 54
+    "kb": 54,
+    "gpu_safe": true
    }
-  ]
+  ],
+  "textures_not_multiple_of_4": []
  },
  {
   "file": "raw/studio_notebook.glb",
@@ -2381,9 +2541,11 @@
     "name": "sketchbook",
     "mime": "image/png",
     "size": "1024x640",
-    "kb": 477
+    "kb": 477,
+    "gpu_safe": true
    }
-  ]
+  ],
+  "textures_not_multiple_of_4": []
  },
  {
   "file": "studio_notebook.glb",
@@ -2458,9 +2620,11 @@
     "name": "sketchbook",
     "mime": "image/ktx2",
     "size": "1024x640",
-    "kb": 273
+    "kb": 273,
+    "gpu_safe": true
    }
-  ]
+  ],
+  "textures_not_multiple_of_4": []
  },
  {
   "file": "studio_notebook_webp.glb",
@@ -2532,8 +2696,10 @@
     "name": "sketchbook",
     "mime": "image/webp",
     "size": "1024x640",
-    "kb": 28
+    "kb": 28,
+    "gpu_safe": true
    }
-  ]
+  ],
+  "textures_not_multiple_of_4": []
  }
 ]

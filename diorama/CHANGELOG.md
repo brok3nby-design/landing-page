@@ -95,3 +95,16 @@
   - direct routes and 404;
   - mobile scroll;
   - the fallback.
+
+### Phase 5 fix — white exhibit on Windows (2026-11-04)
+- **Cause found:** one GPU-compressed texture (business card, 1024×585) wasn't a multiple of 4 in size. Real GPUs reject that; headless Chrome only warned.
+  - `tools/optimize.mjs` now snaps every texture to multiples of 4;
+  - `tools/inspect.mjs` flags any that slip through;
+  - the desk GLB was re-optimised.
+- **The site recovers from GPU failures:**
+  - a lost WebGL context shows the still render with **Retry 3D**, which reloads in a lighter safe mode (no post-processing or shadows, 1× pixels);
+  - a startup error shows the reason on screen;
+  - a broken fallback image falls back to a text description.
+- **`?quality=low`** forces safe mode.
+- **Shadow type:** set to PCF (the removed PCFSoft type is no longer requested).
+- **Browser test** now also simulates a GPU reset and runs safe mode. All pass.

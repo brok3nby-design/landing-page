@@ -51,7 +51,8 @@ async function inspect(rel) {
     if (t.getMimeType() === "image/ktx2") { [w, h] = ktx2Size(img); bpp = 1; }      // BC7/ASTC 4x4 = 1 B/px
     else { const m = await sharp(img).metadata(); w = m.width; h = m.height; bpp = 4; }
     gpu += w * h * bpp * 4 / 3;                                                       // + mip chain
-    textures.push({ name: t.getName(), mime: t.getMimeType(), size: `${w}x${h}`, kb: Math.round(img.byteLength / 1024) });
+    textures.push({ name: t.getName(), mime: t.getMimeType(), size: `${w}x${h}`, kb: Math.round(img.byteLength / 1024),
+                    gpu_safe: w % 4 === 0 && h % 4 === 0 });
   }
   const tags = [];
   for (const node of root.listNodes()) {
@@ -68,6 +69,7 @@ async function inspect(rel) {
     validator: { errors: val.issues.numErrors, warnings: val.issues.numWarnings,
                  messages: val.issues.messages.filter((m) => m.severity <= 1).slice(0, 8).map((m) => `${m.code}: ${m.message}`) },
     tags, texture_list: textures,
+    textures_not_multiple_of_4: textures.filter((t) => !t.gpu_safe).map((t) => `${t.name} ${t.size}`),
   };
 }
 
@@ -80,4 +82,6 @@ for (const r of results) {
     `${String(r.materials).padStart(5)} ${String(r.textures).padStart(4)} ${String(r.texture_mb_download).padStart(8)} ` +
     `${String(r.gpu_texture_mb).padStart(7)}   ${r.validator.errors}/${r.validator.warnings}        ${r.tags.length}`);
   for (const m of r.validator.messages) console.log("    ", m);
+  if (r.textures_not_multiple_of_4.length && !r.file.startsWith("raw/"))
+    console.log("     !! not GPU-block-safe (needs multiple-of-4 size):", r.textures_not_multiple_of_4.join(", "));
 }

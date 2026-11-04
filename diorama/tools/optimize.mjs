@@ -52,6 +52,18 @@ async function run(name) {
                                           pattern: p.pattern || null, resize: [p.size, p.size] }));
   }
 
+  // GPU block compression (BC/ASTC/ETC) needs width and height in multiples of 4: snap any texture that
+  // isn't (e.g. 1050x600 artwork -> 1024x585 after resizing) by scaling down to the nearest multiple of 4.
+  for (const tex of doc.getRoot().listTextures()) {
+    const img = tex.getImage();
+    const { width, height } = await sharp(img).metadata();
+    const w = Math.max(4, Math.floor(width / 4) * 4), h = Math.max(4, Math.floor(height / 4) * 4);
+    if (w !== width || h !== height) {
+      tex.setImage(new Uint8Array(await sharp(img).resize(w, h, { fit: "fill" }).png().toBuffer())).setMimeType("image/png");
+      console.log(`  snapped ${tex.getName()} ${width}x${height} -> ${w}x${h}`);
+    }
+  }
+
   if (WEBP) {
     await doc.transform(textureCompress({ encoder: sharp, targetFormat: "webp", quality: 92 }));
   } else {

@@ -12,23 +12,33 @@ function webglAvailable() {
 }
 
 class Boundary extends Component {
-  state = { failed: false };
-  static getDerivedStateFromError() { return { failed: true }; }
+  state = { error: null };
+  static getDerivedStateFromError(error) { return { error }; }
   componentDidCatch(err) { console.error("Exhibit failed, showing fallback:", err); }
-  render() { return this.state.failed ? this.props.fallback : this.props.children; }
+  render() { return this.state.error ? this.props.fallback(this.state.error) : this.props.children; }
 }
 
-function Fallback({ config, reason }) {
+function Fallback({ config, reason, detail, onRetry }) {
+  const [imgOk, setImgOk] = useState(true);
   return (
     <div className="fallback">
-      <img src={`${import.meta.env.BASE_URL}${config.fallback}`} alt={config.fallbackAlt} />
-      <span className="note">{reason}</span>
+      {imgOk
+        ? <img src={`${import.meta.env.BASE_URL}${config.fallback}`} alt={config.fallbackAlt} onError={() => setImgOk(false)} />
+        : <p className="fallback-text">{config.fallbackAlt}</p>}
+      <span className="note">
+        {reason}{detail ? ` (${detail})` : ""}
+        {onRetry && <> · <button className="linkbtn" onClick={onRetry}>Retry 3D</button></>}
+      </span>
     </div>
   );
 }
 
 export default function Exhibit({ config, selectedId, onSelect, children }) {
-  const forced2D = useMemo(() => new URLSearchParams(location.search).has("no3d"), []);
+  const params = useMemo(() => new URLSearchParams(location.search), []);
+  const forced2D = params.has("no3d");
+  const [safe, setSafe] = useState(params.get("quality") === "low");
+  const [lost, setLost] = useState(0);          // number of lost GPU contexts this visit
+  const [mountKey, setMountKey] = useState(0);
   const [canRender] = useState(() => !forced2D && webglAvailable());
   const [imageView, setImageView] = useState(false);
   const [under, setUnder] = useState(false);
@@ -45,16 +55,21 @@ export default function Exhibit({ config, selectedId, onSelect, children }) {
     if (map[e.key]) { e.preventDefault(); map[e.key](); setTouched(true); }
   };
 
-  const show3D = canRender && !imageView;
-  const fallback = <Fallback config={config} reason={canRender ? "Image view" : "Interactive 3D isn't available on this device — showing a render."} />;
+  const retry = () => { setSafe(true); setLost(0); setMountKey((k) => k + 1); };
+  const show3D = canRender && !imageView && !lost;
+  const fallback = lost
+    ? <Fallback config={config} reason="The 3D view stopped (the graphics driver reset)" onRetry={retry} />
+    : <Fallback config={config} reason={canRender ? "Image view" : "Interactive 3D isn't available on this device — showing a render."} />;
+  const crashed = (err) => <Fallback config={config} reason="The 3D view couldn't start" detail={String(err?.message || err).slice(0, 120)} onRetry={retry} />;
   return (
     <section className="exhibit" aria-label="Interactive exhibit">
       {show3D ? (
         <div className="exhibit-canvas" tabIndex={0} onKeyDown={onKey} onPointerDown={() => setTouched(true)}
              aria-label="Interactive 3D model. Drag or use arrow keys to rotate, scroll or plus/minus to zoom, R to reset. The exhibits can also be opened from the list beside it.">
-          <Boundary fallback={fallback}>
+          <Boundary key={mountKey} fallback={crashed}>
             <Suspense fallback={<div className="loading">Loading exhibit</div>}>
-              <Scene config={config} selectedId={selectedId} onSelect={onSelect} under={under} apiRef={api} />
+              <Scene config={config} selectedId={selectedId} onSelect={onSelect} under={under} apiRef={api}
+                     safe={safe} onContextLost={() => setLost((n) => n + 1)} />
             </Suspense>
           </Boundary>
           <span className="hint" style={{ opacity: touched ? 0 : 1 }}>

@@ -114,6 +114,22 @@ await mob.evaluate(() => window.scrollTo(0, document.body.scrollHeight));
 await shot(mob, "home_mobile_scrolled.png");
 results.mobile_scrollable = await mob.evaluate(() => document.documentElement.scrollHeight > innerHeight);
 
+// ---------- simulated GPU reset (lost WebGL context) -> image + Retry -> 3D back in safe mode
+const lost = await browser.newPage({ viewport: { width: 1600, height: 900 } });
+await openHome(lost);
+await lost.evaluate(() => document.querySelector(".exhibit-canvas canvas").getContext("webgl2").getExtension("WEBGL_lose_context").loseContext());
+await lost.waitForSelector(".fallback .linkbtn", { timeout: 20000 });
+results.context_lost = { fallback: await lost.locator(".fallback .note").textContent() };
+await lost.screenshot({ path: path.join(OUT, "home_context_lost.png") });
+await lost.locator(".fallback .linkbtn").click();
+await lost.waitForFunction(() => window.__exhibit && window.__exhibit.ready && document.querySelector(".exhibit-canvas canvas"), null, { timeout: 240000 });
+results.context_lost.recovered = true;
+
+// ---------- explicit safe mode
+const safeP = await browser.newPage({ viewport: { width: 1600, height: 900 } });
+await openHome(safeP, "?test&quality=low");
+await shot(safeP, "home_safe_mode.png");
+
 // ---------- no-WebGL fallback
 const fb = await browser.newPage({ viewport: { width: 1600, height: 900 } });
 await fb.goto(`${URL}/?no3d`);
