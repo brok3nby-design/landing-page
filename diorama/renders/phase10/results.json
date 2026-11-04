@@ -1,0 +1,129 @@
+{
+ "desktop_ready_ms": 4658,
+ "crate_click": {
+  "selected": "games_crate",
+  "panel": "Choose your next world.",
+  "button": "EXPLORE GAMES",
+  "href": "/games"
+ },
+ "drag_selects": null,
+ "keyboard_hotspot": {
+  "selected": "headphones",
+  "focused": "panel-title",
+  "panel": "WRFM Radio"
+ },
+ "after_shot": {
+  "selected": "headphones",
+  "panel": true
+ },
+ "explore_games_url": "http://127.0.0.1:4180/games",
+ "camera_normal": {
+  "steps": 22,
+  "worst_step_vs_distance": 0.671,
+  "frames_inside_model": 0
+ },
+ "camera_under": {
+  "steps": 28,
+  "worst_step_vs_distance": 0.149,
+  "frames_inside_model": 0
+ },
+ "camera_ok": true,
+ "direct_routes": {
+  "/about": "About the studio.",
+  "/contact": "Contact.",
+  "/does-not-exist": "Not found.",
+  "/games/glass-and-fortune": "Glass & Fortune™",
+  "/games/labyrinth-fate": "The Maze™",
+  "/wrfm": "WRFM Radio™",
+  "/graffiti": "Graffiti™",
+  "/games/under-the-radar": "Under the Radar™",
+  "/about/built-by-design": "Built by Design,Not by Budget.",
+  "/follow": "Follow development.",
+  "/press": "Press kit.",
+  "/passport": "Studio Passport.",
+  "/settings": "Make yourself comfortable.",
+  "/games/pocket-wilds/updates": "Update log.",
+  "/games/nope": "Not found."
+ },
+ "mobile_scrollable": true,
+ "games": {
+  "click_selected": "game_slot_01",
+  "panel": "Glass & Fortune",
+  "view_game": "/games/glass-and-fortune",
+  "stamp_cartridge": true,
+  "case_lift_m": 0.11,
+  "returned_m": 0,
+  "all_projects_cards": 10,
+  "keyboard": "game_slot_02",
+  "view_game_url": "http://127.0.0.1:4180/games/bid-and-buried",
+  "game_page_h1": "Bid & Buried™"
+ },
+ "about": {
+  "angle_after_open": 0,
+  "click_page": {
+   "selected": "page_studio",
+   "panel": "One creator. Plenty of strange ideas."
+  },
+  "angle_after_close": 3.142
+ },
+ "phase10": {
+  "old_urls": {
+   "/home.html": true,
+   "/bid-and-buried.html": true,
+   "/lumina-dice.html": true,
+   "/about.html": true,
+   "/wrfm.html": true,
+   "/press-kit.html": true,
+   "/labyrinth-fate.html": true
+  },
+  "entrance_shown": true,
+  "music_off_by_default": true,
+  "entrance_closed": true,
+  "entrance_skipped_next_time": true,
+  "prefs_storage": {
+   "effects": true,
+   "particles": true,
+   "sound": false,
+   "skipIntro": true
+  },
+  "setting_persists": true,
+  "speck": {
+   "h1": "Speck™",
+   "video": 1,
+   "gallery": 9,
+   "stamp": true
+  },
+  "lightbox": true,
+  "wrfm": {
+   "clips": 5,
+   "audio": 7,
+   "live": 2
+  },
+  "pocket_wilds_updates": 52,
+  "passport": {
+   "stamps_listed": 21,
+   "earned": 2,
+   "storage": [
+    "visit-speck",
+    "visit-wrfm"
+   ]
+  },
+  "desk": {
+   "PROP_GameBox_0": true,
+   "PROP_GameBox_2": true,
+   "PROP_StickyNote_0": true,
+   "maze_panel": "The Maze",
+   "sticker": {
+    "panel": "Under the Radar",
+    "stamp_radar": true,
+    "route": "/games/under-the-radar"
+   }
+  }
+ },
+ "context_lost": {
+  "fallback": "The 3D view stopped (the graphics driver reset) · Retry 3D",
+  "recovered": true
+ },
+ "fallback_img": "A handcrafted miniature developer desk on a wooden display base: two glowing monitors, a gaming chair with a red plaid blanket, shelves with plants, books and collectible figures, and a crate of game cartridges under the desk.",
+ "errors": []
+}

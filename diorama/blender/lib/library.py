@@ -47,6 +47,7 @@ DEFS = {
     "steam":         dict(color=(1.0, 1.0, 1.0), rough=0.6, alpha=0.08),
     "ribbon_red":    dict(color=(0.42, 0.03, 0.04), rough=0.55),
     "business_card": dict(tex="business_card", rough=0.7),
+    **{f"gamebox_label_{i}": dict(tex=f"gamebox_label_{i}", rough=0.45) for i in range(3)},
     "sticker_qa":    dict(tex="sticker_qa", rough=0.6),
     "maker_plate":   dict(tex="maker_plate", rough=0.35, metal=0.9),
     "sticky_yellow": dict(color=(0.95, 0.82, 0.25), rough=0.8),

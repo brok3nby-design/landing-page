@@ -11,6 +11,9 @@ from lib.library import M
 SLOTS = 8
 
 
+GAME_BOX_PROJECTS = ["labyrinth-fate", "macabre-dolls", "juicebox"]   # bottom to top; see data/interactions.json
+
+
 def book(root, name, slot, dims, loc, rot=(0, 0, 0), rests_on="SHELF_Upper"):
     """Book whose -Y face shows spine `slot` of the atlas; covers sample a plain band; top = pages."""
     w, d, h = dims
@@ -76,8 +79,12 @@ def build(root, hutch):
     z = ut
     for i, (w, d, h, mat, rz) in enumerate([(0.17, 0.13, 0.035, "game_box", 0.0), (0.16, 0.125, 0.032, "game_box_b", 0.05),
                                              (0.165, 0.13, 0.034, "game_box", -0.04)]):
-        geo.box(f"PROP_GameBox_{i}", (w, d, h), loc=(bx, uy, z), rot=(0, 0, rz), material=M(mat), parent=root,
-                bevel=0.003, rests_on="SHELF_Upper" if i == 0 else f"PROP_GameBox_{i - 1}")
-        geo.box(f"PROP_GameBox_{i}_Label", (w * 0.5, 0.002, h * 0.35), loc=(bx - w * 0.15, uy - d / 2 - 0.0005, z + h * 0.32),
-                rot=(0, 0, 0), material=M("label_gold"), parent=root, bevel=0)
+        box = geo.box(f"PROP_GameBox_{i}", (w, d, h), loc=(bx, uy, z), rot=(0, 0, rz), material=M(mat), parent=root,
+                      bevel=0.003, rests_on="SHELF_Upper" if i == 0 else f"PROP_GameBox_{i - 1}")
+        # Phase 10: each box is a project (The Maze, Macabre Dolls, Juicebox) with a title spine label.
+        # The label is a child of its box so a click on either resolves to the box's tag.
+        lab = geo.box(f"PROP_GameBox_{i}_Label", (w * 0.86, 0.0015, h * 0.62), loc=(0, -d / 2 - 0.0008, h * 0.19),
+                      material=M(f"gamebox_label_{i}"), parent=box, bevel=0, uv="fit", fit_axis=1)
+        lab["artwork_slot"] = f"gamebox_label_{i}"
+        S.mark_interactive(box, f"project_{GAME_BOX_PROJECTS[i]}", f"Project: {GAME_BOX_PROJECTS[i]}", kind="navigation")
         z += h

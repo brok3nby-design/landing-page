@@ -1,7 +1,10 @@
 # STATUS — Miniature Developer Desk diorama
 
-**Current phase:** Phase 9 existing-site audit (brought forward, before staging): see [AUDIT.md](AUDIT.md). It's **waiting for your answers** to its open questions. Phase 7 is complete. Phase 8 (staging) and Phase 10 (content) are NOT started.
-Phases 4–6 were approved. Phase 7 evidence (comparison sheets, screenshots, `results.json`) is in `renders/phase7/`. Run the prototype with the steps in [../app/README.md](../app/README.md).
+**Current phase:** Phase 10 (real content from the existing site, ported features, clickable game boxes): complete, **awaiting your approval**.
+- Phase 9 (audit, `AUDIT.md`) is done.
+- Phase 8 (staging) is NOT started.
+- Live-site fixes are prepared on branch `claude/site-fixes` of `brok3nby-design.github.io`, waiting for GitHub access to open the PR.
+- Evidence: `renders/phase10/`. Run the prototype with the steps in [../app/README.md](../app/README.md).
 Phases 1–3 are approved and locked. See [EXPORTS.md](EXPORTS.md) (files, measurements), [EASTER_EGGS.md](EASTER_EGGS.md),
 `data/interactions.json` (interaction map) and [PROJECT_DIRECTION.md](PROJECT_DIRECTION.md) (revised 11-phase roadmap, staging rules).
 

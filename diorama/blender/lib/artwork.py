@@ -53,6 +53,11 @@ SLOTS = [
          note="Tall and thin. Covers use the colour at 45% height of the image.")
     for i in range(6)
 ] + [
+    dict(slot=f"gamebox_label_{i}", tex=f"gamebox_label_{i}", size=(640, 112),
+         where=f"Title spine of game box {i + 1} on the upper shelf (bottom to top: The Maze, Macabre Dolls, Juicebox)",
+         note="Long and thin, like a box spine.")
+    for i in range(3)
+] + [
     dict(slot=f"game_label_{s:02d}", tex=f"game_label_{s:02d}", size=(1000, 930),
          where=f"Cover label of game case {s} in the games crate (GAME_Case_{s:02d})",
          note="Or set label_texture for that slot in data/games.json.")

@@ -167,3 +167,37 @@
   - problems found on the current site (missing share images, private notes publicly served, a stray page, unlinked teasers);
   - open questions.
 
+
+## Phase 10 — real content, ported features, game boxes (2026-11-04)
+- **Content imported from the existing site** with the new `diorama/tools/import_site.py` (read-only; text verbatim, sources recorded):
+  - `diorama/data/projects.json`: all 11 projects from `studio-data.js` (status, hook, description, accent, progress report) plus each project page's copy (lead, genres, sections), cover art, gallery, trailer and live link;
+  - `diorama/data/site_copy.json`: home, about, the Built by Design essay, follow, press kit, passport, settings, entrance, the five WRFM "Meet the Station" clips with transcripts, the 52-entry Pocket Wilds update log, studio facts and links;
+  - `app/media/`: only the media the new site uses. Images are re-encoded to WebP (max 1600 px) and the Speck and Pocket Wilds trailers, WRFM clips, site music and cartridge sound are copied. Nothing comes from `teasers/`.
+- **The crate holds the five most active games:** Glass & Fortune, Bid & Buried, Speck, Pocket Wilds and DOQI, each with its real cover art on the case label (`diorama/custom/covers/`, via `label_texture`).
+  - Under the Radar stays secret; the sticker under the desktop reveals it and earns a stamp.
+- **The desk, re-exported with `--tag phase10`:**
+  - the three stacked game boxes on the upper shelf are now The Maze, Macabre Dolls and Juicebox: clickable, with title spines (new artwork slots `gamebox_label_0..2`);
+  - the sticky notes → Graffiti;
+  - the business card shows BROK3NBYDESIGN.COM.
+- **Pages:**
+  - home (hero, Launched with the brand film + WRFM, What's coming up, About, Field Notes);
+  - Games (crate + every project + "Take me somewhere strange");
+  - `/games/<id>` for every project: status, hook, progress report, trailer, about / how it plays, gallery with lightbox; WRFM at `/wrfm` with its clips and transcripts, and Graffiti at `/graffiti`;
+  - About (the notebook opens the About sections, then the whole story below), `/about/built-by-design`;
+  - Follow, Subscribed, Contact, Press kit, Studio Passport, Settings, the Pocket Wilds update log, and a 404.
+- **Panels:**
+  - headphones → WRFM, with the live station;
+  - monitors → brand film;
+  - business cards → contact;
+  - notebook → About;
+  - crate → "Choose your next world.";
+  - books, mug, drawers and collectibles have small discovery panels.
+- **Ported from the old site:**
+  - studio entrance (skip-next-time; `?intro=1` forces it);
+  - background music (off by default, session volume, yields to trailers, clips and the live station);
+  - cartridge click (off by default);
+  - cursor particles and hover effects (red-tinted, honour reduced motion and Settings), the konami "forbidden debug disco", and J.E.F.F. the footer robot;
+  - Studio Passport: stamps, backup/restore/reset and the terminal.
+  - Preferences and the Passport use the old storage keys and format (`b3d-preferences-v1`, `b3d-passport-v1`), so visitors keep their stamps and settings after launch. Four new 3D stamps: under the radar, fine print, bookworm, coffee break.
+- **Old URLs keep working:** the build writes a forwarding page for every old `.html` URL (22) to its new route, using the pattern of the old `lumina-dice.html`.
+- **Playable teasers are not included**, per your decision.

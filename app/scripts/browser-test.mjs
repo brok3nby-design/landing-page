@@ -13,10 +13,11 @@ catch { ({ chromium } = await import(pathToFileURL(path.join(execSync("npm root 
 
 const APP = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const DIST = path.join(APP, "dist");
-const OUT = path.resolve(APP, "..", "diorama", "renders", "phase7");
+const OUT = path.resolve(APP, "..", "diorama", "renders", "phase10");
 fs.mkdirSync(OUT, { recursive: true });
 const TYPES = { ".html": "text/html", ".js": "text/javascript", ".css": "text/css", ".json": "application/json",
-                ".wasm": "application/wasm", ".png": "image/png", ".woff2": "font/woff2", ".woff": "font/woff", ".glb": "model/gltf-binary" };
+                ".wasm": "application/wasm", ".png": "image/png", ".webp": "image/webp", ".svg": "image/svg+xml",
+                ".mp4": "video/mp4", ".ogg": "audio/ogg", ".mp3": "audio/mpeg", ".txt": "text/plain", ".woff2": "font/woff2", ".woff": "font/woff", ".glb": "model/gltf-binary" };
 const server = http.createServer((req, res) => {
   let p = path.join(DIST, decodeURIComponent(req.url.split("?")[0]));
   if (fs.existsSync(p) && fs.statSync(p).isDirectory()) p = path.join(p, "index.html");
@@ -95,12 +96,12 @@ results.after_shot = await desk.evaluate(() => ({ selected: window.__exhibit.sel
 
 // EXPLORE GAMES navigation from the crate panel
 await desk.keyboard.press("Escape");
-await desk.locator("button.chip", { hasText: "Game collection crate" }).click();
+await desk.locator("button.chip", { hasText: "Crate — the games" }).click();
 await frames(desk, 20);
-await desk.locator(".panel a.btn").click();
+await desk.locator(".panel a.btn", { hasText: "EXPLORE GAMES" }).click();
 await desk.waitForTimeout(500);
 results.explore_games_url = desk.url();
-await shot(desk, "games_placeholder.png");
+await shot(desk, "games_from_explore.png");
 
 // camera regression (Phase 7): drag sweeps in normal and look-underneath mode. The camera must never
 // jump (the old raycast colliders teleported it ~7 m onto the pivot) or end up inside the model.
@@ -172,28 +173,25 @@ const y1 = await games.evaluate(() => window.__exhibit.nodeWorld("GAME_Case_01")
 results.games = {
   click_selected: await games.evaluate(() => window.__exhibit.selected),
   panel: await games.locator(".panel h2").textContent(),
-  view_game: await games.locator(".panel a.btn").getAttribute("href"),
+  view_game: await games.locator(".panel a.btn", { hasText: "VIEW GAME" }).getAttribute("href"),
+  stamp_cartridge: await games.evaluate(() => window.__passport.has("cartridge")),
   case_lift_m: +(y1 - y0).toFixed(3),
 };
 await shot(games, "games_case_selected.png");
 await games.keyboard.press("Escape");
 await frames(games, 60);
 results.games.returned_m = +((await games.evaluate(() => window.__exhibit.nodeWorld("GAME_Case_01").y)) - y0).toFixed(4);
-await games.locator("button.chip", { hasText: "Coming soon" }).first().click();
-await frames(games, 20);
-results.games.empty_slot = { panel: await games.locator(".panel h2").textContent(),
-                             has_button: await games.locator(".panel a.btn").count() };
-await games.keyboard.press("Escape");
-await games.locator("button.chip", { hasText: "Locker Auction" }).focus();
+results.games.all_projects_cards = await games.locator(".project-card").count();
+await games.locator("button.chip", { hasText: "Bid & Buried" }).focus();
 await games.keyboard.press("Enter");
 await frames(games, 45);
 results.games.keyboard = await games.evaluate(() => window.__exhibit.selected);
-await shot(games, "games_keyboard_locker.png");
-await games.locator(".panel a.btn").click();
-await games.waitForTimeout(600);
+await shot(games, "games_keyboard_bid_and_buried.png");
+await games.locator(".panel a.btn", { hasText: "VIEW GAME" }).click();
+await games.waitForTimeout(900);
 results.games.view_game_url = games.url();
 results.games.game_page_h1 = await games.locator("h1").first().textContent();
-await games.screenshot({ path: path.join(OUT, "game_page_locker_auction.png") });
+await games.screenshot({ path: path.join(OUT, "game_page_bid_and_buried.png"), fullPage: true });
 await games.close();
 
 // ---------- About page: notebook opens on arrival, pages clickable, close/open toggle
@@ -220,7 +218,8 @@ await shot(about, "about_notebook_closed.png");
 await about.close();
 
 // ---------- direct game routes
-for (const r of ["/games/glass-and-fortune", "/games/nope"]) {
+for (const r of ["/games/glass-and-fortune", "/games/labyrinth-fate", "/wrfm", "/graffiti", "/games/under-the-radar",
+                 "/about/built-by-design", "/follow", "/press", "/passport", "/settings", "/games/pocket-wilds/updates", "/games/nope"]) {
   const p2 = await browser.newPage();
   await p2.goto(`${URL}${r}`);
   results.direct_routes[r] = await p2.locator("h1").first().textContent();
@@ -230,6 +229,85 @@ const gm = await browser.newPage({ viewport: { width: 390, height: 844 }, isMobi
 await openHome(gm, "?test", "/games");
 await shot(gm, "games_mobile.png");
 await gm.close();
+
+// ---------- Phase 10: real content + ported features
+results.phase10 = {};
+const p10 = await browser.newPage({ viewport: { width: 1440, height: 900 } });
+p10.on("pageerror", (e) => errors.push("p10: " + String(e)));
+p10.on("console", (m) => m.type() === "error" && errors.push("p10: " + m.text()));
+// old URLs forward to the new routes
+results.phase10.old_urls = {};
+for (const [from, to] of [["/home.html", "/"], ["/bid-and-buried.html", "/games/bid-and-buried"], ["/lumina-dice.html", "/games/glass-and-fortune"],
+                          ["/about.html", "/about"], ["/wrfm.html", "/wrfm"], ["/press-kit.html", "/press"], ["/labyrinth-fate.html", "/games/labyrinth-fate"]]) {
+  await p10.goto(`${URL}${from}?test`);
+  await p10.waitForURL((u) => new globalThis.URL(u).pathname.replace(/\/$/, "") === to.replace(/\/$/, ""), { timeout: 15000 }).catch(() => {});
+  results.phase10.old_urls[from] = new globalThis.URL(p10.url()).pathname === to;
+}
+// entrance screen at "/" (no ?test), skip preference, music off by default
+await p10.goto(`${URL}/`);
+await p10.waitForSelector(".entrance", { timeout: 15000 });
+results.phase10.entrance_shown = await p10.locator(".entrance").isVisible();
+results.phase10.music_off_by_default = (await p10.locator(".music button").first().getAttribute("aria-pressed")) === "false";
+await p10.screenshot({ path: path.join(OUT, "entrance.png") });
+await p10.locator(".entrance-skip input").check();
+await p10.locator(".entrance-enter").click();
+results.phase10.entrance_closed = (await p10.locator(".entrance").count()) === 0;
+await p10.goto(`${URL}/?`);
+await p10.waitForTimeout(1200);
+results.phase10.entrance_skipped_next_time = (await p10.locator(".entrance").count()) === 0;
+results.phase10.prefs_storage = await p10.evaluate(() => JSON.parse(localStorage.getItem("b3d-preferences-v1")));
+// settings persist
+await p10.goto(`${URL}/settings?test`);
+await p10.locator(".setting", { hasText: "Cartridge sound effects" }).locator("input").check();
+await p10.reload();
+results.phase10.setting_persists = await p10.locator(".setting", { hasText: "Cartridge sound effects" }).locator("input").isChecked();
+// project page content: Speck trailer + gallery, WRFM clips, Pocket Wilds log
+await p10.goto(`${URL}/games/speck?test`);
+await p10.waitForSelector(".gallery img");
+results.phase10.speck = { h1: (await p10.locator("h1").first().textContent()).trim(), video: await p10.locator("#trailer video").count(),
+                          gallery: await p10.locator(".gallery img").count(), stamp: await p10.evaluate(() => window.__passport.has("visit-speck")) };
+await p10.locator(".gallery button").first().click();
+results.phase10.lightbox = await p10.locator(".lightbox").isVisible();
+await p10.keyboard.press("Escape");
+await p10.screenshot({ path: path.join(OUT, "project_speck.png"), fullPage: true });
+await p10.goto(`${URL}/wrfm?test`);
+await p10.waitForSelector(".clip");
+results.phase10.wrfm = { clips: await p10.locator(".clip").count(), audio: await p10.locator(".clip audio").count(),
+                         live: await p10.locator('a[href="https://brok3nby-design.github.io/wrfm/"]').count() };
+await p10.screenshot({ path: path.join(OUT, "project_wrfm.png") });
+await p10.goto(`${URL}/games/pocket-wilds/updates?test`);
+await p10.waitForSelector(".build");
+results.phase10.pocket_wilds_updates = await p10.locator(".build").count();
+await p10.goto(`${URL}/passport?test`);
+await p10.waitForSelector(".stamp");
+results.phase10.passport = { stamps_listed: await p10.locator(".stamp").count(), earned: await p10.locator(".stamp.earned").count(),
+                             storage: await p10.evaluate(() => Object.keys(JSON.parse(localStorage.getItem("b3d-passport-v1")).stamps)) };
+await p10.screenshot({ path: path.join(OUT, "passport.png"), fullPage: true });
+await p10.goto(`${URL}/?test`);
+await p10.waitForSelector(".more #launched");
+await p10.screenshot({ path: path.join(OUT, "home_full.png"), fullPage: true });
+await p10.close();
+
+// desk discoveries + new clickable objects (needs the Phase 10 desk export)
+const d10 = await browser.newPage({ viewport: { width: 1600, height: 900 } });
+d10.on("pageerror", (e) => errors.push("d10: " + String(e)));
+await openHome(d10);
+results.phase10.desk = {};
+for (const [node, id] of [["PROP_GameBox_0", "project_labyrinth-fate"], ["PROP_GameBox_2", "project_juicebox"], ["PROP_StickyNote_0", "graffiti"]]) {
+  results.phase10.desk[node] = await d10.evaluate(([n]) => !!window.__exhibit.nodeWorld(n) && (window.__exhibit.select(null), true), [node]);
+}
+await d10.locator("button.chip", { hasText: "Game box — The Maze" }).click();
+await frames(d10, 30);
+results.phase10.desk.maze_panel = await d10.locator(".panel h2").textContent();
+await shot(d10, "home_gamebox_maze.png");
+await d10.keyboard.press("Escape");
+await d10.evaluate(() => window.__exhibit.select("egg_qa_sticker"));
+await frames(d10, 30);
+results.phase10.desk.sticker = { panel: await d10.locator(".panel h2").textContent(),
+                                 stamp_radar: await d10.evaluate(() => window.__passport.has("radar")),
+                                 route: await d10.locator(".panel a.btn").first().getAttribute("href") };
+await shot(d10, "home_under_the_radar.png");
+await d10.close();
 
 // ---------- simulated GPU reset (lost WebGL context) -> image + Retry -> 3D back in safe mode
 const lost = await browser.newPage({ viewport: { width: 1600, height: 900 } });

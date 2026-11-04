@@ -1,4 +1,4 @@
-# BROK3N BY DESIGN — website prototype (Phases 5–7)
+# BROK3N BY DESIGN — website prototype (Phases 5–10)
 
 A **local prototype** of the new interactive 3D studio site. It is completely separate from the production website:
 no hosting, DNS or GitHub Pages settings are touched, and nothing is deployed.
@@ -51,13 +51,20 @@ cd landing-page/app && npm install && npm run dev
   - soft shadows, sharper textures (anisotropic filtering), page crossfades, canvas fade-in and a gentle intro camera move;
   - on-demand rendering (no GPU work while the view is still) and step-wise adaptive quality.
   - Add **`?fps`** to the address (e.g. http://127.0.0.1:5180/?fps) for an overlay with frame rate (while moving), draw calls, triangles and quality level.
-- **Not yet:** Projects, WRFM and Contact are placeholder pages. Each game's own miniature exhibit is a future phase.
+- **Phase 10: real content.** Every word comes from the existing site, imported by `diorama/tools/import_site.py`.
+  - **Pages:** home (with Launched / What's coming up / About / Field Notes below the desk), Games (crate + every project), `/games/<id>` for every project, `/wrfm`, `/graffiti`, About + essay, Follow, Contact, Press kit, Passport, Settings, the Pocket Wilds update log.
+  - **Ported features:** studio entrance, background music, Studio Passport, cursor effects, cartridge click and J.E.F.F.
+  - **Old URLs** such as `/bid-and-buried.html` forward to their new pages.
+  - **Refresh the content** after editing the old site:
+    ```bash
+    python3 diorama/tools/import_site.py /path/to/brok3nby-design.github.io
+    ``` Each game's own miniature exhibit is a future phase.
 
 ## Tests
 ```bash
 npm run test:browser
 ```
-This builds the site and drives headless Chromium. Results go to `diorama/renders/phase7/` (screenshots + `results.json`):
+This builds the site and drives headless Chromium. Results go to `diorama/renders/phase10/` (screenshots + `results.json`):
 - desktop and mobile screenshots;
 - crate click → panel → EXPLORE GAMES → /games;
 - drag doesn't select;
@@ -68,7 +75,8 @@ This builds the site and drives headless Chromium. Results go to `diorama/render
 - About: opens on arrival, page click → panel, close/open;
 - direct game routes;
 - a simulated GPU reset, and safe mode;
-- camera sweeps (normal and look-underneath): no jumps, never inside the model.
+- camera sweeps (normal and look-underneath): no jumps, never inside the model;
+- Phase 10: old URLs forward, entrance + skip preference, music off by default, settings persist, project pages (trailer, gallery, lightbox), WRFM clips, update log, Passport stamps, game boxes + the secret under the desk.
 
 Lighting comparison with the Blender renders (screenshots through the exact Blender cameras):
 ```bash

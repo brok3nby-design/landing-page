@@ -1,13 +1,15 @@
-// Site copy and page configuration. Text marked PLACEHOLDER is to be replaced after the Phase 9
-// content audit - nothing here is invented fact about the studio.
+// Page configuration (exhibits, hotspots). The words on the pages come from the existing website,
+// imported into diorama/data/site_copy.json + projects.json (see content/data.js); nothing here is
+// invented fact about the studio.
 export const BRAND = "BROK3N BY DESIGN";
 
 export const NAV = [
   { to: "/", label: "Studio", end: true },
   { to: "/games", label: "Games" },
   { to: "/about", label: "About" },
-  { to: "/projects", label: "Projects" },
   { to: "/wrfm", label: "WRFM" },
+  { to: "/follow", label: "Follow" },
+  { to: "/passport", label: "Passport" },
   { to: "/contact", label: "Contact" },
 ];
 
@@ -15,12 +17,10 @@ export const NAV = [
 // exhibit; Games (crate) and About (notebook) exhibits arrive in Phase 6.
 export const PAGES = {
   home: {
-    eyebrow: "Independent game studio",
-    title: BRAND,
-    intro: "PLACEHOLDER — a short studio introduction goes here after the content audit.",
     ctas: [
-      { to: "/games", label: "Explore games", primary: true },
-      { to: "/about", label: "About the studio" },
+      { to: "/games", label: "Explore the Games", primary: true },
+      { to: "/#launched", label: "See What’s Launched" },
+      { to: "/#coming", label: "See What’s Coming" },
     ],
     exhibit: {
       model: "models/studio_desk.glb",
@@ -40,13 +40,12 @@ export const PAGES = {
         [[-0.69, 0.31, -0.21], [0.05, 1.17, 0.48]],    // chair
       ],
       // the navigation hotspots also offered as plain buttons (keyboard / screen-reader path)
-      hotspots: ["games_crate", "notebook", "monitor_left", "headphones", "contact_card"],
+      hotspots: ["games_crate", "notebook", "monitor_left", "headphones", "contact_card", "graffiti",
+                 "project_labyrinth-fate", "project_macabre-dolls", "project_juicebox"],
     },
   },
   games: {
-    eyebrow: "The collection",
-    title: "Games",
-    intro: "PLACEHOLDER — an introduction to the studio's games goes here after the content audit.",
+    eyebrow: "Insert a cartridge",
     exhibit: {
       model: "models/games_collection.glb",
       scope: "games",
@@ -60,9 +59,7 @@ export const PAGES = {
     },
   },
   about: {
-    eyebrow: "The notebook",
-    title: "About",
-    intro: "PLACEHOLDER — the studio's story and creative process go here after the content audit.",
+    eyebrow: "Independent by design",
     exhibit: {
       model: "models/studio_notebook.glb",
       scope: "about",
@@ -75,24 +72,26 @@ export const PAGES = {
       // parts of the notebook made clickable for this page only (glTF node name -> id)
       targets: { NOTE_Page_L: "page_process", NOTE_Page_R: "page_studio", NOTE_Bookmark: "bookmark" },
     },
+    // notebook parts -> the About page sections they open (headings from about.html)
     panels: {
-      page_process: { title: "Process", text: "PLACEHOLDER — how the studio works: sketches, prototypes, iteration." },
-      page_studio: { title: "The studio", text: "PLACEHOLDER — who we are and what we make." },
-      bookmark: { title: "Bookmarked", text: "PLACEHOLDER — a favourite page, a milestone, or something we keep coming back to.", kind: "discovery" },
+      page_process: { heading: "Design. Build. Play. Refine." },
+      page_studio: { heading: "One creator. Plenty of strange ideas." },
+      bookmark: { heading: "Why “Brok3n by Design”?", kind: "discovery" },
     },
   },
-  projects: { eyebrow: "Work", title: "Projects", intro: "PLACEHOLDER — projects page (content after the audit)." },
-  wrfm:     { eyebrow: "Audio", title: "WRFM", intro: "PLACEHOLDER — the WRFM / audio experience." },
-  contact:  { eyebrow: "Get in touch", title: "Contact", intro: "PLACEHOLDER — contact details will come from the existing site after the audit." },
 };
 
 export const HOTSPOT_LABELS = {
-  games_crate: "Game collection crate",
+  games_crate: "Crate — the games",
   notebook: "Notebook",
-  monitor_left: "Monitors",
-  monitor_right: "Monitors",
-  headphones: "Headphones",
-  contact_card: "Business cards",
+  monitor_left: "Monitors — brand film",
+  monitor_right: "Monitors — brand film",
+  headphones: "Headphones — WRFM Radio",
+  contact_card: "Business cards — contact",
+  graffiti: "Sticky notes — Graffiti",
+  "project_labyrinth-fate": "Game box — The Maze",
+  "project_macabre-dolls": "Game box — Macabre Dolls",
+  "project_juicebox": "Game box — Juicebox",
   page_process: "Left page — process",
   page_studio: "Right page — the studio",
   bookmark: "Bookmark",

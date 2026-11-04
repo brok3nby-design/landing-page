@@ -688,9 +688,14 @@ JOBS = {
     "crate": lambda: crate("crate"),
     "game_boxes": lambda: game_boxes("game_boxes"),
 }
+# spine labels of the stacked game boxes on the upper shelf (bottom to top) - Phase 10 projects
+GAME_BOX_TITLES = [("THE MAZE", "#bd9bda"), ("MACABRE DOLLS", "#e0a6b0"), ("JUICEBOX", "#ff9eab")]
+for _i, (_t, _c) in enumerate(GAME_BOX_TITLES):
+    JOBS[f"gamebox_label_{_i}"] = (lambda i=_i, t=_t, c=_c: label_card(
+        f"gamebox_label_{i}", 640, 112, [(t, 7 if len(t) < 11 else 5)], "#141016", c))
 JOBS["business_card"] = lambda: label_card(
     "business_card", 1050, 600, [("BROK3N", 14), ("*BY DESIGN", 6), (" ", 4), ("INDEPENDENT GAME STUDIO", 4),
-                                 ("CONTACT DETAILS: TBD", 4)], "#f1ede6", "#141414", accent="#8e1b1f")
+                                 ("BROK3NBYDESIGN.COM", 4)], "#f1ede6", "#141414", accent="#8e1b1f")
 JOBS["sticker_qa"] = lambda: label_card(
     "sticker_qa", 640, 400, [("*QUALITY", 9), ("*ASSURED", 9), ("(MOSTLY)", 5)], "#efe6c8", "#1c1c1c",
     accent="#8e1b1f", border=True)

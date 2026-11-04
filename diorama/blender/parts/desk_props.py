@@ -91,8 +91,9 @@ def steam(mug_obj):
 def sticky_notes(root, top):
     for i, (x, y, rz, mat) in enumerate([(0.235, 0.47, 0.15, "sticky_yellow"), (0.28, 0.505, -0.2, "sticky_pink"),
                                          (-0.50, 0.30, 0.35, "sticky_yellow")]):
-        geo.box(f"PROP_StickyNote_{i}", (0.038, 0.038, 0.0012), loc=(x, y, top), rot=(0, 0, rz),
-                material=M(mat), parent=root, bevel=0.0003, seg=1, rests_on="DESK_Top")
+        note = geo.box(f"PROP_StickyNote_{i}", (0.038, 0.038, 0.0012), loc=(x, y, top), rot=(0, 0, rz),
+                       material=M(mat), parent=root, bevel=0.0003, seg=1, rests_on="DESK_Top")
+        S.mark_interactive(note, "graffiti", "Graffiti guestbook", kind="navigation")   # Phase 10
 
 
 def card_holder(root, x, y, top):

@@ -1,15 +1,15 @@
 [
  {
   "file": "raw/studio_desk.glb",
-  "mb": 19.88,
-  "nodes": 170,
-  "meshes": 120,
-  "draw_calls": 122,
+  "mb": 25.13,
+  "nodes": 174,
+  "meshes": 124,
+  "draw_calls": 126,
   "triangles": 83016,
-  "materials": 90,
-  "textures": 44,
-  "texture_mb_download": 15.81,
-  "gpu_texture_mb": 92,
+  "materials": 92,
+  "textures": 47,
+  "texture_mb_download": 21.06,
+  "gpu_texture_mb": 115.1,
   "validator": {
    "errors": 0,
    "warnings": 6,
@@ -342,6 +342,39 @@
     "artwork_slot": "deskmat"
    },
    {
+    "node": "PROP_GameBox_0_Label",
+    "artwork_slot": "gamebox_label_0"
+   },
+   {
+    "node": "PROP_GameBox_0",
+    "interactive_id": "project_labyrinth-fate",
+    "interactive_label": "Project: labyrinth-fate",
+    "interactive_scope": "home",
+    "interactive_kind": "navigation"
+   },
+   {
+    "node": "PROP_GameBox_1_Label",
+    "artwork_slot": "gamebox_label_1"
+   },
+   {
+    "node": "PROP_GameBox_1",
+    "interactive_id": "project_macabre-dolls",
+    "interactive_label": "Project: macabre-dolls",
+    "interactive_scope": "home",
+    "interactive_kind": "navigation"
+   },
+   {
+    "node": "PROP_GameBox_2_Label",
+    "artwork_slot": "gamebox_label_2"
+   },
+   {
+    "node": "PROP_GameBox_2",
+    "interactive_id": "project_juicebox",
+    "interactive_label": "Project: juicebox",
+    "interactive_scope": "home",
+    "interactive_kind": "navigation"
+   },
+   {
     "node": "PROP_Headphones_Stand",
     "interactive_id": "headphones",
     "interactive_label": "WRFM / audio experience",
@@ -355,6 +388,27 @@
     "interactive_label": "Optional humorous interaction (placeholder)",
     "interactive_scope": "home",
     "interactive_kind": "discovery"
+   },
+   {
+    "node": "PROP_StickyNote_0",
+    "interactive_id": "graffiti",
+    "interactive_label": "Graffiti guestbook",
+    "interactive_scope": "home",
+    "interactive_kind": "navigation"
+   },
+   {
+    "node": "PROP_StickyNote_1",
+    "interactive_id": "graffiti",
+    "interactive_label": "Graffiti guestbook",
+    "interactive_scope": "home",
+    "interactive_kind": "navigation"
+   },
+   {
+    "node": "PROP_StickyNote_2",
+    "interactive_id": "graffiti",
+    "interactive_label": "Graffiti guestbook",
+    "interactive_scope": "home",
+    "interactive_kind": "navigation"
    }
   ],
   "texture_list": [
@@ -362,7 +416,7 @@
     "name": "desk_glow",
     "mime": "image/png",
     "size": "1024x1024",
-    "kb": 500,
+    "kb": 504,
     "gpu_safe": true
    },
    {
@@ -376,7 +430,7 @@
     "name": "desk_ao",
     "mime": "image/png",
     "size": "1024x1024",
-    "kb": 538,
+    "kb": 539,
     "gpu_safe": true
    },
    {
@@ -480,37 +534,37 @@
    {
     "name": "game_label_01",
     "mime": "image/png",
-    "size": "256x256",
-    "kb": 4,
-    "gpu_safe": true
+    "size": "1000x930",
+    "kb": 1359,
+    "gpu_safe": false
    },
    {
     "name": "game_label_02",
     "mime": "image/png",
-    "size": "256x256",
-    "kb": 4,
-    "gpu_safe": true
+    "size": "1000x930",
+    "kb": 763,
+    "gpu_safe": false
    },
    {
     "name": "game_label_03",
     "mime": "image/png",
-    "size": "256x256",
-    "kb": 4,
-    "gpu_safe": true
+    "size": "1000x930",
+    "kb": 1129,
+    "gpu_safe": false
    },
    {
     "name": "game_label_04",
     "mime": "image/png",
-    "size": "256x256",
-    "kb": 4,
-    "gpu_safe": true
+    "size": "1000x930",
+    "kb": 755,
+    "gpu_safe": false
    },
    {
     "name": "game_label_05",
     "mime": "image/png",
-    "size": "256x256",
-    "kb": 4,
-    "gpu_safe": true
+    "size": "1000x930",
+    "kb": 1073,
+    "gpu_safe": false
    },
    {
     "name": "crate_n",
@@ -552,6 +606,27 @@
     "mime": "image/png",
     "size": "1024x384",
     "kb": 201,
+    "gpu_safe": true
+   },
+   {
+    "name": "gamebox_label_0",
+    "mime": "image/png",
+    "size": "640x112",
+    "kb": 21,
+    "gpu_safe": true
+   },
+   {
+    "name": "gamebox_label_1",
+    "mime": "image/png",
+    "size": "640x112",
+    "kb": 20,
+    "gpu_safe": true
+   },
+   {
+    "name": "gamebox_label_2",
+    "mime": "image/png",
+    "size": "640x112",
+    "kb": 21,
     "gpu_safe": true
    },
    {
@@ -668,20 +743,25 @@
    }
   ],
   "textures_not_multiple_of_4": [
-   "business_card 1050x600"
+   "business_card 1050x600",
+   "game_label_01 1000x930",
+   "game_label_02 1000x930",
+   "game_label_03 1000x930",
+   "game_label_04 1000x930",
+   "game_label_05 1000x930"
   ]
  },
  {
   "file": "studio_desk.glb",
-  "mb": 8.54,
-  "nodes": 172,
-  "meshes": 114,
-  "draw_calls": 122,
+  "mb": 9.56,
+  "nodes": 179,
+  "meshes": 119,
+  "draw_calls": 126,
   "triangles": 83016,
-  "materials": 89,
-  "textures": 43,
-  "texture_mb_download": 7.17,
-  "gpu_texture_mb": 20.1,
+  "materials": 92,
+  "textures": 47,
+  "texture_mb_download": 8.18,
+  "gpu_texture_mb": 21.6,
   "validator": {
    "errors": 0,
    "warnings": 48,
@@ -1016,6 +1096,39 @@
     "artwork_slot": "deskmat"
    },
    {
+    "node": "PROP_GameBox_0_Label",
+    "artwork_slot": "gamebox_label_0"
+   },
+   {
+    "node": "PROP_GameBox_0",
+    "interactive_id": "project_labyrinth-fate",
+    "interactive_label": "Project: labyrinth-fate",
+    "interactive_scope": "home",
+    "interactive_kind": "navigation"
+   },
+   {
+    "node": "PROP_GameBox_1_Label",
+    "artwork_slot": "gamebox_label_1"
+   },
+   {
+    "node": "PROP_GameBox_1",
+    "interactive_id": "project_macabre-dolls",
+    "interactive_label": "Project: macabre-dolls",
+    "interactive_scope": "home",
+    "interactive_kind": "navigation"
+   },
+   {
+    "node": "PROP_GameBox_2_Label",
+    "artwork_slot": "gamebox_label_2"
+   },
+   {
+    "node": "PROP_GameBox_2",
+    "interactive_id": "project_juicebox",
+    "interactive_label": "Project: juicebox",
+    "interactive_scope": "home",
+    "interactive_kind": "navigation"
+   },
+   {
     "node": "PROP_Headphones_Stand",
     "interactive_id": "headphones",
     "interactive_label": "WRFM / audio experience",
@@ -1029,6 +1142,27 @@
     "interactive_label": "Optional humorous interaction (placeholder)",
     "interactive_scope": "home",
     "interactive_kind": "discovery"
+   },
+   {
+    "node": "PROP_StickyNote_0",
+    "interactive_id": "graffiti",
+    "interactive_label": "Graffiti guestbook",
+    "interactive_scope": "home",
+    "interactive_kind": "navigation"
+   },
+   {
+    "node": "PROP_StickyNote_1",
+    "interactive_id": "graffiti",
+    "interactive_label": "Graffiti guestbook",
+    "interactive_scope": "home",
+    "interactive_kind": "navigation"
+   },
+   {
+    "node": "PROP_StickyNote_2",
+    "interactive_id": "graffiti",
+    "interactive_label": "Graffiti guestbook",
+    "interactive_scope": "home",
+    "interactive_kind": "navigation"
    }
   ],
   "texture_list": [
@@ -1036,7 +1170,7 @@
     "name": "desk_glow",
     "mime": "image/ktx2",
     "size": "1024x1024",
-    "kb": 365,
+    "kb": 368,
     "gpu_safe": true
    },
    {
@@ -1154,29 +1288,36 @@
    {
     "name": "game_label_01",
     "mime": "image/ktx2",
-    "size": "256x256",
-    "kb": 11,
+    "size": "512x476",
+    "kb": 225,
     "gpu_safe": true
    },
    {
     "name": "game_label_02",
     "mime": "image/ktx2",
-    "size": "256x256",
-    "kb": 11,
+    "size": "512x476",
+    "kb": 150,
     "gpu_safe": true
    },
    {
     "name": "game_label_03",
     "mime": "image/ktx2",
-    "size": "256x256",
-    "kb": 10,
+    "size": "512x476",
+    "kb": 187,
     "gpu_safe": true
    },
    {
     "name": "game_label_04",
     "mime": "image/ktx2",
-    "size": "256x256",
-    "kb": 9,
+    "size": "512x476",
+    "kb": 183,
+    "gpu_safe": true
+   },
+   {
+    "name": "game_label_05",
+    "mime": "image/ktx2",
+    "size": "512x476",
+    "kb": 218,
     "gpu_safe": true
    },
    {
@@ -1219,6 +1360,27 @@
     "mime": "image/ktx2",
     "size": "1024x384",
     "kb": 133,
+    "gpu_safe": true
+   },
+   {
+    "name": "gamebox_label_0",
+    "mime": "image/ktx2",
+    "size": "640x112",
+    "kb": 22,
+    "gpu_safe": true
+   },
+   {
+    "name": "gamebox_label_1",
+    "mime": "image/ktx2",
+    "size": "640x112",
+    "kb": 22,
+    "gpu_safe": true
+   },
+   {
+    "name": "gamebox_label_2",
+    "mime": "image/ktx2",
+    "size": "640x112",
+    "kb": 22,
     "gpu_safe": true
    },
    {
@@ -1338,15 +1500,15 @@
  },
  {
   "file": "studio_desk_webp.glb",
-  "mb": 3.06,
-  "nodes": 172,
-  "meshes": 114,
-  "draw_calls": 122,
+  "mb": 3.31,
+  "nodes": 179,
+  "meshes": 119,
+  "draw_calls": 126,
   "triangles": 83016,
-  "materials": 89,
-  "textures": 43,
-  "texture_mb_download": 1.69,
-  "gpu_texture_mb": 80.5,
+  "materials": 92,
+  "textures": 47,
+  "texture_mb_download": 1.94,
+  "gpu_texture_mb": 86.5,
   "validator": {
    "errors": 0,
    "warnings": 13,
@@ -1681,6 +1843,39 @@
     "artwork_slot": "deskmat"
    },
    {
+    "node": "PROP_GameBox_0_Label",
+    "artwork_slot": "gamebox_label_0"
+   },
+   {
+    "node": "PROP_GameBox_0",
+    "interactive_id": "project_labyrinth-fate",
+    "interactive_label": "Project: labyrinth-fate",
+    "interactive_scope": "home",
+    "interactive_kind": "navigation"
+   },
+   {
+    "node": "PROP_GameBox_1_Label",
+    "artwork_slot": "gamebox_label_1"
+   },
+   {
+    "node": "PROP_GameBox_1",
+    "interactive_id": "project_macabre-dolls",
+    "interactive_label": "Project: macabre-dolls",
+    "interactive_scope": "home",
+    "interactive_kind": "navigation"
+   },
+   {
+    "node": "PROP_GameBox_2_Label",
+    "artwork_slot": "gamebox_label_2"
+   },
+   {
+    "node": "PROP_GameBox_2",
+    "interactive_id": "project_juicebox",
+    "interactive_label": "Project: juicebox",
+    "interactive_scope": "home",
+    "interactive_kind": "navigation"
+   },
+   {
     "node": "PROP_Headphones_Stand",
     "interactive_id": "headphones",
     "interactive_label": "WRFM / audio experience",
@@ -1694,6 +1889,27 @@
     "interactive_label": "Optional humorous interaction (placeholder)",
     "interactive_scope": "home",
     "interactive_kind": "discovery"
+   },
+   {
+    "node": "PROP_StickyNote_0",
+    "interactive_id": "graffiti",
+    "interactive_label": "Graffiti guestbook",
+    "interactive_scope": "home",
+    "interactive_kind": "navigation"
+   },
+   {
+    "node": "PROP_StickyNote_1",
+    "interactive_id": "graffiti",
+    "interactive_label": "Graffiti guestbook",
+    "interactive_scope": "home",
+    "interactive_kind": "navigation"
+   },
+   {
+    "node": "PROP_StickyNote_2",
+    "interactive_id": "graffiti",
+    "interactive_label": "Graffiti guestbook",
+    "interactive_scope": "home",
+    "interactive_kind": "navigation"
    }
   ],
   "texture_list": [
@@ -1701,7 +1917,7 @@
     "name": "desk_glow",
     "mime": "image/webp",
     "size": "1024x1024",
-    "kb": 99,
+    "kb": 98,
     "gpu_safe": true
    },
    {
@@ -1715,7 +1931,7 @@
     "name": "desk_ao",
     "mime": "image/webp",
     "size": "1024x1024",
-    "kb": 220,
+    "kb": 216,
     "gpu_safe": true
    },
    {
@@ -1819,29 +2035,36 @@
    {
     "name": "game_label_01",
     "mime": "image/webp",
-    "size": "256x256",
-    "kb": 2,
+    "size": "512x476",
+    "kb": 68,
     "gpu_safe": true
    },
    {
     "name": "game_label_02",
     "mime": "image/webp",
-    "size": "256x256",
-    "kb": 2,
+    "size": "512x476",
+    "kb": 40,
     "gpu_safe": true
    },
    {
     "name": "game_label_03",
     "mime": "image/webp",
-    "size": "256x256",
-    "kb": 1,
+    "size": "512x476",
+    "kb": 55,
     "gpu_safe": true
    },
    {
     "name": "game_label_04",
     "mime": "image/webp",
-    "size": "256x256",
-    "kb": 1,
+    "size": "512x476",
+    "kb": 34,
+    "gpu_safe": true
+   },
+   {
+    "name": "game_label_05",
+    "mime": "image/webp",
+    "size": "512x476",
+    "kb": 50,
     "gpu_safe": true
    },
    {
@@ -1884,6 +2107,27 @@
     "mime": "image/webp",
     "size": "1024x384",
     "kb": 26,
+    "gpu_safe": true
+   },
+   {
+    "name": "gamebox_label_0",
+    "mime": "image/webp",
+    "size": "640x112",
+    "kb": 2,
+    "gpu_safe": true
+   },
+   {
+    "name": "gamebox_label_1",
+    "mime": "image/webp",
+    "size": "640x112",
+    "kb": 3,
+    "gpu_safe": true
+   },
+   {
+    "name": "gamebox_label_2",
+    "mime": "image/webp",
+    "size": "640x112",
+    "kb": 3,
     "gpu_safe": true
    },
    {
@@ -2003,15 +2247,15 @@
  },
  {
   "file": "raw/games_collection.glb",
-  "mb": 0.83,
+  "mb": 6.01,
   "nodes": 18,
   "meshes": 11,
   "draw_calls": 11,
   "triangles": 820,
   "materials": 7,
   "textures": 8,
-  "texture_mb_download": 0.78,
-  "gpu_texture_mb": 5.7,
+  "texture_mb_download": 5.97,
+  "gpu_texture_mb": 27.7,
   "validator": {
    "errors": 0,
    "warnings": 1,
@@ -2104,37 +2348,37 @@
    {
     "name": "game_label_01",
     "mime": "image/png",
-    "size": "256x256",
-    "kb": 4,
-    "gpu_safe": true
+    "size": "1000x930",
+    "kb": 1359,
+    "gpu_safe": false
    },
    {
     "name": "game_label_02",
     "mime": "image/png",
-    "size": "256x256",
-    "kb": 4,
-    "gpu_safe": true
+    "size": "1000x930",
+    "kb": 763,
+    "gpu_safe": false
    },
    {
     "name": "game_label_03",
     "mime": "image/png",
-    "size": "256x256",
-    "kb": 4,
-    "gpu_safe": true
+    "size": "1000x930",
+    "kb": 1129,
+    "gpu_safe": false
    },
    {
     "name": "game_label_04",
     "mime": "image/png",
-    "size": "256x256",
-    "kb": 4,
-    "gpu_safe": true
+    "size": "1000x930",
+    "kb": 755,
+    "gpu_safe": false
    },
    {
     "name": "game_label_05",
     "mime": "image/png",
-    "size": "256x256",
-    "kb": 4,
-    "gpu_safe": true
+    "size": "1000x930",
+    "kb": 1073,
+    "gpu_safe": false
    },
    {
     "name": "crate_n",
@@ -2158,22 +2402,28 @@
     "gpu_safe": true
    }
   ],
-  "textures_not_multiple_of_4": []
+  "textures_not_multiple_of_4": [
+   "game_label_01 1000x930",
+   "game_label_02 1000x930",
+   "game_label_03 1000x930",
+   "game_label_04 1000x930",
+   "game_label_05 1000x930"
+  ]
  },
  {
   "file": "games_collection.glb",
-  "mb": 0.48,
+  "mb": 1.43,
   "nodes": 18,
-  "meshes": 6,
+  "meshes": 7,
   "draw_calls": 11,
   "triangles": 820,
-  "materials": 6,
-  "textures": 7,
-  "texture_mb_download": 0.47,
-  "gpu_texture_mb": 1.3,
+  "materials": 7,
+  "textures": 8,
+  "texture_mb_download": 1.41,
+  "gpu_texture_mb": 2.5,
   "validator": {
    "errors": 0,
-   "warnings": 15,
+   "warnings": 17,
    "messages": [
     "VALUE_NOT_IN_LIST: Invalid value 'image/ktx2'. Valid values are ('image/jpeg', 'image/png').",
     "VALUE_NOT_IN_LIST: Invalid value 'image/ktx2'. Valid values are ('image/jpeg', 'image/png').",
@@ -2182,7 +2432,7 @@
     "VALUE_NOT_IN_LIST: Invalid value 'image/ktx2'. Valid values are ('image/jpeg', 'image/png').",
     "VALUE_NOT_IN_LIST: Invalid value 'image/ktx2'. Valid values are ('image/jpeg', 'image/png').",
     "VALUE_NOT_IN_LIST: Invalid value 'image/ktx2'. Valid values are ('image/jpeg', 'image/png').",
-    "MESH_PRIMITIVE_GENERATED_TANGENT_SPACE: Material requires a tangent space but the mesh primitive does not provide it. Runtime-generated tangent space may be non-portable across implementations."
+    "VALUE_NOT_IN_LIST: Invalid value 'image/ktx2'. Valid values are ('image/jpeg', 'image/png')."
    ]
   },
   "tags": [
@@ -2270,29 +2520,36 @@
    {
     "name": "game_label_01",
     "mime": "image/ktx2",
-    "size": "256x256",
-    "kb": 11,
+    "size": "512x476",
+    "kb": 225,
     "gpu_safe": true
    },
    {
     "name": "game_label_02",
     "mime": "image/ktx2",
-    "size": "256x256",
-    "kb": 11,
+    "size": "512x476",
+    "kb": 150,
     "gpu_safe": true
    },
    {
     "name": "game_label_03",
     "mime": "image/ktx2",
-    "size": "256x256",
-    "kb": 10,
+    "size": "512x476",
+    "kb": 187,
     "gpu_safe": true
    },
    {
     "name": "game_label_04",
     "mime": "image/ktx2",
-    "size": "256x256",
-    "kb": 9,
+    "size": "512x476",
+    "kb": 183,
+    "gpu_safe": true
+   },
+   {
+    "name": "game_label_05",
+    "mime": "image/ktx2",
+    "size": "512x476",
+    "kb": 218,
     "gpu_safe": true
    },
    {
@@ -2306,7 +2563,7 @@
     "name": "crate_ao",
     "mime": "image/ktx2",
     "size": "512x512",
-    "kb": 103,
+    "kb": 104,
     "gpu_safe": true
    },
    {
@@ -2321,15 +2578,15 @@
  },
  {
   "file": "games_collection_webp.glb",
-  "mb": 0.12,
+  "mb": 0.37,
   "nodes": 18,
-  "meshes": 6,
+  "meshes": 7,
   "draw_calls": 11,
   "triangles": 820,
-  "materials": 6,
-  "textures": 7,
-  "texture_mb_download": 0.1,
-  "gpu_texture_mb": 5.3,
+  "materials": 7,
+  "textures": 8,
+  "texture_mb_download": 0.35,
+  "gpu_texture_mb": 10.2,
   "validator": {
    "errors": 0,
    "warnings": 1,
@@ -2422,29 +2679,36 @@
    {
     "name": "game_label_01",
     "mime": "image/webp",
-    "size": "256x256",
-    "kb": 2,
+    "size": "512x476",
+    "kb": 68,
     "gpu_safe": true
    },
    {
     "name": "game_label_02",
     "mime": "image/webp",
-    "size": "256x256",
-    "kb": 2,
+    "size": "512x476",
+    "kb": 40,
     "gpu_safe": true
    },
    {
     "name": "game_label_03",
     "mime": "image/webp",
-    "size": "256x256",
-    "kb": 1,
+    "size": "512x476",
+    "kb": 55,
     "gpu_safe": true
    },
    {
     "name": "game_label_04",
     "mime": "image/webp",
-    "size": "256x256",
-    "kb": 1,
+    "size": "512x476",
+    "kb": 34,
+    "gpu_safe": true
+   },
+   {
+    "name": "game_label_05",
+    "mime": "image/webp",
+    "size": "512x476",
+    "kb": 50,
     "gpu_safe": true
    },
    {

@@ -157,3 +157,18 @@ None of these were changed. Fixing them means editing the production repo, which
 4. Should the **teasers** be playable from the new game pages?
 5. May I copy your existing images, trailers and audio into the new site? They're your own files; only what's used would be copied, and only in Phase 10.
 6. Is the copy on the live site newer than the repository anywhere?
+
+## 9. Decisions (2026-11-04)
+- **Live site:**
+  - fix the share images; delete `POCKET-WILDS-REMOVAL.txt`;
+  - remove the playable teasers, `TEASER-BRIEFS.md` and the stray `videos/bid-and-buried.html`;
+  - delivered as a pull request you merge (branch `claude/site-fixes`, waiting for the Claude GitHub App on that repo).
+- **Crate:** the five most active games (Glass & Fortune, Bid & Buried, Speck, Pocket Wilds, DOQI).
+- **Other projects:**
+  - WRFM → the headphones;
+  - The Maze, Macabre Dolls and Juicebox → the pile of game boxes on the shelf;
+  - Graffiti → the sticky notes;
+  - Under the Radar stays a secret (found under the desk).
+- **Features kept:** entrance screen, background music, Studio Passport, cursor & hover effects, cartridge click.
+- **Teasers:** not playable on the new site. Trailer videos for active games are used.
+- **Media:** copy what's active and used (done in Phase 10, `app/media/`).

@@ -29,6 +29,7 @@ const POLICY = [
   { name: "normal maps",      slots: /normalTexture/, pattern: new RegExp(`^(?!${HERO})`), size: 512 },
   { name: "roughness",        slots: /metallicRoughnessTexture/, size: 512 },
   { name: "baked AO / glow",  slots: /occlusionTexture|emissiveTexture/, size: 1024 },
+  { name: "game case labels", slots: /baseColorTexture/, pattern: /^game_label/, size: 512 },   // small on screen
   { name: "base colour",      slots: /baseColorTexture/, size: 1024 },
 ];
 
