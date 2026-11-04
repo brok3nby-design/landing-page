@@ -88,6 +88,10 @@ async function load(name, variant = "") {
   $("loading").textContent = "loading…";
   if (model) { scene.remove(model); model.traverse((o) => o.geometry && o.geometry.dispose()); }
   views = views || await loadJSON("./models/views.json");
+  const avail = await loadJSON("./models/available.json");
+  const rawOpt = $("variant").querySelector('option[value="raw/"]');
+  if (avail && !avail.raw) { rawOpt.disabled = true; rawOpt.textContent = "raw export (not downloaded)"; }
+  if (rawOpt.disabled && variant === "raw/") variant = "";
   report = report || await loadJSON("./models/report.json");
   const t0 = performance.now();
   try {

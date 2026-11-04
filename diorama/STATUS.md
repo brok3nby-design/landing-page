@@ -10,11 +10,10 @@ Phases 1–3 are approved and locked. See [EXPORTS.md](EXPORTS.md) (files, measu
 - **Desk:** 122 draw calls (was ~307 objects), 83k triangles, ~20 MB GPU texture memory (raw export: ~92 MB).
 - **Hybrid lighting:** baked AO + baked practical glow on UV set 1, plus runtime key/fill/rims in the browser.
 - **Browser preview** (technical, not the website): `diorama/preview/`. Screenshots and comparisons are in `renders/phase4/`.
-- **Launch the viewer locally:**
-  ```bash
-  cd diorama/preview && npm install && npm run dev
-  ```
-  Then open the printed `http://127.0.0.1:5173/` URL. The raw (unoptimised) files must exist in `exports/raw/` for the "raw export" option; rebuild them with `export.py`.
+- **Launch the viewer on your own computer:** first download the project (git clone of `brok3nby-design/landing-page`, branch `claude/new-session-zkgerx`), then run `npm install` and `npm run dev` inside `diorama/preview`.
+  - **Windows:** step-by-step guide in [preview/WINDOWS.md](preview/WINDOWS.md).
+  - **macOS/Linux:** `cd landing-page/diorama/preview && npm install && npm run dev`.
+  - The "raw export" option only works where `export.py` has been run; it's disabled otherwise.
 **Project direction:** the diorama is the homepage exhibit of a larger interactive 3D studio website. See
 [PROJECT_DIRECTION.md](PROJECT_DIRECTION.md) for the concept, page plan, shared viewer architecture and asset rules.
 The website itself is **not started** (future phase).
