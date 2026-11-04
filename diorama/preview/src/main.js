@@ -21,7 +21,7 @@ const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, preserveDraw
 renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 renderer.outputColorSpace = THREE.SRGBColorSpace;
 renderer.toneMapping = THREE.AgXToneMapping;
-renderer.toneMappingExposure = 1.0;
+renderer.toneMappingExposure = 0.92;
 renderer.shadowMap.enabled = true;
 renderer.shadowMap.type = THREE.PCFSoftShadowMap;
 renderer.info.autoReset = false;      // count every pass of the composer, reset once per frame
@@ -39,7 +39,7 @@ controls.dampingFactor = 0.08;
 
 const composer = new EffectComposer(renderer);
 composer.addPass(new RenderPass(scene, camera));
-const bloom = new UnrealBloomPass(new THREE.Vector2(1, 1), 0.38, 0.55, 0.96);   // strength, radius, threshold
+const bloom = new UnrealBloomPass(new THREE.Vector2(1, 1), 0.16, 0.4, 0.97);   // subtle: only LEDs, lamp, screens   // strength, radius, threshold
 composer.addPass(bloom);
 composer.addPass(new OutputPass());
 

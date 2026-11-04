@@ -73,3 +73,25 @@
   - Playwright screenshot suite.
 - **Verified in headless Chromium:** all three models load with correct scale and orientation, from default, back, side and under angles. Picking resolves the right ids, the artwork swap works on the mug, a game label and the left screen, and the hybrid lighting comparison is captured.
 - **Docs:** EXPORTS.md, EASTER_EGGS.md, `data/interactions.json` rewritten as navigation/discovery, PROJECT_DIRECTION roadmap (11 phases) and staging rules.
+
+## Phase 4 follow-up (2026-11-04)
+- The preview's bloom was reduced (strength 0.38 → 0.16, threshold 0.97) and its exposure lowered to 0.92, per feedback that it was too bright.
+- Added a Windows quick-start for the preview (`diorama/preview/WINDOWS.md`). The raw-export option is disabled when the raw files aren't present.
+
+## Phase 5 — local website prototype (2026-11-04)
+- New `app/` (React 19, Vite 6, React Three Fiber 9, drei 10, postprocessing, React Router 7, self-hosted fonts). It is local only: no deployment, DNS or Pages changes.
+- Layout and identity: `#080808`, white and grey type, deep-red accents. Content left, exhibit right; stacked on mobile.
+- Shared `<Exhibit>` viewer driven by per-page config.
+  - **Loading:** lazy 3D chunk, KTX2 + meshopt GLB, runtime key/fill/rims over the baked AO and glow, room-environment reflections, AgX tone mapping, subtle bloom.
+  - **Camera:** CameraControls with damping, limits and colliders; focus transitions that frame the object clear of the panel; reset; look-underneath with an inspection light.
+  - **Selection:** scope-aware hover and select that ignores drags. Info panels come from `interactions.json`; the crate panel has EXPLORE GAMES → /games.
+- Accessibility: hotspot button list, keyboard camera control, panel focus management, Esc, skip link, reduced motion, image fallback and Image-view toggle.
+- The canvas clear colour is compensated (`#111111`) so the tone-mapped background exactly matches the page's `#080808` (measured).
+- GitHub Pages-compatible static route pages + 404, and a `SITE_BASE` build option.
+- Automated browser test (`npm run test:browser`), all passing with no console errors:
+  - crate click → panel and EXPLORE GAMES;
+  - a drag doesn't select;
+  - the keyboard path;
+  - direct routes and 404;
+  - mobile scroll;
+  - the fallback.

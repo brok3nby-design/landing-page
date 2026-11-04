@@ -1,6 +1,7 @@
 # STATUS — Miniature Developer Desk diorama
 
-**Current phase:** Phase 4 (web-ready assets) — complete, **awaiting your approval**. Phase 5 (local website prototype) is NOT started.
+**Current phase:** Phase 5 (local website prototype, `app/`) — complete, **awaiting your approval**. Phase 6 (Games and About pages) is NOT started.
+Phase 4 was approved. Run the prototype with the steps in [../app/README.md](../app/README.md). Browser test results are in `renders/phase5/`.
 Phases 1–3 are approved and locked. See [EXPORTS.md](EXPORTS.md) (files, measurements), [EASTER_EGGS.md](EASTER_EGGS.md),
 `data/interactions.json` (interaction map) and [PROJECT_DIRECTION.md](PROJECT_DIRECTION.md) (revised 11-phase roadmap, staging rules).
 

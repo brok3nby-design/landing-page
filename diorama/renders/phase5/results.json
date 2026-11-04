@@ -1,0 +1,28 @@
+{
+ "desktop_ready_ms": 4214,
+ "crate_click": {
+  "selected": "games_crate",
+  "panel": "The Collection",
+  "button": "EXPLORE GAMES",
+  "href": "/games"
+ },
+ "drag_selects": null,
+ "keyboard_hotspot": {
+  "selected": "headphones",
+  "focused": "panel-title",
+  "panel": "WRFM"
+ },
+ "after_shot": {
+  "selected": "headphones",
+  "panel": true
+ },
+ "explore_games_url": "http://127.0.0.1:4180/games",
+ "direct_routes": {
+  "/about": "About",
+  "/contact": "Contact",
+  "/does-not-exist": "Not found"
+ },
+ "mobile_scrollable": true,
+ "fallback_img": "A handcrafted miniature developer desk on a wooden display base: two glowing monitors, a gaming chair with a red plaid blanket, shelves with plants, books and collectible figures, and a crate of game cartridges under the desk.",
+ "errors": []
+}
