@@ -5,11 +5,11 @@ Collision pairs checked: 6 group pairs, 0 overlaps
   CHAIR                  38 objects
   MONITORS               18 objects
   SHELVES                12 objects
-  LIGHTS                  4 objects
-  PROPS                 160 objects
+  LIGHTS                  6 objects
+  PROPS                 161 objects
   COLLECTIBLES           44 objects
-  INTERACTIVE_TARGETS     7 objects
-  CAMERAS                 7 objects
+  INTERACTIVE_TARGETS    12 objects
+  CAMERAS                 9 objects
 Overall size (m): 2.50 W x 2.00 D x 1.89 H
 Mesh objects: 285, evaluated triangles (with bevels): 80,560
 Problems:
