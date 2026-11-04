@@ -108,8 +108,8 @@ The renders also serve as the loading image and the non-3D fallback.
 | 3 | Materials and cinematic lighting | ✅ done |
 | 4 | Web-ready assets: desk, crate and notebook GLBs; bakes; optimisation; tags; browser preview | ✅ done (approved) |
 | 5 | Local website prototype: React layout, shared viewer, black/white/red identity, the desk with rotation, zoom, focus and selection | ✅ done (approved) |
-| 6 | Connected pages: Games (crate) and About (notebook), panels, navigation, basic animations | ✅ done, awaiting approval |
-| 7 | Visual refinement: browser lighting and materials vs the Blender references, transitions, performance | — |
+| 6 | Connected pages: Games (crate) and About (notebook), panels, navigation, basic animations | ✅ done (approved) |
+| 7 | Visual refinement: browser lighting and materials vs the Blender references, transitions, performance; camera fix | ✅ done, awaiting approval |
 | 8 | Private development and staging tests: desktop and mobile; never affects production | — |
 | 9 | Existing website audit: content inventory, game-by-game asset checklist, migration plan, URL preservation | — |
 | 10 | Content implementation: approved content, game exhibits, more navigation objects, Easter eggs | — |

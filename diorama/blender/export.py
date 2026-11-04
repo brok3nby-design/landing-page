@@ -3,6 +3,7 @@
 Usage (repository root):
     diorama/.venv/bin/python diorama/blender/export.py [--ao-samples 128] [--glow-samples 256]
                                                        [--atlas 2048] [--only desk,crate,notebook]
+                                                       [--tag phase7]   (names the intermediate .blend files)
 
 Produces in diorama/exports/raw/:
     studio_desk.glb        complete diorama (homepage)
@@ -162,13 +163,19 @@ def merge_static(root):
         key = tuple(m.name if m else "none" for m in o.data.materials)
         groups.setdefault(key, []).append(o)
     merged = []
+    # Flatten EVERYTHING that is about to be joined, and every child of it, to world space before the
+    # first join. Joining deletes the source objects: a child whose parent was joined away (e.g. the
+    # pencils in the copper pencil cup) would otherwise lose its parent transform and fall to the origin.
+    bpy.context.view_layer.update()
+    joining = [o for objs in groups.values() if len(objs) >= 2 for o in objs]
+    affected = set(joining) | {c for o in joining for c in o.children}
+    mws = {o: o.matrix_world.copy() for o in affected}
+    for o in affected:
+        o.parent = None if o in joining else root
+        o.matrix_world = mws[o]
     for key, objs in groups.items():
         if len(objs) < 2:
             continue
-        mws = {o: o.matrix_world.copy() for o in objs}
-        for o in objs:                       # flatten to world space before joining
-            o.parent = None
-            o.matrix_world = mws[o]
         select_only(objs)
         with ctx(objs):
             bpy.ops.object.join()
@@ -375,6 +382,7 @@ def main():
     ap.add_argument("--glow-samples", type=int, default=256)
     ap.add_argument("--atlas", type=int, default=2048, help="bake resolution (stored at half)")
     ap.add_argument("--only", default="desk,crate,notebook")
+    ap.add_argument("--tag", default="phase4", help="name of the intermediate .blend files (never overwrite approved ones)")
     args = ap.parse_args()
     only = set(args.only.split(","))
     os.makedirs(RAW, exist_ok=True)
@@ -386,7 +394,7 @@ def main():
     if problems:
         print("\n".join(problems))
     build.setup_render(32)
-    src = os.path.join(ROOT, "source", "diorama_phase4.blend")
+    src = os.path.join(ROOT, "source", f"diorama_{args.tag}.blend")
     bpy.ops.wm.save_as_mainfile(filepath=src, compress=True)
     bpy.ops.file.make_paths_relative()
     bpy.ops.wm.save_mainfile(compress=True)
@@ -407,7 +415,7 @@ def main():
                                        glow=True, hide=cases)
         objs = [o for o in bpy.data.objects if o.type in ('MESH', 'EMPTY')]
         report["desk_after"] = stats(objs)
-        bpy.ops.wm.save_as_mainfile(filepath=os.path.join(ROOT, "source", "diorama_phase4_web.blend"), compress=True)
+        bpy.ops.wm.save_as_mainfile(filepath=os.path.join(ROOT, "source", f"diorama_{args.tag}_web.blend"), compress=True)
         report["desk_glb_bytes"] = export_glb(os.path.join(RAW, "studio_desk.glb"), objs)
 
     if "crate" in only:

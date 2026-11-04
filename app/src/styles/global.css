@@ -115,3 +115,24 @@ a { color: inherit; }
 @media (prefers-reduced-motion: reduce) {
   * { animation: none !important; transition: none !important; }
 }
+
+/* ?frame=CAM_x comparison mode (tests only): the exhibit canvas fills the window, no UI */
+.frame-only .exhibit-canvas { position: fixed; inset: 0; z-index: 1000; background: #080808; }
+.frame-only .hint, .frame-only .exhibit-tools, .frame-only .header, .frame-only .panel { display: none !important; }
+.fps { position: absolute; left: 12px; top: 12px; z-index: 3; font: 11px/1.4 ui-monospace, monospace; color: #9a9a9a;
+       background: rgba(0,0,0,.6); padding: 4px 8px; pointer-events: none; }
+
+/* ---------- page transitions (View Transitions API, where supported: a soft crossfade; the header
+   stays put). Older browsers keep the simple .route fade-in. ---------- */
+@supports (view-transition-name: none) {
+  .route { animation: none; }
+  .header { view-transition-name: site-header; }
+  ::view-transition-old(root) { animation: vt-out .32s ease both; }
+  ::view-transition-new(root) { animation: vt-in .5s ease .08s both; }
+}
+@keyframes vt-out { to { opacity: 0; } }
+@keyframes vt-in { from { opacity: 0; transform: translateY(6px); } }
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-old(root), ::view-transition-new(root) { animation: none; }
+  .route, .panel { animation: none; }
+}

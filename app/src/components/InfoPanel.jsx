@@ -20,7 +20,7 @@ export default function InfoPanel({ item, onClose }) {
       <h2 id="panel-title" tabIndex={-1} ref={ref}>{panel?.title || item.label}</h2>
       {panel?.text && <p>{panel.text}</p>}
       {button && (button.route
-        ? <Link className="btn primary" to={button.route}>{button.label}</Link>
+        ? <Link viewTransition className="btn primary" to={button.route}>{button.label}</Link>
         : <span className="btn" aria-disabled="true">{button.label} · soon</span>)}
     </aside>
   );

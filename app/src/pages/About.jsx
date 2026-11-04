@@ -32,8 +32,8 @@ export default function About() {
           </ul>
         </div>
         <div className="ctas">
-          <Link className="btn" to="/contact">Get in touch</Link>
-          <Link className="btn" to="/">Back to the studio</Link>
+          <Link viewTransition className="btn" to="/contact">Get in touch</Link>
+          <Link viewTransition className="btn" to="/">Back to the studio</Link>
         </div>
       </section>
       <Exhibit config={page.exhibit} selectedId={selectedId} onSelect={select} animState={{ open }}

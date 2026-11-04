@@ -1,6 +1,6 @@
 // Automated browser check of the local prototype (headless Chromium, software WebGL):
 // desktop + mobile screenshots, click-to-select on the crate, panel + EXPLORE GAMES link,
-// keyboard path (hotspot buttons), routes, and the no-WebGL fallback. Output: diorama/renders/phase5/.
+// keyboard path (hotspot buttons), routes, camera sweeps, and the no-WebGL fallback. Output: diorama/renders/phase7/.
 import http from "node:http";
 import fs from "node:fs";
 import path from "node:path";
@@ -13,7 +13,7 @@ catch { ({ chromium } = await import(pathToFileURL(path.join(execSync("npm root 
 
 const APP = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const DIST = path.join(APP, "dist");
-const OUT = path.resolve(APP, "..", "diorama", "renders", "phase6");
+const OUT = path.resolve(APP, "..", "diorama", "renders", "phase7");
 fs.mkdirSync(OUT, { recursive: true });
 const TYPES = { ".html": "text/html", ".js": "text/javascript", ".css": "text/css", ".json": "application/json",
                 ".wasm": "application/wasm", ".png": "image/png", ".woff2": "font/woff2", ".woff": "font/woff", ".glb": "model/gltf-binary" };
@@ -38,7 +38,15 @@ async function openHome(page, q = "?test", route = "/") {
 async function frames(page, n = 25) {           // demand mode: advance the camera transition
   for (let i = 0; i < n; i++) { await page.evaluate(() => window.__exhibit.invalidate()); await page.waitForTimeout(60); }
 }
-async function shot(page, file) { await frames(page, 3); await page.waitForTimeout(900); await page.screenshot({ path: path.join(OUT, file), timeout: 120000 }); console.log("shot", file); }
+// wait until queued frames have drawn (software GL can need seconds per frame for close views)
+async function settle(page, max = 240) {
+  for (let i = 0; i < max; i++) {
+    const n = await page.evaluate(() => new Promise((r) => { let n = 0; const t = performance.now();
+      const f = () => { n++; if (performance.now() - t < 500) requestAnimationFrame(f); else r(n); }; requestAnimationFrame(f); }));
+    if (n > 15) return;
+  }
+}
+async function shot(page, file) { await frames(page, 3); await settle(page); await page.waitForTimeout(300); await page.screenshot({ path: path.join(OUT, file), timeout: 180000 }); console.log("shot", file); }
 
 // ---------- desktop
 const desk = await browser.newPage({ viewport: { width: 1600, height: 900 } });
@@ -94,10 +102,41 @@ await desk.waitForTimeout(500);
 results.explore_games_url = desk.url();
 await shot(desk, "games_placeholder.png");
 
-// look-underneath mode
+// camera regression (Phase 7): drag sweeps in normal and look-underneath mode. The camera must never
+// jump (the old raycast colliders teleported it ~7 m onto the pivot) or end up inside the model.
+const KEEP_OUT = [[[-1.25, -0.15, -1.0], [1.25, 0, 1.0]], [[-0.68, 0.72, -0.88], [0.92, 0.77, -0.16]],
+                  [[0.47, 0, -0.86], [0.91, 0.72, -0.16]], [[-0.7, 0.77, -0.88], [0.95, 1.74, -0.62]],
+                  [[-0.69, 0.31, -0.21], [0.05, 1.17, 0.48]]];
+async function sweep(page, moves) {
+  const r = await page.evaluate(() => document.querySelector(".exhibit-canvas canvas").getBoundingClientRect().toJSON());
+  const cx = r.left + r.width * 0.55, cy = r.top + r.height * 0.5;
+  let prev = (await page.evaluate(() => window.__exhibit.camera())).p, worst = 0, inside = 0;   // worst: step / distance
+  for (const [dx, dy, wheel] of moves) {
+    await page.mouse.move(cx, cy);
+    if (wheel) await page.mouse.wheel(0, wheel);
+    else { await page.mouse.down(); await page.mouse.move(cx + dx, cy + dy, { steps: 3 }); await page.mouse.up(); }
+    await frames(page, 4);
+    await settle(page);
+    const { p, t } = await page.evaluate(() => window.__exhibit.camera());
+    const dist = Math.hypot(p[0] - t[0], p[1] - t[1], p[2] - t[2]);
+    worst = Math.max(worst, Math.hypot(p[0] - prev[0], p[1] - prev[1], p[2] - prev[2]) / Math.max(dist, 0.05));
+    if (KEEP_OUT.some(([a, b]) => p.every((v, k) => v > a[k] && v < b[k]))) inside++;
+    prev = p;
+  }
+  return { steps: moves.length, worst_step_vs_distance: +worst.toFixed(3), frames_inside_model: inside };
+}
 await openHome(desk);
+const rep = (n, m) => Array.from({ length: n }, () => m);
+results.camera_normal = await sweep(desk, [...rep(6, [0, -40]), ...rep(6, [60, 0]), ...rep(4, [0, 0, -300]), ...rep(6, [0, 40])]);
 await desk.locator("button.tool", { hasText: "Look underneath" }).click();
-await desk.evaluate(() => window.__exhibit.select(null));
+await desk.evaluate(() => window.__exhibit.invalidate());
+await settle(desk);
+await shot(desk, "home_under_view.png");
+results.camera_under = await sweep(desk, [...rep(8, [0, -18]), ...rep(8, [25, 0]), ...rep(4, [0, -18]), ...rep(8, [-25, 0])]);
+// a 40 px drag rotates ~0.35 rad (step/distance ~0.35); the old teleport was >> 1
+results.camera_ok = results.camera_normal.worst_step_vs_distance < 0.8 && results.camera_under.worst_step_vs_distance < 0.8 &&
+                    !results.camera_normal.frames_inside_model && !results.camera_under.frames_inside_model;
+await desk.close();                     // free the CPU: software GL is slow for close-up under-views
 results.direct_routes = {};
 for (const r of ["/about", "/contact", "/does-not-exist"]) {
   const p2 = await browser.newPage();

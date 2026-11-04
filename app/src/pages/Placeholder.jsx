@@ -10,7 +10,7 @@ export default function Placeholder({ page }) {
         <p className="eyebrow">{p.eyebrow}</p>
         <h1 className="title">{p.title}</h1>
         <p className="intro">{p.intro}</p>
-        <div className="ctas"><Link className="btn" to="/">Back to the studio</Link></div>
+        <div className="ctas"><Link viewTransition className="btn" to="/">Back to the studio</Link></div>
       </section>
       <section className="exhibit" aria-hidden={!p.fallback}>
         {p.fallback && (

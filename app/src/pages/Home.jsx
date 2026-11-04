@@ -20,7 +20,7 @@ export default function Home() {
         <h1 className="title">BROK3N<br />BY DESIGN<span className="accent">.</span></h1>
         <p className="intro">{page.intro}</p>
         <div className="ctas">
-          {page.ctas.map((c) => <Link key={c.to} to={c.to} className={`btn${c.primary ? " primary" : ""}`}>{c.label}</Link>)}
+          {page.ctas.map((c) => <Link viewTransition key={c.to} to={c.to} className={`btn${c.primary ? " primary" : ""}`}>{c.label}</Link>)}
         </div>
         <div className="hotspots">
           <h2 id="explore">Explore the desk</h2>

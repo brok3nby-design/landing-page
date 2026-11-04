@@ -1,4 +1,4 @@
-# BROK3N BY DESIGN — website prototype (Phases 5–6)
+# BROK3N BY DESIGN — website prototype (Phases 5–7)
 
 A **local prototype** of the new interactive 3D studio site. It is completely separate from the production website:
 no hosting, DNS or GitHub Pages settings are touched, and nothing is deployed.
@@ -23,7 +23,7 @@ cd landing-page/app && npm install && npm run dev
 - **Layout:** near-black `#080808`, white and grey type (Inter + Cormorant Garamond, self-hosted), deep-red accents. Text on the left, exhibit on the right; stacked on mobile.
 - **Shared exhibit viewer** (`src/exhibit/`), configured per page in `src/content/site.js`: model, scope, camera view, fallback image, colliders, hotspots.
   - The 3D code is lazy-loaded (a separate chunk), so the page text appears immediately.
-  - **Navigating the model:** drag/touch to rotate, wheel/pinch to zoom, damping, polar and zoom limits, invisible colliders (platform, desktop, cabinet). **Reset view** and **Look underneath** (wider angle plus an inspection light).
+  - **Navigating the model:** drag/touch to rotate, wheel/pinch to zoom, damping, polar and zoom limits. Invisible keep-out boxes (platform, desktop, cabinet, shelf unit, chair) make the camera slide along surfaces instead of passing through them (Phase 7). **Reset view** and **Look underneath** (orbits a pivot under the desktop, plus an inspection light).
   - **Selecting objects:**
     - hover highlight in subtle deep red;
     - click/tap selection that ignores drags;
@@ -46,13 +46,18 @@ cd landing-page/app && npm install && npm run dev
   - the notebook opens on arrival, with an Open/Close toggle;
   - the left page, right page and bookmark are clickable (made clickable by page config, no re-export).
 - **Game pages (`/games/<id>`):** one per game in `games.json`, with sections to fill after the audit; unknown ids show not found.
+- **Phase 7 (visual refinement):**
+  - browser lighting copied from the Blender light rigs and checked against the Cycles renders;
+  - soft shadows, sharper textures (anisotropic filtering), page crossfades, canvas fade-in and a gentle intro camera move;
+  - on-demand rendering (no GPU work while the view is still) and step-wise adaptive quality.
+  - Add **`?fps`** to the address (e.g. http://127.0.0.1:5180/?fps) for an overlay with frame rate (while moving), draw calls, triangles and quality level.
 - **Not yet:** Projects, WRFM and Contact are placeholder pages. Each game's own miniature exhibit is a future phase.
 
 ## Tests
 ```bash
 npm run test:browser
 ```
-This builds the site and drives headless Chromium. Results go to `diorama/renders/phase6/` (screenshots + `results.json`):
+This builds the site and drives headless Chromium. Results go to `diorama/renders/phase7/` (screenshots + `results.json`):
 - desktop and mobile screenshots;
 - crate click → panel → EXPLORE GAMES → /games;
 - drag doesn't select;
@@ -62,9 +67,16 @@ This builds the site and drives headless Chromium. Results go to `diorama/render
 - Games: case click → lift (11 cm) + panel + VIEW GAME, return on close, empty slot, keyboard list;
 - About: opens on arrival, page click → panel, close/open;
 - direct game routes;
-- a simulated GPU reset, and safe mode.
+- a simulated GPU reset, and safe mode;
+- camera sweeps (normal and look-underneath): no jumps, never inside the model.
 
-The `?test` URL flag renders on demand, for software-GL screenshots.
+Lighting comparison with the Blender renders (screenshots through the exact Blender cameras):
+```bash
+npm run build && node scripts/visual-compare.mjs && python3 ../diorama/tools/visual_compare.py
+```
+Tuning flags for that page mode: `?frame=CAM_Hero&k=1.2&fill=0.8&amb=0.5&rim=1&env=1&sr=7&con=0.12&sat=0.06`.
+
+The `?test` URL flag makes the canvas readable and skips the intro, for software-GL screenshots.
 
 ## Assets
 `npm run dev` / `npm run build` copy the latest GLBs, `views.json`, the interaction/game data and fallback renders from `diorama/` into `public/` (git-ignored). Re-export in Blender, then rebuild the site; no manual copying needed.

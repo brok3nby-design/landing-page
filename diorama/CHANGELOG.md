@@ -126,3 +126,33 @@
 - Static route pages for every game URL. New `blender/render_fallbacks.py` renders the About fallback image (`renders/phase6/notebook_fallback.png`).
 - **Fix:** leaving an exhibit page no longer reports a false "3D view stopped" (the viewer's own context teardown is ignored).
 - **Browser test** extended; all checks pass with no console errors.
+
+## Phase 7 — visual refinement, camera, transitions, performance (2026-11-04)
+- **Camera fix (reported: "choppy, and flips all over when looking under the desk"):**
+  - Cause, reproduced in headless Chrome: camera-controls' raycast colliders clamp the camera to the first hit from the pivot. The pivot sits on the desktop surface, so looking up from below, the hit was ~0 m away. The camera teleported 6.8 m onto the pivot and spun in place.
+  - Replaced with **sliding keep-out boxes**: platform, desktop, cabinet, monitors/shelf unit and chair. Each frame the camera is clamped to the face of the box it entered through, judged from where it was the frame before. It slides along surfaces and can't jump or tunnel through a thin slab. The orbit angle stays continuous (no wrap-around spins).
+  - The pivot can no longer wander off into empty space (target boundary = model bounds).
+  - **Look underneath** now orbits a pivot under the desktop, starting low at the front-right. It can go down to the floor, crawl under the desk, or go round the platform edge to see underneath it.
+  - Same drag sequence: largest jump 6.8 m → 0.16 m, frames inside the model: many → 0. New automated sweep test in `npm run test:browser`.
+- **Lighting matched to Cycles:**
+  - The runtime rigs are now copies of the Blender rigs in `parts/lights.py`: same key spot position, target and cone. Spot softness is converted from Blender's spot blend, so the pool of light falls off at the platform edges as in the renders.
+  - Fill, rims and ambient were re-balanced, and the reflection environment halved (it was adding flat fill light).
+  - Soft (PCF radius) shadows, and a light saturation grade closer to the AgX "Medium High Contrast" look. Contrast stays at 0: it crushed the `#080808` background to pure black.
+  - Result (`renders/phase7/compare_desk_final.png`, `compare_crate_final.png`, `compare_desk_before_after.png`):
+    - mean brightness of the desk 0.320 vs Cycles 0.334; top/bottom bands within 1%, middle 11% lower;
+    - saturation 0.286 vs 0.280;
+    - crate 0.286 vs 0.273.
+  - New comparison tools: `app/scripts/visual-compare.mjs` renders the site through the exact Blender cameras (`?frame=CAM_x`), and `diorama/tools/visual_compare.py` writes side-by-side sheets with luminance numbers (`renders/phase7/compare_*.png`).
+- **Sharper textures:** anisotropic filtering (8×) on all model textures. The rug, planks and desk grain stay crisp at grazing angles.
+- **Export fix:** merging static meshes deleted the copper pencil cup before its pencils were re-parented, so the pencils (and the red pencil and graphite stick) fell to the scene origin, on the rug by the chair. `merge_static` now flattens every affected object to world space before the first join. The desk was re-exported with `--tag phase7` (writes `source/diorama_phase7*.blend`; the approved Phase 4 files are untouched).
+- **Transitions:**
+  - page crossfade via the View Transitions API (header stays put), with a simple fade in other browsers;
+  - the 3D canvas fades in when its first frame is ready, and the camera eases in from slightly farther on first load;
+  - all of these are disabled under `prefers-reduced-motion`.
+- **Performance:**
+  - rendering is **on demand**: nothing is drawn while the view is still (lower GPU use, heat and battery). Animations, hover and camera moves request frames.
+  - new adaptive quality: busy-frame timing steps down to fewer pixels, then to no shadows/bloom. The old monitor misread idle on-demand rendering as slow.
+  - the pixel ratio is capped at 1.75;
+  - the inspection light is always mounted, so toggling "Look underneath" no longer recompiles every shader (that caused a visible hitch);
+  - `?fps` shows an overlay with frame rate, draw calls, triangles, pixel ratio and quality level.
+

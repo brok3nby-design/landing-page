@@ -26,14 +26,18 @@ export const PAGES = {
       model: "models/studio_desk.glb",
       scope: "home",
       view: "CAM_Hero",
+      lights: "desk",                // runtime copy of the Cycles desk rig (else the generic exhibit rig)
       fallback: "fallback/desk.png",
       fallbackAlt: "A handcrafted miniature developer desk on a wooden display base: two glowing monitors, a gaming chair with a red plaid blanket, shelves with plants, books and collectible figures, and a crate of game cartridges under the desk.",
-      underView: true,
-      // invisible camera colliders (glTF space, metres): platform, desktop, drawer cabinet
+      // "Look underneath": orbit a pivot under the desktop, starting low at the front-right
+      underView: { target: [0.0, 0.45, -0.45], distance: 2.4, elevation: -6 },
+      // camera keep-out boxes (glTF space, metres): the camera slides along these, never through them
       colliders: [
-        [[-1.25, -0.17, -1.0], [1.25, 0.0, 1.0]],
-        [[-0.68, 0.72, -0.88], [0.92, 0.76, -0.16]],
-        [[0.47, 0.0, -0.86], [0.91, 0.72, -0.2]],
+        [[-1.25, -0.15, -1.0], [1.25, 0.0, 1.0]],      // display platform
+        [[-0.68, 0.72, -0.88], [0.92, 0.77, -0.16]],   // desktop
+        [[0.47, 0.0, -0.86], [0.91, 0.72, -0.16]],     // drawer cabinet
+        [[-0.7, 0.77, -0.88], [0.95, 1.74, -0.62]],    // monitors + shelf unit
+        [[-0.69, 0.31, -0.21], [0.05, 1.17, 0.48]],    // chair
       ],
       // the navigation hotspots also offered as plain buttons (keyboard / screen-reader path)
       hotspots: ["games_crate", "notebook", "monitor_left", "headphones", "contact_card"],
@@ -47,6 +51,7 @@ export const PAGES = {
       model: "models/games_collection.glb",
       scope: "games",
       view: "CAM_Asset_GamesCrate",
+      frameOrigin: [0.33, 0.165, -0.48],   // where the crate sits in the desk scene (that camera's space)
       fallback: "fallback/crate.png",
       fallbackAlt: "A small wooden crate printed with a pixel creature, holding five game cartridges with pixel-art labels.",
       animation: "lift-turn",

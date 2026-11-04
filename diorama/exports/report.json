@@ -1,14 +1,14 @@
 [
  {
   "file": "raw/studio_desk.glb",
-  "mb": 19.9,
+  "mb": 19.88,
   "nodes": 170,
   "meshes": 120,
   "draw_calls": 122,
   "triangles": 83016,
   "materials": 90,
   "textures": 44,
-  "texture_mb_download": 15.83,
+  "texture_mb_download": 15.81,
   "gpu_texture_mb": 92,
   "validator": {
    "errors": 0,
@@ -362,7 +362,7 @@
     "name": "desk_glow",
     "mime": "image/png",
     "size": "1024x1024",
-    "kb": 510,
+    "kb": 500,
     "gpu_safe": true
    },
    {
@@ -376,7 +376,7 @@
     "name": "desk_ao",
     "mime": "image/png",
     "size": "1024x1024",
-    "kb": 549,
+    "kb": 538,
     "gpu_safe": true
    },
    {
@@ -673,14 +673,14 @@
  },
  {
   "file": "studio_desk.glb",
-  "mb": 8.56,
+  "mb": 8.54,
   "nodes": 172,
   "meshes": 114,
   "draw_calls": 122,
   "triangles": 83016,
   "materials": 89,
   "textures": 43,
-  "texture_mb_download": 7.19,
+  "texture_mb_download": 7.17,
   "gpu_texture_mb": 20.1,
   "validator": {
    "errors": 0,
@@ -1036,7 +1036,7 @@
     "name": "desk_glow",
     "mime": "image/ktx2",
     "size": "1024x1024",
-    "kb": 376,
+    "kb": 365,
     "gpu_safe": true
    },
    {
@@ -1050,7 +1050,7 @@
     "name": "desk_ao",
     "mime": "image/ktx2",
     "size": "1024x1024",
-    "kb": 559,
+    "kb": 548,
     "gpu_safe": true
    },
    {

@@ -7,11 +7,11 @@ export default function Layout() {
     <div className="site">
       <a className="skip" href="#main">Skip to content</a>
       <header className="header">
-        <Link to="/" className="wordmark" aria-label={`${BRAND} — home`}>{BRAND}</Link>
+        <Link viewTransition to="/" className="wordmark" aria-label={`${BRAND} — home`}>{BRAND}</Link>
         <nav className="nav" aria-label="Main">
           <ul>
             {NAV.map((n) => (
-              <li key={n.to}><NavLink to={n.to} end={n.end}>{n.label}</NavLink></li>
+              <li key={n.to}><NavLink viewTransition to={n.to} end={n.end}>{n.label}</NavLink></li>
             ))}
           </ul>
         </nav>

@@ -35,7 +35,7 @@ export default function Games() {
             })}
           </ul>
         </div>
-        <div className="ctas"><Link className="btn" to="/">Back to the studio</Link></div>
+        <div className="ctas"><Link viewTransition className="btn" to="/">Back to the studio</Link></div>
       </section>
       <Exhibit config={page.exhibit} selectedId={selectedId} onSelect={setSelectedId}>
         <InfoPanel item={item} onClose={close} />

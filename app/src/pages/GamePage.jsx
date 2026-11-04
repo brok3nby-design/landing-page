@@ -25,7 +25,7 @@ export default function GamePage() {
             <li>{g.links?.length ? `${g.links.length} link(s)` : "Store and social links"}</li>
           </ul>
         </div>
-        <div className="ctas"><Link className="btn" to="/games">Back to the collection</Link></div>
+        <div className="ctas"><Link viewTransition className="btn" to="/games">Back to the collection</Link></div>
       </section>
       <section className="exhibit" aria-label="Game exhibit (future)">
         <div className="fallback">
