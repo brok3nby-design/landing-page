@@ -2,6 +2,7 @@
 stacked game boxes. Plants and figurines live in their own modules."""
 from math import radians, pi
 import bmesh
+import bpy
 from mathutils import Vector
 
 from lib import geo, scene as S
@@ -41,8 +42,12 @@ def build(root, hutch):
         book(root, f"PROP_Book_{i}", slot, (w, d, h), (x + w / 2, uy, ut))
         x += w + 0.002
     # leaning book: rotated about Y, resting its corner on the shelf against the last book
-    book(root, "PROP_Book_Leaning", 5, (0.03, 0.14, 0.19), (x + 0.03, uy, ut + 0.003), rot=(0, radians(-16), 0),
-         rests_on=None)
+    lean = book(root, "PROP_Book_Leaning", 5, (0.03, 0.14, 0.19), (x + 0.03, uy, ut + 0.003),
+                rot=(0, radians(-16), 0), rests_on=None)
+    for i in range(5):
+        S.mark_interactive(bpy.data.objects[f"PROP_Book_{i}"], f"book_{i + 1}", "Optional discovery (placeholder)",
+                           kind="discovery")
+    S.mark_interactive(lean, "book_6", "Optional discovery (placeholder)", kind="discovery")
 
     # --- crystal cluster (hex prisms with pointed tips) on a dark rock
     cx, cy = -0.08, uy - 0.01

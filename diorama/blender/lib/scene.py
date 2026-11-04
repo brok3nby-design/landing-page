@@ -31,12 +31,15 @@ def empty(name, collection, loc=(0, 0, 0), rot=(0, 0, 0), parent=None, size=0.1)
     return obj
 
 
-def mark_interactive(obj, target_id, label, scope="home"):
+def mark_interactive(obj, target_id, label, scope="home", kind="navigation"):
     """Tag an object as clickable. Tags export to glTF as node 'extras'.
     scope: which website exhibit uses the tag ("home" = desk homepage, "games" = Games page).
+    kind: "navigation" (leads to a website section - always also reachable via normal links)
+          or "discovery" (optional reward: animation, message, hidden detail).
     A click on any child mesh resolves to the nearest ancestor carrying an interactive_id.
     The object is also linked into INTERACTIVE_TARGETS for easy selection in Blender."""
     obj["interactive_id"] = target_id
     obj["interactive_label"] = label
     obj["interactive_scope"] = scope
+    obj["interactive_kind"] = kind
     coll("INTERACTIVE_TARGETS").objects.link(obj)

@@ -95,7 +95,24 @@ def sticky_notes(root, top):
                 material=M(mat), parent=root, bevel=0.0003, seg=1, rests_on="DESK_Top")
 
 
+def card_holder(root, x, y, top):
+    """Small business-card holder (the Contact navigation object)."""
+    grp = S.empty("NAV_ContactCards", "PROPS", loc=(x, y, top), rot=(0, 0, radians(-8)), parent=root, size=0.04)
+    geo.box("NAV_ContactCards_Base", (0.072, 0.034, 0.004), collection="PROPS", material=M("metal_black"),
+            parent=grp, bevel=0.0012, rests_on="DESK_Top")
+    geo.box("NAV_ContactCards_Back", (0.072, 0.003, 0.026), loc=(0, 0.014, 0.004), rot=(radians(-14), 0, 0),
+            collection="PROPS", material=M("metal_black"), parent=grp, bevel=0.001)
+    for i in range(2):
+        c = geo.box(f"NAV_ContactCards_Card_{i}", (0.064, 0.0012, 0.038), loc=(0, 0.0095 - i * 0.002, 0.004),
+                    rot=(radians(-14), 0, 0), collection="PROPS", material=M("business_card"), parent=grp,
+                    bevel=0.0002, seg=1, uv="fit", fit_axis=1, shared="contact_card")
+        c["artwork_slot"] = "business_card"
+    S.mark_interactive(grp, "contact_card", "Contact", kind="navigation")
+    return grp
+
+
 def sketchbook(root, top):
+    """Phase 2/3 sketchbook (superseded by parts/notebook.py; kept for reference)."""
     grp = S.empty("PROP_Notebook", "PROPS", loc=(0.66, 0.33, top), rot=(0, 0, radians(9)), parent=root)
     W, D = 0.30, 0.21
     geo.box("PROP_Notebook_Cover", (W + 0.01, D + 0.01, 0.003), collection="PROPS",
@@ -191,6 +208,7 @@ def emblem(name, parent, loc, rot, r, collection="PROPS"):
 
 def headphones(root, x, y, z):
     grp = S.empty("PROP_Headphones_Stand", "PROPS", loc=(x, y, z), parent=root)
+    S.mark_interactive(grp, "headphones", "WRFM / audio experience", kind="navigation")
     geo.lathe("PROP_HPStand_Base", [(0, 0), (0.055, 0), (0.055, 0.008), (0.045, 0.014), (0, 0.014)],
               collection="PROPS", material=M("metal_black"), parent=grp, segments=32, rests_on="SHELF_Riser")
     pole_h = 0.29
@@ -248,11 +266,12 @@ def build(root, desk, hutch):
     geo.lathe("PROP_Coaster", [(0, 0), (0.05, 0), (0.05, 0.005), (0, 0.005)], loc=(0.36, 0.43, top),
               material=M("cork"), parent=root, segments=32, rests_on="DESK_Top")
     m = mug(root, 0.36, 0.43, top + 0.005, rot_z=0.0, rests_on="PROP_Coaster")
-    S.mark_interactive(m, "mug", "Easter egg (placeholder)")
+    S.mark_interactive(m, "mug", "Optional humorous interaction (placeholder)", kind="discovery")
     steam(m)
-    note = sketchbook(root, top)
+    from parts import notebook
+    notebook.build(root, (0.66, 0.33, top))
     sticky_notes(root, top)
-    S.mark_interactive(note, "notebook", "About / process (placeholder)")
+    card_holder(root, 0.605, 0.552, top)
     pencil_cup(root, "PROP_PencilCup", 0.52, 0.53, top, "copper",
                [("pencil_yellow", 0.15, 8, 30), ("pencil_red", 0.14, 12, 150), ("pencil_yellow", 0.16, 6, 260),
                 ("graphite", 0.13, 14, 200), ("pencil_yellow", 0.15, 10, 330)])

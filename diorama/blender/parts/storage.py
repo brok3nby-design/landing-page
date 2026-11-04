@@ -63,8 +63,8 @@ def games_crate(parent, loc, rests_on=None, collection="PROPS"):
                       material=lbl_mat, parent=case, bevel=0, uv="fit", fit_axis=1)
         lbl["artwork_slot"] = tex
         S.mark_interactive(case, f"game_slot_{slot:02d}", f"Game slot {slot} (metadata in games.json)",
-                           scope="games")
-    S.mark_interactive(nav, "games_crate", "Game collection -> EXPLORE GAMES", scope="home")
+                           scope="games", kind="navigation")
+    S.mark_interactive(nav, "games_crate", "Game collection -> EXPLORE GAMES", scope="home", kind="navigation")
     return nav
 
 

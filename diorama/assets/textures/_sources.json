@@ -1,8 +1,11 @@
 {
+ "business_card": "default",
  "game_label_01": "default",
  "game_label_02": "default",
  "game_label_03": "default",
  "game_label_04": "default",
  "game_label_05": "default",
- "mug": "default"
+ "maker_plate": "default",
+ "mug": "default",
+ "sticker_qa": "default"
 }

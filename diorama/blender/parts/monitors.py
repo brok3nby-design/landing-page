@@ -34,7 +34,7 @@ def build(root, riser_top):
                       loc=(0, -T / 2 - 0.0002, M_["lift"] + i + 0.012), collection="MONITORS",
                       material=M("screen_left" if side == "L" else "screen_right"), parent=grp,
                       bevel=0, uv="fit", fit_axis=1)
-        S.mark_interactive(scr, f"monitor_{'left' if side == 'L' else 'right'}", "Projects (placeholder)")
+        S.mark_interactive(scr, f"monitor_{'left' if side == 'L' else 'right'}", "Projects (placeholder)", kind="navigation")
         out[side] = grp
     # webcam clipped on top of the right monitor
     top = M_["lift"] + Hh

@@ -1,15 +1,22 @@
 {
-  "_note": "Maps interactive_id tags (stored on Blender objects, exported as glTF extras) to website behaviour. Kept separate from model generation. 'scope' says which exhibit uses the tag. Routes are internal site paths; external URLs are never invented - placeholders stay null until provided.",
-  "home": {
-    "games_crate":   { "object": "NAV_GamesCrate", "action": "focus+panel", "panel": { "title": "The Collection", "text": "PLACEHOLDER - introduction to the studio's game collection." }, "button": { "label": "EXPLORE GAMES", "route": "/games" } },
-    "monitor_left":  { "object": "MON_L_Screen", "action": "focus+panel", "panel": { "title": "Projects", "text": "PLACEHOLDER" }, "button": { "label": "VIEW PROJECTS", "route": null } },
-    "monitor_right": { "object": "MON_R_Screen", "action": "focus+panel", "panel": { "title": "Projects", "text": "PLACEHOLDER" }, "button": { "label": "VIEW PROJECTS", "route": null } },
-    "notebook":      { "object": "PROP_Notebook", "action": "focus+panel", "panel": { "title": "About / Process", "text": "PLACEHOLDER" }, "button": { "label": "ABOUT THE STUDIO", "route": null } },
-    "mug":           { "object": "PROP_Mug", "action": "easter-egg", "panel": null, "button": null },
-    "collectible_a": { "object": "COLL_FigureA", "action": "popover", "panel": { "title": "Collectible", "text": "PLACEHOLDER" }, "button": null },
-    "collectible_b": { "object": "COLL_FigureB", "action": "popover", "panel": { "title": "Collectible", "text": "PLACEHOLDER" }, "button": null }
+  "_note": "Maps interactive_id tags (Blender custom properties -> glTF node extras -> three.js object.userData) to website behaviour. Kept separate from model generation. kind: navigation = leads to a site section (always ALSO reachable through normal HTML links); discovery = optional reward, never needed to navigate. scope = which exhibit listens (home = desk homepage, games = Games page, about = About page). A click on any child mesh resolves to the nearest ancestor with an interactive_id. Routes are internal paths; external URLs are never invented (null until provided).",
+  "navigation": {
+    "games_crate":    { "scope": "home",  "object": "NAV_GamesCrate",        "action": "focus+panel", "panel": { "title": "The Collection", "text": "PLACEHOLDER" }, "button": { "label": "EXPLORE GAMES", "route": "/games" } },
+    "notebook":       { "scope": "home",  "object": "NAV_Notebook",          "action": "focus+panel", "panel": { "title": "The Notebook", "text": "PLACEHOLDER - about the studio and process" }, "button": { "label": "ABOUT THE STUDIO", "route": "/about" } },
+    "monitor_left":   { "scope": "home",  "object": "MON_L_Screen",          "action": "focus+panel", "panel": { "title": "Projects", "text": "PLACEHOLDER" }, "button": { "label": "VIEW PROJECTS", "route": null } },
+    "monitor_right":  { "scope": "home",  "object": "MON_R_Screen",          "action": "focus+panel", "panel": { "title": "Projects", "text": "PLACEHOLDER" }, "button": { "label": "VIEW PROJECTS", "route": null } },
+    "headphones":     { "scope": "home",  "object": "PROP_Headphones_Stand", "action": "focus+panel", "panel": { "title": "WRFM", "text": "PLACEHOLDER - audio experience" }, "button": { "label": "LISTEN", "route": null } },
+    "contact_card":   { "scope": "home",  "object": "NAV_ContactCards",      "action": "focus+panel", "panel": { "title": "Contact", "text": "PLACEHOLDER - contact details to be provided" }, "button": { "label": "GET IN TOUCH", "route": "/contact" } },
+    "game_slot_XX":   { "scope": "games", "object": "GAME_Case_XX",          "action": "lift+turn+panel", "data": "games.json (by game_slot)", "button": { "label": "VIEW GAME", "route": "from games.json" }, "close": "return case to its original transform" }
   },
-  "games": {
-    "game_slot_XX":  { "object": "GAME_Case_XX", "action": "lift+turn+panel", "data": "games.json (by slot)", "button": { "label": "VIEW GAME", "route": "from games.json" }, "close": "return case to its original transform" }
-  }
+  "discovery": {
+    "mug":            { "scope": "home", "object": "PROP_Mug",             "action": "easter-egg", "idea": "steam wisp spells something dry; or the mug quietly refills" },
+    "collectible_a":  { "scope": "home", "object": "COLL_FigureA",         "action": "popover",    "idea": "tiny wobble + caption" },
+    "collectible_b":  { "scope": "home", "object": "COLL_FigureB",         "action": "popover",    "idea": "raises the mug; caption" },
+    "book_1..book_6": { "scope": "home", "object": "PROP_Book_0..4, PROP_Book_Leaning", "action": "tilt-out + caption", "idea": "fake titles; one is suspiciously well-worn" },
+    "drawer_1..drawer_3": { "scope": "home", "object": "DESK_Drawer_N_Group", "action": "slide-out (future)", "idea": "needs a modeled drawer interior first" },
+    "egg_qa_sticker": { "scope": "home", "object": "EGG_UnderDesktop",     "action": "reveal",     "status": "test detail exists (under the desktop)" },
+    "egg_maker_plate":{ "scope": "home", "object": "EGG_UnderPlatform",    "action": "reveal",     "status": "test detail exists (under the platform)" }
+  },
+  "hiding_places": "EGG_* markers (egg_id extras) - see diorama/EASTER_EGGS.md"
 }

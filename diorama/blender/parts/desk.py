@@ -1,7 +1,7 @@
 """DESK: desktop, left metal sled frame, modesty panel, low storage shelf, drawer cabinet,
 LED strip, cable tray and power strip."""
 from config import DESK as D, CABINET as C, LOW_SHELF as L
-from lib import geo
+from lib import geo, scene as S
 from lib.library import M
 
 
@@ -54,18 +54,21 @@ def build(root):
     front_y = cab_y0 - 0.008
     for i, h in enumerate(C["drawer_heights"]):
         z -= h
+        # drawer group: origin at the front-bottom centre; slide it along local -Y to open later
+        dg = S.empty(f"DESK_Drawer_{i + 1}_Group", "DESK", loc=(cab_cx, front_y, z + C["gap"] / 2),
+                     parent=root, size=0.05)
         geo.box(f"DESK_Drawer_{i + 1}", (C["width"] - 0.026, 0.016, h - C["gap"]),
-                loc=(cab_cx, front_y, z + C["gap"] / 2), collection="DESK",
-                material=M("metal_dark"), parent=root, bevel=0.005, seg=3)
-        hz = z + h - 0.055
-        geo.cylinder(f"DESK_Drawer_{i + 1}_Handle", 0.006, 0.15, loc=(cab_cx - 0.075, front_y - 0.026, hz),
-                     rot=(0, 1.5708, 0), collection="DESK", material=M("brass"), parent=root,
+                collection="DESK", material=M("metal_dark"), parent=dg, bevel=0.005, seg=3)
+        hz = h - 0.055 - C["gap"] / 2
+        geo.cylinder(f"DESK_Drawer_{i + 1}_Handle", 0.006, 0.15, loc=(-0.075, -0.026, hz),
+                     rot=(0, 1.5708, 0), collection="DESK", material=M("brass"), parent=dg,
                      verts=12, bevel=0.001, shared="drawer_handle")
         for s in (-1, 1):
             geo.cylinder(f"DESK_Drawer_{i + 1}_Standoff_{'L' if s < 0 else 'R'}", 0.004, 0.019,
-                         loc=(cab_cx + s * 0.06, front_y - 0.008, hz), rot=(1.5708, 0, 0),
-                         collection="DESK", material=M("brass"), parent=root, verts=8, bevel=0,
+                         loc=(s * 0.06, -0.008, hz), rot=(1.5708, 0, 0),
+                         collection="DESK", material=M("brass"), parent=dg, verts=8, bevel=0,
                          shared="drawer_standoff")
+        S.mark_interactive(dg, f"drawer_{i + 1}", "Potential future interaction (placeholder)", kind="discovery")
         z -= C["gap"]
     geo.box("DESK_Cabinet_LED", (C["width"] - 0.04, 0.006, 0.004), loc=(cab_cx, cab_y0 + 0.01, top_z - 0.004),
             collection="DESK", material=M("led_amber"), parent=root, bevel=0)

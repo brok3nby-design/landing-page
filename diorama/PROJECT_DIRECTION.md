@@ -71,14 +71,48 @@ The Cycles renders set the quality bar. The real-time site gets as close as poss
 - quality tiers for weaker devices.
 The renders also serve as the loading image and the non-3D fallback.
 
-## Implementation order
-1. **Phase 2 — detailed modeling.** Complete, plus the low-risk reuse adjustments listed above.
-2. **Phase 3 — lighting, materials, visual polish.** Amber/purple desk mood, plus a reusable **exhibit spotlight rig** for standalone assets. Keep the miniature look.
-3. **Phase 4 — export.** `desk.glb` (homepage) and `games_crate.glb` (Games page), validated for scale, orientation, materials, names, extras, triangle and texture budgets, with compression measured.
-4. **Website phase — first interactive milestone.**
-   - Reusable viewer and site layout.
-   - Homepage desk with the clickable games crate, focus move, panel and EXPLORE GAMES.
-   - Games page with the standalone crate and selectable game cases, lift/turn, panel and VIEW GAME.
-5. **Later milestones.** Individual game exhibits, more interactive desk objects, richer transitions.
+## Assets (Phase 4)
+| Asset | File | Used on | Notes |
+|---|---|---|---|
+| Complete desk | `exports/studio_desk.glb` | Homepage | All navigation and discovery objects as separate tagged nodes |
+| Games crate | `exports/games_collection.glb` | Games page | Same crate as under the desk. `GAME_Case_01..05` keep animation-ready origins and per-game cover labels |
+| Notebook | `exports/studio_notebook.glb` | About page | Covers, page blocks and top pages are pivots on the spine (hinge axis Y), plus a bookmark and pen |
 
-Only one phase at a time; each phase ends with renders/evidence and a stop for approval.
+## Pages (updated)
+- **Home, The Studio:** left = branding, intro and navigation; right = the desk (main navigation hub).
+- **Games, The Collection:** left = intro; right = the standalone crate. A selected case lifts and turns, opens a panel, and **VIEW GAME** leads to its page.
+- **About, The Notebook:** left = studio and process; right = the notebook. It may open, show sketches and turn pages later.
+- **Individual game pages:** left = details, screenshots, video, release info and links; right = a unique exhibit (future modeling).
+- **Other pages:** reuse the same layout and viewer with other miniatures.
+
+## Camera and exploration (viewer requirements)
+- **Controls:** drag or touch to rotate, wheel or pinch to zoom, smooth focus on selected objects, reset, hover highlight, selection animations, info panels.
+- **Default view:** matches the Blender three-quarter renders (`views.json` → `CAM_Hero`).
+- **Controlled exploration:**
+  - sides, back and an **under-view** mode for looking under the desktop;
+  - limited polar angles, zoom limits, and a collision guard that keeps the camera out of the model;
+  - an inspection light in under-view;
+  - easy return to the default view.
+- **Click vs drag:** a click selects only if the pointer barely moved. Rotating never activates objects (prototyped in `preview/`).
+
+## Staging and production rules (strict)
+- **The new site is built and tested separately.** Do not modify the existing BROK3N BY DESIGN production site, its repository, its GitHub Pages config or the Namecheap DNS. Do not point the domain at the new site, and do not remove existing content.
+- **Local first:** development runs locally. A separate staging deployment (possible future `test.brok3nbydesign.com`) is configured **only with explicit authorisation**.
+- **Production:** replacing the production site requires explicit approval (Phase 11).
+
+## Revised roadmap
+| Phase | Scope | Status |
+|---|---|---|
+| 1 | Blockout | ✅ done |
+| 2 | Detailed modeling | ✅ done |
+| 3 | Materials and cinematic lighting | ✅ done |
+| 4 | Web-ready assets: desk, crate and notebook GLBs; bakes; optimisation; tags; browser preview | ✅ done, awaiting approval |
+| 5 | Local website prototype: React layout, shared viewer, black/white/red identity, the desk with rotation, zoom, focus and selection | next (not started) |
+| 6 | Connected pages: Games (crate) and About (notebook), panels, navigation, basic animations | — |
+| 7 | Visual refinement: browser lighting and materials vs the Blender references, transitions, performance | — |
+| 8 | Private development and staging tests: desktop and mobile; never affects production | — |
+| 9 | Existing website audit: content inventory, game-by-game asset checklist, migration plan, URL preservation | — |
+| 10 | Content implementation: approved content, game exhibits, more navigation objects, Easter eggs | — |
+| 11 | Final testing and optional launch, only with explicit approval | — |
+
+**Rule:** one phase at a time, each ending with evidence and a stop for approval. No custom artwork is requested before the Phase 9 audit identifies what's missing.

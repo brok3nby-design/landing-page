@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Diorama preview — Phase 4</title>
+  <style>
+    :root { --bg: #080808; --fg: #f2f2f2; --muted: #8a8a8a; --red: #a3151b; }
+    html, body { margin: 0; height: 100%; background: var(--bg); color: var(--fg);
+                 font: 13px/1.4 ui-monospace, SFMono-Regular, Menlo, monospace; overflow: hidden; }
+    #c { position: fixed; inset: 0; width: 100%; height: 100%; display: block; touch-action: none; }
+    #ui { position: fixed; top: 12px; left: 12px; width: 270px; background: rgba(8,8,8,.82); padding: 10px 12px;
+          border: 1px solid #222; z-index: 2; }
+    #ui h1 { font-size: 12px; letter-spacing: .12em; margin: 0 0 8px; color: var(--muted); font-weight: 600; }
+    #ui label { display: block; margin: 3px 0; cursor: pointer; }
+    #ui select, #ui button { background: #111; color: var(--fg); border: 1px solid #333; padding: 4px 6px; font: inherit;
+                             margin: 2px 2px 2px 0; cursor: pointer; }
+    #ui button:hover { border-color: var(--red); }
+    #stats { margin-top: 8px; color: var(--muted); white-space: pre; font-size: 11px; }
+    #pick { position: fixed; bottom: 12px; left: 12px; max-width: 420px; background: rgba(8,8,8,.9); border-left: 3px solid var(--red);
+            padding: 8px 12px; display: none; z-index: 2; white-space: pre-wrap; }
+    #loading { position: fixed; inset: 0; display: grid; place-items: center; color: var(--muted); z-index: 1; }
+    body.shot #ui, body.shot #pick { display: none !important; }
+  </style>
+</head>
+<body>
+  <canvas id="c"></canvas>
+  <div id="loading">loading…</div>
+  <div id="ui">
+    <h1>PHASE 4 · TECHNICAL PREVIEW</h1>
+    <select id="model">
+      <option value="studio_desk">studio_desk.glb</option>
+      <option value="games_collection">games_collection.glb</option>
+      <option value="studio_notebook">studio_notebook.glb</option>
+    </select>
+    <select id="variant"><option value="">optimised (KTX2)</option><option value="raw/">raw export</option></select>
+    <label><input type="checkbox" id="ao" checked> baked AO</label>
+    <label><input type="checkbox" id="glow" checked> baked practical glow</label>
+    <label><input type="checkbox" id="runtime" checked> runtime key / fill / rims</label>
+    <label><input type="checkbox" id="shadows" checked> key-light shadows</label>
+    <label><input type="checkbox" id="bloom" checked> bloom</label>
+    <label><input type="checkbox" id="under"> under-view (look beneath)</label>
+    <button id="reset">reset view</button><button id="swap">test artwork swap</button>
+    <div id="stats"></div>
+  </div>
+  <div id="pick"></div>
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>

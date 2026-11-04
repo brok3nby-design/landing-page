@@ -76,7 +76,7 @@ def figure_a(root, x, y, z):
         _eyes(grp, head_z + 0.040, 0.014, 0.0055, face_y)
         geo.curve_tube("COLL_FigureA_Staff", [(0.03, -0.03, 0.02), (0.035, -0.03, 0.15)], 0.003,
                        collection=C, material=M("wood_light"), parent=grp, ring=6, steps=1)
-    S.mark_interactive(grp, "collectible_a", "Collectible detail (placeholder)")
+    S.mark_interactive(grp, "collectible_a", "Collectible detail (placeholder)", kind="discovery")
     return grp
 
 
@@ -119,7 +119,7 @@ def figure_b(root, x, y, z):
         geo.box(f"COLL_FigureB_Brow_{'L' if s < 0 else 'R'}", (0.012, 0.003, 0.0028),
                 loc=(s * 0.015, face_y - 0.0005, head_z + 0.049), rot=(0, s * 0.15, 0), collection=C,
                 material=hair, parent=grp, bevel=0, shared="figb_brow")
-    S.mark_interactive(grp, "collectible_b", "Collectible detail (placeholder)")
+    S.mark_interactive(grp, "collectible_b", "Collectible detail (placeholder)", kind="discovery")
     return grp
 
 

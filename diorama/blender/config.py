@@ -89,4 +89,4 @@ ASSET_VIEWS = [
 ]
 
 # Files that must never be overwritten by a rebuild once you approve them.
-APPROVED_FILES = ["diorama_phase1.blend", "diorama_phase2.blend"]
+APPROVED_FILES = ["diorama_phase1.blend", "diorama_phase2.blend", "diorama_phase3.blend"]

@@ -45,6 +45,8 @@ SLOTS = [
          note="Left half = left page, right half = right page; centre is the binding."),
     dict(slot="crate_print", tex="crate", size=(1380, 600), where="Front (and back) of the games crate",
          note="Whole image visible; keep important art away from the edges."),
+    dict(slot="business_card", tex="business_card", size=(1050, 600), where="Business cards in the holder (Contact)",
+         note="Standard card shape (3.5 x 2 in). Front only."),
 ] + [
     dict(slot=f"book_spine_{i + 1}", tex="spines", part=i, size=(128, 768),
          where=f"Spine of book {i + 1} on the upper shelf (left to right; 6 = leaning book)",
@@ -62,7 +64,8 @@ SLOTS = [
 # swap images at runtime without re-exporting the model)
 OBJECTS = {
     "MON_L_Screen": "screen_left", "MON_R_Screen": "screen_right", "PROP_DeskMat": "deskmat",
-    "BASE_Rug": "rug", "CHAIR_Blanket": "blanket", "PROP_Notebook_Pages": "sketchbook",
+    "BASE_Rug": "rug", "CHAIR_Blanket": "blanket", "NOTE_Page_L_Sheet": "sketchbook",
+    "NOTE_Page_R_Sheet": "sketchbook",
     "NAV_GamesCrate_Body": "crate_print", "PROP_Book_Leaning": "book_spine_6",
     **{f"PROP_Book_{i}": f"book_spine_{i + 1}" for i in range(5)},
 }

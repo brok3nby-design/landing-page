@@ -23,7 +23,7 @@ import bpy  # noqa: E402
 import config  # noqa: E402
 from lib import scene as S, checks, camera, textures, mats, artwork  # noqa: E402
 from parts import (base, desk, hutch, monitors, chair, blanket, desk_props, shelf_props,  # noqa: E402
-                   plants, storage, cables, collectibles, lights)
+                   plants, storage, cables, collectibles, lights, discoveries)
 
 
 def build(retex=False):
@@ -44,6 +44,7 @@ def build(retex=False):
     crate = storage.build(root, d)
     cables.build(root, d, h)
     collectibles.build(root, h)
+    discoveries.build(root)
     lights.build(root)
     t = time.time()
     blanket.build(ch)
@@ -155,7 +156,7 @@ def render_assets(out_dir, only=None):
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("--phase", type=int, default=3)
+    ap.add_argument("--phase", type=int, default=4)
     ap.add_argument("--render", action="store_true")
     ap.add_argument("--samples", type=int, default=config.RENDER["samples"])
     ap.add_argument("--views", default="", help="comma list of view prefixes, e.g. 01,05")

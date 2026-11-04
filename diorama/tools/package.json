@@ -1,0 +1,19 @@
+{
+  "name": "diorama-tools",
+  "private": true,
+  "type": "module",
+  "description": "glTF optimisation + validation for the diorama web assets (dev tooling only)",
+  "scripts": {
+    "optimize": "node optimize.mjs",
+    "inspect": "node inspect.mjs"
+  },
+  "devDependencies": {
+    "@gltf-transform/core": "^4.5.1",
+    "@gltf-transform/extensions": "^4.5.1",
+    "@gltf-transform/functions": "^4.5.1",
+    "gltf-validator": "^2.0.0-dev.3.10",
+    "ktx2-encoder": "^0.6.0",
+    "meshoptimizer": "^1.3.0",
+    "sharp": "^0.35.5"
+  }
+}
