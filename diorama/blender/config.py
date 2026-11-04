@@ -64,5 +64,16 @@ VIEWS = [
 ]
 FRAME_FILL = 0.84   # model occupies at most this fraction of the frame -> negative space
 
+# Fan-art switch: True = figurines resemble the reference characters and the game logo appears
+# (figure base + headphones). False = generic figures, no logos. Object names stay identical.
+FAN_ART = True
+
+# Close-up views rendered in addition to VIEWS (target xyz, azimuth, elevation, lens, distance)
+CLOSEUPS = [
+    dict(name="CAM_Close_Desk",  file="05_close_desk.png",  target=(0.05, 0.45, 0.85), az=15, el=30, lens=60, dist=1.4),
+    dict(name="CAM_Close_Shelf", file="06_close_shelf.png", target=(0.05, 0.72, 1.55), az=10, el=12, lens=60, dist=1.5),
+    dict(name="CAM_Close_Chair", file="07_close_chair.png", target=(-0.32, -0.12, 0.62), az=25, el=22, lens=60, dist=1.7),
+]
+
 # Files that must never be overwritten by a rebuild once you approve them.
-APPROVED_FILES = []
+APPROVED_FILES = ["diorama_phase1.blend"]

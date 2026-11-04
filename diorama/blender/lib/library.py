@@ -1,0 +1,93 @@
+"""Named material library: one place to tune every surface in the scene."""
+from .mats import mat
+
+DEFS = {
+    # wood
+    "wood":          dict(tex="wood_desk", rough=0.5),
+    "wood_dark":     dict(tex="wood_dark", rough=0.55),
+    "wood_light":    dict(tex="wood_light", rough=0.6),
+    "planks":        dict(tex="planks", rough=0.6),
+    # metals / plastics
+    "metal_black":   dict(color=(0.025, 0.025, 0.028), rough=0.35, metal=0.8),
+    "metal_dark":    dict(color=(0.06, 0.055, 0.055), rough=0.45, metal=0.35),
+    "chrome":        dict(color=(0.6, 0.6, 0.62), rough=0.15, metal=1.0),
+    "brass":         dict(color=(0.85, 0.55, 0.28), rough=0.3, metal=1.0),
+    "copper":        dict(color=(0.75, 0.38, 0.2), rough=0.35, metal=1.0),
+    "plastic_black": dict(color=(0.018, 0.018, 0.022), rough=0.45),
+    "plastic_grey":  dict(color=(0.12, 0.12, 0.13), rough=0.5),
+    "rubber":        dict(color=(0.02, 0.02, 0.02), rough=0.85),
+    "cable":         dict(color=(0.012, 0.012, 0.014), rough=0.55),
+    # emissive
+    "screen_left":   dict(color=(0.0, 0.0, 0.0), rough=0.12, emit_tex="screen_left", strength=1.6),
+    "screen_right":  dict(color=(0.0, 0.0, 0.0), rough=0.12, emit_tex="screen_right", strength=1.6),
+    "led_amber":     dict(color=(1.0, 0.5, 0.15), emit=(1.0, 0.45, 0.12), strength=14),
+    "led_purple":    dict(color=(0.55, 0.2, 1.0), emit=(0.55, 0.18, 1.0), strength=14),
+    "key_glow":      dict(color=(0.3, 0.1, 0.6), emit=(0.45, 0.12, 1.0), strength=1.2),
+    "mouse_glow":    dict(color=(0.1, 0.03, 0.2), emit=(0.45, 0.12, 1.0), strength=0.8),
+    "led_green":     dict(color=(0.2, 1.0, 0.3), emit=(0.2, 1.0, 0.3), strength=6),
+    "filament":      dict(color=(1.0, 0.6, 0.2), emit=(1.0, 0.5, 0.15), strength=60),
+    "glass":         dict(color=(1.0, 0.95, 0.9), rough=0.03, transmission=1.0, ior=1.45),
+    # textiles / leather
+    "rug":           dict(tex="rug", rough=0.95),
+    "rug_fringe":    dict(color=(0.85, 0.78, 0.62), rough=0.9),
+    "plaid":         dict(tex="plaid", rough=0.95),
+    "plaid_fringe":  dict(color=(0.75, 0.68, 0.58), rough=0.9),
+    "leather":       dict(tex="leather", rough=0.42),
+    "leather_brown": dict(tex="leather_brown", rough=0.5),
+    "quilt":         dict(tex="quilt", rough=0.85),
+    "fabric_bin":    dict(tex="fabric_bin", rough=0.95),
+    "deskmat":       dict(tex="deskmat", rough=0.8),
+    # desk items
+    "keycap":        dict(color=(0.035, 0.03, 0.045), rough=0.5),
+    "mug":           dict(tex="mug", rough=0.22),
+    "mug_boss":      dict(tex="mug_boss", rough=0.25),
+    "coffee":        dict(color=(0.06, 0.028, 0.012), rough=0.08),
+    "cork":          dict(color=(0.45, 0.28, 0.15), rough=0.9),
+    "paper":         dict(tex="sketchbook", rough=0.9),
+    "book_cover":    dict(color=(0.16, 0.08, 0.05), rough=0.6),
+    "pencil_yellow": dict(color=(0.85, 0.6, 0.12), rough=0.5),
+    "pencil_red":    dict(color=(0.6, 0.1, 0.08), rough=0.5),
+    "graphite":      dict(color=(0.05, 0.05, 0.05), rough=0.4),
+    "dice_purple":   dict(color=(0.32, 0.1, 0.55), rough=0.2),
+    "dice_teal":     dict(color=(0.06, 0.35, 0.35), rough=0.2),
+    "dice_cream":    dict(color=(0.8, 0.72, 0.6), rough=0.3),
+    "book_yellow":   dict(color=(0.8, 0.62, 0.12), rough=0.6),
+    "book_green":    dict(color=(0.2, 0.42, 0.18), rough=0.6),
+    "pages":         dict(color=(0.86, 0.8, 0.68), rough=0.9),
+    "spines":        dict(tex="spines", rough=0.6),
+    # shelf items
+    "terracotta":    dict(color=(0.55, 0.28, 0.16), rough=0.85),
+    "pot_cream":     dict(color=(0.78, 0.72, 0.62), rough=0.6),
+    "soil":          dict(color=(0.08, 0.05, 0.03), rough=1.0),
+    "leaf":          dict(color=(0.22, 0.38, 0.06), rough=0.45),
+    "leaf_light":    dict(color=(0.42, 0.52, 0.1), rough=0.45),
+    "vine":          dict(color=(0.25, 0.32, 0.08), rough=0.6),
+    "crystal":       dict(color=(0.55, 0.25, 1.0), rough=0.08, transmission=0.7, ior=1.5,
+                          emit=(0.5, 0.2, 1.0), strength=1.2),
+    "rock":          dict(color=(0.1, 0.09, 0.1), rough=0.9),
+    "game_box":      dict(color=(0.16, 0.12, 0.1), rough=0.6),
+    "game_box_b":    dict(color=(0.22, 0.15, 0.08), rough=0.6),
+    "label_gold":    dict(color=(0.8, 0.6, 0.28), rough=0.35, metal=0.8),
+    # storage
+    "crate":         dict(tex="crate", rough=0.75),
+    "cartridge":     dict(color=(0.16, 0.15, 0.17), rough=0.45),
+    "cartridge_lbl": dict(tex="cartridges", rough=0.5, closest=True),
+    # figurines
+    "vinyl_skin":    dict(color=(0.86, 0.6, 0.45), rough=0.35),
+    "vinyl_skin2":   dict(color=(0.55, 0.36, 0.25), rough=0.35),
+    "vinyl_black":   dict(color=(0.02, 0.02, 0.02), rough=0.25),
+    "vinyl_white":   dict(color=(0.88, 0.88, 0.9), rough=0.4),
+    "vinyl_blue":    dict(color=(0.08, 0.2, 0.55), rough=0.4),
+    "vinyl_navy":    dict(color=(0.06, 0.07, 0.12), rough=0.45),
+    "vinyl_tan":     dict(color=(0.45, 0.32, 0.2), rough=0.5),
+    "vinyl_hair":    dict(color=(0.12, 0.07, 0.04), rough=0.4),
+    "vinyl_grey":    dict(color=(0.3, 0.3, 0.32), rough=0.4),
+    "vinyl_gold":    dict(color=(0.85, 0.6, 0.25), rough=0.3, metal=1.0),
+    "vinyl_red":     dict(color=(0.5, 0.06, 0.06), rough=0.4),
+    "logo_orange":   dict(color=(0.95, 0.45, 0.1), rough=0.3),
+    "logo_white":    dict(color=(0.92, 0.92, 0.92), rough=0.3),
+}
+
+
+def M(key):
+    return mat("M_" + key, **DEFS[key])

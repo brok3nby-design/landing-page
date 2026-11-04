@@ -66,3 +66,15 @@ def add_view(name, az, el, lens, fill, res):
         cam.rotation_euler = (0, 0, 0)
     S.coll("CAMERAS").objects.link(cam)
     return cam
+
+
+def add_closeup(name, target, az, el, lens, dist):
+    a, e = radians(az), radians(el)
+    back = Vector((sin(a) * cos(e), -cos(a) * cos(e), sin(e)))
+    cam_data = bpy.data.cameras.new(name)
+    cam_data.lens = lens
+    cam = bpy.data.objects.new(name, cam_data)
+    cam.location = Vector(target) + back * dist
+    cam.rotation_euler = (-back).to_track_quat('-Z', 'Y').to_euler()
+    S.coll("CAMERAS").objects.link(cam)
+    return cam

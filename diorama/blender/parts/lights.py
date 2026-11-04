@@ -26,5 +26,5 @@ def build(root):
     lamp.color = (1.0, 0.6, 0.25)
     lamp.shadow_soft_size = 0.03
     obj = bpy.data.objects.new("LIGHT_DeskLamp", lamp)
-    obj.location = (-0.61, 0.63, 1.06)   # just in front of the bulb mesh
+    obj.location = (-0.615, 0.71, 1.065)   # at the filament (glass casts no shadow)
     S.coll("LIGHTS").objects.link(obj)

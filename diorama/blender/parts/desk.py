@@ -1,7 +1,8 @@
-"""DESK: desktop, left metal frame, modesty panel, low storage shelf, drawer cabinet."""
-from config import DESK as D, CABINET as C, LOW_SHELF as L, CLAY
+"""DESK: desktop, left metal sled frame, modesty panel, low storage shelf, drawer cabinet,
+LED strip, cable tray and power strip."""
+from config import DESK as D, CABINET as C, LOW_SHELF as L
 from lib import geo
-from lib.mats import mat
+from lib.library import M
 
 
 def dims():
@@ -12,27 +13,27 @@ def dims():
 
 
 def build(root):
-    wood = mat("Clay_Wood", CLAY["wood"])
-    wood_dark = mat("Clay_WoodDark", CLAY["wood_dark"])
-    metal = mat("Clay_Metal", CLAY["metal"], rough=0.4, metal=0.6)
-    metal_mid = mat("Clay_MetalMid", CLAY["metal_mid"], rough=0.45, metal=0.5)
     cx, cy, x0, x1, y0, y1 = dims()
     top_z = D["height"] - D["top_thickness"]
 
     geo.box("DESK_Top", (D["width"], D["depth"], D["top_thickness"]), loc=(cx, cy, top_z),
-            collection="DESK", material=wood, parent=root, bevel=0.008, seg=3)
+            collection="DESK", material=M("wood"), parent=root, bevel=0.007, seg=4, uv_scale=0.8)
+    geo.box("DESK_LED_Front", (D["width"] - 0.12, 0.008, 0.004), loc=(cx, y0 + 0.03, top_z - 0.004),
+            collection="DESK", material=M("led_amber"), parent=root, bevel=0)
 
-    # --- left metal sled frame (two legs + top and floor rails)
+    # --- left metal sled frame
     lg = D["leg"]
     lx = x0 + 0.04
     for tag, y in (("Front", y0 + 0.04), ("Back", y1 - 0.04)):
-        geo.box(f"DESK_Leg_L_{tag}", (lg, lg, top_z), loc=(lx, y, 0), collection="DESK",
-                material=metal, parent=root, bevel=0.004, shared="leg", rests_on="BASE_Platform")
+        geo.box(f"DESK_Leg_L_{tag}", (lg, lg, top_z - 0.03), loc=(lx, y, 0.03), collection="DESK",
+                material=M("metal_black"), parent=root, bevel=0.005, shared="leg",
+                rests_on="DESK_Rail_L_Foot")
     rail_len = (y1 - 0.04) - (y0 + 0.04) - lg
     geo.box("DESK_Rail_L_Top", (lg * 0.8, rail_len, 0.04), loc=(lx, cy, top_z - 0.04),
-            collection="DESK", material=metal, parent=root, bevel=0.003)
-    geo.box("DESK_Rail_L_Foot", (lg, rail_len + 2 * lg + 0.04, 0.03), loc=(lx, cy, 0),
-            collection="DESK", material=metal, parent=root, bevel=0.004, rests_on="BASE_Platform")
+            collection="DESK", material=M("metal_black"), parent=root, bevel=0.004)
+    geo.box("DESK_Rail_L_Foot", (lg * 1.1, rail_len + 2 * lg + 0.04, 0.03), loc=(lx, cy, 0),
+            collection="DESK", material=M("metal_black"), parent=root, bevel=0.006,
+            rests_on="BASE_Platform")
 
     # --- drawer cabinet (right)
     cab_x1 = x1 - C["inset_right"]
@@ -44,38 +45,64 @@ def build(root):
     body_h = top_z - C["foot"]
     for i, (fx, fy) in enumerate([(cab_x0 + 0.03, cab_y0 + 0.03), (cab_x1 - 0.03, cab_y0 + 0.03),
                                   (cab_x0 + 0.03, cab_y1 - 0.03), (cab_x1 - 0.03, cab_y1 - 0.03)]):
-        geo.cylinder(f"DESK_Cabinet_Foot_{i}", 0.012, C["foot"], loc=(fx, fy, 0), collection="DESK",
-                     material=metal, parent=root, verts=12, bevel=0, shared="cab_foot",
+        geo.cylinder(f"DESK_Cabinet_Foot_{i}", 0.014, C["foot"], loc=(fx, fy, 0), collection="DESK",
+                     material=M("metal_black"), parent=root, verts=16, bevel=0, shared="cab_foot",
                      rests_on="BASE_Platform")
     geo.box("DESK_Cabinet_Body", (C["width"], C["depth"], body_h), loc=(cab_cx, cab_cy, C["foot"]),
-            collection="DESK", material=metal_mid, parent=root, bevel=0.006)
-    z = top_z - 0.015
-    front_y = cab_y0 - 0.009
+            collection="DESK", material=M("metal_dark"), parent=root, bevel=0.008, seg=3)
+    z = top_z - 0.012
+    front_y = cab_y0 - 0.008
     for i, h in enumerate(C["drawer_heights"]):
         z -= h
-        drawer = geo.box(f"DESK_Drawer_{i + 1}", (C["width"] - 0.03, 0.018, h - C["gap"]),
-                         loc=(cab_cx, front_y, z + C["gap"] / 2), collection="DESK",
-                         material=metal, parent=root, bevel=0.004)
-        geo.box(f"DESK_Drawer_{i + 1}_Handle", (0.13, 0.016, 0.012),
-                loc=(cab_cx, front_y - 0.017, z + h - 0.05), collection="DESK",
-                material=mat("Clay_Brass", CLAY["amber"], rough=0.3, metal=1.0),
-                parent=root, bevel=0.004, shared="drawer_handle")
+        geo.box(f"DESK_Drawer_{i + 1}", (C["width"] - 0.026, 0.016, h - C["gap"]),
+                loc=(cab_cx, front_y, z + C["gap"] / 2), collection="DESK",
+                material=M("metal_dark"), parent=root, bevel=0.005, seg=3)
+        hz = z + h - 0.055
+        geo.cylinder(f"DESK_Drawer_{i + 1}_Handle", 0.006, 0.15, loc=(cab_cx - 0.075, front_y - 0.026, hz),
+                     rot=(0, 1.5708, 0), collection="DESK", material=M("brass"), parent=root,
+                     verts=12, bevel=0.001, shared="drawer_handle")
+        for s in (-1, 1):
+            geo.cylinder(f"DESK_Drawer_{i + 1}_Standoff_{'L' if s < 0 else 'R'}", 0.004, 0.019,
+                         loc=(cab_cx + s * 0.06, front_y - 0.008, hz), rot=(1.5708, 0, 0),
+                         collection="DESK", material=M("brass"), parent=root, verts=8, bevel=0,
+                         shared="drawer_standoff")
         z -= C["gap"]
+    geo.box("DESK_Cabinet_LED", (C["width"] - 0.04, 0.006, 0.004), loc=(cab_cx, cab_y0 + 0.01, top_z - 0.004),
+            collection="DESK", material=M("led_amber"), parent=root, bevel=0)
 
     # --- modesty panel at the back, between left frame and cabinet
     pan_x0, pan_x1 = lx + lg / 2, cab_x0
     geo.box("DESK_ModestyPanel", (pan_x1 - pan_x0, 0.015, 0.38),
             loc=((pan_x0 + pan_x1) / 2, y1 - 0.05, top_z - 0.40), collection="DESK",
-            material=metal, parent=root, bevel=0.003)
+            material=M("metal_black"), parent=root, bevel=0.003)
+
+    # --- cable tray + power strip under the back edge
+    tray_w = 0.60
+    tx = (pan_x0 + pan_x1) / 2 + 0.05
+    geo.merged("DESK_CableTray", lambda bm: geo.add_open_box(bm, (tray_w, 0.07, 0.05), 0.003),
+               loc=(tx, y1 - 0.095, top_z - 0.075), collection="DESK", material=M("metal_black"),
+               parent=root)
+    geo.box("DESK_PowerStrip", (0.28, 0.05, 0.03), loc=(tx, y1 - 0.095, top_z - 0.072),
+            collection="DESK", material=M("plastic_black"), parent=root, bevel=0.006)   # sits on the tray floor
+    for k in range(4):
+        geo.box(f"DESK_PowerStrip_Plug_{k}", (0.025, 0.03, 0.02),
+                loc=(tx - 0.09 + k * 0.06, y1 - 0.095, top_z - 0.042), collection="DESK",
+                material=M("plastic_grey"), parent=root, bevel=0.004, shared="plug",
+                rests_on="DESK_PowerStrip")
 
     # --- low storage shelf (holds bins / crate) between a divider and the cabinet
     sx0 = L["x0"]
     sy1 = y1 - 0.06
     sy0 = sy1 - L["depth"]
     geo.box("DESK_LowShelf_Divider", (0.02, L["depth"], L["divider_height"]),
-            loc=(sx0 - 0.01, (sy0 + sy1) / 2, 0), collection="DESK", material=wood_dark,
-            parent=root, bevel=0.003, rests_on="BASE_Platform")
+            loc=(sx0 - 0.01, (sy0 + sy1) / 2, 0), collection="DESK", material=M("wood_dark"),
+            parent=root, bevel=0.003, uv_swap=True, rests_on="BASE_Platform")
     geo.box("DESK_LowShelf", (cab_x0 - sx0, L["depth"], L["thickness"]),
             loc=((sx0 + cab_x0) / 2, (sy0 + sy1) / 2, L["z"]), collection="DESK",
-            material=wood, parent=root, bevel=0.003)
-    return dict(top=D["height"], cab_x0=cab_x0, shelf=(sx0, cab_x0, sy0, sy1, L["z"] + L["thickness"]))
+            material=M("wood"), parent=root, bevel=0.003)
+    for tag, x in (("L", sx0 + 0.03), ("R", cab_x0 - 0.03)):
+        geo.box(f"DESK_LowShelf_Leg_{tag}", (0.03, L["depth"] - 0.06, L["z"]),
+                loc=(x, (sy0 + sy1) / 2, 0), collection="DESK", material=M("wood_dark"),
+                parent=root, bevel=0.002, shared="lowshelf_leg", rests_on="BASE_Platform")
+    return dict(top=D["height"], top_z=top_z, cab_x0=cab_x0, tray=(tx, y1 - 0.095, top_z - 0.042),
+                shelf=(sx0, cab_x0, sy0, sy1, L["z"] + L["thickness"]))

@@ -1,35 +1,37 @@
 # STATUS — Miniature Developer Desk diorama
 
-**Current phase:** Phase 1 (blockout) — complete, **awaiting your approval** before Phase 2.
+**Current phase:** Phase 2 (detailed modeling) — complete, **awaiting your approval** before Phase 3 (lighting & polish).
+Phase 1 blockout is approved and locked (`source/diorama_phase1.blend` cannot be overwritten by a rebuild).
 
 ## How it's built
-- Blender **5.2.3 LTS** used as a Python module (`bpy` from PyPI) in a project-local venv `diorama/.venv` (git-ignored). No MCP, no add-ons, no downloaded assets.
-- Renders use **Cycles on CPU** — this container has no GPU/EGL, so EEVEE and Workbench can't run here.
-- Rebuild everything from scratch (deterministic):
+- Blender **5.2.3 LTS** as a Python module (`bpy` from PyPI) in a project-local venv `diorama/.venv` (git-ignored). No MCP, no add-ons, no downloaded assets.
+- Renders use **Cycles on CPU** (this container has no GPU/EGL, so EEVEE/Workbench can't run).
+- Rebuild everything (deterministic; all "random" placement is seeded):
   ```bash
   python3 -m venv diorama/.venv && diorama/.venv/bin/pip install bpy==5.2.3   # once per fresh container
-  diorama/.venv/bin/python diorama/blender/build.py --phase 1 --render
+  diorama/.venv/bin/python diorama/blender/build.py --phase 2 --render
   ```
-  ~1.5 min for 4 renders at 48 samples.
+  Build ≈ 30 s (incl. 22 s cloth sim); 7 renders ≈ 5.5 min at 48 samples. `--views 01,05` renders a subset, `--retex` repaints textures.
+- **Fan-art switch:** `FAN_ART = True` in `blender/config.py` builds the character likenesses + game logo (figure base, headphone cup). `False` builds generic figures, no logos. Same object names either way.
 
 ## Outputs
 | File | What |
 |---|---|
-| `source/diorama_phase1.blend` | Saved Blender scene (opens in Blender 5.2+) |
-| `renders/phase1/01_reference_angle.png` | Hero three-quarter view matching the reference |
-| `renders/phase1/02_opposite_angle.png` | Mirror three-quarter from front-left |
-| `renders/phase1/03_side_back.png` | Rear three-quarter (checks the back isn't a facade) |
-| `renders/phase1/04_top_plan.png` | Top-down plan (checks layout/proportions) |
-| `renders/phase1/checks.txt` | Automated checks: contacts, collisions, counts, triangles |
+| `source/diorama_phase2.blend` | Phase 2 scene (textures linked relatively from `assets/textures/`) |
+| `renders/phase2/01–04_*.png` | Reference angle, opposite angle, rear three-quarter, top plan |
+| `renders/phase2/05_close_desk.png`, `06_close_shelf.png`, `07_close_chair.png` | Close-ups to judge small details |
+| `renders/phase2/checks.txt` | Automated checks |
+| `assets/textures/*.png` | 20 code-painted textures (original artwork) |
 
-## Automated check results (Phase 1)
-- 58 declared resting contacts, **0 floating/sinking**
-- 6 collision group pairs (chair vs desk/cabinet/drawers, monitors vs shelves/props), **0 overlaps**
-- 107 mesh objects, ~23k triangles with bevels, overall 2.50 W × 2.00 D × 1.85 H m (represented scale)
+## Measured numbers (Phase 2)
+- 285 mesh objects, **~80.6k triangles** with bevels (budget target ≤ 250k)
+- 20 textures, ~36 MB uncompressed in GPU memory (~48 MB with mipmaps), 8.1 MB of PNGs on disk. Phase 4 will compress (WebP/KTX2) and likely shrink the 1024² wood/plank maps.
+- 77 declared resting contacts: **0 floating/sinking**; 6 collision group pairs: **0 overlaps**
+- All materials are Principled BSDF + image textures → maps directly to glTF PBR. Glass uses transmission (KHR_materials_transmission).
 
-## Known gaps / uncertain (intentional for blockout)
-- Clay tints only; wood reads peach under the neutral blockout lights. Real materials = Phase 2, lighting = Phase 3.
-- Chair is a generic office shape; gaming-style bolsters, pillows, red blanket come in Phase 2.
-- Props, plants, figurines are placeholder shapes marking size and position only.
-- Riser back is open from behind; cable management and rear panels in Phase 2.
-- Platform has no raised trim border yet; rug has no pattern.
+## Known gaps / next
+- Lighting is still the neutral blockout rig; amber/purple mood, LED light spill, lamp glow, DOF and miniature "tilt-shift" feel are Phase 3. The LED strips are emissive but don't light the scene much yet.
+- Chair backrest is a fairly simple slab; headrest pillow not modeled.
+- Coffee steam not modeled (planned as a Phase 3 Blender-only/web effect).
+- The large wood panels (hutch back, shelf undersides) still show fairly bold grain bands.
+- Draw-call count for web (285 objects) will be reduced in Phase 4 by merging static, non-interactive parts per material.
