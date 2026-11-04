@@ -28,3 +28,19 @@
 - Added crate close-up (`08`) and a standalone asset render (`09`) with a hidden-by-default exhibit spotlight.
 - Fixed coplanar floor/wall faces in open containers (dark strip on crate/bin bottom edges).
 - Tested exporting only the `NAV_GamesCrate` hierarchy to GLB and re-importing it: names, extras and local transforms intact.
+
+## Phase 3 — lighting, materials, polish, artwork slots (2026-11-04)
+- Locked Phase 2. Build defaults to `--phase 3` → `diorama_phase3.blend`, `renders/phase3/`.
+- **Lighting:** a new rig (key spot, soft fill, purple and amber rims, screen-tinted monitor lights, LED-strip area lights, lamp filament light). The world matches the website `#080808`. AgX Medium High Contrast look, exposure −0.35, firefly clamp, 128 samples (beauty 256).
+- **Beauty render:** `CAM_Beauty` with depth of field, plus numpy bloom post (`lib/post.py`). Both are Blender-only.
+- **Reusable exhibit rig:** `lights.exhibit_rig()`, scaled to the asset (used for the standalone crate).
+- **Materials:** code-generated normal maps (12) and roughness maps (3) wired into the library. Calmer grain on the hutch back panel and riser back.
+- **Details:** chair headrest pillow and stitch channels; mug steam (Blender-only); sticky notes; keyboard glow toned down; bluer purple LEDs; brighter screens.
+- **Artwork slots** (`lib/artwork.py`, `custom/`): 22 slots (screens, mugs, deskmat, rug, blanket, sketchbook, crate print, 6 book spines, 5 game labels).
+  - Custom images override the defaults. A manifest tracks changes, and removing an image restores the default.
+  - Templates are generated, and objects are tagged `artwork_slot`.
+  - Game labels became per-slot textures; `games.json` `label_texture` is honoured.
+  - The mug lathe now maps the image to the outer wall only, with a ceramic second material for the handle, rim and inside.
+- **Verified:**
+  - A test image dropped into the `mug_wrap` slot showed up upright, facing the viewer, and the default came back after removal.
+  - The automated checks pass.

@@ -1,6 +1,7 @@
 # STATUS — Miniature Developer Desk diorama
 
-**Current phase:** Phase 2 (detailed modeling) — complete, **awaiting your approval** before Phase 3 (lighting & polish).
+**Current phase:** Phase 3 (lighting, materials, polish, custom artwork slots) — complete, **awaiting your approval** before Phase 4 (web export).
+Phases 1 and 2 are approved and locked.
 **Project direction:** the diorama is the homepage exhibit of a larger interactive 3D studio website. See
 [PROJECT_DIRECTION.md](PROJECT_DIRECTION.md) for the concept, page plan, shared viewer architecture and asset rules.
 The website itself is **not started** (future phase).
@@ -12,36 +13,57 @@ Phase 1 blockout is approved and locked (`source/diorama_phase1.blend` cannot be
 - Rebuild everything (deterministic; all "random" placement is seeded):
   ```bash
   python3 -m venv diorama/.venv && diorama/.venv/bin/pip install bpy==5.2.3   # once per fresh container
-  diorama/.venv/bin/python diorama/blender/build.py --phase 2 --render
+  diorama/.venv/bin/python diorama/blender/build.py --render          # Phase 3 is now the default
   ```
   Build ≈ 30 s (incl. 22 s cloth sim); 7 renders ≈ 5.5 min at 48 samples. `--views 01,05` renders a subset, `--retex` repaints textures.
 - **Fan-art switch:** `FAN_ART = True` in `blender/config.py` builds the character likenesses + game logo (figure base, headphone cup). `False` builds generic figures, no logos. Same object names either way.
 
-## Outputs
+## Outputs (Phase 3)
 | File | What |
 |---|---|
-| `source/diorama_phase2.blend` | Phase 2 scene (textures linked relatively from `assets/textures/`) |
-| `renders/phase2/01–04_*.png` | Reference angle, opposite angle, rear three-quarter, top plan |
-| `renders/phase2/05_close_desk.png`, `06_close_shelf.png`, `07_close_chair.png`, `08_close_crate.png` | Close-ups to judge small details |
-| `renders/phase2/09_asset_games_crate.png` | `NAV_GamesCrate` rendered **alone** under an exhibit spotlight (Games-page preview) |
-| `data/games.json`, `data/interactions.json` | Website data: game slots and interactive-object → action mapping (separate from geometry) |
-| `renders/phase2/checks.txt` | Automated checks |
-| `assets/textures/*.png` | 20 code-painted textures (original artwork) |
+| `source/diorama_phase3.blend` | Phase 3 scene (textures linked relatively from `assets/textures/`) |
+| `renders/phase3/01–04_*.png` | Reference angle, opposite angle, rear three-quarter, top plan (128 samples) |
+| `renders/phase3/05–08_close_*.png` | Close-ups: desk, shelf, chair, crate |
+| `renders/phase3/09_asset_games_crate.png` | Games crate alone under the reusable exhibit spotlight rig |
+| `renders/phase3/10_beauty_hero.png` | Presentation render: depth of field + bloom (256 samples) |
+| `custom/` | **Your artwork slots.** Drop images here; see `custom/README.md` and `custom/templates/` |
+| `data/games.json`, `data/interactions.json` | Website data (separate from geometry) |
+| Phase 2 outputs | Still in `source/diorama_phase2.blend` and `renders/phase2/` |
 
-## Measured numbers (Phase 2)
-- 285 mesh objects, **~80.6k triangles** with bevels (budget target ≤ 250k)
-- 20 textures, ~36 MB uncompressed in GPU memory (~48 MB with mipmaps), 8.1 MB of PNGs on disk. Phase 4 will compress (WebP/KTX2) and likely shrink the 1024² wood/plank maps.
-- 77 declared resting contacts: **0 floating/sinking**; 6 collision group pairs: **0 overlaps**
-- All materials are Principled BSDF + image textures → maps directly to glTF PBR. Glass uses transmission (KHR_materials_transmission).
+## Lighting (Phase 3)
+- **Background:** world colour = the website background `#080808` in linear light, so renders sit seamlessly on the page.
+- **Key and rims:**
+  - soft overhead key spotlight (a pool of light that falls off to black), plus a weak soft fill;
+  - a cool purple rim on the left and a warm amber rim on the right separate the silhouette from the black.
+- **Practical lights** (invisible to the camera; the glowing meshes are what you see):
+  - each monitor casts light tinted by the average colour of its screen image. A custom screen image automatically retints the light.
+  - amber LED light under the desk front, the riser and the cabinet top;
+  - purple light under the shelf front, plus a purple wash on the hutch back panel;
+  - the Edison lamp filament (its glass casts no shadow).
+- **Colour look:** AgX view transform with the "Medium High Contrast" look, exposure −0.35. Indirect light clamp to suppress fireflies.
+- **Blender-only effects** (not part of the web asset; the website gets real-time equivalents):
+  - depth of field on `CAM_Beauty` (f/0.55, focused on the desk front) for the miniature/tilt-shift feel;
+  - bloom (numpy post-process, `lib/post.py`) on the beauty render;
+  - mug steam `FX_Steam_*`, flagged `blender_only` so Phase 4 skips it.
+- **Exhibit rig:** `lights.exhibit_rig(asset)` builds a key spot, fill and rim scaled to any standalone asset. It's hidden in desk renders and reused for future game exhibits.
+
+## Materials (Phase 3)
+- **Normal (bump) maps** generated by code: woods ×3, planks, leather ×2, quilt, fabric bin, rug, plaid, crate and deskmat.
+- **Roughness variation maps:** desk wood, planks and leather.
+- All are standard glTF maps (normalTexture, metallicRoughness), so they carry over to the web.
+- Edge wear is deferred: it needs a curvature bake, which happens in Phase 4 alongside the web light bake.
 
 ## Reusable assets
 - **`NAV_GamesCrate`**: self-contained hierarchy (crate body + `GAME_Case_01..05`, each its own group with origin at its base, own label mesh and material). It's built by `storage.games_crate(parent, loc)` and can be placed anywhere.
 - Standalone GLB export of just this hierarchy was tested: 344 KB, with names, extras and local transforms intact after re-import. The production export comes in Phase 4.
 - The `bpy` wheel ships without Draco/meshoptimizer, so Phase 4 compression will use `gltf-transform` (npm) instead.
 
+## Web quality plan (Phase 4+)
+Cycles renders will always look a bit richer than real-time WebGL. To close the gap:
+- **Phase 4:** bake ambient occlusion, edge wear and soft light into the static desk textures (lightmaps), export one baked `desk.glb` and one `games_crate.glb`, then measure size and memory after compression.
+- **Website phase:** real-time bloom, ACES/AgX-like tone mapping, soft shadows only where cheap, and quality tiers.
+  - The Phase 3 renders double as the loading image and the accessible non-3D fallback.
+
 ## Known gaps / next
-- Lighting is still the neutral blockout rig; amber/purple mood, LED light spill, lamp glow, DOF and miniature "tilt-shift" feel are Phase 3. The LED strips are emissive but don't light the scene much yet.
-- Chair backrest is a fairly simple slab; headrest pillow not modeled.
-- Coffee steam not modeled (planned as a Phase 3 Blender-only/web effect).
-- The large wood panels (hutch back, shelf undersides) still show fairly bold grain bands.
+- Chair backrest now has stitch channels and a headrest pillow; the backrest itself is still flat (no curvature), to keep the blanket simulation stable.
 - Draw-call count for web (285 objects) will be reduced in Phase 4 by merging static, non-interactive parts per material.

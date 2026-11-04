@@ -16,9 +16,10 @@ SIZE = (0.56, 1.20)
 FRAMES = 60
 COLLIDERS = ["CHAIR_Backrest", "CHAIR_Wing_L", "CHAIR_Wing_R", "CHAIR_Seat", "CHAIR_Bolster_L",
              "CHAIR_Bolster_R", "CHAIR_ArmPad_L", "CHAIR_LumbarPillow", "CHAIR_ArmPost_L",
-             "CHAIR_BackPanel"]
+             "CHAIR_BackPanel", "CHAIR_HeadPillow"]
 # after the sim, any cloth vertex that ended up inside these is pushed back to their surface
-PUSH_OUT = ["CHAIR_Wing_L", "CHAIR_Backrest", "CHAIR_BackPanel", "CHAIR_Bolster_L", "CHAIR_ArmPad_L"]
+PUSH_OUT = ["CHAIR_Wing_L", "CHAIR_Backrest", "CHAIR_BackPanel", "CHAIR_Bolster_L", "CHAIR_ArmPad_L",
+            "CHAIR_HeadPillow"]
 
 
 def _freeze(obj):

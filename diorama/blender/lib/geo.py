@@ -253,7 +253,7 @@ def prism(name, outline, height, loc=(0, 0, 0), collection="BASE", material=None
 
 def lathe(name, profile, loc=(0, 0, 0), collection="PROPS", material=None, rot=(0, 0, 0),
           parent=None, segments=32, rests_on=None, shared=None, scale=None, sharp=SHARP_ANGLE,
-          bevel=0, seg=2, loop=None):
+          bevel=0, seg=2, loop=None, uv_span=None):
     """Revolve a profile [(radius, z), ...] around Z. Points with radius 0 close the shape.
     A profile that starts AND ends off-axis is treated as a closed loop (shells, rings, pads).
     UV: u = angle / 2pi (u=0 on +X, counter-clockwise), v = normalised profile length."""
@@ -266,6 +266,9 @@ def lathe(name, profile, loc=(0, 0, 0), collection="PROPS", material=None, rot=(
         for (r0, z0), (r1, z1) in zip(prof, prof[1:]):
             lens.append(lens[-1] + ((r1 - r0) ** 2 + (z1 - z0) ** 2) ** 0.5)
         total = lens[-1] or 1.0
+        v0_len = 0.0
+        if uv_span:     # map profile points uv_span[0]..uv_span[1] to v = 0..1 (decal band)
+            v0_len, total = lens[uv_span[0]], (lens[uv_span[1]] - lens[uv_span[0]]) or 1.0
         rings = []
         for r, z in profile:
             if r < 1e-7:
@@ -278,7 +281,8 @@ def lathe(name, profile, loc=(0, 0, 0), collection="PROPS", material=None, rot=(
             rings.append(rings[0])
         for i in range(len(rings) - 1):
             ra, rb = rings[i], rings[i + 1]
-            va, vb = lens[i] / total, lens[i + 1] / total
+            va = min(max((lens[i] - v0_len) / total, 0.0), 1.0)
+            vb = min(max((lens[i + 1] - v0_len) / total, 0.0), 1.0)
             for k in range(segments):
                 k1 = (k + 1) % segments
                 ua, ub = k / segments, (k + 1) / segments
@@ -295,6 +299,8 @@ def lathe(name, profile, loc=(0, 0, 0), collection="PROPS", material=None, rot=(
                     uvs = [(ua, va), (ub, va), (ub, vb), (ua, vb)]
                 for lp, t in zip(f.loops, uvs):
                     lp[uv].uv = t
+                if uv_span and (va == vb) and va in (0.0, 1.0):
+                    f.material_index = 1          # outside the decal band -> second material
         # cap open ends (profile not starting/ending on the axis)
         if not is_loop and len(rings[0]) > 1:
             bm.faces.new(list(reversed(rings[0])))

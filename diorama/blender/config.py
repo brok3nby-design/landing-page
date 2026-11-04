@@ -51,10 +51,15 @@ CLAY = dict(
     screen=(0.45, 0.25, 0.95), clay=(0.55, 0.50, 0.46), clay_dark=(0.22, 0.20, 0.19),
     plant=(0.20, 0.30, 0.08), crystal=(0.45, 0.20, 0.85), amber=(1.0, 0.55, 0.15),
 )
-WORLD_COLOR = (0.010, 0.009, 0.013)   # dark charcoal backdrop
+# Website background #080808 (sRGB 8/255) in linear light, so renders sit seamlessly on the page.
+WORLD_COLOR = (0.0024, 0.0024, 0.0024)
 
 # ---------------------------------------------------------------- RENDER / CAMERAS
-RENDER = dict(res=(1600, 900), samples=48)
+RENDER = dict(res=(1600, 900), samples=128, beauty_samples=256,
+              view_transform="AgX", look="AgX - Medium High Contrast", exposure=-0.35)
+# Presentation "beauty" render: hero camera + depth of field + bloom (Blender-only effects)
+BEAUTY = dict(name="CAM_Beauty", file="10_beauty_hero.png", like="CAM_Hero",
+              focus=(0.12, 0.42, 0.85), fstop=0.55)
 # azimuth: 0 = straight from the front (-Y), positive = camera moves to the right (+X)
 VIEWS = [
     dict(name="CAM_Hero",     file="01_reference_angle.png", az=18,  el=27, lens=85),
@@ -84,4 +89,4 @@ ASSET_VIEWS = [
 ]
 
 # Files that must never be overwritten by a rebuild once you approve them.
-APPROVED_FILES = ["diorama_phase1.blend"]
+APPROVED_FILES = ["diorama_phase1.blend", "diorama_phase2.blend"]

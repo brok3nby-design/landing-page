@@ -33,6 +33,26 @@ Repeated small parts (keycaps, rug fringe, leaves, blanket fringe) are **merged 
 | LIGHTS | Key / fill / rim area lights, desk-lamp point light | B | Phase 3 |
 | CAMERAS | Hero, Opposite, Back, Top + 3 close-ups | done | |
 
+## Artwork slots (your images; details in `custom/README.md`)
+Objects tagged `artwork_slot` (exported as glTF extras, so the website can swap images at runtime):
+| Slot | Object(s) |
+|---|---|
+| `screen_left`, `screen_right` | `MON_L_Screen`, `MON_R_Screen` (also retints the monitor light) |
+| `mug_wrap` / `mug_figure` | `PROP_Mug` (outer wall only; handle and rim stay ceramic) / `COLL_FigureB_Mug` |
+| `deskmat`, `rug`, `blanket`, `sketchbook` | `PROP_DeskMat`, `BASE_Rug`, `CHAIR_Blanket`, `PROP_Notebook_Pages` |
+| `crate_print` | `NAV_GamesCrate_Body` |
+| `book_spine_1..6` | `PROP_Book_0..4`, `PROP_Book_Leaning` |
+| `game_label_01..05` | `GAME_Case_01..05_Label` (each with its own texture and material; or `games.json` `label_texture`) |
+
+## Phase 3 additions
+| Object(s) | Notes |
+|---|---|
+| `CHAIR_HeadPillow`, `CHAIR_BackStitch_0..3` | Headrest pillow, stitch channels on the backrest |
+| `FX_Steam_0..2` | Mug steam, Blender-only (`blender_only` flag) |
+| `PROP_StickyNote_0..2` | Sticky notes on the desk |
+| `LIGHT_*` | Phase 3 rig (see STATUS → Lighting); `LIGHT_Exhibit_*` = standalone exhibit rig |
+| `CAM_Beauty` (+ `CAM_Beauty_Focus`) | Hero framing with depth of field |
+
 ## Interactive targets (tag `interactive_id` + `interactive_scope`, exported as glTF extras; also in INTERACTIVE_TARGETS)
 Website behaviour for each id lives in `data/interactions.json`; game details in `data/games.json`.
 

@@ -76,6 +76,12 @@ def build(root):
     inner = [(-0.032, 0.025), (0.032, 0.025), (0.0, -0.025)]
     geo.prism("CHAIR_Emblem", outer, 0.004, holes=inner, loc=(0, -0.075, bh - 0.12), rot=(pi / 2, 0, 0),
               collection="CHAIR", material=M("brass"), parent=piv, bevel=0.001, seg=1)
+    # stitch channels on the back (faces the hero camera) + headrest pillow
+    for k, x in enumerate((-0.13, -0.045, 0.045, 0.13)):
+        geo.box(f"CHAIR_BackStitch_{k}", (0.006, 0.003, bh - 0.16), loc=(x, -0.0752, 0.12), collection="CHAIR",
+                material=M("leather_brown"), parent=piv, bevel=0.0012, seg=1, shared="back_stitch")
+    geo.box("CHAIR_HeadPillow", (0.24, 0.065, 0.11), loc=(0.0, 0.032, bh - 0.12), rot=(0.12, 0, 0),
+            collection="CHAIR", material=M("leather_brown"), parent=piv, bevel=0.03, seg=5, uv_scale=4)
     geo.box("CHAIR_LumbarPillow", (0.31, 0.10, 0.17), loc=(0.03, 0.05, 0.055), rot=(0.1, 0, 0.06),
             collection="CHAIR", material=M("quilt"), parent=piv, bevel=0.045, seg=5, uv_scale=4)
 

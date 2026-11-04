@@ -58,6 +58,19 @@ A cinematic, museum-like website for **BROK3N BY DESIGN**, an independent game s
 | I | Record of interactive names → actions | `data/interactions.json`, `data/games.json`, table in ASSET_INVENTORY.md |
 | J | Looks right from multiple angles | Every gate renders front, opposite, back, top and close-ups |
 
+## Custom artwork
+Every printed surface is an **artwork slot**: screens, mugs, deskmat, rug, blanket, sketchbook, book spines, crate print and per-game cover labels.
+- **In Blender:** drop an image into `diorama/custom/` and rebuild (see `custom/README.md`).
+- **On the website:** objects carry `artwork_slot` tags, so images (or video loops on the monitors) can be swapped from data files without re-exporting the model.
+- New slots are added as new exhibits need them.
+
+## Visual quality on the web
+The Cycles renders set the quality bar. The real-time site gets as close as possible:
+- baked AO and lighting in the desk textures (Phase 4);
+- bloom and filmic tone mapping in the browser;
+- quality tiers for weaker devices.
+The renders also serve as the loading image and the non-3D fallback.
+
 ## Implementation order
 1. **Phase 2 — detailed modeling.** Complete, plus the low-risk reuse adjustments listed above.
 2. **Phase 3 — lighting, materials, visual polish.** Amber/purple desk mood, plus a reusable **exhibit spotlight rig** for standalone assets. Keep the miniature look.

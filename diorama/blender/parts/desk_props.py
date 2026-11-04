@@ -61,16 +61,38 @@ def mug(root, x, y, z, name="PROP_Mug", tex="mug", scale=1.0, collection="PROPS"
         parent=None, coffee=True, rests_on=None):
     r, h, t = 0.040 * scale, 0.092 * scale, 0.004 * scale
     prof = [(0, 0), (r * 0.92, 0), (r, 0.006 * scale), (r, h), (r - t, h), (r - t, t * 2), (0, t * 2)]
-    m = geo.lathe(name, prof, loc=(x, y, z), rot=(0, 0, rot_z), collection=collection, material=M(tex),
-                  parent=parent or root, segments=40, rests_on=rests_on)
+    m = geo.lathe(name, prof, loc=(x, y, z), rot=(0, 0, rot_z), collection=collection,
+                  material=[M(tex), M("ceramic")],
+                  parent=parent or root, segments=40, rests_on=rests_on, uv_span=(2, 3))
+    m["artwork_slot"] = "mug_wrap" if tex == "mug" else "mug_figure"
     hp = [(r - 0.002 * scale, 0, h * 0.78), (r + 0.022 * scale, 0, h * 0.74), (r + 0.026 * scale, 0, h * 0.45),
           (r + 0.018 * scale, 0, h * 0.25), (r - 0.002 * scale, 0, h * 0.22)]
-    geo.curve_tube(name + "_Handle", hp, 0.0055 * scale, collection=collection, material=M(tex),
+    geo.curve_tube(name + "_Handle", hp, 0.0055 * scale, collection=collection, material=M("ceramic"),
                    parent=m, ring=10, steps=5)
     if coffee:
         geo.cylinder(name + "_Coffee", r - t - 0.0005, 0.001, loc=(0, 0, h * 0.86), collection=collection,
                      material=M("coffee"), parent=m, verts=32, bevel=0)
     return m
+
+
+def steam(mug_obj):
+    """Wisps of steam above the mug. Blender-only effect (flag `blender_only`): the website
+    will draw its own animated steam instead of exporting these meshes."""
+    wisps = [[(0.0, 0.0, 0.088), (0.006, 0.004, 0.11), (-0.004, 0.0, 0.135), (0.005, -0.003, 0.16), (0.0, 0.0, 0.18)],
+             [(0.012, 0.006, 0.088), (0.004, 0.012, 0.115), (0.014, 0.008, 0.14), (0.006, 0.014, 0.165)],
+             [(-0.012, -0.004, 0.088), (-0.018, 0.002, 0.112), (-0.01, -0.006, 0.134), (-0.017, 0.0, 0.152)]]
+    for i, pts in enumerate(wisps):
+        o = geo.curve_tube(f"FX_Steam_{i}", pts, 0.0035, collection="PROPS", material=M("steam"),
+                           parent=mug_obj, ring=8, steps=6, taper=lambda t: 0.4 + 1.2 * t * (1 - t) * 2)
+        o["blender_only"] = True
+        o.visible_shadow = False
+
+
+def sticky_notes(root, top):
+    for i, (x, y, rz, mat) in enumerate([(0.235, 0.47, 0.15, "sticky_yellow"), (0.28, 0.505, -0.2, "sticky_pink"),
+                                         (-0.50, 0.30, 0.35, "sticky_yellow")]):
+        geo.box(f"PROP_StickyNote_{i}", (0.038, 0.038, 0.0012), loc=(x, y, top), rot=(0, 0, rz),
+                material=M(mat), parent=root, bevel=0.0003, seg=1, rests_on="DESK_Top")
 
 
 def sketchbook(root, top):
@@ -227,7 +249,9 @@ def build(root, desk, hutch):
               material=M("cork"), parent=root, segments=32, rests_on="DESK_Top")
     m = mug(root, 0.36, 0.43, top + 0.005, rot_z=0.0, rests_on="PROP_Coaster")
     S.mark_interactive(m, "mug", "Easter egg (placeholder)")
+    steam(m)
     note = sketchbook(root, top)
+    sticky_notes(root, top)
     S.mark_interactive(note, "notebook", "About / process (placeholder)")
     pencil_cup(root, "PROP_PencilCup", 0.52, 0.53, top, "copper",
                [("pencil_yellow", 0.15, 8, 30), ("pencil_red", 0.14, 12, 150), ("pencil_yellow", 0.16, 6, 260),

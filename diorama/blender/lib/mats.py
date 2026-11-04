@@ -28,7 +28,8 @@ def _img_node(nt, tex, x, closest=False):
 
 
 def mat(name, color=(0.5, 0.5, 0.5), rough=0.6, metal=0.0, emit=None, strength=0.0, tex=None,
-        emit_tex=None, transmission=0.0, ior=1.45, alpha=1.0, closest=False, tint=None):
+        emit_tex=None, transmission=0.0, ior=1.45, alpha=1.0, closest=False, tint=None,
+        normal=None, normal_strength=1.0, rough_tex=None):
     if name in _cache:
         return _cache[name]
     m = bpy.data.materials.new(name)
@@ -49,6 +50,21 @@ def mat(name, color=(0.5, 0.5, 0.5), rough=0.6, metal=0.0, emit=None, strength=0
             nt.links.new(mix.outputs[2], bsdf.inputs["Base Color"])
         else:
             nt.links.new(img.outputs["Color"], bsdf.inputs["Base Color"])
+    if normal:   # tangent-space normal map (glTF normalTexture, strength -> scale)
+        img = _img_node(nt, normal, -700)
+        img.image.colorspace_settings.name = 'Non-Color'
+        nm = nt.nodes.new('ShaderNodeNormalMap')
+        nm.space = 'TANGENT'
+        nm.uv_map = "UVMap"
+        nm.inputs["Strength"].default_value = normal_strength
+        nm.location = (-250, -300)
+        nt.links.new(img.outputs["Color"], nm.inputs["Color"])
+        nt.links.new(nm.outputs["Normal"], bsdf.inputs["Normal"])
+    if rough_tex:  # roughness variation (packed into glTF metallicRoughness by the exporter)
+        img = _img_node(nt, rough_tex, -700)
+        img.image.colorspace_settings.name = 'Non-Color'
+        img.location = (-700, 0)
+        nt.links.new(img.outputs["Color"], bsdf.inputs["Roughness"])
     if emit_tex:
         img = _img_node(nt, emit_tex, -400, closest)
         nt.links.new(img.outputs["Color"], bsdf.inputs["Emission Color"])

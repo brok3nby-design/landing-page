@@ -19,7 +19,7 @@ def build(root):
                 bevel=0.003, shared="riser_end", uv_swap=True, rests_on="DESK_Top")
     geo.box("SHELF_Riser_Back", (D["width"] - 2 * t, 0.012, H["riser_clear"]),
             loc=(cx, y1 - 0.006, desk_top), collection="SHELVES", material=M("wood_dark"),
-            parent=root, bevel=0.002, rests_on="DESK_Top")
+            parent=root, bevel=0.002, uv_scale=2.5, rests_on="DESK_Top")
     riser_z = desk_top + H["riser_clear"]
     riser_top = riser_z + t
     geo.box("SHELF_Riser", (D["width"], H["riser_depth"], t), loc=(cx, ry_c, riser_z),
@@ -42,7 +42,7 @@ def build(root):
                 shared="hutch_post", uv_swap=True, rests_on="SHELF_Riser")
     geo.box("SHELF_BackPanel", (D["width"] - 2 * p, H["back_panel"], H["upper_gap"]),
             loc=(cx, y1 - H["back_panel"] / 2, riser_top), collection="SHELVES",
-            material=M("wood_dark"), parent=root, bevel=0.002, rests_on="SHELF_Riser")
+            material=M("wood_dark"), parent=root, bevel=0.002, uv_scale=2.5, rests_on="SHELF_Riser")
     uy0 = y1 - H["upper_depth"]
     geo.box("SHELF_Upper", (D["width"] + 2 * H["upper_overhang"], H["upper_depth"], t),
             loc=(cx, (uy0 + y1) / 2, upper_z), collection="SHELVES", material=M("wood"),

@@ -13,6 +13,7 @@ from math import radians
 from lib import geo, scene as S
 from lib.library import M
 from lib.mats import mat
+from lib import artwork
 
 CART = (0.10, 0.017, 0.12)
 CRATE = dict(size=(0.22, 0.30, 0.095), wall=0.012, slots=5, step=0.04)
@@ -53,14 +54,14 @@ def games_crate(parent, loc, rests_on=None, collection="PROPS"):
         case["game_slot"] = slot
         geo.box(f"{name}_Body", CART, collection=collection, material=M("cartridge"), parent=case,
                 bevel=0.003, seg=2, shared="cart_body")
-        cell = (i + 2) % 4
-        u0, v0 = (cell % 2) * 0.5, (1 - cell // 2) * 0.5
-        # own mesh + own material per slot so each game can get its own label art later
-        lbl_mat = mat(f"M_{name}_Label", tex="cartridges", rough=0.5, closest=True)
-        geo.box(f"{name}_Label", (CART[0] * 0.8, 0.001, CART[2] * 0.62),
-                loc=(0, -CART[1] / 2 - 0.0004, CART[2] * 0.36), collection=collection,
-                material=lbl_mat, parent=case, bevel=0, uv="fit", fit_axis=1,
-                uv_region=(u0, v0, u0 + 0.5, v0 + 0.5))
+        # own mesh + own material + own texture per slot -> each game shows its own cover art
+        # (artwork slot game_label_XX or games.json label_texture; default = pixel-art label)
+        tex = f"game_label_{slot:02d}"
+        lbl_mat = mat(f"M_{name}_Label", tex=tex, rough=0.5, closest=not artwork.is_custom(tex))
+        lbl = geo.box(f"{name}_Label", (CART[0] * 0.8, 0.001, CART[2] * 0.62),
+                      loc=(0, -CART[1] / 2 - 0.0004, CART[2] * 0.36), collection=collection,
+                      material=lbl_mat, parent=case, bevel=0, uv="fit", fit_axis=1)
+        lbl["artwork_slot"] = tex
         S.mark_interactive(case, f"game_slot_{slot:02d}", f"Game slot {slot} (metadata in games.json)",
                            scope="games")
     S.mark_interactive(nav, "games_crate", "Game collection -> EXPLORE GAMES", scope="home")
