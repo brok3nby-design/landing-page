@@ -1,7 +1,20 @@
 # STATUS — Miniature Developer Desk diorama
 
-**Current phase:** Phase 3 (lighting, materials, polish, custom artwork slots) — complete, **awaiting your approval** before Phase 4 (web export).
-Phases 1 and 2 are approved and locked.
+**Current phase:** Phase 4 (web-ready assets) — complete, **awaiting your approval**. Phase 5 (local website prototype) is NOT started.
+Phases 1–3 are approved and locked. See [EXPORTS.md](EXPORTS.md) (files, measurements), [EASTER_EGGS.md](EASTER_EGGS.md),
+`data/interactions.json` (interaction map) and [PROJECT_DIRECTION.md](PROJECT_DIRECTION.md) (revised 11-phase roadmap, staging rules).
+
+## Phase 4 at a glance
+- **Exports:** `exports/studio_desk.glb` (8.6 MB), `exports/games_collection.glb` (0.48 MB), `exports/studio_notebook.glb` (0.31 MB).
+  They use KTX2 UASTC + RDO textures and meshopt geometry. glTF-Validator: 0 errors.
+- **Desk:** 122 draw calls (was ~307 objects), 83k triangles, ~20 MB GPU texture memory (raw export: ~92 MB).
+- **Hybrid lighting:** baked AO + baked practical glow on UV set 1, plus runtime key/fill/rims in the browser.
+- **Browser preview** (technical, not the website): `diorama/preview/`. Screenshots and comparisons are in `renders/phase4/`.
+- **Launch the viewer locally:**
+  ```bash
+  cd diorama/preview && npm install && npm run dev
+  ```
+  Then open the printed `http://127.0.0.1:5173/` URL. The raw (unoptimised) files must exist in `exports/raw/` for the "raw export" option; rebuild them with `export.py`.
 **Project direction:** the diorama is the homepage exhibit of a larger interactive 3D studio website. See
 [PROJECT_DIRECTION.md](PROJECT_DIRECTION.md) for the concept, page plan, shared viewer architecture and asset rules.
 The website itself is **not started** (future phase).
@@ -13,7 +26,8 @@ Phase 1 blockout is approved and locked (`source/diorama_phase1.blend` cannot be
 - Rebuild everything (deterministic; all "random" placement is seeded):
   ```bash
   python3 -m venv diorama/.venv && diorama/.venv/bin/pip install bpy==5.2.3   # once per fresh container
-  diorama/.venv/bin/python diorama/blender/build.py --render          # Phase 3 is now the default
+  diorama/.venv/bin/python diorama/blender/build.py --render          # Phase 4 scene is now the default
+  diorama/.venv/bin/python diorama/blender/export.py                  # web export (see EXPORTS.md)
   ```
   Build ≈ 30 s (incl. 22 s cloth sim); 7 renders ≈ 5.5 min at 48 samples. `--views 01,05` renders a subset, `--retex` repaints textures.
 - **Fan-art switch:** `FAN_ART = True` in `blender/config.py` builds the character likenesses + game logo (figure base, headphone cup). `False` builds generic figures, no logos. Same object names either way.

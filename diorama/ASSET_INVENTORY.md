@@ -53,17 +53,28 @@ Objects tagged `artwork_slot` (exported as glTF extras, so the website can swap 
 | `LIGHT_*` | Phase 3 rig (see STATUS → Lighting); `LIGHT_Exhibit_*` = standalone exhibit rig |
 | `CAM_Beauty` (+ `CAM_Beauty_Focus`) | Hero framing with depth of field |
 
-## Interactive targets (tag `interactive_id` + `interactive_scope`, exported as glTF extras; also in INTERACTIVE_TARGETS)
-Website behaviour for each id lives in `data/interactions.json`; game details in `data/games.json`.
+## Phase 4 additions
+| Object(s) | Notes |
+|---|---|
+| `NAV_Notebook` → `NOTE_Cover_Back/Front`, `NOTE_PageBlock_L/R`, `NOTE_Page_L/R` (pivots on the spine, hinge axis Y), `NOTE_Spine`, `NOTE_Bookmark`, `NOTE_Pen` | Replaces `PROP_Notebook`. Same look, animation-ready, exported alone as `studio_notebook.glb` |
+| `NAV_ContactCards` (holder + 2 cards, artwork slot `business_card`) | Only new prop: the Contact navigation object |
+| `DESK_Drawer_1..3_Group` | Drawers grouped (front, handle, standoffs) so they can slide out later |
+| `EGG_*` markers (10) + `EGG_UnderDesktop_Sticker`, `EGG_UnderPlatform_Plate` | Hiding places + two hidden test details (see EASTER_EGGS.md) |
+| `STATIC_*` (web export only) | Merged untagged static meshes, one per material |
 
-| interactive_id | scope | Object | Website action (placeholders until content is provided) |
-|---|---|---|---|
-| `games_crate` | home | `NAV_GamesCrate` (group) | Camera focuses crate → panel introducing the collection → **EXPLORE GAMES** → /games |
-| `game_slot_01..05` | games | `GAME_Case_01..05` (groups, `game_slot` = 1..5) | Case lifts + turns to camera → panel from games.json → **VIEW GAME**; close returns it |
-| `monitor_left`, `monitor_right` | home | `MON_L_Screen`, `MON_R_Screen` | Projects panel (route TBD) |
-| `notebook` | home | `PROP_Notebook` (group) | About / process panel (route TBD) |
-| `mug` | home | `PROP_Mug` | Easter egg |
-| `collectible_a`, `collectible_b` | home | `COLL_FigureA`, `COLL_FigureB` (groups) | Detail popover |
+## Interactive objects (navigation vs discovery; full map in `data/interactions.json`)
+| interactive_id | kind | scope | Object | Intended action |
+|---|---|---|---|---|
+| `games_crate` | navigation | home | `NAV_GamesCrate` | Focus → panel → **EXPLORE GAMES** → /games |
+| `notebook` | navigation | home | `NAV_Notebook` | Focus → panel → About |
+| `monitor_left/right` | navigation | home | `MON_L/R_Screen` | Projects |
+| `headphones` | navigation | home | `PROP_Headphones_Stand` | WRFM / audio experience |
+| `contact_card` | navigation | home | `NAV_ContactCards` | Contact |
+| `game_slot_01..05` | navigation | games | `GAME_Case_01..05` | Lift + turn → panel (games.json) → **VIEW GAME** |
+| `mug` | discovery | home | `PROP_Mug` | Optional humorous interaction |
+| `collectible_a/b` | discovery | home | `COLL_FigureA/B` | Easter-egg popover |
+| `book_1..6` | discovery | home | `PROP_Book_0..4`, `PROP_Book_Leaning` | Optional discoveries |
+| `drawer_1..3` | discovery | home | `DESK_Drawer_N_Group` | Future slide-out |
+| `egg_qa_sticker`, `egg_maker_plate` | discovery | home | `EGG_UnderDesktop`, `EGG_UnderPlatform` | Hidden test details |
 
-A click on any child mesh resolves to the nearest ancestor that carries an `interactive_id`.
-The former `cartridge` tag on a fabric-bin cartridge was retired: the games crate is now the single games entry point, and the bin cartridges are decorative.
+Website rule: on the homepage, tags with `interactive_scope = games` (the cases) are skipped, so clicking inside the crate selects the crate. The preview viewer already does this.

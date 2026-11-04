@@ -39,7 +39,7 @@ controls.dampingFactor = 0.08;
 
 const composer = new EffectComposer(renderer);
 composer.addPass(new RenderPass(scene, camera));
-const bloom = new UnrealBloomPass(new THREE.Vector2(1, 1), 0.45, 0.6, 0.82);
+const bloom = new UnrealBloomPass(new THREE.Vector2(1, 1), 0.38, 0.55, 0.96);   // strength, radius, threshold
 composer.addPass(bloom);
 composer.addPass(new OutputPass());
 
@@ -91,7 +91,8 @@ async function load(name, variant = "") {
   report = report || await loadJSON("./models/report.json");
   const t0 = performance.now();
   try {
-    const gltf = await loader.loadAsync(`./models/${variant}${name}.glb`);
+    const file = variant === "webp" ? `${name}_webp.glb` : `${variant}${name}.glb`;
+    const gltf = await loader.loadAsync(`./models/${file}`);
     loadMs = performance.now() - t0;
     model = gltf.scene;
   } catch (e) {
@@ -103,7 +104,10 @@ async function load(name, variant = "") {
     o.castShadow = true;
     o.receiveShadow = true;
     const m = o.material;
-    if (m.name.endsWith("_baked")) m.userData.baked = true;     // AO + glow live on UV set 1
+    if (m.name.endsWith("_baked")) {                            // AO + glow live on UV set 1
+      m.userData.baked = true;
+      m.emissiveIntensity *= 0.85;                              // baked glow sits a touch under Cycles
+    }
     m.userData.emissive0 = m.emissiveIntensity;
   });
   scene.add(model);
@@ -187,8 +191,16 @@ const ray = new THREE.Raycaster();
 const ndc = new THREE.Vector2();
 let down = null, hovered = null;
 
+// Each exhibit listens to its own scope: the desk homepage ignores Games-page tags (game cases), so a
+// click on a case inside the crate selects the crate. Standalone assets accept their own tags.
+const SCOPE = { studio_desk: "home", games_collection: "games", studio_notebook: "home" };
 function tagged(obj) {
-  for (let o = obj; o; o = o.parent) if (o.userData && (o.userData.interactive_id || o.userData.egg_id)) return o;
+  const scope = SCOPE[state.model];
+  for (let o = obj; o; o = o.parent) {
+    const u = o.userData || {};
+    if (u.egg_id && !u.interactive_id) return o;
+    if (u.interactive_id && (!u.interactive_scope || u.interactive_scope === scope)) return o;
+  }
   return null;
 }
 function pick(ev) {
@@ -248,9 +260,11 @@ function swapArtwork(slot, texture) {
   model.traverse((o) => {
     if (o.userData.artwork_slot !== slot) return;
     o.traverse((m) => {
-      if (!m.isMesh || !m.material.map || /ceramic/i.test(m.material.name)) return;
+      if (!m.isMesh || /ceramic/i.test(m.material.name)) return;
+      const slot = m.material.map ? "map" : m.material.emissiveMap ? "emissiveMap" : null;   // screens glow
+      if (!slot) return;
       m.material = m.material.clone();
-      m.material.map = texture;
+      m.material[slot] = texture;
       m.material.needsUpdate = true;
       n++;
     });
@@ -287,7 +301,7 @@ function loop() {
   if (now - last > 500) {
     fps = (frames * 1000) / (now - last); frames = 0; last = now;
     const info = renderer.info;
-    const rep = report && report.find((r) => r.file === `${state.variant}${state.model}.glb`);
+    const rep = report && report.find((r) => r.file === (state.variant === "webp" ? `${state.model}_webp.glb` : `${state.variant}${state.model}.glb`));
     $("stats").textContent =
       `fps            ${fps.toFixed(0)}\ndraw calls     ${info.render.calls}\ntriangles      ${info.render.triangles}\n` +
       `textures       ${info.memory.textures}\nload           ${loadMs.toFixed(0)} ms\n` +
@@ -313,6 +327,22 @@ window.viewer = {
   pickAt(x, y) {
     const p = pick({ clientX: x, clientY: y });
     return p && p.target ? { id: p.target.userData.interactive_id || p.target.userData.egg_id, node: p.target.name } : null;
+  },
+  pickGrid(name, n = 5) {     // click-test a grid of points over a node's screen-space bounding box
+    const o = model.getObjectByName(name);
+    if (!o) return null;
+    const b = new THREE.Box3().setFromObject(o), pts = [];
+    for (const x of [b.min.x, b.max.x]) for (const y of [b.min.y, b.max.y]) for (const z of [b.min.z, b.max.z])
+      pts.push(new THREE.Vector3(x, y, z).project(camera));
+    const xs = pts.map((p) => (p.x + 1) / 2 * window.innerWidth), ys = pts.map((p) => (1 - p.y) / 2 * window.innerHeight);
+    const [x0, x1, y0, y1] = [Math.min(...xs), Math.max(...xs), Math.min(...ys), Math.max(...ys)];
+    const ids = {};
+    for (let i = 0; i < n; i++) for (let j = 0; j < n; j++) {
+      const p = pick({ clientX: x0 + (x1 - x0) * (i + 0.5) / n, clientY: y0 + (y1 - y0) * (j + 0.5) / n });
+      const id = p && p.target ? (p.target.userData.interactive_id || p.target.userData.egg_id) : "-";
+      ids[id] = (ids[id] || 0) + 1;
+    }
+    return ids;
   },
   projectNode(name) {
     const o = model.getObjectByName(name);

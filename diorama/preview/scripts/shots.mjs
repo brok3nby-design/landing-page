@@ -84,11 +84,15 @@ await settle();
 const targets = ["NAV_GamesCrate", "NAV_Notebook", "MON_L_Screen", "MON_R_Screen", "PROP_Headphones_Stand", "NAV_ContactCards",
                  "PROP_Mug", "COLL_FigureA", "COLL_FigureB", "PROP_Book_2", "DESK_Drawer_2_Group"];
 results.picking = [];
-for (const name of targets) {
-  const p = await page.evaluate((n) => window.viewer.projectNode(n), name);
-  const hit = p ? await page.evaluate(({ x, y }) => window.viewer.pickAt(x, y), p) : null;
-  results.picking.push({ node: name, screen: p && [Math.round(p.x), Math.round(p.y)], picked: hit });
+for (const name of targets) {     // 5x5 click grid over each object's on-screen box -> ids hit
+  const ids = await page.evaluate((n) => window.viewer.pickGrid(n), name);
+  results.picking.push({ node: name, hits: ids });
 }
+await open("games_collection");
+for (const name of ["GAME_Case_01", "GAME_Case_03", "GAME_Case_05"]) {
+  results.picking.push({ node: name, page: "games", hits: await page.evaluate((n) => window.viewer.pickGrid(n), name) });
+}
+await open("studio_desk");
 
 // ---- runtime artwork swap
 results.swap = await page.evaluate(() => window.viewer.swap());

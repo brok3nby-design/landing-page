@@ -44,3 +44,32 @@
 - **Verified:**
   - A test image dropped into the `mug_wrap` slot showed up upright, facing the viewer, and the default came back after removal.
   - The automated checks pass.
+
+## Phase 4 — web-ready assets (2026-11-04)
+- **Locked Phase 3.** Build defaults to `--phase 4`.
+- **Notebook:** `NAV_Notebook` rebuilt from parts with spine pivots (covers, page blocks, pages), a red bookmark and the pen. Appearance verified unchanged.
+- **Tags:**
+  - new `interactive_kind` (navigation / discovery);
+  - newly tagged: headphones (WRFM), contact card holder (new tiny prop + `business_card` artwork slot), books, drawers (now groups).
+- **Discoveries:** `parts/discoveries.py` adds 10 `EGG_*` hiding-place markers and two hidden test decals (under the desktop, under the platform).
+  - The pixel font now covers the full alphabet, digits and punctuation.
+- **`blender/export.py`:**
+  - strip Blender-only items;
+  - apply modifiers;
+  - merge static meshes per material, then merge siblings inside groups;
+  - lightmap UVs;
+  - AO bake (128 spp) and practical-glow bake (192 spp) into 1024 atlases;
+  - glTF material wiring;
+  - three GLBs, `views.json`, an export report.
+- **`tools/`:**
+  - `optimize.mjs`: per-role texture sizes, KTX2 UASTC + RDO + Zstandard, meshopt, prune that keeps empty tagged nodes;
+  - `inspect.mjs`: validator, draw calls, triangles, GPU memory estimate, tag listing;
+  - `compare.mjs`: comparison sheets.
+- **`preview/`** (Vite + three.js technical preview):
+  - runtime key/fill/rims, AgX tone mapping, bloom, environment reflections;
+  - toggles for AO, glow, runtime lights, shadows, bloom and under-view;
+  - scope-aware click picking (click vs drag) and hover highlight;
+  - stats overlay and a runtime artwork-swap test;
+  - Playwright screenshot suite.
+- **Verified in headless Chromium:** all three models load with correct scale and orientation, from default, back, side and under angles. Picking resolves the right ids, the artwork swap works on the mug, a game label and the left screen, and the hybrid lighting comparison is captured.
+- **Docs:** EXPORTS.md, EASTER_EGGS.md, `data/interactions.json` rewritten as navigation/discovery, PROJECT_DIRECTION roadmap (11 phases) and staging rules.

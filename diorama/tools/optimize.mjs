@@ -2,6 +2,7 @@
 //
 //   node optimize.mjs                 -> diorama/exports/{studio_desk,games_collection,studio_notebook}.glb
 //   node optimize.mjs --webp          -> WebP textures instead of KTX2 (fallback / comparison)
+//   node optimize.mjs --max-quality   -> KTX2 UASTC without RDO (bigger download, same GPU memory)
 //
 // Steps: dedup + prune -> per-slot texture size policy -> KTX2 (UASTC + Zstandard: GPU-compressed,
 // ~1 byte/pixel in video memory instead of 4) or WebP -> meshopt geometry compression.
@@ -54,7 +55,10 @@ async function run(name) {
   if (WEBP) {
     await doc.transform(textureCompress({ encoder: sharp, targetFormat: "webp", quality: 92 }));
   } else {
-    const base = { isUASTC: true, generateMipmap: true, needSupercompression: true, enableDebug: false, imageDecoder };
+    // UASTC + RDO (rate-distortion optimisation) + Zstandard: same GPU memory as plain UASTC, ~1/3
+    // smaller download; visually checked against the raw export. --max-quality disables RDO.
+    const rdo = process.argv.includes("--max-quality") ? {} : { enableRDO: true, rdoQualityLevel: 1.25 };
+    const base = { isUASTC: true, generateMipmap: true, needSupercompression: true, enableDebug: false, imageDecoder, ...rdo };
     await doc.transform(ktx2({ ...base, isNormalMap: true, isPerceptual: false, slots: /normalTexture/ }));
     await doc.transform(ktx2({ ...base, isPerceptual: false, slots: /occlusionTexture|metallicRoughnessTexture/ }));
     await doc.transform(ktx2({ ...base, isPerceptual: true, slots: /baseColorTexture|emissiveTexture/ }));
