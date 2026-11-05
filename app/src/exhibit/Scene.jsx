@@ -308,7 +308,8 @@ function useKeepOut(ctl, boxes) {
 }
 
 // ---------------------------------------------------------------- camera rig
-function Rig({ box, view, frame: FRAME, frameOrigin, under, underView, selected, apiRef, colliders, focusLift = 0, focusScale = 2.1 }) {
+const SHIFT = parseFloat(new URLSearchParams(location.search).get("shift")) || 0.1;   // share of the view width
+function Rig({ box, view, frame: FRAME, frameOrigin, homeScale = 0.86, under, underView, selected, apiRef, colliders, focusLift = 0, focusScale = 2.1 }) {
   const ctl = useRef();
   const camera = useThree((s) => s.camera);
   const size = useThree((s) => s.size);
@@ -323,14 +324,18 @@ function Rig({ box, view, frame: FRAME, frameOrigin, under, underView, selected,
     const fwd = view ? new THREE.Vector3(...view.forward).normalize() : new THREE.Vector3(-0.3, -0.45, -0.85).normalize();
     const vfov = THREE.MathUtils.degToRad(camera.fov);
     const hfov = 2 * Math.atan(Math.tan(vfov / 2) * (size.width / size.height));
-    const d = (r / Math.sin(Math.min(vfov, hfov) / 2)) * (size.width < 600 ? 1.08 : 0.86);   // more margin on phones
-    return { pos: c.clone().addScaledVector(fwd, -d), target: c, r, d, fwd };
+    // wide layouts (exhibit beside the text): a little closer, and shifted toward the text so there is
+    // no empty band between the copy and the model. Phones/stacked layouts stay centred.
+    const beside = size.width > 900 && size.width / size.height > 1.15;
+    const d = (r / Math.sin(Math.min(vfov, hfov) / 2)) * (size.width < 600 ? 1.08 : beside ? homeScale : 0.86);
+    const ox = beside ? 2 * d * Math.tan(hfov / 2) * SHIFT : 0;     // camera moves right -> model sits left of centre
+    return { pos: c.clone().addScaledVector(fwd, -d), target: c, r, d, fwd, ox };
   };
 
   const goHome = (smooth) => {
     const h = home.current;
     if (!h || !ctl.current || FRAME?.position) return;   // comparison mode keeps the Blender camera
-    ctl.current.setFocalOffset(0, 0, 0, smooth);
+    ctl.current.setFocalOffset(h.ox, 0, 0, smooth);
     ctl.current.setLookAt(h.pos.x, h.pos.y, h.pos.z, h.target.x, h.target.y, h.target.z, smooth);
   };
 
@@ -482,7 +487,7 @@ function Content({ config, selectedId, onSelect, under, apiRef, quality, animSta
       {state && views && (
         <>
           <Lights box={state.box} kind={config.lights || "exhibit"} under={under} shadows={quality.shadows} />
-          <Rig box={state.box} view={view} frame={FRAME_ID && views?.cameras?.[FRAME_ID]} frameOrigin={config.frameOrigin} under={under} underView={config.underView} selected={selected} apiRef={apiRef} colliders={colliders}
+          <Rig box={state.box} view={view} frame={FRAME_ID && views?.cameras?.[FRAME_ID]} frameOrigin={config.frameOrigin} homeScale={config.homeScale} under={under} underView={config.underView} selected={selected} apiRef={apiRef} colliders={colliders}
                focusLift={lifting ? 0.07 : 0} focusScale={config.focusScale} />
           {lifting && <LiftTurn index={state.index} selectedId={selectedId} />}
           {config.animation === "notebook" && <NotebookOpen scene={state.scene} open={animState?.open ?? true} />}

@@ -335,3 +335,6 @@ blockquote { margin: 18px 0; padding-left: 18px; border-left: 2px solid var(--re
   .menu .nav ul { flex-direction: column; gap: 0; }
   .menu .nav a { width: 100%; font-size: 13px; }
 }
+/* wide layouts: cover art sits toward the text (no empty band in the middle of the page) */
+@media (min-width: 901px) { .cover-exhibit { place-items: center start; padding-left: clamp(16px, 3vw, 56px); }
+  .cover-exhibit .note { left: clamp(16px, 3vw, 56px); right: auto; } }

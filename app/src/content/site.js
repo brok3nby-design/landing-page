@@ -27,6 +27,7 @@ export const PAGES = {
       scope: "home",
       view: "CAM_Hero",
       lights: "desk",                // runtime copy of the Cycles desk rig (else the generic exhibit rig)
+      homeScale: 0.74,               // wide screens: frame the desk a little closer (its bounding sphere is generous)
       fallback: "fallback/desk.png",
       fallbackAlt: "A handcrafted miniature developer desk on a wooden display base: two glowing monitors, a gaming chair with a red plaid blanket, shelves with plants, books and collectible figures, and a crate of game cartridges under the desk.",
       // "Look underneath": orbit a pivot under the desktop, starting low at the front-right
