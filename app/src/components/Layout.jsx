@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { NavLink, Link, Outlet, useLocation } from "react-router-dom";
 import { BRAND, NAV } from "../content/site.js";
 import { useSiteData } from "../content/data.js";
@@ -11,21 +11,32 @@ export default function Layout() {
   const data = useSiteData();
   useEffect(() => { if (data) setProjects(data.projects); }, [data]);
   useEffect(() => { startEffects(); }, []);
-  useEffect(() => { window.scrollTo(0, 0); }, [pathname]);
+  const [menu, setMenu] = useState(false);              // phone menu (the nav collapses below 700 px)
+  useEffect(() => { window.scrollTo(0, 0); setMenu(false); }, [pathname]);
+  useEffect(() => {
+    if (!menu) return;
+    const k = (e) => e.key === "Escape" && setMenu(false);
+    addEventListener("keydown", k); return () => removeEventListener("keydown", k);
+  }, [menu]);
   useScrollSecret();
   return (
     <div className="site">
       <a className="skip" href="#main">Skip to content</a>
       <header className="header">
         <Link viewTransition to="/" className="wordmark" aria-label={`${BRAND} — home`}>{BRAND}<sup>™</sup></Link>
-        <nav className="nav" aria-label="Main">
-          <ul>
-            {NAV.map((n) => (
-              <li key={n.to}><NavLink viewTransition to={n.to} end={n.end}>{n.label}</NavLink></li>
-            ))}
-          </ul>
-        </nav>
-        <MusicControl />
+        <button type="button" className="menu-toggle" aria-expanded={menu} aria-controls="site-menu" onClick={() => setMenu(!menu)}>
+          {menu ? "Close" : "Menu"}
+        </button>
+        <div id="site-menu" className={`menu${menu ? " open" : ""}`}>
+          <nav className="nav" aria-label="Main">
+            <ul>
+              {NAV.map((n) => (
+                <li key={n.to}><NavLink viewTransition to={n.to} end={n.end}>{n.label}</NavLink></li>
+              ))}
+            </ul>
+          </nav>
+          <MusicControl />
+        </div>
       </header>
       {/* keyed by route: each page fades in (CSS), and its exhibit starts fresh */}
       <main id="main" key={pathname} className="route"><Outlet /></main>
@@ -45,6 +56,13 @@ export default function Layout() {
         <Robot />
       </footer>
       <StampToast />
+      {__BUILD__.staging && (
+        <aside aria-label="Staging notice">
+          <a className="staging-badge" href={`${import.meta.env.BASE_URL}version.json`} title={`Build ${__BUILD__.commit} · ${__BUILD__.date}`}>
+            Staging · not the live site
+          </a>
+        </aside>
+      )}
       <Entrance wordmark={data?.copy.brand.wordmark} />
     </div>
   );

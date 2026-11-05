@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 
 const BASE = import.meta.env.BASE_URL;
 let cache = null;
+let resolved = null;              // set once loaded; main.jsx loads it before the first render (no layout shift)
 export function loadSiteData() {
   if (!cache) {
     const get = (f) => fetch(`${BASE}data/${f}`).then((r) => r.json());
@@ -11,13 +12,14 @@ export function loadSiteData() {
       .then(([projects, copy, games, interactions]) => ({
         projects: projects.projects, copy, games: games.games, interactions,
         project: (id) => projects.projects.find((p) => p.id === id) || null,
-      }));
+      }))
+      .then((d) => (resolved = d));
   }
   return cache;
 }
 export function useSiteData() {
-  const [data, setData] = useState(null);
-  useEffect(() => { let live = true; loadSiteData().then((d) => live && setData(d)); return () => { live = false; }; }, []);
+  const [data, setData] = useState(resolved);
+  useEffect(() => { if (resolved) return; let live = true; loadSiteData().then((d) => live && setData(d)); return () => { live = false; }; }, []);
   return data;
 }
 

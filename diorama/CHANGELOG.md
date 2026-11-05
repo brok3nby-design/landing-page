@@ -201,3 +201,22 @@
   - Preferences and the Passport use the old storage keys and format (`b3d-preferences-v1`, `b3d-passport-v1`), so visitors keep their stamps and settings after launch. Four new 3D stamps: under the radar, fine print, bookworm, coffee break.
 - **Old URLs keep working:** the build writes a forwarding page for every old `.html` URL (22) to its new route, using the pattern of the old `lumina-dice.html`.
 - **Playable teasers are not included**, per your decision.
+
+## Phase 8 — private staging + desktop/mobile testing (2026-11-04)
+- **Staging build** (`npm run build:staging`, `STAGING=1`):
+  - noindex meta on every page (the old-URL forwards too) and `robots.txt` disallowing everything;
+  - `CNAME` test.brok3nbydesign.com and `.nojekyll`;
+  - a yellow "STAGING · not the live site" badge linking to `version.json` (commit + build time).
+- **Deploy** (`npm run deploy:staging`): builds, then commits `dist/` to the `gh-pages` branch of `brok3nby-design/landing-page` through a git worktree and pushes. Nothing else is touched. One-time DNS + Pages steps and your device checklist are in `STAGING.md`.
+- **Automated pass** (`npm run test:staging`, headless Chromium):
+  - 8 devices (iPhone SE, iPhone 14 Pro Max, Pixel 7, iPad Mini portrait and landscape, 1366, 1920, 2560) × 6 pages: no horizontal scrolling, nav reachable, exhibit loads, the info panel fits, no console errors; screenshots in `renders/phase8/devices/`;
+  - axe-core on 11 pages (desktop + phone);
+  - Lighthouse (mobile + desktop) on home, Games and a project page; results in `renders/phase8/report.json`.
+- **Fixes found by it:**
+  - small red labels and dim notes raised to WCAG AA contrast;
+  - touch-sized targets (≥ 40 px) on phones and tablets: nav, chips, music, tools, footer links;
+  - info panels scroll instead of overflowing the 3D view (About panel on iPhone SE);
+  - heading order on Follow/Contact;
+  - the staging badge inside a landmark.
+  - **Layout shift (CLS) 0.26–0.5 → 0:** the page copy now loads before the first render, covers reserve their 2:3 space, and the WRFM key art has dimensions. Covers also load with high priority.
+- **Lighthouse here:** accessibility 100, best practices 100; SEO 66 only because staging is deliberately not crawlable. Performance on the 3D pages is pessimistic, because this machine renders WebGL in software with no GPU; project pages score 98 desktop / 73 mobile. Real-device numbers come from `?fps` on your hardware.

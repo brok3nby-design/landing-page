@@ -110,9 +110,9 @@ The renders also serve as the loading image and the non-3D fallback.
 | 5 | Local website prototype: React layout, shared viewer, black/white/red identity, the desk with rotation, zoom, focus and selection | ✅ done (approved) |
 | 6 | Connected pages: Games (crate) and About (notebook), panels, navigation, basic animations | ✅ done (approved) |
 | 7 | Visual refinement: browser lighting and materials vs the Blender references, transitions, performance; camera fix | ✅ done |
-| 8 | Private development and staging tests: desktop and mobile; never affects production | — |
+| 8 | Private development and staging tests: desktop and mobile; never affects production | 🔄 staging built + automated tests done; waiting for your DNS/Pages setup and device feedback |
 | 9 | Existing website audit: content inventory, game-by-game asset checklist, migration plan, URL preservation (done before Phase 8, at your request) | ✅ done (`AUDIT.md`, decisions recorded) |
-| 10 | Content implementation: approved content, game exhibits, more navigation objects, Easter eggs | ✅ content + features + game boxes done, awaiting approval (per-game miniature exhibits still future) |
+| 10 | Content implementation: approved content, game exhibits, more navigation objects, Easter eggs | ✅ done (per-game miniature exhibits still future) |
 | 11 | Final testing and optional launch, only with explicit approval | — |
 
 **Rule:** one phase at a time, each ending with evidence and a stop for approval. No custom artwork is requested before the Phase 9 audit identifies what's missing.

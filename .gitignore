@@ -5,3 +5,4 @@ __pycache__/
 *.blend1
 # reproducible with diorama/blender/export.py (large)
 diorama/exports/raw/*.glb
+.staging-worktree/

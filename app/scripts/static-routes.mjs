@@ -11,6 +11,7 @@ import { fileURLToPath } from "node:url";
 const APP = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const dist = path.join(APP, "dist");
 const BASE = process.env.SITE_BASE || "/";
+const STAGING = process.env.STAGING === "1";
 const routes = JSON.parse(fs.readFileSync(path.join(APP, "src", "content", "routes.json"), "utf8"));
 const projects = JSON.parse(fs.readFileSync(path.join(APP, "public", "data", "projects.json"), "utf8")).projects;
 const route = (id) => (id === "wrfm" ? "/wrfm" : id === "graffiti" ? "/graffiti" : `/games/${id}`);
@@ -33,9 +34,19 @@ for (const [file, to] of Object.entries(OLD)) {
   const url = BASE.replace(/\/$/, "") + to;
   fs.writeFileSync(path.join(dist, file), `<!doctype html><html lang="en"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1"><title>Brok3n by Design</title>
-<link rel="canonical" href="${esc(url)}"><meta http-equiv="refresh" content="0; url=${esc(url)}">
+<link rel="canonical" href="${esc(url)}">${STAGING ? '<meta name="robots" content="noindex, nofollow">' : ""}<meta http-equiv="refresh" content="0; url=${esc(url)}">
 <style>body{background:#080808;color:#e8e8e8;font:16px/1.5 system-ui,sans-serif;padding:48px}a{color:#e8e8e8}</style>
 </head><body><p>This page has moved. <a href="${esc(url)}">Continue to the new page →</a></p>
 <script>location.replace(${JSON.stringify(url)} + location.hash)</script></body></html>\n`);
+}
+// staging (test.brok3nbydesign.com on GitHub Pages): custom domain, no Jekyll, no indexing, version stamp
+if (STAGING) {
+  fs.writeFileSync(path.join(dist, "CNAME"), "test.brok3nbydesign.com\n");
+  fs.writeFileSync(path.join(dist, ".nojekyll"), "");
+  fs.writeFileSync(path.join(dist, "robots.txt"), "User-agent: *\nDisallow: /\n");
+  let commit = "local";
+  try { commit = (await import("node:child_process")).execSync("git rev-parse --short HEAD").toString().trim(); } catch { /* none */ }
+  fs.writeFileSync(path.join(dist, "version.json"), JSON.stringify({ commit, built: new Date().toISOString(), staging: true }, null, 1) + "\n");
+  console.log("staging extras: CNAME, .nojekyll, robots.txt (disallow all), version.json");
 }
 console.log("static route pages:", routes.length, "+ 404.html; old-URL forwards:", Object.keys(OLD).length);

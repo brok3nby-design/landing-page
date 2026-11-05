@@ -85,7 +85,7 @@ function HomeMore({ data }) {
           <article className="card">
             <p className="eyebrow">{launched[6]?.text}</p>
             <h3>{wrfm.title}</h3>
-            <img src={media(copy.brand.wrfm_keyart)} alt="WRFM Radio artwork" loading="lazy" />
+            <img src={media(copy.brand.wrfm_keyart)} alt="WRFM Radio artwork" loading="lazy" width="1536" height="1024" />
             <p>{launched[8]?.text}</p>
             <div className="ctas"><Action a={{ label: "Play WRFM ↗", href: copy.links.wrfm_live }} primary /><Action a={{ label: "Explore WRFM →", route: "/wrfm" }} /></div>
           </article>
@@ -120,10 +120,11 @@ function HomeMore({ data }) {
   );
 }
 
-export function FieldNotes({ copy, text, title = "Join the Field Notes" }) {
+export function FieldNotes({ copy, text, title = "Join the Field Notes", level = 3 }) {
+  const H = `h${level}`;
   return (
     <form className="newsletter" action={copy.links.newsletter_action} method="post" target="_blank">
-      <h3>{title}</h3>
+      <H className="card-h">{title}</H>
       {text && <p>{text}</p>}
       <label htmlFor="nl-email" className="sr-only">Email address</label>
       <div className="row">

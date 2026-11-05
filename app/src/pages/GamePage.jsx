@@ -37,7 +37,8 @@ export default function GamePage({ id: fixedId }) {
           <div className="ctas"><Link viewTransition className="btn ghost" to="/games">← Back to the shelf</Link></div>
         </section>
         <section className="exhibit cover-exhibit" aria-label={`${p.title} artwork`}>
-          {(p.cover || p.logo) && <img src={media(p.cover || p.logo)} alt={`${p.title} artwork`} />}
+          {(p.cover || p.logo) && <img src={media(p.cover || p.logo)} alt={`${p.title} artwork`}
+                                       {...(p.cover ? { width: 1024, height: 1536, className: "is-cover" } : {})} fetchpriority="high" />}
           <span className="note">Miniature exhibit — future phase</span>
         </section>
       </div>

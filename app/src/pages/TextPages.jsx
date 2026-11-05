@@ -53,9 +53,9 @@ export function Follow() {
     <Shell eyebrow="Stay in the loop" title={<>Follow development<span className="accent">.</span></>}
            lead="Choose the kind of updates you want. Get occasional studio notes by email, follow the day-to-day work on X, or check back as more channels open.">
       <div className="cards two">
-        <div className="card"><FieldNotes copy={d.copy} text={join[0]?.text} /></div>
+        <div className="card"><FieldNotes copy={d.copy} text={join[0]?.text} level={2} /></div>
         <div className="card">
-          <h3>Follow on X</h3>
+          <h2 className="card-h">Follow on X</h2>
           <p>{join.find((i) => i.text.startsWith("Short updates"))?.text}</p>
           <div className="ctas"><a className="btn primary" href={d.copy.links.x} target="_blank" rel="noopener">@brok3nbydesign ↗</a></div>
         </div>
@@ -91,11 +91,11 @@ export function Contact() {
     <Shell eyebrow="Get in touch" title={<>Contact<span className="accent">.</span></>}
            lead="Explore the games, follow what's taking shape, or drop a line about games, feedback, or a collaboration.">
       <div className="cards three">
-        <div className="card"><h3>Email</h3><p><a href={`mailto:${L.email}`}>{L.email}</a></p></div>
-        <div className="card"><h3>X</h3><p><a href={L.x} target="_blank" rel="noopener">@brok3nbydesign ↗</a></p></div>
-        <div className="card"><h3>YouTube</h3><p><a href={L.youtube} target="_blank" rel="noopener">Trailers ↗</a></p></div>
+        <div className="card"><h2 className="card-h">Email</h2><p><a href={`mailto:${L.email}`}>{L.email}</a></p></div>
+        <div className="card"><h2 className="card-h">X</h2><p><a href={L.x} target="_blank" rel="noopener">@brok3nbydesign ↗</a></p></div>
+        <div className="card"><h2 className="card-h">YouTube</h2><p><a href={L.youtube} target="_blank" rel="noopener">Trailers ↗</a></p></div>
       </div>
-      <div className="card"><FieldNotes copy={d.copy} text="Get occasional updates on new builds, playable previews, and experiments still finding their shape." /></div>
+      <div className="card"><FieldNotes copy={d.copy} level={2} text="Get occasional updates on new builds, playable previews, and experiments still finding their shape." /></div>
       <p className="dim">Writing about the studio? The <Link viewTransition to="/press">press kit</Link> has the studio description, artwork and logos.</p>
     </Shell>
   );

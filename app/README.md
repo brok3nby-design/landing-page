@@ -86,5 +86,13 @@ Tuning flags for that page mode: `?frame=CAM_Hero&k=1.2&fill=0.8&amb=0.5&rim=1&e
 
 The `?test` URL flag makes the canvas readable and skips the intro, for software-GL screenshots.
 
+## Staging (Phase 8): test.brok3nbydesign.com
+A private test copy. Setup steps and the real-device checklist are in [`diorama/STAGING.md`](../diorama/STAGING.md).
+```bash
+npm run build:staging     # STAGING=1: noindex + robots.txt, CNAME, .nojekyll, version.json, STAGING badge
+npm run test:staging      # device matrix (8 devices x 6 pages), axe-core accessibility, Lighthouse -> diorama/renders/phase8/
+npm run deploy:staging    # build + push dist/ to the gh-pages branch of this repository (nothing else)
+```
+
 ## Assets
 `npm run dev` / `npm run build` copy the latest GLBs, `views.json`, the interaction/game data and fallback renders from `diorama/` into `public/` (git-ignored). Re-export in Blender, then rebuild the site; no manual copying needed.
