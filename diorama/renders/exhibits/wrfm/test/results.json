@@ -1,60 +1,66 @@
 {
  "mic_on": {
   "onAir": true,
-  "level": 0.1773548670408273,
+  "level": 0.40620310584991126,
   "needles": [
-   -0.3796118780857797,
-   -0.41012503255380073
+   -0.27720780598995554,
+   -0.3174737292290074
   ],
-  "music": false
+  "music": false,
+  "sign": 0.98
  },
  "readout": "On air · Vera Lang signs on: “If you’re hearing this, it means the office is quiet and you’re still here. That’s not a mistake.”",
  "mic_off": {
   "onAir": false,
-  "level": 0.0012391262097110264,
+  "level": 0.0011149008670053207,
   "needles": [
-   -0.6959853330265955,
-   -0.6963676822621578
+   -0.6963670043751259,
+   -0.6967130039584473
   ],
-  "music": false
+  "music": false,
+  "sign": 0.13
  },
  "button_on": {
   "onAir": true,
-  "level": 0.0003732176421936666,
+  "level": 0.00033580168799789834,
   "needles": [
-   -0.6987696154733646,
-   -0.6988867949520917
+   -0.6988895248128241,
+   -0.6989952843544599
   ],
-  "music": false
+  "music": false,
+  "sign": 0.124
  },
  "ringing": {
   "onAir": true,
-  "level": 0.0003732176421936666,
+  "level": 0.00033580168799789834,
   "needles": [
-   -0.6987696154733646,
-   -0.6988867949520917
+   -0.6988895248128241,
+   -0.6989952843544599
   ],
-  "music": false
+  "music": false,
+  "sign": 0.124
  },
  "after_phone": {
   "onAir": true,
-  "level": 0.15322307766296064,
+  "level": 0.1955038988768954,
   "needles": [
-   -0.5658367450053644,
-   -0.5786141978619963
+   -0.5290021349891428,
+   -0.5452876459425579
   ],
-  "music": false
+  "music": false,
+  "sign": 0.468
  },
- "stamp": "2026-11-05T19:59:49.655Z",
+ "stamp": "2026-11-05T20:04:03.418Z",
  "phone_readout": "On air · Vera picks up: You found the phone.",
  "turntable": {
   "onAir": false,
-  "level": 0.15322307766296064,
+  "level": 0.4562958133184898,
   "needles": [
-   -0.5658367450053644,
-   -0.5786141978619963
+   -0.0047371607780401954,
+   -0.0709526692753698
   ],
-  "music": true
+  "music": true,
+  "sign": 0.12
  },
  "checks": {
   "mic_puts_vera_on_air": true,
@@ -63,6 +69,8 @@
   "on_air_button": true,
   "phone_rings_and_vera_picks_up": true,
   "turntable_starts_music": true,
+  "sign_dims_off_air": true,
+  "sign_lit_on_air": true,
   "no_errors": true
  },
  "errors": []
