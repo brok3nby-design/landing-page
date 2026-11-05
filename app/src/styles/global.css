@@ -320,7 +320,8 @@ blockquote { margin: 18px 0; padding-left: 18px; border-left: 2px solid var(--re
 @media (max-width: 900px) { .panel { max-height: calc(100% - 24px); } }
 /* covers are 2:3: size them from the viewport so the space is reserved before the image arrives (no layout shift) */
 .cover-exhibit img.is-cover { width: min(100%, calc((100vh - 220px) * 2 / 3)); height: auto; aspect-ratio: 2 / 3; max-height: none; }
-@media (max-width: 900px) { .cover-exhibit img.is-cover { width: min(100%, 40vh); } }
+@media (max-width: 900px) { .cover-exhibit img.is-cover { width: min(100%, 40vh); }
+  .cover-exhibit { display: flex; flex-direction: column; align-items: center; gap: 8px; } .cover-exhibit .note { position: static; } }
 
 /* phone header: wordmark + Menu button; the nav and music control open as a panel below */
 .menu { display: contents; }

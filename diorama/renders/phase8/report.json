@@ -1,7 +1,7 @@
 {
  "built": {
-  "commit": "2956393",
-  "built": "2026-11-04T23:32:45.122Z",
+  "commit": "2f28a7a",
+  "built": "2026-11-05T00:21:53.152Z",
   "staging": true
  },
  "devices": {
@@ -12,6 +12,7 @@
     "overflow_px": 0,
     "nav_ok": true,
     "small_targets": [],
+    "menu": true,
     "errors": [],
     "shot": "devices/iphone-se_home.jpg"
    },
@@ -21,6 +22,7 @@
     "overflow_px": 0,
     "nav_ok": true,
     "small_targets": [],
+    "menu": true,
     "errors": [],
     "shot": "devices/iphone-se_games.jpg"
    },
@@ -30,6 +32,7 @@
     "overflow_px": 0,
     "nav_ok": true,
     "small_targets": [],
+    "menu": true,
     "errors": [],
     "shot": "devices/iphone-se_project.jpg"
    },
@@ -39,6 +42,7 @@
     "overflow_px": 0,
     "nav_ok": true,
     "small_targets": [],
+    "menu": true,
     "errors": [],
     "shot": "devices/iphone-se_wrfm.jpg"
    },
@@ -48,6 +52,7 @@
     "overflow_px": 0,
     "nav_ok": true,
     "small_targets": [],
+    "menu": true,
     "errors": [],
     "shot": "devices/iphone-se_about.jpg"
    },
@@ -57,6 +62,7 @@
     "overflow_px": 0,
     "nav_ok": true,
     "small_targets": [],
+    "menu": true,
     "errors": [],
     "shot": "devices/iphone-se_passport.jpg"
    }
@@ -68,6 +74,7 @@
     "overflow_px": 0,
     "nav_ok": true,
     "small_targets": [],
+    "menu": true,
     "errors": [],
     "shot": "devices/iphone-14-pro-max_home.jpg"
    },
@@ -77,6 +84,7 @@
     "overflow_px": 0,
     "nav_ok": true,
     "small_targets": [],
+    "menu": true,
     "errors": [],
     "shot": "devices/iphone-14-pro-max_games.jpg"
    },
@@ -86,6 +94,7 @@
     "overflow_px": 0,
     "nav_ok": true,
     "small_targets": [],
+    "menu": true,
     "errors": [],
     "shot": "devices/iphone-14-pro-max_project.jpg"
    },
@@ -95,6 +104,7 @@
     "overflow_px": 0,
     "nav_ok": true,
     "small_targets": [],
+    "menu": true,
     "errors": [],
     "shot": "devices/iphone-14-pro-max_wrfm.jpg"
    },
@@ -104,6 +114,7 @@
     "overflow_px": 0,
     "nav_ok": true,
     "small_targets": [],
+    "menu": true,
     "errors": [],
     "shot": "devices/iphone-14-pro-max_about.jpg"
    },
@@ -113,6 +124,7 @@
     "overflow_px": 0,
     "nav_ok": true,
     "small_targets": [],
+    "menu": true,
     "errors": [],
     "shot": "devices/iphone-14-pro-max_passport.jpg"
    }
@@ -124,6 +136,7 @@
     "overflow_px": 0,
     "nav_ok": true,
     "small_targets": [],
+    "menu": true,
     "errors": [],
     "shot": "devices/pixel-7_home.jpg"
    },
@@ -133,6 +146,7 @@
     "overflow_px": 0,
     "nav_ok": true,
     "small_targets": [],
+    "menu": true,
     "errors": [],
     "shot": "devices/pixel-7_games.jpg"
    },
@@ -142,6 +156,7 @@
     "overflow_px": 0,
     "nav_ok": true,
     "small_targets": [],
+    "menu": true,
     "errors": [],
     "shot": "devices/pixel-7_project.jpg"
    },
@@ -151,6 +166,7 @@
     "overflow_px": 0,
     "nav_ok": true,
     "small_targets": [],
+    "menu": true,
     "errors": [],
     "shot": "devices/pixel-7_wrfm.jpg"
    },
@@ -160,6 +176,7 @@
     "overflow_px": 0,
     "nav_ok": true,
     "small_targets": [],
+    "menu": true,
     "errors": [],
     "shot": "devices/pixel-7_about.jpg"
    },
@@ -169,6 +186,7 @@
     "overflow_px": 0,
     "nav_ok": true,
     "small_targets": [],
+    "menu": true,
     "errors": [],
     "shot": "devices/pixel-7_passport.jpg"
    }
@@ -180,6 +198,7 @@
     "overflow_px": 0,
     "nav_ok": true,
     "small_targets": [],
+    "menu": false,
     "errors": [],
     "shot": "devices/ipad-mini_home.jpg"
    },
@@ -189,6 +208,7 @@
     "overflow_px": 0,
     "nav_ok": true,
     "small_targets": [],
+    "menu": false,
     "errors": [],
     "shot": "devices/ipad-mini_games.jpg"
    },
@@ -198,6 +218,7 @@
     "overflow_px": 0,
     "nav_ok": true,
     "small_targets": [],
+    "menu": false,
     "errors": [],
     "shot": "devices/ipad-mini_project.jpg"
    },
@@ -207,6 +228,7 @@
     "overflow_px": 0,
     "nav_ok": true,
     "small_targets": [],
+    "menu": false,
     "errors": [],
     "shot": "devices/ipad-mini_wrfm.jpg"
    },
@@ -216,6 +238,7 @@
     "overflow_px": 0,
     "nav_ok": true,
     "small_targets": [],
+    "menu": false,
     "errors": [],
     "shot": "devices/ipad-mini_about.jpg"
    },
@@ -225,6 +248,7 @@
     "overflow_px": 0,
     "nav_ok": true,
     "small_targets": [],
+    "menu": false,
     "errors": [],
     "shot": "devices/ipad-mini_passport.jpg"
    }
@@ -236,6 +260,7 @@
     "overflow_px": 0,
     "nav_ok": true,
     "small_targets": [],
+    "menu": false,
     "errors": [],
     "shot": "devices/ipad-mini-landscape_home.jpg"
    },
@@ -245,6 +270,7 @@
     "overflow_px": 0,
     "nav_ok": true,
     "small_targets": [],
+    "menu": false,
     "errors": [],
     "shot": "devices/ipad-mini-landscape_games.jpg"
    },
@@ -254,6 +280,7 @@
     "overflow_px": 0,
     "nav_ok": true,
     "small_targets": [],
+    "menu": false,
     "errors": [],
     "shot": "devices/ipad-mini-landscape_project.jpg"
    },
@@ -263,6 +290,7 @@
     "overflow_px": 0,
     "nav_ok": true,
     "small_targets": [],
+    "menu": false,
     "errors": [],
     "shot": "devices/ipad-mini-landscape_wrfm.jpg"
    },
@@ -272,6 +300,7 @@
     "overflow_px": 0,
     "nav_ok": true,
     "small_targets": [],
+    "menu": false,
     "errors": [],
     "shot": "devices/ipad-mini-landscape_about.jpg"
    },
@@ -281,6 +310,7 @@
     "overflow_px": 0,
     "nav_ok": true,
     "small_targets": [],
+    "menu": false,
     "errors": [],
     "shot": "devices/ipad-mini-landscape_passport.jpg"
    }
@@ -292,6 +322,7 @@
     "overflow_px": 0,
     "nav_ok": true,
     "small_targets": [],
+    "menu": false,
     "errors": [],
     "shot": "devices/laptop-1366_home.jpg"
    },
@@ -301,6 +332,7 @@
     "overflow_px": 0,
     "nav_ok": true,
     "small_targets": [],
+    "menu": false,
     "errors": [],
     "shot": "devices/laptop-1366_games.jpg"
    },
@@ -310,6 +342,7 @@
     "overflow_px": 0,
     "nav_ok": true,
     "small_targets": [],
+    "menu": false,
     "errors": [],
     "shot": "devices/laptop-1366_project.jpg"
    },
@@ -319,6 +352,7 @@
     "overflow_px": 0,
     "nav_ok": true,
     "small_targets": [],
+    "menu": false,
     "errors": [],
     "shot": "devices/laptop-1366_wrfm.jpg"
    },
@@ -328,6 +362,7 @@
     "overflow_px": 0,
     "nav_ok": true,
     "small_targets": [],
+    "menu": false,
     "errors": [],
     "shot": "devices/laptop-1366_about.jpg"
    },
@@ -337,6 +372,7 @@
     "overflow_px": 0,
     "nav_ok": true,
     "small_targets": [],
+    "menu": false,
     "errors": [],
     "shot": "devices/laptop-1366_passport.jpg"
    }
@@ -348,6 +384,7 @@
     "overflow_px": 0,
     "nav_ok": true,
     "small_targets": [],
+    "menu": false,
     "errors": [],
     "shot": "devices/desktop-1920_home.jpg"
    },
@@ -357,6 +394,7 @@
     "overflow_px": 0,
     "nav_ok": true,
     "small_targets": [],
+    "menu": false,
     "errors": [],
     "shot": "devices/desktop-1920_games.jpg"
    },
@@ -366,6 +404,7 @@
     "overflow_px": 0,
     "nav_ok": true,
     "small_targets": [],
+    "menu": false,
     "errors": [],
     "shot": "devices/desktop-1920_project.jpg"
    },
@@ -375,6 +414,7 @@
     "overflow_px": 0,
     "nav_ok": true,
     "small_targets": [],
+    "menu": false,
     "errors": [],
     "shot": "devices/desktop-1920_wrfm.jpg"
    },
@@ -384,6 +424,7 @@
     "overflow_px": 0,
     "nav_ok": true,
     "small_targets": [],
+    "menu": false,
     "errors": [],
     "shot": "devices/desktop-1920_about.jpg"
    },
@@ -393,6 +434,7 @@
     "overflow_px": 0,
     "nav_ok": true,
     "small_targets": [],
+    "menu": false,
     "errors": [],
     "shot": "devices/desktop-1920_passport.jpg"
    }
@@ -404,6 +446,7 @@
     "overflow_px": 0,
     "nav_ok": true,
     "small_targets": [],
+    "menu": false,
     "errors": [],
     "shot": "devices/desktop-2560_home.jpg"
    },
@@ -413,6 +456,7 @@
     "overflow_px": 0,
     "nav_ok": true,
     "small_targets": [],
+    "menu": false,
     "errors": [],
     "shot": "devices/desktop-2560_games.jpg"
    },
@@ -422,6 +466,7 @@
     "overflow_px": 0,
     "nav_ok": true,
     "small_targets": [],
+    "menu": false,
     "errors": [],
     "shot": "devices/desktop-2560_project.jpg"
    },
@@ -431,6 +476,7 @@
     "overflow_px": 0,
     "nav_ok": true,
     "small_targets": [],
+    "menu": false,
     "errors": [],
     "shot": "devices/desktop-2560_wrfm.jpg"
    },
@@ -440,6 +486,7 @@
     "overflow_px": 0,
     "nav_ok": true,
     "small_targets": [],
+    "menu": false,
     "errors": [],
     "shot": "devices/desktop-2560_about.jpg"
    },
@@ -449,6 +496,7 @@
     "overflow_px": 0,
     "nav_ok": true,
     "small_targets": [],
+    "menu": false,
     "errors": [],
     "shot": "devices/desktop-2560_passport.jpg"
    }
@@ -481,18 +529,18 @@
  "lighthouse": {
   "home:mobile": {
    "scores": {
-    "performance": 27,
+    "performance": 29,
     "accessibility": 100,
     "best-practices": 100,
     "seo": 66
    },
-   "fcp": "6.3 s",
+   "fcp": "6.4 s",
    "lcp": "10.8 s",
-   "tbt": "17,090 ms",
-   "cls": "0",
-   "transfer": "Total size was 11,835 KiB",
+   "tbt": "7,110 ms",
+   "cls": "0.002",
+   "transfer": "Total size was 11,836 KiB",
    "shifts": [
-    "main#main > div.page > section.content > h1.title 0.000"
+    "main#main > div.page > section.content > h1.title 0.002"
    ],
    "failing": [
     "valid-source-maps",
@@ -501,16 +549,16 @@
   },
   "home:desktop": {
    "scores": {
-    "performance": 53,
+    "performance": 54,
     "accessibility": 100,
     "best-practices": 100,
     "seo": 66
    },
    "fcp": "1.2 s",
    "lcp": "1.9 s",
-   "tbt": "5,520 ms",
+   "tbt": "4,970 ms",
    "cls": "0.001",
-   "transfer": "Total size was 11,835 KiB",
+   "transfer": "Total size was 11,836 KiB",
    "shifts": [
     "main#main > div.page > section.content > h1.title 0.001"
    ],
@@ -527,10 +575,10 @@
     "seo": 66
    },
    "fcp": "6.3 s",
-   "lcp": "11.4 s",
-   "tbt": "9,200 ms",
+   "lcp": "11.8 s",
+   "tbt": "5,420 ms",
    "cls": "0",
-   "transfer": "Total size was 4,164 KiB",
+   "transfer": "Total size was 4,251 KiB",
    "shifts": [
     "main#main > div.page > section.content > h1.title 0.000"
    ],
@@ -541,16 +589,16 @@
   },
   "games:desktop": {
    "scores": {
-    "performance": 47,
+    "performance": 50,
     "accessibility": 100,
     "best-practices": 100,
     "seo": 66
    },
    "fcp": "1.2 s",
    "lcp": "2.6 s",
-   "tbt": "1,690 ms",
+   "tbt": "1,010 ms",
    "cls": "0",
-   "transfer": "Total size was 5,573 KiB",
+   "transfer": "Total size was 5,574 KiB",
    "shifts": [
     "main#main > div.page > section.content > h1.title 0.000"
    ],
@@ -566,11 +614,11 @@
     "best-practices": 100,
     "seo": 66
    },
-   "fcp": "3.0 s",
-   "lcp": "5.9 s",
-   "tbt": "60 ms",
+   "fcp": "3.1 s",
+   "lcp": "5.8 s",
+   "tbt": "50 ms",
    "cls": "0.001",
-   "transfer": "Total size was 1,016 KiB",
+   "transfer": "Total size was 1,017 KiB",
    "shifts": [
     "main#main > div.page > section.content > h1.title 0.001"
    ],
@@ -589,7 +637,7 @@
    "lcp": "1.1 s",
    "tbt": "0 ms",
    "cls": "0",
-   "transfer": "Total size was 1,016 KiB",
+   "transfer": "Total size was 1,017 KiB",
    "shifts": [
     "main#main > div.page > section.content > h1.title 0.000"
    ],
@@ -599,10 +647,10 @@
   }
  },
  "sizes": {
-  "js_total_kb": 1569,
+  "js_total_kb": 1570,
   "js_largest": [
-   "Scene-DnUDUASV.js 1200 KB",
-   "index-C-vtGLsX.js 313 KB",
+   "Scene-BG-mxrYP.js 1200 KB",
+   "index-kwoNohDn.js 314 KB",
    "basis_transcoder-o4Hde_L7.js 56 KB"
   ],
   "models_mb": {

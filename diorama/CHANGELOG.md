@@ -217,6 +217,7 @@
   - touch-sized targets (≥ 40 px) on phones and tablets: nav, chips, music, tools, footer links;
   - info panels scroll instead of overflowing the 3D view (About panel on iPhone SE);
   - heading order on Follow/Contact;
-  - the staging badge inside a landmark.
+  - the staging badge inside a landmark;
+  - **phone menu**: below 700 px the header is the wordmark plus a "Menu" button that opens the nav and music control. On an iPhone SE it took about half the screen before. The project-page note no longer overlaps the cover on phones.
   - **Layout shift (CLS) 0.26–0.5 → 0:** the page copy now loads before the first render, covers reserve their 2:3 space, and the WRFM key art has dimensions. Covers also load with high priority.
 - **Lighthouse here:** accessibility 100, best practices 100; SEO 66 only because staging is deliberately not crawlable. Performance on the 3D pages is pessimistic, because this machine renders WebGL in software with no GPU; project pages score 98 desktop / 73 mobile. Real-device numbers come from `?fps` on your hardware.

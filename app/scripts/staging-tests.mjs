@@ -50,6 +50,12 @@ const PAGES = [["home", "/", "3d"], ["games", "/games", "3d"], ["project", "/gam
 const only = process.argv.find((a) => a.startsWith("--devices="))?.slice(10).split(",");
 
 const report = { built: JSON.parse(fs.readFileSync(path.join(DIST, "version.json"), "utf8")), devices: {}, axe: {}, lighthouse: {}, sizes: {} };
+// a partial run (--devices=..., --no-axe, --lh=...) updates the existing report instead of replacing it
+const prev = path.join(OUT, "report.json");
+if (fs.existsSync(prev) && process.argv.some((a) => /^--(devices=|no-axe|no-lighthouse|lh=)/.test(a))) {
+  const old = JSON.parse(fs.readFileSync(prev, "utf8"));
+  Object.assign(report.devices, old.devices); Object.assign(report.axe, old.axe); Object.assign(report.lighthouse, old.lighthouse);
+}
 const browser = await chromium.launch({ args: ARGS });
 
 async function settle(page) {               // wait until the on-demand renderer is idle
