@@ -96,8 +96,10 @@ export default function DoqiPlay({ scene, selectedId, lines }) {
     S.tex.colorSpace = THREE.SRGBColorSpace;
     const old = N.screen.material;
     N.screen.material = new THREE.MeshStandardMaterial({ color: "#000000", emissive: "#ffffff", emissiveMap: S.tex, emissiveIntensity: 1.6, roughness: 0.15 });
+    const own = N.screen.userData.ownMat;
+    N.screen.userData.ownMat = false;                          // the red hover/selection glow must not tint his face
     redraw();
-    return () => { N.screen.material.dispose(); N.screen.material = old; S.tex.dispose(); };
+    return () => { N.screen.material.dispose(); N.screen.material = old; N.screen.userData.ownMat = own; S.tex.dispose(); };
   }, [N, S]);   // eslint-disable-line react-hooks/exhaustive-deps
   function redraw() {
     if (!S.ctx) return;

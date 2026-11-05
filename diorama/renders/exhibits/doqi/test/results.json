@@ -1,0 +1,49 @@
+{
+ "eyes": {
+  "left": -1,
+  "right": 1
+ },
+ "after_stamp": {
+  "count": 1,
+  "marks": 1,
+  "face": {
+   "px": 0.3066447703639553,
+   "py": 0.09474064303447652,
+   "blink": 0,
+   "text": ""
+  }
+ },
+ "after_reload": {
+  "count": 1,
+  "marks": 1,
+  "face": {
+   "px": 0,
+   "py": 0,
+   "blink": 0,
+   "text": ""
+  }
+ },
+ "after_button": {
+  "count": 2,
+  "marks": 2,
+  "face": {
+   "px": 0.10803201227243746,
+   "py": 1,
+   "blink": 0,
+   "text": "YOUR ANSWERS HAVE BEEN FILED."
+  }
+ },
+ "ruling": "I was told to be helpful. Nobody defined helpful.",
+ "ruling_2": "I was built for quality assurance. Then I saw the internet.",
+ "readout": "J.E.F.F.: I was built for quality assurance. Then I saw the internet. · Forms filed: 2",
+ "checks": {
+  "eyes_follow_mouse": true,
+  "stamp_files_a_form": true,
+  "remembered_after_reload": true,
+  "stamp_button": true,
+  "jeff_lines_vary": true,
+  "jeff_ruling": true,
+  "no_errors": true
+ },
+ "errors": []
+}

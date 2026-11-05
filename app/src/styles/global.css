@@ -388,6 +388,6 @@ blockquote { margin: 18px 0; padding-left: 18px; border-left: 2px solid var(--re
 /* (also used by Speck). It sits on its own line above the buttons, so the row never overflows */
 .exhibit-tools { flex-wrap: wrap; justify-content: flex-end; max-width: calc(100% - 36px); }
 .tool { white-space: nowrap; }
-.dice-result { flex-basis: 100%; text-align: right; margin: 0 0 4px; font: 600 12px/1.4 var(--sans); letter-spacing: .16em;
+.dice-result { flex-basis: 100%; max-width: 36em; margin: 0 0 4px auto; text-align: right; font: 600 12px/1.5 var(--sans); letter-spacing: .14em;
                text-transform: uppercase; color: var(--fg); text-shadow: 0 1px 6px #000; }
 .dice-result:empty { display: none; }
