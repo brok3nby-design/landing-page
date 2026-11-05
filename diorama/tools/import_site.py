@@ -273,10 +273,28 @@ def main():
                   "logo_png": media("images/studio/b3d.png", "studio", max_edge=2006),
                   "mark_svg": media("images/studio/studio-mark.svg", "studio"),
                   "thumb": media("images/studio/x-logo2.png", "studio"),
+                  "banner": media("images/studio/b3d.png", "studio", max_edge=1600, quality=88),   # cracked-glass logo
+                  "mark": media("images/title/b3b_pp.png", "studio", max_edge=512, quality=88),    # green pixel B3
                   "wrfm_keyart": media("images/wrfm/wrfm_keyart.jpg", "wrfm")},
         "sounds": {"music_mp3": media("sounds/site_music_1.mp3", "sounds"), "music_ogg": media("sounds/site_music_1.ogg", "sounds"),
                    "cartridge": media("sounds/cartridge.mp3", "sounds")},
     }
+    # banner crops: "tight" (just the lettering, for the header) and "hero" (lettering + some cracks)
+    import numpy as np
+    ban = Image.open(SRC / "images/studio/b3d.png").convert("RGB")
+    m = np.asarray(ban).astype(int).mean(2) > 150
+    xs = np.where(m.sum(0) > m.shape[0] * 0.06)[0]; ys = np.where(m.sum(1) > m.shape[1] * 0.05)[0]
+    x0, x1, y0, y1 = xs.min(), xs.max(), ys.min(), ys.max()
+    pad, ph, pw = int((y1 - y0) * 0.12), int((y1 - y0) * 1.1), int((x1 - x0) * 0.08)
+    ban.crop((x0 - pad, y0 - pad, x1 + pad, y1 + pad)).save(MEDIA / "studio" / "b3d-tight.webp", "WEBP", quality=90)
+    ban.crop((max(0, x0 - pw), max(0, y0 - ph), min(ban.width, x1 + pw), min(ban.height, y1 + ph))).save(
+        MEDIA / "studio" / "b3d-hero.webp", "WEBP", quality=90)
+    copy["brand"]["banner_tight"] = "media/studio/b3d-tight.webp"
+    copy["brand"]["banner_hero"] = "media/studio/b3d-hero.webp"
+    # browser / home-screen icons from the B3 mark (PNG, as browsers and phones expect)
+    pp = Image.open(SRC / "images/title/b3b_pp.png").convert("RGBA")
+    for name, px in (("favicon-48.png", 48), ("apple-touch-icon.png", 180), ("icon-512.png", 512)):
+        pp.resize((px, px), Image.LANCZOS).save(MEDIA / "studio" / name)
     DATA.joinpath("site_copy.json").write_text(json.dumps(copy, indent=1, ensure_ascii=False) + "\n", encoding="utf-8")
     size = sum(f.stat().st_size for f in MEDIA.rglob("*") if f.is_file())
     print(f"{len(projects)} projects, media {size / 1e6:.1f} MB in {MEDIA.relative_to(REPO)}")

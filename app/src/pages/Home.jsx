@@ -33,7 +33,11 @@ export default function Home() {
       <div className="page">
         <section className="content">
           <p className="eyebrow">{hero[1] || "Independent game studio"}</p>
-          <h1 className="title">BROK3N<br />BY DESIGN<span className="accent">.</span></h1>
+          <h1 className="title hero-logo">
+            {copy?.brand.banner_hero
+              ? <img src={media(copy.brand.banner_hero)} alt="BROK3N BY DESIGN" width="1668" height="594" fetchpriority="high" />
+              : <>BROK3N<br />BY DESIGN<span className="accent">.</span></>}
+          </h1>
           {hero[2] && <p className="intro">{hero[2]}<br />{hero[3]}</p>}
           <div className="ctas">
             {page.ctas.map((c) => c.to.includes("#")

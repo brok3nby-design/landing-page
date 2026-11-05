@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { NavLink, Link, Outlet, useLocation } from "react-router-dom";
 import { BRAND, NAV } from "../content/site.js";
-import { useSiteData } from "../content/data.js";
+import { useSiteData, media } from "../content/data.js";
 import { setProjects } from "../site/passport.js";
 import { startEffects } from "../site/effects.js";
 import { Entrance, MusicControl, Robot, StampToast, useScrollSecret } from "./Chrome.jsx";
@@ -23,7 +23,11 @@ export default function Layout() {
     <div className="site">
       <a className="skip" href="#main">Skip to content</a>
       <header className="header">
-        <Link viewTransition to="/" className="wordmark" aria-label={`${BRAND} — home`}>{BRAND}<sup>™</sup></Link>
+        <Link viewTransition to="/" className="wordmark" aria-label={`${BRAND} — home`}>
+          {data?.copy.brand.banner_tight
+            ? <img className="wordmark-logo" src={media(data.copy.brand.banner_tight)} alt="" width="1482" height="230" />
+            : <>{BRAND}<sup>™</sup></>}
+        </Link>
         <button type="button" className="menu-toggle" aria-expanded={menu} aria-controls="site-menu" onClick={() => setMenu(!menu)}>
           {menu ? "Close" : "Menu"}
         </button>
@@ -42,6 +46,7 @@ export default function Layout() {
       <main id="main" key={pathname} className="route"><Outlet /></main>
       <footer className="footer">
         <div className="footer-main">
+          {data?.copy.brand.mark && <img className="footer-mark" src={media(data.copy.brand.mark)} alt="B3 — Brok3n by Design" width="56" height="56" loading="lazy" />}
           <p className="eyebrow">Independent game studio</p>
           <p>Independently created by Brok3n by Design.</p>
           <p><a href="https://x.com/brok3nbydesign" target="_blank" rel="noopener">@brok3nbydesign on X</a></p>
