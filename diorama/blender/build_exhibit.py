@@ -27,12 +27,32 @@ VIEWS = [  # name, azimuth, elevation, lens, frame fill
 ]
 
 
+def export_exhibit(game, root):
+    """Same web pipeline as the desk: freeze modifiers, merge untagged meshes per material, bake AO + the
+    practical (bulb) light into UV set 1, export a GLB with the interactive tags as node extras."""
+    import export as ex
+    desk_build.setup_render(32)                          # Cycles: baking needs it
+    key = "exhibit_" + game.replace("-", "_")
+    every = [o for o in bpy.data.objects if o.type in ("MESH", "EMPTY")]
+    ex.apply_modifiers(every)
+    ex.merge_static(root)
+    ex.merge_siblings()
+    meshes = [o for o in bpy.data.objects if o.type == "MESH"]
+    bake = [o for o in meshes if not ex.obj_unbakeable(o)]
+    info = ex.bake_set(key, bake, 2048, 128, 192, glow=True, ao_distance=0.6)
+    objs = [root, *root.children_recursive]
+    os.makedirs(ex.RAW, exist_ok=True)
+    size = ex.export_glb(os.path.join(ex.RAW, key + ".glb"), [o for o in objs if o.type in ("MESH", "EMPTY")])
+    print(f"exported {key}.glb {size / 1e6:.2f} MB, bake {info}, {len(meshes)} meshes")
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--game", default="bid-and-buried", choices=sorted(EXHIBITS))
     ap.add_argument("--render", action="store_true")
     ap.add_argument("--samples", type=int, default=96)
     ap.add_argument("--views", default="", help="comma list of camera names (default: all)")
+    ap.add_argument("--export", action="store_true", help="bake AO + practical glow and export exports/raw/exhibit_<game>.glb")
     args = ap.parse_args(sys.argv[sys.argv.index("--") + 1:] if "--" in sys.argv else sys.argv[1:])
 
     import importlib
@@ -63,6 +83,9 @@ def main():
     out_blend = os.path.join(ROOT, "source", f"exhibit_{args.game.replace('-', '_')}.blend")
     bpy.ops.wm.save_as_mainfile(filepath=out_blend, compress=True)
     print("saved", out_blend)
+    if args.export:
+        export_exhibit(args.game, root)
+        return
     if args.render:
         desk_build.setup_render(args.samples)
         out = os.path.join(ROOT, "renders", "exhibits", args.game)

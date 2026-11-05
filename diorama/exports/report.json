@@ -2965,5 +2965,529 @@
    }
   ],
   "textures_not_multiple_of_4": []
+ },
+ {
+  "file": "raw/exhibit_bid_and_buried.glb",
+  "mb": 15.14,
+  "nodes": 49,
+  "meshes": 48,
+  "draw_calls": 48,
+  "triangles": 18052,
+  "materials": 37,
+  "textures": 27,
+  "texture_mb_download": 14.22,
+  "gpu_texture_mb": 125,
+  "validator": {
+   "errors": 0,
+   "warnings": 8,
+   "messages": [
+    "MESH_PRIMITIVE_GENERATED_TANGENT_SPACE: Material requires a tangent space but the mesh primitive does not provide it. Runtime-generated tangent space may be non-portable across implementations.",
+    "MESH_PRIMITIVE_GENERATED_TANGENT_SPACE: Material requires a tangent space but the mesh primitive does not provide it. Runtime-generated tangent space may be non-portable across implementations.",
+    "MESH_PRIMITIVE_GENERATED_TANGENT_SPACE: Material requires a tangent space but the mesh primitive does not provide it. Runtime-generated tangent space may be non-portable across implementations.",
+    "MESH_PRIMITIVE_GENERATED_TANGENT_SPACE: Material requires a tangent space but the mesh primitive does not provide it. Runtime-generated tangent space may be non-portable across implementations.",
+    "MESH_PRIMITIVE_GENERATED_TANGENT_SPACE: Material requires a tangent space but the mesh primitive does not provide it. Runtime-generated tangent space may be non-portable across implementations.",
+    "MESH_PRIMITIVE_GENERATED_TANGENT_SPACE: Material requires a tangent space but the mesh primitive does not provide it. Runtime-generated tangent space may be non-portable across implementations.",
+    "MESH_PRIMITIVE_GENERATED_TANGENT_SPACE: Material requires a tangent space but the mesh primitive does not provide it. Runtime-generated tangent space may be non-portable across implementations.",
+    "MESH_PRIMITIVE_GENERATED_TANGENT_SPACE: Material requires a tangent space but the mesh primitive does not provide it. Runtime-generated tangent space may be non-portable across implementations."
+   ]
+  },
+  "tags": [
+   {
+    "node": "BB_Box_1",
+    "interactive_id": "bb_boxes",
+    "interactive_label": "Cardboard Boxes",
+    "interactive_scope": "bid-and-buried",
+    "interactive_kind": "discovery"
+   },
+   {
+    "node": "BB_Globe",
+    "interactive_id": "bb_globe",
+    "interactive_label": "Dusty Explorer's Globe",
+    "interactive_scope": "bid-and-buried",
+    "interactive_kind": "discovery"
+   },
+   {
+    "node": "BB_Paddle",
+    "interactive_id": "bb_paddle",
+    "interactive_label": "Bid paddle",
+    "interactive_scope": "bid-and-buried",
+    "interactive_kind": "discovery"
+   },
+   {
+    "node": "BB_RecordCrate",
+    "interactive_id": "bb_records",
+    "interactive_label": "Crate of Records",
+    "interactive_scope": "bid-and-buried",
+    "interactive_kind": "discovery"
+   },
+   {
+    "node": "BB_Safe",
+    "interactive_id": "bb_safe",
+    "interactive_label": "Locked Safe",
+    "interactive_scope": "bid-and-buried",
+    "interactive_kind": "discovery"
+   },
+   {
+    "node": "BB_TV",
+    "interactive_id": "bb_tv",
+    "interactive_label": "CRT Television",
+    "interactive_scope": "bid-and-buried",
+    "interactive_kind": "discovery"
+   }
+  ],
+  "texture_list": [
+   {
+    "name": "exhibit_bid_and_buried_glow",
+    "mime": "image/png",
+    "size": "1024x1024",
+    "kb": 501,
+    "gpu_safe": true
+   },
+   {
+    "name": "exhibit_bid_and_buried_ao",
+    "mime": "image/png",
+    "size": "1024x1024",
+    "kb": 776,
+    "gpu_safe": true
+   },
+   {
+    "name": "bb_lbl_xmas",
+    "mime": "image/png",
+    "size": "320x200",
+    "kb": 57,
+    "gpu_safe": true
+   },
+   {
+    "name": "bb_cardboard",
+    "mime": "image/png",
+    "size": "512x512",
+    "kb": 116,
+    "gpu_safe": true
+   },
+   {
+    "name": "bb_lbl_misc",
+    "mime": "image/png",
+    "size": "320x200",
+    "kb": 57,
+    "gpu_safe": true
+   },
+   {
+    "name": "bb_lbl_dno",
+    "mime": "image/png",
+    "size": "320x200",
+    "kb": 58,
+    "gpu_safe": true
+   },
+   {
+    "name": "wood_dark_n",
+    "mime": "image/png",
+    "size": "512x512",
+    "kb": 252,
+    "gpu_safe": true
+   },
+   {
+    "name": "wood_dark",
+    "mime": "image/png",
+    "size": "1024x1024",
+    "kb": 1250,
+    "gpu_safe": true
+   },
+   {
+    "name": "bb_globe",
+    "mime": "image/png",
+    "size": "1024x512",
+    "kb": 280,
+    "gpu_safe": true
+   },
+   {
+    "name": "bb_paddle",
+    "mime": "image/png",
+    "size": "320x200",
+    "kb": 50,
+    "gpu_safe": true
+   },
+   {
+    "name": "wood_light_n",
+    "mime": "image/png",
+    "size": "512x512",
+    "kb": 320,
+    "gpu_safe": true
+   },
+   {
+    "name": "wood_light",
+    "mime": "image/png",
+    "size": "1024x1024",
+    "kb": 1375,
+    "gpu_safe": true
+   },
+   {
+    "name": "screen_right",
+    "mime": "image/png",
+    "size": "1024x576",
+    "kb": 55,
+    "gpu_safe": true
+   },
+   {
+    "name": "bb_record_sleeves",
+    "mime": "image/png",
+    "size": "512x128",
+    "kb": 7,
+    "gpu_safe": true
+   },
+   {
+    "name": "rug_n",
+    "mime": "image/png",
+    "size": "1024x640",
+    "kb": 825,
+    "gpu_safe": true
+   },
+   {
+    "name": "rug",
+    "mime": "image/png",
+    "size": "1024x640",
+    "kb": 601,
+    "gpu_safe": true
+   },
+   {
+    "name": "bb_concrete_n",
+    "mime": "image/png",
+    "size": "1024x1024",
+    "kb": 448,
+    "gpu_safe": true
+   },
+   {
+    "name": "bb_concrete",
+    "mime": "image/png",
+    "size": "2048x2048",
+    "kb": 1982,
+    "gpu_safe": true
+   },
+   {
+    "name": "bb_ticket",
+    "mime": "image/png",
+    "size": "320x200",
+    "kb": 52,
+    "gpu_safe": true
+   },
+   {
+    "name": "bb_wall_back",
+    "mime": "image/png",
+    "size": "2048x2048",
+    "kb": 776,
+    "gpu_safe": true
+   },
+   {
+    "name": "bb_wall_left",
+    "mime": "image/png",
+    "size": "2048x2048",
+    "kb": 757,
+    "gpu_safe": true
+   },
+   {
+    "name": "leather_n",
+    "mime": "image/png",
+    "size": "512x512",
+    "kb": 229,
+    "gpu_safe": true
+   },
+   {
+    "name": "leather",
+    "mime": "image/png",
+    "size": "512x512",
+    "kb": 167,
+    "gpu_safe": true
+   },
+   {
+    "name": "leather_r",
+    "mime": "image/png",
+    "size": "512x512",
+    "kb": 136,
+    "gpu_safe": true
+   },
+   {
+    "name": "wood_desk_n",
+    "mime": "image/png",
+    "size": "1024x1024",
+    "kb": 1165,
+    "gpu_safe": true
+   },
+   {
+    "name": "wood_desk",
+    "mime": "image/png",
+    "size": "1024x1024",
+    "kb": 1366,
+    "gpu_safe": true
+   },
+   {
+    "name": "wood_desk_r",
+    "mime": "image/png",
+    "size": "512x512",
+    "kb": 234,
+    "gpu_safe": true
+   }
+  ],
+  "textures_not_multiple_of_4": []
+ },
+ {
+  "file": "exhibit_bid_and_buried.glb",
+  "mb": 6.54,
+  "nodes": 57,
+  "meshes": 48,
+  "draw_calls": 48,
+  "triangles": 18052,
+  "materials": 37,
+  "textures": 27,
+  "texture_mb_download": 6.2,
+  "gpu_texture_mb": 16.6,
+  "validator": {
+   "errors": 0,
+   "warnings": 35,
+   "messages": [
+    "VALUE_NOT_IN_LIST: Invalid value 'image/ktx2'. Valid values are ('image/jpeg', 'image/png').",
+    "VALUE_NOT_IN_LIST: Invalid value 'image/ktx2'. Valid values are ('image/jpeg', 'image/png').",
+    "VALUE_NOT_IN_LIST: Invalid value 'image/ktx2'. Valid values are ('image/jpeg', 'image/png').",
+    "VALUE_NOT_IN_LIST: Invalid value 'image/ktx2'. Valid values are ('image/jpeg', 'image/png').",
+    "VALUE_NOT_IN_LIST: Invalid value 'image/ktx2'. Valid values are ('image/jpeg', 'image/png').",
+    "VALUE_NOT_IN_LIST: Invalid value 'image/ktx2'. Valid values are ('image/jpeg', 'image/png').",
+    "VALUE_NOT_IN_LIST: Invalid value 'image/ktx2'. Valid values are ('image/jpeg', 'image/png').",
+    "VALUE_NOT_IN_LIST: Invalid value 'image/ktx2'. Valid values are ('image/jpeg', 'image/png')."
+   ]
+  },
+  "tags": [
+   {
+    "node": "BB_Box_1",
+    "interactive_id": "bb_boxes",
+    "interactive_label": "Cardboard Boxes",
+    "interactive_scope": "bid-and-buried",
+    "interactive_kind": "discovery"
+   },
+   {
+    "node": "BB_Globe",
+    "interactive_id": "bb_globe",
+    "interactive_label": "Dusty Explorer's Globe",
+    "interactive_scope": "bid-and-buried",
+    "interactive_kind": "discovery"
+   },
+   {
+    "node": "BB_Paddle",
+    "interactive_id": "bb_paddle",
+    "interactive_label": "Bid paddle",
+    "interactive_scope": "bid-and-buried",
+    "interactive_kind": "discovery"
+   },
+   {
+    "node": "BB_RecordCrate",
+    "interactive_id": "bb_records",
+    "interactive_label": "Crate of Records",
+    "interactive_scope": "bid-and-buried",
+    "interactive_kind": "discovery"
+   },
+   {
+    "node": "BB_Safe",
+    "interactive_id": "bb_safe",
+    "interactive_label": "Locked Safe",
+    "interactive_scope": "bid-and-buried",
+    "interactive_kind": "discovery"
+   },
+   {
+    "node": "BB_TV",
+    "interactive_id": "bb_tv",
+    "interactive_label": "CRT Television",
+    "interactive_scope": "bid-and-buried",
+    "interactive_kind": "discovery"
+   }
+  ],
+  "texture_list": [
+   {
+    "name": "exhibit_bid_and_buried_glow",
+    "mime": "image/ktx2",
+    "size": "1024x1024",
+    "kb": 366,
+    "gpu_safe": true
+   },
+   {
+    "name": "exhibit_bid_and_buried_ao",
+    "mime": "image/ktx2",
+    "size": "1024x1024",
+    "kb": 783,
+    "gpu_safe": true
+   },
+   {
+    "name": "bb_lbl_xmas",
+    "mime": "image/ktx2",
+    "size": "320x200",
+    "kb": 30,
+    "gpu_safe": true
+   },
+   {
+    "name": "bb_cardboard",
+    "mime": "image/ktx2",
+    "size": "512x512",
+    "kb": 88,
+    "gpu_safe": true
+   },
+   {
+    "name": "bb_lbl_misc",
+    "mime": "image/ktx2",
+    "size": "320x200",
+    "kb": 30,
+    "gpu_safe": true
+   },
+   {
+    "name": "bb_lbl_dno",
+    "mime": "image/ktx2",
+    "size": "320x200",
+    "kb": 31,
+    "gpu_safe": true
+   },
+   {
+    "name": "wood_dark_n",
+    "mime": "image/ktx2",
+    "size": "512x512",
+    "kb": 88,
+    "gpu_safe": true
+   },
+   {
+    "name": "wood_dark",
+    "mime": "image/ktx2",
+    "size": "1024x1024",
+    "kb": 463,
+    "gpu_safe": true
+   },
+   {
+    "name": "bb_globe",
+    "mime": "image/ktx2",
+    "size": "1024x512",
+    "kb": 263,
+    "gpu_safe": true
+   },
+   {
+    "name": "bb_paddle",
+    "mime": "image/ktx2",
+    "size": "320x200",
+    "kb": 30,
+    "gpu_safe": true
+   },
+   {
+    "name": "wood_light_n",
+    "mime": "image/ktx2",
+    "size": "512x512",
+    "kb": 125,
+    "gpu_safe": true
+   },
+   {
+    "name": "wood_light",
+    "mime": "image/ktx2",
+    "size": "1024x1024",
+    "kb": 639,
+    "gpu_safe": true
+   },
+   {
+    "name": "screen_right",
+    "mime": "image/ktx2",
+    "size": "1024x576",
+    "kb": 71,
+    "gpu_safe": true
+   },
+   {
+    "name": "bb_record_sleeves",
+    "mime": "image/ktx2",
+    "size": "512x128",
+    "kb": 8,
+    "gpu_safe": true
+   },
+   {
+    "name": "rug_n",
+    "mime": "image/ktx2",
+    "size": "512x320",
+    "kb": 114,
+    "gpu_safe": true
+   },
+   {
+    "name": "rug",
+    "mime": "image/ktx2",
+    "size": "1024x640",
+    "kb": 357,
+    "gpu_safe": true
+   },
+   {
+    "name": "bb_concrete_n",
+    "mime": "image/ktx2",
+    "size": "512x512",
+    "kb": 155,
+    "gpu_safe": true
+   },
+   {
+    "name": "bb_concrete",
+    "mime": "image/ktx2",
+    "size": "1024x1024",
+    "kb": 536,
+    "gpu_safe": true
+   },
+   {
+    "name": "bb_ticket",
+    "mime": "image/ktx2",
+    "size": "320x200",
+    "kb": 31,
+    "gpu_safe": true
+   },
+   {
+    "name": "bb_wall_back",
+    "mime": "image/ktx2",
+    "size": "1024x1024",
+    "kb": 318,
+    "gpu_safe": true
+   },
+   {
+    "name": "bb_wall_left",
+    "mime": "image/ktx2",
+    "size": "1024x1024",
+    "kb": 302,
+    "gpu_safe": true
+   },
+   {
+    "name": "leather_n",
+    "mime": "image/ktx2",
+    "size": "512x512",
+    "kb": 164,
+    "gpu_safe": true
+   },
+   {
+    "name": "leather",
+    "mime": "image/ktx2",
+    "size": "512x512",
+    "kb": 72,
+    "gpu_safe": true
+   },
+   {
+    "name": "leather_r",
+    "mime": "image/ktx2",
+    "size": "512x512",
+    "kb": 142,
+    "gpu_safe": true
+   },
+   {
+    "name": "wood_desk_n",
+    "mime": "image/ktx2",
+    "size": "512x512",
+    "kb": 126,
+    "gpu_safe": true
+   },
+   {
+    "name": "wood_desk",
+    "mime": "image/ktx2",
+    "size": "1024x1024",
+    "kb": 598,
+    "gpu_safe": true
+   },
+   {
+    "name": "wood_desk_r",
+    "mime": "image/ktx2",
+    "size": "512x512",
+    "kb": 123,
+    "gpu_safe": true
+   }
+  ],
+  "textures_not_multiple_of_4": []
  }
 ]

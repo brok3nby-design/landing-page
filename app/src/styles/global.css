@@ -378,3 +378,8 @@ blockquote { margin: 18px 0; padding-left: 18px; border-left: 2px solid var(--re
 .footer-mark { width: 56px; height: 56px; margin-bottom: 10px; display: block; }
 .entrance-mark { }
 @media (max-width: 700px) { .wordmark-logo { height: 18px; } }
+
+/* project page with its own 3D exhibit: same wide layout as the desk / crate pages */
+@media (min-width: 901px) {
+  .page.project.has-exhibit { grid-template-columns: minmax(360px, 520px) 1fr; justify-content: stretch; }
+}

@@ -19,7 +19,13 @@ import { fileURLToPath } from "node:url";
 
 const HERE = path.dirname(fileURLToPath(import.meta.url));
 const EXPORTS = path.resolve(HERE, "..", "exports");
-const ASSETS = process.argv.includes("--crate-only") ? ["games_collection"] : ["studio_desk", "games_collection", "studio_notebook"];
+// the desk set + every per-game exhibit exported by blender/build_exhibit.py (raw/exhibit_<game>.glb);
+// --only=name[,name] limits the run
+const ALL = ["studio_desk", "games_collection", "studio_notebook",
+             ...fs.readdirSync(path.join(EXPORTS, "raw")).filter((f) => /^exhibit_.*\.glb$/.test(f)).map((f) => f.slice(0, -4))];
+const ONLY = process.argv.find((a) => a.startsWith("--only="))?.slice(7).split(",");
+const ASSETS = process.argv.includes("--crate-only") ? ["games_collection"] : ONLY || ALL;
+
 const WEBP = process.argv.includes("--webp");
 
 // Max edge per texture role (sources are never upscaled). Hero surfaces keep 1024 normal maps.

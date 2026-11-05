@@ -313,13 +313,14 @@ def wire_baked(mats, ao_img, glow_img, glow_strength=1.0):
             b.inputs["Emission Strength"].default_value = glow_strength
 
 
-def bake_set(name, objs, atlas, ao_samples, glow_samples, glow=True, hide=()):
-    """UVLight + AO (+ GLOW) bake for `objs`. `hide` = objects hidden from the bake (e.g. cases)."""
+def bake_set(name, objs, atlas, ao_samples, glow_samples, glow=True, hide=(), ao_distance=0.12):
+    """UVLight + AO (+ GLOW) bake for `objs`. `hide` = objects hidden from the bake (e.g. cases).
+    `ao_distance`: AO reach (0.12 suits the miniature desk; real-scale exhibits use more)."""
     os.makedirs(BAKED, exist_ok=True)
     lightmap_uvs(objs)
     mats = bake_materials(objs)
     sc = bpy.context.scene
-    sc.world.light_settings.distance = 0.12           # AO reach at miniature-detail scale
+    sc.world.light_settings.distance = ao_distance
     hidden = [o for o in hide]
     for o in hidden:
         o.hide_render = True

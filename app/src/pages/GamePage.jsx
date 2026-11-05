@@ -1,8 +1,11 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import Prose, { YouTube } from "../components/Prose.jsx";
 import { Action } from "../components/InfoPanel.jsx";
 import { useSiteData, media } from "../content/data.js";
+import { EXHIBITS } from "../content/site.js";
+import Exhibit from "../exhibit/Exhibit.jsx";
+import InfoPanel from "../components/InfoPanel.jsx";
 import { unlock } from "../site/passport.js";
 import NotFound from "./NotFound.jsx";
 
@@ -14,14 +17,17 @@ export default function GamePage({ id: fixedId }) {
   const id = fixedId || params.gameId;
   const data = useSiteData();
   useEffect(() => { if (data?.project(id)) unlock(`visit-${id}`); }, [data, id]);
+  const [selectedId, setSelectedId] = useState(null);
+  const close = useCallback(() => setSelectedId(null), []);
   if (!data) return <div className="page" aria-busy="true" />;
   const p = data.project(id);
   if (!p) return <NotFound />;
   const pg = p.page, pr = p.progress || {};
   const slot = data.games.find((g) => g.id === id);
+  const ex = EXHIBITS[id];
   return (
     <>
-      <div className="page project" style={{ "--accent": p.accent }}>
+      <div className={`page project${ex ? " has-exhibit" : ""}`} style={{ "--accent": p.accent }}>
         <section className="content">
           <p className="eyebrow">{p.status}{slot ? ` · Case ${String(slot.slot).padStart(2, "0")}` : ""}</p>
           <h1 className="title">{p.title}<sup>™</sup></h1>
@@ -34,13 +40,31 @@ export default function GamePage({ id: fixedId }) {
             <Link viewTransition className="btn" to="/follow">Follow development</Link>
           </div>
           <Progress p={p} pr={pr} />
+          {ex && (
+            <div className="hotspots">
+              <h2 id="finds">{ex.findsTitle || "Take a closer look"}</h2>
+              <ul aria-labelledby="finds">
+                {Object.entries(ex.finds).map(([fid, f]) => (
+                  <li key={fid}><button className="chip" aria-pressed={selectedId === fid}
+                                        onClick={() => setSelectedId(selectedId === fid ? null : fid)}>{f.title}</button></li>
+                ))}
+              </ul>
+            </div>
+          )}
           <div className="ctas"><Link viewTransition className="btn ghost" to="/games">← Back to the shelf</Link></div>
         </section>
-        <section className="exhibit cover-exhibit" aria-label={`${p.title} artwork`}>
-          {(p.cover || p.logo) && <img src={media(p.cover || p.logo)} alt={`${p.title} artwork`}
-                                       {...(p.cover ? { width: 1024, height: 1536, className: "is-cover" } : {})} fetchpriority="high" />}
-          <span className="note">Miniature exhibit — future phase</span>
-        </section>
+        {ex ? (
+          <Exhibit config={ex} selectedId={selectedId} onSelect={setSelectedId}>
+            <InfoPanel item={selectedId && ex.finds[selectedId] ? { id: selectedId, kind: "discovery", panel: ex.finds[selectedId] } : null}
+                       onClose={close} />
+          </Exhibit>
+        ) : (
+          <section className="exhibit cover-exhibit" aria-label={`${p.title} artwork`}>
+            {(p.cover || p.logo) && <img src={media(p.cover || p.logo)} alt={`${p.title} artwork`}
+                                         {...(p.cover ? { width: 1024, height: 1536, className: "is-cover" } : {})} fetchpriority="high" />}
+            <span className="note">Miniature exhibit — coming soon</span>
+          </section>
+        )}
       </div>
       <div className="more project-more" style={{ "--accent": p.accent }}>
         {p.trailer && (

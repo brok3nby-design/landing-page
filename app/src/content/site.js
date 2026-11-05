@@ -97,3 +97,27 @@ export const HOTSPOT_LABELS = {
   page_studio: "Right page — the studio",
   bookmark: "Bookmark",
 };
+
+// Per-game exhibits (diorama/EXHIBITS.md). A game with an entry here shows its 3D diorama on its page
+// instead of the cover art. `finds` = what each clickable item reveals (game-world flavour text,
+// styled after the game's own haul screen: rarity + an appraisal).
+export const EXHIBITS = {
+  "bid-and-buried": {
+    model: "models/exhibit_bid_and_buried.glb",
+    scope: "bid-and-buried",
+    view: { forward: [-0.498, -0.454, -0.739] },      // the Blender hero camera (azimuth 34°, elevation 27°)
+    fallback: "fallback/exhibit-bid-and-buried.png",
+    fallbackAlt: "A miniature storage unit seen from its open front: corrugated steel walls, a bare bulb, a locked safe, an old TV on a dresser, a globe, taped boxes, a barrel, a spare tire and a garbage bag; a bid paddle numbered 27 and a SOLD ticket lie outside.",
+    focusScale: 1.8,
+    homeScale: 0.98,                 // a little more room around the plinth
+    findsTitle: "In the unit",
+    finds: {
+      bb_safe: { eyebrow: "Legendary?", title: "Locked Safe", text: "Heavy, locked and rattling. Nobody knows the combination, which is exactly why everyone bid on this unit." },
+      bb_tv: { eyebrow: "Common", title: "CRT Television", text: "Weighs as much as a small car. Still works if you hit it on the left side." },
+      bb_globe: { eyebrow: "Good find", title: "Dusty Explorer's Globe", text: "Hand-painted, sun-faded, and missing a country or two. Today's best find." },
+      bb_records: { eyebrow: "Rare", title: "Crate of Records", text: "Mostly polka. One sleeve is heavier than the others." },
+      bb_boxes: { eyebrow: "Junk", title: "Cardboard Boxes", text: "XMAS, MISC??? and one marked DO NOT OPEN. You'll open it." },
+      bb_paddle: { eyebrow: "Lot 27", title: "Bid paddle", text: "Buy blind. Dig deep. Get rich. Sold, to the player with the paddle." },
+    },
+  },
+};

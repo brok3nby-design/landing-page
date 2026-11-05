@@ -10,6 +10,14 @@ const copy = (src, dst) => { fs.mkdirSync(path.dirname(dst), { recursive: true }
 
 for (const f of ["studio_desk.glb", "games_collection.glb", "studio_notebook.glb", "views.json"])
   copy(path.join(DIORAMA, "exports", f), pub("models", f));
+// per-game exhibits (diorama/blender/build_exhibit.py -> exports/exhibit_<game>.glb) + their still renders
+for (const f of fs.readdirSync(path.join(DIORAMA, "exports")).filter((f) => /^exhibit_[a-z_]+\.glb$/.test(f)))
+  copy(path.join(DIORAMA, "exports", f), pub("models", f));
+const EXR = path.join(DIORAMA, "renders", "exhibits");
+if (fs.existsSync(EXR)) for (const g of fs.readdirSync(EXR)) {
+  const hero = path.join(EXR, g, "hero.png");
+  if (fs.existsSync(hero)) copy(hero, pub("fallback", `exhibit-${g}.png`));
+}
 for (const f of ["interactions.json", "games.json", "projects.json", "site_copy.json"]) copy(path.join(DIORAMA, "data", f), pub("data", f));
 // media imported from the existing site (diorama/tools/import_site.py -> app/media, tracked in git)
 const copyDir = (src, dst) => { for (const e of fs.readdirSync(src, { withFileTypes: true })) {
