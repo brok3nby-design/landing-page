@@ -519,7 +519,7 @@ function Content({ config, selectedId, onSelect, under, apiRef, quality, animSta
           {config.play === "gold" && <Suspense fallback={null}><GoldPlay scene={state.scene} onSelect={onSelect} /></Suspense>}
           {config.play === "dice" && <Suspense fallback={null}><DicePlay scene={state.scene} /></Suspense>}
           {config.play === "speck" && <Suspense fallback={null}><SpeckPlay scene={state.scene} selectedId={selectedId} /></Suspense>}
-          {config.play === "doqi" && <Suspense fallback={null}><DoqiPlay scene={state.scene} selectedId={selectedId} /></Suspense>}
+          {config.play === "doqi" && <Suspense fallback={null}><DoqiPlay scene={state.scene} selectedId={selectedId} lines={config.jeffLines} /></Suspense>}
           {config.contactShadow && (() => {
             const c = state.box.getCenter(new THREE.Vector3()), sz = state.box.getSize(new THREE.Vector3());
             return <ContactShadows position={[c.x, state.box.min.y + 0.0005, c.z]} scale={Math.max(sz.x, sz.z) * 2.2}

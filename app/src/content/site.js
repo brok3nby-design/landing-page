@@ -182,6 +182,27 @@ export const EXHIBITS = {
     fallback: "fallback/exhibit-doqi.png",
     fallbackAlt: "A miniature office of the Department of Questionable Inventions: grimy green walls, the DOQI sign, propaganda posters, a filing cabinet with a globe, a window onto a dusk city with a blimp. On the desk, J.E.F.F., a rusty green terminal with grumpy eyes, beside a stack of labelled folders, a BUREAUCRACY FUELS CREATIVITY mug, blueprints, a desk lamp, a tin robot, and a rubber stamp by Form 27-B.",
     play: "doqi",                    // J.E.F.F. watches you, the stamp files forms (exhibit/DoqiPlay.jsx)
+    // What J.E.F.F. says when you click him: shown on his screen (and read out to screen readers), shuffled
+    // so nothing repeats until he has said everything. A line can be plain text, or { text, audio } where
+    // audio is a voice clip under public/media (e.g. "media/projects/doqi/jeff/filed.mp3"), played instead
+    // of the beep when sounds are on. Lines from the old site's footer robot + office rulings for now;
+    // replace or extend with his lines from the game.
+    jeffLines: [
+      "YOUR ANSWERS HAVE BEEN FILED.",
+      "I am J.E.F.F. Please pretend that stands for something impressive.",
+      "I have reviewed your browsing technique. It is aggressively human.",
+      "I am not judging. I am recording. There is a difference.",
+      "You seem lost. That is a valid navigation style.",
+      "I was built for quality assurance. Then I saw the internet.",
+      "I was told to be helpful. Nobody defined helpful.",
+      "Good click. Strong click. Almost professional.",
+      "Do not worry. I only report the funny parts.",
+      "J.E.F.F. online. Expectations carefully lowered.",
+      "That idea is questionable. Approved.",
+      "Form 27-B is missing. File anyway.",
+      "Same forms. Different people.",
+      "Invent. File. Repeat.",
+    ],
     noGlow: ["dq_stamp", "dq_form", "dq_pad"],
     focusScale: 1.8,
     homeScale: 0.95,

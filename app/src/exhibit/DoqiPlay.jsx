@@ -8,12 +8,11 @@
 import { useEffect, useMemo } from "react";
 import * as THREE from "three";
 import { useThree, useFrame } from "@react-three/fiber";
-import { wakeAudio, blip } from "./goldAudio.js";
+import { wakeAudio, blip, goldSoundOn } from "./goldAudio.js";
 
 const KEY = "b3d-doqi-filed-v1";
 const MAX_MARKS = 24;
-const RULINGS = ["YOUR ANSWERS HAVE BEEN FILED.", "PLEASE HOLD.", "THAT IDEA IS QUESTIONABLE. APPROVED.", "FORM 27-B IS MISSING. FILE ANYWAY.",
-                 "NOTED.", "SAME FORMS. DIFFERENT PEOPLE.", "INVENT. FILE. REPEAT."];
+const FALLBACK_LINES = ["YOUR ANSWERS HAVE BEEN FILED.", "NOTED.", "PLEASE HOLD."];   // used if the page gives none
 const MARKS = ["FILED", "FILED", "FILED", "APPROVED?", "FILED", "DENIED", "FILED", "PENDING"];
 
 function loadSave() { try { const s = JSON.parse(localStorage.getItem(KEY)); if (s && Array.isArray(s.marks)) return s; } catch { /* none */ } return { count: 0, marks: [] }; }
@@ -25,12 +24,18 @@ function drawFace(g, w, h, st) {
   grd.addColorStop(0, "#1f5a3a"); grd.addColorStop(1, "#0b2318");
   g.fillStyle = grd; g.fillRect(0, 0, w, h);
   if (st.text) {
-    g.fillStyle = "#9cf5b4"; g.font = "bold 26px 'Courier New', monospace"; g.textAlign = "center"; g.textBaseline = "middle";
-    const words = st.text.split(" "), lines = [];
-    let line = "";
-    for (const wd of words) { if (g.measureText(line + " " + wd).width > w - 36 && line) { lines.push(line); line = wd; } else line = line ? line + " " + wd : wd; }
-    lines.push(line);
-    lines.forEach((ln, i) => g.fillText(ln, w / 2, h / 2 + (i - (lines.length - 1) / 2) * 32));
+    g.fillStyle = "#9cf5b4"; g.textAlign = "center"; g.textBaseline = "middle";
+    // the biggest type that fits the screen (long lines get smaller text, up to 6 rows)
+    const text = st.text.toUpperCase();
+    let size = 28, lines = [];
+    for (; size >= 14; size -= 2) {
+      g.font = `bold ${size}px 'Courier New', monospace`;
+      lines = []; let line = "";
+      for (const wd of text.split(" ")) { if (g.measureText(line + " " + wd).width > w - 32 && line) { lines.push(line); line = wd; } else line = line ? line + " " + wd : wd; }
+      lines.push(line);
+      if (lines.length * size * 1.2 <= h - 30) break;
+    }
+    lines.forEach((ln, i) => g.fillText(ln, w / 2, h / 2 + (i - (lines.length - 1) / 2) * size * 1.2));
   } else {
     for (const sx of [-1, 1]) {
       const ex = w / 2 + sx * 66, ey = h * 0.56;
@@ -68,7 +73,7 @@ function markTexture(word) {
 }
 const MARK_GEO = new THREE.PlaneGeometry(0.075, 0.033).rotateX(-Math.PI / 2);
 
-export default function DoqiPlay({ scene, selectedId }) {
+export default function DoqiPlay({ scene, selectedId, lines }) {
   const camera = useThree((s) => s.camera);
   const gl = useThree((s) => s.gl);
   const invalidate = useThree((s) => s.invalidate);
@@ -77,7 +82,7 @@ export default function DoqiPlay({ scene, selectedId }) {
     return { screen: get("DQ_Jeff_Screen"), jeff: get("DQ_Jeff"), stamp: get("DQ_Stamp"), form: get("DQ_Form"), pad: get("DQ_InkPad") };
   }, [scene]);
   const S = useMemo(() => ({
-    face: { px: 0, py: 0, blink: 0, text: "" }, canvas: null, ctx: null, tex: null, ruling: 0, textUntil: 0,
+    face: { px: 0, py: 0, blink: 0, text: "" }, canvas: null, ctx: null, tex: null, bag: [], voice: null, textUntil: 0,
     anim: null, save: loadSave(), marksGroup: null, ray: new THREE.Raycaster(), ndc: new THREE.Vector2(), home: null,
   }), []);
 
@@ -104,6 +109,21 @@ export default function DoqiPlay({ scene, selectedId }) {
     S.face.text = text; S.textUntil = performance.now() + ms; redraw();
     window.dispatchEvent(new CustomEvent("dq-jeff", { detail: { text } }));
   }
+
+  // J.E.F.F. speaks: the next line from a shuffled bag (no repeats until every line has been said)
+  function speak() {
+    const all = (lines && lines.length ? lines : FALLBACK_LINES).map((l) => (typeof l === "string" ? { text: l } : l));
+    if (!S.bag.length) S.bag = all.slice().sort(() => Math.random() - 0.5);
+    const line = S.bag.pop();
+    wakeAudio();
+    S.voice?.pause();
+    if (line.audio && goldSoundOn()) {
+      S.voice = new Audio(`${import.meta.env.BASE_URL}${line.audio}`);
+      S.voice.play().catch(() => blip("jeff", 0.6));
+    } else blip("jeff", 0.6);
+    say(line.text, Math.min(9000, 1600 + line.text.length * 55));
+  }
+  useEffect(() => () => S.voice?.pause(), [S]);
 
   // eyes follow the pointer anywhere on the page; he blinks now and then
   useEffect(() => {
@@ -248,7 +268,7 @@ export default function DoqiPlay({ scene, selectedId }) {
       if (suppress) { e.stopPropagation(); suppress = false; return; }
       if (!downAt || Math.hypot(e.clientX - downAt.x, e.clientY - downAt.y) > 6) return;
       const h = hitOf(e, [N.jeff].filter(Boolean));                // clicking J.E.F.F.: a ruling (the panel opens too)
-      if (h) { wakeAudio(); blip("jeff", 0.6); say(RULINGS[S.ruling++ % RULINGS.length]); }
+      if (h) speak();
     };
     const act = (e) => { if (e.detail === "stamp") stampIt(); };
     el.addEventListener("pointerdown", down, { capture: true });

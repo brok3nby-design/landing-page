@@ -71,6 +71,9 @@ const jf = await at("DQ_Jeff_Screen");
 await page.mouse.click(jf.x, jf.y);
 await frames(4);
 results.ruling = (await doqi()).face.text;
+// a second click: a different line (shuffled, no repeats)
+await wait(200); await page.mouse.click(jf.x, jf.y); await frames(3);
+results.ruling_2 = (await doqi()).face.text;
 results.readout = await page.locator(".dice-result").textContent();
 await shot("04_ruling.png");
 results.checks = {
@@ -78,6 +81,7 @@ results.checks = {
   stamp_files_a_form: results.after_stamp.count === 1 && results.after_stamp.marks === 1,
   remembered_after_reload: results.after_reload.count === 1 && results.after_reload.marks === 1,
   stamp_button: results.after_button.count === 2 && results.after_button.marks === 2,
+  jeff_lines_vary: !!results.ruling_2 && results.ruling_2 !== results.ruling,
   jeff_ruling: !!results.ruling && /J\.E\.F\.F\.:/.test(results.readout || ""),
   no_errors: errors.length === 0,
 };
