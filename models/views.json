@@ -109,6 +109,42 @@
    ],
    "aspect": 1.7778
   },
+  "CAM_Close_Passport": {
+   "position": [
+    -0.2098,
+    1.1714,
+    0.1426
+   ],
+   "forward": [
+    -0.4145,
+    -0.5592,
+    -0.718
+   ],
+   "fov_deg": 19.157,
+   "shift": [
+    0.0,
+    0.0
+   ],
+   "aspect": 1.7778
+  },
+  "CAM_Close_Riser": {
+   "position": [
+    0.7149,
+    1.231,
+    0.0414
+   ],
+   "forward": [
+    -0.2865,
+    -0.3746,
+    -0.8818
+   ],
+   "fov_deg": 19.157,
+   "shift": [
+    0.0,
+    0.0
+   ],
+   "aspect": 1.7778
+  },
   "CAM_Close_Shelf": {
    "position": [
     0.3048,
