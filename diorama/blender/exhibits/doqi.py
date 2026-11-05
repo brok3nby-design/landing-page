@@ -91,7 +91,7 @@ def _tex_sky(name="dq_dusk", w=512, h=640):
 
 def _poster(name, lines, ufo=False, w=360, h=540):
     c = T.Canvas(w, h, T.rgb("#1f2b3a"))
-    c.mul(0.85 + 0.2 * T.noise(h, w, 6, hash(name) % 97))
+    c.mul(0.85 + 0.2 * T.noise(h, w, 6, sum(map(ord, name)) % 97))   # deterministic (hash() is salted per run)
     cream = T.rgb("#d8cfb5")
     c.rect(10, 10, w - 10, 14, cream, 0.8); c.rect(10, h - 14, w - 10, h - 10, cream, 0.8)
     c.rect(10, 10, 14, h - 10, cream, 0.8); c.rect(w - 14, 10, w - 10, h - 10, cream, 0.8)
