@@ -1,5 +1,5 @@
 {
- "desktop_ready_ms": 4158,
+ "desktop_ready_ms": 3825,
  "crate_click": {
   "selected": "games_crate",
   "panel": "Choose your next world.",
@@ -19,9 +19,10 @@
  "explore_games_url": "http://127.0.0.1:4180/games",
  "camera_normal": {
   "steps": 22,
-  "worst_step_vs_distance": 0.671,
+  "worst_step_vs_distance": 0.488,
   "frames_inside_model": 0
  },
+ "wheel_scrolls_page": true,
  "camera_under": {
   "steps": 28,
   "worst_step_vs_distance": 0.149,
