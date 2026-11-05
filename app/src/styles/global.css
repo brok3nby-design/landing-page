@@ -371,10 +371,10 @@ blockquote { margin: 18px 0; padding-left: 18px; border-left: 2px solid var(--re
 .video-poster:hover span { color: var(--fg); background: var(--red-hi); }
 
 /* studio branding images (from the existing site): cracked-glass banner + green B3 mark.
-   Their backgrounds are pure black, so "lighten" blends them seamlessly into the #080808 page. */
-.wordmark-logo { display: block; height: 22px; width: auto; mix-blend-mode: lighten; }
+   import_site.py turns their black backgrounds transparent, so they float on any background. */
+.wordmark-logo { display: block; height: 22px; width: auto; }
 .hero-logo { line-height: 0; margin-left: -4%; }
-.hero-logo img { width: min(560px, 100%); height: auto; mix-blend-mode: lighten; }
-.footer-mark { width: 56px; height: 56px; mix-blend-mode: lighten; margin-bottom: 10px; display: block; }
-.entrance-mark { mix-blend-mode: lighten; }
+.hero-logo img { width: min(560px, 100%); height: auto; }
+.footer-mark { width: 56px; height: 56px; margin-bottom: 10px; display: block; }
+.entrance-mark { }
 @media (max-width: 700px) { .wordmark-logo { height: 18px; } }

@@ -286,9 +286,21 @@ def main():
     xs = np.where(m.sum(0) > m.shape[0] * 0.06)[0]; ys = np.where(m.sum(1) > m.shape[1] * 0.05)[0]
     x0, x1, y0, y1 = xs.min(), xs.max(), ys.min(), ys.max()
     pad, ph, pw = int((y1 - y0) * 0.12), int((y1 - y0) * 1.1), int((x1 - x0) * 0.08)
-    ban.crop((x0 - pad, y0 - pad, x1 + pad, y1 + pad)).save(MEDIA / "studio" / "b3d-tight.webp", "WEBP", quality=90)
-    ban.crop((max(0, x0 - pw), max(0, y0 - ph), min(ban.width, x1 + pw), min(ban.height, y1 + ph))).save(
+    def unblack(img):
+        """Black -> transparent (alpha = brightest channel, colour un-premultiplied): the logo floats on any
+        background with its soft glow intact, like the original on the near-black site."""
+        a = np.asarray(img.convert("RGB")).astype(np.float32) / 255
+        alpha = a.max(2, keepdims=True)
+        rgb = np.where(alpha > 1e-4, a / np.maximum(alpha, 1e-4), 0)
+        out = np.concatenate([rgb, alpha], 2)
+        return Image.fromarray((np.clip(out, 0, 1) * 255 + 0.5).astype(np.uint8), "RGBA")
+    unblack(ban.crop((x0 - pad, y0 - pad, x1 + pad, y1 + pad))).save(MEDIA / "studio" / "b3d-tight.webp", "WEBP", quality=90)
+    unblack(ban.crop((max(0, x0 - pw), max(0, y0 - ph), min(ban.width, x1 + pw), min(ban.height, y1 + ph)))).save(
         MEDIA / "studio" / "b3d-hero.webp", "WEBP", quality=90)
+    unblack(Image.open(SRC / "images/title/b3b_pp.png")).resize((512, 512), Image.LANCZOS).save(MEDIA / "studio" / "b3-mark.webp", "WEBP", quality=90)
+    copy["brand"]["mark"] = "media/studio/b3-mark.webp"
+    unblack(Image.open(SRC / "images/studio/b3d-web.webp")).save(MEDIA / "studio" / "b3d-web-alpha.webp", "WEBP", quality=90)
+    copy["brand"]["wordmark"] = "media/studio/b3d-web-alpha.webp"
     copy["brand"]["banner_tight"] = "media/studio/b3d-tight.webp"
     copy["brand"]["banner_hero"] = "media/studio/b3d-hero.webp"
     # browser / home-screen icons from the B3 mark (PNG, as browsers and phones expect)
