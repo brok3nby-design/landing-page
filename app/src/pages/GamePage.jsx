@@ -181,7 +181,7 @@ function WrfmTools() {
     <>
       <output className="dice-result" aria-live="polite">{air.on ? `On air · ${air.title}${air.quote ? `: ${air.quote}` : ""}` : ""}</output>
       <button className="tool" aria-pressed={air.on} data-pause-music
-              onClick={() => window.dispatchEvent(new CustomEvent("wr-act", { detail: "air" }))}>{air.on ? "Off air" : "On air"}</button>
+              onClick={() => window.dispatchEvent(new CustomEvent("wr-act", { detail: "air" }))}>{air.on ? "Go off air" : "Go on air"}</button>
     </>
   );
 }

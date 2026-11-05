@@ -51,7 +51,7 @@ export default function WrfmPlay({ scene }) {
     S.needleRest = N.needles.map((n) => n.quaternion.clone());
     S.phoneRest = N.phone ? N.phone.quaternion.clone() : null;
     invalidate();
-    window.__wrfm = { onAir: () => S.onAir, level: () => S.level, needles: () => S.needleAngle.slice(), music: () => S.music };
+    window.__wrfm = { onAir: () => S.onAir, level: () => S.level, needles: () => S.needleAngle.slice(), music: () => S.music, sign: () => (N.face ? +(N.face.material.emissiveIntensity / N.face.userData.e0).toFixed(3) : null) };
     return () => {
       scene.remove(light); stop();
       if (N.face) N.face.material.emissiveIntensity = N.face.userData.e0;

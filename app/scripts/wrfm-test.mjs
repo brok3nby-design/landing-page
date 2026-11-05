@@ -34,7 +34,12 @@ page.on("console", (m) => m.type() === "error" && errors.push(m.text()));
 const wait = (ms) => page.waitForTimeout(ms);
 const frames = async (n = 10) => { for (let i = 0; i < n; i++) { await page.evaluate(() => window.__exhibit?.invalidate()); await wait(80); } };
 const shot = async (f) => { await frames(3); await page.screenshot({ path: path.join(OUT, f), timeout: 180000 }); console.log("shot", f); };
-const W = () => page.evaluate(() => ({ onAir: window.__wrfm.onAir(), level: window.__wrfm.level(), needles: window.__wrfm.needles(), music: window.__wrfm.music() }));
+const W = () => page.evaluate(() => ({ onAir: window.__wrfm.onAir(), level: window.__wrfm.level(), needles: window.__wrfm.needles(), music: window.__wrfm.music(), sign: window.__wrfm.sign() }));
+// software GL can need seconds per frame for close views: wait until frames are really being drawn
+const settle = async () => { for (let i = 0; i < 120; i++) {
+  const n = await page.evaluate(() => new Promise((r) => { let n = 0; const t = performance.now();
+    const f = () => { n++; window.__exhibit?.invalidate(); if (performance.now() - t < 500) requestAnimationFrame(f); else r(n); }; requestAnimationFrame(f); }));
+  if (n > 12) return; } };
 const at = (name) => page.evaluate((n) => {
   const r = document.querySelector(".exhibit-canvas canvas").getBoundingClientRect();
   const p = window.__exhibit.project(n);
@@ -56,7 +61,7 @@ await page.mouse.click(mic.x, mic.y);
 await frames(6);
 results.mic_off = await W();
 await page.keyboard.press("Escape");
-await page.getByRole("button", { name: "On air" }).click();
+await page.getByRole("button", { name: "Go on air" }).click();
 await frames(6);
 results.button_on = await W();
 await page.evaluate(() => window.dispatchEvent(new CustomEvent("wr-act", { detail: "phone" })));
@@ -70,7 +75,7 @@ await page.evaluate(() => window.dispatchEvent(new CustomEvent("wr-act", { detai
 await frames(4);
 const tt = await at("WR_Turntable");
 await page.mouse.click(tt.x, tt.y);
-await frames(10);
+await frames(10); await settle(); await frames(10);
 results.turntable = await W();
 await shot("03_music.png");
 results.checks = {
@@ -80,6 +85,8 @@ results.checks = {
   on_air_button: results.button_on.onAir,
   phone_rings_and_vera_picks_up: results.ringing.onAir && !!results.stamp && /Vera picks up|The phone/.test(results.phone_readout || ""),
   turntable_starts_music: results.turntable.music === true,
+  sign_dims_off_air: results.turntable.sign !== null && results.turntable.sign < 0.2,
+  sign_lit_on_air: results.mic_on.sign > 0.8,
   no_errors: errors.length === 0,
 };
 results.errors = errors;
