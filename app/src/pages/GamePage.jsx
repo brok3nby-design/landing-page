@@ -55,7 +55,7 @@ export default function GamePage({ id: fixedId }) {
           <div className="ctas"><Link viewTransition className="btn ghost" to="/games">← Back to the shelf</Link></div>
         </section>
         {ex ? (
-          <Exhibit config={ex} selectedId={selectedId} onSelect={setSelectedId} tools={ex.play === "gold" ? <GoldTools /> : null}>
+          <Exhibit config={ex} selectedId={selectedId} onSelect={setSelectedId} tools={ex.play === "gold" ? <GoldTools /> : ex.play === "dice" ? <DiceTools /> : null}>
             <InfoPanel item={selectedId && ex.finds[selectedId] ? { id: selectedId, kind: "discovery", panel: ex.finds[selectedId] } : null}
                        onClose={close} />
           </Exhibit>
@@ -103,6 +103,27 @@ function GoldTools() {
               title="Scoop a handful of coins out of the chest and toss them onto the floor">Toss a handful</button>
       <button className="tool" aria-pressed={on} onClick={() => setGoldSound(!on)}
               title="Coin sounds">{on ? "Gold sounds: on" : "Gold sounds: off"}</button>
+    </>
+  );
+}
+
+// Glass & Fortune: roll button, the result of the last roll (announced to screen readers) and the sound switch
+function DiceTools() {
+  const [on, setOn] = useState(goldSoundOn());
+  const [roll, setRoll] = useState(null);
+  useEffect(() => onGoldSound(setOn), []);
+  useEffect(() => {
+    const f = (e) => setRoll(e.detail);
+    addEventListener("gf-dice", f);
+    return () => removeEventListener("gf-dice", f);
+  }, []);
+  const text = !roll ? "" : roll.rolling ? "Rolling…"
+    : roll.dice.map((d) => `${d.colour} ${d.value}`).join(" · ") + ` — ${roll.total}` + (roll.cocked ? " (one is cocked: roll again)" : "");
+  return (
+    <>
+      <output className="dice-result" aria-live="polite">{text}</output>
+      <button className="tool" onClick={() => window.dispatchEvent(new CustomEvent("gf-roll", { detail: "roll" }))}>Roll the dice</button>
+      <button className="tool" aria-pressed={on} onClick={() => setGoldSound(!on)} title="Dice sounds">{on ? "Sounds: on" : "Sounds: off"}</button>
     </>
   );
 }

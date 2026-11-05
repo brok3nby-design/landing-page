@@ -19,7 +19,8 @@ import build as desk_build  # noqa: E402  (setup_render)
 from lib import scene as S, mats, textures, camera  # noqa: E402
 from parts import lights  # noqa: E402
 
-EXHIBITS = {"bid-and-buried": "exhibits.bid_and_buried", "pocket-wilds": "exhibits.pocket_wilds"}
+EXHIBITS = {"bid-and-buried": "exhibits.bid_and_buried", "pocket-wilds": "exhibits.pocket_wilds",
+            "glass-and-fortune": "exhibits.glass_and_fortune"}
 VIEWS = [  # name, azimuth, elevation, lens, frame fill
     ("CAM_Exhibit_Hero", 34, 27, 50, 0.84),
     ("CAM_Exhibit_Front", 8, 14, 50, 0.86),
@@ -27,7 +28,7 @@ VIEWS = [  # name, azimuth, elevation, lens, frame fill
 ]
 
 
-def export_exhibit(game, root):
+def export_exhibit(game, root, mod=None):
     """Same web pipeline as the desk: freeze modifiers, merge untagged meshes per material, bake AO + the
     practical (bulb) light into UV set 1, export a GLB with the interactive tags as node extras."""
     import export as ex
@@ -39,7 +40,9 @@ def export_exhibit(game, root):
     ex.merge_siblings()
     meshes = [o for o in bpy.data.objects if o.type == "MESH"]
     bake = [o for o in meshes if not ex.obj_unbakeable(o)]
-    info = ex.bake_set(key, bake, 2048, 128, 192, glow=True, ao_distance=0.6)
+    hide = [o for n in getattr(mod, "BAKE_HIDE", []) if n in bpy.data.objects
+            for o in (bpy.data.objects[n], *bpy.data.objects[n].children_recursive)]   # moving parts cast no baked shadow
+    info = ex.bake_set(key, [o for o in bake if o not in hide], 2048, 128, 192, glow=True, ao_distance=0.6, hide=hide)
     objs = [root, *root.children_recursive]
     os.makedirs(ex.RAW, exist_ok=True)
     size = ex.export_glb(os.path.join(ex.RAW, key + ".glb"), [o for o in objs if o.type in ("MESH", "EMPTY")])
@@ -85,7 +88,7 @@ def main():
     bpy.ops.wm.save_as_mainfile(filepath=out_blend, compress=True)
     print("saved", out_blend)
     if args.export:
-        export_exhibit(args.game, root)
+        export_exhibit(args.game, root, mod)
         return
     if args.render:
         desk_build.setup_render(args.samples)

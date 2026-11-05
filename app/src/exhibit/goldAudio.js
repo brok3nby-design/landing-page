@@ -107,3 +107,57 @@ export function scoop(vol = 0.7, pan = 0) {
   n.start(t, 0, 0.32);
   jingle(9, vol * 0.8, pan, 0.28);
 }
+
+// ---------------------------------------------------------------- glass dice (Glass & Fortune)
+function voice(fn) {
+  if (!enabled || !ctx || ctx.state !== "running" || voices >= MAX_VOICES) return;
+  voices++;
+  const life = fn(ctx.currentTime + 0.004) || 0.2;
+  setTimeout(() => { voices--; }, life * 1000 + 40);
+}
+function partials(t, f0, ratios, amps, decay, vol, bus) {
+  let end = 0;
+  ratios.forEach((r, k) => {
+    const o = ctx.createOscillator(), g = ctx.createGain();
+    o.frequency.value = f0 * r * (1 + (Math.random() - 0.5) * 0.01);
+    const d = decay / (1 + k * 0.6) * (0.8 + Math.random() * 0.4);
+    g.gain.setValueAtTime(0.0001, t);
+    g.gain.exponentialRampToValueAtTime(vol * amps[k] + 0.0002, t + 0.0015);
+    g.gain.exponentialRampToValueAtTime(0.0001, t + d);
+    o.connect(g); g.connect(bus); o.start(t); o.stop(t + d + 0.02);
+    end = Math.max(end, d);
+  });
+  return end;
+}
+function noiseHit(t, type, freq, q, vol, dur, bus) {
+  const n = ctx.createBufferSource(), f = ctx.createBiquadFilter(), g = ctx.createGain();
+  n.buffer = noise; f.type = type; f.frequency.value = freq; f.Q.value = q;
+  g.gain.setValueAtTime(vol, t); g.gain.exponentialRampToValueAtTime(0.0001, t + dur);
+  n.connect(f); f.connect(g); g.connect(bus); n.start(t, Math.random() * 0.3, dur + 0.02);
+}
+function panned(pan) {
+  if (!ctx.createStereoPanner) return out;
+  const p = ctx.createStereoPanner(); p.pan.value = Math.max(-1, Math.min(1, pan)); p.connect(out); return p;
+}
+// what the die hit: "die" (glass on glass), "cloth" (velvet), "wood", "glass" (crystal ball, hourglass), "metal", "soft"
+export function diceHit(surface, vol = 0.5, pan = 0) {
+  const v = Math.min(1, vol) ** 1.3;
+  if (v < 0.015) return;
+  voice((t) => {
+    const bus = panned(pan);
+    switch (surface) {
+      case "die":   noiseHit(t, "highpass", 3000, 0.7, v * 0.25, 0.008, bus);
+                    return partials(t, 2700 + Math.random() * 800, [1, 2.43, 4.1], [1, 0.5, 0.3], 0.075, v * 0.3, bus);
+      case "glass": noiseHit(t, "highpass", 3500, 0.7, v * 0.15, 0.006, bus);
+                    return partials(t, 3600 + Math.random() * 500, [1, 2.76], [1, 0.4], 0.3, v * 0.2, bus);
+      case "metal": noiseHit(t, "bandpass", 2500, 1.5, v * 0.2, 0.01, bus);
+                    return partials(t, 1700 + Math.random() * 300, [1, 2.71, 5.2], [1, 0.55, 0.3], 0.22, v * 0.18, bus);
+      case "wood":  noiseHit(t, "bandpass", 1300, 2.2, v * 0.5, 0.035, bus);
+                    return partials(t, 480 + Math.random() * 120, [1, 2.3], [1, 0.3], 0.06, v * 0.22, bus);
+      case "soft":  noiseHit(t, "lowpass", 420, 0.7, v * 0.35, 0.04, bus); return 0.06;
+      default:      noiseHit(t, "lowpass", 650, 0.8, v * 0.55, 0.05, bus);          // velvet: a muffled thud
+                    noiseHit(t, "bandpass", 2600, 1.2, v * 0.05, 0.012, bus);       // ...with a hint of glass
+                    return partials(t, 150 + Math.random() * 40, [1], [1], 0.05, v * 0.25, bus);
+    }
+  });
+}

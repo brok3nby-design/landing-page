@@ -138,4 +138,24 @@ export const EXHIBITS = {
       pw_torch: { eyebrow: "Still burning", title: "Wall Torch", text: "Somebody lit it recently. In a dungeon, that's never good news." },
     },
   },
+  "glass-and-fortune": {
+    model: "models/exhibit_glass_and_fortune.glb",
+    scope: "glass-and-fortune",
+    view: { forward: [-0.498, -0.454, -0.739] },      // the Blender hero camera (azimuth 34°, elevation 27°)
+    fallback: "fallback/exhibit-glass-and-fortune.png",
+    fallbackAlt: "A miniature fortune-teller's parlour: damask wallpaper, a moonlit window between red velvet curtains, and a round table under a black velvet cloth with a gold-embroidered hem. On it, a red and a blue glass die, a beaked mask with brass goggles leaning on a top hat, a crystal ball, an hourglass and a brass moth; an oil lantern glows on a cabinet.",
+    play: "dice",                    // real dice physics + glass sounds (exhibit/DicePlay.jsx)
+    noGlow: ["gf_die_red", "gf_die_blue"],
+    focusScale: 1.8,
+    homeScale: 0.92,
+    findsTitle: "On the table",
+    finds: {
+      gf_mask: { eyebrow: "Watching", title: "The Fortune-Teller's Mask", text: "Beaked, goggled and somehow still judging your last roll. The fortune-teller has opinions." },
+      gf_hat: { eyebrow: "Left behind", title: "Top Hat", text: "Its owner never goes far. Usually only as far as the next bad decision at the table." },
+      gf_ball: { eyebrow: "Clouded", title: "Crystal Ball", text: "It shows the next roll, they say. It has never once agreed with the dice." },
+      gf_hourglass: { eyebrow: "Running", title: "Hourglass", text: "One more roll. There's always time for one more roll." },
+      gf_moth: { eyebrow: "Brass", title: "Brass Moth", text: "Drawn to the lantern, wound up by someone. Its wings tick when nobody is looking." },
+      gf_lantern: { eyebrow: "Burning low", title: "Oil Lantern", text: "The only honest light in the room." },
+    },
+  },
 };
