@@ -213,4 +213,26 @@ export const EXHIBITS = {
       dq_robot: { eyebrow: "Prototype", title: "Tin Robot", text: "A questionable invention. Approved, somehow." },
     },
   },
+  wrfm: {
+    model: "models/exhibit_wrfm.glb",
+    scope: "wrfm",
+    view: { forward: [-0.498, -0.454, -0.739] },      // the Blender hero camera (azimuth 34°, elevation 27°)
+    fallback: "fallback/exhibit-wrfm.png",
+    fallbackAlt: "A miniature late-night radio studio: quilted burgundy padding, an ON AIR sign, the WRFM 97.1 logo and two band posters. At the broadcast desk, a big chrome microphone, a mixing console with glowing VU meters, headphones, a WRFM mug, the night's running order, a turntable with a record and an album sleeve, and a green clock reading 11:59.",
+    play: "wrfm",                    // Vera on air, the hidden phone, the turntable (exhibit/WrfmPlay.jsx)
+    noGlow: ["wr_onair"],
+    focusScale: 1.8,
+    homeScale: 0.95,
+    findsTitle: "In the studio",
+    // (the phone is deliberately not listed: finding it is the point)
+    finds: {
+      wr_mic: { eyebrow: "Live", title: "The Microphone", text: "Click it to put Vera on the air. Click again to go off air." },
+      wr_turntable: { eyebrow: "33⅓", title: "Turntable", text: "Click to start or stop the studio's music. The record spins while it plays." },
+      wr_console: { eyebrow: "Eight channels", title: "Mixing Console", text: "Mic 1, Vera, Phone, TT, Cart, Ads, Aux, Main. The needles move with whatever is on the air." },
+      wr_onair: { eyebrow: "97.1", title: "ON AIR", text: "Lit while Vera is broadcasting. Everyone hears the same song at the same second." },
+      wr_logo: { eyebrow: "Hosted by Vera Lang", title: "WRFM 97.1", text: "Smooth jazz for people who ship code." },
+      wr_records: { eyebrow: "Vocal-free", title: "Record Crate", text: "Genuinely good instrumental smooth jazz, smooth enough to leave on all day." },
+      wr_mug: { eyebrow: "Night shift", title: "Mug", text: "Still warm. The office is quiet and you're still here." },
+    },
+  },
 };

@@ -17,6 +17,8 @@ export const SECRETS = [
   { id: "maker-plate", title: "Read the fine print", hint: "Every handmade thing is signed somewhere.", path: "/", symbol: "⚒" },
   { id: "bookworm", title: "Bookworm", hint: "The shelf has more than games on it.", path: "/", symbol: "❡" },
   { id: "coffee", title: "Coffee break", hint: "Somebody left their mug on the desk.", path: "/", symbol: "☕" },
+  // new with the WRFM studio exhibit
+  { id: "studio-b", title: "Studio B", hint: "There's a phone in this station. Nobody will tell you where.", path: "/wrfm", symbol: "☎" },
 ];
 
 let stamps = [];

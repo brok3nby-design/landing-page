@@ -17,7 +17,8 @@
     "test:gold": "npm run build && node scripts/gold-test.mjs",
     "test:dice": "npm run build && node scripts/dice-test.mjs",
     "test:speck": "npm run build && node scripts/speck-test.mjs",
-    "test:doqi": "npm run build && node scripts/doqi-test.mjs"
+    "test:doqi": "npm run build && node scripts/doqi-test.mjs",
+    "test:wrfm": "npm run build && node scripts/wrfm-test.mjs"
   },
   "dependencies": {
     "@fontsource-variable/inter": "^5.3.0",

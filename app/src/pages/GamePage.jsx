@@ -55,7 +55,7 @@ export default function GamePage({ id: fixedId }) {
           <div className="ctas"><Link viewTransition className="btn ghost" to="/games">← Back to the shelf</Link></div>
         </section>
         {ex ? (
-          <Exhibit config={ex} selectedId={selectedId} onSelect={setSelectedId} tools={ex.play === "gold" ? <GoldTools /> : ex.play === "dice" ? <DiceTools /> : ex.play === "speck" ? <SpeckTools /> : ex.play === "doqi" ? <DoqiTools /> : null}>
+          <Exhibit config={ex} selectedId={selectedId} onSelect={setSelectedId} tools={ex.play === "gold" ? <GoldTools /> : ex.play === "dice" ? <DiceTools /> : ex.play === "speck" ? <SpeckTools /> : ex.play === "doqi" ? <DoqiTools /> : ex.play === "wrfm" ? <WrfmTools /> : null}>
             <InfoPanel item={selectedId && ex.finds[selectedId] ? { id: selectedId, kind: "discovery", panel: ex.finds[selectedId] } : null}
                        onClose={close} />
           </Exhibit>
@@ -165,6 +165,23 @@ function DoqiTools() {
     <>
       <output className="dice-result" aria-live="polite">{said ? `J.E.F.F.: ${said}` : ""}{count ? `${said ? " · " : ""}Forms filed: ${count}` : ""}</output>
       <button className="tool" onClick={() => window.dispatchEvent(new CustomEvent("dq-act", { detail: "stamp" }))}>Stamp it</button>
+    </>
+  );
+}
+
+// WRFM: on air / off air (keyboard / touch alternative to clicking the mic) and what's on the air now
+function WrfmTools() {
+  const [air, setAir] = useState({ on: false });
+  useEffect(() => {
+    const f = (e) => setAir(e.detail);
+    addEventListener("wr-air", f);
+    return () => removeEventListener("wr-air", f);
+  }, []);
+  return (
+    <>
+      <output className="dice-result" aria-live="polite">{air.on ? `On air · ${air.title}${air.quote ? `: ${air.quote}` : ""}` : ""}</output>
+      <button className="tool" aria-pressed={air.on} data-pause-music
+              onClick={() => window.dispatchEvent(new CustomEvent("wr-act", { detail: "air" }))}>{air.on ? "Off air" : "On air"}</button>
     </>
   );
 }
