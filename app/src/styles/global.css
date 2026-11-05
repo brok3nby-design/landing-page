@@ -375,7 +375,7 @@ blockquote { margin: 18px 0; padding-left: 18px; border-left: 2px solid var(--re
 .wordmark-logo { display: block; height: 22px; width: auto; }
 .hero-logo { line-height: 0; margin-left: -4%; }
 .hero-logo img { width: min(560px, 100%); height: auto; }
-.footer-mark { width: 56px; height: 56px; margin-bottom: 10px; display: block; }
+.footer-mark { width: 72px; height: 72px; object-fit: contain; margin-bottom: 10px; display: block; }
 .entrance-mark { }
 @media (max-width: 700px) { .wordmark-logo { height: 18px; } }
 

@@ -24,9 +24,7 @@ export default function Layout() {
       <a className="skip" href="#main">Skip to content</a>
       <header className="header">
         <Link viewTransition to="/" className="wordmark" aria-label={`${BRAND} — home`}>
-          {data?.copy.brand.banner_tight
-            ? <img className="wordmark-logo" src={media(data.copy.brand.banner_tight)} alt="" width="1482" height="230" />
-            : <>{BRAND}<sup>™</sup></>}
+          {BRAND}<sup>™</sup>
         </Link>
         <button type="button" className="menu-toggle" aria-expanded={menu} aria-controls="site-menu" onClick={() => setMenu(!menu)}>
           {menu ? "Close" : "Menu"}
@@ -46,7 +44,7 @@ export default function Layout() {
       <main id="main" key={pathname} className="route"><Outlet /></main>
       <footer className="footer">
         <div className="footer-main">
-          {data?.copy.brand.mark && <img className="footer-mark" src={media(data.copy.brand.mark)} alt="B3 — Brok3n by Design" width="56" height="56" loading="lazy" />}
+          {data?.copy.brand.mark && <img className="footer-mark" src={media(data.copy.brand.mark)} alt="B3 — Brok3n by Design" width="72" height="72" loading="lazy" />}
           <p className="eyebrow">Independent game studio</p>
           <p>Independently created by Brok3n by Design.</p>
           <p><a href="https://x.com/brok3nbydesign" target="_blank" rel="noopener">@brok3nbydesign on X</a></p>

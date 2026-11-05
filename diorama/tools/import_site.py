@@ -20,6 +20,7 @@ from pathlib import Path
 from PIL import Image
 
 SRC = Path(sys.argv[1]).resolve()
+sys.path.insert(0, str(Path(__file__).resolve().parent))   # sibling tools (brand_mark)
 REPO = Path(__file__).resolve().parents[2]
 DATA = REPO / "diorama" / "data"
 MEDIA = REPO / "app" / "media"
@@ -299,6 +300,11 @@ def main():
         MEDIA / "studio" / "b3d-hero.webp", "WEBP", quality=90)
     unblack(Image.open(SRC / "images/title/b3b_pp.png")).resize((512, 512), Image.LANCZOS).save(MEDIA / "studio" / "b3-mark.webp", "WEBP", quality=90)
     copy["brand"]["mark"] = "media/studio/b3-mark.webp"
+    custom_mark = Path(__file__).resolve().parents[1] / "custom" / "branding" / "b3-mark.jpg"
+    if custom_mark.exists():                                   # the studio's newer cracked B3 (footer)
+        import brand_mark
+        brand_mark.build()
+        copy["brand"]["mark"] = "media/studio/b3-mark-2.webp"
     unblack(Image.open(SRC / "images/studio/b3d-web.webp")).save(MEDIA / "studio" / "b3d-web-alpha.webp", "WEBP", quality=90)
     copy["brand"]["wordmark"] = "media/studio/b3d-web-alpha.webp"
     copy["brand"]["banner_tight"] = "media/studio/b3d-tight.webp"
