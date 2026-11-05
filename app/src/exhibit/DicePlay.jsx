@@ -165,8 +165,8 @@ function Dice({ scene }) {
     const side = new THREE.Vector3(-toCam.z, 0, toCam.x);
     S.dice.forEach((d, k) => {
       d.body.setGravityScale(1, true);
-      const start = c.clone().addScaledVector(toCam, S.table.r * 0.62).addScaledVector(side, (k - 0.5) * 0.12).setY(c.y + 0.09 + k * 0.02);
-      const v = toCam.clone().multiplyScalar(-(1.1 + Math.random() * 0.6)).addScaledVector(side, (Math.random() - 0.5) * 0.7).setY(0.6 + Math.random() * 0.4);
+      const start = c.clone().addScaledVector(toCam, S.table.r * 0.7).addScaledVector(side, (k - 0.5) * 0.12).setY(c.y + 0.09 + k * 0.02);
+      const v = toCam.clone().multiplyScalar(-(0.5 + Math.random() * 0.4)).addScaledVector(side, (Math.random() - 0.5) * 0.45).setY(0.45 + Math.random() * 0.3);
       d.body.setTranslation(start, true);
       d.body.setRotation(new THREE.Quaternion().setFromEuler(new THREE.Euler(Math.random() * 6.3, Math.random() * 6.3, Math.random() * 6.3)), true);
       d.body.setLinvel(v, true);

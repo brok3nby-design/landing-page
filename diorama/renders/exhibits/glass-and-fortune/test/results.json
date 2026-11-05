@@ -1,0 +1,71 @@
+{
+ "start": {
+  "faces": [
+   "Red 5",
+   "Blue 3"
+  ],
+  "total": 8
+ },
+ "roll_1": {
+  "faces": [
+   "Red 1",
+   "Blue 3"
+  ],
+  "total": 4
+ },
+ "roll_1_text": "Red 1 · Blue 3 — 4",
+ "roll_2": {
+  "faces": [
+   "Red 6",
+   "Blue 3"
+  ],
+  "total": 9
+ },
+ "roll_2_text": "Red 6 · Blue 3 — 9",
+ "roll_3": {
+  "faces": [
+   "Red 5",
+   "Blue 3"
+  ],
+  "total": 8
+ },
+ "roll_3_text": "Red 5 · Blue 3 — 8",
+ "roll_4": {
+  "faces": [
+   "Red 2",
+   "Blue 3"
+  ],
+  "total": 5
+ },
+ "roll_4_text": "Red 2 · Blue 3 — 5",
+ "roll_5": {
+  "faces": [
+   "Red 4",
+   "Blue 5"
+  ],
+  "total": 9
+ },
+ "roll_5_text": "Red 4 · Blue 5 — 9",
+ "throw": {
+  "faces": [
+   "Red 1",
+   "Blue 5"
+  ],
+  "total": 6
+ },
+ "checks": {
+  "start_is_red5_blue3": true,
+  "button_rolls": true,
+  "rolls_vary": true,
+  "dice_stay_front_half": null,
+  "readout_shown": true,
+  "throw_works": true,
+  "dice_not_lost": true,
+  "no_errors": true
+ },
+ "dice_y": [
+  0.755126416683197,
+  0.7551466822624207
+ ],
+ "errors": []
+}

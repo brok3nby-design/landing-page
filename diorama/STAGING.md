@@ -34,6 +34,7 @@ Tick what works and note what doesn't.
 - [ ] Tap each case: it lifts, turns, shows your cover art, and VIEW GAME opens the right page. "Take me somewhere strange" works.
 - [ ] **Bid & Buried**: the storage unit shows beside the text; tap the safe, TV, globe, records, boxes and paddle.
 - [ ] **Pocket Wilds**: the treasure room shows. Brush the mouse over the gold (jingle). Press and hold the gold, carry it, let go: the coins fall, bounce and clink. On a phone: press, drag, release. "Toss a handful" and "Gold sounds: on/off" work.
+- [ ] **Glass & Fortune**: tap a die or "Roll the dice": both roll and the result shows beside the buttons. Press and hold a die, move, let go to throw it. Sounds on/off works.
 - [ ] Every project page shows text, progress and gallery. The trailers play (Bid & Buried, Speck, Pocket Wilds).
 
 **Elsewhere**

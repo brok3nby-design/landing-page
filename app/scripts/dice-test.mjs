@@ -46,7 +46,7 @@ await page.waitForFunction(() => window.__dice, null, { timeout: 120000 });
 results.start = summary(await page.evaluate(() => window.__dice));
 await shot("01_loaded.png");
 
-for (let k = 1; k <= 2; k++) {                       // the button
+for (let k = 1; k <= 5; k++) {                       // the button
   await page.evaluate(() => { window.__dice = null; });
   await page.getByRole("button", { name: "Roll the dice" }).click();
   results[`roll_${k}`] = summary(await settled());
@@ -73,8 +73,9 @@ const ys = await page.evaluate(() => ["GF_Die_Red", "GF_Die_Blue"].map((n) => wi
 const ok = (r) => r && r.faces.length === 2 && r.total >= 2 && r.total <= 12;
 results.checks = {
   start_is_red5_blue3: JSON.stringify(results.start?.faces) === JSON.stringify(["Red 5", "Blue 3"]),
-  button_rolls: ok(results.roll_1) && ok(results.roll_2),
-  readout_shown: /Red \d · Blue \d — \d+/.test(results.roll_2_text || ""),
+  button_rolls: [1, 2, 3, 4, 5].every((k) => ok(results[`roll_${k}`])),
+  rolls_vary: new Set([1, 2, 3, 4, 5].map((k) => results[`roll_${k}`]?.faces.join())).size > 1,
+  readout_shown: /Red \d · Blue \d — \d+/.test(results.roll_5_text || ""),
   throw_works: ok(results.throw),
   dice_not_lost: ys.every((y) => y > -0.05),
   no_errors: errors.length === 0,
