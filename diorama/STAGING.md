@@ -7,14 +7,14 @@ A **private test copy** of the new site, for trying it on your own phone and PC.
 
 ## One-time setup (about 5 minutes, you only do this once)
 
-**1. Namecheap: add one DNS record.** It doesn't change any existing record.
-1. namecheap.com → **Domain List** → **brok3nbydesign.com** → **Manage** → **Advanced DNS**.
-2. **Add New Record**:
-   - Type: **CNAME Record**
-   - Host: **test**
-   - Value: **brok3nby-design.github.io.** (with the dot at the end)
-   - TTL: Automatic
-3. Click the green tick to save. Leave every other record exactly as it is.
+**1. Add one DNS record in cPanel.** Your domain's DNS is managed by your Namecheap hosting account, so Advanced DNS says "You can manage host records in your cPanel account". Don't click **Change DNS Type** there: it would replace your current DNS and could take the live site or email offline.
+1. namecheap.com → **Hosting List** → your hosting plan → **Go to cPanel**.
+2. In cPanel, find **Zone Editor** (section "Domains"; or type "zone" in the search box).
+3. In the **brok3nbydesign.com** row, click **+ CNAME Record**:
+   - Name: **test** (cPanel completes it to `test.brok3nbydesign.com.`)
+   - CNAME / Record: **brok3nby-design.github.io**
+   - Click **Add a CNAME Record**. Leave every other record exactly as it is.
+4. If cPanel says a record named `test` already exists, stop and send me a screenshot; don't overwrite it.
 
 **2. GitHub: turn on Pages for the new site's repository.**
 1. github.com/brok3nby-design/landing-page → **Settings** → **Pages**.
