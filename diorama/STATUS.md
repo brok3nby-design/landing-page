@@ -1,7 +1,7 @@
 # STATUS — Miniature Developer Desk diorama
 
 **Current phase:** Phase 8 (private staging at test.brok3nbydesign.com + desktop/mobile testing).
-- Done: the staging build, the deploy script and the automated device/accessibility/performance pass (`renders/phase8/`).
+- Done: the staging build, the deploy script and the automated device/accessibility/performance pass (`renders/phase8/`). Staging is deployed to the `gh-pages` branch (from b928f8d).
 - Waiting for you: the one-time DNS + GitHub Pages setup and your real-device checks; see [STAGING.md](STAGING.md).
 - Phases 9 and 10 are complete. Production is untouched.
 - Live-site fixes are kept as a patch in `live-site-fixes/` (waiting for GitHub access to that repository).
