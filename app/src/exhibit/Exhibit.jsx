@@ -1,4 +1,4 @@
-import { Component, Suspense, lazy, useMemo, useRef, useState } from "react";
+import { Component, Suspense, lazy, useCallback, useMemo, useRef, useState } from "react";
 
 // The shared exhibit viewer used by every page. This wrapper is tiny; three.js / R3F live in the
 // lazily loaded Scene chunk, so the page text renders immediately and the 3D streams in after.
@@ -43,6 +43,13 @@ export default function Exhibit({ config, selectedId, onSelect, animState, tools
   const [imageView, setImageView] = useState(false);
   const [under, setUnder] = useState(false);
   const [touched, setTouched] = useState(false);
+  const [wheelHint, setWheelHint] = useState(false);
+  const hintTimer = useRef(0);
+  const onWheelHint = useCallback(() => {
+    setWheelHint(true); clearTimeout(hintTimer.current);
+    hintTimer.current = setTimeout(() => setWheelHint(false), 1600);
+  }, []);
+  const mac = useMemo(() => /Mac|iPhone|iPad/.test(navigator.platform || navigator.userAgent), []);
   const api = useRef(null);            // { rotate, dolly, reset } provided by the Scene's camera rig
   const coarse = useMemo(() => window.matchMedia("(pointer: coarse)").matches, []);
 
@@ -69,11 +76,14 @@ export default function Exhibit({ config, selectedId, onSelect, animState, tools
           <Boundary key={mountKey} fallback={crashed}>
             <Suspense fallback={<div className="loading">Loading exhibit</div>}>
               <Scene config={config} selectedId={selectedId} onSelect={onSelect} under={under} apiRef={api}
-                     safe={safe} onContextLost={() => setLost((n) => n + 1)} animState={animState} />
+                     safe={safe} onContextLost={() => setLost((n) => n + 1)} animState={animState} onWheelHint={onWheelHint} />
             </Suspense>
           </Boundary>
           <span className="hint" style={{ opacity: touched ? 0 : 1 }}>
-            {coarse ? "Drag to rotate · Pinch to zoom · Tap objects" : "Drag to rotate · Scroll to zoom · Click objects"}
+            {coarse ? "Swipe sideways to rotate · Pinch to zoom · Tap objects" : `Drag to rotate · ${mac ? "⌘" : "Ctrl"} + scroll to zoom · Click objects`}
+          </span>
+          <span className="wheel-hint" aria-hidden="true" style={{ opacity: wheelHint ? 1 : 0 }}>
+            Hold {mac ? "⌘" : "Ctrl"} and scroll to zoom
           </span>
         </div>
       ) : fallback}
@@ -84,6 +94,10 @@ export default function Exhibit({ config, selectedId, onSelect, animState, tools
           <button className="tool" aria-pressed={under} onClick={() => setUnder(!under)}
                   title="Allow the camera below the desktop, with an inspection light">Look underneath</button>
         )}
+        {show3D && (<>
+          <button className="tool icon" onClick={() => api.current?.dolly(0.35)} aria-label="Zoom in" title="Zoom in">+</button>
+          <button className="tool icon" onClick={() => api.current?.dolly(-0.35)} aria-label="Zoom out" title="Zoom out">−</button>
+        </>)}
         {show3D && <button className="tool" onClick={() => { onSelect(null); api.current?.reset(); setUnder(false); }}>Reset view</button>}
         {canRender && (
           <button className="tool" aria-pressed={imageView} onClick={() => setImageView(!imageView)}>

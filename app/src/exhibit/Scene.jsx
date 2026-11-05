@@ -4,6 +4,7 @@ import { Suspense, useEffect, useLayoutEffect, useMemo, useRef, useState } from 
 import * as THREE from "three";
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
 import { CameraControls, ContactShadows, useGLTF, useProgress } from "@react-three/drei";
+import CC from "camera-controls";
 import { EffectComposer, Bloom, ToneMapping, BrightnessContrast, HueSaturation } from "@react-three/postprocessing";
 import { ToneMappingMode } from "postprocessing";
 import { KTX2Loader } from "three/examples/jsm/loaders/KTX2Loader.js";
@@ -308,8 +309,8 @@ function useKeepOut(ctl, boxes) {
 }
 
 // ---------------------------------------------------------------- camera rig
-const SHIFT = parseFloat(new URLSearchParams(location.search).get("shift")) || 0.1;   // share of the view width
-function Rig({ box, view, frame: FRAME, frameOrigin, homeScale = 0.86, under, underView, selected, apiRef, colliders, focusLift = 0, focusScale = 2.1 }) {
+const SHIFT = parseFloat(new URLSearchParams(location.search).get("shift")) || 0.05;   // share of the view width
+function Rig({ box, view, frame: FRAME, frameOrigin, homeScale = 0.86, onWheelHint, under, underView, selected, apiRef, colliders, focusLift = 0, focusScale = 2.1 }) {
   const ctl = useRef();
   const camera = useThree((s) => s.camera);
   const size = useThree((s) => s.size);
@@ -425,11 +426,30 @@ function Rig({ box, view, frame: FRAME, frameOrigin, homeScale = 0.86, under, un
       target: () => ctl.current?.getTarget(new THREE.Vector3(), false).toArray(),
     };
   }, [apiRef]);   // eslint-disable-line react-hooks/exhaustive-deps
+  // The mouse wheel scrolls the PAGE; zoom needs Ctrl/⌘ + wheel (a trackpad pinch sends ctrlKey too),
+  // the + / − buttons or the keyboard. On touch screens one finger swiping up/down scrolls the page,
+  // sideways rotates; two fingers pinch-zoom.
+  const gl = useThree((s) => s.gl);
+  useEffect(() => {
+    const el = gl.domElement, cc = ctl.current;
+    if (!cc) return;
+    cc.mouseButtons.wheel = CC.ACTION.NONE;
+    el.style.touchAction = "pan-y";
+    const wheel = (e) => {
+      const zoom = e.ctrlKey || e.metaKey;
+      cc.mouseButtons.wheel = zoom ? CC.ACTION.DOLLY : CC.ACTION.NONE;   // camera-controls' own listener runs next
+      if (!zoom) onWheelHint?.();
+    };
+    el.addEventListener("wheel", wheel, { capture: true, passive: true });
+    const keepPanY = new MutationObserver(() => { if (el.style.touchAction !== "pan-y") el.style.touchAction = "pan-y"; });
+    keepPanY.observe(el, { attributes: true, attributeFilter: ["style"] });
+    return () => { el.removeEventListener("wheel", wheel, { capture: true }); keepPanY.disconnect(); };
+  }, [gl, onWheelHint]);
   return <CameraControls ref={ctl} makeDefault />;
 }
 
 // ---------------------------------------------------------------- page-level scene
-function Content({ config, selectedId, onSelect, under, apiRef, quality, animState, onReady }) {
+function Content({ config, selectedId, onSelect, under, apiRef, quality, animState, onReady, onWheelHint }) {
   const [state, setState] = useState(null);           // { scene, index, box }
   const [views, setViews] = useState(null);
   const camera = useThree((s) => s.camera);
@@ -487,7 +507,7 @@ function Content({ config, selectedId, onSelect, under, apiRef, quality, animSta
       {state && views && (
         <>
           <Lights box={state.box} kind={config.lights || "exhibit"} under={under} shadows={quality.shadows} />
-          <Rig box={state.box} view={view} frame={FRAME_ID && views?.cameras?.[FRAME_ID]} frameOrigin={config.frameOrigin} homeScale={config.homeScale} under={under} underView={config.underView} selected={selected} apiRef={apiRef} colliders={colliders}
+          <Rig box={state.box} view={view} frame={FRAME_ID && views?.cameras?.[FRAME_ID]} frameOrigin={config.frameOrigin} homeScale={config.homeScale} onWheelHint={onWheelHint} under={under} underView={config.underView} selected={selected} apiRef={apiRef} colliders={colliders}
                focusLift={lifting ? 0.07 : 0} focusScale={config.focusScale} />
           {lifting && <LiftTurn index={state.index} selectedId={selectedId} />}
           {config.animation === "notebook" && <NotebookOpen scene={state.scene} open={animState?.open ?? true} />}
@@ -558,7 +578,7 @@ if (FRAME_ID) document.documentElement.classList.add("frame-only");
 // ?test: render on demand + readable canvas, for automated (software-GL) browser tests
 const TEST = new URLSearchParams(location.search).has("test");
 
-export default function Scene({ config, selectedId, onSelect, under, apiRef, safe = false, onContextLost, animState }) {
+export default function Scene({ config, selectedId, onSelect, under, apiRef, safe = false, onContextLost, animState, onWheelHint }) {
   // R3F deliberately drops the GL context when the canvas unmounts (leaving the page): that is not a
   // crash. The flag is set in a layout-effect cleanup, which runs before the canvas tears down.
   const leaving = useRef(false);
@@ -598,7 +618,7 @@ export default function Scene({ config, selectedId, onSelect, under, apiRef, saf
         <Reflections />
         <Suspense fallback={null}>
           <Content config={config} selectedId={selectedId} onSelect={onSelect} under={under} apiRef={apiRef} quality={quality}
-                   animState={animState} onReady={onReady} />
+                   animState={animState} onReady={onReady} onWheelHint={onWheelHint} />
         </Suspense>
         {quality.post && (
           <EffectComposer multisampling={4}>

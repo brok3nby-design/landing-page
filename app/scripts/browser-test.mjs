@@ -114,7 +114,7 @@ async function sweep(page, moves) {
   let prev = (await page.evaluate(() => window.__exhibit.camera())).p, worst = 0, inside = 0;   // worst: step / distance
   for (const [dx, dy, wheel] of moves) {
     await page.mouse.move(cx, cy);
-    if (wheel) await page.mouse.wheel(0, wheel);
+    if (wheel) { await page.keyboard.down("Control"); await page.mouse.wheel(0, wheel); await page.keyboard.up("Control"); }   // Ctrl+wheel zooms
     else { await page.mouse.down(); await page.mouse.move(cx + dx, cy + dy, { steps: 3 }); await page.mouse.up(); }
     await frames(page, 4);
     await settle(page);
@@ -129,6 +129,16 @@ async function sweep(page, moves) {
 await openHome(desk);
 const rep = (n, m) => Array.from({ length: n }, () => m);
 results.camera_normal = await sweep(desk, [...rep(6, [0, -40]), ...rep(6, [60, 0]), ...rep(4, [0, 0, -300]), ...rep(6, [0, 40])]);
+{ // a plain mouse wheel over the 3D view scrolls the page (zoom needs Ctrl/⌘)
+  const r = await desk.evaluate(() => document.querySelector(".exhibit-canvas canvas").getBoundingClientRect().toJSON());
+  const before = await desk.evaluate(() => ({ y: scrollY, cam: window.__exhibit.camera().p }));
+  await desk.mouse.move(r.left + r.width / 2, r.top + r.height / 2);
+  await desk.mouse.wheel(0, 400);
+  await frames(desk, 6); await desk.waitForTimeout(400);
+  const after = await desk.evaluate(() => ({ y: scrollY, cam: window.__exhibit.camera().p }));
+  results.wheel_scrolls_page = after.y > before.y && Math.hypot(...after.cam.map((v, i) => v - before.cam[i])) < 1e-3;
+  await desk.evaluate(() => scrollTo(0, 0));
+}
 await desk.locator("button.tool", { hasText: "Look underneath" }).click();
 await desk.evaluate(() => window.__exhibit.invalidate());
 await settle(desk);

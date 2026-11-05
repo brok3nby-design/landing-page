@@ -338,3 +338,19 @@ blockquote { margin: 18px 0; padding-left: 18px; border-left: 2px solid var(--re
 /* wide layouts: cover art sits toward the text (no empty band in the middle of the page) */
 @media (min-width: 901px) { .cover-exhibit { place-items: center start; padding-left: clamp(16px, 3vw, 56px); }
   .cover-exhibit .note { left: clamp(16px, 3vw, 56px); right: auto; } }
+
+/* centred frame: on wide screens the whole composition (header, copy, exhibit, sections) sits inside a
+   max-width frame, so the text moves in from the screen edge and the exhibit stays close to it */
+:root { --frame: 1500px; --edge: max(var(--gutter), calc((100vw - var(--frame)) / 2)); }
+.header { padding-left: var(--edge); padding-right: var(--edge); }
+@media (min-width: 901px) {
+  .page { grid-template-columns: minmax(360px, 520px) 1fr; padding: 0 var(--edge); gap: clamp(16px, 2vw, 40px); }
+  .content { padding-left: 0; padding-right: 0; }
+  .textpage { padding-left: var(--edge); padding-right: var(--edge); max-width: none; }
+}
+.more { padding-left: var(--edge); padding-right: var(--edge); }
+.footer { padding-left: var(--edge); padding-right: var(--edge); }
+.tool.icon { min-width: 36px; justify-content: center; font-size: 15px; letter-spacing: 0; }
+.wheel-hint { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); background: rgba(8,8,8,.85);
+              border: 1px solid var(--faint); padding: 10px 16px; font-size: 12px; letter-spacing: .14em; text-transform: uppercase;
+              color: var(--fg); pointer-events: none; transition: opacity .25s; z-index: 2; }
