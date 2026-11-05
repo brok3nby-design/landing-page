@@ -189,6 +189,18 @@ export function blip(kind = "plant", vol = 0.5) {
       o.connect(g); g.connect(bus); o.start(t); o.stop(t + 0.16);
       return 0.2;
     }
+    if (kind === "squeak") {                                 // a rubber duck being squeezed: a wobbling, rising squeal
+      const o = ctx.createOscillator(), g = ctx.createGain(), lfo = ctx.createOscillator(), lg = ctx.createGain();
+      o.type = "sawtooth";
+      o.frequency.setValueAtTime(700, t); o.frequency.linearRampToValueAtTime(1350, t + 0.12); o.frequency.linearRampToValueAtTime(1100, t + 0.26);
+      lfo.frequency.value = 32; lg.gain.value = 60; lfo.connect(lg); lg.connect(o.frequency);
+      const f = ctx.createBiquadFilter(); f.type = "bandpass"; f.frequency.value = 1500; f.Q.value = 1.2;
+      g.gain.setValueAtTime(0.0001, t); g.gain.exponentialRampToValueAtTime(0.22 * vol, t + 0.02);
+      g.gain.setValueAtTime(0.22 * vol, t + 0.2); g.gain.exponentialRampToValueAtTime(0.0001, t + 0.3);
+      o.connect(f); f.connect(g); g.connect(bus);
+      o.start(t); lfo.start(t); o.stop(t + 0.32); lfo.stop(t + 0.32);
+      return 0.35;
+    }
     if (kind === "spin") { noiseHit(t, "bandpass", 900, 0.8, vol * 0.12, 0.35, bus); return 0.4; }
     tone(520, 1180, 0, 0.11); noiseHit(t, "highpass", 4000, 0.7, vol * 0.05, 0.01, bus);
     return 0.15;

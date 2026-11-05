@@ -4,8 +4,9 @@ import bmesh
 from mathutils import Vector
 
 from config import FAN_ART
-from lib import geo, scene as S
+from lib import geo, scene as S, textures as T
 from lib.library import M
+from lib.mats import mat, TEX
 
 U = 0.0195          # keyboard unit (key pitch)
 TKL_ROWS = [        # (key widths in units, gap before) ; None = gap
@@ -248,6 +249,117 @@ def headphones(root, x, y, z):
     return grp
 
 
+# ---------------------------------------------------------------- phase 11: better small props
+def mouse(root, top):
+    """A shaped mouse (not an egg): low nose, a hump under the palm, split buttons, a scroll wheel and
+    two thumb buttons. The glow pad underneath is unchanged."""
+    x, y = 0.17, 0.335
+    geo.sphere("PROP_Mouse_Glow", 0.036, loc=(x, y, top + 0.003), material=M("mouse_glow"),
+               parent=root, scale=(0.85, 1.4, 0.02), segs=24, rests_on="PROP_DeskMat")
+    m = geo.sphere("PROP_Mouse", 0.030, loc=(x, y, top + 0.00444), material=M("plastic_black"),
+                   parent=root, segs=40, rot=(0, 0, radians(-6)), rests_on="PROP_Mouse_Glow")
+    r = 0.030
+    for v in m.data.vertices:                                  # shape it in the mesh, so children aren't scaled
+        t = v.co.y / r                                         # -1 back (palm) .. +1 front (buttons)
+        v.co.x *= 1.0 - 0.14 * max(t, 0) + 0.04 * max(-t, 0)
+        v.co.y *= 1.75
+        v.co.z *= 0.62 * (1.0 - 0.32 * max(t, 0) + 0.08 * max(-t, 0) * (1 - abs(t)))
+    m.data.update()
+    vs = [v.co.copy() for v in m.data.vertices]
+    def hz(yy):                                                # the real top of the shaped shell at y = yy (x ~ 0)
+        near = [c.z for c in vs if abs(c.y - yy) < 0.004 and abs(c.x) < 0.006]
+        return max(near) if near else 0.03
+    for k in range(6):                                         # the button split, following the curve of the shell
+        yy = 0.026 + k * 0.004
+        geo.box(f"PROP_Mouse_Seam_{k}", (0.0014, 0.0042, 0.0012), loc=(0, yy, hz(yy) - 0.0006), material=M("plastic_grey"), parent=m, bevel=0)
+    geo.cylinder("PROP_Mouse_Wheel", 0.0058, 0.005, loc=(-0.0025, 0.018, hz(0.018) - 0.0035), rot=(0, radians(90), 0),
+                 material=M("metal_dark"), parent=m, verts=18, bevel=0.0008)
+    geo.box("PROP_Mouse_LED", (0.0022, 0.012, 0.0012), loc=(0, -0.022, hz(-0.022) - 0.0005), material=M("led_purple"), parent=m, bevel=0)
+    for k, yy in enumerate((-0.004, 0.012)):
+        geo.box(f"PROP_Mouse_Thumb_{k}", (0.002, 0.012, 0.005), loc=(-0.0292, yy, 0.016), rot=(0, radians(-12), 0),
+                material=M("plastic_grey"), parent=m, bevel=0.0008)
+    return m
+
+
+def router(root, top):
+    """Wi-fi router: slim body with vent slots, two antennas, status LEDs, little feet."""
+    rt = geo.box("PROP_Router", (0.14, 0.09, 0.022), loc=(0.10, 0.72, top + 0.003), material=M("plastic_black"),
+                 parent=root, bevel=0.006, seg=3, rests_on="PROP_Router_Feet")
+    def feet(bm):
+        for sx in (-1, 1):
+            for sy in (-1, 1):
+                geo.add_cyl(bm, 0.006, 0.003, (0.10 + sx * 0.055, 0.72 + sy * 0.032, top), verts=10)
+    geo.merged("PROP_Router_Feet", feet, material=M("rubber"), parent=root, bevel=0, rests_on="DESK_Top")
+    def vents(bm):
+        for k in range(9):
+            geo.add_box(bm, (0.08, 0.0025, 0.0008), (0, -0.03 + k * 0.0075, 0.0218))
+    geo.merged("PROP_Router_Vents", vents, material=M("metal_black"), parent=rt, bevel=0)
+    for sx in (-1, 1):                                          # antennas, hinged at the back, tilted out a little
+        base = geo.cylinder(f"PROP_Router_Hinge_{'L' if sx < 0 else 'R'}", 0.006, 0.01, loc=(sx * 0.055, 0.047, 0.006),
+                            rot=(radians(90), 0, 0), material=M("plastic_black"), parent=rt, verts=12, bevel=0.001)
+        geo.cylinder(f"PROP_Router_Antenna_{'L' if sx < 0 else 'R'}", 0.0045, 0.12, loc=(sx * 0.055, 0.052, 0.008),
+                     rot=(radians(-8), radians(sx * 10), 0), r_top=0.0038, material=M("plastic_black"), parent=rt, verts=12, bevel=0.0015)
+    for k in range(4):
+        geo.box(f"PROP_Router_LED_{k}", (0.004, 0.002, 0.003), loc=(-0.03 + k * 0.012, -0.0455, 0.009),
+                material=M("led_green"), parent=rt, bevel=0, shared="router_led")
+    return rt
+
+
+def flat_book(root, name, dims, cover, loc, rot_z=0.0, rests_on="DESK_Top"):
+    """A book lying flat: hard covers that overhang the page block, a rounded spine, cream page edges."""
+    w, d, h = dims
+    c, o = 0.0022, 0.003                                       # board thickness, overhang
+    def shell(bm):
+        geo.add_box(bm, (w, d, c), (0, 0, 0))                  # back board
+        geo.add_box(bm, (w, d, c), (0, 0, h - c))              # front board
+        geo.add_cyl(bm, h / 2, d, (-w / 2 + h / 4, d / 2, h / 2), (radians(90), 0, 0), verts=14)   # spine
+    b = geo.merged(name, shell, loc=loc, rot=(0, 0, rot_z), material=M(cover), parent=root, bevel=0.0008, seg=1,
+                   rests_on=rests_on)
+    geo.box(name + "_Pages", (w - o - h / 4, d - 2 * o, h - 2 * c), loc=(o / 2 + h / 8 - o / 2, 0, c), material=M("pages"),
+            parent=b, bevel=0.0005, seg=1)
+    geo.box(name + "_Band", (0.004, d + 0.0004, h + 0.0004), loc=(-w / 2 + h / 2 + 0.006, 0, -0.0002),
+            material=M("label_gold"), parent=b, bevel=0)
+    return b
+
+
+def passport(root, top):
+    """The Studio Passport booklet (navigation: /passport). Navy cover, gold lettering, a corner of pages."""
+    if "studio_passport" not in TEX:
+        TEX["studio_passport"] = T.label_card("studio_passport", 360, 512, [("BROK3N", 3), ("BY DESIGN", 2), ("", 3),
+                                              ("*STUDIO", 4), ("*PASSPORT", 4)], "#1c2742", "#d9b45e", accent="#d9b45e", border=True)
+    cover = mat("M_studio_passport", tex="studio_passport", rough=0.55)
+    grp = S.empty("NAV_Passport", "PROPS", loc=(-0.565, 0.265, top), rot=(0, 0, radians(-16)), parent=root, size=0.04)
+    geo.box("NAV_Passport_Back", (0.09, 0.126, 0.0015), material=mat("M_passport_navy", color=(0.07, 0.09, 0.16), rough=0.55),
+            parent=grp, bevel=0.0006, seg=1, rests_on="DESK_Top")
+    geo.box("NAV_Passport_Pages", (0.086, 0.121, 0.005), loc=(0.0015, 0, 0.0015), material=M("pages"), parent=grp, bevel=0.0004, seg=1)
+    geo.box("NAV_Passport_Cover", (0.09, 0.126, 0.0015), loc=(0, 0, 0.0065), material=cover, parent=grp, bevel=0.0006, seg=1,
+            uv="fit", fit_axis=2)
+    S.mark_interactive(grp, "passport", "Studio Passport", kind="navigation")
+    return grp
+
+
+def rubber_duck(root, x, y, z, rests_on):
+    """A rubber duck for debugging (discovery: it squeaks, and plays WRFM's Rubber Duck Rental ad)."""
+    yellow = mat("M_duck_yellow", color=(1.0, 0.62, 0.0), rough=0.22)
+    orange = mat("M_duck_orange", color=(1.0, 0.22, 0.0), rough=0.3)
+    grp = S.empty("PROP_Duck", "PROPS", loc=(x, y, z), rot=(0, 0, radians(-28)), parent=root, size=0.03)
+    body = geo.sphere("PROP_Duck_Body", 0.026, material=yellow, parent=grp, segs=28, rests_on=rests_on)
+    for v in body.data.vertices:                               # a chubby boat-shaped body, tail up at the back
+        v.co.x *= 1.0
+        v.co.y *= 1.25
+        v.co.z *= 0.78
+        if v.co.y > 0.012:
+            v.co.z += (v.co.y - 0.012) * 0.9 * (v.co.z / 0.04)
+    body.data.update()
+    head = geo.sphere("PROP_Duck_Head", 0.016, loc=(0, -0.016, 0.03), material=yellow, parent=grp, segs=22)
+    beak = geo.sphere("PROP_Duck_Beak", 0.008, loc=(0, -0.03, 0.039), material=orange, parent=grp, segs=14, scale=(1.25, 1.1, 0.45))
+    for sx in (-1, 1):
+        geo.sphere(f"PROP_Duck_Eye_{'L' if sx < 0 else 'R'}", 0.0034, loc=(sx * 0.0085, -0.026, 0.047), material=M("vinyl_black"),
+                   parent=grp, segs=10)
+    S.mark_interactive(grp, "duck", "Rubber duck (discovery)", kind="discovery")
+    return grp
+
+
 def build(root, desk, hutch):
     top = desk["top"]
     rt, ry = hutch["riser_top"], hutch["riser_y"]
@@ -256,11 +368,7 @@ def build(root, desk, hutch):
     geo.box("PROP_DeskMat", (0.80, 0.30, 0.003), loc=(-0.05, 0.35, top), material=M("deskmat"),
             parent=root, bevel=0.0012, seg=1, uv="fit", fit_axis=2, rests_on="DESK_Top")
     keyboard(root, top)
-    geo.sphere("PROP_Mouse_Glow", 0.036, loc=(0.17, 0.335, top + 0.003), material=M("mouse_glow"),
-               parent=root, scale=(0.85, 1.4, 0.02), segs=24, rests_on="PROP_DeskMat")
-    geo.sphere("PROP_Mouse", 0.030, loc=(0.17, 0.335, top + 0.00444), material=M("plastic_black"),
-               parent=root, scale=(1.0, 1.75, 0.62), segs=24, rot=(0, 0, radians(-6)),
-               rests_on="PROP_Mouse_Glow")
+    mouse(root, top)
     geo.curve_tube("CABLE_Mouse", [(0.17, 0.39, top + 0.006), (0.16, 0.45, top + 0.004),
                                    (0.12, 0.56, top + 0.003), (0.09, 0.66, top + 0.003)], 0.0022,
                    material=M("cable"), parent=root, ring=6)
@@ -283,19 +391,16 @@ def build(root, desk, hutch):
     for i, (kind, mat, (dx, dy), sz) in enumerate(dice):
         geo.polyhedron(f"PROP_Dice_{i}", kind, sz, loc=(dx, dy, top), rot=(0, 0, i * 1.3),
                        material=M(mat), parent=root, rests_on="DESK_Top")
-    # under the riser: two books + router
-    geo.box("PROP_BookLow_Green", (0.15, 0.11, 0.022), loc=(-0.36, 0.71, top), material=M("book_green"),
-            parent=root, bevel=0.002, rests_on="DESK_Top")
-    geo.box("PROP_BookLow_Yellow", (0.14, 0.10, 0.02), loc=(-0.355, 0.712, top + 0.022), rot=(0, 0, 0.06),
-            material=M("book_yellow"), parent=root, bevel=0.002, rests_on="PROP_BookLow_Green")
-    geo.box("PROP_Router", (0.13, 0.085, 0.026), loc=(0.10, 0.72, top), material=M("plastic_black"),
-            parent=root, bevel=0.005, rests_on="DESK_Top")
-    for k in range(4):
-        geo.box(f"PROP_Router_LED_{k}", (0.004, 0.002, 0.003), loc=(0.07 + k * 0.012, 0.6765, top + 0.012),
-                material=M("led_green"), parent=root, bevel=0, shared="router_led")
+    # under the riser: two real books + the router (phase 11)
+    flat_book(root, "PROP_BookLow_Green", (0.15, 0.11, 0.022), "book_green", (-0.36, 0.71, top))
+    flat_book(root, "PROP_BookLow_Yellow", (0.14, 0.10, 0.02), "book_yellow", (-0.355, 0.712, top + 0.022), rot_z=0.06,
+              rests_on="PROP_BookLow_Green")
+    router(root, top)
+    passport(root, top)
 
     # ---------------------------------------------------- on the riser
     lamp(root, -0.615, ry - 0.02, rt)
     speaker(root, "PROP_Speaker_L", -0.505, ry - 0.025, rt, radians(-12))
     speaker(root, "PROP_Speaker_R", 0.68, ry - 0.025, rt, radians(12))
     headphones(root, 0.835, ry - 0.01, rt)
+    rubber_duck(root, 0.555, ry - 0.105, rt, "SHELF_Riser")

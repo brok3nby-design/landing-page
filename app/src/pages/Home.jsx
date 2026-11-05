@@ -7,9 +7,20 @@ import { resolveInteraction } from "../exhibit/interactions.js";
 import { PAGES, HOTSPOT_LABELS } from "../content/site.js";
 import { useSiteData, section, media, projectRoute } from "../content/data.js";
 import { unlock } from "../site/passport.js";
+import { pauseMusic } from "../site/music.js";
+import { wakeAudio, blip } from "../exhibit/goldAudio.js";
+
+// the rubber duck: a squeak, then WRFM's Rubber Duck Rental ad (one at a time)
+let duckAd = null;
+function quack() {
+  wakeAudio(); blip("squeak", 0.8);
+  if (duckAd && !duckAd.paused) return;
+  duckAd = new Audio(`${import.meta.env.BASE_URL}media/wrfm/audio/02-rubber-duck-rental.ogg`);
+  setTimeout(() => { pauseMusic(); duckAd.play().catch(() => {}); }, 380);
+}
 
 // Desk discoveries that earn a Studio Passport stamp
-const STAMPS = { egg_qa_sticker: "radar", egg_maker_plate: "maker-plate", mug: "coffee",
+const STAMPS = { egg_qa_sticker: "radar", egg_maker_plate: "maker-plate", mug: "coffee", duck: "quack",
                  drawer_1: "door", drawer_2: "door", drawer_3: "door" };
 
 export default function Home() {
@@ -23,6 +34,7 @@ export default function Home() {
     if (STAMPS[id]) unlock(STAMPS[id]);
     if (/^book_/.test(id)) unlock("bookworm");
     if (id === "egg_qa_sticker") unlock("visit-under-the-radar");
+    if (id === "duck") quack();
   }, []);
   const item = selectedId && data ? { label: HOTSPOT_LABELS[selectedId], ...resolveInteraction(data.interactions, selectedId) } : null;
   const copy = data?.copy;

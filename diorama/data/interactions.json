@@ -188,6 +188,19 @@
     "label": "VIEW PROJECT",
     "route": "/games/juicebox"
    }
+  },
+  "passport": {
+   "scope": "home",
+   "object": "NAV_Passport",
+   "action": "focus+panel",
+   "panel": {
+    "title": "Studio Passport",
+    "text": "Collect a stamp for every corner of the studio you find: the project pages, the hidden things, the odd ones out. Your stamps stay in this browser."
+   },
+   "button": {
+    "label": "OPEN YOUR PASSPORT",
+    "route": "/passport"
+   }
   }
  },
  "discovery": {
@@ -270,6 +283,17 @@
     "text": "Handmade by Brok3n by Design. No warranty, express or implied. Please stop looking under things."
    },
    "stamp": "maker-plate"
+  },
+  "duck": {
+   "scope": "home",
+   "object": "PROP_Duck",
+   "action": "easter-egg",
+   "idea": "squeaks, then plays WRFM's Rubber Duck Rental ad",
+   "panel": {
+    "title": "Rubber Duck Rental",
+    "text": "It listens. You debug. That's the deal. (A word from WRFM 97.1's sponsor.)"
+   },
+   "stamp": "quack"
   }
  },
  "hiding_places": "EGG_* markers (egg_id extras) - see diorama/EASTER_EGGS.md"

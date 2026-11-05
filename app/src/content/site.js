@@ -41,7 +41,7 @@ export const PAGES = {
         [[-0.69, 0.31, -0.21], [0.05, 1.17, 0.48]],    // chair
       ],
       // the navigation hotspots also offered as plain buttons (keyboard / screen-reader path)
-      hotspots: ["games_crate", "notebook", "monitor_left", "headphones", "contact_card", "graffiti",
+      hotspots: ["games_crate", "notebook", "monitor_left", "headphones", "contact_card", "passport", "graffiti",
                  "project_labyrinth-fate", "project_macabre-dolls", "project_juicebox"],
     },
   },
@@ -89,6 +89,7 @@ export const HOTSPOT_LABELS = {
   monitor_right: "Monitors — brand film",
   headphones: "Headphones — WRFM Radio",
   contact_card: "Business cards — contact",
+  passport: "Passport booklet — your stamps",
   graffiti: "Sticky notes — Graffiti",
   "project_labyrinth-fate": "Game box — The Maze",
   "project_macabre-dolls": "Game box — Macabre Dolls",
