@@ -1,0 +1,1165 @@
+{
+ "_note": "Imported from the existing site by diorama/tools/import_site.py (studio-data.js + each project page). Text is verbatim; edit the old site or this file, then re-run the importer. 'progress.remaining' is the old site's 'content remaining' (not overall completion).",
+ "source_commit": "b66fb99",
+ "projects": [
+  {
+   "id": "glass-and-fortune",
+   "title": "Glass & Fortune",
+   "category": "development",
+   "status": "Private alpha",
+   "hook": "Bend the roll. Cheat fate.",
+   "description": "A tactile roguelike built around five glass dice, risky combinations, and a masked fortune-teller who never gives you the whole truth.",
+   "accent": "#c1a5ff",
+   "secret": false,
+   "completed": false,
+   "progress": {
+    "remaining": 15,
+    "testing": "Steam & itch demo · within 2 months",
+    "release": "Q1–Q2 2027",
+    "hours": "Approx. 30 hours"
+   },
+   "cover": "media/projects/glass-and-fortune/glass-and-fortune.webp",
+   "logo": null,
+   "gallery": [
+    "media/projects/glass-and-fortune/gallery/glass-01.webp",
+    "media/projects/glass-and-fortune/gallery/glass-02.webp",
+    "media/projects/glass-and-fortune/gallery/glass-03.webp",
+    "media/projects/glass-and-fortune/gallery/glass-04.webp",
+    "media/projects/glass-and-fortune/gallery/glass-05.webp",
+    "media/projects/glass-and-fortune/gallery/glass-06.webp",
+    "media/projects/glass-and-fortune/gallery/glass-07.webp"
+   ],
+   "trailer": null,
+   "live_url": null,
+   "old_url": "/glass-and-fortune.html",
+   "page": {
+    "source": "glass-and-fortune.html",
+    "kicker": null,
+    "genres": null,
+    "lead": "A roguelike game of loaded fate. Bend the roll. Build the hand. Cheat fate.",
+    "sections": [
+     {
+      "heading": "About the game",
+      "items": [
+       {
+        "type": "p",
+        "text": "A dark tabletop roguelike about glass dice, tempting risks, and a masked fortune-teller with opinions. Bend the roll. Cheat fate."
+       }
+      ]
+     },
+     {
+      "heading": "How it plays",
+      "items": [
+       {
+        "type": "p",
+        "text": "Roll the dice, weigh your options, and decide when to push your luck. Each run invites you back to the table for one more chance."
+       }
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "id": "bid-and-buried",
+   "title": "Bid & Buried",
+   "category": "development",
+   "status": "In development",
+   "hook": "Buy blind. Dig deep. Get rich.",
+   "description": "Peek inside a locker, buy it, dig front to back, and choose what earns space in your van.",
+   "accent": "#f4bc70",
+   "secret": false,
+   "completed": false,
+   "progress": {
+    "remaining": 50,
+    "testing": "Q1–Q2 2027",
+    "release": "Q4 2027",
+    "hours": "Approx. 30–40 hours"
+   },
+   "cover": "media/projects/bid-and-buried/bid-and-buried.webp",
+   "logo": "media/projects/bid-and-buried/buried-05.webp",
+   "gallery": [
+    "media/projects/bid-and-buried/gallery/buried-01.webp",
+    "media/projects/bid-and-buried/gallery/buried-02.webp",
+    "media/projects/bid-and-buried/gallery/buried-03.webp",
+    "media/projects/bid-and-buried/gallery/buried-04.webp"
+   ],
+   "trailer": {
+    "type": "youtube",
+    "id": "txFCiU7ykMw"
+   },
+   "live_url": null,
+   "old_url": "/bid-and-buried.html",
+   "page": {
+    "source": "bid-and-buried.html",
+    "kicker": "IN DEVELOPMENT",
+    "genres": "Pixel Art • Auction Strategy • Treasure Hunting",
+    "lead": "Buy blind. Dig deep. Get rich. Read the clues inside each locker, outbid your rivals, and turn a van full of questionable junk into a resale empire.",
+    "sections": [
+     {
+      "heading": "About the game",
+      "items": [
+       {
+        "type": "p",
+        "text": "A pixel-art storage-auction game for anyone who has ever wondered what might be hiding behind a forgotten locker door. Buy blind. Dig deep."
+       }
+      ]
+     },
+     {
+      "heading": "How it plays",
+      "items": [
+       {
+        "type": "p",
+        "text": "Bid on storage lockers, sift through your finds, and decide what is worth keeping or selling. Trust your eye and take a chance on the unexpected."
+       }
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "id": "speck",
+   "title": "Speck",
+   "category": "development",
+   "status": "Private development",
+   "hook": "Start small. Leave something behind.",
+   "description": "A shared survival sandbox about beginning as almost nothing, shaping the objects around you, and turning an empty patch of world into home.",
+   "accent": "#a6e8ae",
+   "secret": false,
+   "completed": false,
+   "progress": {
+    "remaining": 65,
+    "testing": "Q1–Q2 2027",
+    "release": "Q4 2027",
+    "hours": "Approx. 24 hours"
+   },
+   "cover": "media/projects/speck/speck.webp",
+   "logo": "media/projects/speck/logo.webp",
+   "gallery": [
+    "media/projects/speck/gallery/speck_01.webp",
+    "media/projects/speck/gallery/speck_02.webp",
+    "media/projects/speck/gallery/speck_03.webp",
+    "media/projects/speck/gallery/speck_04.webp",
+    "media/projects/speck/gallery/speck_05.webp",
+    "media/projects/speck/gallery/speck_06.webp",
+    "media/projects/speck/gallery/speck_08.webp",
+    "media/projects/speck/gallery/speck_09.webp",
+    "media/projects/speck/gallery/speck_10.webp"
+   ],
+   "trailer": {
+    "type": "video",
+    "file": "media/projects/speck/Speck_Trailer_01b.mp4"
+   },
+   "live_url": null,
+   "old_url": "/speck.html",
+   "page": {
+    "source": "speck.html",
+    "kicker": "IN DEVELOPMENT",
+    "genres": "Persistent Shared World • Exploration • Crafting • Building",
+    "lead": "Start small. Follow your curiosity. Make a place of your own.",
+    "sections": [
+     {
+      "heading": "About the game",
+      "items": [
+       {
+        "type": "p",
+        "text": "A small beginning in a world full of possibility. Speck is a survival sandbox about exploration, creativity, and finding a place to call home."
+       }
+      ]
+     },
+     {
+      "heading": "How it plays",
+      "items": [
+       {
+        "type": "p",
+        "text": "Explore, gather, craft, and build at your own pace. Make a little space in the world feel like yours, then see where your curiosity takes you."
+       }
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "id": "under-the-radar",
+   "title": "Under the Radar",
+   "category": "development",
+   "status": "In development",
+   "hook": "Your next favourite is one you’ve never heard of.",
+   "description": "Follow your curiosity into a world of quiet surprises and unexpected connections. Some things are worth a closer look.",
+   "accent": "#e9bd79",
+   "secret": true,
+   "completed": false,
+   "progress": {
+    "remaining": null,
+    "testing": "No ETA",
+    "release": "No ETA",
+    "hours": "Not yet reported"
+   },
+   "cover": null,
+   "logo": "media/projects/under-the-radar/Under_Radar_logo.webp",
+   "gallery": [],
+   "trailer": null,
+   "live_url": null,
+   "old_url": "/under-the-radar.html",
+   "page": {
+    "source": "under-the-radar.html",
+    "kicker": null,
+    "genres": null,
+    "lead": "Follow your curiosity into a world of quiet surprises and unexpected connections. Take your time, trust your instincts, and see where a little wandering leads.",
+    "sections": []
+   }
+  },
+  {
+   "id": "wrfm",
+   "title": "WRFM Radio",
+   "category": "play",
+   "status": "Completed · Live now",
+   "hook": "Smooth jazz for people who ship code.",
+   "description": "Genuinely good, vocal-free smooth jazz you can leave on all day, hosted by Vera Lang with strange callers and developer-minded commercials.",
+   "accent": "#ff7181",
+   "secret": false,
+   "completed": true,
+   "progress": {
+    "remaining": null,
+    "testing": "Live now",
+    "release": "Released",
+    "hours": "Approx. 60 hours"
+   },
+   "cover": "media/projects/wrfm/wrfm.webp",
+   "logo": "media/projects/wrfm/wrfm_keyart.webp",
+   "gallery": [
+    "media/projects/wrfm/gallery/wrfm_01.webp",
+    "media/projects/wrfm/gallery/wrfm_02.webp",
+    "media/projects/wrfm/gallery/wrfm_03.webp",
+    "media/projects/wrfm/gallery/wrfm_04.webp",
+    "media/projects/wrfm/gallery/wrfm_05.webp",
+    "media/projects/wrfm/gallery/wrfm_06.webp",
+    "media/projects/wrfm/gallery/wrfm_07.webp"
+   ],
+   "trailer": null,
+   "live_url": "https://brok3nby-design.github.io/wrfm/",
+   "old_url": "/wrfm.html",
+   "page": {
+    "source": "wrfm.html",
+    "kicker": "● COMPLETED · LIVE NOW",
+    "genres": "Instrumental Smooth Jazz • Developer Satire • Interactive Radio",
+    "lead": "One station. One shared timeline. Genuinely good, vocal-free smooth jazz you can leave on all day — with Vera Lang, strange callers, and commercials written for people who ship code.",
+    "sections": [
+     {
+      "heading": "Overview",
+      "items": [
+       {
+        "type": "h3",
+        "text": "Keep the station with you"
+       },
+       {
+        "type": "p",
+        "text": "Host Vera Lang has the microphone. Open the station in its own tab to keep listening while you explore the studio website."
+       },
+       {
+        "type": "p",
+        "text": "Open the radio in a new tab ↗"
+       },
+       {
+        "type": "p",
+        "text": "WRFM is a playable online radio station built around relaxing instrumental smooth jazz. The music has no vocals, sounds legitimately good, and is smooth enough to leave playing all day. Between tracks, station host Vera Lang, strange callers, and satirical commercials build out the world; most of the ads are aimed squarely at developers, with jokes and lingo anyone who ships code will recognize."
+       },
+       {
+        "type": "p",
+        "text": "TL;DR:"
+       },
+       {
+        "type": "p",
+        "text": "Genuinely good, vocal-free smooth jazz you can leave on all day. Vera Lang hosts between tracks, while strange callers and developer-focused commercials turn the shared broadcast into an interactive fictional radio station."
+       }
+      ]
+     },
+     {
+      "heading": "Features",
+      "items": [
+       {
+        "type": "h3",
+        "text": "One Shared Broadcast"
+       },
+       {
+        "type": "p",
+        "text": "Every listener hears the same song at the same second, wherever they tune in from. Arrive at any time and you drop straight into the moment everyone else is hearing."
+       },
+       {
+        "type": "h3",
+        "text": "Two Live Channels"
+       },
+       {
+        "type": "p",
+        "text": "97.1 LIVE"
+       },
+       {
+        "type": "p",
+        "text": "runs to the station clock. AFTER DARK"
+       },
+       {
+        "type": "p",
+        "text": "is the late-night feed, on demand. Both are synced, and After Dark is a genuinely different programme, not a shuffle."
+       },
+       {
+        "type": "h3",
+        "text": "Skip, or Go Live"
+       },
+       {
+        "type": "p",
+        "text": "Skipping drops you into your own personal shuffle. GO LIVE"
+       },
+       {
+        "type": "p",
+        "text": "puts you back on the broadcast with everybody else."
+       },
+       {
+        "type": "h3",
+        "text": "Hosted by Vera Lang"
+       },
+       {
+        "type": "p",
+        "text": "A fully voiced, sharp-tongued host with plenty to say between songs — 105 chatter clips, caller segments and late-night lore, rebalanced so daytime listeners hear them too."
+       },
+       {
+        "type": "h3",
+        "text": "Sponsors That Shouldn’t Exist"
+       },
+       {
+        "type": "p",
+        "text": "22 satirical commercials aimed mostly at developers, packed with familiar lingo and in-jokes — from Deployment Insurance to a StackOverflow Witness Protection Program. Every sponsor has a full dossier, fine print included, that opens on the desktop station while its ad is on air."
+       },
+       {
+        "type": "h3",
+        "text": "Callers and Confessions"
+       },
+       {
+        "type": "p",
+        "text": "Late-night confessions on After Hours Intake, Mitch from IT, an intern hiding in the supply closet, HR memos and the nightly Crime Blotter. When an intake call is on air, its transcript slides onto the desktop screen."
+       },
+       {
+        "type": "h3",
+        "text": "Pick Up the Phone"
+       },
+       {
+        "type": "p",
+        "text": "Dial 971 on the WRFM Line during a call-in window (5–6 AM and 9–10 PM your time, or any time on After Dark) and Vera answers, with 43 recorded replies. Nineteen other numbers are hidden on the same dial."
+       },
+       {
+        "type": "h3",
+        "text": "Smooth Jazz That Holds Up"
+       },
+       {
+        "type": "p",
+        "text": "61 genuinely good instrumental tracks from 25 fictional bands. There are no vocals — just relaxing smooth jazz that can stay on all day. Every band has a full dossier, every track has real per-artist credits, and the entire catalogue uses verified, properly licensed library music."
+       },
+       {
+        "type": "h3",
+        "text": "Made for Phone and Desktop"
+       },
+       {
+        "type": "p",
+        "text": "Use a thumb-friendly mobile player with background and lock-screen controls, or settle into the full desktop station with its dial, vinyl, visualizer, sleep timer and mini player."
+       },
+       {
+        "type": "h3",
+        "text": "A Station With Regulars"
+       },
+       {
+        "type": "p",
+        "text": "See who has listened longest, sign the guest book, check who is tuned in now, and leave a note for whoever arrives next."
+       },
+       {
+        "type": "h3",
+        "text": "100 Achievements"
+       },
+       {
+        "type": "p",
+        "text": "Hidden goals and ridiculous listener challenges, filed as Compliance Records: from “Clocked In” at five minutes to one that only unlocks at 3 AM."
+       },
+       {
+        "type": "h3",
+        "text": "Station Paperwork"
+       },
+       {
+        "type": "p",
+        "text": "A Field Guide for the curious, sponsor and band dossiers, and a Station Log of internal memos from 1957 that unlocks the longer you listen, once you find the way in."
+       }
+      ]
+     },
+     {
+      "heading": "Latest Development",
+      "items": [
+       {
+        "type": "p",
+        "text": "August 2026"
+       },
+       {
+        "type": "p",
+        "text": "— WRFM is live, complete and running. Two synchronized channels, 61 songs, 25 bands, 105 chatter clips and 22 commercials, all on one shared timeline that every listener shares to the second."
+       },
+       {
+        "type": "p",
+        "text": "The most recent pass rebalanced the programming"
+       },
+       {
+        "type": "p",
+        "text": ": time of day is now a preference rather than a lock, so daytime listeners went from zero caller and special clips per rota to nine, while nine hushed late-night pieces stayed true After Dark exclusives. The tutorial was reworked into a single card that never covers the thing it is pointing at, and the Wall of Shame is logging violations again."
+       },
+       {
+        "type": "p",
+        "text": "Everything still outstanding is optional artwork"
+       },
+       {
+        "type": "p",
+        "text": "— band photos, member portraits and sponsor logos. The station falls back to gradients and placeholders wherever a picture has not landed yet, so nothing is broken while they arrive."
+       },
+       {
+        "type": "p",
+        "text": "Development details & complete feature inventory"
+       }
+      ]
+     },
+     {
+      "heading": "What’s Built & What’s Left",
+      "items": [
+       {
+        "type": "p",
+        "text": "STATUS · 19 SEP 2026"
+       },
+       {
+        "type": "p",
+        "text": "The station is finished and on air. Everything left is optional artwork or a nice-to-have — WRFM degrades gracefully wherever a picture has not arrived yet."
+       },
+       {
+        "type": "p",
+        "text": "2"
+       },
+       {
+        "type": "p",
+        "text": "Live channels"
+       },
+       {
+        "type": "p",
+        "text": "61"
+       },
+       {
+        "type": "p",
+        "text": "Songs"
+       },
+       {
+        "type": "p",
+        "text": "25"
+       },
+       {
+        "type": "p",
+        "text": "Bands"
+       },
+       {
+        "type": "p",
+        "text": "201"
+       },
+       {
+        "type": "p",
+        "text": "Recorded clips"
+       },
+       {
+        "type": "p",
+        "text": "22"
+       },
+       {
+        "type": "p",
+        "text": "Commercials"
+       },
+       {
+        "type": "p",
+        "text": "100"
+       },
+       {
+        "type": "p",
+        "text": "Achievements"
+       },
+       {
+        "type": "h3",
+        "text": "Built and on air"
+       },
+       {
+        "type": "p",
+        "text": "All of it is live right now, at the link above."
+       },
+       {
+        "type": "h4",
+        "text": "Live broadcast"
+       },
+       {
+        "type": "li",
+        "text": "True synced live radio — every listener worldwide hears the same song at the same second"
+       },
+       {
+        "type": "li",
+        "text": "No server deciding anything: the schedule is derived from the clock using exact durations for all 267 audio files"
+       },
+       {
+        "type": "li",
+        "text": "Two channels — 97.1 LIVE on the station clock, and AFTER DARK as a genuinely different late-night programme"
+       },
+       {
+        "type": "li",
+        "text": "Rebalanced programming, so time of day is a preference rather than a lock"
+       },
+       {
+        "type": "li",
+        "text": "Mid-song join, 20-second drift correction, and wake-up resync after a phone suspends the tab"
+       },
+       {
+        "type": "li",
+        "text": "Skip to drop into personal shuffle; GO LIVE to rejoin the broadcast"
+       },
+       {
+        "type": "li",
+        "text": "A layered fallback chain so audio keeps playing even if a host goes down, with the critical assets bundled into the app itself"
+       },
+       {
+        "type": "h4",
+        "text": "Platforms"
+       },
+       {
+        "type": "li",
+        "text": "Desktop face: FM dial, vinyl, visualizer, sleep timer, mini player, retro clock, station log"
+       },
+       {
+        "type": "li",
+        "text": "A separate mobile portrait UI with bottom tabs and thumb-sized transport — no control under 44px"
+       },
+       {
+        "type": "li",
+        "text": "A landscape guard, rather than falling through to the desktop layout on a rotated phone"
+       },
+       {
+        "type": "li",
+        "text": "Installable as a home-screen app, with an offline-capable core UI"
+       },
+       {
+        "type": "li",
+        "text": "Lock-screen media controls, and background audio that keeps going when the phone is locked"
+       },
+       {
+        "type": "h4",
+        "text": "Community"
+       },
+       {
+        "type": "li",
+        "text": "A station guest book anyone can sign, visible to every listener"
+       },
+       {
+        "type": "li",
+        "text": "A Top Listeners board with minutes clocked server-side, so they cannot be faked"
+       },
+       {
+        "type": "li",
+        "text": "A live listener count in the guest book header"
+       },
+       {
+        "type": "li",
+        "text": "A profanity filter that catches leetspeak, stretched letters and evasive spellings while sparing real names — running both in the browser for instant feedback and on the server so it cannot be bypassed"
+       },
+       {
+        "type": "li",
+        "text": "The Wall of Shame: censored rejected attempts, plus the roast each one earned"
+       },
+       {
+        "type": "li",
+        "text": "“What should Vera call you?” at tune-in, roast-filtered like everything else"
+       },
+       {
+        "type": "li",
+        "text": "A share sheet, with native sharing on phones"
+       },
+       {
+        "type": "h4",
+        "text": "Content and credits"
+       },
+       {
+        "type": "li",
+        "text": "61 songs and 25 bands with full dossiers"
+       },
+       {
+        "type": "li",
+        "text": "201 recorded voice clips: 105 on-air chatter clips, 22 commercials, 12 announcer intros, 43 replies on Vera’s call-in line, and 19 secret-number voices"
+       },
+       {
+        "type": "li",
+        "text": "All 61 songs verified as properly licensed by content-hash matching every file against its original"
+       },
+       {
+        "type": "li",
+        "text": "A credits page with real per-track credits and accurate legal notices"
+       },
+       {
+        "type": "li",
+        "text": "100 achievements, a Field Guide, a Station Log, and a secret phone you can call in on — After Dark included"
+       },
+       {
+        "type": "li",
+        "text": "A reworked tutorial: one centred card that never covers the highlight, with next, skip and close"
+       },
+       {
+        "type": "h3",
+        "text": "Still to come"
+       },
+       {
+        "type": "p",
+        "text": "Nothing here blocks anything. The station already fills every gap with a gradient or a placeholder."
+       },
+       {
+        "type": "h4",
+        "text": "Artwork — 177 optional images"
+       },
+       {
+        "type": "li",
+        "text": "100 band promo and gallery images"
+       },
+       {
+        "type": "li",
+        "text": "34 sponsor logos for the commercials"
+       },
+       {
+        "type": "li",
+        "text": "28 member portraits — eight bands have none yet"
+       },
+       {
+        "type": "li",
+        "text": "13 band photos"
+       },
+       {
+        "type": "li",
+        "text": "A station background image"
+       },
+       {
+        "type": "h4",
+        "text": "Sound"
+       },
+       {
+        "type": "li",
+        "text": "Radio static for the FM dial drag"
+       },
+       {
+        "type": "h4",
+        "text": "Ideas not started"
+       },
+       {
+        "type": "li",
+        "text": "Per-band “now playing” backdrops, once the promo art exists"
+       },
+       {
+        "type": "li",
+        "text": "An “up next” strip on the live channels"
+       },
+       {
+        "type": "li",
+        "text": "Hourly station IDs returning as true top-of-the-hour events"
+       }
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "id": "pocket-wilds",
+   "title": "Pocket Wilds",
+   "category": "development",
+   "status": "Private development",
+   "hook": "Explore the wilds. Face the dice.",
+   "description": "A retro fantasy adventure where free-roaming exploration gives way to tactical dice battles when a boss seals the door.",
+   "accent": "#ffd166",
+   "secret": false,
+   "completed": false,
+   "progress": {
+    "remaining": 65,
+    "testing": "Q1–Q2 2027",
+    "release": "Q3–Q4 2027",
+    "hours": "Approx. 30 hours"
+   },
+   "cover": "media/projects/pocket-wilds/pocket-wilds.webp",
+   "logo": "media/projects/pocket-wilds/title_main.webp",
+   "gallery": [
+    "media/projects/pocket-wilds/gallery/pocket-wilds-1.webp",
+    "media/projects/pocket-wilds/gallery/pocket-wilds-2.webp",
+    "media/projects/pocket-wilds/gallery/pocket-wilds-3.webp",
+    "media/projects/pocket-wilds/gallery/pocket-wilds-4.webp",
+    "media/projects/pocket-wilds/gallery/pocket-wilds-5.webp",
+    "media/projects/pocket-wilds/gallery/pocket-wilds-6.webp",
+    "media/projects/pocket-wilds/gallery/pocket-wilds-7.webp",
+    "media/projects/pocket-wilds/gallery/pocket-wilds-8.webp",
+    "media/projects/pocket-wilds/gallery/pocket-wilds-9.webp",
+    "media/projects/pocket-wilds/gallery/pocket-wilds-10.webp",
+    "media/projects/pocket-wilds/gallery/pocket-wilds-11.webp",
+    "media/projects/pocket-wilds/gallery/pocket-wilds-12.webp",
+    "media/projects/pocket-wilds/gallery/pocket-wilds-13.webp",
+    "media/projects/pocket-wilds/gallery/pocket-wilds-14.webp",
+    "media/projects/pocket-wilds/gallery/pocket-wilds-15.webp",
+    "media/projects/pocket-wilds/gallery/pocket-wilds-16.webp",
+    "media/projects/pocket-wilds/gallery/pocket-wilds-17.webp",
+    "media/projects/pocket-wilds/gallery/pocket-wilds-18.webp",
+    "media/projects/pocket-wilds/gallery/pocket-wilds-19.webp",
+    "media/projects/pocket-wilds/gallery/pocket-wilds-20.webp",
+    "media/projects/pocket-wilds/gallery/pocket-wilds-21.webp",
+    "media/projects/pocket-wilds/gallery/pocket-wilds-22.webp",
+    "media/projects/pocket-wilds/gallery/pocket-wilds-23.webp",
+    "media/projects/pocket-wilds/gallery/pocket-wilds-24.webp",
+    "media/projects/pocket-wilds/gallery/pocket-wilds-25.webp"
+   ],
+   "trailer": {
+    "type": "video",
+    "file": "media/projects/pocket-wilds/PW_Trailer.mp4",
+    "poster": "media/projects/pocket-wilds/title_main.webp"
+   },
+   "live_url": null,
+   "old_url": "/pocket-wilds.html",
+   "page": {
+    "source": "pocket-wilds.html",
+    "kicker": "PRIVATE DEVELOPMENT · NOT AVAILABLE TO PLAY",
+    "genres": "GBC-Style Action RPG • Pixel Art • Single Player",
+    "lead": "Create a hero and head into a strange pixel world. The game is in private development. Public play is currently unavailable.",
+    "sections": [
+     {
+      "heading": "About the game",
+      "items": [
+       {
+        "type": "p",
+        "text": "A retro fantasy adventure full of wild places, strange creatures, and forgotten stories. The game is in private development. Public play is currently unavailable."
+       }
+      ]
+     },
+     {
+      "heading": "How it plays",
+      "items": [
+       {
+        "type": "p",
+        "text": "Explore in real time, grow your hero, and face battles that reward a little thought as well as courage. There is plenty to discover along the way."
+       }
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "id": "doqi",
+   "title": "DOQI",
+   "category": "experiments",
+   "status": "Prototype · on hold",
+   "hook": "Your answers have been filed.",
+   "description": "The Department of Questionable Inventions: a satirical personality game about ridiculous decisions and their consequences.",
+   "accent": "#a4c9ff",
+   "secret": false,
+   "completed": false,
+   "progress": {
+    "remaining": 40,
+    "testing": "2028",
+    "release": "2028",
+    "hours": "Approx. 60 hours"
+   },
+   "cover": "media/projects/doqi/doqi.webp",
+   "logo": null,
+   "gallery": [
+    "media/projects/doqi/gallery/doqi_01.webp",
+    "media/projects/doqi/gallery/doqi_02.webp",
+    "media/projects/doqi/gallery/doqi_03.webp",
+    "media/projects/doqi/gallery/doqi_04.webp",
+    "media/projects/doqi/gallery/doqi_05.webp",
+    "media/projects/doqi/gallery/doqi_06.webp",
+    "media/projects/doqi/gallery/doqi_07.webp",
+    "media/projects/doqi/gallery/doqi_08.webp",
+    "media/projects/doqi/gallery/doqi_09.webp",
+    "media/projects/doqi/gallery/doqi_10.webp",
+    "media/projects/doqi/gallery/doqi_11.webp",
+    "media/projects/doqi/gallery/doqi_12.webp",
+    "media/projects/doqi/gallery/doqi_13.webp",
+    "media/projects/doqi/gallery/doqi_14.webp",
+    "media/projects/doqi/gallery/doqi_15.webp"
+   ],
+   "trailer": null,
+   "live_url": null,
+   "old_url": "/doqi.html",
+   "page": {
+    "source": "doqi.html",
+    "kicker": "PROTOTYPE · ON HOLD",
+    "genres": null,
+    "lead": "A satirical personality game where every ridiculous decision secretly shapes who you become.",
+    "sections": [
+     {
+      "heading": "About the game",
+      "items": [
+       {
+        "type": "p",
+        "text": "Welcome to the Department of Questionable Inventions: a strange, funny, and slightly unsettling experiment in identity and absurd bureaucracy. This prototype is currently on hold."
+       }
+      ]
+     },
+     {
+      "heading": "How it plays",
+      "items": [
+       {
+        "type": "p",
+        "text": "Answer questionable questions, make ridiculous decisions, and see what the department makes of you. Expect dark humor and a few raised eyebrows."
+       }
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "id": "macabre-dolls",
+   "title": "Macabre Dolls",
+   "category": "experiments",
+   "status": "Concept · not developed",
+   "hook": "Every doll has a past.",
+   "description": "A collection of haunting artwork and card-game ideas. A concept archive, with no playable game or teaser.",
+   "accent": "#e0a6b0",
+   "secret": false,
+   "completed": false,
+   "progress": {
+    "remaining": 25,
+    "testing": "No ETA",
+    "release": "No ETA",
+    "hours": "Approx. 40 hours"
+   },
+   "cover": "media/projects/macabre-dolls/macabre-dolls.webp",
+   "logo": null,
+   "gallery": [
+    "media/projects/macabre-dolls/gallery/creepy-dolls_1.webp",
+    "media/projects/macabre-dolls/gallery/creepy-dolls_2.webp",
+    "media/projects/macabre-dolls/gallery/creepy-dolls_3.webp",
+    "media/projects/macabre-dolls/gallery/creepy-dolls_4.webp",
+    "media/projects/macabre-dolls/gallery/creepy-dolls_5.webp",
+    "media/projects/macabre-dolls/gallery/creepy-dolls_6.webp",
+    "media/projects/macabre-dolls/gallery/creepy-dolls_7.webp",
+    "media/projects/macabre-dolls/gallery/creepy-dolls_8.webp",
+    "media/projects/macabre-dolls/gallery/creepy-dolls_9.webp",
+    "media/projects/macabre-dolls/gallery/creepy-dolls_10.webp",
+    "media/projects/macabre-dolls/gallery/creepy-dolls_11.webp",
+    "media/projects/macabre-dolls/gallery/creepy-dolls_12.webp",
+    "media/projects/macabre-dolls/gallery/creepy-dolls_13.webp",
+    "media/projects/macabre-dolls/gallery/creepy-dolls_14.webp",
+    "media/projects/macabre-dolls/gallery/creepy-dolls_15.webp",
+    "media/projects/macabre-dolls/gallery/creepy-dolls_16.webp",
+    "media/projects/macabre-dolls/gallery/creepy-dolls_17.webp",
+    "media/projects/macabre-dolls/gallery/creepy-dolls_18.webp",
+    "media/projects/macabre-dolls/gallery/creepy-dolls_19.webp"
+   ],
+   "trailer": null,
+   "live_url": null,
+   "old_url": "/macabre-dolls.html",
+   "page": {
+    "source": "macabre-dolls.html",
+    "kicker": "CONCEPT ARCHIVE",
+    "genres": "Dark Card Game • Atmospheric • Strategy",
+    "lead": "A dark and stylish card game with a haunting atmosphere.",
+    "sections": [
+     {
+      "heading": "About the game",
+      "items": [
+       {
+        "type": "p",
+        "text": "Strange, damaged, and forgotten dolls, each with a story suggested by its worn edges. This is a collection of concept artwork and early card-game ideas; no playable game is available."
+       }
+      ]
+     },
+     {
+      "heading": "The idea",
+      "items": [
+       {
+        "type": "p",
+        "text": "The idea explores thoughtful card play in a haunting world. The finer details are still taking shape."
+       }
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "id": "labyrinth-fate",
+   "title": "The Maze",
+   "category": "development",
+   "status": "In development",
+   "hook": "The world remembers the roll.",
+   "description": "A narrative dice game about choices, chance, and the consequences you carry through a hostile maze.",
+   "accent": "#bd9bda",
+   "secret": false,
+   "completed": false,
+   "progress": {
+    "remaining": null,
+    "testing": "No ETA",
+    "release": "No ETA",
+    "hours": "Not yet reported"
+   },
+   "cover": "media/projects/labyrinth-fate/labyrinth-fate.webp",
+   "logo": null,
+   "gallery": [],
+   "trailer": null,
+   "live_url": null,
+   "old_url": "/labyrinth-fate.html",
+   "page": {
+    "source": "labyrinth-fate.html",
+    "kicker": "IN DEVELOPMENT",
+    "genres": null,
+    "lead": "A dark narrative dice game where every decision is settled by chance, and the world remembers what you accept.",
+    "sections": [
+     {
+      "heading": "About the game",
+      "items": [
+       {
+        "type": "p",
+        "text": "A dark narrative dice game about venturing into the unknown. An unsettling maze, a little chance, and choices that stay with you."
+       }
+      ]
+     },
+     {
+      "heading": "How it plays",
+      "items": [
+       {
+        "type": "p",
+        "text": "Choose your path, take a risk, and let the dice have their say. Explore carefully; the rest is yours to discover."
+       }
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "id": "juicebox",
+   "title": "Juicebox",
+   "category": "experiments",
+   "status": "Film experiment",
+   "hook": "Small format. Strange possibilities.",
+   "description": "An experimental short film in early development, exploring character, voice, and self-contained stories.",
+   "accent": "#ff9eab",
+   "secret": false,
+   "completed": false,
+   "progress": {
+    "remaining": null,
+    "testing": "No ETA",
+    "release": "No ETA",
+    "hours": "Not yet reported"
+   },
+   "cover": "media/projects/juicebox/juicebox.webp",
+   "logo": null,
+   "gallery": [],
+   "trailer": null,
+   "live_url": null,
+   "old_url": "/juicebox.html",
+   "page": {
+    "source": "juicebox.html",
+    "kicker": "IN DEVELOPMENT",
+    "genres": "AI Short Film • In Development",
+    "lead": "An experimental short film designed and directed at Brok3n by Design using AI-assisted creative tools. Currently in early development.",
+    "sections": [
+     {
+      "heading": "Features",
+      "items": [
+       {
+        "type": "h3",
+        "text": "AI Video"
+       },
+       {
+        "type": "p",
+        "text": "Fully AI-generated visuals and performance."
+       },
+       {
+        "type": "h3",
+        "text": "Original Character"
+       },
+       {
+        "type": "p",
+        "text": "Custom character and voice work in progress."
+       },
+       {
+        "type": "h3",
+        "text": "Short Form"
+       },
+       {
+        "type": "p",
+        "text": "Designed as tight, self-contained pieces."
+       }
+      ]
+     },
+     {
+      "heading": "Production notebook",
+      "items": [
+       {
+        "type": "p",
+        "text": "Character, voice, and short-form storytelling are being explored. Finished stills and clips will be shared as they are ready."
+       }
+      ]
+     },
+     {
+      "heading": "Latest Development",
+      "items": [
+       {
+        "type": "p",
+        "text": "August 2026"
+       },
+       {
+        "type": "p",
+        "text": "— Early development and first tests underway."
+       }
+      ]
+     },
+     {
+      "heading": "Roadmap",
+      "items": [
+       {
+        "type": "p",
+        "text": "◐ Character & Voice"
+       },
+       {
+        "type": "p",
+        "text": "○ First Test Clip"
+       },
+       {
+        "type": "p",
+        "text": "○ Pilot Short"
+       },
+       {
+        "type": "p",
+        "text": "○ Format Exploration"
+       }
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "id": "graffiti",
+   "title": "Graffiti",
+   "category": "play",
+   "status": "Live guestbook",
+   "hook": "Draw something small. Leave it behind.",
+   "description": "A shared pixel-art guestbook where every visitor can draw, sign, and leave a permanent mark on the wall.",
+   "accent": "#ff5b38",
+   "secret": false,
+   "completed": false,
+   "progress": {
+    "remaining": null,
+    "testing": "Live now",
+    "release": "Live now",
+    "hours": "Not yet reported"
+   },
+   "cover": "media/projects/graffiti/graffiti.webp",
+   "logo": null,
+   "gallery": [
+    "media/projects/graffiti/gallery/graffiti.webp"
+   ],
+   "trailer": null,
+   "live_url": "https://brok3n-graffiti.ragsdalejeremy818.workers.dev/?draw=1",
+   "old_url": "/graffiti.html",
+   "page": {
+    "source": "graffiti.html",
+    "kicker": "01 / DRAW",
+    "genres": null,
+    "lead": "A living pixel-art guestbook for Brok3n by Design. Every visitor gets one tiny canvas, a name, and a permanent place on the wall.",
+    "sections": [
+     {
+      "heading": "Overview",
+      "items": [
+       {
+        "type": "p",
+        "text": "Draw a tiny piece of pixel art, add your name and a message, and leave something behind for the next visitor. Graffiti brings every contribution together in one shared guestbook, with a guided tour through the people and pictures on the wall."
+       },
+       {
+        "type": "p",
+        "text": "The public wall is live. Draw something small, sign it, and leave it behind."
+       }
+      ]
+     },
+     {
+      "heading": "Features",
+      "items": [
+       {
+        "type": "h3",
+        "text": "One Shared Wall"
+       },
+       {
+        "type": "p",
+        "text": "Every signature becomes part of the same public guestbook."
+       },
+       {
+        "type": "h3",
+        "text": "Live Count"
+       },
+       {
+        "type": "p",
+        "text": "See how many people have signed before you."
+       },
+       {
+        "type": "h3",
+        "text": "Guided Tour"
+       },
+       {
+        "type": "p",
+        "text": "Visit every artist and message one at a time."
+       }
+      ]
+     },
+     {
+      "heading": "How It Works",
+      "items": [
+       {
+        "type": "p",
+        "text": "01 / DRAW"
+       },
+       {
+        "type": "h3",
+        "text": "Build a Tiny Picture"
+       },
+       {
+        "type": "p",
+        "text": "Use a simple pixel studio to paint an icon, a face, a creature, or whatever fits."
+       },
+       {
+        "type": "p",
+        "text": "02 / SIGN"
+       },
+       {
+        "type": "h3",
+        "text": "Add Your Name"
+       },
+       {
+        "type": "p",
+        "text": "Leave a short signature and message beside your art, like a digital guestbook."
+       },
+       {
+        "type": "p",
+        "text": "03 / EXPLORE"
+       },
+       {
+        "type": "h3",
+        "text": "Tour the Whole Wall"
+       },
+       {
+        "type": "p",
+        "text": "See the total signer count, then move through every contribution one by one."
+       }
+      ]
+     },
+     {
+      "heading": "Latest Development",
+      "items": [
+       {
+        "type": "p",
+        "text": "The wall is live."
+       },
+       {
+        "type": "p",
+        "text": "Drawings and signatures save to the shared guestbook immediately, and the wall checks for new contributions every minute."
+       },
+       {
+        "type": "p",
+        "text": "Open Graffiti and Sign ↗"
+       }
+      ]
+     }
+    ]
+   }
+  }
+ ]
+}

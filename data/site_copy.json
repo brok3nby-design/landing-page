@@ -1,0 +1,1818 @@
+{
+ "home": {
+  "source": "home.html",
+  "sections": [
+   {
+    "heading": null,
+    "items": [
+     {
+      "type": "p",
+      "text": "Brok3n by Design — Independent Game Studio"
+     },
+     {
+      "type": "p",
+      "text": "INDEPENDENT GAMES. UNEXPECTED WORLDS."
+     },
+     {
+      "type": "p",
+      "text": "Strange games. Dark humor. Worlds worth exploring."
+     },
+     {
+      "type": "p",
+      "text": "Designed, directed, and built by one independent creator."
+     },
+     {
+      "type": "p",
+      "text": "Explore the Games"
+     },
+     {
+      "type": "p",
+      "text": "See What’s Launched"
+     },
+     {
+      "type": "p",
+      "text": "See What’s Coming"
+     },
+     {
+      "type": "p",
+      "text": "FINISHED. RELEASED. YOURS TO EXPLORE."
+     }
+    ]
+   },
+   {
+    "heading": "Launched.",
+    "items": [
+     {
+      "type": "p",
+      "text": "A home for completed games, films, and other creations from the studio."
+     },
+     {
+      "type": "p",
+      "text": "BRAND FILM · OUT NOW"
+     },
+     {
+      "type": "h3",
+      "text": "Brok3n by Design"
+     },
+     {
+      "type": "p",
+      "text": "A film from the studio behind the games. Watch the new Brok3n by Design brand trailer."
+     },
+     {
+      "type": "p",
+      "text": "Watch on YouTube ↗"
+     },
+     {
+      "type": "p",
+      "text": "View on X ↗"
+     },
+     {
+      "type": "p",
+      "text": "COMPLETED GAME · LIVE NOW"
+     },
+     {
+      "type": "h3",
+      "text": "WRFM Radio"
+     },
+     {
+      "type": "p",
+      "text": "Smooth jazz for people who ship code. A fictional radio station hosted by Vera Lang, with strange callers, questionable commercials, and a world to explore between songs."
+     },
+     {
+      "type": "p",
+      "text": "Play WRFM ↗"
+     },
+     {
+      "type": "p",
+      "text": "Explore WRFM →"
+     },
+     {
+      "type": "p",
+      "text": "INSERT A CARTRIDGE"
+     }
+    ]
+   },
+   {
+    "heading": "Choose your next world.",
+    "items": [
+     {
+      "type": "p",
+      "text": "Start here: choose a cartridge, hear it click into place, and see where the project stands. Explore the project pages for development updates and a closer look at each world."
+     },
+     {
+      "type": "p",
+      "text": "Private alpha01"
+     },
+     {
+      "type": "h3",
+      "text": "Glass & Fortune"
+     },
+     {
+      "type": "p",
+      "text": "Bend the roll. Cheat fate."
+     },
+     {
+      "type": "p",
+      "text": "A tactile roguelike built around five glass dice, risky combinations, and a masked fortune-teller who never gives you the whole truth."
+     },
+     {
+      "type": "p",
+      "text": "Explore project →"
+     },
+     {
+      "type": "p",
+      "text": "In development02"
+     },
+     {
+      "type": "h3",
+      "text": "Bid & Buried"
+     },
+     {
+      "type": "p",
+      "text": "Buy blind. Dig deep. Get rich."
+     },
+     {
+      "type": "p",
+      "text": "Peek inside a locker, buy it, dig front to back, and choose what earns space in your van."
+     },
+     {
+      "type": "p",
+      "text": "Explore project →"
+     },
+     {
+      "type": "p",
+      "text": "Watch trailer →"
+     },
+     {
+      "type": "p",
+      "text": "Private development03"
+     },
+     {
+      "type": "h3",
+      "text": "Speck"
+     },
+     {
+      "type": "p",
+      "text": "Start small. Leave something behind."
+     },
+     {
+      "type": "p",
+      "text": "A shared survival sandbox about beginning as almost nothing, shaping the objects around you, and turning an empty patch of world into home."
+     },
+     {
+      "type": "p",
+      "text": "Explore project →"
+     },
+     {
+      "type": "p",
+      "text": "Watch trailer →"
+     },
+     {
+      "type": "p",
+      "text": "In development04"
+     },
+     {
+      "type": "h3",
+      "text": "Under the Radar"
+     },
+     {
+      "type": "p",
+      "text": "Your next favourite is one you’ve never heard of."
+     },
+     {
+      "type": "p",
+      "text": "Follow your curiosity into a world of quiet surprises and unexpected connections. Some things are worth a closer look."
+     },
+     {
+      "type": "p",
+      "text": "Explore project →"
+     },
+     {
+      "type": "p",
+      "text": "Private development05"
+     },
+     {
+      "type": "h3",
+      "text": "Pocket Wilds"
+     },
+     {
+      "type": "p",
+      "text": "Explore the wilds. Face the dice."
+     },
+     {
+      "type": "p",
+      "text": "A retro fantasy adventure where free-roaming exploration gives way to tactical dice battles when a boss seals the door."
+     },
+     {
+      "type": "p",
+      "text": "Explore project →"
+     },
+     {
+      "type": "p",
+      "text": "Watch trailer →"
+     },
+     {
+      "type": "p",
+      "text": "Prototype · on hold06"
+     },
+     {
+      "type": "h3",
+      "text": "DOQI"
+     },
+     {
+      "type": "p",
+      "text": "Your answers have been filed."
+     },
+     {
+      "type": "p",
+      "text": "The Department of Questionable Inventions: a satirical personality game about ridiculous decisions and their consequences."
+     },
+     {
+      "type": "p",
+      "text": "Explore project →"
+     },
+     {
+      "type": "p",
+      "text": "Concept · not developed07"
+     },
+     {
+      "type": "h3",
+      "text": "Macabre Dolls"
+     },
+     {
+      "type": "p",
+      "text": "Every doll has a past."
+     },
+     {
+      "type": "p",
+      "text": "A collection of haunting artwork and card-game ideas. A concept archive, with no playable game or teaser."
+     },
+     {
+      "type": "p",
+      "text": "Explore project →"
+     },
+     {
+      "type": "p",
+      "text": "In development08"
+     },
+     {
+      "type": "h3",
+      "text": "The Maze"
+     },
+     {
+      "type": "p",
+      "text": "The world remembers the roll."
+     },
+     {
+      "type": "p",
+      "text": "A narrative dice game about choices, chance, and the consequences you carry through a hostile maze."
+     },
+     {
+      "type": "p",
+      "text": "Explore project →"
+     },
+     {
+      "type": "p",
+      "text": "Film experiment09"
+     },
+     {
+      "type": "h3",
+      "text": "Juicebox"
+     },
+     {
+      "type": "p",
+      "text": "Small format. Strange possibilities."
+     },
+     {
+      "type": "p",
+      "text": "An experimental short film in early development, exploring character, voice, and self-contained stories."
+     },
+     {
+      "type": "p",
+      "text": "Explore project →"
+     },
+     {
+      "type": "p",
+      "text": "Live guestbook10"
+     },
+     {
+      "type": "h3",
+      "text": "Graffiti"
+     },
+     {
+      "type": "p",
+      "text": "Sign the guestbook ↗"
+     },
+     {
+      "type": "p",
+      "text": "Draw something small. Leave it behind."
+     },
+     {
+      "type": "p",
+      "text": "A shared pixel-art guestbook where every visitor can draw, sign, and leave a permanent mark on the wall."
+     },
+     {
+      "type": "p",
+      "text": "Explore project →"
+     },
+     {
+      "type": "p",
+      "text": "◈"
+     },
+     {
+      "type": "p",
+      "text": "A RECORD OF YOUR WANDERING"
+     },
+     {
+      "type": "h3",
+      "text": "Your Studio Passport"
+     },
+     {
+      "type": "p",
+      "text": "Visit worlds. Find small secrets. Collect a stamp along the way."
+     },
+     {
+      "type": "p",
+      "text": "Open passport"
+     },
+     {
+      "type": "p",
+      "text": "→"
+     },
+     {
+      "type": "p",
+      "text": "NOW ON THE WORKBENCH"
+     }
+    ]
+   },
+   {
+    "heading": "What’s coming up",
+    "items": [
+     {
+      "type": "p",
+      "text": "The three games at the front of the studio right now—one nearing wider testing, one being refined in private, and one growing quietly behind the scenes."
+     },
+     {
+      "type": "p",
+      "text": "NEXT UP"
+     },
+     {
+      "type": "h3",
+      "text": "Preparing the Reading"
+     },
+     {
+      "type": "p",
+      "text": "Glass & Fortune is moving through private alpha toward playtesting, release preparation, screenshots, and a proper trailer."
+     },
+     {
+      "type": "p",
+      "text": "Glass & Fortune →"
+     },
+     {
+      "type": "p",
+      "text": "IN PRIVATE DEVELOPMENT"
+     },
+     {
+      "type": "h3",
+      "text": "The wilds keep changing"
+     },
+     {
+      "type": "p",
+      "text": "Pocket Wilds is being refined in private. A public release will be announced when it is ready."
+     },
+     {
+      "type": "p",
+      "text": "Pocket Wilds →"
+     },
+     {
+      "type": "p",
+      "text": "TAKING SHAPE"
+     },
+     {
+      "type": "h3",
+      "text": "A world built from almost nothing"
+     },
+     {
+      "type": "p",
+      "text": "Speck is in private development, with its shared world, creation tools, homestead, and survival systems taking form one pass at a time."
+     },
+     {
+      "type": "p",
+      "text": "Speck →"
+     }
+    ]
+   },
+   {
+    "heading": "About the Studio",
+    "items": [
+     {
+      "type": "p",
+      "text": "Brok3n by Design is an independent game studio where each project is designed, directed, and built by a single creator using modern creative tools. The studio brings together strange ideas, dark humor, nostalgia, and experimental mechanics. Every project explores something a little different — from retro RPGs and satirical personality tests to haunted card games and fictional radio stations."
+     },
+     {
+      "type": "p",
+      "text": "Email the Studio"
+     },
+     {
+      "type": "p",
+      "text": "More About the Studio →"
+     },
+     {
+      "type": "p",
+      "text": "Built by Design, Not by Budget →"
+     },
+     {
+      "type": "h3",
+      "text": "Join the Field Notes"
+     },
+     {
+      "type": "p",
+      "text": "Get occasional updates on new builds, playable previews, and experiments still finding their shape."
+     },
+     {
+      "type": "p",
+      "text": "No spam. Unsubscribe anytime."
+     }
+    ]
+   }
+  ]
+ },
+ "about": {
+  "source": "about.html",
+  "sections": [
+   {
+    "heading": null,
+    "items": [
+     {
+      "type": "p",
+      "text": "About — Brok3n by Design"
+     }
+    ]
+   },
+   {
+    "heading": "One creator. Plenty of strange ideas.",
+    "items": [
+     {
+      "type": "p",
+      "text": "I'm the creator behind Brok3n by Design: a lifelong gamer, single dad, and full-time tech with a passion for making things. Each project is designed, directed, and built by me, from the first idea to the sound, worlds, and awkward jokes that make it feel alive."
+     },
+     {
+      "type": "p",
+      "text": "I've been playing since the '80s. Years of image, video, and audio editing taught me how much a small detail can matter. That same curiosity now goes into games I want to explore, and keep coming back to."
+     }
+    ]
+   },
+   {
+    "heading": "Design. Build. Play. Refine.",
+    "items": [
+     {
+      "type": "p",
+      "text": "I call it Flow Programming: build an idea, play it, question it, and keep shaping it until it feels right. Modern creative tools, including AI-assisted workflows, are part of that process. I choose the direction and keep refining the result."
+     },
+     {
+      "type": "p",
+      "text": "I'd rather keep pushing a strange idea than settle for something forgettable. Rough edges are allowed. The feel has to earn its place."
+     },
+     {
+      "type": "p",
+      "text": "More about the creative process →"
+     }
+    ]
+   },
+   {
+    "heading": "Why “Brok3n by Design”?",
+    "items": [
+     {
+      "type": "p",
+      "text": "“Flawless by Design” felt like a lie, and the domain was probably taken anyway. Brok3n is about being willing to take the work apart on purpose. Every version leaves something useful for the next one."
+     },
+     {
+      "type": "p",
+      "text": "And the “3”? Every indie dev is contractually required to swap at least one vowel for a number. I don't make the rules. I just quietly resent them."
+     }
+    ]
+   },
+   {
+    "heading": "Come take a look.",
+    "items": [
+     {
+      "type": "p",
+      "text": "Explore the games, follow what's taking shape, or drop a line about games, feedback, or a collaboration."
+     },
+     {
+      "type": "p",
+      "text": "Explore the games"
+     },
+     {
+      "type": "p",
+      "text": "Follow the studio"
+     },
+     {
+      "type": "p",
+      "text": "Get in touch"
+     },
+     {
+      "type": "p",
+      "text": "Watch the brand film ↗"
+     },
+     {
+      "type": "p",
+      "text": "· Press kit"
+     },
+     {
+      "type": "p",
+      "text": "· Find me on X ↗"
+     }
+    ]
+   }
+  ]
+ },
+ "built_by_design": {
+  "source": "built-by-design.html",
+  "sections": [
+   {
+    "heading": null,
+    "items": [
+     {
+      "type": "p",
+      "text": "Built by Design, Not by Budget — Brok3n by Design"
+     },
+     {
+      "type": "p",
+      "text": "FROM THE STUDIO"
+     },
+     {
+      "type": "p",
+      "text": "Why one person uses AI to make games, and why that should not be controversial."
+     },
+     {
+      "type": "p",
+      "text": "A note from the creator of Brok3n by Design"
+     }
+    ]
+   },
+   {
+    "heading": "The quiet gate",
+    "items": [
+     {
+      "type": "p",
+      "text": "Here is something the industry does not like to say out loud: for most of its history, making a content-rich game has been a question of money."
+     },
+     {
+      "type": "p",
+      "text": "Think about what a finished game actually holds. Thousands of voice lines. Hundreds of unique images. Systems, menus, music, and the small details that make a world feel alive instead of empty. Producing that much has always taken capital. A publisher. A funded team. Or the ability to work for years without a real paycheck."
+     },
+     {
+      "type": "p",
+      "text": "Talent mattered. Vision mattered. They were rarely enough on their own. The real filter was who could afford to keep going."
+     },
+     {
+      "type": "p",
+      "text": "That filter decides which games get finished. Nobody designed it, but it works like a gate. Plenty of good ideas never reach players because the person behind them ran out of money before they ran out of ideas."
+     }
+    ]
+   },
+   {
+    "heading": "What changed",
+    "items": [
+     {
+      "type": "p",
+      "text": "I'm one person. I design, direct, and build every Brok3n by Design project myself, between a full-time tech job and being a dad. There is no art department down the hall. There is no voice booth, no QA team, no publisher writing checks."
+     },
+     {
+      "type": "p",
+      "text": "A few years ago that would have meant one of two things: make something small, or make something that never gets done."
+     },
+     {
+      "type": "p",
+      "text": "AI-assisted tools changed that math. Voice generation, image tools, and code assistance let me produce and iterate on the volume of content a real game needs, without a six-figure budget or a decade of nights and weekends. The gap between a clear idea and a finished, content-dense game is narrower than it has ever been."
+     },
+     {
+      "type": "blockquote",
+      "text": "That is not hype. It is the only reason some of these projects exist at all."
+     }
+    ]
+   },
+   {
+    "heading": "What did not change",
+    "items": [
+     {
+      "type": "p",
+      "text": "The tools do not have taste. They do not know what belongs in a world and what does not. They will happily generate a thousand things, and nine hundred of them will be wrong."
+     },
+     {
+      "type": "p",
+      "text": "So the job is the same job it always was. I decide what each game is, how it plays, and what belongs in it."
+     },
+     {
+      "type": "p",
+      "text": "WRITING & VOICE"
+     },
+     {
+      "type": "h3",
+      "text": "I direct the writing"
+     },
+     {
+      "type": "p",
+      "text": "Most of the dialogue is drafted by AI. I review every line, then rewrite, cut, or keep what fits the tone, character, and pacing. AI performs the voice. I direct the read and discard the takes that miss."
+     },
+     {
+      "type": "p",
+      "text": "ART"
+     },
+     {
+      "type": "h3",
+      "text": "I set the look"
+     },
+     {
+      "type": "p",
+      "text": "Every image starts from my concept and direction. I redraw, edit, or cut whatever does not fit the world."
+     },
+     {
+      "type": "p",
+      "text": "CODE"
+     },
+     {
+      "type": "h3",
+      "text": "I design the systems"
+     },
+     {
+      "type": "p",
+      "text": "AI helps me write and debug faster. It does not decide what the game is."
+     },
+     {
+      "type": "p",
+      "text": "It is the same loop I call Flow Programming"
+     },
+     {
+      "type": "p",
+      "text": "on the About page"
+     },
+     {
+      "type": "p",
+      "text": ". I just get through it more times."
+     },
+     {
+      "type": "blockquote",
+      "text": "Design. Build. Play. Refine. Same loop. More passes."
+     }
+    ]
+   },
+   {
+    "heading": "Why I'm saying this",
+    "items": [
+     {
+      "type": "p",
+      "text": "People argue about AI in games, and some of the criticism is fair. Low-effort work exists. It always has, with every new tool."
+     },
+     {
+      "type": "p",
+      "text": "But a lot of the argument quietly assumes the old way was fine. It was not. \"Only people with deep pockets can make big games\" was never a healthy rule, and I am not going to defend it out of nostalgia."
+     },
+     {
+      "type": "p",
+      "text": "The means of making things should not be reserved for people who already have money. A better creative landscape is one where more people with skill and drive actually get to finish what they started. These tools make that possible for me. I am not embarrassed by that. I am proud of what one person can build now."
+     },
+     {
+      "type": "p",
+      "text": "One creative vision, carried through every iteration. The tools changed. The vision did not."
+     },
+     {
+      "type": "p",
+      "text": "Want to see what one person can actually build? The games are on the shelf. Some of them you can play right now."
+     },
+     {
+      "type": "p",
+      "text": "Questions about the process? Email is open."
+     },
+     {
+      "type": "p",
+      "text": "See the Games"
+     },
+     {
+      "type": "p",
+      "text": "About the Studio"
+     },
+     {
+      "type": "p",
+      "text": "Email the Studio"
+     }
+    ]
+   }
+  ]
+ },
+ "follow": {
+  "source": "follow-development.html",
+  "sections": [
+   {
+    "heading": null,
+    "items": [
+     {
+      "type": "p",
+      "text": "Follow Development | Brok3n by Design"
+     },
+     {
+      "type": "p",
+      "text": "✉"
+     }
+    ]
+   },
+   {
+    "heading": "Join the Field Notes",
+    "items": [
+     {
+      "type": "p",
+      "text": "Playable games, works in progress, new builds, demos, and the occasional broken little experiment—sent straight to your inbox."
+     },
+     {
+      "type": "p",
+      "text": "No spam. Unsubscribe anytime."
+     },
+     {
+      "type": "p",
+      "text": "X"
+     },
+     {
+      "type": "p",
+      "text": "Short updates, screenshots, experiments, and whatever is currently taking shape."
+     },
+     {
+      "type": "p",
+      "text": "@brok3nbydesign ↗"
+     },
+     {
+      "type": "p",
+      "text": "BEFORE YOU SUBSCRIBE"
+     }
+    ]
+   },
+   {
+    "heading": "A taste of the Field Notes",
+    "items": [
+     {
+      "type": "p",
+      "text": "Build updates, playable discoveries, and a closer look at how each project is taking shape."
+     },
+     {
+      "type": "p",
+      "text": "Explore Glass & Fortune →"
+     },
+     {
+      "type": "p",
+      "text": "Browse the Pocket Wilds update log →"
+     }
+    ]
+   }
+  ]
+ },
+ "subscribed": {
+  "source": "subscribed.html",
+  "sections": [
+   {
+    "heading": null,
+    "items": [
+     {
+      "type": "p",
+      "text": "You're Subscribed | Brok3n by Design"
+     },
+     {
+      "type": "p",
+      "text": "◈"
+     },
+     {
+      "type": "p",
+      "text": "Thanks for signing up for the Field Notes. You'll get updates from across the studio: playable games, works in progress, new builds, demos, and the occasional broken little experiment."
+     },
+     {
+      "type": "p",
+      "text": "First time signing up? Check your inbox (and spam folder) to confirm your email — then you're all set."
+     },
+     {
+      "type": "p",
+      "text": "About Pocket Wilds"
+     },
+     {
+      "type": "p",
+      "text": "Back to Home"
+     }
+    ]
+   }
+  ]
+ },
+ "press": {
+  "source": "press-kit.html",
+  "sections": [
+   {
+    "heading": null,
+    "items": [
+     {
+      "type": "p",
+      "text": "Press kit | Brok3n by Design"
+     },
+     {
+      "type": "p",
+      "text": "FOR WRITERS, STREAMERS & CURIOUS PEOPLE"
+     },
+     {
+      "type": "p",
+      "text": "The studio, in its own words. Project artwork, useful links, and a direct line for questions."
+     }
+    ]
+   },
+   {
+    "heading": "About the studio",
+    "items": [
+     {
+      "type": "p",
+      "text": "Brok3n by Design is an independent game studio where each project is designed, directed, and built by a single creator using modern creative tools."
+     },
+     {
+      "type": "p",
+      "text": "Download factsheet"
+     },
+     {
+      "type": "p",
+      "text": "Contact the studio"
+     }
+    ]
+   },
+   {
+    "heading": "Brand film & trailers",
+    "items": [
+     {
+      "type": "p",
+      "text": "Watch the released Brok3n by Design brand film, or visit the YouTube channel for more studio trailers."
+     },
+     {
+      "type": "p",
+      "text": "Watch the brand film ↗"
+     },
+     {
+      "type": "p",
+      "text": "View on X ↗"
+     },
+     {
+      "type": "p",
+      "text": "YouTube trailers ↗"
+     }
+    ]
+   },
+   {
+    "heading": "Studio marks",
+    "items": [
+     {
+      "type": "p",
+      "text": "Official studio logo and compact B3 mark for press and editorial use."
+     },
+     {
+      "type": "h3",
+      "text": "B3 thumbnail"
+     },
+     {
+      "type": "p",
+      "text": "Current studio thumbnail and social artwork."
+     },
+     {
+      "type": "p",
+      "text": "Download B3 thumbnail (PNG)"
+     },
+     {
+      "type": "p",
+      "text": "Download studio logo (PNG)"
+     },
+     {
+      "type": "p",
+      "text": "Download B3 mark (SVG)"
+     }
+    ]
+   },
+   {
+    "heading": "Projects & selected artwork",
+    "items": [
+     {
+      "type": "p",
+      "text": "Check each project page for its latest status before publishing. Concept artwork is identified separately from playable games."
+     },
+     {
+      "type": "p",
+      "text": "Private alpha"
+     },
+     {
+      "type": "h3",
+      "text": "Glass & Fortune"
+     },
+     {
+      "type": "p",
+      "text": "A tactile roguelike built around five glass dice, risky combinations, and a masked fortune-teller who never gives you the whole truth."
+     },
+     {
+      "type": "p",
+      "text": "Project details"
+     },
+     {
+      "type": "p",
+      "text": "· Download artwork"
+     },
+     {
+      "type": "p",
+      "text": "In development"
+     },
+     {
+      "type": "h3",
+      "text": "Bid & Buried"
+     },
+     {
+      "type": "p",
+      "text": "Peek inside a locker, buy it, dig front to back, and choose what earns space in your van."
+     },
+     {
+      "type": "p",
+      "text": "Project details"
+     },
+     {
+      "type": "p",
+      "text": "· Download artwork"
+     },
+     {
+      "type": "p",
+      "text": "Private development"
+     },
+     {
+      "type": "h3",
+      "text": "Speck"
+     },
+     {
+      "type": "p",
+      "text": "A shared survival sandbox about beginning as almost nothing, shaping the objects around you, and turning an empty patch of world into home."
+     },
+     {
+      "type": "p",
+      "text": "Project details"
+     },
+     {
+      "type": "p",
+      "text": "· Download artwork"
+     },
+     {
+      "type": "p",
+      "text": "Completed · Live now"
+     },
+     {
+      "type": "h3",
+      "text": "WRFM Radio"
+     },
+     {
+      "type": "p",
+      "text": "Genuinely good, vocal-free smooth jazz you can leave on all day, hosted by Vera Lang with strange callers and developer-minded commercials."
+     },
+     {
+      "type": "p",
+      "text": "Project details"
+     },
+     {
+      "type": "p",
+      "text": "· Download artwork"
+     },
+     {
+      "type": "p",
+      "text": "Private development"
+     },
+     {
+      "type": "h3",
+      "text": "Pocket Wilds"
+     },
+     {
+      "type": "p",
+      "text": "A retro fantasy adventure where free-roaming exploration gives way to tactical dice battles when a boss seals the door."
+     },
+     {
+      "type": "p",
+      "text": "Project details"
+     },
+     {
+      "type": "p",
+      "text": "· Download artwork"
+     },
+     {
+      "type": "p",
+      "text": "Prototype · on hold"
+     },
+     {
+      "type": "h3",
+      "text": "DOQI"
+     },
+     {
+      "type": "p",
+      "text": "The Department of Questionable Inventions: a satirical personality game about ridiculous decisions and their consequences."
+     },
+     {
+      "type": "p",
+      "text": "Project details"
+     },
+     {
+      "type": "p",
+      "text": "· Download artwork"
+     },
+     {
+      "type": "p",
+      "text": "Concept · not developed"
+     },
+     {
+      "type": "h3",
+      "text": "Macabre Dolls"
+     },
+     {
+      "type": "p",
+      "text": "A collection of haunting artwork and card-game ideas. A concept archive, with no playable game or teaser."
+     },
+     {
+      "type": "p",
+      "text": "Project details"
+     },
+     {
+      "type": "p",
+      "text": "· Download artwork"
+     },
+     {
+      "type": "p",
+      "text": "In development"
+     },
+     {
+      "type": "h3",
+      "text": "The Maze"
+     },
+     {
+      "type": "p",
+      "text": "A narrative dice game about choices, chance, and the consequences you carry through a hostile maze."
+     },
+     {
+      "type": "p",
+      "text": "Project details"
+     },
+     {
+      "type": "p",
+      "text": "· Download artwork"
+     },
+     {
+      "type": "p",
+      "text": "Film experiment"
+     },
+     {
+      "type": "h3",
+      "text": "Juicebox"
+     },
+     {
+      "type": "p",
+      "text": "An experimental short film in early development, exploring character, voice, and self-contained stories."
+     },
+     {
+      "type": "p",
+      "text": "Project details"
+     },
+     {
+      "type": "p",
+      "text": "· Download artwork"
+     },
+     {
+      "type": "p",
+      "text": "Live guestbook"
+     },
+     {
+      "type": "h3",
+      "text": "Graffiti"
+     },
+     {
+      "type": "p",
+      "text": "A shared pixel-art guestbook where every visitor can draw, sign, and leave a permanent mark on the wall."
+     },
+     {
+      "type": "p",
+      "text": "Project details"
+     },
+     {
+      "type": "p",
+      "text": "· Download artwork"
+     }
+    ]
+   }
+  ]
+ },
+ "passport": {
+  "source": "passport.html",
+  "sections": [
+   {
+    "heading": null,
+    "items": [
+     {
+      "type": "p",
+      "text": "Studio Passport | Brok3n by Design"
+     },
+     {
+      "type": "p",
+      "text": "BROK3N BY DESIGN / VISITOR RECORD"
+     },
+     {
+      "type": "p",
+      "text": "A little proof that you were here. Visit the projects, take the long way around, and keep an eye out for things that don’t quite belong."
+     },
+     {
+      "type": "p",
+      "text": "DISCOVERIES COLLECTED"
+     },
+     {
+      "type": "p",
+      "text": "0 / 17"
+     },
+     {
+      "type": "p",
+      "text": "Saved in this browser. Back up your passport to keep it or move it to another device."
+     }
+    ]
+   },
+   {
+    "heading": "Keep your discoveries",
+    "items": [
+     {
+      "type": "p",
+      "text": "No account or paid service. Your stamps stay on this website in this browser. Clearing site data or leaving a private session can erase them. A backup lets you move them to another device or browser."
+     },
+     {
+      "type": "p",
+      "text": "Reset the discoveries in this browser? Download a backup first if you want to keep them."
+     },
+     {
+      "type": "p",
+      "text": "AN UNATTENDED TERMINAL"
+     }
+    ]
+   },
+   {
+    "heading": "Where to next?",
+    "items": [
+     {
+      "type": "p",
+      "text": "games · shelf · radio · about · passport · random · secrets"
+     }
+    ]
+   }
+  ]
+ },
+ "settings": {
+  "source": "settings.html",
+  "sections": [
+   {
+    "heading": null,
+    "items": [
+     {
+      "type": "p",
+      "text": "Effects & sound | Brok3n by Design"
+     },
+     {
+      "type": "p",
+      "text": "SET THE ATMOSPHERE"
+     },
+     {
+      "type": "p",
+      "text": "Keep the strange. Choose how much it moves."
+     },
+     {
+      "type": "p",
+      "text": "Website preferences"
+     },
+     {
+      "type": "p",
+      "text": "Your device’s reduced-motion setting takes priority. Sound effects start off. These settings control the website; the radio and games have their own controls."
+     }
+    ]
+   }
+  ]
+ },
+ "entrance": {
+  "source": "index.html",
+  "sections": [
+   {
+    "heading": null,
+    "items": [
+     {
+      "type": "p",
+      "text": "Brok3n by Design — Independent Game Studio"
+     },
+     {
+      "type": "p",
+      "text": "ENTER THE STUDIO"
+     }
+    ]
+   }
+  ]
+ },
+ "wrfm_clips": [
+  {
+   "id": "host",
+   "title": "Vera Lang signs on",
+   "quote": "“If you’re hearing this, it means the office is quiet and you’re still here. That’s not a mistake.”",
+   "blurb": "Vera has the microphone, and she notices who is still at their desk.",
+   "transcript": [
+    "VERA",
+    "If you’re hearing this, it means the office is quiet and you’re still here. That’s not a mistake. This is WRFM. I’m Vera Lang. Let’s take the night one piece at a time."
+   ],
+   "audio": [
+    "media/wrfm/audio/01-vera-signs-on.ogg"
+   ]
+  },
+  {
+   "id": "sponsor",
+   "title": "Rubber Duck Rental",
+   "quote": "“Rubber Duck Rental! Rubber Duck Rental! It listens. You debug. That’s the deal.”",
+   "blurb": "One of 22 sponsors that absolutely should not exist, and the only one with a fully sung jingle. Duck included.",
+   "transcript": [
+    "JINGLE",
+    "When your function won’t run / And your logic’s come undone — / Don’t pick up the phone (quack!)",
+    "/ Don’t send up a flare! / Just rent-a-duck today, / We’ll ship it right away, / Yellow, small, and bright (quack!)",
+    "/ It really doesn’t care! / Explain your bug to feathers, / Talk your tests out loud, / The duck will never judge you — / (though the duck is not impressed.) / Rubber Duck Rental! (squeak!)",
+    "/ Rubber Duck Rental! / It listens. You debug. That’s the deal."
+   ],
+   "audio": [
+    "media/wrfm/audio/02-rubber-duck-rental.ogg"
+   ]
+  },
+  {
+   "id": "caller",
+   "title": "After Hours Intake",
+   "quote": "“I created a repository interface, a service class, a DTO, a mapper, a configuration bean, three annotations, and something called a factory.” “For one value.”",
+   "blurb": "Late at night the lines open, and Vera takes confessions. On desktop, the transcript slides onto your screen while the call is on air.",
+   "transcript": [
+    "VERA",
+    "You’re on the line. What’s troubling you tonight?",
+    "CALLER",
+    "I needed to read one value from a database.",
+    "VERA",
+    "And how did that proceed.",
+    "CALLER",
+    "I created a repository interface, a service class, a DTO, a mapper, a configuration bean, three annotations, and something called a factory.",
+    "VERA",
+    "For one value.",
+    "CALLER",
+    "…for one value.",
+    "VERA",
+    "Enterprise environments sometimes require ceremonial preparation before touching the data.",
+    "CALLER",
+    "The method is six lines. The structure is four hundred.",
+    "VERA",
+    "The station confirms this is considered normal atmospheric pressure in large Java systems.",
+    "CALLER",
+    "That’s… comforting?",
+    "VERA",
+    "Comfort is not guaranteed. Stability, however, usually is."
+   ],
+   "audio": [
+    "media/wrfm/audio/03-after-hours-intake-one-value.ogg"
+   ]
+  },
+  {
+   "id": "regular",
+   "title": "Mitch from IT",
+   "quote": "“I am the radio, Mitch.” “Have you tried turning the radio off and on again.”",
+   "blurb": "The office phones the station. Mitch works in IT, and he is trying his best.",
+   "transcript": [
+    "[Phone rings. A mechanical keyboard clatters in the background.]",
+    "MITCH",
+    "IT, Mitch speaking, have you tried turning it off and on again.",
+    "VERA",
+    "Mitch. You called me",
+    "MITCH",
+    "Right, well, the issue could be on your end.",
+    "VERA",
+    "I am the radio, Mitch.",
+    "MITCH",
+    "Have you tried turning the radio off and on again.",
+    "VERA",
+    "(long pause)",
+    "Mitch. I will.",
+    "MITCH",
+    "Thank you for choosing IT."
+   ],
+   "audio": [
+    "media/wrfm/audio/04-mitch-from-it.ogg"
+   ]
+  },
+  {
+   "id": "secret",
+   "title": "The phone nobody tells you about",
+   "quote": "“There’s a phone in this station, sweetheart. I’m not going to tell you where.”",
+   "blurb": "Vera drops hints on air. Find the WRFM Line, dial 9‑7‑1 while the lines are open, and she picks up.",
+   "transcript": [
+    "VERA, ON AIR",
+    "There’s a phone in this station, sweetheart. I’m not going to tell you where. I don’t have to. You’ll find it. Most people do. Eventually.",
+    "[Later, on the WRFM Line: dial 9-7-1.]",
+    "VERA",
+    "You called. Not many do. What can I do for you?",
+    "[You pick “Tell me something weird.”]",
+    "VERA",
+    "Studio B has been locked since 1974. We don’t talk about Studio B."
+   ],
+   "audio": [
+    "media/wrfm/audio/05a-vera-phone-tease.ogg",
+    "media/wrfm/audio/05b-vera-picks-up.ogg",
+    "media/wrfm/audio/05c-studio-b.ogg"
+   ]
+  }
+ ],
+ "pocket_wilds_log": {
+  "source": "pocket-wilds-changelog.html",
+  "builds": [
+   {
+    "build": "BUILD 8-AUG-EF",
+    "items": [
+     "Every word in the game is crystal clear now: all in-game text renders on a new overlay at your monitor’s true resolution instead of being stretched up with the pixels, and the menus trade their typewriter font for a clean modern face."
+    ],
+    "date": "AUG 8, 2026"
+   },
+   {
+    "build": "BUILD 8-AUG-EE",
+    "items": [
+     "Painted ground tiles now load as .jpg too - the new Meadowlands and Verdant Wilds grass renders at last.",
+     "Painted grass tufts are planted, not hovering: their base sits on the ground and the draw order flips exactly at your feet.",
+     "Tall grass grows half again as often across every ring, and every world sprite set now accepts TEN variants (a through j)."
+    ],
+    "date": "AUG 8, 2026"
+   },
+   {
+    "build": "BUILD 8-AUG-ED",
+    "items": [
+     "Camp folk gather in close around their fire now, the blinking ! floats properly above their taller painted heads, and the camp speaks with one voice: a single TALK prompt over the flames instead of labels over each head."
+    ],
+    "date": "AUG 8, 2026"
+   },
+   {
+    "build": "BUILD 8-AUG-EC",
+    "items": [
+     "The knight finally carries a sword worth the name: a broad two-row blade with a gold crossguard and longer reach, in the carried stance and all three swing directions - the old one-pixel stick is retired."
+    ],
+    "date": "AUG 8, 2026"
+   },
+   {
+    "build": "BUILD 7-AUG-EB",
+    "items": [
+     "The vault hoard is a proper stack now: every coin sits upright and face-on, nested brick-tight so no gap shows through the mound - no more coins strewn at odd angles."
+    ],
+    "date": "AUG 7, 2026"
+   },
+   {
+    "build": "BUILD 7-AUG-EA",
+    "items": [
+     "The camp folk grew into themselves: painted figures now stand a head taller than your hero instead of coming up short."
+    ],
+    "date": "AUG 7, 2026"
+   },
+   {
+    "build": "BUILD 7-AUG-DZ",
+    "items": [
+     "The Meadowlands camp folk are painted figures in the world now - Brand and Old Maren stand at their fire in person, swaying gently, instead of pixel stand-ins.",
+     "Camps now sit properly among the trees: a tree in front of the fire stands in front, one behind stands behind. No more folk hidden under a canopy that should be behind them.",
+     "The sprite keyer forgives a drifting backdrop: art that arrives on raspberry-pink instead of true magenta is cut out just the same."
+    ],
+    "date": "AUG 7, 2026"
+   },
+   {
+    "build": "BUILD 5-AUG-DY",
+    "items": [
+     "Camp seating swapped: your hero keeps the LEFT side of the fire, the folk speak from the RIGHT - ringed in a soft pulsing firelight border while the words are theirs.",
+     "Your portrait stays fully lit throughout - no more dimming while you listen."
+    ],
+    "date": "AUG 5, 2026"
+   },
+   {
+    "build": "BUILD 5-AUG-DX",
+    "items": [
+     "The camps are a fireside scene now, not a menu. The folk stand on the left and speak FIRST, unprompted - protector, then storyteller - while your chosen hero listens on the right, lit and dimmed as the words pass between you.",
+     "Bright to-do bubbles pulse in the corner - HEAR THE CAMP FOLK, ACCEPT THE CAMP TASK, TURN IN THE CAMP TASK - each one checking off with a green tick and slipping away when honoured.",
+     "The gold boxes are gone. Dialogue sits in dark glass, the camp task is a quiet amber strip, and the camp folk are small chips you can tap any time to hear again."
+    ],
+    "date": "AUG 5, 2026"
+   },
+   {
+    "build": "BUILD 5-AUG-DW",
+    "items": [
+     "Stance art has arrived: Mossback, the Bramble King and Old Quillback now ACT their stances on the battle card — rearing up to strike, hunkering behind their guard, channelling with glowing eyes, reeling wide open.",
+     "Battle portraits on a magenta backdrop are keyed automatically: the creature is cut out and staged on the card, so the scene stays rock steady while the pose changes. Works for base portraits, stance art and the codex gallery alike."
+    ],
+    "date": "AUG 5, 2026"
+   },
+   {
+    "build": "BUILD 4-AUG-DV",
+    "items": [
+     "THE ALLOCATION. Your landed dice are no longer just an attack — they are a hand to spend. Open ALLOCATE and tap each die onto a job: STRIKE for damage, GUARD to block that many pips of the next blow, FOCUS to recover its pips as stamina (8+ pips also build momentum).",
+     "Enough GUARD takes even a telegraphed mighty blow on the chin: no damage, and no shattered die. A third answer to the windup, alongside dodging and gambling.",
+     "Cracked dice are worth nothing on any job — but shunting your 1s out of the strike keeps them from stumbling it. The tray rewards the clever.",
+     "Fewer strike dice means a lighter blow, and a channelled cast now only breaks if your strike is heavy for your WHOLE pool — you cannot cheese it with one lucky die.",
+     "Spend everything on defense and breath if you like: no strike, no stamina cost, you simply set your stance for a turn.",
+     "The quick path is untouched: ENTER still strikes with everything, exactly as before. The LUNGE commits every die and never allocates."
+    ],
+    "date": "AUG 4, 2026"
+   },
+   {
+    "build": "BUILD 4-AUG-DT",
+    "items": [
+     "The dice are yours to play now. When an attack roll lands, the tray WAITS: tap any dice to HOLD them, then REROLL the rest — once per throw — or STRIKE to take it as it lies.",
+     "Rerolling is a real gamble: every rethrown die can crack. Keep what is good, risk what is not, and read the stance before you decide.",
+     "Works with mouse, touch, or keyboard: number keys hold each die, R rerolls, ENTER strikes."
+    ],
+    "date": "AUG 4, 2026"
+   },
+   {
+    "build": "BUILD 4-AUG-DS",
+    "items": [
+     "Battle enemies are ready to ACT their stances: drop in per-stance portrait art and the boss card swaps the moment it settles into a pose. Missing art falls back cleanly, so stances can arrive one image at a time.",
+     "The big stance word now rises in the gap between the two cards instead of over the enemy's face."
+    ],
+    "date": "AUG 4, 2026"
+   },
+   {
+    "build": "BUILD 4-AUG-DR",
+    "items": [
+     "Bosses no longer act at random. Every boss ends its turn settled into a visible STANCE — shown under its health bar — and its next move is exactly what the stance promises.",
+     "PROWLING swings normally. WINDING UP is the big telegraphed blow: dodge it and the boss is left EXPOSED, or gamble a hit into the swing for +25%.",
+     "GUARDING halves your blows and blocks all momentum — dodge for stamina, drink, or set up instead of wasting a good roll. Your UNLEASH pierces straight through it.",
+     "CHANNELLING telegraphs its special. Land a HEAVY hit — a strong roll, a shield bash, a bomb — and the cast breaks, leaving it reeling and EXPOSED.",
+     "EXPOSED is never chosen and only earned: it takes +60% damage and can barely swing back. Dodges and cast-breaks buy you the window.",
+     "Hovering ATTACK now also shows what the stance will do to your damage before you commit, and the message strip prompts the counter-play.",
+     "Battle text greets bosses properly at last — \"THE EMPEROR RAISES ITS GUARD\", not \"THE RAISES ITS GUARD\"."
+    ],
+    "date": "AUG 4, 2026"
+   },
+   {
+    "build": "BUILD 4-AUG-DQ",
+    "items": [
+     "Battle dice now mean what they show. Damage used to be your roll divided by your own pool's average — so a bigger pool changed almost nothing, and five hard-earned bonus dice were worth less than one weapon level. Now every pip is worth a fixed slice of your weapon's power: a fresh hero hits exactly as before, but each die you forge, wear or take as a boon adds its full face value to the throw.",
+     "The damage ceiling is gone. A huge pool rolling hot now hits like it looks — the dice themselves are the only cap.",
+     "SHATTER finally has teeth: losing your biggest die now truly costs you its pips, not a rounding error.",
+     "Fair warning for veteran hoards: a fully-kitted hero now hits roughly twice as hard in the dice arena as before. The wilds may need to answer that in a future build."
+    ],
+    "date": "AUG 4, 2026"
+   },
+   {
+    "build": "BUILD 4-AUG-DP",
+    "items": [
+     "A HOW TO PLAY board now stands in your yard, by the gate you leave through. Press E for a four-part guide: the wilds, dice battles, getting stronger, and home & hoard.",
+     "The vault's THIS HERO view finally means something. It counts everything your current hero has earned — what they are carrying AND everything they have already banked — instead of emptying itself the moment you made a deposit.",
+     "The other view is now labelled ALL TIME: every hero you have ever played, together.",
+     "The class-choice screen tells you your battle dice up front — the attack pool you throw, the d20 you dodge with, and what that handful is like to play.",
+     "The battle command reads ATTACK / ROLL, so it is clear that choosing it throws dice."
+    ],
+    "date": "AUG 4, 2026"
+   },
+   {
+    "build": "BUILD 3-AUG-DN",
+    "items": [
+     "The corner portrait is now a real portrait. It finds your hero's face in the artwork and frames head and shoulders, instead of shrinking the whole figure down until it looked like the overworld sprite.",
+     "Your chosen face is loaded the moment a run begins, so it is already there on the first frame and in your first battle rather than fading in late."
+    ],
+    "date": "AUG 3, 2026"
+   },
+   {
+    "build": "BUILD 3-AUG-DM",
+    "items": [
+     "The sealed warden waiting in each delve now draws at its true proportions instead of being squeezed into a square, and its crown sits on its head rather than hovering above it."
+    ],
+    "date": "AUG 3, 2026"
+   },
+   {
+    "build": "BUILD 3-AUG-DL",
+    "items": [
+     "Every beast now moves like itself. Slimes surge and rest, rats dart, wolves circle, beetles charge, crabs sidle, snakes weave, golems grind forward and drakes swoop — with lean, bob, squash and stretch on top.",
+     "Monsters telegraph. A melee beast pulls back before it commits, so a hit can be read and stepped away from instead of simply happening on contact.",
+     "Ranged creatures charge a shot before releasing it, and the bolt now carries its caster's colour.",
+     "Slain beasts leave a brief tumbling death pose instead of blinking out of existence.",
+     "Tier, elite and champion creatures keep their own colours now. Instead of being drowned in a tint they wear what happened to them: scars, spikes, shoulder growths, glowing cracks and orbiting motes.",
+     "The wilds are inhabited, not sprinkled. Beasts arrive as colonies, packs, patrols and marching lines, and drift back toward the place they call home.",
+     "Species now trail their own ambient life — slime droplets, spores, dust, mist, embers and bone.",
+     "The four legendary wanderers are no longer recoloured copies of ordinary beasts. The Gilded Slime, Starfang, Voidmaw and the Bone Emperor are each drawn from scratch, in four frames.",
+     "Each legend moves by its own nature: the Gilded Slime hunts treasure, Starfang circles overhead, Voidmaw tears holes in space, and the Bone Emperor marches an ancient road. They announce themselves with their own sound, a reveal and a name — and ordinary beasts get out of their way.",
+     "Floating \"!\" and \"?\" markers are gone. Creatures signal with a ground flare and an eye glint instead.",
+     "Legendary wanderers, the Named Beasts and death poses all sort into the world properly now, so nothing draws through a tree.",
+     "Under the hood: the four motion beats now share their two painted frames instead of baking each one twice, so the richer animation costs no extra memory or loading time."
+    ],
+    "date": "AUG 3, 2026"
+   },
+   {
+    "build": "BUILD 2-AUG-DK",
+    "items": [
+     "Overworld HUD rebuilt. Health, stamina, level and XP now sit on a dark plate, and every HUD label is outlined, so nothing is lost against snow, sand, firelight or cave dark.",
+     "Your gold moved out of the item clutter onto its own row at double size, with the coin beside it.",
+     "Potions and bombs moved to the right-hand kit column, under your weapon and special.",
+     "Your chosen portrait now watches from the bottom-right corner, framed. The frame turns red when you are badly hurt.",
+     "The vault chest moved off the middle of the floor and back against the left wall of your home.",
+     "Fixed: the treasure-room backdrop could visibly swap to a different picture a moment after you walked into the vault."
+    ],
+    "date": "AUG 2, 2026"
+   },
+   {
+    "build": "BUILD 2-AUG-DJ",
+    "items": [
+     "Boon cards redrawn: portrait art with no frame and no backing plate, so the artwork itself is the card.",
+     "Boons now have a rarity — COMMON, RARE, EPIC and LEGENDARY. Rare cards glow, epic and legendary pulse, so a good pull announces itself.",
+     "The boon step now explains what a boon actually IS, with a rarity key underneath.",
+     "The name screen shows your in-game sprite walking on the spot next to your portrait, so you see exactly who you are about to steer.",
+     "FULLSCREEN moved next to BACK and is no longer gold — gold is now only ever the way forward.",
+     "SET FORTH rebuilt as a proper finale button: bigger, brighter and gently pulsing.",
+     "The send-off screen says less and says it larger."
+    ],
+    "date": "AUG 2, 2026"
+   },
+   {
+    "build": "BUILD 2-AUG-DH",
+    "items": [
+     "All four built-in heroes now rebuild from their hand-authored maps at 20x24, preserving the baked miniature style while giving silhouettes and equipment more room.",
+     "Knight, lancer, mystic and shade each have their own softness, edge, lighting and eye treatment instead of sharing one universal bake.",
+     "Walking now uses four beats in every direction. Built-in attacks use three real posed frames, and every class has a dedicated guard or special pose.",
+     "Removed the accidental second outline, preserved action-frame proportions, and upgraded hero-sheet and inventory previews to high-resolution smooth canvases."
+    ],
+    "date": "AUG 2, 2026"
+   },
+   {
+    "build": "BUILD 1-AUG-DG",
+    "items": [
+     "BIG FIX — bonus dice were making you WORSE. Stumbles and fumbles triggered on a flat count of 1s (2 and 3) no matter how many dice you threw, so every extra die a boon gave you raised your chance of failing. A loaded-up lancer was failing nearly half his attacks.",
+     "Those thresholds now scale with the size of your pool. Failure sits around 1-6% at every pool size, and collecting dice makes you MORE reliable, not less. Starting pools are unchanged.",
+     "The d20 uses the built-in die again, so every die in the pool matches."
+    ],
+    "date": "AUG 1, 2026"
+   },
+   {
+    "build": "BUILD 1-AUG-DF",
+    "items": [
+     "The hero forge fits a landscape phone with NO scrolling — every step (class, boon, avatar, points, name) sizes itself to the screen, with LOCK IN always visible.",
+     "Only the avatar portrait grid scrolls, inside its own box.",
+     "Points screen shows as two tidy columns on phones; nothing cut off top or bottom.",
+     "Class emblems 15% smaller everywhere.",
+     "Boon cards are ready to show art: drop art/ui/boon_<id>.jpg files in and they appear."
+    ],
+    "date": "AUG 1, 2026"
+   },
+   {
+    "build": "BUILD 1-AUG-DE",
+    "items": [
+     "Fixed the screen flashing during play. Drawing a camp threw an error part-way through the frame, so everything after it — trees, monsters, your hero — vanished for that frame. It struck on alternating frames because the camp’s \"!\" prompt blinks, which is what made it strobe."
+    ],
+    "date": "AUG 1, 2026"
+   },
+   {
+    "build": "BUILD 1-AUG-DD",
+    "items": [
+     "The lancer carries a proper spear from the side now — wooden shaft, steel head. Those two black marks by his shoulder were loose pixels, not a weapon.",
+     "Fixed a missing colour in the hero palette that left a hole in the lancer’s feather."
+    ],
+    "date": "AUG 1, 2026"
+   },
+   {
+    "build": "BUILD 1-AUG-DC",
+    "items": [
+     "Heroes lost the heavy black border — the sprites already carried their own outline and the renderer was drawing a second one on top.",
+     "The vault backdrop no longer swaps to a different picture a moment after you walk in.",
+     "The shadowed coins at the back of the hoard no longer look washed out.",
+     "The gold pile stacks all the way up to the hint at the top of the vault, and spreads the full width of the stage."
+    ],
+    "date": "AUG 1, 2026"
+   },
+   {
+    "build": "BUILD 1-AUG-DB",
+    "items": [
+     "Overworld trees shrunk 25% so they sit properly against the hero again — both the painted tree art and the built-in biome trees."
+    ],
+    "date": "AUG 1, 2026"
+   },
+   {
+    "build": "BUILD 1-AUG-DA",
+    "items": [
+     "The heroes are 25% bigger — easier to see, and better matched to the trees and monsters around them.",
+     "Melee reach extended: the sword now hits from a bit further out, and the spear keeps its lead over it.",
+     "The swing arc follows the new reach, so what you see is still what you hit."
+    ],
+    "date": "AUG 1, 2026"
+   },
+   {
+    "build": "BUILD 27-JUL-CZ",
+    "items": [
+     "The heroes are back to the original hand-drawn 16x16 sprites, painted the same way as the coins, gems and ground so they belong to the world again.",
+     "The tall detailed figures are gone — that road chased more detail than a sprite this size can hold.",
+     "Attacks swing the weapon icon again, the way they always used to.",
+     "Every place the hero is drawn — world, hero panel, inventory, camp folk, battle card, title art — now sizes itself from the sprite instead of assuming a fixed shape."
+    ],
+    "date": "AUG 1, 2026"
+   },
+   {
+    "build": "BUILD 27-JUL-CY",
+    "items": [
+     "The knight’s sword doubled again — a proper hand-and-a-half blade now, thick and long enough to have real weight behind it.",
+     "The kite shield doubled to match, and from behind you now see its planked wooden back and arm straps instead of the painted face.",
+     "The swing arc re-centred on the longer blade."
+    ],
+    "date": "AUG 1, 2026"
+   },
+   {
+    "build": "BUILD 27-JUL-CX",
+    "items": [
+     "The knight carries a real sword now — broad fullered blade, heavy crossguard, proper pommel. The old one read as a walking cane.",
+     "His kite shield is much bigger too, and the raised guard is a genuine wall.",
+     "Melee reach pulled back to match the drawn blade. The old range was tuned for the retired photo sprites and was hitting a full tile past the steel.",
+     "The swing arc now sweeps along the blade instead of way out in front of it."
+    ],
+    "date": "AUG 1, 2026"
+   },
+   {
+    "build": "BUILD 27-JUL-CW",
+    "items": [
+     "The Shade arrives, and all four heroes are now hand-drawn: a floating crown, a body of violet-black smoke, and two daggers held in hands of vapour.",
+     "It drifts instead of walking, attacks with a twin cross-slash, and its VEIL draws the smoke inward and pulls the crown down into the dark.",
+     "Every class now has its own attack and guard poses in all four directions."
+    ],
+    "date": "AUG 1, 2026"
+   },
+   {
+    "build": "BUILD 27-JUL-CV",
+    "items": [
+     "The mystic, redrawn from reference: navy and gold robe with purple lining, gem-clasped shoulder cape, slicked hair and beard — and a raven on his shoulder.",
+     "Casting is now a three-beat spell (gather, release, settle) with the light building at the staff head, and blocking raises a warding sigil.",
+     "Three of the four heroes are now hand-drawn with full pose sets. The shade is next."
+    ],
+    "date": "AUG 1, 2026"
+   },
+   {
+    "build": "BUILD 27-JUL-CU",
+    "items": [
+     "The lancer joins the knight — redrawn from reference: spiky brown hair, leather jerkin and cross-straps, steel pauldron, red hip sash, and the long spear.",
+     "Spear thrusts in every direction (coil, full lunge, recover) and a braced shaft-guard block.",
+     "The lancer gets a wider frame than the knight so a full thrust has real reach."
+    ],
+    "date": "AUG 1, 2026"
+   },
+   {
+    "build": "BUILD 27-JUL-CT",
+    "items": [
+     "The knight is reborn — redrawn from reference in the smooth baked style: black hair, silver plate, blue crown shield, gold-trimmed tabard.",
+     "Real attack animation in every direction (windup, strike, follow-through) and a braced shield-block pose.",
+     "The photo-sprite knight is retired; the baked figure is the hero everywhere, on every platform."
+    ],
+    "date": "AUG 1, 2026"
+   },
+   {
+    "build": "BUILD 27-JUL-CS",
+    "items": [
+     "Forge: the landscape class emblems ARE the buttons now — full image at its true shape, name overlaid, no frame around it.",
+     "Locked classes show their emblem darkened with ??? until earned."
+    ],
+    "date": "JUL 31, 2026"
+   },
+   {
+    "build": "BUILD 27-JUL-CR",
+    "items": [
+     "This update log! The build tag on the title screen is now a button — click it any time to see what changed.",
+     "Title screen: \"Created by\" moved below EXIT GAME; footer text spaced out.",
+     "Gold rain on the title screen — coins slowly fall from behind the logo to the foot of the menu, with soft coin sounds."
+    ],
+    "date": "JUL 31, 2026"
+   },
+   {
+    "build": "BUILD 27-JUL-CQ",
+    "items": [
+     "Level-up cards now ALWAYS include at least one boon — and one class ability while any remain unclaimed.",
+     "Verified over 400 draws: no boon-less draws, no duplicates, every card reachable."
+    ],
+    "date": "JUL 31, 2026"
+   },
+   {
+    "build": "BUILD 27-JUL-CP",
+    "items": [
+     "Boon pool grown from 8 to 53 — including dice boons that add extra dice to your battle pool.",
+     "Character creation offers 3 random boons from the full pool, different every forge.",
+     "Class item-art on the forge (helmet & sword for knight, etc.)."
+    ],
+    "date": "JUL 31, 2026"
+   },
+   {
+    "build": "BUILD 27-JUL-CO",
+    "items": [
+     "Attack swipe pushed out to double distance on every angle; sword hit range 46 to 60px, spear up to match.",
+     "All overworld trees doubled in size — both painted art and the built-in biome trees."
+    ],
+    "date": "JUL 31, 2026"
+   },
+   {
+    "build": "BUILD 27-JUL-CN",
+    "items": [
+     "Swipe FX raised from the feet to chest height and rotates with the attack — upward attacks sweep overhead.",
+     "Melee reach extended so you no longer need to touch enemies to hit them.",
+     "Built-in hero figures now bake lazily — ~250ms faster boot; your sprite art takes over when present."
+    ],
+    "date": "JUL 31, 2026"
+   },
+   {
+    "build": "BUILD 27-JUL-CK-CM",
+    "items": [
+     "Hero world sprite grown to 2 tiles tall and widened 20%.",
+     "Brand-new sharp downscaler: one-pass area average + unsharp mask (+40% measured edge detail). Purple magenta halo eliminated.",
+     "One sprite set now dresses a whole class (av_knight_*), with per-gender and per-portrait overrides."
+    ],
+    "date": "JUL 31, 2026"
+   },
+   {
+    "build": "BUILD 27-JUL-CI-CJ",
+    "items": [
+     "Player-made hero WORLD sprites wired in: walk + up to 6 attack frames, magenta-keyed, auto-scaled.",
+     "Attack animation sweeps through all frames across each swing."
+    ],
+    "date": "JUL 31, 2026"
+   },
+   {
+    "build": "BUILD 27-JUL-CH",
+    "items": [
+     "Premium minted gold coin (crown emboss, milled edge) used everywhere — overworld, HUD and Vault.",
+     "Dice faces rebaked at higher detail with angle-lit facets; dice pool lands in a tight cluster."
+    ],
+    "date": "JUL 31, 2026"
+   },
+   {
+    "build": "BUILD 27-JUL-CE-CG",
+    "items": [
+     "Every monster redesigned as its own painted figure with its own size — 16 species, gradient shading, glows.",
+     "Heroes redrawn as tall painted figures; terrain overhauled: smooth ground, painterly tufts/flowers, tall overhanging trees, per-biome rocks.",
+     "All game text switched from blocky pixels to crisp vector type."
+    ],
+    "date": "JUL 31, 2026"
+   },
+   {
+    "build": "BUILD 27-JUL-CA-CD",
+    "items": [
+     "DICE-POOL COMBAT: every class rolls its own fistful of dice (knight 2d12+2d8, mystic 2d20...).",
+     "Gear and forge levels add bonus dice; boss telegraphs can SHATTER your biggest die.",
+     "Exploration checks: trapped delve chests (DEX) and ancient shrines (WIS) with graded outcomes.",
+     "Battle menu previews exactly what you will roll; vault background is player-choosable."
+    ],
+    "date": "JUL 30, 2026"
+   },
+   {
+    "build": "BUILD 27-JUL-BO-BZ",
+    "items": [
+     "Grand Delve rebuilt: 12 rooms, locked boss vault (clear all jailers), levers, cracked walls, a great chest.",
+     "The greed story arc: camp folk react to your wealth, the Vault whispers, and the crown offers a final choice.",
+     "Mobile INTERACT button; William reacts to your hero portrait picks."
+    ],
+    "date": "JUL 30, 2026"
+   },
+   {
+    "build": "BUILD 27-JUL-BD-BN",
+    "items": [
+     "TREASURE: gold & gems drop in the wild; bank them at home in your VAULT — a clickable, jingling hoard that survives death and new games.",
+     "Peddler SELL tab, fast-travel between camps, and buyable decorations for the homestead."
+    ],
+    "date": "JUL 29, 2026"
+   },
+   {
+    "build": "BUILD 27-JUL-AV-BC",
+    "items": [
+     "The HOMESTEAD: wake at home, walk the gate into the wilds; redesigned pause menu; 3-channel volume."
+    ],
+    "date": "JUL 28-29, 2026"
+   },
+   {
+    "build": "BUILD 27-JUL-AP-AU",
+    "items": [
+     "RPG core: 6 attributes, level 100 cap, point-buy creation, class abilities at milestone level-ups.",
+     "Enemy scaling rebalanced end-to-end (no more one-shot deaths at high level)."
+    ],
+    "date": "JUL 28, 2026"
+   },
+   {
+    "build": "BUILD 27-JUL-AA-AO",
+    "items": [
+     "Painted art pipeline: monsters, bestiary, scenes, title; battle music (10 tracks); layered SFX voices; world sprite hooks."
+    ],
+    "date": "JUL 26-28, 2026"
+   }
+  ]
+ },
+ "facts": "Brok3n by Design is an independent game studio where each project is designed, directed, and built by a single creator using modern creative tools.\n\nIndependently created by Brok3n by Design.\n\nWebsite: https://brok3nbydesign.com/\nContact: brok3nbydesign@pm.me\nSocial: https://x.com/brok3nbydesign\n\nYouTube trailers: https://www.youtube.com/@Brok3n-j8j\nBrand film (released): https://youtu.be/zhIMgJ5sl7Q\nBrand film on X: https://x.com/brok3nbydesign/status/2108530273004421284\nStudio thumbnail: https://brok3nbydesign.com/images/studio/x-logo2.png\n\nPROJECTS\nGlass & Fortune — Private alpha · teaser live\nA tactile roguelike built around five glass dice, risky combinations, and a masked fortune-teller who never gives you the whole truth.\nhttps://brok3nbydesign.com/glass-and-fortune.html\n\nBid & Buried — In development · teaser live\nPeek inside a locker, buy it, dig front to back, and choose what earns space in your van.\nhttps://brok3nbydesign.com/bid-and-buried.html\n\nSpeck — Private development · teaser live\nA shared survival sandbox about beginning as almost nothing, shaping the objects around you, and turning an empty patch of world into home.\nhttps://brok3nbydesign.com/speck.html\n\nWRFM Radio — Completed · Live now\nGenuinely good, vocal-free smooth jazz you can leave on all day, hosted by Vera Lang with strange callers and developer-minded commercials.\nhttps://brok3nbydesign.com/wrfm.html\n\nPocket Wilds — Private development\nA retro fantasy adventure where free-roaming exploration gives way to tactical dice battles when a boss seals the door.\nhttps://brok3nbydesign.com/pocket-wilds.html\n\nDOQI — Prototype · on hold · teaser live\nThe Department of Questionable Inventions: a satirical personality game about ridiculous decisions and their consequences.\nhttps://brok3nbydesign.com/doqi.html\n\nMacabre Dolls — Concept · not developed\nA collection of haunting artwork and card-game ideas. A concept archive, with no playable game or teaser.\nhttps://brok3nbydesign.com/macabre-dolls.html\n\nThe Maze — In development\nA narrative dice game about choices, chance, and the consequences you carry through a hostile maze.\nhttps://brok3nbydesign.com/labyrinth-fate.html\n\nJuicebox — Film experiment\nAn experimental short film in early development, exploring character, voice, and self-contained stories.\nhttps://brok3nbydesign.com/juicebox.html\n\nGraffiti — Live guestbook\nA shared pixel-art guestbook where every visitor can draw, sign, and leave a permanent mark on the wall.\nhttps://brok3nbydesign.com/graffiti.html\n\nCheck project pages for current availability.\n",
+ "links": {
+  "email": "brok3nbydesign@pm.me",
+  "x": "https://x.com/brok3nbydesign",
+  "youtube": "https://www.youtube.com/@Brok3n-j8j",
+  "brand_film": "https://youtu.be/zhIMgJ5sl7Q",
+  "brand_film_id": "zhIMgJ5sl7Q",
+  "brand_film_x": "https://x.com/brok3nbydesign/status/2108530273004421284",
+  "newsletter_action": "https://buttondown.com/api/emails/embed-subscribe/brok3nbydesign",
+  "wrfm_live": "https://brok3nby-design.github.io/wrfm/",
+  "graffiti_wall": "https://brok3n-graffiti.ragsdalejeremy818.workers.dev/?draw=1"
+ },
+ "brand": {
+  "wordmark": "media/studio/b3d-web.webp",
+  "logo_png": "media/studio/b3d.webp",
+  "mark_svg": "media/studio/studio-mark.svg",
+  "thumb": "media/studio/x-logo2.webp",
+  "wrfm_keyart": "media/wrfm/wrfm_keyart.webp"
+ },
+ "sounds": {
+  "music_mp3": "media/sounds/site_music_1.mp3",
+  "music_ogg": "media/sounds/site_music_1.ogg",
+  "cartridge": "media/sounds/cartridge.mp3"
+ }
+}
