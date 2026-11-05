@@ -19,7 +19,7 @@
   "materials": 97,
   "triangles": 88848
  },
- "desk_glb_bytes": 25503492,
+ "desk_glb_bytes": 25502824,
  "crate_bake": {
   "objects": 1,
   "materials": 1,
@@ -32,7 +32,7 @@
   "materials": 7,
   "triangles": 820
  },
- "crate_glb_bytes": 6011928,
+ "crate_glb_bytes": 6011868,
  "notebook_after": {
   "nodes": 18,
   "meshes": 10,
