@@ -24,7 +24,8 @@ from lib.library import M
 W, D, H = 1.5, 1.25, 1.15          # room floor (x, y) and wall height at the corner
 BACK_Y, LEFT_X = D / 2, -W / 2    # inner wall planes (stone faces sit in front of these)
 STONE_DEPTH = 0.13                # stone block depth (from the wall plane into the room)
-CHEST = dict(x=0.06, y=-0.02, rz=-14, w=0.78, d=0.48, h=0.36, wall=0.035, lid_h=0.17, open=-104)
+CHEST = dict(x=0.0, y=-0.13, rz=45,    # on the diagonal: back to the corner, front to the viewer
+             w=0.78, d=0.48, h=0.36, wall=0.035, lid_h=0.17, open=-104)
 COIN_R, COIN_T = 0.0135, 0.0032   # a chunky 27 mm gold coin
 RNG = random.Random(77)
 CLOSEUPS = [  # name, object names to frame, azimuth, elevation, lens, fill
@@ -354,11 +355,11 @@ def build_floor_treasure(root, m, chest):
     c = CHEST
     # the goblet lies on its side, front-left of the chest, mouth toward the viewer's right
     tilt = asin((0.062 - 0.052) / 0.19)
-    yaw = radians(-28)
-    gob = geo.lathe("PW_Goblet", GOBLET_PROFILE, loc=(-0.42, -0.34, 0.052), rot=(0, radians(90) - tilt, yaw),
+    yaw = radians(-18)
+    gob = geo.lathe("PW_Goblet", GOBLET_PROFILE, loc=(-0.4, -0.5, 0.052), rot=(0, radians(90) - tilt, yaw),
                     material=m["goblet"], parent=root, segments=36)
     geo.polyhedron("PW_Goblet_Gem", "d8", 0.012, loc=(0.0, -0.058, 0.15), rot=(radians(90), 0, 0), material=m["ruby"], parent=gob)
-    mouth = Vector((-0.42, -0.34, 0.0)) + Vector((cos(yaw), sin(yaw), 0)) * 0.2
+    mouth = Vector((-0.4, -0.5, 0.0)) + Vector((cos(yaw), sin(yaw), 0)) * 0.2
 
     # floor gold: a low heap in front of the chest + a scatter fanning out to the goblet and beyond
     cm = Matrix.Translation((c["x"], c["y"], 0)) @ Matrix.Rotation(radians(c["rz"]), 4, 'Z')
@@ -404,14 +405,14 @@ def build_floor_treasure(root, m, chest):
     bpy.context.view_layer.update()
     bpy.data.objects["PW_Coins_Floor"].matrix_world = root.matrix_world.copy()
     # loose gems on the floor (right of the chest, like the cover)
-    for nm, kind, mt, x, y, sz in [("PW_FloorGem_Ruby", "d20", "ruby", 0.3, -0.4, 0.02), ("PW_FloorGem_Sapphire", "d20", "sapphire", 0.46, -0.33, 0.024),
-                                   ("PW_FloorGem_Emerald", "d8", "emerald", 0.52, -0.1, 0.022), ("PW_FloorGem_Ruby_2", "d20", "ruby", -0.2, -0.5, 0.016)]:
+    for nm, kind, mt, x, y, sz in [("PW_FloorGem_Ruby", "d20", "ruby", 0.56, -0.2, 0.02), ("PW_FloorGem_Sapphire", "d20", "sapphire", 0.62, -0.47, 0.024),
+                                   ("PW_FloorGem_Emerald", "d8", "emerald", -0.46, -0.44, 0.022), ("PW_FloorGem_Ruby_2", "d20", "ruby", 0.22, -0.74, 0.016)]:
         geo.polyhedron(nm, kind, sz, loc=(x, y, 0), rot=(0, 0, RNG.uniform(0, 6)), material=m[mt], parent=root)
     return gob, heap
 
 
 def build_torch(root, m):
-    x, y, z = LEFT_X + STONE_DEPTH, 0.0, 0.8
+    x, y, z = LEFT_X + STONE_DEPTH, -0.3, 0.72
     br = geo.box("PW_Torch_Bracket", (0.05, 0.03, 0.12), loc=(x + 0.005, y, z - 0.06), material=m["iron"], parent=root, bevel=0.003)
     geo.lathe("PW_Torch_Ring", [(0.032, 0), (0.04, 0), (0.04, 0.012), (0.032, 0.012)], loc=(0.105, 0, 0.09),
               material=m["iron"], parent=br, segments=20)
