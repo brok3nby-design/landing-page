@@ -1,0 +1,7 @@
+node_modules/
+dist/
+public/models/
+public/basis/
+public/data/
+public/fallback/
+public/media/

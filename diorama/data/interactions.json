@@ -1,0 +1,276 @@
+{
+ "_note": "Maps interactive_id tags (Blender custom properties -> glTF node extras -> three.js object.userData) to website behaviour. Kept separate from model generation. kind: navigation = leads to a site section (always ALSO reachable through normal HTML links); discovery = optional reward, never needed to navigate. scope = which exhibit listens (home = desk homepage, games = Games page, about = About page). A click on any child mesh resolves to the nearest ancestor with an interactive_id. Routes are internal paths; external links (href) are only ones the existing site already uses (see AUDIT.md). Panel copy is taken from the existing site ('source').",
+ "navigation": {
+  "games_crate": {
+   "scope": "home",
+   "object": "NAV_GamesCrate",
+   "action": "focus+panel",
+   "panel": {
+    "title": "Choose your next world.",
+    "text": "Start here: choose a cartridge, hear it click into place, and see where the project stands. Explore the project pages for development updates and a closer look at each world.",
+    "source": "home.html"
+   },
+   "button": {
+    "label": "EXPLORE GAMES",
+    "route": "/games"
+   }
+  },
+  "notebook": {
+   "scope": "home",
+   "object": "NAV_Notebook",
+   "action": "focus+panel",
+   "panel": {
+    "title": "About the Studio",
+    "text": "Brok3n by Design is an independent game studio where each project is designed, directed, and built by a single creator using modern creative tools. The studio brings together strange ideas, dark humor, nostalgia, and experimental mechanics. Every project explores something a little different — from retro RPGs and satirical personality tests to haunted card games and fictional radio stations.",
+    "source": "home.html"
+   },
+   "button": {
+    "label": "ABOUT THE STUDIO",
+    "route": "/about"
+   }
+  },
+  "monitor_left": {
+   "scope": "home",
+   "object": "MON_L_Screen",
+   "action": "focus+panel",
+   "panel": {
+    "title": "Brok3n by Design — brand film",
+    "eyebrow": "BRAND FILM · OUT NOW",
+    "text": "A film from the studio behind the games. Watch the new Brok3n by Design brand trailer.",
+    "source": "home.html"
+   },
+   "button": {
+    "label": "WATCH ON YOUTUBE ↗",
+    "href": "https://youtu.be/zhIMgJ5sl7Q"
+   },
+   "links": [
+    {
+     "label": "View on X ↗",
+     "href": "https://x.com/brok3nbydesign/status/2108530273004421284"
+    }
+   ]
+  },
+  "monitor_right": {
+   "scope": "home",
+   "object": "MON_R_Screen",
+   "action": "focus+panel",
+   "panel": {
+    "title": "Brok3n by Design — brand film",
+    "eyebrow": "BRAND FILM · OUT NOW",
+    "text": "A film from the studio behind the games. Watch the new Brok3n by Design brand trailer.",
+    "source": "home.html"
+   },
+   "button": {
+    "label": "WATCH ON YOUTUBE ↗",
+    "href": "https://youtu.be/zhIMgJ5sl7Q"
+   },
+   "links": [
+    {
+     "label": "View on X ↗",
+     "href": "https://x.com/brok3nbydesign/status/2108530273004421284"
+    }
+   ]
+  },
+  "headphones": {
+   "scope": "home",
+   "object": "PROP_Headphones_Stand",
+   "action": "focus+panel",
+   "panel": {
+    "title": "WRFM Radio",
+    "eyebrow": "COMPLETED GAME · LIVE NOW",
+    "text": "Smooth jazz for people who ship code. A fictional radio station hosted by Vera Lang, with strange callers, questionable commercials, and a world to explore between songs.",
+    "source": "home.html"
+   },
+   "button": {
+    "label": "EXPLORE WRFM",
+    "route": "/wrfm"
+   },
+   "links": [
+    {
+     "label": "Play WRFM ↗",
+     "href": "https://brok3nby-design.github.io/wrfm/"
+    }
+   ]
+  },
+  "contact_card": {
+   "scope": "home",
+   "object": "NAV_ContactCards",
+   "action": "focus+panel",
+   "panel": {
+    "title": "Get in touch",
+    "text": "Explore the games, follow what's taking shape, or drop a line about games, feedback, or a collaboration.",
+    "source": "about.html"
+   },
+   "button": {
+    "label": "GET IN TOUCH",
+    "route": "/contact"
+   },
+   "links": [
+    {
+     "label": "Email the Studio",
+     "href": "mailto:brok3nbydesign@pm.me"
+    }
+   ]
+  },
+  "game_slot_XX": {
+   "scope": "games",
+   "object": "GAME_Case_XX",
+   "action": "lift+turn+panel",
+   "data": "games.json (slot -> project) + projects.json (copy)",
+   "button": {
+    "label": "VIEW GAME",
+    "route": "from games.json"
+   },
+   "close": "return case to its original transform"
+  },
+  "graffiti": {
+   "scope": "home",
+   "object": "PROP_StickyNote_0..2",
+   "action": "focus+panel",
+   "panel": {
+    "title": "Graffiti",
+    "eyebrow": "LIVE GUESTBOOK",
+    "text": "A shared pixel-art guestbook where every visitor can draw, sign, and leave a permanent mark on the wall.",
+    "source": "studio-data.js"
+   },
+   "button": {
+    "label": "SIGN THE GUESTBOOK ↗",
+    "href": "https://brok3n-graffiti.ragsdalejeremy818.workers.dev/?draw=1"
+   },
+   "links": [
+    {
+     "label": "About Graffiti",
+     "route": "/graffiti"
+    }
+   ]
+  },
+  "project_labyrinth-fate": {
+   "scope": "home",
+   "object": "PROP_GameBox_0..2 (upper shelf)",
+   "action": "focus+panel",
+   "panel": {
+    "title": "The Maze",
+    "eyebrow": "IN DEVELOPMENT",
+    "text": "The world remembers the roll. A narrative dice game about choices, chance, and the consequences you carry through a hostile maze.",
+    "source": "studio-data.js"
+   },
+   "button": {
+    "label": "VIEW PROJECT",
+    "route": "/games/labyrinth-fate"
+   }
+  },
+  "project_macabre-dolls": {
+   "scope": "home",
+   "object": "PROP_GameBox_0..2 (upper shelf)",
+   "action": "focus+panel",
+   "panel": {
+    "title": "Macabre Dolls",
+    "eyebrow": "CONCEPT · NOT DEVELOPED",
+    "text": "Every doll has a past. A collection of haunting artwork and card-game ideas. A concept archive, with no playable game or teaser.",
+    "source": "studio-data.js"
+   },
+   "button": {
+    "label": "VIEW PROJECT",
+    "route": "/games/macabre-dolls"
+   }
+  },
+  "project_juicebox": {
+   "scope": "home",
+   "object": "PROP_GameBox_0..2 (upper shelf)",
+   "action": "focus+panel",
+   "panel": {
+    "title": "Juicebox",
+    "eyebrow": "FILM EXPERIMENT",
+    "text": "Small format. Strange possibilities. An experimental short film in early development, exploring character, voice, and self-contained stories.",
+    "source": "studio-data.js"
+   },
+   "button": {
+    "label": "VIEW PROJECT",
+    "route": "/games/juicebox"
+   }
+  }
+ },
+ "discovery": {
+  "mug": {
+   "scope": "home",
+   "object": "PROP_Mug",
+   "action": "easter-egg",
+   "idea": "steam wisp spells something dry; or the mug quietly refills",
+   "panel": {
+    "title": "Coffee break",
+    "text": "Still warm. Somebody is coming right back."
+   },
+   "stamp": "coffee"
+  },
+  "collectible_a": {
+   "scope": "home",
+   "object": "COLL_FigureA",
+   "action": "popover",
+   "idea": "tiny wobble + caption",
+   "panel": {
+    "title": "Collectible",
+    "text": "Hands off the merch. (Look, don't touch.)"
+   }
+  },
+  "collectible_b": {
+   "scope": "home",
+   "object": "COLL_FigureB",
+   "action": "popover",
+   "idea": "raises the mug; caption",
+   "panel": {
+    "title": "Collectible",
+    "text": "Raising a tiny mug to everyone still shipping at this hour."
+   }
+  },
+  "book_1..book_6": {
+   "scope": "home",
+   "object": "PROP_Book_0..4, PROP_Book_Leaning",
+   "action": "tilt-out + caption",
+   "idea": "fake titles; one is suspiciously well-worn",
+   "panel": {
+    "title": "Bookworm",
+    "text": "A shelf of well-thumbed reference books. One of them is suspiciously well-worn."
+   },
+   "stamp": "bookworm"
+  },
+  "drawer_1..drawer_3": {
+   "scope": "home",
+   "object": "DESK_Drawer_N_Group",
+   "action": "slide-out (future)",
+   "idea": "needs a modeled drawer interior first",
+   "panel": {
+    "title": "Door? What door?",
+    "text": "Low and right, exactly where the hint said. Nothing to enter here… yet."
+   },
+   "stamp": "door"
+  },
+  "egg_qa_sticker": {
+   "scope": "home",
+   "object": "EGG_UnderDesktop",
+   "action": "reveal",
+   "status": "secret project (Phase 10)",
+   "panel": {
+    "title": "Under the Radar",
+    "eyebrow": "SOMETHING IS OUT THERE.",
+    "text": "Your next favourite is one you’ve never heard of. Follow your curiosity into a world of quiet surprises and unexpected connections. Some things are worth a closer look."
+   },
+   "button": {
+    "label": "TAKE A CLOSER LOOK",
+    "route": "/games/under-the-radar"
+   },
+   "stamp": "radar"
+  },
+  "egg_maker_plate": {
+   "scope": "home",
+   "object": "EGG_UnderPlatform",
+   "action": "reveal",
+   "status": "test detail exists (under the platform)",
+   "panel": {
+    "title": "Maker's plate",
+    "text": "Handmade by Brok3n by Design. No warranty, express or implied. Please stop looking under things."
+   },
+   "stamp": "maker-plate"
+  }
+ },
+ "hiding_places": "EGG_* markers (egg_id extras) - see diorama/EASTER_EGGS.md"
+}

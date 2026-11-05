@@ -1,0 +1,179 @@
+{
+ "note": "Software WebGL (SwiftShader) - FPS here is not representative of a real GPU.",
+ "models": {
+  "studio_desk": {
+   "stats": {
+    "frameMs": 856.5,
+    "calls": 380,
+    "triangles": 249062,
+    "textures": 61,
+    "loadMs": 560
+   },
+   "stats_after": {
+    "frameMs": 3.7000000001862645,
+    "calls": 192,
+    "triangles": 161214,
+    "textures": 62,
+    "loadMs": 560
+   }
+  },
+  "games_collection": {
+   "stats": {
+    "frameMs": 285.70000000018626,
+    "calls": 36,
+    "triangles": 1654,
+    "textures": 24,
+    "loadMs": 287.8000000002794
+   },
+   "stats_after": {
+    "frameMs": 4,
+    "calls": 36,
+    "triangles": 1654,
+    "textures": 25,
+    "loadMs": 287.8000000002794
+   }
+  },
+  "studio_notebook": {
+   "stats": {
+    "frameMs": 215.3000000002794,
+    "calls": 34,
+    "triangles": 5174,
+    "textures": 18,
+    "loadMs": 150.39999999990687
+   },
+   "stats_after": {
+    "frameMs": 2.1999999997206032,
+    "calls": 34,
+    "triangles": 5174,
+    "textures": 19,
+    "loadMs": 150.39999999990687
+   }
+  }
+ },
+ "picking": [
+  {
+   "node": "NAV_GamesCrate",
+   "hits": {
+    "-": 7,
+    "games_crate": 13,
+    "drawer_2": 3,
+    "drawer_3": 2
+   }
+  },
+  {
+   "node": "NAV_Notebook",
+   "hits": {
+    "-": 14,
+    "notebook": 11
+   }
+  },
+  {
+   "node": "MON_L_Screen",
+   "hits": {
+    "monitor_left": 19,
+    "-": 6
+   }
+  },
+  {
+   "node": "MON_R_Screen",
+   "hits": {
+    "monitor_right": 17,
+    "-": 8
+   }
+  },
+  {
+   "node": "PROP_Headphones_Stand",
+   "hits": {
+    "-": 17,
+    "headphones": 8
+   }
+  },
+  {
+   "node": "NAV_ContactCards",
+   "hits": {
+    "-": 12,
+    "contact_card": 13
+   }
+  },
+  {
+   "node": "PROP_Mug",
+   "hits": {
+    "-": 10,
+    "mug": 15
+   }
+  },
+  {
+   "node": "COLL_FigureA",
+   "hits": {
+    "-": 20,
+    "collectible_a": 5
+   }
+  },
+  {
+   "node": "COLL_FigureB",
+   "hits": {
+    "-": 17,
+    "collectible_b": 8
+   }
+  },
+  {
+   "node": "PROP_Book_2",
+   "hits": {
+    "book_2": 2,
+    "book_3": 9,
+    "book_4": 14
+   }
+  },
+  {
+   "node": "DESK_Drawer_2_Group",
+   "hits": {
+    "drawer_2": 18,
+    "drawer_3": 3,
+    "-": 2,
+    "drawer_1": 2
+   }
+  },
+  {
+   "node": "GAME_Case_01",
+   "page": "games",
+   "hits": {
+    "game_slot_01": 13,
+    "-": 10,
+    "game_slot_02": 2
+   }
+  },
+  {
+   "node": "GAME_Case_03",
+   "page": "games",
+   "hits": {
+    "game_slot_03": 8,
+    "game_slot_01": 10,
+    "-": 1,
+    "game_slot_02": 5,
+    "game_slot_04": 1
+   }
+  },
+  {
+   "node": "GAME_Case_05",
+   "page": "games",
+   "hits": {
+    "game_slot_05": 8,
+    "game_slot_03": 6,
+    "game_slot_02": 4,
+    "game_slot_01": 2,
+    "game_slot_04": 4,
+    "-": 1
+   }
+  }
+ ],
+ "swap": {
+  "mug_wrap": 2,
+  "game_label_01": 1,
+  "screen_left": 1
+ },
+ "swap_crate": {
+  "mug_wrap": 0,
+  "game_label_01": 1,
+  "screen_left": 0
+ }
+}

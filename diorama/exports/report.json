@@ -1,0 +1,2969 @@
+[
+ {
+  "file": "raw/studio_desk.glb",
+  "mb": 25.13,
+  "nodes": 174,
+  "meshes": 124,
+  "draw_calls": 126,
+  "triangles": 83016,
+  "materials": 92,
+  "textures": 47,
+  "texture_mb_download": 21.06,
+  "gpu_texture_mb": 115.1,
+  "validator": {
+   "errors": 0,
+   "warnings": 6,
+   "messages": [
+    "MESH_PRIMITIVE_GENERATED_TANGENT_SPACE: Material requires a tangent space but the mesh primitive does not provide it. Runtime-generated tangent space may be non-portable across implementations.",
+    "MESH_PRIMITIVE_GENERATED_TANGENT_SPACE: Material requires a tangent space but the mesh primitive does not provide it. Runtime-generated tangent space may be non-portable across implementations.",
+    "MESH_PRIMITIVE_GENERATED_TANGENT_SPACE: Material requires a tangent space but the mesh primitive does not provide it. Runtime-generated tangent space may be non-portable across implementations.",
+    "MESH_PRIMITIVE_GENERATED_TANGENT_SPACE: Material requires a tangent space but the mesh primitive does not provide it. Runtime-generated tangent space may be non-portable across implementations.",
+    "MESH_PRIMITIVE_GENERATED_TANGENT_SPACE: Material requires a tangent space but the mesh primitive does not provide it. Runtime-generated tangent space may be non-portable across implementations.",
+    "MESH_PRIMITIVE_GENERATED_TANGENT_SPACE: Material requires a tangent space but the mesh primitive does not provide it. Runtime-generated tangent space may be non-portable across implementations."
+   ]
+  },
+  "tags": [
+   {
+    "node": "BASE_Rug",
+    "artwork_slot": "rug"
+   },
+   {
+    "node": "CHAIR_Blanket",
+    "artwork_slot": "blanket"
+   },
+   {
+    "node": "EGG_ChairUnderside",
+    "egg_id": "egg_chair_underside",
+    "interactive_kind": "discovery",
+    "egg_status": "planned",
+    "egg_note": "Tag under the seat"
+   },
+   {
+    "node": "COLL_FigureA",
+    "interactive_id": "collectible_a",
+    "interactive_label": "Collectible detail (placeholder)",
+    "interactive_scope": "home",
+    "interactive_kind": "discovery"
+   },
+   {
+    "node": "COLL_FigureB_Mug",
+    "artwork_slot": "mug_figure"
+   },
+   {
+    "node": "COLL_FigureB",
+    "interactive_id": "collectible_b",
+    "interactive_label": "Collectible detail (placeholder)",
+    "interactive_scope": "home",
+    "interactive_kind": "discovery"
+   },
+   {
+    "node": "EGG_DrawerInside",
+    "egg_id": "egg_drawer_inside",
+    "interactive_kind": "discovery",
+    "egg_status": "planned",
+    "egg_note": "Needs a drawer interior (future); contents revealed when the drawer slides out"
+   },
+   {
+    "node": "DESK_Drawer_1_Group",
+    "interactive_id": "drawer_1",
+    "interactive_label": "Potential future interaction (placeholder)",
+    "interactive_scope": "home",
+    "interactive_kind": "discovery"
+   },
+   {
+    "node": "DESK_Drawer_2_Group",
+    "interactive_id": "drawer_2",
+    "interactive_label": "Potential future interaction (placeholder)",
+    "interactive_scope": "home",
+    "interactive_kind": "discovery"
+   },
+   {
+    "node": "DESK_Drawer_3_Group",
+    "interactive_id": "drawer_3",
+    "interactive_label": "Potential future interaction (placeholder)",
+    "interactive_scope": "home",
+    "interactive_kind": "discovery"
+   },
+   {
+    "node": "EGG_BehindMonitor",
+    "egg_id": "egg_behind_monitor",
+    "interactive_kind": "discovery",
+    "egg_status": "planned",
+    "egg_note": "Note taped behind a monitor"
+   },
+   {
+    "node": "EGG_CabinetBack",
+    "egg_id": "egg_cabinet_back",
+    "interactive_kind": "discovery",
+    "egg_status": "planned",
+    "egg_note": "Label on the back of the cabinet"
+   },
+   {
+    "node": "EGG_HutchBack",
+    "egg_id": "egg_hutch_back",
+    "interactive_kind": "discovery",
+    "egg_status": "planned",
+    "egg_note": "Inscription on the back of the hutch"
+   },
+   {
+    "node": "EGG_ShelfUnderside",
+    "egg_id": "egg_shelf_underside",
+    "interactive_kind": "discovery",
+    "egg_status": "planned",
+    "egg_note": "Writing on the underside of the upper shelf"
+   },
+   {
+    "node": "EGG_UnderDesktop",
+    "egg_id": "egg_under_desktop",
+    "interactive_kind": "discovery",
+    "egg_status": "test-detail",
+    "egg_note": "Sticker on the underside of the desktop",
+    "interactive_id": "egg_qa_sticker",
+    "interactive_label": "Hidden sticker (discovery)",
+    "interactive_scope": "home"
+   },
+   {
+    "node": "EGG_UnderPlatform",
+    "egg_id": "egg_under_platform",
+    "interactive_kind": "discovery",
+    "egg_status": "test-detail",
+    "egg_note": "Maker's plate under the display platform",
+    "interactive_id": "egg_maker_plate",
+    "interactive_label": "Hidden maker's plate (discovery)",
+    "interactive_scope": "home"
+   },
+   {
+    "node": "MON_L_Screen",
+    "interactive_id": "monitor_left",
+    "interactive_label": "Projects (placeholder)",
+    "interactive_scope": "home",
+    "interactive_kind": "navigation",
+    "artwork_slot": "screen_left"
+   },
+   {
+    "node": "MON_R_Screen",
+    "interactive_id": "monitor_right",
+    "interactive_label": "Projects (placeholder)",
+    "interactive_scope": "home",
+    "interactive_kind": "navigation",
+    "artwork_slot": "screen_right"
+   },
+   {
+    "node": "NAV_ContactCards_Card_0",
+    "artwork_slot": "business_card"
+   },
+   {
+    "node": "NAV_ContactCards_Card_1",
+    "artwork_slot": "business_card"
+   },
+   {
+    "node": "NAV_ContactCards",
+    "interactive_id": "contact_card",
+    "interactive_label": "Contact",
+    "interactive_scope": "home",
+    "interactive_kind": "navigation"
+   },
+   {
+    "node": "EGG_CrateBottom",
+    "egg_id": "egg_crate_bottom",
+    "interactive_kind": "discovery",
+    "egg_status": "planned",
+    "egg_note": "Stamp under the games crate (Games page exhibit)"
+   },
+   {
+    "node": "GAME_Case_01_Label",
+    "artwork_slot": "game_label_01"
+   },
+   {
+    "node": "GAME_Case_01",
+    "game_slot": 1,
+    "interactive_id": "game_slot_01",
+    "interactive_label": "Game slot 1 (metadata in games.json)",
+    "interactive_scope": "games",
+    "interactive_kind": "navigation"
+   },
+   {
+    "node": "GAME_Case_02_Label",
+    "artwork_slot": "game_label_02"
+   },
+   {
+    "node": "GAME_Case_02",
+    "game_slot": 2,
+    "interactive_id": "game_slot_02",
+    "interactive_label": "Game slot 2 (metadata in games.json)",
+    "interactive_scope": "games",
+    "interactive_kind": "navigation"
+   },
+   {
+    "node": "GAME_Case_03_Label",
+    "artwork_slot": "game_label_03"
+   },
+   {
+    "node": "GAME_Case_03",
+    "game_slot": 3,
+    "interactive_id": "game_slot_03",
+    "interactive_label": "Game slot 3 (metadata in games.json)",
+    "interactive_scope": "games",
+    "interactive_kind": "navigation"
+   },
+   {
+    "node": "GAME_Case_04_Label",
+    "artwork_slot": "game_label_04"
+   },
+   {
+    "node": "GAME_Case_04",
+    "game_slot": 4,
+    "interactive_id": "game_slot_04",
+    "interactive_label": "Game slot 4 (metadata in games.json)",
+    "interactive_scope": "games",
+    "interactive_kind": "navigation"
+   },
+   {
+    "node": "GAME_Case_05_Label",
+    "artwork_slot": "game_label_05"
+   },
+   {
+    "node": "GAME_Case_05",
+    "game_slot": 5,
+    "interactive_id": "game_slot_05",
+    "interactive_label": "Game slot 5 (metadata in games.json)",
+    "interactive_scope": "games",
+    "interactive_kind": "navigation"
+   },
+   {
+    "node": "NAV_GamesCrate_Body",
+    "artwork_slot": "crate_print"
+   },
+   {
+    "node": "NAV_GamesCrate",
+    "asset_id": "games_crate",
+    "interactive_id": "games_crate",
+    "interactive_label": "Game collection -> EXPLORE GAMES",
+    "interactive_scope": "home",
+    "interactive_kind": "navigation"
+   },
+   {
+    "node": "EGG_NotebookBack",
+    "egg_id": "egg_notebook_back",
+    "interactive_kind": "discovery",
+    "egg_status": "planned",
+    "egg_note": "Sticker on the outside of the back cover (About page exhibit)"
+   },
+   {
+    "node": "NOTE_Cover_Back",
+    "hinge_axis": "Y"
+   },
+   {
+    "node": "NOTE_Cover_Front",
+    "hinge_axis": "Y"
+   },
+   {
+    "node": "NOTE_Page_L_Sheet",
+    "artwork_slot": "sketchbook"
+   },
+   {
+    "node": "NOTE_Page_L",
+    "hinge_axis": "Y"
+   },
+   {
+    "node": "NOTE_Page_R_Sheet",
+    "artwork_slot": "sketchbook"
+   },
+   {
+    "node": "NOTE_Page_R",
+    "hinge_axis": "Y"
+   },
+   {
+    "node": "NOTE_PageBlock_L",
+    "hinge_axis": "Y"
+   },
+   {
+    "node": "NOTE_PageBlock_R",
+    "hinge_axis": "Y"
+   },
+   {
+    "node": "NAV_Notebook",
+    "asset_id": "studio_notebook",
+    "interactive_id": "notebook",
+    "interactive_label": "About the studio / process",
+    "interactive_scope": "home",
+    "interactive_kind": "navigation"
+   },
+   {
+    "node": "PROP_Book_0",
+    "interactive_id": "book_1",
+    "interactive_label": "Optional discovery (placeholder)",
+    "interactive_scope": "home",
+    "interactive_kind": "discovery",
+    "artwork_slot": "book_spine_1"
+   },
+   {
+    "node": "PROP_Book_1",
+    "interactive_id": "book_2",
+    "interactive_label": "Optional discovery (placeholder)",
+    "interactive_scope": "home",
+    "interactive_kind": "discovery",
+    "artwork_slot": "book_spine_2"
+   },
+   {
+    "node": "PROP_Book_2",
+    "interactive_id": "book_3",
+    "interactive_label": "Optional discovery (placeholder)",
+    "interactive_scope": "home",
+    "interactive_kind": "discovery",
+    "artwork_slot": "book_spine_3"
+   },
+   {
+    "node": "PROP_Book_3",
+    "interactive_id": "book_4",
+    "interactive_label": "Optional discovery (placeholder)",
+    "interactive_scope": "home",
+    "interactive_kind": "discovery",
+    "artwork_slot": "book_spine_4"
+   },
+   {
+    "node": "PROP_Book_4",
+    "interactive_id": "book_5",
+    "interactive_label": "Optional discovery (placeholder)",
+    "interactive_scope": "home",
+    "interactive_kind": "discovery",
+    "artwork_slot": "book_spine_5"
+   },
+   {
+    "node": "PROP_Book_Leaning",
+    "interactive_id": "book_6",
+    "interactive_label": "Optional discovery (placeholder)",
+    "interactive_scope": "home",
+    "interactive_kind": "discovery",
+    "artwork_slot": "book_spine_6"
+   },
+   {
+    "node": "PROP_DeskMat",
+    "artwork_slot": "deskmat"
+   },
+   {
+    "node": "PROP_GameBox_0_Label",
+    "artwork_slot": "gamebox_label_0"
+   },
+   {
+    "node": "PROP_GameBox_0",
+    "interactive_id": "project_labyrinth-fate",
+    "interactive_label": "Project: labyrinth-fate",
+    "interactive_scope": "home",
+    "interactive_kind": "navigation"
+   },
+   {
+    "node": "PROP_GameBox_1_Label",
+    "artwork_slot": "gamebox_label_1"
+   },
+   {
+    "node": "PROP_GameBox_1",
+    "interactive_id": "project_macabre-dolls",
+    "interactive_label": "Project: macabre-dolls",
+    "interactive_scope": "home",
+    "interactive_kind": "navigation"
+   },
+   {
+    "node": "PROP_GameBox_2_Label",
+    "artwork_slot": "gamebox_label_2"
+   },
+   {
+    "node": "PROP_GameBox_2",
+    "interactive_id": "project_juicebox",
+    "interactive_label": "Project: juicebox",
+    "interactive_scope": "home",
+    "interactive_kind": "navigation"
+   },
+   {
+    "node": "PROP_Headphones_Stand",
+    "interactive_id": "headphones",
+    "interactive_label": "WRFM / audio experience",
+    "interactive_scope": "home",
+    "interactive_kind": "navigation"
+   },
+   {
+    "node": "PROP_Mug",
+    "artwork_slot": "mug_wrap",
+    "interactive_id": "mug",
+    "interactive_label": "Optional humorous interaction (placeholder)",
+    "interactive_scope": "home",
+    "interactive_kind": "discovery"
+   },
+   {
+    "node": "PROP_StickyNote_0",
+    "interactive_id": "graffiti",
+    "interactive_label": "Graffiti guestbook",
+    "interactive_scope": "home",
+    "interactive_kind": "navigation"
+   },
+   {
+    "node": "PROP_StickyNote_1",
+    "interactive_id": "graffiti",
+    "interactive_label": "Graffiti guestbook",
+    "interactive_scope": "home",
+    "interactive_kind": "navigation"
+   },
+   {
+    "node": "PROP_StickyNote_2",
+    "interactive_id": "graffiti",
+    "interactive_label": "Graffiti guestbook",
+    "interactive_scope": "home",
+    "interactive_kind": "navigation"
+   }
+  ],
+  "texture_list": [
+   {
+    "name": "desk_glow",
+    "mime": "image/png",
+    "size": "1024x1024",
+    "kb": 504,
+    "gpu_safe": true
+   },
+   {
+    "name": "planks_n",
+    "mime": "image/png",
+    "size": "1024x1024",
+    "kb": 1120,
+    "gpu_safe": true
+   },
+   {
+    "name": "desk_ao",
+    "mime": "image/png",
+    "size": "1024x1024",
+    "kb": 539,
+    "gpu_safe": true
+   },
+   {
+    "name": "planks",
+    "mime": "image/png",
+    "size": "1024x1024",
+    "kb": 1243,
+    "gpu_safe": true
+   },
+   {
+    "name": "planks_r",
+    "mime": "image/png",
+    "size": "512x512",
+    "kb": 190,
+    "gpu_safe": true
+   },
+   {
+    "name": "rug_n",
+    "mime": "image/png",
+    "size": "1024x640",
+    "kb": 825,
+    "gpu_safe": true
+   },
+   {
+    "name": "rug",
+    "mime": "image/png",
+    "size": "1024x640",
+    "kb": 601,
+    "gpu_safe": true
+   },
+   {
+    "name": "quilt_n",
+    "mime": "image/png",
+    "size": "256x256",
+    "kb": 96,
+    "gpu_safe": true
+   },
+   {
+    "name": "quilt",
+    "mime": "image/png",
+    "size": "256x256",
+    "kb": 87,
+    "gpu_safe": true
+   },
+   {
+    "name": "plaid_n",
+    "mime": "image/png",
+    "size": "256x512",
+    "kb": 135,
+    "gpu_safe": true
+   },
+   {
+    "name": "plaid",
+    "mime": "image/png",
+    "size": "512x1024",
+    "kb": 477,
+    "gpu_safe": true
+   },
+   {
+    "name": "mug_boss",
+    "mime": "image/png",
+    "size": "256x128",
+    "kb": 18,
+    "gpu_safe": true
+   },
+   {
+    "name": "sticker_qa",
+    "mime": "image/png",
+    "size": "640x400",
+    "kb": 186,
+    "gpu_safe": true
+   },
+   {
+    "name": "maker_plate",
+    "mime": "image/png",
+    "size": "1200x300",
+    "kb": 159,
+    "gpu_safe": true
+   },
+   {
+    "name": "screen_left",
+    "mime": "image/png",
+    "size": "1024x576",
+    "kb": 45,
+    "gpu_safe": true
+   },
+   {
+    "name": "screen_right",
+    "mime": "image/png",
+    "size": "1024x576",
+    "kb": 55,
+    "gpu_safe": true
+   },
+   {
+    "name": "business_card",
+    "mime": "image/png",
+    "size": "1050x600",
+    "kb": 315,
+    "gpu_safe": false
+   },
+   {
+    "name": "game_label_01",
+    "mime": "image/png",
+    "size": "1000x930",
+    "kb": 1359,
+    "gpu_safe": false
+   },
+   {
+    "name": "game_label_02",
+    "mime": "image/png",
+    "size": "1000x930",
+    "kb": 763,
+    "gpu_safe": false
+   },
+   {
+    "name": "game_label_03",
+    "mime": "image/png",
+    "size": "1000x930",
+    "kb": 1129,
+    "gpu_safe": false
+   },
+   {
+    "name": "game_label_04",
+    "mime": "image/png",
+    "size": "1000x930",
+    "kb": 755,
+    "gpu_safe": false
+   },
+   {
+    "name": "game_label_05",
+    "mime": "image/png",
+    "size": "1000x930",
+    "kb": 1073,
+    "gpu_safe": false
+   },
+   {
+    "name": "crate_n",
+    "mime": "image/png",
+    "size": "512x512",
+    "kb": 333,
+    "gpu_safe": true
+   },
+   {
+    "name": "crate",
+    "mime": "image/png",
+    "size": "512x512",
+    "kb": 315,
+    "gpu_safe": true
+   },
+   {
+    "name": "sketchbook",
+    "mime": "image/png",
+    "size": "1024x640",
+    "kb": 477,
+    "gpu_safe": true
+   },
+   {
+    "name": "spines",
+    "mime": "image/png",
+    "size": "512x512",
+    "kb": 165,
+    "gpu_safe": true
+   },
+   {
+    "name": "deskmat_n",
+    "mime": "image/png",
+    "size": "512x192",
+    "kb": 80,
+    "gpu_safe": true
+   },
+   {
+    "name": "deskmat",
+    "mime": "image/png",
+    "size": "1024x384",
+    "kb": 201,
+    "gpu_safe": true
+   },
+   {
+    "name": "gamebox_label_0",
+    "mime": "image/png",
+    "size": "640x112",
+    "kb": 21,
+    "gpu_safe": true
+   },
+   {
+    "name": "gamebox_label_1",
+    "mime": "image/png",
+    "size": "640x112",
+    "kb": 20,
+    "gpu_safe": true
+   },
+   {
+    "name": "gamebox_label_2",
+    "mime": "image/png",
+    "size": "640x112",
+    "kb": 21,
+    "gpu_safe": true
+   },
+   {
+    "name": "leather_n",
+    "mime": "image/png",
+    "size": "512x512",
+    "kb": 229,
+    "gpu_safe": true
+   },
+   {
+    "name": "leather",
+    "mime": "image/png",
+    "size": "512x512",
+    "kb": 167,
+    "gpu_safe": true
+   },
+   {
+    "name": "leather_r",
+    "mime": "image/png",
+    "size": "512x512",
+    "kb": 136,
+    "gpu_safe": true
+   },
+   {
+    "name": "mug",
+    "mime": "image/png",
+    "size": "512x256",
+    "kb": 59,
+    "gpu_safe": true
+   },
+   {
+    "name": "fabric_bin_n",
+    "mime": "image/png",
+    "size": "256x256",
+    "kb": 76,
+    "gpu_safe": true
+   },
+   {
+    "name": "fabric_bin",
+    "mime": "image/png",
+    "size": "256x256",
+    "kb": 61,
+    "gpu_safe": true
+   },
+   {
+    "name": "cartridges",
+    "mime": "image/png",
+    "size": "512x512",
+    "kb": 12,
+    "gpu_safe": true
+   },
+   {
+    "name": "leather_brown_n",
+    "mime": "image/png",
+    "size": "512x512",
+    "kb": 308,
+    "gpu_safe": true
+   },
+   {
+    "name": "leather_brown",
+    "mime": "image/png",
+    "size": "512x512",
+    "kb": 251,
+    "gpu_safe": true
+   },
+   {
+    "name": "wood_desk_n",
+    "mime": "image/png",
+    "size": "1024x1024",
+    "kb": 1165,
+    "gpu_safe": true
+   },
+   {
+    "name": "wood_desk",
+    "mime": "image/png",
+    "size": "1024x1024",
+    "kb": 1366,
+    "gpu_safe": true
+   },
+   {
+    "name": "wood_desk_r",
+    "mime": "image/png",
+    "size": "512x512",
+    "kb": 234,
+    "gpu_safe": true
+   },
+   {
+    "name": "wood_dark_n",
+    "mime": "image/png",
+    "size": "512x512",
+    "kb": 252,
+    "gpu_safe": true
+   },
+   {
+    "name": "wood_dark",
+    "mime": "image/png",
+    "size": "1024x1024",
+    "kb": 1250,
+    "gpu_safe": true
+   },
+   {
+    "name": "wood_light_n",
+    "mime": "image/png",
+    "size": "512x512",
+    "kb": 320,
+    "gpu_safe": true
+   },
+   {
+    "name": "wood_light",
+    "mime": "image/png",
+    "size": "1024x1024",
+    "kb": 1375,
+    "gpu_safe": true
+   }
+  ],
+  "textures_not_multiple_of_4": [
+   "business_card 1050x600",
+   "game_label_01 1000x930",
+   "game_label_02 1000x930",
+   "game_label_03 1000x930",
+   "game_label_04 1000x930",
+   "game_label_05 1000x930"
+  ]
+ },
+ {
+  "file": "studio_desk.glb",
+  "mb": 9.56,
+  "nodes": 179,
+  "meshes": 119,
+  "draw_calls": 126,
+  "triangles": 83016,
+  "materials": 92,
+  "textures": 47,
+  "texture_mb_download": 8.18,
+  "gpu_texture_mb": 21.6,
+  "validator": {
+   "errors": 0,
+   "warnings": 48,
+   "messages": [
+    "VALUE_NOT_IN_LIST: Invalid value 'image/ktx2'. Valid values are ('image/jpeg', 'image/png').",
+    "VALUE_NOT_IN_LIST: Invalid value 'image/ktx2'. Valid values are ('image/jpeg', 'image/png').",
+    "VALUE_NOT_IN_LIST: Invalid value 'image/ktx2'. Valid values are ('image/jpeg', 'image/png').",
+    "VALUE_NOT_IN_LIST: Invalid value 'image/ktx2'. Valid values are ('image/jpeg', 'image/png').",
+    "VALUE_NOT_IN_LIST: Invalid value 'image/ktx2'. Valid values are ('image/jpeg', 'image/png').",
+    "VALUE_NOT_IN_LIST: Invalid value 'image/ktx2'. Valid values are ('image/jpeg', 'image/png').",
+    "VALUE_NOT_IN_LIST: Invalid value 'image/ktx2'. Valid values are ('image/jpeg', 'image/png').",
+    "VALUE_NOT_IN_LIST: Invalid value 'image/ktx2'. Valid values are ('image/jpeg', 'image/png')."
+   ]
+  },
+  "tags": [
+   {
+    "node": "BASE_Rug",
+    "artwork_slot": "rug"
+   },
+   {
+    "node": "CHAIR_Blanket",
+    "artwork_slot": "blanket"
+   },
+   {
+    "node": "EGG_ChairUnderside",
+    "egg_id": "egg_chair_underside",
+    "interactive_kind": "discovery",
+    "egg_status": "planned",
+    "egg_note": "Tag under the seat"
+   },
+   {
+    "node": "COLL_FigureA",
+    "interactive_id": "collectible_a",
+    "interactive_label": "Collectible detail (placeholder)",
+    "interactive_scope": "home",
+    "interactive_kind": "discovery"
+   },
+   {
+    "node": "COLL_FigureB_Mug",
+    "artwork_slot": "mug_figure"
+   },
+   {
+    "node": "COLL_FigureB",
+    "interactive_id": "collectible_b",
+    "interactive_label": "Collectible detail (placeholder)",
+    "interactive_scope": "home",
+    "interactive_kind": "discovery"
+   },
+   {
+    "node": "EGG_DrawerInside",
+    "egg_id": "egg_drawer_inside",
+    "interactive_kind": "discovery",
+    "egg_status": "planned",
+    "egg_note": "Needs a drawer interior (future); contents revealed when the drawer slides out"
+   },
+   {
+    "node": "DESK_Drawer_1_Group",
+    "interactive_id": "drawer_1",
+    "interactive_label": "Potential future interaction (placeholder)",
+    "interactive_scope": "home",
+    "interactive_kind": "discovery"
+   },
+   {
+    "node": "DESK_Drawer_2_Group",
+    "interactive_id": "drawer_2",
+    "interactive_label": "Potential future interaction (placeholder)",
+    "interactive_scope": "home",
+    "interactive_kind": "discovery"
+   },
+   {
+    "node": "DESK_Drawer_3_Group",
+    "interactive_id": "drawer_3",
+    "interactive_label": "Potential future interaction (placeholder)",
+    "interactive_scope": "home",
+    "interactive_kind": "discovery"
+   },
+   {
+    "node": "EGG_BehindMonitor",
+    "egg_id": "egg_behind_monitor",
+    "interactive_kind": "discovery",
+    "egg_status": "planned",
+    "egg_note": "Note taped behind a monitor"
+   },
+   {
+    "node": "EGG_CabinetBack",
+    "egg_id": "egg_cabinet_back",
+    "interactive_kind": "discovery",
+    "egg_status": "planned",
+    "egg_note": "Label on the back of the cabinet"
+   },
+   {
+    "node": "EGG_HutchBack",
+    "egg_id": "egg_hutch_back",
+    "interactive_kind": "discovery",
+    "egg_status": "planned",
+    "egg_note": "Inscription on the back of the hutch"
+   },
+   {
+    "node": "EGG_ShelfUnderside",
+    "egg_id": "egg_shelf_underside",
+    "interactive_kind": "discovery",
+    "egg_status": "planned",
+    "egg_note": "Writing on the underside of the upper shelf"
+   },
+   {
+    "node": "EGG_UnderDesktop",
+    "egg_id": "egg_under_desktop",
+    "interactive_kind": "discovery",
+    "egg_status": "test-detail",
+    "egg_note": "Sticker on the underside of the desktop",
+    "interactive_id": "egg_qa_sticker",
+    "interactive_label": "Hidden sticker (discovery)",
+    "interactive_scope": "home"
+   },
+   {
+    "node": "EGG_UnderPlatform",
+    "egg_id": "egg_under_platform",
+    "interactive_kind": "discovery",
+    "egg_status": "test-detail",
+    "egg_note": "Maker's plate under the display platform",
+    "interactive_id": "egg_maker_plate",
+    "interactive_label": "Hidden maker's plate (discovery)",
+    "interactive_scope": "home"
+   },
+   {
+    "node": "MON_L_Screen",
+    "interactive_id": "monitor_left",
+    "interactive_label": "Projects (placeholder)",
+    "interactive_scope": "home",
+    "interactive_kind": "navigation",
+    "artwork_slot": "screen_left"
+   },
+   {
+    "node": "MON_R_Screen",
+    "interactive_id": "monitor_right",
+    "interactive_label": "Projects (placeholder)",
+    "interactive_scope": "home",
+    "interactive_kind": "navigation",
+    "artwork_slot": "screen_right"
+   },
+   {
+    "node": "NAV_ContactCards_Card_0",
+    "artwork_slot": "business_card"
+   },
+   {
+    "node": "NAV_ContactCards_Card_1",
+    "artwork_slot": "business_card"
+   },
+   {
+    "node": "NAV_ContactCards",
+    "interactive_id": "contact_card",
+    "interactive_label": "Contact",
+    "interactive_scope": "home",
+    "interactive_kind": "navigation"
+   },
+   {
+    "node": "EGG_CrateBottom",
+    "egg_id": "egg_crate_bottom",
+    "interactive_kind": "discovery",
+    "egg_status": "planned",
+    "egg_note": "Stamp under the games crate (Games page exhibit)"
+   },
+   {
+    "node": "GAME_Case_01_Label",
+    "artwork_slot": "game_label_01"
+   },
+   {
+    "node": "GAME_Case_01",
+    "game_slot": 1,
+    "interactive_id": "game_slot_01",
+    "interactive_label": "Game slot 1 (metadata in games.json)",
+    "interactive_scope": "games",
+    "interactive_kind": "navigation"
+   },
+   {
+    "node": "GAME_Case_02_Label",
+    "artwork_slot": "game_label_02"
+   },
+   {
+    "node": "GAME_Case_02",
+    "game_slot": 2,
+    "interactive_id": "game_slot_02",
+    "interactive_label": "Game slot 2 (metadata in games.json)",
+    "interactive_scope": "games",
+    "interactive_kind": "navigation"
+   },
+   {
+    "node": "GAME_Case_03_Label",
+    "artwork_slot": "game_label_03"
+   },
+   {
+    "node": "GAME_Case_03",
+    "game_slot": 3,
+    "interactive_id": "game_slot_03",
+    "interactive_label": "Game slot 3 (metadata in games.json)",
+    "interactive_scope": "games",
+    "interactive_kind": "navigation"
+   },
+   {
+    "node": "GAME_Case_04_Label",
+    "artwork_slot": "game_label_04"
+   },
+   {
+    "node": "GAME_Case_04",
+    "game_slot": 4,
+    "interactive_id": "game_slot_04",
+    "interactive_label": "Game slot 4 (metadata in games.json)",
+    "interactive_scope": "games",
+    "interactive_kind": "navigation"
+   },
+   {
+    "node": "GAME_Case_05_Label",
+    "artwork_slot": "game_label_05"
+   },
+   {
+    "node": "GAME_Case_05",
+    "game_slot": 5,
+    "interactive_id": "game_slot_05",
+    "interactive_label": "Game slot 5 (metadata in games.json)",
+    "interactive_scope": "games",
+    "interactive_kind": "navigation"
+   },
+   {
+    "node": "NAV_GamesCrate_Body",
+    "artwork_slot": "crate_print"
+   },
+   {
+    "node": "NAV_GamesCrate",
+    "asset_id": "games_crate",
+    "interactive_id": "games_crate",
+    "interactive_label": "Game collection -> EXPLORE GAMES",
+    "interactive_scope": "home",
+    "interactive_kind": "navigation"
+   },
+   {
+    "node": "EGG_NotebookBack",
+    "egg_id": "egg_notebook_back",
+    "interactive_kind": "discovery",
+    "egg_status": "planned",
+    "egg_note": "Sticker on the outside of the back cover (About page exhibit)"
+   },
+   {
+    "node": "NOTE_Cover_Back",
+    "hinge_axis": "Y"
+   },
+   {
+    "node": "NOTE_Cover_Front",
+    "hinge_axis": "Y"
+   },
+   {
+    "node": "NOTE_Page_L_Sheet",
+    "artwork_slot": "sketchbook"
+   },
+   {
+    "node": "NOTE_Page_L",
+    "hinge_axis": "Y"
+   },
+   {
+    "node": "NOTE_Page_R_Sheet",
+    "artwork_slot": "sketchbook"
+   },
+   {
+    "node": "NOTE_Page_R",
+    "hinge_axis": "Y"
+   },
+   {
+    "node": "NOTE_PageBlock_L",
+    "hinge_axis": "Y"
+   },
+   {
+    "node": "NOTE_PageBlock_R",
+    "hinge_axis": "Y"
+   },
+   {
+    "node": "NAV_Notebook",
+    "asset_id": "studio_notebook",
+    "interactive_id": "notebook",
+    "interactive_label": "About the studio / process",
+    "interactive_scope": "home",
+    "interactive_kind": "navigation"
+   },
+   {
+    "node": "PROP_Book_0",
+    "interactive_id": "book_1",
+    "interactive_label": "Optional discovery (placeholder)",
+    "interactive_scope": "home",
+    "interactive_kind": "discovery",
+    "artwork_slot": "book_spine_1"
+   },
+   {
+    "node": "PROP_Book_1",
+    "interactive_id": "book_2",
+    "interactive_label": "Optional discovery (placeholder)",
+    "interactive_scope": "home",
+    "interactive_kind": "discovery",
+    "artwork_slot": "book_spine_2"
+   },
+   {
+    "node": "PROP_Book_2",
+    "interactive_id": "book_3",
+    "interactive_label": "Optional discovery (placeholder)",
+    "interactive_scope": "home",
+    "interactive_kind": "discovery",
+    "artwork_slot": "book_spine_3"
+   },
+   {
+    "node": "PROP_Book_3",
+    "interactive_id": "book_4",
+    "interactive_label": "Optional discovery (placeholder)",
+    "interactive_scope": "home",
+    "interactive_kind": "discovery",
+    "artwork_slot": "book_spine_4"
+   },
+   {
+    "node": "PROP_Book_4",
+    "interactive_id": "book_5",
+    "interactive_label": "Optional discovery (placeholder)",
+    "interactive_scope": "home",
+    "interactive_kind": "discovery",
+    "artwork_slot": "book_spine_5"
+   },
+   {
+    "node": "PROP_Book_Leaning",
+    "interactive_id": "book_6",
+    "interactive_label": "Optional discovery (placeholder)",
+    "interactive_scope": "home",
+    "interactive_kind": "discovery",
+    "artwork_slot": "book_spine_6"
+   },
+   {
+    "node": "PROP_DeskMat",
+    "artwork_slot": "deskmat"
+   },
+   {
+    "node": "PROP_GameBox_0_Label",
+    "artwork_slot": "gamebox_label_0"
+   },
+   {
+    "node": "PROP_GameBox_0",
+    "interactive_id": "project_labyrinth-fate",
+    "interactive_label": "Project: labyrinth-fate",
+    "interactive_scope": "home",
+    "interactive_kind": "navigation"
+   },
+   {
+    "node": "PROP_GameBox_1_Label",
+    "artwork_slot": "gamebox_label_1"
+   },
+   {
+    "node": "PROP_GameBox_1",
+    "interactive_id": "project_macabre-dolls",
+    "interactive_label": "Project: macabre-dolls",
+    "interactive_scope": "home",
+    "interactive_kind": "navigation"
+   },
+   {
+    "node": "PROP_GameBox_2_Label",
+    "artwork_slot": "gamebox_label_2"
+   },
+   {
+    "node": "PROP_GameBox_2",
+    "interactive_id": "project_juicebox",
+    "interactive_label": "Project: juicebox",
+    "interactive_scope": "home",
+    "interactive_kind": "navigation"
+   },
+   {
+    "node": "PROP_Headphones_Stand",
+    "interactive_id": "headphones",
+    "interactive_label": "WRFM / audio experience",
+    "interactive_scope": "home",
+    "interactive_kind": "navigation"
+   },
+   {
+    "node": "PROP_Mug",
+    "artwork_slot": "mug_wrap",
+    "interactive_id": "mug",
+    "interactive_label": "Optional humorous interaction (placeholder)",
+    "interactive_scope": "home",
+    "interactive_kind": "discovery"
+   },
+   {
+    "node": "PROP_StickyNote_0",
+    "interactive_id": "graffiti",
+    "interactive_label": "Graffiti guestbook",
+    "interactive_scope": "home",
+    "interactive_kind": "navigation"
+   },
+   {
+    "node": "PROP_StickyNote_1",
+    "interactive_id": "graffiti",
+    "interactive_label": "Graffiti guestbook",
+    "interactive_scope": "home",
+    "interactive_kind": "navigation"
+   },
+   {
+    "node": "PROP_StickyNote_2",
+    "interactive_id": "graffiti",
+    "interactive_label": "Graffiti guestbook",
+    "interactive_scope": "home",
+    "interactive_kind": "navigation"
+   }
+  ],
+  "texture_list": [
+   {
+    "name": "desk_glow",
+    "mime": "image/ktx2",
+    "size": "1024x1024",
+    "kb": 368,
+    "gpu_safe": true
+   },
+   {
+    "name": "planks_n",
+    "mime": "image/ktx2",
+    "size": "512x512",
+    "kb": 154,
+    "gpu_safe": true
+   },
+   {
+    "name": "desk_ao",
+    "mime": "image/ktx2",
+    "size": "1024x1024",
+    "kb": 548,
+    "gpu_safe": true
+   },
+   {
+    "name": "planks",
+    "mime": "image/ktx2",
+    "size": "1024x1024",
+    "kb": 611,
+    "gpu_safe": true
+   },
+   {
+    "name": "planks_r",
+    "mime": "image/ktx2",
+    "size": "512x512",
+    "kb": 122,
+    "gpu_safe": true
+   },
+   {
+    "name": "rug_n",
+    "mime": "image/ktx2",
+    "size": "512x320",
+    "kb": 114,
+    "gpu_safe": true
+   },
+   {
+    "name": "rug",
+    "mime": "image/ktx2",
+    "size": "1024x640",
+    "kb": 357,
+    "gpu_safe": true
+   },
+   {
+    "name": "quilt_n",
+    "mime": "image/ktx2",
+    "size": "256x256",
+    "kb": 37,
+    "gpu_safe": true
+   },
+   {
+    "name": "quilt",
+    "mime": "image/ktx2",
+    "size": "256x256",
+    "kb": 37,
+    "gpu_safe": true
+   },
+   {
+    "name": "plaid_n",
+    "mime": "image/ktx2",
+    "size": "256x512",
+    "kb": 69,
+    "gpu_safe": true
+   },
+   {
+    "name": "plaid",
+    "mime": "image/ktx2",
+    "size": "512x1024",
+    "kb": 162,
+    "gpu_safe": true
+   },
+   {
+    "name": "mug_boss",
+    "mime": "image/ktx2",
+    "size": "256x128",
+    "kb": 16,
+    "gpu_safe": true
+   },
+   {
+    "name": "sticker_qa",
+    "mime": "image/ktx2",
+    "size": "640x400",
+    "kb": 114,
+    "gpu_safe": true
+   },
+   {
+    "name": "maker_plate",
+    "mime": "image/ktx2",
+    "size": "1024x256",
+    "kb": 119,
+    "gpu_safe": true
+   },
+   {
+    "name": "screen_left",
+    "mime": "image/ktx2",
+    "size": "1024x576",
+    "kb": 79,
+    "gpu_safe": true
+   },
+   {
+    "name": "screen_right",
+    "mime": "image/ktx2",
+    "size": "1024x576",
+    "kb": 71,
+    "gpu_safe": true
+   },
+   {
+    "name": "business_card",
+    "mime": "image/ktx2",
+    "size": "1024x584",
+    "kb": 232,
+    "gpu_safe": true
+   },
+   {
+    "name": "game_label_01",
+    "mime": "image/ktx2",
+    "size": "512x476",
+    "kb": 225,
+    "gpu_safe": true
+   },
+   {
+    "name": "game_label_02",
+    "mime": "image/ktx2",
+    "size": "512x476",
+    "kb": 150,
+    "gpu_safe": true
+   },
+   {
+    "name": "game_label_03",
+    "mime": "image/ktx2",
+    "size": "512x476",
+    "kb": 187,
+    "gpu_safe": true
+   },
+   {
+    "name": "game_label_04",
+    "mime": "image/ktx2",
+    "size": "512x476",
+    "kb": 183,
+    "gpu_safe": true
+   },
+   {
+    "name": "game_label_05",
+    "mime": "image/ktx2",
+    "size": "512x476",
+    "kb": 218,
+    "gpu_safe": true
+   },
+   {
+    "name": "crate_n",
+    "mime": "image/ktx2",
+    "size": "512x512",
+    "kb": 125,
+    "gpu_safe": true
+   },
+   {
+    "name": "crate",
+    "mime": "image/ktx2",
+    "size": "512x512",
+    "kb": 187,
+    "gpu_safe": true
+   },
+   {
+    "name": "sketchbook",
+    "mime": "image/ktx2",
+    "size": "1024x640",
+    "kb": 273,
+    "gpu_safe": true
+   },
+   {
+    "name": "spines",
+    "mime": "image/ktx2",
+    "size": "512x512",
+    "kb": 130,
+    "gpu_safe": true
+   },
+   {
+    "name": "deskmat_n",
+    "mime": "image/ktx2",
+    "size": "512x192",
+    "kb": 57,
+    "gpu_safe": true
+   },
+   {
+    "name": "deskmat",
+    "mime": "image/ktx2",
+    "size": "1024x384",
+    "kb": 133,
+    "gpu_safe": true
+   },
+   {
+    "name": "gamebox_label_0",
+    "mime": "image/ktx2",
+    "size": "640x112",
+    "kb": 22,
+    "gpu_safe": true
+   },
+   {
+    "name": "gamebox_label_1",
+    "mime": "image/ktx2",
+    "size": "640x112",
+    "kb": 22,
+    "gpu_safe": true
+   },
+   {
+    "name": "gamebox_label_2",
+    "mime": "image/ktx2",
+    "size": "640x112",
+    "kb": 22,
+    "gpu_safe": true
+   },
+   {
+    "name": "leather_n",
+    "mime": "image/ktx2",
+    "size": "512x512",
+    "kb": 164,
+    "gpu_safe": true
+   },
+   {
+    "name": "leather",
+    "mime": "image/ktx2",
+    "size": "512x512",
+    "kb": 72,
+    "gpu_safe": true
+   },
+   {
+    "name": "leather_r",
+    "mime": "image/ktx2",
+    "size": "512x512",
+    "kb": 142,
+    "gpu_safe": true
+   },
+   {
+    "name": "mug",
+    "mime": "image/ktx2",
+    "size": "512x256",
+    "kb": 45,
+    "gpu_safe": true
+   },
+   {
+    "name": "fabric_bin_n",
+    "mime": "image/ktx2",
+    "size": "256x256",
+    "kb": 17,
+    "gpu_safe": true
+   },
+   {
+    "name": "fabric_bin",
+    "mime": "image/ktx2",
+    "size": "256x256",
+    "kb": 15,
+    "gpu_safe": true
+   },
+   {
+    "name": "cartridges",
+    "mime": "image/ktx2",
+    "size": "512x512",
+    "kb": 31,
+    "gpu_safe": true
+   },
+   {
+    "name": "leather_brown_n",
+    "mime": "image/ktx2",
+    "size": "512x512",
+    "kb": 94,
+    "gpu_safe": true
+   },
+   {
+    "name": "leather_brown",
+    "mime": "image/ktx2",
+    "size": "512x512",
+    "kb": 108,
+    "gpu_safe": true
+   },
+   {
+    "name": "wood_desk_n",
+    "mime": "image/ktx2",
+    "size": "512x512",
+    "kb": 126,
+    "gpu_safe": true
+   },
+   {
+    "name": "wood_desk",
+    "mime": "image/ktx2",
+    "size": "1024x1024",
+    "kb": 598,
+    "gpu_safe": true
+   },
+   {
+    "name": "wood_desk_r",
+    "mime": "image/ktx2",
+    "size": "512x512",
+    "kb": 123,
+    "gpu_safe": true
+   },
+   {
+    "name": "wood_dark_n",
+    "mime": "image/ktx2",
+    "size": "512x512",
+    "kb": 88,
+    "gpu_safe": true
+   },
+   {
+    "name": "wood_dark",
+    "mime": "image/ktx2",
+    "size": "1024x1024",
+    "kb": 463,
+    "gpu_safe": true
+   },
+   {
+    "name": "wood_light_n",
+    "mime": "image/ktx2",
+    "size": "512x512",
+    "kb": 125,
+    "gpu_safe": true
+   },
+   {
+    "name": "wood_light",
+    "mime": "image/ktx2",
+    "size": "1024x1024",
+    "kb": 639,
+    "gpu_safe": true
+   }
+  ],
+  "textures_not_multiple_of_4": []
+ },
+ {
+  "file": "studio_desk_webp.glb",
+  "mb": 3.31,
+  "nodes": 179,
+  "meshes": 119,
+  "draw_calls": 126,
+  "triangles": 83016,
+  "materials": 92,
+  "textures": 47,
+  "texture_mb_download": 1.94,
+  "gpu_texture_mb": 86.5,
+  "validator": {
+   "errors": 0,
+   "warnings": 13,
+   "messages": [
+    "MESH_PRIMITIVE_GENERATED_TANGENT_SPACE: Material requires a tangent space but the mesh primitive does not provide it. Runtime-generated tangent space may be non-portable across implementations.",
+    "MESH_PRIMITIVE_GENERATED_TANGENT_SPACE: Material requires a tangent space but the mesh primitive does not provide it. Runtime-generated tangent space may be non-portable across implementations.",
+    "MESH_PRIMITIVE_GENERATED_TANGENT_SPACE: Material requires a tangent space but the mesh primitive does not provide it. Runtime-generated tangent space may be non-portable across implementations.",
+    "MESH_PRIMITIVE_GENERATED_TANGENT_SPACE: Material requires a tangent space but the mesh primitive does not provide it. Runtime-generated tangent space may be non-portable across implementations.",
+    "MESH_PRIMITIVE_GENERATED_TANGENT_SPACE: Material requires a tangent space but the mesh primitive does not provide it. Runtime-generated tangent space may be non-portable across implementations.",
+    "MESH_PRIMITIVE_GENERATED_TANGENT_SPACE: Material requires a tangent space but the mesh primitive does not provide it. Runtime-generated tangent space may be non-portable across implementations.",
+    "MESH_PRIMITIVE_GENERATED_TANGENT_SPACE: Material requires a tangent space but the mesh primitive does not provide it. Runtime-generated tangent space may be non-portable across implementations.",
+    "MESH_PRIMITIVE_GENERATED_TANGENT_SPACE: Material requires a tangent space but the mesh primitive does not provide it. Runtime-generated tangent space may be non-portable across implementations."
+   ]
+  },
+  "tags": [
+   {
+    "node": "BASE_Rug",
+    "artwork_slot": "rug"
+   },
+   {
+    "node": "CHAIR_Blanket",
+    "artwork_slot": "blanket"
+   },
+   {
+    "node": "EGG_ChairUnderside",
+    "egg_id": "egg_chair_underside",
+    "interactive_kind": "discovery",
+    "egg_status": "planned",
+    "egg_note": "Tag under the seat"
+   },
+   {
+    "node": "COLL_FigureA",
+    "interactive_id": "collectible_a",
+    "interactive_label": "Collectible detail (placeholder)",
+    "interactive_scope": "home",
+    "interactive_kind": "discovery"
+   },
+   {
+    "node": "COLL_FigureB_Mug",
+    "artwork_slot": "mug_figure"
+   },
+   {
+    "node": "COLL_FigureB",
+    "interactive_id": "collectible_b",
+    "interactive_label": "Collectible detail (placeholder)",
+    "interactive_scope": "home",
+    "interactive_kind": "discovery"
+   },
+   {
+    "node": "EGG_DrawerInside",
+    "egg_id": "egg_drawer_inside",
+    "interactive_kind": "discovery",
+    "egg_status": "planned",
+    "egg_note": "Needs a drawer interior (future); contents revealed when the drawer slides out"
+   },
+   {
+    "node": "DESK_Drawer_1_Group",
+    "interactive_id": "drawer_1",
+    "interactive_label": "Potential future interaction (placeholder)",
+    "interactive_scope": "home",
+    "interactive_kind": "discovery"
+   },
+   {
+    "node": "DESK_Drawer_2_Group",
+    "interactive_id": "drawer_2",
+    "interactive_label": "Potential future interaction (placeholder)",
+    "interactive_scope": "home",
+    "interactive_kind": "discovery"
+   },
+   {
+    "node": "DESK_Drawer_3_Group",
+    "interactive_id": "drawer_3",
+    "interactive_label": "Potential future interaction (placeholder)",
+    "interactive_scope": "home",
+    "interactive_kind": "discovery"
+   },
+   {
+    "node": "EGG_BehindMonitor",
+    "egg_id": "egg_behind_monitor",
+    "interactive_kind": "discovery",
+    "egg_status": "planned",
+    "egg_note": "Note taped behind a monitor"
+   },
+   {
+    "node": "EGG_CabinetBack",
+    "egg_id": "egg_cabinet_back",
+    "interactive_kind": "discovery",
+    "egg_status": "planned",
+    "egg_note": "Label on the back of the cabinet"
+   },
+   {
+    "node": "EGG_HutchBack",
+    "egg_id": "egg_hutch_back",
+    "interactive_kind": "discovery",
+    "egg_status": "planned",
+    "egg_note": "Inscription on the back of the hutch"
+   },
+   {
+    "node": "EGG_ShelfUnderside",
+    "egg_id": "egg_shelf_underside",
+    "interactive_kind": "discovery",
+    "egg_status": "planned",
+    "egg_note": "Writing on the underside of the upper shelf"
+   },
+   {
+    "node": "EGG_UnderDesktop",
+    "egg_id": "egg_under_desktop",
+    "interactive_kind": "discovery",
+    "egg_status": "test-detail",
+    "egg_note": "Sticker on the underside of the desktop",
+    "interactive_id": "egg_qa_sticker",
+    "interactive_label": "Hidden sticker (discovery)",
+    "interactive_scope": "home"
+   },
+   {
+    "node": "EGG_UnderPlatform",
+    "egg_id": "egg_under_platform",
+    "interactive_kind": "discovery",
+    "egg_status": "test-detail",
+    "egg_note": "Maker's plate under the display platform",
+    "interactive_id": "egg_maker_plate",
+    "interactive_label": "Hidden maker's plate (discovery)",
+    "interactive_scope": "home"
+   },
+   {
+    "node": "MON_L_Screen",
+    "interactive_id": "monitor_left",
+    "interactive_label": "Projects (placeholder)",
+    "interactive_scope": "home",
+    "interactive_kind": "navigation",
+    "artwork_slot": "screen_left"
+   },
+   {
+    "node": "MON_R_Screen",
+    "interactive_id": "monitor_right",
+    "interactive_label": "Projects (placeholder)",
+    "interactive_scope": "home",
+    "interactive_kind": "navigation",
+    "artwork_slot": "screen_right"
+   },
+   {
+    "node": "NAV_ContactCards_Card_0",
+    "artwork_slot": "business_card"
+   },
+   {
+    "node": "NAV_ContactCards_Card_1",
+    "artwork_slot": "business_card"
+   },
+   {
+    "node": "NAV_ContactCards",
+    "interactive_id": "contact_card",
+    "interactive_label": "Contact",
+    "interactive_scope": "home",
+    "interactive_kind": "navigation"
+   },
+   {
+    "node": "EGG_CrateBottom",
+    "egg_id": "egg_crate_bottom",
+    "interactive_kind": "discovery",
+    "egg_status": "planned",
+    "egg_note": "Stamp under the games crate (Games page exhibit)"
+   },
+   {
+    "node": "GAME_Case_01_Label",
+    "artwork_slot": "game_label_01"
+   },
+   {
+    "node": "GAME_Case_01",
+    "game_slot": 1,
+    "interactive_id": "game_slot_01",
+    "interactive_label": "Game slot 1 (metadata in games.json)",
+    "interactive_scope": "games",
+    "interactive_kind": "navigation"
+   },
+   {
+    "node": "GAME_Case_02_Label",
+    "artwork_slot": "game_label_02"
+   },
+   {
+    "node": "GAME_Case_02",
+    "game_slot": 2,
+    "interactive_id": "game_slot_02",
+    "interactive_label": "Game slot 2 (metadata in games.json)",
+    "interactive_scope": "games",
+    "interactive_kind": "navigation"
+   },
+   {
+    "node": "GAME_Case_03_Label",
+    "artwork_slot": "game_label_03"
+   },
+   {
+    "node": "GAME_Case_03",
+    "game_slot": 3,
+    "interactive_id": "game_slot_03",
+    "interactive_label": "Game slot 3 (metadata in games.json)",
+    "interactive_scope": "games",
+    "interactive_kind": "navigation"
+   },
+   {
+    "node": "GAME_Case_04_Label",
+    "artwork_slot": "game_label_04"
+   },
+   {
+    "node": "GAME_Case_04",
+    "game_slot": 4,
+    "interactive_id": "game_slot_04",
+    "interactive_label": "Game slot 4 (metadata in games.json)",
+    "interactive_scope": "games",
+    "interactive_kind": "navigation"
+   },
+   {
+    "node": "GAME_Case_05_Label",
+    "artwork_slot": "game_label_05"
+   },
+   {
+    "node": "GAME_Case_05",
+    "game_slot": 5,
+    "interactive_id": "game_slot_05",
+    "interactive_label": "Game slot 5 (metadata in games.json)",
+    "interactive_scope": "games",
+    "interactive_kind": "navigation"
+   },
+   {
+    "node": "NAV_GamesCrate_Body",
+    "artwork_slot": "crate_print"
+   },
+   {
+    "node": "NAV_GamesCrate",
+    "asset_id": "games_crate",
+    "interactive_id": "games_crate",
+    "interactive_label": "Game collection -> EXPLORE GAMES",
+    "interactive_scope": "home",
+    "interactive_kind": "navigation"
+   },
+   {
+    "node": "EGG_NotebookBack",
+    "egg_id": "egg_notebook_back",
+    "interactive_kind": "discovery",
+    "egg_status": "planned",
+    "egg_note": "Sticker on the outside of the back cover (About page exhibit)"
+   },
+   {
+    "node": "NOTE_Cover_Back",
+    "hinge_axis": "Y"
+   },
+   {
+    "node": "NOTE_Cover_Front",
+    "hinge_axis": "Y"
+   },
+   {
+    "node": "NOTE_Page_L_Sheet",
+    "artwork_slot": "sketchbook"
+   },
+   {
+    "node": "NOTE_Page_L",
+    "hinge_axis": "Y"
+   },
+   {
+    "node": "NOTE_Page_R_Sheet",
+    "artwork_slot": "sketchbook"
+   },
+   {
+    "node": "NOTE_Page_R",
+    "hinge_axis": "Y"
+   },
+   {
+    "node": "NOTE_PageBlock_L",
+    "hinge_axis": "Y"
+   },
+   {
+    "node": "NOTE_PageBlock_R",
+    "hinge_axis": "Y"
+   },
+   {
+    "node": "NAV_Notebook",
+    "asset_id": "studio_notebook",
+    "interactive_id": "notebook",
+    "interactive_label": "About the studio / process",
+    "interactive_scope": "home",
+    "interactive_kind": "navigation"
+   },
+   {
+    "node": "PROP_Book_0",
+    "interactive_id": "book_1",
+    "interactive_label": "Optional discovery (placeholder)",
+    "interactive_scope": "home",
+    "interactive_kind": "discovery",
+    "artwork_slot": "book_spine_1"
+   },
+   {
+    "node": "PROP_Book_1",
+    "interactive_id": "book_2",
+    "interactive_label": "Optional discovery (placeholder)",
+    "interactive_scope": "home",
+    "interactive_kind": "discovery",
+    "artwork_slot": "book_spine_2"
+   },
+   {
+    "node": "PROP_Book_2",
+    "interactive_id": "book_3",
+    "interactive_label": "Optional discovery (placeholder)",
+    "interactive_scope": "home",
+    "interactive_kind": "discovery",
+    "artwork_slot": "book_spine_3"
+   },
+   {
+    "node": "PROP_Book_3",
+    "interactive_id": "book_4",
+    "interactive_label": "Optional discovery (placeholder)",
+    "interactive_scope": "home",
+    "interactive_kind": "discovery",
+    "artwork_slot": "book_spine_4"
+   },
+   {
+    "node": "PROP_Book_4",
+    "interactive_id": "book_5",
+    "interactive_label": "Optional discovery (placeholder)",
+    "interactive_scope": "home",
+    "interactive_kind": "discovery",
+    "artwork_slot": "book_spine_5"
+   },
+   {
+    "node": "PROP_Book_Leaning",
+    "interactive_id": "book_6",
+    "interactive_label": "Optional discovery (placeholder)",
+    "interactive_scope": "home",
+    "interactive_kind": "discovery",
+    "artwork_slot": "book_spine_6"
+   },
+   {
+    "node": "PROP_DeskMat",
+    "artwork_slot": "deskmat"
+   },
+   {
+    "node": "PROP_GameBox_0_Label",
+    "artwork_slot": "gamebox_label_0"
+   },
+   {
+    "node": "PROP_GameBox_0",
+    "interactive_id": "project_labyrinth-fate",
+    "interactive_label": "Project: labyrinth-fate",
+    "interactive_scope": "home",
+    "interactive_kind": "navigation"
+   },
+   {
+    "node": "PROP_GameBox_1_Label",
+    "artwork_slot": "gamebox_label_1"
+   },
+   {
+    "node": "PROP_GameBox_1",
+    "interactive_id": "project_macabre-dolls",
+    "interactive_label": "Project: macabre-dolls",
+    "interactive_scope": "home",
+    "interactive_kind": "navigation"
+   },
+   {
+    "node": "PROP_GameBox_2_Label",
+    "artwork_slot": "gamebox_label_2"
+   },
+   {
+    "node": "PROP_GameBox_2",
+    "interactive_id": "project_juicebox",
+    "interactive_label": "Project: juicebox",
+    "interactive_scope": "home",
+    "interactive_kind": "navigation"
+   },
+   {
+    "node": "PROP_Headphones_Stand",
+    "interactive_id": "headphones",
+    "interactive_label": "WRFM / audio experience",
+    "interactive_scope": "home",
+    "interactive_kind": "navigation"
+   },
+   {
+    "node": "PROP_Mug",
+    "artwork_slot": "mug_wrap",
+    "interactive_id": "mug",
+    "interactive_label": "Optional humorous interaction (placeholder)",
+    "interactive_scope": "home",
+    "interactive_kind": "discovery"
+   },
+   {
+    "node": "PROP_StickyNote_0",
+    "interactive_id": "graffiti",
+    "interactive_label": "Graffiti guestbook",
+    "interactive_scope": "home",
+    "interactive_kind": "navigation"
+   },
+   {
+    "node": "PROP_StickyNote_1",
+    "interactive_id": "graffiti",
+    "interactive_label": "Graffiti guestbook",
+    "interactive_scope": "home",
+    "interactive_kind": "navigation"
+   },
+   {
+    "node": "PROP_StickyNote_2",
+    "interactive_id": "graffiti",
+    "interactive_label": "Graffiti guestbook",
+    "interactive_scope": "home",
+    "interactive_kind": "navigation"
+   }
+  ],
+  "texture_list": [
+   {
+    "name": "desk_glow",
+    "mime": "image/webp",
+    "size": "1024x1024",
+    "kb": 98,
+    "gpu_safe": true
+   },
+   {
+    "name": "planks_n",
+    "mime": "image/webp",
+    "size": "512x512",
+    "kb": 32,
+    "gpu_safe": true
+   },
+   {
+    "name": "desk_ao",
+    "mime": "image/webp",
+    "size": "1024x1024",
+    "kb": 216,
+    "gpu_safe": true
+   },
+   {
+    "name": "planks",
+    "mime": "image/webp",
+    "size": "1024x1024",
+    "kb": 114,
+    "gpu_safe": true
+   },
+   {
+    "name": "planks_r",
+    "mime": "image/webp",
+    "size": "512x512",
+    "kb": 30,
+    "gpu_safe": true
+   },
+   {
+    "name": "rug_n",
+    "mime": "image/webp",
+    "size": "512x320",
+    "kb": 48,
+    "gpu_safe": true
+   },
+   {
+    "name": "rug",
+    "mime": "image/webp",
+    "size": "1024x640",
+    "kb": 157,
+    "gpu_safe": true
+   },
+   {
+    "name": "quilt_n",
+    "mime": "image/webp",
+    "size": "256x256",
+    "kb": 8,
+    "gpu_safe": true
+   },
+   {
+    "name": "quilt",
+    "mime": "image/webp",
+    "size": "256x256",
+    "kb": 11,
+    "gpu_safe": true
+   },
+   {
+    "name": "plaid_n",
+    "mime": "image/webp",
+    "size": "256x512",
+    "kb": 20,
+    "gpu_safe": true
+   },
+   {
+    "name": "plaid",
+    "mime": "image/webp",
+    "size": "512x1024",
+    "kb": 118,
+    "gpu_safe": true
+   },
+   {
+    "name": "mug_boss",
+    "mime": "image/webp",
+    "size": "256x128",
+    "kb": 3,
+    "gpu_safe": true
+   },
+   {
+    "name": "sticker_qa",
+    "mime": "image/webp",
+    "size": "640x400",
+    "kb": 12,
+    "gpu_safe": true
+   },
+   {
+    "name": "maker_plate",
+    "mime": "image/webp",
+    "size": "1024x256",
+    "kb": 25,
+    "gpu_safe": true
+   },
+   {
+    "name": "screen_left",
+    "mime": "image/webp",
+    "size": "1024x576",
+    "kb": 23,
+    "gpu_safe": true
+   },
+   {
+    "name": "screen_right",
+    "mime": "image/webp",
+    "size": "1024x576",
+    "kb": 19,
+    "gpu_safe": true
+   },
+   {
+    "name": "business_card",
+    "mime": "image/webp",
+    "size": "1024x584",
+    "kb": 24,
+    "gpu_safe": true
+   },
+   {
+    "name": "game_label_01",
+    "mime": "image/webp",
+    "size": "512x476",
+    "kb": 68,
+    "gpu_safe": true
+   },
+   {
+    "name": "game_label_02",
+    "mime": "image/webp",
+    "size": "512x476",
+    "kb": 40,
+    "gpu_safe": true
+   },
+   {
+    "name": "game_label_03",
+    "mime": "image/webp",
+    "size": "512x476",
+    "kb": 55,
+    "gpu_safe": true
+   },
+   {
+    "name": "game_label_04",
+    "mime": "image/webp",
+    "size": "512x476",
+    "kb": 34,
+    "gpu_safe": true
+   },
+   {
+    "name": "game_label_05",
+    "mime": "image/webp",
+    "size": "512x476",
+    "kb": 50,
+    "gpu_safe": true
+   },
+   {
+    "name": "crate_n",
+    "mime": "image/webp",
+    "size": "512x512",
+    "kb": 25,
+    "gpu_safe": true
+   },
+   {
+    "name": "crate",
+    "mime": "image/webp",
+    "size": "512x512",
+    "kb": 54,
+    "gpu_safe": true
+   },
+   {
+    "name": "sketchbook",
+    "mime": "image/webp",
+    "size": "1024x640",
+    "kb": 28,
+    "gpu_safe": true
+   },
+   {
+    "name": "spines",
+    "mime": "image/webp",
+    "size": "512x512",
+    "kb": 13,
+    "gpu_safe": true
+   },
+   {
+    "name": "deskmat_n",
+    "mime": "image/webp",
+    "size": "512x192",
+    "kb": 5,
+    "gpu_safe": true
+   },
+   {
+    "name": "deskmat",
+    "mime": "image/webp",
+    "size": "1024x384",
+    "kb": 26,
+    "gpu_safe": true
+   },
+   {
+    "name": "gamebox_label_0",
+    "mime": "image/webp",
+    "size": "640x112",
+    "kb": 2,
+    "gpu_safe": true
+   },
+   {
+    "name": "gamebox_label_1",
+    "mime": "image/webp",
+    "size": "640x112",
+    "kb": 3,
+    "gpu_safe": true
+   },
+   {
+    "name": "gamebox_label_2",
+    "mime": "image/webp",
+    "size": "640x112",
+    "kb": 3,
+    "gpu_safe": true
+   },
+   {
+    "name": "leather_n",
+    "mime": "image/webp",
+    "size": "512x512",
+    "kb": 1,
+    "gpu_safe": true
+   },
+   {
+    "name": "leather",
+    "mime": "image/webp",
+    "size": "512x512",
+    "kb": 2,
+    "gpu_safe": true
+   },
+   {
+    "name": "leather_r",
+    "mime": "image/webp",
+    "size": "512x512",
+    "kb": 17,
+    "gpu_safe": true
+   },
+   {
+    "name": "mug",
+    "mime": "image/webp",
+    "size": "512x256",
+    "kb": 3,
+    "gpu_safe": true
+   },
+   {
+    "name": "fabric_bin_n",
+    "mime": "image/webp",
+    "size": "256x256",
+    "kb": 10,
+    "gpu_safe": true
+   },
+   {
+    "name": "fabric_bin",
+    "mime": "image/webp",
+    "size": "256x256",
+    "kb": 8,
+    "gpu_safe": true
+   },
+   {
+    "name": "cartridges",
+    "mime": "image/webp",
+    "size": "512x512",
+    "kb": 5,
+    "gpu_safe": true
+   },
+   {
+    "name": "leather_brown_n",
+    "mime": "image/webp",
+    "size": "512x512",
+    "kb": 13,
+    "gpu_safe": true
+   },
+   {
+    "name": "leather_brown",
+    "mime": "image/webp",
+    "size": "512x512",
+    "kb": 5,
+    "gpu_safe": true
+   },
+   {
+    "name": "wood_desk_n",
+    "mime": "image/webp",
+    "size": "512x512",
+    "kb": 24,
+    "gpu_safe": true
+   },
+   {
+    "name": "wood_desk",
+    "mime": "image/webp",
+    "size": "1024x1024",
+    "kb": 138,
+    "gpu_safe": true
+   },
+   {
+    "name": "wood_desk_r",
+    "mime": "image/webp",
+    "size": "512x512",
+    "kb": 52,
+    "gpu_safe": true
+   },
+   {
+    "name": "wood_dark_n",
+    "mime": "image/webp",
+    "size": "512x512",
+    "kb": 15,
+    "gpu_safe": true
+   },
+   {
+    "name": "wood_dark",
+    "mime": "image/webp",
+    "size": "1024x1024",
+    "kb": 89,
+    "gpu_safe": true
+   },
+   {
+    "name": "wood_light_n",
+    "mime": "image/webp",
+    "size": "512x512",
+    "kb": 21,
+    "gpu_safe": true
+   },
+   {
+    "name": "wood_light",
+    "mime": "image/webp",
+    "size": "1024x1024",
+    "kb": 124,
+    "gpu_safe": true
+   }
+  ],
+  "textures_not_multiple_of_4": []
+ },
+ {
+  "file": "raw/games_collection.glb",
+  "mb": 6.01,
+  "nodes": 18,
+  "meshes": 11,
+  "draw_calls": 11,
+  "triangles": 820,
+  "materials": 7,
+  "textures": 8,
+  "texture_mb_download": 5.97,
+  "gpu_texture_mb": 27.7,
+  "validator": {
+   "errors": 0,
+   "warnings": 1,
+   "messages": [
+    "MESH_PRIMITIVE_GENERATED_TANGENT_SPACE: Material requires a tangent space but the mesh primitive does not provide it. Runtime-generated tangent space may be non-portable across implementations."
+   ]
+  },
+  "tags": [
+   {
+    "node": "EGG_CrateBottom",
+    "egg_id": "egg_crate_bottom",
+    "interactive_kind": "discovery",
+    "egg_status": "planned",
+    "egg_note": "Stamp under the games crate (Games page exhibit)"
+   },
+   {
+    "node": "GAME_Case_01_Label",
+    "artwork_slot": "game_label_01"
+   },
+   {
+    "node": "GAME_Case_01",
+    "game_slot": 1,
+    "interactive_id": "game_slot_01",
+    "interactive_label": "Game slot 1 (metadata in games.json)",
+    "interactive_scope": "games",
+    "interactive_kind": "navigation"
+   },
+   {
+    "node": "GAME_Case_02_Label",
+    "artwork_slot": "game_label_02"
+   },
+   {
+    "node": "GAME_Case_02",
+    "game_slot": 2,
+    "interactive_id": "game_slot_02",
+    "interactive_label": "Game slot 2 (metadata in games.json)",
+    "interactive_scope": "games",
+    "interactive_kind": "navigation"
+   },
+   {
+    "node": "GAME_Case_03_Label",
+    "artwork_slot": "game_label_03"
+   },
+   {
+    "node": "GAME_Case_03",
+    "game_slot": 3,
+    "interactive_id": "game_slot_03",
+    "interactive_label": "Game slot 3 (metadata in games.json)",
+    "interactive_scope": "games",
+    "interactive_kind": "navigation"
+   },
+   {
+    "node": "GAME_Case_04_Label",
+    "artwork_slot": "game_label_04"
+   },
+   {
+    "node": "GAME_Case_04",
+    "game_slot": 4,
+    "interactive_id": "game_slot_04",
+    "interactive_label": "Game slot 4 (metadata in games.json)",
+    "interactive_scope": "games",
+    "interactive_kind": "navigation"
+   },
+   {
+    "node": "GAME_Case_05_Label",
+    "artwork_slot": "game_label_05"
+   },
+   {
+    "node": "GAME_Case_05",
+    "game_slot": 5,
+    "interactive_id": "game_slot_05",
+    "interactive_label": "Game slot 5 (metadata in games.json)",
+    "interactive_scope": "games",
+    "interactive_kind": "navigation"
+   },
+   {
+    "node": "NAV_GamesCrate_Body",
+    "artwork_slot": "crate_print"
+   },
+   {
+    "node": "NAV_GamesCrate",
+    "asset_id": "games_crate",
+    "interactive_id": "games_crate",
+    "interactive_label": "Game collection -> EXPLORE GAMES",
+    "interactive_scope": "home",
+    "interactive_kind": "navigation"
+   }
+  ],
+  "texture_list": [
+   {
+    "name": "game_label_01",
+    "mime": "image/png",
+    "size": "1000x930",
+    "kb": 1359,
+    "gpu_safe": false
+   },
+   {
+    "name": "game_label_02",
+    "mime": "image/png",
+    "size": "1000x930",
+    "kb": 763,
+    "gpu_safe": false
+   },
+   {
+    "name": "game_label_03",
+    "mime": "image/png",
+    "size": "1000x930",
+    "kb": 1129,
+    "gpu_safe": false
+   },
+   {
+    "name": "game_label_04",
+    "mime": "image/png",
+    "size": "1000x930",
+    "kb": 755,
+    "gpu_safe": false
+   },
+   {
+    "name": "game_label_05",
+    "mime": "image/png",
+    "size": "1000x930",
+    "kb": 1073,
+    "gpu_safe": false
+   },
+   {
+    "name": "crate_n",
+    "mime": "image/png",
+    "size": "512x512",
+    "kb": 333,
+    "gpu_safe": true
+   },
+   {
+    "name": "crate_ao",
+    "mime": "image/png",
+    "size": "512x512",
+    "kb": 99,
+    "gpu_safe": true
+   },
+   {
+    "name": "crate",
+    "mime": "image/png",
+    "size": "512x512",
+    "kb": 315,
+    "gpu_safe": true
+   }
+  ],
+  "textures_not_multiple_of_4": [
+   "game_label_01 1000x930",
+   "game_label_02 1000x930",
+   "game_label_03 1000x930",
+   "game_label_04 1000x930",
+   "game_label_05 1000x930"
+  ]
+ },
+ {
+  "file": "games_collection.glb",
+  "mb": 1.43,
+  "nodes": 18,
+  "meshes": 7,
+  "draw_calls": 11,
+  "triangles": 820,
+  "materials": 7,
+  "textures": 8,
+  "texture_mb_download": 1.41,
+  "gpu_texture_mb": 2.5,
+  "validator": {
+   "errors": 0,
+   "warnings": 17,
+   "messages": [
+    "VALUE_NOT_IN_LIST: Invalid value 'image/ktx2'. Valid values are ('image/jpeg', 'image/png').",
+    "VALUE_NOT_IN_LIST: Invalid value 'image/ktx2'. Valid values are ('image/jpeg', 'image/png').",
+    "VALUE_NOT_IN_LIST: Invalid value 'image/ktx2'. Valid values are ('image/jpeg', 'image/png').",
+    "VALUE_NOT_IN_LIST: Invalid value 'image/ktx2'. Valid values are ('image/jpeg', 'image/png').",
+    "VALUE_NOT_IN_LIST: Invalid value 'image/ktx2'. Valid values are ('image/jpeg', 'image/png').",
+    "VALUE_NOT_IN_LIST: Invalid value 'image/ktx2'. Valid values are ('image/jpeg', 'image/png').",
+    "VALUE_NOT_IN_LIST: Invalid value 'image/ktx2'. Valid values are ('image/jpeg', 'image/png').",
+    "VALUE_NOT_IN_LIST: Invalid value 'image/ktx2'. Valid values are ('image/jpeg', 'image/png')."
+   ]
+  },
+  "tags": [
+   {
+    "node": "EGG_CrateBottom",
+    "egg_id": "egg_crate_bottom",
+    "interactive_kind": "discovery",
+    "egg_status": "planned",
+    "egg_note": "Stamp under the games crate (Games page exhibit)"
+   },
+   {
+    "node": "GAME_Case_01_Label",
+    "artwork_slot": "game_label_01"
+   },
+   {
+    "node": "GAME_Case_01",
+    "game_slot": 1,
+    "interactive_id": "game_slot_01",
+    "interactive_label": "Game slot 1 (metadata in games.json)",
+    "interactive_scope": "games",
+    "interactive_kind": "navigation"
+   },
+   {
+    "node": "GAME_Case_02_Label",
+    "artwork_slot": "game_label_02"
+   },
+   {
+    "node": "GAME_Case_02",
+    "game_slot": 2,
+    "interactive_id": "game_slot_02",
+    "interactive_label": "Game slot 2 (metadata in games.json)",
+    "interactive_scope": "games",
+    "interactive_kind": "navigation"
+   },
+   {
+    "node": "GAME_Case_03_Label",
+    "artwork_slot": "game_label_03"
+   },
+   {
+    "node": "GAME_Case_03",
+    "game_slot": 3,
+    "interactive_id": "game_slot_03",
+    "interactive_label": "Game slot 3 (metadata in games.json)",
+    "interactive_scope": "games",
+    "interactive_kind": "navigation"
+   },
+   {
+    "node": "GAME_Case_04_Label",
+    "artwork_slot": "game_label_04"
+   },
+   {
+    "node": "GAME_Case_04",
+    "game_slot": 4,
+    "interactive_id": "game_slot_04",
+    "interactive_label": "Game slot 4 (metadata in games.json)",
+    "interactive_scope": "games",
+    "interactive_kind": "navigation"
+   },
+   {
+    "node": "GAME_Case_05_Label",
+    "artwork_slot": "game_label_05"
+   },
+   {
+    "node": "GAME_Case_05",
+    "game_slot": 5,
+    "interactive_id": "game_slot_05",
+    "interactive_label": "Game slot 5 (metadata in games.json)",
+    "interactive_scope": "games",
+    "interactive_kind": "navigation"
+   },
+   {
+    "node": "NAV_GamesCrate_Body",
+    "artwork_slot": "crate_print"
+   },
+   {
+    "node": "NAV_GamesCrate",
+    "asset_id": "games_crate",
+    "interactive_id": "games_crate",
+    "interactive_label": "Game collection -> EXPLORE GAMES",
+    "interactive_scope": "home",
+    "interactive_kind": "navigation"
+   }
+  ],
+  "texture_list": [
+   {
+    "name": "game_label_01",
+    "mime": "image/ktx2",
+    "size": "512x476",
+    "kb": 225,
+    "gpu_safe": true
+   },
+   {
+    "name": "game_label_02",
+    "mime": "image/ktx2",
+    "size": "512x476",
+    "kb": 150,
+    "gpu_safe": true
+   },
+   {
+    "name": "game_label_03",
+    "mime": "image/ktx2",
+    "size": "512x476",
+    "kb": 187,
+    "gpu_safe": true
+   },
+   {
+    "name": "game_label_04",
+    "mime": "image/ktx2",
+    "size": "512x476",
+    "kb": 183,
+    "gpu_safe": true
+   },
+   {
+    "name": "game_label_05",
+    "mime": "image/ktx2",
+    "size": "512x476",
+    "kb": 218,
+    "gpu_safe": true
+   },
+   {
+    "name": "crate_n",
+    "mime": "image/ktx2",
+    "size": "512x512",
+    "kb": 125,
+    "gpu_safe": true
+   },
+   {
+    "name": "crate_ao",
+    "mime": "image/ktx2",
+    "size": "512x512",
+    "kb": 104,
+    "gpu_safe": true
+   },
+   {
+    "name": "crate",
+    "mime": "image/ktx2",
+    "size": "512x512",
+    "kb": 187,
+    "gpu_safe": true
+   }
+  ],
+  "textures_not_multiple_of_4": []
+ },
+ {
+  "file": "games_collection_webp.glb",
+  "mb": 0.37,
+  "nodes": 18,
+  "meshes": 7,
+  "draw_calls": 11,
+  "triangles": 820,
+  "materials": 7,
+  "textures": 8,
+  "texture_mb_download": 0.35,
+  "gpu_texture_mb": 10.2,
+  "validator": {
+   "errors": 0,
+   "warnings": 1,
+   "messages": [
+    "MESH_PRIMITIVE_GENERATED_TANGENT_SPACE: Material requires a tangent space but the mesh primitive does not provide it. Runtime-generated tangent space may be non-portable across implementations."
+   ]
+  },
+  "tags": [
+   {
+    "node": "EGG_CrateBottom",
+    "egg_id": "egg_crate_bottom",
+    "interactive_kind": "discovery",
+    "egg_status": "planned",
+    "egg_note": "Stamp under the games crate (Games page exhibit)"
+   },
+   {
+    "node": "GAME_Case_01_Label",
+    "artwork_slot": "game_label_01"
+   },
+   {
+    "node": "GAME_Case_01",
+    "game_slot": 1,
+    "interactive_id": "game_slot_01",
+    "interactive_label": "Game slot 1 (metadata in games.json)",
+    "interactive_scope": "games",
+    "interactive_kind": "navigation"
+   },
+   {
+    "node": "GAME_Case_02_Label",
+    "artwork_slot": "game_label_02"
+   },
+   {
+    "node": "GAME_Case_02",
+    "game_slot": 2,
+    "interactive_id": "game_slot_02",
+    "interactive_label": "Game slot 2 (metadata in games.json)",
+    "interactive_scope": "games",
+    "interactive_kind": "navigation"
+   },
+   {
+    "node": "GAME_Case_03_Label",
+    "artwork_slot": "game_label_03"
+   },
+   {
+    "node": "GAME_Case_03",
+    "game_slot": 3,
+    "interactive_id": "game_slot_03",
+    "interactive_label": "Game slot 3 (metadata in games.json)",
+    "interactive_scope": "games",
+    "interactive_kind": "navigation"
+   },
+   {
+    "node": "GAME_Case_04_Label",
+    "artwork_slot": "game_label_04"
+   },
+   {
+    "node": "GAME_Case_04",
+    "game_slot": 4,
+    "interactive_id": "game_slot_04",
+    "interactive_label": "Game slot 4 (metadata in games.json)",
+    "interactive_scope": "games",
+    "interactive_kind": "navigation"
+   },
+   {
+    "node": "GAME_Case_05_Label",
+    "artwork_slot": "game_label_05"
+   },
+   {
+    "node": "GAME_Case_05",
+    "game_slot": 5,
+    "interactive_id": "game_slot_05",
+    "interactive_label": "Game slot 5 (metadata in games.json)",
+    "interactive_scope": "games",
+    "interactive_kind": "navigation"
+   },
+   {
+    "node": "NAV_GamesCrate_Body",
+    "artwork_slot": "crate_print"
+   },
+   {
+    "node": "NAV_GamesCrate",
+    "asset_id": "games_crate",
+    "interactive_id": "games_crate",
+    "interactive_label": "Game collection -> EXPLORE GAMES",
+    "interactive_scope": "home",
+    "interactive_kind": "navigation"
+   }
+  ],
+  "texture_list": [
+   {
+    "name": "game_label_01",
+    "mime": "image/webp",
+    "size": "512x476",
+    "kb": 68,
+    "gpu_safe": true
+   },
+   {
+    "name": "game_label_02",
+    "mime": "image/webp",
+    "size": "512x476",
+    "kb": 40,
+    "gpu_safe": true
+   },
+   {
+    "name": "game_label_03",
+    "mime": "image/webp",
+    "size": "512x476",
+    "kb": 55,
+    "gpu_safe": true
+   },
+   {
+    "name": "game_label_04",
+    "mime": "image/webp",
+    "size": "512x476",
+    "kb": 34,
+    "gpu_safe": true
+   },
+   {
+    "name": "game_label_05",
+    "mime": "image/webp",
+    "size": "512x476",
+    "kb": 50,
+    "gpu_safe": true
+   },
+   {
+    "name": "crate_n",
+    "mime": "image/webp",
+    "size": "512x512",
+    "kb": 25,
+    "gpu_safe": true
+   },
+   {
+    "name": "crate_ao",
+    "mime": "image/webp",
+    "size": "512x512",
+    "kb": 16,
+    "gpu_safe": true
+   },
+   {
+    "name": "crate",
+    "mime": "image/webp",
+    "size": "512x512",
+    "kb": 54,
+    "gpu_safe": true
+   }
+  ],
+  "textures_not_multiple_of_4": []
+ },
+ {
+  "file": "raw/studio_notebook.glb",
+  "mb": 0.56,
+  "nodes": 18,
+  "meshes": 10,
+  "draw_calls": 10,
+  "triangles": 2580,
+  "materials": 6,
+  "textures": 1,
+  "texture_mb_download": 0.49,
+  "gpu_texture_mb": 3.3,
+  "validator": {
+   "errors": 0,
+   "warnings": 0,
+   "messages": []
+  },
+  "tags": [
+   {
+    "node": "EGG_NotebookBack",
+    "egg_id": "egg_notebook_back",
+    "interactive_kind": "discovery",
+    "egg_status": "planned",
+    "egg_note": "Sticker on the outside of the back cover (About page exhibit)"
+   },
+   {
+    "node": "NOTE_Cover_Back",
+    "hinge_axis": "Y"
+   },
+   {
+    "node": "NOTE_Cover_Front",
+    "hinge_axis": "Y"
+   },
+   {
+    "node": "NOTE_Page_L_Sheet",
+    "artwork_slot": "sketchbook"
+   },
+   {
+    "node": "NOTE_Page_L",
+    "hinge_axis": "Y"
+   },
+   {
+    "node": "NOTE_Page_R_Sheet",
+    "artwork_slot": "sketchbook"
+   },
+   {
+    "node": "NOTE_Page_R",
+    "hinge_axis": "Y"
+   },
+   {
+    "node": "NOTE_PageBlock_L",
+    "hinge_axis": "Y"
+   },
+   {
+    "node": "NOTE_PageBlock_R",
+    "hinge_axis": "Y"
+   },
+   {
+    "node": "NAV_Notebook",
+    "asset_id": "studio_notebook",
+    "interactive_id": "notebook",
+    "interactive_label": "About the studio / process",
+    "interactive_scope": "home",
+    "interactive_kind": "navigation"
+   }
+  ],
+  "texture_list": [
+   {
+    "name": "sketchbook",
+    "mime": "image/png",
+    "size": "1024x640",
+    "kb": 477,
+    "gpu_safe": true
+   }
+  ],
+  "textures_not_multiple_of_4": []
+ },
+ {
+  "file": "studio_notebook.glb",
+  "mb": 0.31,
+  "nodes": 18,
+  "meshes": 9,
+  "draw_calls": 10,
+  "triangles": 2580,
+  "materials": 6,
+  "textures": 1,
+  "texture_mb_download": 0.28,
+  "gpu_texture_mb": 0.8,
+  "validator": {
+   "errors": 0,
+   "warnings": 2,
+   "messages": [
+    "VALUE_NOT_IN_LIST: Invalid value 'image/ktx2'. Valid values are ('image/jpeg', 'image/png').",
+    "IMAGE_UNRECOGNIZED_FORMAT: Image format not recognized."
+   ]
+  },
+  "tags": [
+   {
+    "node": "EGG_NotebookBack",
+    "egg_id": "egg_notebook_back",
+    "interactive_kind": "discovery",
+    "egg_status": "planned",
+    "egg_note": "Sticker on the outside of the back cover (About page exhibit)"
+   },
+   {
+    "node": "NOTE_Cover_Back",
+    "hinge_axis": "Y"
+   },
+   {
+    "node": "NOTE_Cover_Front",
+    "hinge_axis": "Y"
+   },
+   {
+    "node": "NOTE_Page_L_Sheet",
+    "artwork_slot": "sketchbook"
+   },
+   {
+    "node": "NOTE_Page_L",
+    "hinge_axis": "Y"
+   },
+   {
+    "node": "NOTE_Page_R_Sheet",
+    "artwork_slot": "sketchbook"
+   },
+   {
+    "node": "NOTE_Page_R",
+    "hinge_axis": "Y"
+   },
+   {
+    "node": "NOTE_PageBlock_L",
+    "hinge_axis": "Y"
+   },
+   {
+    "node": "NOTE_PageBlock_R",
+    "hinge_axis": "Y"
+   },
+   {
+    "node": "NAV_Notebook",
+    "asset_id": "studio_notebook",
+    "interactive_id": "notebook",
+    "interactive_label": "About the studio / process",
+    "interactive_scope": "home",
+    "interactive_kind": "navigation"
+   }
+  ],
+  "texture_list": [
+   {
+    "name": "sketchbook",
+    "mime": "image/ktx2",
+    "size": "1024x640",
+    "kb": 273,
+    "gpu_safe": true
+   }
+  ],
+  "textures_not_multiple_of_4": []
+ },
+ {
+  "file": "studio_notebook_webp.glb",
+  "mb": 0.06,
+  "nodes": 18,
+  "meshes": 9,
+  "draw_calls": 10,
+  "triangles": 2580,
+  "materials": 6,
+  "textures": 1,
+  "texture_mb_download": 0.03,
+  "gpu_texture_mb": 3.3,
+  "validator": {
+   "errors": 0,
+   "warnings": 0,
+   "messages": []
+  },
+  "tags": [
+   {
+    "node": "EGG_NotebookBack",
+    "egg_id": "egg_notebook_back",
+    "interactive_kind": "discovery",
+    "egg_status": "planned",
+    "egg_note": "Sticker on the outside of the back cover (About page exhibit)"
+   },
+   {
+    "node": "NOTE_Cover_Back",
+    "hinge_axis": "Y"
+   },
+   {
+    "node": "NOTE_Cover_Front",
+    "hinge_axis": "Y"
+   },
+   {
+    "node": "NOTE_Page_L_Sheet",
+    "artwork_slot": "sketchbook"
+   },
+   {
+    "node": "NOTE_Page_L",
+    "hinge_axis": "Y"
+   },
+   {
+    "node": "NOTE_Page_R_Sheet",
+    "artwork_slot": "sketchbook"
+   },
+   {
+    "node": "NOTE_Page_R",
+    "hinge_axis": "Y"
+   },
+   {
+    "node": "NOTE_PageBlock_L",
+    "hinge_axis": "Y"
+   },
+   {
+    "node": "NOTE_PageBlock_R",
+    "hinge_axis": "Y"
+   },
+   {
+    "node": "NAV_Notebook",
+    "asset_id": "studio_notebook",
+    "interactive_id": "notebook",
+    "interactive_label": "About the studio / process",
+    "interactive_scope": "home",
+    "interactive_kind": "navigation"
+   }
+  ],
+  "texture_list": [
+   {
+    "name": "sketchbook",
+    "mime": "image/webp",
+    "size": "1024x640",
+    "kb": 28,
+    "gpu_safe": true
+   }
+  ],
+  "textures_not_multiple_of_4": []
+ }
+]

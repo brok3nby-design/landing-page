@@ -1,0 +1,45 @@
+{
+ "_note": "The five games in the crate (GAME_Case_01..05), in slot order. Titles, copy, media and status come from projects.json (imported from the existing site); this file only says which project sits in which case and which cover label it shows (label_texture, relative to diorama/custom/). Add a game: add an entry (and raise CRATE['slots'] in diorama/blender/parts/storage.py if all slots are used).",
+ "games": [
+  {
+   "slot": 1,
+   "id": "glass-and-fortune",
+   "title": "Glass & Fortune",
+   "route": "/games/glass-and-fortune",
+   "label_texture": "covers/glass-and-fortune.png",
+   "exhibit": "Future: miniature antique dice table with glass dice and fortune-themed objects."
+  },
+  {
+   "slot": 2,
+   "id": "bid-and-buried",
+   "title": "Bid & Buried",
+   "route": "/games/bid-and-buried",
+   "label_texture": "covers/bid-and-buried.png",
+   "exhibit": "Future: miniature storage locker or auction-themed exhibit."
+  },
+  {
+   "slot": 3,
+   "id": "speck",
+   "title": "Speck",
+   "route": "/games/speck",
+   "label_texture": "covers/speck.png",
+   "exhibit": "Future: this game's own miniature exhibit."
+  },
+  {
+   "slot": 4,
+   "id": "pocket-wilds",
+   "title": "Pocket Wilds",
+   "route": "/games/pocket-wilds",
+   "label_texture": "covers/pocket-wilds.png",
+   "exhibit": "Future: this game's own miniature exhibit."
+  },
+  {
+   "slot": 5,
+   "id": "doqi",
+   "title": "DOQI",
+   "route": "/games/doqi",
+   "label_texture": "covers/doqi.png",
+   "exhibit": "Future: miniature 1950s corporate office terminal or strange invention."
+  }
+ ]
+}

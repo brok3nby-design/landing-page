@@ -1,0 +1,8 @@
+# Python virtual env (Blender bpy module) — recreate with: python3 -m venv diorama/.venv && diorama/.venv/bin/pip install bpy==5.2.3
+diorama/.venv/
+__pycache__/
+*.pyc
+*.blend1
+# reproducible with diorama/blender/export.py (large)
+diorama/exports/raw/*.glb
+.staging-worktree/
