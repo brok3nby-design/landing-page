@@ -175,4 +175,25 @@ export const EXHIBITS = {
       sp_home: { eyebrow: "Home", title: "Homestead", text: "A hut, a fence and four rows of sprouts. Gather, craft and build at your own pace, and make a little space in the world feel like yours." },
     },
   },
+  doqi: {
+    model: "models/exhibit_doqi.glb",
+    scope: "doqi",
+    view: { forward: [-0.498, -0.454, -0.739] },      // the Blender hero camera (azimuth 34°, elevation 27°)
+    fallback: "fallback/exhibit-doqi.png",
+    fallbackAlt: "A miniature office of the Department of Questionable Inventions: grimy green walls, the DOQI sign, propaganda posters, a filing cabinet with a globe, a window onto a dusk city with a blimp. On the desk, J.E.F.F., a rusty green terminal with grumpy eyes, beside a stack of labelled folders, a BUREAUCRACY FUELS CREATIVITY mug, blueprints, a desk lamp, a tin robot, and a rubber stamp by Form 27-B.",
+    play: "doqi",                    // J.E.F.F. watches you, the stamp files forms (exhibit/DoqiPlay.jsx)
+    noGlow: ["dq_stamp", "dq_form", "dq_pad"],
+    focusScale: 1.8,
+    homeScale: 0.95,
+    findsTitle: "In the office",
+    finds: {
+      dq_jeff: { eyebrow: "Judicial Encyclopedic Filing Facilitator", title: "J.E.F.F.", text: "He has reviewed your file. He has concerns. Click him again for a ruling." },
+      dq_stamp: { eyebrow: "Official", title: "The Stamp", text: "Your answers have been filed. Click the stamp or the form to file another." },
+      dq_folders: { eyebrow: "The filing system", title: "Folders", text: "Proposals. Ideas. Rejected. Pending. Maybe. Actually…? Absurd. And when in doubt: file anyway." },
+      dq_mug: { eyebrow: "Standard issue", title: "Mug", text: "Bureaucracy fuels creativity. So does whatever is in this mug." },
+      dq_cabinet: { eyebrow: "Locked", title: "Filing Cabinet", text: "Same forms, different people." },
+      dq_poster: { eyebrow: "Morale", title: "Poster", text: "Invent. File. Repeat. Ideas shouldn't behave themselves." },
+      dq_robot: { eyebrow: "Prototype", title: "Tin Robot", text: "A questionable invention. Approved, somehow." },
+    },
+  },
 };

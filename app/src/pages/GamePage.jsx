@@ -55,7 +55,7 @@ export default function GamePage({ id: fixedId }) {
           <div className="ctas"><Link viewTransition className="btn ghost" to="/games">← Back to the shelf</Link></div>
         </section>
         {ex ? (
-          <Exhibit config={ex} selectedId={selectedId} onSelect={setSelectedId} tools={ex.play === "gold" ? <GoldTools /> : ex.play === "dice" ? <DiceTools /> : ex.play === "speck" ? <SpeckTools /> : null}>
+          <Exhibit config={ex} selectedId={selectedId} onSelect={setSelectedId} tools={ex.play === "gold" ? <GoldTools /> : ex.play === "dice" ? <DiceTools /> : ex.play === "speck" ? <SpeckTools /> : ex.play === "doqi" ? <DoqiTools /> : null}>
             <InfoPanel item={selectedId && ex.finds[selectedId] ? { id: selectedId, kind: "discovery", panel: ex.finds[selectedId] } : null}
                        onClose={close} />
           </Exhibit>
@@ -147,6 +147,24 @@ function SpeckTools() {
       <button className="tool" onClick={() => act("spin")}>Spin</button>
       <button className="tool" onClick={() => act("leave")} title="Leave something on the planet where you're looking">Leave something</button>
       <button className="tool" onClick={() => act("clear")} title="Remove everything you left (saved in this browser)">Clear mine</button>
+    </>
+  );
+}
+
+// DOQI: stamp a form (keyboard / touch alternative), the running count and J.E.F.F.'s last ruling
+function DoqiTools() {
+  const [count, setCount] = useState(null);
+  const [said, setSaid] = useState("");
+  useEffect(() => {
+    const f = (e) => setCount(e.detail.count);
+    const j = (e) => setSaid(e.detail.text);
+    addEventListener("dq-filed", f); addEventListener("dq-jeff", j);
+    return () => { removeEventListener("dq-filed", f); removeEventListener("dq-jeff", j); };
+  }, []);
+  return (
+    <>
+      <output className="dice-result" aria-live="polite">{said ? `J.E.F.F.: ${said}` : ""}{count ? `${said ? " · " : ""}Forms filed: ${count}` : ""}</output>
+      <button className="tool" onClick={() => window.dispatchEvent(new CustomEvent("dq-act", { detail: "stamp" }))}>Stamp it</button>
     </>
   );
 }

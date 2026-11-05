@@ -21,7 +21,8 @@ from parts import lights  # noqa: E402
 
 EXHIBITS = {"bid-and-buried": "exhibits.bid_and_buried", "pocket-wilds": "exhibits.pocket_wilds",
             "glass-and-fortune": "exhibits.glass_and_fortune",
-            "speck": "exhibits.speck"}
+            "speck": "exhibits.speck",
+            "doqi": "exhibits.doqi"}
 VIEWS = [  # name, azimuth, elevation, lens, frame fill
     ("CAM_Exhibit_Hero", 34, 27, 50, 0.84),
     ("CAM_Exhibit_Front", 8, 14, 50, 0.86),

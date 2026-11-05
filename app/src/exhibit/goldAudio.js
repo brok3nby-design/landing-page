@@ -179,6 +179,16 @@ export function blip(kind = "plant", vol = 0.5) {
       o.connect(g); g.connect(bus); o.start(t + start); o.stop(t + start + dur + 0.02);
     };
     if (kind === "sup") { tone(820, 900, 0, 0.07, "square", vol * 0.5); tone(1240, 1500, 0.085, 0.09, "square", vol * 0.5); return 0.2; }
+    if (kind === "jeff") { tone(660, 640, 0, 0.08, "square", vol * 0.45); tone(440, 430, 0.1, 0.12, "square", vol * 0.45); return 0.25; }
+    if (kind === "thunk") {                                  // a rubber stamp hitting paper on a wooden desk
+      noiseHit(t, "lowpass", 260, 0.8, vol * 0.9, 0.09, bus);
+      noiseHit(t, "bandpass", 1400, 2, vol * 0.25, 0.03, bus);
+      const o = ctx.createOscillator(), g = ctx.createGain();
+      o.frequency.setValueAtTime(110, t); o.frequency.exponentialRampToValueAtTime(55, t + 0.12);
+      g.gain.setValueAtTime(0.0001, t); g.gain.exponentialRampToValueAtTime(0.35 * vol, t + 0.004); g.gain.exponentialRampToValueAtTime(0.0001, t + 0.14);
+      o.connect(g); g.connect(bus); o.start(t); o.stop(t + 0.16);
+      return 0.2;
+    }
     if (kind === "spin") { noiseHit(t, "bandpass", 900, 0.8, vol * 0.12, 0.35, bus); return 0.4; }
     tone(520, 1180, 0, 0.11); noiseHit(t, "highpass", 4000, 0.7, vol * 0.05, 0.01, bus);
     return 0.15;
