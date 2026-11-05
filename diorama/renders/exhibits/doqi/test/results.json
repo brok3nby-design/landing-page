@@ -24,23 +24,23 @@
   }
  },
  "after_button": {
-  "count": 2,
-  "marks": 2,
+  "count": 1,
+  "marks": 1,
   "face": {
-   "px": 0.10803201227243746,
+   "px": 0.893222558217378,
    "py": 1,
    "blink": 0,
-   "text": "YOUR ANSWERS HAVE BEEN FILED."
+   "text": ""
   }
  },
- "ruling": "I was told to be helpful. Nobody defined helpful.",
- "ruling_2": "I was built for quality assurance. Then I saw the internet.",
- "readout": "J.E.F.F.: I was built for quality assurance. Then I saw the internet. · Forms filed: 2",
+ "ruling": "YOUR ANSWERS HAVE BEEN FILED.",
+ "ruling_2": "Please do not roll the dice in the office. That is Glass & Fortune's department.",
+ "readout": "J.E.F.F.: Please do not roll the dice in the office. That is Glass & Fortune's department. · Forms filed: 2",
  "checks": {
   "eyes_follow_mouse": true,
   "stamp_files_a_form": true,
   "remembered_after_reload": true,
-  "stamp_button": true,
+  "stamp_button": false,
   "jeff_lines_vary": true,
   "jeff_ruling": true,
   "no_errors": true
