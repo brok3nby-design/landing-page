@@ -116,7 +116,10 @@ export default function DoqiPlay({ scene, selectedId, lines }) {
   function speak() {
     const all = (lines && lines.length ? lines : FALLBACK_LINES).map((l) => (typeof l === "string" ? { text: l } : l));
     if (!S.bag.length) S.bag = all.slice().sort(() => Math.random() - 0.5);
-    const line = S.bag.pop();
+    S.clicks = (S.clicks || 0) + 1;
+    const picked = S.bag.pop();
+    const n = `${S.clicks} ${S.clicks === 1 ? "time" : "times"}`;
+    const line = { ...picked, text: picked.text.replaceAll("{clicks}", n) };
     wakeAudio();
     S.voice?.pause();
     if (line.audio && goldSoundOn()) {

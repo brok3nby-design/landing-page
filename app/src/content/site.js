@@ -185,23 +185,19 @@ export const EXHIBITS = {
     // What J.E.F.F. says when you click him: shown on his screen (and read out to screen readers), shuffled
     // so nothing repeats until he has said everything. A line can be plain text, or { text, audio } where
     // audio is a voice clip under public/media (e.g. "media/projects/doqi/jeff/filed.mp3"), played instead
-    // of the beep when sounds are on. Lines from the old site's footer robot + office rulings for now;
-    // replace or extend with his lines from the game.
+    // of the beep when sounds are on. {clicks} becomes "1 time" / "4 times" (how often he's been clicked).
+    // Draft lines for now; to be replaced with the studio's own.
     jeffLines: [
-      "YOUR ANSWERS HAVE BEEN FILED.",
-      "I am J.E.F.F. Please pretend that stands for something impressive.",
-      "I have reviewed your browsing technique. It is aggressively human.",
-      "I am not judging. I am recording. There is a difference.",
-      "You seem lost. That is a valid navigation style.",
-      "I was built for quality assurance. Then I saw the internet.",
-      "I was told to be helpful. Nobody defined helpful.",
-      "Good click. Strong click. Almost professional.",
-      "Do not worry. I only report the funny parts.",
-      "J.E.F.F. online. Expectations carefully lowered.",
-      "That idea is questionable. Approved.",
-      "Form 27-B is missing. File anyway.",
-      "Same forms. Different people.",
-      "Invent. File. Repeat.",
+      "Visitor logged. Purpose of visit: unclear. Filed under 'browsing'.",
+      "You have clicked me {clicks}. That is {clicks} more than required.",
+      "The stamp is not a toy. Please continue playing with it.",
+      "Your form has been received, reviewed and misplaced.",
+      "Every game on this shelf was approved by me. Most of them reluctantly.",
+      "I have seen the treasure room next door. I have filed it under 'excessive'.",
+      "Please do not roll the dice in the office. That is Glass & Fortune's department.",
+      "Ideas shouldn't behave themselves. Neither should visitors, apparently.",
+      "This website is in development. So am I. Neither of us has an ETA.",
+      "Complaint received. Complaint stamped. Complaint ignored.",
     ],
     noGlow: ["dq_stamp", "dq_form", "dq_pad"],
     focusScale: 1.8,
