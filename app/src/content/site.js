@@ -120,4 +120,22 @@ export const EXHIBITS = {
       bb_paddle: { eyebrow: "Lot 27", title: "Bid paddle", text: "Buy blind. Dig deep. Get rich. Sold, to the player with the paddle." },
     },
   },
+  "pocket-wilds": {
+    model: "models/exhibit_pocket_wilds.glb",
+    scope: "pocket-wilds",
+    view: { forward: [-0.498, -0.454, -0.739] },      // the Blender hero camera (azimuth 34°, elevation 27°)
+    fallback: "fallback/exhibit-pocket-wilds.png",
+    fallbackAlt: "A miniature dungeon corner of rough stone blocks lit by a wall torch: an iron-banded treasure chest with its lid thrown open, heaped with gold coins and gems; a golden goblet lies tipped over, spilling coins across the flagstones.",
+    play: "gold",                    // real coin physics + gold sounds (exhibit/GoldPlay.jsx)
+    noGlow: ["pw_gold"],             // the gold is played with, not highlighted
+    focusScale: 1.8,
+    homeScale: 0.98,
+    findsTitle: "In the treasure room",
+    finds: {
+      pw_gold: { eyebrow: "Touch it", title: "The Gold", text: "Press and hold the gold to scoop up a handful, carry it anywhere and let go. Every coin is real physics. Brush the mouse over the pile to hear it jingle." },
+      pw_chest: { eyebrow: "Opened", title: "Treasure Chest", text: "Iron-banded oak, the lid thrown back. Whoever opened it first didn't stay to count." },
+      pw_goblet: { eyebrow: "Tipped over", title: "Golden Goblet", text: "Knocked over in a hurry, still pouring coins across the flagstones." },
+      pw_torch: { eyebrow: "Still burning", title: "Wall Torch", text: "Somebody lit it recently. In a dungeon, that's never good news." },
+    },
+  },
 };

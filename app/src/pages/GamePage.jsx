@@ -8,6 +8,7 @@ import Exhibit from "../exhibit/Exhibit.jsx";
 import InfoPanel from "../components/InfoPanel.jsx";
 import { unlock } from "../site/passport.js";
 import NotFound from "./NotFound.jsx";
+import { goldSoundOn, setGoldSound, onGoldSound } from "../exhibit/goldAudio.js";
 
 // One page per project (imported from the old site): status, hook, about / how it plays, progress
 // report, trailer, gallery. The right column shows the cover art until each game gets its own
@@ -54,7 +55,7 @@ export default function GamePage({ id: fixedId }) {
           <div className="ctas"><Link viewTransition className="btn ghost" to="/games">← Back to the shelf</Link></div>
         </section>
         {ex ? (
-          <Exhibit config={ex} selectedId={selectedId} onSelect={setSelectedId}>
+          <Exhibit config={ex} selectedId={selectedId} onSelect={setSelectedId} tools={ex.play === "gold" ? <GoldTools /> : null}>
             <InfoPanel item={selectedId && ex.finds[selectedId] ? { id: selectedId, kind: "discovery", panel: ex.finds[selectedId] } : null}
                        onClose={close} />
           </Exhibit>
@@ -88,6 +89,20 @@ export default function GamePage({ id: fixedId }) {
         )}
         {p.gallery.length > 0 && <Gallery items={p.gallery} title={p.title} />}
       </div>
+    </>
+  );
+}
+
+// Pocket Wilds: a keyboard/touch-friendly way to play with the gold, and the sound switch
+function GoldTools() {
+  const [on, setOn] = useState(goldSoundOn());
+  useEffect(() => onGoldSound(setOn), []);
+  return (
+    <>
+      <button className="tool" onClick={() => window.dispatchEvent(new CustomEvent("pw-gold", { detail: "toss" }))}
+              title="Scoop a handful of coins out of the chest and toss them onto the floor">Toss a handful</button>
+      <button className="tool" aria-pressed={on} onClick={() => setGoldSound(!on)}
+              title="Coin sounds">{on ? "Gold sounds: on" : "Gold sounds: off"}</button>
     </>
   );
 }

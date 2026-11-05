@@ -1,6 +1,6 @@
 // Heavy part of the shared exhibit viewer (lazy chunk): R3F canvas, GLB loading (KTX2 + meshopt),
 // runtime lighting for the hybrid-baked assets, camera rig, hover/select, subtle bloom.
-import { Suspense, useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
+import { Suspense, lazy, useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
 import * as THREE from "three";
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
 import { CameraControls, ContactShadows, useGLTF, useProgress } from "@react-three/drei";
@@ -11,6 +11,8 @@ import { KTX2Loader } from "three/examples/jsm/loaders/KTX2Loader.js";
 import { RoomEnvironment } from "three/examples/jsm/environments/RoomEnvironment.js";
 
 const BASE = import.meta.env.BASE_URL;
+// per-exhibit toys, loaded only where used (the gold physics brings the Rapier engine with it)
+const GoldPlay = lazy(() => import("./GoldPlay.jsx"));
 const HIGHLIGHT = new THREE.Color(0.09, 0.008, 0.012);     // subtle deep-red hover / selection glow
 // Canvas clear colour chosen so that AFTER AgX tone mapping it lands exactly on the page's #080808
 // (measured in the browser; AgX darkens near-black). Override with ?bg=xxxxxx while tuning.
@@ -37,7 +39,7 @@ function setGlow(node, on) {
 }
 
 // ---------------------------------------------------------------- model
-function Model({ url, scope, targets, selectGlow = true, selectedId, onSelect, onLoaded }) {
+function Model({ url, scope, targets, selectGlow = true, noGlow, selectedId, onSelect, onLoaded }) {
   const gl = useThree((s) => s.gl);
   const invalidate = useThree((s) => s.invalidate);
   const { scene } = useGLTF(url, false, true, (loader) => loader.setKTX2Loader(ktx2For(gl)));
@@ -80,17 +82,17 @@ function Model({ url, scope, targets, selectGlow = true, selectedId, onSelect, o
 
   useLayoutEffect(() => { onLoaded(scene, index); }, [scene, index, onLoaded]);
   useEffect(() => {
-    if (!selectGlow) return;
+    if (!selectGlow || noGlow?.includes(selectedId)) return;
     setGlow(index[selectedId], true);
     invalidate();
     return () => { setGlow(index[selectedId], false); invalidate(); };
-  }, [selectedId, index, selectGlow, invalidate]);
+  }, [selectedId, index, selectGlow, noGlow, invalidate]);
   useEffect(() => {
-    if (!hovered || hovered === index[selectedId]) return;
+    if (!hovered || hovered === index[selectedId] || noGlow?.includes(hovered.userData.interactive_id)) return;
     setGlow(hovered, true);
     invalidate();
     return () => { setGlow(hovered, false); invalidate(); };
-  }, [hovered, selectedId, index, invalidate]);
+  }, [hovered, selectedId, index, noGlow, invalidate]);
 
   return (
     <primitive object={scene}
@@ -501,7 +503,7 @@ function Content({ config, selectedId, onSelect, under, apiRef, quality, animSta
   const lifting = config.animation === "lift-turn";
   return (
     <>
-      <Model url={`${BASE}${config.model}`} scope={config.scope} targets={config.targets} selectGlow={config.selectGlow !== false}
+      <Model url={`${BASE}${config.model}`} scope={config.scope} targets={config.targets} selectGlow={config.selectGlow !== false} noGlow={config.noGlow}
              selectedId={selectedId}
              onSelect={onSelect} onLoaded={onLoaded} />
       {state && views && (
@@ -511,6 +513,7 @@ function Content({ config, selectedId, onSelect, under, apiRef, quality, animSta
                focusLift={lifting ? 0.07 : 0} focusScale={config.focusScale} />
           {lifting && <LiftTurn index={state.index} selectedId={selectedId} />}
           {config.animation === "notebook" && <NotebookOpen scene={state.scene} open={animState?.open ?? true} />}
+          {config.play === "gold" && <Suspense fallback={null}><GoldPlay scene={state.scene} onSelect={onSelect} /></Suspense>}
           {config.contactShadow && (() => {
             const c = state.box.getCenter(new THREE.Vector3()), sz = state.box.getSize(new THREE.Vector3());
             return <ContactShadows position={[c.x, state.box.min.y + 0.0005, c.z]} scale={Math.max(sz.x, sz.z) * 2.2}

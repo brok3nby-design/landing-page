@@ -19,7 +19,7 @@ import build as desk_build  # noqa: E402  (setup_render)
 from lib import scene as S, mats, textures, camera  # noqa: E402
 from parts import lights  # noqa: E402
 
-EXHIBITS = {"bid-and-buried": "exhibits.bid_and_buried"}
+EXHIBITS = {"bid-and-buried": "exhibits.bid_and_buried", "pocket-wilds": "exhibits.pocket_wilds"}
 VIEWS = [  # name, azimuth, elevation, lens, frame fill
     ("CAM_Exhibit_Hero", 34, 27, 50, 0.84),
     ("CAM_Exhibit_Front", 8, 14, 50, 0.86),
@@ -51,6 +51,7 @@ def main():
     ap.add_argument("--game", default="bid-and-buried", choices=sorted(EXHIBITS))
     ap.add_argument("--render", action="store_true")
     ap.add_argument("--samples", type=int, default=96)
+    ap.add_argument("--scale", type=int, default=100, help="render resolution %% (quick previews)")
     ap.add_argument("--views", default="", help="comma list of camera names (default: all)")
     ap.add_argument("--export", action="store_true", help="bake AO + practical glow and export exports/raw/exhibit_<game>.glb")
     args = ap.parse_args(sys.argv[sys.argv.index("--") + 1:] if "--" in sys.argv else sys.argv[1:])
@@ -88,6 +89,7 @@ def main():
         return
     if args.render:
         desk_build.setup_render(args.samples)
+        bpy.context.scene.render.resolution_percentage = args.scale
         out = os.path.join(ROOT, "renders", "exhibits", args.game)
         os.makedirs(out, exist_ok=True)
         only = [v for v in args.views.split(",") if v]
