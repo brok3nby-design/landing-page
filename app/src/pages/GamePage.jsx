@@ -55,7 +55,7 @@ export default function GamePage({ id: fixedId }) {
           <div className="ctas"><Link viewTransition className="btn ghost" to="/games">← Back to the shelf</Link></div>
         </section>
         {ex ? (
-          <Exhibit config={ex} selectedId={selectedId} onSelect={setSelectedId} tools={ex.play === "gold" ? <GoldTools /> : ex.play === "dice" ? <DiceTools /> : ex.play === "speck" ? <SpeckTools /> : ex.play === "doqi" ? <DoqiTools /> : ex.play === "wrfm" ? <WrfmTools /> : null}>
+          <Exhibit config={ex} selectedId={selectedId} onSelect={setSelectedId} tools={ex.play === "gold" ? <GoldTools /> : ex.play === "dice" ? <DiceTools /> : ex.play === "speck" ? <SpeckTools /> : ex.play === "doqi" ? <DoqiTools /> : ex.play === "wrfm" ? <WrfmTools /> : ex.play === "maze" ? <MazeTools /> : null}>
             <InfoPanel item={selectedId && ex.finds[selectedId] ? { id: selectedId, kind: "discovery", panel: ex.finds[selectedId] } : null}
                        onClose={close} />
           </Exhibit>
@@ -182,6 +182,27 @@ function WrfmTools() {
       <output className="dice-result" aria-live="polite">{air.on ? `On air · ${air.title}${air.quote ? `: ${air.quote}` : ""}` : ""}</output>
       <button className="tool" aria-pressed={air.on} data-pause-music
               onClick={() => window.dispatchEvent(new CustomEvent("wr-act", { detail: "air" }))}>{air.on ? "Go off air" : "Go on air"}</button>
+    </>
+  );
+}
+
+// The Maze: roll (keyboard / touch alternative to clicking the die), start again, and how far the wanderer got
+function MazeTools() {
+  const [st, setSt] = useState(null);
+  useEffect(() => {
+    const f = (e) => setSt(e.detail);
+    addEventListener("mz-state", f);
+    return () => removeEventListener("mz-state", f);
+  }, []);
+  const act = (a) => window.dispatchEvent(new CustomEvent("mz-act", { detail: a }));
+  const text = !st ? "" : st.rolling ? "Rolling…"
+    : st.done ? `The heart of the maze, in ${st.rolls} ${st.rolls === 1 ? "roll" : "rolls"}. The world remembers.`
+    : `${st.rolled ? `Rolled ${st.rolled} · ` : ""}${st.pos} of ${st.total} steps${st.rolls ? ` · ${st.rolls} ${st.rolls === 1 ? "roll" : "rolls"}` : ""}`;
+  return (
+    <>
+      <output className="dice-result" aria-live="polite">{text}</output>
+      <button className="tool" onClick={() => act("roll")}>Roll</button>
+      {st && st.pos > 0 && <button className="tool" onClick={() => act("reset")}>Start again</button>}
     </>
   );
 }

@@ -38,6 +38,7 @@ Tick what works and note what doesn't.
 - [ ] **Speck**: drag the planet to spin it; tap it to leave something; reload the page and it's still there. Tap the speck (sup). Spin / Leave something / Clear mine work.
 - [ ] **DOQI**: J.E.F.F.'s eyes follow your mouse; click him for a ruling. Click the stamp or the form: it stamps FILED and counts; reload and the marks are still there.
 - [ ] **WRFM**: click the mic: ON AIR lights, Vera speaks, the needles move; click again to stop. Click the turntable: music + spinning record. (Secret: find the phone.)
+- [ ] **The Maze**: click the die: it rolls and the pawn walks that many steps; reload and it's where you left it; roll to the heart (stamp); Start again. Click the crow.
 - [ ] Every project page shows text, progress and gallery. The trailers play (Bid & Buried, Speck, Pocket Wilds).
 
 **Elsewhere**

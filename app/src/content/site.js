@@ -236,4 +236,25 @@ export const EXHIBITS = {
       wr_mug: { eyebrow: "Night shift", title: "Mug", text: "Still warm. The office is quiet and you're still here." },
     },
   },
+  "labyrinth-fate": {
+    model: "models/exhibit_labyrinth_fate.glb",
+    scope: "labyrinth-fate",
+    view: { forward: [-0.395, -0.707, -0.586] },      // the Blender hero camera (azimuth 34°, elevation 45°: see into the maze)
+    fallback: "fallback/exhibit-labyrinth-fate.png",
+    fallbackAlt: "A tabletop stone maze with moss and ivy on its walls, an arched gate lit by two torches, and a glowing keyhole altar at its heart. Outside: a wooden signpost with a compass, a skull, a question mark and pines, a lantern and a satchel, a rope fence, a dead tree with a crow, and a small castle on a rocky hill. A bone die and a small pawn with a lantern wait by the gate.",
+    play: "maze",                    // roll the die, the pawn walks the path (exhibit/MazePlay.jsx)
+    noGlow: ["mz_die"],
+    focusScale: 1.8,
+    homeScale: 0.95,
+    findsTitle: "In the maze",
+    finds: {
+      mz_die: { eyebrow: "The world remembers the roll", title: "The Die", text: "Click it to roll. The wanderer walks that many steps toward the heart." },
+      mz_pawn: { eyebrow: "Lantern in hand", title: "The Wanderer", text: "Choose your path, take a risk, and let the dice have their say." },
+      mz_gate: { eyebrow: "The way in", title: "The Gate", text: "An unsettling maze, a little chance, and choices that stay with you." },
+      mz_heart: { eyebrow: "The heart", title: "The Keyhole", text: "Something waits at the centre. The dice decide how long it waits." },
+      mz_sign: { eyebrow: "Four ways", title: "Signpost", text: "A compass, a skull, a question mark and the pines. None of them point back." },
+      mz_crow: { eyebrow: "Watching", title: "The Crow", text: "It has seen every wanderer go in." },
+      mz_castle: { eyebrow: "On the hill", title: "The Castle", text: "Lit, at this hour. Somebody is still awake up there." },
+    },
+  },
 };

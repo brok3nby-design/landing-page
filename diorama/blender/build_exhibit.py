@@ -22,7 +22,8 @@ from parts import lights  # noqa: E402
 EXHIBITS = {"bid-and-buried": "exhibits.bid_and_buried", "pocket-wilds": "exhibits.pocket_wilds",
             "glass-and-fortune": "exhibits.glass_and_fortune",
             "speck": "exhibits.speck",
-            "doqi": "exhibits.doqi", "wrfm": "exhibits.wrfm"}
+            "doqi": "exhibits.doqi", "wrfm": "exhibits.wrfm",
+            "labyrinth-fate": "exhibits.maze"}
 VIEWS = [  # name, azimuth, elevation, lens, frame fill
     ("CAM_Exhibit_Hero", 34, 27, 50, 0.84),
     ("CAM_Exhibit_Front", 8, 14, 50, 0.86),
@@ -77,7 +78,7 @@ def main():
         o.hide_render = False
         part = o.name.split("_")[-1].lower()                   # spot / fill / rim
         o.data.energy *= gain.get("key" if part == "spot" else part, 1.0)
-    views = list(VIEWS)
+    views = list(getattr(mod, "VIEWS", VIEWS))           # an exhibit may look from its own angles
     for name, az, el, lens, fill in views:
         camera.add_view(name, az, el, lens, fill, config.RENDER["res"], objs=objs)
     for name, names, az, el, lens, fill in getattr(mod, "CLOSEUPS", []):

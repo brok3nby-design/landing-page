@@ -201,6 +201,19 @@ export function blip(kind = "plant", vol = 0.5) {
       o.start(t); lfo.start(t); o.stop(t + 0.32); lfo.stop(t + 0.32);
       return 0.35;
     }
+    if (kind === "caw") {                                    // a crow: two harsh, falling caws
+      for (const [st, f0] of [[0, 560], [0.32, 520]]) {
+        const o = ctx.createOscillator(), g = ctx.createGain(), f = ctx.createBiquadFilter();
+        o.type = "sawtooth";
+        o.frequency.setValueAtTime(f0, t + st); o.frequency.exponentialRampToValueAtTime(f0 * 0.62, t + st + 0.24);
+        f.type = "bandpass"; f.frequency.value = 1300; f.Q.value = 2.5;
+        g.gain.setValueAtTime(0.0001, t + st); g.gain.exponentialRampToValueAtTime(0.3 * vol, t + st + 0.02);
+        g.gain.exponentialRampToValueAtTime(0.0001, t + st + 0.26);
+        o.connect(f); f.connect(g); g.connect(bus); o.start(t + st); o.stop(t + st + 0.28);
+      }
+      return 0.65;
+    }
+    if (kind === "step") { noiseHit(t, "bandpass", 900, 1.5, vol * 0.18, 0.03, bus); return 0.05; }
     if (kind === "spin") { noiseHit(t, "bandpass", 900, 0.8, vol * 0.12, 0.35, bus); return 0.4; }
     tone(520, 1180, 0, 0.11); noiseHit(t, "highpass", 4000, 0.7, vol * 0.05, 0.01, bus);
     return 0.15;
