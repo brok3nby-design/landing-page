@@ -26,5 +26,27 @@ def build(src=SRC, out=OUT):
     return out
 
 
+def icons(src=SRC, out_dir=OUT.parent):
+    """Browser-tab and home-screen icons. These keep the artwork's own dark textured background, so the
+    white B stays visible on light browser themes too; the square is cropped close to the letters."""
+    img = Image.open(src).convert("RGB")
+    a = np.asarray(img).astype(np.float32) / 255
+    lum = 0.299 * a[..., 0] + 0.587 * a[..., 1] + 0.114 * a[..., 2]
+    m = lum > np.median(lum[:40, :40]) + 0.35                  # the bright letters
+    xs, ys = np.where(m.sum(0) > 2)[0], np.where(m.sum(1) > 2)[0]
+    cx, cy = (xs.min() + xs.max()) / 2, (ys.min() + ys.max()) / 2
+    written = []
+    for name, px, margin in (("favicon-48.png", 48, 1.06), ("apple-touch-icon.png", 180, 1.22), ("icon-512.png", 512, 1.22)):
+        side = max(xs.max() - xs.min(), ys.max() - ys.min()) * margin
+        side = min(side, img.width, img.height)
+        x0 = int(round(min(max(cx - side / 2, 0), img.width - side)))
+        y0 = int(round(min(max(cy - side / 2, 0), img.height - side)))
+        sq = img.crop((x0, y0, x0 + int(side), y0 + int(side))).resize((px, px), Image.LANCZOS)
+        sq.save(out_dir / name)
+        written.append(out_dir / name)
+    return written
+
+
 if __name__ == "__main__":
     print(build())
+    print(*icons(), sep="\n")

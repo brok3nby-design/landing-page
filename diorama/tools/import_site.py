@@ -310,9 +310,12 @@ def main():
     copy["brand"]["banner_tight"] = "media/studio/b3d-tight.webp"
     copy["brand"]["banner_hero"] = "media/studio/b3d-hero.webp"
     # browser / home-screen icons from the B3 mark (PNG, as browsers and phones expect)
-    pp = Image.open(SRC / "images/title/b3b_pp.png").convert("RGBA")
-    for name, px in (("favicon-48.png", 48), ("apple-touch-icon.png", 180), ("icon-512.png", 512)):
-        pp.resize((px, px), Image.LANCZOS).save(MEDIA / "studio" / name)
+    if custom_mark.exists():                                   # the studio's newer cracked B3
+        brand_mark.icons()
+    else:
+        pp = Image.open(SRC / "images/title/b3b_pp.png").convert("RGBA")
+        for name, px in (("favicon-48.png", 48), ("apple-touch-icon.png", 180), ("icon-512.png", 512)):
+            pp.resize((px, px), Image.LANCZOS).save(MEDIA / "studio" / name)
     DATA.joinpath("site_copy.json").write_text(json.dumps(copy, indent=1, ensure_ascii=False) + "\n", encoding="utf-8")
     size = sum(f.stat().st_size for f in MEDIA.rglob("*") if f.is_file())
     print(f"{len(projects)} projects, media {size / 1e6:.1f} MB in {MEDIA.relative_to(REPO)}")
