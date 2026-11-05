@@ -158,4 +158,21 @@ export const EXHIBITS = {
       gf_lantern: { eyebrow: "Burning low", title: "Oil Lantern", text: "The only honest light in the room." },
     },
   },
+  speck: {
+    model: "models/exhibit_speck.glb",
+    scope: "speck",
+    view: { forward: [-0.498, -0.454, -0.739] },      // the Blender hero camera (azimuth 34°, elevation 27°)
+    fallback: "fallback/exhibit-speck.png",
+    fallbackAlt: "A tiny pixel planet hovering over a glowing pedestal: blue sea, green islands, beaches, hills and snowy peaks, a few blocky clouds. On top, a little homestead: a hut, a fenced farm plot with sprouts, a tree, a campfire, and a small robot with a speech bubble saying sup.",
+    play: "speck",                   // spin the planet, leave something on it (exhibit/SpeckPlay.jsx)
+    noGlow: ["sp_planet"],
+    focusScale: 1.6,
+    homeScale: 0.95,
+    findsTitle: "On the speck",
+    finds: {
+      sp_planet: { eyebrow: "Start small", title: "The Speck", text: "A small beginning in a world full of possibility. Drag it to spin it. Tap anywhere to leave something behind: it will still be here next time you visit (it's saved in this browser only)." },
+      sp_speck: { eyebrow: "sup", title: "A Speck", text: "Start small. Follow your curiosity. Make a place of your own." },
+      sp_home: { eyebrow: "Home", title: "Homestead", text: "A hut, a fence and four rows of sprouts. Gather, craft and build at your own pace, and make a little space in the world feel like yours." },
+    },
+  },
 };

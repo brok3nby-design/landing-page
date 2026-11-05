@@ -14,6 +14,7 @@ const BASE = import.meta.env.BASE_URL;
 // per-exhibit toys, loaded only where used (the gold physics brings the Rapier engine with it)
 const GoldPlay = lazy(() => import("./GoldPlay.jsx"));
 const DicePlay = lazy(() => import("./DicePlay.jsx"));
+const SpeckPlay = lazy(() => import("./SpeckPlay.jsx"));
 const HIGHLIGHT = new THREE.Color(0.09, 0.008, 0.012);     // subtle deep-red hover / selection glow
 // Canvas clear colour chosen so that AFTER AgX tone mapping it lands exactly on the page's #080808
 // (measured in the browser; AgX darkens near-black). Override with ?bg=xxxxxx while tuning.
@@ -516,6 +517,7 @@ function Content({ config, selectedId, onSelect, under, apiRef, quality, animSta
           {config.animation === "notebook" && <NotebookOpen scene={state.scene} open={animState?.open ?? true} />}
           {config.play === "gold" && <Suspense fallback={null}><GoldPlay scene={state.scene} onSelect={onSelect} /></Suspense>}
           {config.play === "dice" && <Suspense fallback={null}><DicePlay scene={state.scene} /></Suspense>}
+          {config.play === "speck" && <Suspense fallback={null}><SpeckPlay scene={state.scene} selectedId={selectedId} /></Suspense>}
           {config.contactShadow && (() => {
             const c = state.box.getCenter(new THREE.Vector3()), sz = state.box.getSize(new THREE.Vector3());
             return <ContactShadows position={[c.x, state.box.min.y + 0.0005, c.z]} scale={Math.max(sz.x, sz.z) * 2.2}

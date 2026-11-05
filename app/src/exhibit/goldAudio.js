@@ -161,3 +161,26 @@ export function diceHit(surface, vol = 0.5, pan = 0) {
     }
   });
 }
+
+// ---------------------------------------------------------------- Speck: little 8-bit blips
+// "plant": a rising pop (something left on the planet); "sup": two quick chirps (the speck says hi);
+// "spin": a soft whoosh
+export function blip(kind = "plant", vol = 0.5) {
+  voice((t) => {
+    const bus = out;
+    const tone = (f0, f1, start, dur, type = "triangle", v = vol) => {
+      const o = ctx.createOscillator(), g = ctx.createGain();
+      o.type = type;
+      o.frequency.setValueAtTime(f0, t + start);
+      o.frequency.exponentialRampToValueAtTime(f1, t + start + dur);
+      g.gain.setValueAtTime(0.0001, t + start);
+      g.gain.exponentialRampToValueAtTime(0.16 * v, t + start + 0.006);
+      g.gain.exponentialRampToValueAtTime(0.0001, t + start + dur);
+      o.connect(g); g.connect(bus); o.start(t + start); o.stop(t + start + dur + 0.02);
+    };
+    if (kind === "sup") { tone(820, 900, 0, 0.07, "square", vol * 0.5); tone(1240, 1500, 0.085, 0.09, "square", vol * 0.5); return 0.2; }
+    if (kind === "spin") { noiseHit(t, "bandpass", 900, 0.8, vol * 0.12, 0.35, bus); return 0.4; }
+    tone(520, 1180, 0, 0.11); noiseHit(t, "highpass", 4000, 0.7, vol * 0.05, 0.01, bus);
+    return 0.15;
+  });
+}

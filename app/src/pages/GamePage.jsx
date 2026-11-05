@@ -55,7 +55,7 @@ export default function GamePage({ id: fixedId }) {
           <div className="ctas"><Link viewTransition className="btn ghost" to="/games">← Back to the shelf</Link></div>
         </section>
         {ex ? (
-          <Exhibit config={ex} selectedId={selectedId} onSelect={setSelectedId} tools={ex.play === "gold" ? <GoldTools /> : ex.play === "dice" ? <DiceTools /> : null}>
+          <Exhibit config={ex} selectedId={selectedId} onSelect={setSelectedId} tools={ex.play === "gold" ? <GoldTools /> : ex.play === "dice" ? <DiceTools /> : ex.play === "speck" ? <SpeckTools /> : null}>
             <InfoPanel item={selectedId && ex.finds[selectedId] ? { id: selectedId, kind: "discovery", panel: ex.finds[selectedId] } : null}
                        onClose={close} />
           </Exhibit>
@@ -124,6 +124,29 @@ function DiceTools() {
       <output className="dice-result" aria-live="polite">{text}</output>
       <button className="tool" onClick={() => window.dispatchEvent(new CustomEvent("gf-roll", { detail: "roll" }))}>Roll the dice</button>
       <button className="tool" aria-pressed={on} onClick={() => setGoldSound(!on)} title="Dice sounds">{on ? "Sounds: on" : "Sounds: off"}</button>
+    </>
+  );
+}
+
+// Speck: spin the planet, leave something where you are looking (keyboard / touch alternative), clear yours
+function SpeckTools() {
+  const [msg, setMsg] = useState("");
+  useEffect(() => {
+    const f = (e) => {
+      const d = e.detail;
+      setMsg(d.cleared ? "Cleared. The planet is as you found it."
+        : `You left ${d.name}. ${d.saved ? "It will still be here next time." : "(Your browser won't save it.)"}`);
+    };
+    addEventListener("sp-mark", f);
+    return () => removeEventListener("sp-mark", f);
+  }, []);
+  const act = (a) => window.dispatchEvent(new CustomEvent("sp-act", { detail: a }));
+  return (
+    <>
+      <output className="dice-result" aria-live="polite">{msg}</output>
+      <button className="tool" onClick={() => act("spin")}>Spin</button>
+      <button className="tool" onClick={() => act("leave")} title="Leave something on the planet where you're looking">Leave something</button>
+      <button className="tool" onClick={() => act("clear")} title="Remove everything you left (saved in this browser)">Clear mine</button>
     </>
   );
 }
