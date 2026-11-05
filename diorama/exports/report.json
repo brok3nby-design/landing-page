@@ -3489,5 +3489,317 @@
    }
   ],
   "textures_not_multiple_of_4": []
+ },
+ {
+  "file": "raw/exhibit_pocket_wilds.glb",
+  "mb": 12.49,
+  "nodes": 31,
+  "meshes": 28,
+  "draw_calls": 28,
+  "triangles": 72880,
+  "materials": 18,
+  "textures": 13,
+  "texture_mb_download": 8.23,
+  "gpu_texture_mb": 46.6,
+  "validator": {
+   "errors": 0,
+   "warnings": 6,
+   "messages": [
+    "MESH_PRIMITIVE_GENERATED_TANGENT_SPACE: Material requires a tangent space but the mesh primitive does not provide it. Runtime-generated tangent space may be non-portable across implementations.",
+    "MESH_PRIMITIVE_GENERATED_TANGENT_SPACE: Material requires a tangent space but the mesh primitive does not provide it. Runtime-generated tangent space may be non-portable across implementations.",
+    "MESH_PRIMITIVE_GENERATED_TANGENT_SPACE: Material requires a tangent space but the mesh primitive does not provide it. Runtime-generated tangent space may be non-portable across implementations.",
+    "MESH_PRIMITIVE_GENERATED_TANGENT_SPACE: Material requires a tangent space but the mesh primitive does not provide it. Runtime-generated tangent space may be non-portable across implementations.",
+    "MESH_PRIMITIVE_GENERATED_TANGENT_SPACE: Material requires a tangent space but the mesh primitive does not provide it. Runtime-generated tangent space may be non-portable across implementations.",
+    "MESH_PRIMITIVE_GENERATED_TANGENT_SPACE: Material requires a tangent space but the mesh primitive does not provide it. Runtime-generated tangent space may be non-portable across implementations."
+   ]
+  },
+  "tags": [
+   {
+    "node": "PW_GoldPile",
+    "interactive_id": "pw_gold",
+    "interactive_label": "The Gold",
+    "interactive_scope": "pocket-wilds",
+    "interactive_kind": "discovery"
+   },
+   {
+    "node": "PW_Chest",
+    "interactive_id": "pw_chest",
+    "interactive_label": "Treasure Chest",
+    "interactive_scope": "pocket-wilds",
+    "interactive_kind": "discovery"
+   },
+   {
+    "node": "PW_FloorGold",
+    "interactive_id": "pw_gold",
+    "interactive_label": "The Gold",
+    "interactive_scope": "pocket-wilds",
+    "interactive_kind": "discovery"
+   },
+   {
+    "node": "PW_Goblet",
+    "interactive_id": "pw_goblet",
+    "interactive_label": "Golden Goblet",
+    "interactive_scope": "pocket-wilds",
+    "interactive_kind": "discovery"
+   },
+   {
+    "node": "PW_Torch",
+    "interactive_id": "pw_torch",
+    "interactive_label": "Wall Torch",
+    "interactive_scope": "pocket-wilds",
+    "interactive_kind": "discovery"
+   }
+  ],
+  "texture_list": [
+   {
+    "name": "exhibit_pocket_wilds_glow",
+    "mime": "image/png",
+    "size": "1024x1024",
+    "kb": 201,
+    "gpu_safe": true
+   },
+   {
+    "name": "exhibit_pocket_wilds_ao",
+    "mime": "image/png",
+    "size": "1024x1024",
+    "kb": 492,
+    "gpu_safe": true
+   },
+   {
+    "name": "pw_chest_wood",
+    "mime": "image/png",
+    "size": "1024x1024",
+    "kb": 1217,
+    "gpu_safe": true
+   },
+   {
+    "name": "pw_gold_pile_n",
+    "mime": "image/png",
+    "size": "512x300",
+    "kb": 362,
+    "gpu_safe": true
+   },
+   {
+    "name": "pw_gold_pile",
+    "mime": "image/png",
+    "size": "1024x600",
+    "kb": 1065,
+    "gpu_safe": true
+   },
+   {
+    "name": "pw_flag_n",
+    "mime": "image/png",
+    "size": "512x512",
+    "kb": 228,
+    "gpu_safe": true
+   },
+   {
+    "name": "pw_flag",
+    "mime": "image/png",
+    "size": "1024x1024",
+    "kb": 834,
+    "gpu_safe": true
+   },
+   {
+    "name": "wood_dark_n",
+    "mime": "image/png",
+    "size": "512x512",
+    "kb": 252,
+    "gpu_safe": true
+   },
+   {
+    "name": "wood_dark",
+    "mime": "image/png",
+    "size": "1024x1024",
+    "kb": 1250,
+    "gpu_safe": true
+   },
+   {
+    "name": "pw_stone_n",
+    "mime": "image/png",
+    "size": "512x512",
+    "kb": 232,
+    "gpu_safe": true
+   },
+   {
+    "name": "pw_stone",
+    "mime": "image/png",
+    "size": "1024x1024",
+    "kb": 851,
+    "gpu_safe": true
+   },
+   {
+    "name": "pw_stone_b_n",
+    "mime": "image/png",
+    "size": "512x512",
+    "kb": 225,
+    "gpu_safe": true
+   },
+   {
+    "name": "pw_stone_b",
+    "mime": "image/png",
+    "size": "1024x1024",
+    "kb": 832,
+    "gpu_safe": true
+   }
+  ],
+  "textures_not_multiple_of_4": []
+ },
+ {
+  "file": "exhibit_pocket_wilds.glb",
+  "mb": 5.92,
+  "nodes": 36,
+  "meshes": 28,
+  "draw_calls": 28,
+  "triangles": 72880,
+  "materials": 18,
+  "textures": 13,
+  "texture_mb_download": 4.61,
+  "gpu_texture_mb": 11.6,
+  "validator": {
+   "errors": 0,
+   "warnings": 32,
+   "messages": [
+    "VALUE_NOT_IN_LIST: Invalid value 'image/ktx2'. Valid values are ('image/jpeg', 'image/png').",
+    "VALUE_NOT_IN_LIST: Invalid value 'image/ktx2'. Valid values are ('image/jpeg', 'image/png').",
+    "VALUE_NOT_IN_LIST: Invalid value 'image/ktx2'. Valid values are ('image/jpeg', 'image/png').",
+    "VALUE_NOT_IN_LIST: Invalid value 'image/ktx2'. Valid values are ('image/jpeg', 'image/png').",
+    "VALUE_NOT_IN_LIST: Invalid value 'image/ktx2'. Valid values are ('image/jpeg', 'image/png').",
+    "VALUE_NOT_IN_LIST: Invalid value 'image/ktx2'. Valid values are ('image/jpeg', 'image/png').",
+    "VALUE_NOT_IN_LIST: Invalid value 'image/ktx2'. Valid values are ('image/jpeg', 'image/png').",
+    "VALUE_NOT_IN_LIST: Invalid value 'image/ktx2'. Valid values are ('image/jpeg', 'image/png')."
+   ]
+  },
+  "tags": [
+   {
+    "node": "PW_GoldPile",
+    "interactive_id": "pw_gold",
+    "interactive_label": "The Gold",
+    "interactive_scope": "pocket-wilds",
+    "interactive_kind": "discovery"
+   },
+   {
+    "node": "PW_Chest",
+    "interactive_id": "pw_chest",
+    "interactive_label": "Treasure Chest",
+    "interactive_scope": "pocket-wilds",
+    "interactive_kind": "discovery"
+   },
+   {
+    "node": "PW_FloorGold",
+    "interactive_id": "pw_gold",
+    "interactive_label": "The Gold",
+    "interactive_scope": "pocket-wilds",
+    "interactive_kind": "discovery"
+   },
+   {
+    "node": "PW_Goblet",
+    "interactive_id": "pw_goblet",
+    "interactive_label": "Golden Goblet",
+    "interactive_scope": "pocket-wilds",
+    "interactive_kind": "discovery"
+   },
+   {
+    "node": "PW_Torch",
+    "interactive_id": "pw_torch",
+    "interactive_label": "Wall Torch",
+    "interactive_scope": "pocket-wilds",
+    "interactive_kind": "discovery"
+   }
+  ],
+  "texture_list": [
+   {
+    "name": "exhibit_pocket_wilds_glow",
+    "mime": "image/ktx2",
+    "size": "1024x1024",
+    "kb": 148,
+    "gpu_safe": true
+   },
+   {
+    "name": "exhibit_pocket_wilds_ao",
+    "mime": "image/ktx2",
+    "size": "1024x1024",
+    "kb": 517,
+    "gpu_safe": true
+   },
+   {
+    "name": "pw_chest_wood",
+    "mime": "image/ktx2",
+    "size": "1024x1024",
+    "kb": 577,
+    "gpu_safe": true
+   },
+   {
+    "name": "pw_gold_pile_n",
+    "mime": "image/ktx2",
+    "size": "512x300",
+    "kb": 175,
+    "gpu_safe": true
+   },
+   {
+    "name": "pw_gold_pile",
+    "mime": "image/ktx2",
+    "size": "1024x600",
+    "kb": 604,
+    "gpu_safe": true
+   },
+   {
+    "name": "pw_flag_n",
+    "mime": "image/ktx2",
+    "size": "512x512",
+    "kb": 156,
+    "gpu_safe": true
+   },
+   {
+    "name": "pw_flag",
+    "mime": "image/ktx2",
+    "size": "1024x1024",
+    "kb": 477,
+    "gpu_safe": true
+   },
+   {
+    "name": "wood_dark_n",
+    "mime": "image/ktx2",
+    "size": "512x512",
+    "kb": 88,
+    "gpu_safe": true
+   },
+   {
+    "name": "wood_dark",
+    "mime": "image/ktx2",
+    "size": "1024x1024",
+    "kb": 463,
+    "gpu_safe": true
+   },
+   {
+    "name": "pw_stone_n",
+    "mime": "image/ktx2",
+    "size": "512x512",
+    "kb": 152,
+    "gpu_safe": true
+   },
+   {
+    "name": "pw_stone",
+    "mime": "image/ktx2",
+    "size": "1024x1024",
+    "kb": 508,
+    "gpu_safe": true
+   },
+   {
+    "name": "pw_stone_b_n",
+    "mime": "image/ktx2",
+    "size": "512x512",
+    "kb": 155,
+    "gpu_safe": true
+   },
+   {
+    "name": "pw_stone_b",
+    "mime": "image/ktx2",
+    "size": "1024x1024",
+    "kb": 486,
+    "gpu_safe": true
+   }
+  ],
+  "textures_not_multiple_of_4": []
  }
 ]

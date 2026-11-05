@@ -63,7 +63,7 @@ function Gold({ scene, onSelect }) {
   }, [scene]);
   const geometry = useMemo(() => coinGeometry(info.coin.r, info.coin.t), [info]);
   const material = useMemo(() => new THREE.MeshStandardMaterial({
-    color: "#ffbf45", metalness: 1, roughness: 0.27, emissive: "#5a3600", emissiveIntensity: 0.55, envMapIntensity: 0.9,
+    color: "#ffbf45", metalness: 1, roughness: 0.27, emissive: "#5a3600", emissiveIntensity: 0.35, envMapIntensity: 0.9,
   }), []);
 
   // ------------------------------------------------------------ world: static colliders + coin pool
