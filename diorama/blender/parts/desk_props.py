@@ -328,9 +328,10 @@ def passport(root, top):
         TEX["studio_passport"] = T.label_card("studio_passport", 360, 512, [("BROK3N", 3), ("BY DESIGN", 2), ("", 3),
                                               ("*STUDIO", 4), ("*PASSPORT", 4)], "#1c2742", "#d9b45e", accent="#d9b45e", border=True)
     cover = mat("M_studio_passport", tex="studio_passport", rough=0.55)
-    grp = S.empty("NAV_Passport", "PROPS", loc=(-0.565, 0.265, top), rot=(0, 0, radians(-16)), parent=root, size=0.04)
+    # on the right of the desk mat, between the mouse and the mug: in plain view from the default camera
+    grp = S.empty("NAV_Passport", "PROPS", loc=(0.28, 0.27, top + 0.003), rot=(0, 0, radians(12)), parent=root, size=0.04)
     geo.box("NAV_Passport_Back", (0.09, 0.126, 0.0015), material=mat("M_passport_navy", color=(0.07, 0.09, 0.16), rough=0.55),
-            parent=grp, bevel=0.0006, seg=1, rests_on="DESK_Top")
+            parent=grp, bevel=0.0006, seg=1, rests_on="PROP_DeskMat")
     geo.box("NAV_Passport_Pages", (0.086, 0.121, 0.005), loc=(0.0015, 0, 0.0015), material=M("pages"), parent=grp, bevel=0.0004, seg=1)
     geo.box("NAV_Passport_Cover", (0.09, 0.126, 0.0015), loc=(0, 0, 0.0065), material=cover, parent=grp, bevel=0.0006, seg=1,
             uv="fit", fit_axis=2)
