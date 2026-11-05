@@ -1,30 +1,23 @@
-# Staging: test.brok3nbydesign.com (Phase 8)
+# Staging: brok3nbydesign.com/landing-page/ (Phase 8)
 
 A **private test copy** of the new site, for trying it on your own phone and PC.
 - Your live site (brok3nbydesign.com) and its DNS records are not changed.
 - Search engines are told not to index staging (noindex + `robots.txt`).
 - A yellow **STAGING** badge in the corner shows you're on the test copy. Tap it to see which build you're looking at.
 
-## One-time setup (about 5 minutes, you only do this once)
+## One-time setup (one switch on GitHub, no DNS)
+Your domain already points at GitHub for the live site, so GitHub automatically serves this repository's
+Pages at **https://brok3nbydesign.com/landing-page/**. No Namecheap or DNS change is needed. The live
+site at brok3nbydesign.com stays exactly as it is.
 
-**1. Add one DNS record in cPanel.** Your domain's DNS is managed by your Namecheap hosting account, so Advanced DNS says "You can manage host records in your cPanel account". Don't click **Change DNS Type** there: it would replace your current DNS and could take the live site or email offline.
-1. namecheap.com → **Hosting List** → your hosting plan → **Go to cPanel**.
-2. In cPanel, find **Zone Editor** (section "Domains"; or type "zone" in the search box).
-3. In the **brok3nbydesign.com** row, click **+ CNAME Record**:
-   - Name: **test** (cPanel completes it to `test.brok3nbydesign.com.`)
-   - CNAME / Record: **brok3nby-design.github.io**
-   - Click **Add a CNAME Record**. Leave every other record exactly as it is.
-4. If cPanel says a record named `test` already exists, stop and send me a screenshot; don't overwrite it.
-
-**2. GitHub: turn on Pages for the new site's repository.**
 1. github.com/brok3nby-design/landing-page → **Settings** → **Pages**.
-2. **Source**: *Deploy from a branch*, then **Branch**: `gh-pages`, folder `/ (root)`, then **Save**.
-3. **Custom domain**: `test.brok3nbydesign.com`, then **Save**. GitHub checks the DNS; this can take a few minutes up to an hour.
-4. When it offers it, tick **Enforce HTTPS**.
+2. **Source**: *Deploy from a branch*. **Branch**: `gh-pages`, folder `/ (root)`. Click **Save**.
+3. Leave **Custom domain** empty.
+4. After about a minute, open **https://brok3nbydesign.com/landing-page/** on your phone and PC.
 
-*(Recommended)* github.com → your profile → **Settings** → **Pages** → **Add a domain** → `brok3nbydesign.com`. This verifies you own the domain, so no one else can attach its subdomains.
-
-Then open **https://test.brok3nbydesign.com** on your phone and PC and tell me it loads. I can't open your domain from my cloud environment.
+*(Later, optional)* A separate test.brok3nbydesign.com address needs a DNS record. Your domain is on
+Namecheap's hosting DNS without a hosting plan, so that would first mean moving DNS to Namecheap BasicDNS
+(a production change, planned separately). `npm run deploy:staging` (without `--subpath`) builds for that address.
 
 ## What to try (phone and PC)
 
@@ -47,9 +40,9 @@ Tick what works and note what doesn't.
 - [ ] Music on/off works (top right) and pauses when a trailer plays.
 - [ ] Passport: stamps appear as you explore; backup and restore work.
 - [ ] Settings: switching off animations or particles works.
-- [ ] Old links still work, e.g. https://test.brok3nbydesign.com/bid-and-buried.html
+- [ ] Old links still work, e.g. https://brok3nbydesign.com/landing-page/bid-and-buried.html
 
-**Speed:** open https://test.brok3nbydesign.com/?fps, drag the desk around, and send me the number shown in the top-left corner.
+**Speed:** open https://brok3nbydesign.com/landing-page/?fps, drag the desk around, and send me the number shown in the top-left corner.
 
 ## Reporting a problem
 Send a screenshot plus: the page, the device (e.g. "iPhone 13, Safari" or "Windows PC, Chrome") and what you did. A short message is fine.

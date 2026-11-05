@@ -41,12 +41,14 @@ for (const [file, to] of Object.entries(OLD)) {
 }
 // staging (test.brok3nbydesign.com on GitHub Pages): custom domain, no Jekyll, no indexing, version stamp
 if (STAGING) {
-  fs.writeFileSync(path.join(dist, "CNAME"), "test.brok3nbydesign.com\n");
+  // custom subdomain (needs a DNS record) unless STAGING_CNAME="" -> served at brok3nbydesign.com/landing-page/
+  const cname = process.env.STAGING_CNAME ?? "test.brok3nbydesign.com";
+  if (cname) fs.writeFileSync(path.join(dist, "CNAME"), cname + "\n");
   fs.writeFileSync(path.join(dist, ".nojekyll"), "");
   fs.writeFileSync(path.join(dist, "robots.txt"), "User-agent: *\nDisallow: /\n");
   let commit = "local";
   try { commit = (await import("node:child_process")).execSync("git rev-parse --short HEAD").toString().trim(); } catch { /* none */ }
   fs.writeFileSync(path.join(dist, "version.json"), JSON.stringify({ commit, built: new Date().toISOString(), staging: true }, null, 1) + "\n");
-  console.log("staging extras: CNAME, .nojekyll, robots.txt (disallow all), version.json");
+  console.log(`staging extras: ${cname ? "CNAME " + cname + ", " : "no CNAME (sub-path), "}.nojekyll, robots.txt (disallow all), version.json`);
 }
 console.log("static route pages:", routes.length, "+ 404.html; old-URL forwards:", Object.keys(OLD).length);

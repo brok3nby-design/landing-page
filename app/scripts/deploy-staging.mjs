@@ -19,9 +19,12 @@ const DRY = process.argv.includes("--dry");
 const sh = (cmd, cwd = REPO) => execSync(cmd, { cwd, stdio: "pipe" }).toString().trim();
 const run = (cmd, cwd = REPO) => execSync(cmd, { cwd, stdio: "inherit" });
 
-run("npm run build:staging", APP);
+// --subpath: no DNS needed - GitHub serves this repo's Pages at <owner's custom domain>/landing-page/
+const SUBPATH = process.argv.includes("--subpath");
+execSync("npm run build:staging", { cwd: APP, stdio: "inherit",
+  env: { ...process.env, ...(SUBPATH ? { SITE_BASE: "/landing-page/", STAGING_CNAME: "" } : {}) } });
 const dist = path.join(APP, "dist");
-for (const f of ["CNAME", ".nojekyll", "robots.txt", "version.json", "index.html", "404.html"])
+for (const f of [...(SUBPATH ? [] : ["CNAME"]), ".nojekyll", "robots.txt", "version.json", "index.html", "404.html"])
   if (!fs.existsSync(path.join(dist, f))) throw new Error(`staging build is missing ${f}`);
 if (!fs.readFileSync(path.join(dist, "index.html"), "utf8").includes('name="robots" content="noindex'))
   throw new Error("staging index.html is missing the noindex meta tag");
@@ -57,4 +60,4 @@ else {
   }
 }
 run(`git worktree remove --force "${WT}"`);
-console.log(`staging ${DRY ? "prepared" : "deployed"} from ${source}${dirty} -> gh-pages (https://test.brok3nbydesign.com once DNS + Pages are set up)`);
+console.log(`staging ${DRY ? "prepared" : "deployed"} from ${source}${dirty} -> gh-pages (${SUBPATH ? "https://brok3nbydesign.com/landing-page/ once Pages is turned on" : "https://test.brok3nbydesign.com once DNS + Pages are set up"})`);

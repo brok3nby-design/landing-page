@@ -11,7 +11,8 @@
     "preview": "vite preview",
     "test:browser": "npm run build && node scripts/browser-test.mjs",
     "build:staging": "npm run prepare-assets && STAGING=1 vite build && STAGING=1 node scripts/static-routes.mjs",
-    "deploy:staging": "node scripts/deploy-staging.mjs",
+    "deploy:staging": "node scripts/deploy-staging.mjs --subpath",
+    "deploy:staging:subdomain": "node scripts/deploy-staging.mjs",
     "test:staging": "npm run build:staging && node scripts/staging-tests.mjs"
   },
   "dependencies": {
