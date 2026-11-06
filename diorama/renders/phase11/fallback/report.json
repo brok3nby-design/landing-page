@@ -1,13 +1,13 @@
 {
   "no_webgl": {
     "desktop:home": {
-      "ok": "",
+      "ok": true,
       "fallback": true,
       "image_loaded": true,
       "alt": 226,
       "note": "Interactive 3D isn't available on this device — showing a render.",
       "canvas": false,
-      "heading": "",
+      "heading": "BROK3N BY DESIGN",
       "links": 25,
       "nav": 7,
       "overflow_px": 0,
@@ -187,13 +187,13 @@
       "link": "/games"
     },
     "phone:home": {
-      "ok": "",
+      "ok": true,
       "fallback": true,
       "image_loaded": true,
       "alt": 226,
       "note": "Interactive 3D isn't available on this device — showing a render.",
       "canvas": false,
-      "heading": "",
+      "heading": "BROK3N BY DESIGN",
       "links": 25,
       "nav": 7,
       "overflow_px": 0,
@@ -375,8 +375,8 @@
   },
   "reduced_motion": {
     "home": {
-      "ok": false,
-      "still": false,
+      "ok": true,
+      "still": true,
       "camera": [
         1.846,
         3.672,
