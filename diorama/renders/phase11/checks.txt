@@ -1,4 +1,4 @@
-Resting-contact checks: 84 objects declared, 0 problems
+Resting-contact checks: 85 objects declared, 0 problems
 Collision pairs checked: 6 group pairs, 0 overlaps
   BASE                    6 objects
   DESK                   38 objects
@@ -6,11 +6,11 @@ Collision pairs checked: 6 group pairs, 0 overlaps
   MONITORS               18 objects
   SHELVES                12 objects
   LIGHTS                 15 objects
-  PROPS                 234 objects
+  PROPS                 254 objects
   COLLECTIBLES           44 objects
-  INTERACTIVE_TARGETS    33 objects
-  CAMERAS                13 objects
+  INTERACTIVE_TARGETS    32 objects
+  CAMERAS                14 objects
 Overall size (m): 2.50 W x 2.00 D x 1.89 H
-Mesh objects: 344, evaluated triangles (with bevels): 89,844
+Mesh objects: 362, evaluated triangles (with bevels): 99,920
 Problems:
   none

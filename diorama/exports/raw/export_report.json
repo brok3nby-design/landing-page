@@ -1,25 +1,25 @@
 {
  "desk_before": {
-  "nodes": 393,
-  "meshes": 341,
-  "draw_calls_est": 343,
-  "materials": 94,
-  "triangles": 48184
+  "nodes": 404,
+  "meshes": 350,
+  "draw_calls_est": 352,
+  "materials": 95,
+  "triangles": 49444
  },
- "desk_sibling_merges": 44,
+ "desk_sibling_merges": 45,
  "desk_bake": {
-  "objects": 104,
+  "objects": 111,
   "materials": 79,
   "atlas": 1024
  },
  "desk_after": {
-  "nodes": 183,
-  "meshes": 131,
-  "draw_calls_est": 133,
-  "materials": 97,
-  "triangles": 88848
+  "nodes": 193,
+  "meshes": 139,
+  "draw_calls_est": 141,
+  "materials": 98,
+  "triangles": 91268
  },
- "desk_glb_bytes": 25502824,
+ "desk_glb_bytes": 26086676,
  "crate_bake": {
   "objects": 1,
   "materials": 1,
@@ -32,7 +32,7 @@
   "materials": 7,
   "triangles": 820
  },
- "crate_glb_bytes": 6011868,
+ "crate_glb_bytes": 6011976,
  "notebook_after": {
   "nodes": 18,
   "meshes": 10,
