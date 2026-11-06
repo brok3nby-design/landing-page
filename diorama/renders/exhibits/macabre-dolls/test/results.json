@@ -14,7 +14,7 @@
   "busy": false,
   "music": false,
   "heads": [
-   0.32437118956308925,
+   0.32158473432513424,
    0.3001639090470516,
    0.30606587374843913
   ]
@@ -24,7 +24,7 @@
   "busy": false,
   "music": false,
   "heads": [
-   0.32437118956308925,
+   0.32158473432513424,
    0.3001639090470516,
    0.30606587374843913
   ]
@@ -35,14 +35,14 @@
   "busy": false,
   "music": true,
   "heads": [
-   0.2986981734267781,
-   0.25978534511200757,
-   0.2713307474117414
+   0.30677164736407087,
+   0.27837890638697804,
+   0.2868597140903442
   ]
  },
  "all": {
-  "drawn": 12,
-  "busy": true,
+  "drawn": 13,
+  "busy": false,
   "music": false,
   "heads": [
    0.32437118956308925,
@@ -50,8 +50,8 @@
    0.30606587374843913
   ]
  },
- "all_readout": "Drawing…",
- "stamp": false,
+ "all_readout": "The whole deck. Some toys should stay forgotten.",
+ "stamp": true,
  "after_shuffle": {
   "drawn": 0,
   "busy": false,
@@ -66,7 +66,7 @@
   "heads_turn_when_still": true,
   "deck_click_draws": true,
   "music_box_plays": true,
-  "whole_deck_stamp": false,
+  "whole_deck_stamp": true,
   "shuffle": true,
   "no_errors": true
  },
