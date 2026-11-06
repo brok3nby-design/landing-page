@@ -47,7 +47,7 @@ await page.keyboard.press("Escape");
 await page.getByRole("button", { name: "Reset view" }).click(); await frames(20);
 await click("JB_Sign_Front");
 results.sign_click = await J();
-for (let i = 0; i < 40; i++) await frames(1);
+for (let i = 0; i < 600 && Math.abs((await J()).angle - Math.PI) > 0.01; i++) await frames(1);   // slow GL: wait for the half-turn
 results.after_flip = await J();
 results.stamp = await page.evaluate(() => !!JSON.parse(localStorage.getItem("b3d-passport-v1") || "{}")?.stamps?.["strange-places"]);
 await shot("02_sign_flipped.png");

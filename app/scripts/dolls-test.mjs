@@ -35,7 +35,7 @@ const wait = (ms) => page.waitForTimeout(ms);
 const frames = async (n = 10) => { for (let i = 0; i < n; i++) { await page.evaluate(() => window.__exhibit?.invalidate()); await wait(60); } };
 const shot = async (f) => { await frames(3); await page.screenshot({ path: path.join(OUT, f), timeout: 180000 }); console.log("shot", f); };
 const D = () => page.evaluate(() => ({ drawn: window.__dolls.drawn(), busy: window.__dolls.busy(), music: window.__dolls.music(), heads: window.__dolls.heads() }));
-const idle = async () => { await frames(4); for (let i = 0; i < 300 && (await D()).busy; i++) await frames(3); };
+const idle = async () => { await frames(4); for (let i = 0; i < 1500 && (await D()).busy; i++) await frames(3); };
 await page.goto("http://127.0.0.1:4189/games/macabre-dolls?test");
 await page.waitForFunction(() => window.__exhibit?.ready && window.__dolls, null, { timeout: 240000 });
 await frames(6);

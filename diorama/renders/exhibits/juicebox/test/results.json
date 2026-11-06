@@ -1,0 +1,49 @@
+{
+ "bottle": {
+  "wobbling": true,
+  "flips": 0,
+  "lights": false,
+  "angle": 0
+ },
+ "sign_click": {
+  "wobbling": true,
+  "flips": 1,
+  "lights": false,
+  "angle": 0
+ },
+ "after_flip": {
+  "wobbling": true,
+  "flips": 1,
+  "lights": false,
+  "angle": 1.021929541199436
+ },
+ "stamp": true,
+ "truck_click": {
+  "wobbling": true,
+  "flips": 1,
+  "lights": true,
+  "angle": 3.141592653589793
+ },
+ "button_off": {
+  "wobbling": false,
+  "flips": 1,
+  "lights": false,
+  "angle": 3.141592653589793
+ },
+ "button_shake": {
+  "wobbling": true,
+  "flips": 1,
+  "lights": false,
+  "angle": 3.141592653589793
+ },
+ "checks": {
+  "bottle_click_sloshes": true,
+  "sign_click_flips": false,
+  "sign_stamp": true,
+  "truck_click_headlights": true,
+  "headlights_button": true,
+  "shake_button": true,
+  "no_errors": true
+ },
+ "errors": []
+}

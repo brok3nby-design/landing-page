@@ -14,34 +14,13 @@
   "busy": false,
   "music": false,
   "heads": [
-   0.32070516821641715,
+   0.32437118956308925,
    0.3001639090470516,
-   0.30420499206074286
+   0.30606587374843913
   ]
  },
  "after_draw": {
   "drawn": 1,
-  "busy": false,
-  "music": false,
-  "heads": [
-   0.32070516821641715,
-   0.3001639090470516,
-   0.30420499206074286
-  ]
- },
- "readout": "Drawn 1 of 13. Every doll has a past.",
- "music": {
-  "drawn": 1,
-  "busy": false,
-  "music": true,
-  "heads": [
-   0.31029270288670924,
-   0.2851149503195938,
-   0.29088847983220495
-  ]
- },
- "all": {
-  "drawn": 7,
   "busy": false,
   "music": false,
   "heads": [
@@ -50,7 +29,28 @@
    0.30606587374843913
   ]
  },
- "all_readout": "Drawn 7 of 13. Every doll has a past.",
+ "readout": "Drawn 1 of 13. Every doll has a past.",
+ "music": {
+  "drawn": 1,
+  "busy": false,
+  "music": true,
+  "heads": [
+   0.2986981734267781,
+   0.25978534511200757,
+   0.2713307474117414
+  ]
+ },
+ "all": {
+  "drawn": 12,
+  "busy": true,
+  "music": false,
+  "heads": [
+   0.32437118956308925,
+   0.3001639090470516,
+   0.30606587374843913
+  ]
+ },
+ "all_readout": "Drawing…",
  "stamp": false,
  "after_shuffle": {
   "drawn": 0,
