@@ -14,7 +14,8 @@ import { fileURLToPath } from "node:url";
 const HERE = path.dirname(fileURLToPath(import.meta.url));
 const EXPORTS = path.resolve(HERE, "..", "exports");
 const FILES = [];
-for (const n of ["studio_desk", "games_collection", "studio_notebook"]) {
+const EXHIBITS = fs.existsSync(path.join(EXPORTS, "raw")) ? fs.readdirSync(path.join(EXPORTS, "raw")).filter((f) => /^exhibit_.*\.glb$/.test(f)).map((f) => f.slice(0, -4)) : [];
+for (const n of ["studio_desk", "games_collection", "studio_notebook", ...EXHIBITS]) {
   for (const v of [`raw/${n}.glb`, `${n}.glb`, `${n}_webp.glb`]) {
     if (fs.existsSync(path.join(EXPORTS, v))) FILES.push(v);
   }

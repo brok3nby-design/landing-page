@@ -1,4 +1,4 @@
-import { useCallback, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Exhibit from "../exhibit/Exhibit.jsx";
 import InfoPanel, { Action } from "../components/InfoPanel.jsx";
@@ -7,9 +7,22 @@ import { resolveInteraction } from "../exhibit/interactions.js";
 import { PAGES, HOTSPOT_LABELS } from "../content/site.js";
 import { useSiteData, section, media, projectRoute } from "../content/data.js";
 import { unlock } from "../site/passport.js";
+import { pauseMusic } from "../site/music.js";
+import { wakeAudio, blip } from "../exhibit/goldAudio.js";
+import * as radio from "../site/radio.js";
+
+// the rubber duck: a squeak, then WRFM's Rubber Duck Rental ad (one at a time)
+let duckAd = null;
+function quack() {
+  radio.stop();                                  // one voice at a time: the duck interrupts the radio
+  wakeAudio(); blip("squeak", 0.8);
+  if (duckAd && !duckAd.paused) return;
+  duckAd = new Audio(`${import.meta.env.BASE_URL}media/wrfm/audio/02-rubber-duck-rental.ogg`);
+  setTimeout(() => { pauseMusic(); duckAd.play().catch(() => {}); }, 380);
+}
 
 // Desk discoveries that earn a Studio Passport stamp
-const STAMPS = { egg_qa_sticker: "radar", egg_maker_plate: "maker-plate", mug: "coffee",
+const STAMPS = { egg_qa_sticker: "radar", egg_maker_plate: "maker-plate", mug: "coffee", duck: "quack",
                  drawer_1: "door", drawer_2: "door", drawer_3: "door" };
 
 export default function Home() {
@@ -20,20 +33,42 @@ export default function Home() {
   const select = useCallback((id) => {
     setSelectedId(id);
     if (!id) return;
+    setPicked(true);
     if (STAMPS[id]) unlock(STAMPS[id]);
     if (/^book_/.test(id)) unlock("bookworm");
     if (id === "egg_qa_sticker") unlock("visit-under-the-radar");
+    if (id === "duck") quack();
+    if (id === "radio") { if (duckAd) duckAd.pause(); wakeAudio(); blip("ping", 0.4); radio.play(); }
   }, []);
+  // draw the eye to the desk's options: every couple of seconds one random option glints (a red border sweep),
+  // until the visitor picks one. Reduced motion: none (CSS).
+  const [glint, setGlint] = useState(-1);
+  const [picked, setPicked] = useState(false);
+  useEffect(() => {
+    if (picked) { setGlint(-1); return; }
+    const n = page.exhibit.hotspots.length;
+    let last = -1;
+    const t = setInterval(() => {
+      if (document.hidden) return;
+      let k = Math.floor(Math.random() * n); if (k === last) k = (k + 1) % n;
+      last = k; setGlint(k);
+    }, 2200);
+    return () => clearInterval(t);
+  }, [picked, page.exhibit.hotspots.length]);
   const item = selectedId && data ? { label: HOTSPOT_LABELS[selectedId], ...resolveInteraction(data.interactions, selectedId) } : null;
   const copy = data?.copy;
   const hero = section(copy, "home", null).map((i) => i.text);
 
   return (
     <>
-      <div className="page">
+      <div className="page home">
         <section className="content">
           <p className="eyebrow">{hero[1] || "Independent game studio"}</p>
-          <h1 className="title">BROK3N<br />BY DESIGN<span className="accent">.</span></h1>
+          <h1 className="title hero-logo">
+            {copy?.brand.banner_hero
+              ? <img src={media(copy.brand.banner_hero)} alt="BROK3N BY DESIGN" width="1668" height="594" fetchpriority="high" />
+              : <>BROK3N<br />BY DESIGN<span className="accent">.</span></>}
+          </h1>
           {hero[2] && <p className="intro">{hero[2]}<br />{hero[3]}</p>}
           <div className="ctas">
             {page.ctas.map((c) => c.to.includes("#")
@@ -41,11 +76,11 @@ export default function Home() {
               : <Link viewTransition key={c.to} to={c.to} className={`btn${c.primary ? " primary" : ""}`}>{c.label}</Link>)}
           </div>
           <div className="hotspots">
-            <h2 id="explore">Explore the desk</h2>
+            <h2 id="explore" className={picked ? "" : "pulse"}><span className="pulse-dot" aria-hidden="true" />Explore the desk</h2>
             <ul aria-labelledby="explore">
-              {page.exhibit.hotspots.map((id) => (
+              {page.exhibit.hotspots.map((id, k) => (
                 <li key={id}>
-                  <button className="chip" aria-pressed={selectedId === id}
+                  <button className={`chip${glint === k ? " glint" : ""}`} aria-pressed={selectedId === id}
                           onClick={() => select(selectedId === id ? null : id)}>{HOTSPOT_LABELS[id]}</button>
                 </li>
               ))}
@@ -54,10 +89,28 @@ export default function Home() {
         </section>
         <Exhibit config={page.exhibit} selectedId={selectedId} onSelect={select}>
           <InfoPanel item={item} onClose={close} />
+          <RadioBar />
         </Exhibit>
       </div>
       {copy && <HomeMore data={data} />}
     </>
+  );
+}
+
+// "now playing" bar for the desk radio: shows what WRFM is playing, with Next and Stop; stays until stopped
+// (closing the info panel or picking something else does not cut the clip off). Leaving the page stops it.
+function RadioBar() {
+  const [s, setS] = useState(radio.state());
+  useEffect(() => radio.subscribe(setS), []);
+  useEffect(() => () => radio.stop(), []);
+  if (!s.playing) return null;
+  return (
+    <div className="radio-bar" role="status" aria-live="polite">
+      <span className="radio-dot" aria-hidden="true" />
+      <span className="radio-now"><small>WRFM 97.1 · on the desk radio</small>{s.title}</span>
+      <button type="button" className="tool" onClick={() => radio.play()}>Next clip</button>
+      <button type="button" className="tool" onClick={() => radio.stop()} aria-label="Stop the radio">■ Stop</button>
+    </div>
   );
 }
 
@@ -79,7 +132,7 @@ function HomeMore({ data }) {
             <p className="eyebrow">{launched[1]?.text}</p>
             <h3>{launched[2]?.text}</h3>
             <p>{launched[3]?.text}</p>
-            <YouTube id={copy.links.brand_film_id} title="the Brok3n by Design brand film" />
+            <YouTube id={copy.links.brand_film_id} title="the Brok3n by Design brand film" poster={media(copy.brand.brand_film_poster)} />
             <p className="links"><a href={copy.links.brand_film} target="_blank" rel="noopener">Watch on YouTube ↗</a> · <a href={copy.links.brand_film_x} target="_blank" rel="noopener">View on X ↗</a></p>
           </article>
           <article className="card">

@@ -1,6 +1,6 @@
 # Fixes for the current live site (brok3nby-design/brok3nby-design.github.io)
 
-A ready-made commit for the **existing** website. It's kept here because this session couldn't push
+A ready-made commit for the **existing** website, now opened as pull request brok3nby-design/brok3nby-design.github.io#1 (branch `claude/site-fixes`). It was first kept here because this session couldn't push
 to that repository: the Claude GitHub App isn't installed on it yet. Nothing here touches the live site.
 
 What it does (audit §7):

@@ -17,6 +17,16 @@ export const SECRETS = [
   { id: "maker-plate", title: "Read the fine print", hint: "Every handmade thing is signed somewhere.", path: "/", symbol: "⚒" },
   { id: "bookworm", title: "Bookworm", hint: "The shelf has more than games on it.", path: "/", symbol: "❡" },
   { id: "coffee", title: "Coffee break", hint: "Somebody left their mug on the desk.", path: "/", symbol: "☕" },
+  // new with the WRFM studio exhibit
+  { id: "studio-b", title: "Studio B", hint: "There's a phone in this station. Nobody will tell you where.", path: "/wrfm", symbol: "☎" },
+  // new with the phase 11 desk
+  { id: "quack", title: "Rubber duck debugging", hint: "Someone on the desk listens while you debug.", path: "/", symbol: "◖" },
+  { id: "tuned-in", title: "Tuned in", hint: "The desk has a radio. Keep it on long enough to hear five different voices.", path: "/", symbol: "♫" },
+  { id: "maze-heart", title: "The heart of the maze", hint: "Let the dice lead you all the way in.", path: "/games/labyrinth-fate", symbol: "⌖" },
+  { id: "full-deck", title: "Every doll has a past", hint: "Draw every card in the Macabre deck.", path: "/games/macabre-dolls", symbol: "♠" },
+  { id: "strange-places", title: "Good people, strange places", hint: "Some signs have two sides.", path: "/games/juicebox", symbol: "➜" },
+  { id: "tagger", title: "Left your mark", hint: "Spray something small on the wall at Graffiti.", path: "/graffiti", symbol: "▦" },
+  { id: "one-more-game", title: "One more game", hint: "Find everything the radar can find on Under the Radar.", path: "/games/under-the-radar", symbol: "◎" },
 ];
 
 let stamps = [];

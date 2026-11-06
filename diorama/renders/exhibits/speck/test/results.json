@@ -1,0 +1,23 @@
+{
+ "spun": true,
+ "after_tap": 1,
+ "message": "You left a sapling. It will still be here next time.",
+ "after_reload": 1,
+ "after_button": 2,
+ "speck_px": {
+  "x": 1090.6974981891578,
+  "y": 248.57174768212718
+ },
+ "speck_panel": "×supA SpeckStart small. Follow your curiosity. Make a place of your own.",
+ "after_clear": 0,
+ "checks": {
+  "drag_spins": true,
+  "tap_leaves_something": true,
+  "remembered_after_reload": true,
+  "leave_button": true,
+  "speck_panel": true,
+  "clear_mine": true,
+  "no_errors": true
+ },
+ "errors": []
+}

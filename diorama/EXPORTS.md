@@ -16,6 +16,21 @@ node inspect.mjs                                         # validate + measure ->
 | Games crate | `exports/games_collection.glb` | **0.48 MB** | 11 | 820 | 7 | ~1.3 MB | 13 nodes |
 | Notebook (About) | `exports/studio_notebook.glb` | **0.31 MB** | 10 | 2,580 | 1 | ~0.8 MB | 10 nodes |
 
+### Phone versions (`*_m.glb`)
+`node diorama/tools/optimize.mjs --mobile` writes a phone version of every model next to it (`studio_desk_m.glb`,
+`exhibit_<game>_m.glb`, …). Every texture role is exported at half its desktop size and with stronger RDO
+(`MOBILE_SCALE=0.5`, `MOBILE_BASE_SCALE=0.5`, `MOBILE_RDO=4`); geometry, names and tags are identical. They are still
+KTX2, so GPU memory stays low. The viewer (`app/src/exhibit/Scene.jsx`) loads them on touch screens up to small-tablet
+size, or on devices reporting ≤ 4 GB memory; `?model=m` / `?model=full` forces one. `prepare-assets` refuses to build
+if an exhibit has no phone version.
+
+| Model | Full | Phone |
+|---|---|---|
+| Desk (homepage) | 9.26 MB | 4.06 MB |
+| Games crate | 1.36 MB | 0.52 MB |
+| Notebook | 0.29 MB | 0.12 MB |
+| Exhibits (11) | 3.5–6.4 MB | 1.1–2.5 MB |
+
 All three pass the Khronos glTF-Validator with **0 errors**. The warnings are expected:
 - KTX2 images aren't decoded by the validator.
 - Normal maps rely on runtime tangents; three.js derives them per pixel.

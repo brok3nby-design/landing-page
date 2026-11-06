@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { NavLink, Link, Outlet, useLocation } from "react-router-dom";
 import { BRAND, NAV } from "../content/site.js";
-import { useSiteData } from "../content/data.js";
+import { useSiteData, media } from "../content/data.js";
 import { setProjects } from "../site/passport.js";
 import { startEffects } from "../site/effects.js";
 import { Entrance, MusicControl, Robot, StampToast, useScrollSecret } from "./Chrome.jsx";
@@ -23,7 +23,9 @@ export default function Layout() {
     <div className="site">
       <a className="skip" href="#main">Skip to content</a>
       <header className="header">
-        <Link viewTransition to="/" className="wordmark" aria-label={`${BRAND} — home`}>{BRAND}<sup>™</sup></Link>
+        <Link viewTransition to="/" className="wordmark" aria-label={`${BRAND} — home`}>
+          {BRAND}<sup>™</sup>
+        </Link>
         <button type="button" className="menu-toggle" aria-expanded={menu} aria-controls="site-menu" onClick={() => setMenu(!menu)}>
           {menu ? "Close" : "Menu"}
         </button>
@@ -42,6 +44,7 @@ export default function Layout() {
       <main id="main" key={pathname} className="route"><Outlet /></main>
       <footer className="footer">
         <div className="footer-main">
+          {data?.copy.brand.mark && <img className="footer-mark" src={media(data.copy.brand.mark)} alt="B3 — Brok3n by Design" width="72" height="72" loading="lazy" />}
           <p className="eyebrow">Independent game studio</p>
           <p>Independently created by Brok3n by Design.</p>
           <p><a href="https://x.com/brok3nbydesign" target="_blank" rel="noopener">@brok3nbydesign on X</a></p>
@@ -56,6 +59,7 @@ export default function Layout() {
         <Robot />
       </footer>
       <StampToast />
+      <BackToTop key={pathname} />
       {__BUILD__.staging && (
         <aside aria-label="Staging notice">
           <a className="staging-badge" href={`${import.meta.env.BASE_URL}version.json`} title={`Build ${__BUILD__.commit} · ${__BUILD__.date}`}>
@@ -65,5 +69,27 @@ export default function Layout() {
       )}
       <Entrance wordmark={data?.copy.brand.wordmark} />
     </div>
+  );
+}
+
+// "Back to top": appears bottom-right once the page has been scrolled down a screen or so (only on pages long
+// enough to scroll); smooth unless reduced motion. Focus moves to the top of the page for keyboard users.
+function BackToTop() {
+  const [show, setShow] = useState(false);
+  useEffect(() => {
+    const on = () => setShow(window.scrollY > Math.min(600, window.innerHeight * 0.8));
+    on();
+    addEventListener("scroll", on, { passive: true }); addEventListener("resize", on);
+    return () => { removeEventListener("scroll", on); removeEventListener("resize", on); };
+  }, []);
+  const up = () => {
+    const still = matchMedia("(prefers-reduced-motion: reduce)").matches || document.documentElement.classList.contains("b3d-still");
+    window.scrollTo({ top: 0, behavior: still ? "auto" : "smooth" });
+    document.querySelector(".wordmark")?.focus({ preventScroll: true });
+  };
+  return (
+    <button type="button" className={`to-top${show ? " show" : ""}`} onClick={up} aria-hidden={!show} tabIndex={show ? 0 : -1}>
+      <span aria-hidden="true">↑</span> Back to top
+    </button>
   );
 }

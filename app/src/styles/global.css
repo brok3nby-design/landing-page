@@ -338,3 +338,110 @@ blockquote { margin: 18px 0; padding-left: 18px; border-left: 2px solid var(--re
 /* wide layouts: cover art sits toward the text (no empty band in the middle of the page) */
 @media (min-width: 901px) { .cover-exhibit { place-items: center start; padding-left: clamp(16px, 3vw, 56px); }
   .cover-exhibit .note { left: clamp(16px, 3vw, 56px); right: auto; } }
+
+/* centred frame: on wide screens the whole composition (header, copy, exhibit, sections) sits inside a
+   max-width frame, so the text moves in from the screen edge and the exhibit stays close to it */
+:root { --frame: 1500px; --edge: max(var(--gutter), calc((100vw - var(--frame)) / 2)); }
+@media (min-width: 901px) {          /* wide screens: the copy sits well in from the screen edge, never on it */
+  :root { --frame: 1400px; --edge: max(clamp(32px, 7vw, 128px), calc((100vw - var(--frame)) / 2)); }
+}
+.header { padding-left: var(--edge); padding-right: var(--edge); }
+@media (min-width: 901px) {
+  .page { grid-template-columns: minmax(360px, 520px) 1fr; padding: 0 var(--edge); gap: clamp(16px, 2vw, 40px); }
+  /* the 3D area starts a little below the header (not flush against it), level with the copy */
+  .page.home > .exhibit { margin-top: clamp(16px, 5vh, 56px); height: calc(100vh - 140px - clamp(16px, 5vh, 56px)); }
+  .content { padding-left: 0; padding-right: 0; }
+  .textpage { padding-left: var(--edge); padding-right: var(--edge); max-width: none; }
+}
+.more { padding-left: var(--edge); padding-right: var(--edge); }
+.footer { padding-left: var(--edge); padding-right: var(--edge); }
+.tool.icon { min-width: 36px; justify-content: center; font-size: 15px; letter-spacing: 0; }
+.wheel-hint { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); background: rgba(8,8,8,.85);
+              border: 1px solid var(--faint); padding: 10px 16px; font-size: 12px; letter-spacing: .14em; text-transform: uppercase;
+              color: var(--fg); pointer-events: none; transition: opacity .25s; z-index: 2; }
+
+/* project pages: the copy and the portrait cover form one centred pair (no empty column on the right),
+   and the sections below share one centred column so the trailer, text and gallery line up */
+@media (min-width: 901px) {
+  .page.project { grid-template-columns: minmax(360px, 560px) minmax(0, 500px); justify-content: center; gap: clamp(32px, 4vw, 72px); }
+  .page.project .cover-exhibit { place-items: center; padding-left: 0; padding-right: 0; }
+  .page.project .cover-exhibit .note { left: 50%; transform: translateX(-50%); white-space: nowrap; }
+}
+.project-more .band { max-width: 1120px; }
+.project-more .video { max-width: none; width: 100%; }
+.project-more .band.text > * { max-width: 760px; }
+.video-poster { background-size: contain; background-repeat: no-repeat; align-content: end; padding-bottom: 28px; }
+.video-poster span { background: var(--red); padding: 14px 22px; justify-self: center; }
+.video-poster small { background: rgba(8,8,8,.8); padding: 4px 8px; justify-self: center; }
+.video-poster:hover span { color: var(--fg); background: var(--red-hi); }
+
+/* studio branding images (from the existing site): cracked-glass banner + green B3 mark.
+   import_site.py turns their black backgrounds transparent, so they float on any background. */
+.wordmark-logo { display: block; height: 22px; width: auto; }
+.hero-logo { line-height: 0; margin-left: -4%; }
+.hero-logo img { width: min(560px, 100%); height: auto; }
+.footer-mark { width: 72px; height: 72px; object-fit: contain; margin-bottom: 10px; display: block; }
+.entrance-mark { }
+@media (max-width: 700px) { .wordmark-logo { height: 18px; } }
+
+/* project page with its own 3D exhibit: same wide layout as the desk / crate pages */
+@media (min-width: 901px) {
+  .page.project.has-exhibit { grid-template-columns: minmax(360px, 520px) 1fr; justify-content: stretch; }
+}
+
+/* Glass & Fortune: the last roll, shown beside the tools (and read out by screen readers) */
+/* (also used by Speck). It sits on its own line above the buttons, so the row never overflows */
+.exhibit-tools { flex-wrap: wrap; justify-content: flex-end; max-width: calc(100% - 36px); }
+.tool { white-space: nowrap; }
+.dice-result { flex-basis: 100%; max-width: min(36em, 55%); margin: 0 0 4px auto; text-align: right; font: 600 12px/1.5 var(--sans); letter-spacing: .14em;
+               text-transform: uppercase; color: var(--fg); text-shadow: 0 1px 6px #000; }
+.dice-result:empty { display: none; }
+
+/* info panels open above the tool row (its height is measured into --tools-h), so a panel never covers
+   the buttons or the readout above them, on any width */
+.exhibit .panel { bottom: calc(var(--tools-h, 0px) + 30px); max-height: calc(100% - var(--tools-h, 0px) - 48px); overflow-y: auto; }
+@media (max-width: 900px) { .exhibit .panel { bottom: calc(var(--tools-h, 0px) + 20px); max-height: calc(100% - var(--tools-h, 0px) - 32px); } }
+
+/* the brand film: the video's own YouTube thumbnail fills the poster; the play button sits on top */
+.video-poster.yt-thumb { overflow: hidden; }
+.video-thumb { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 0; }
+.video-poster > span, .video-poster > small { position: relative; z-index: 1; }
+
+/* home: "Explore the desk" pulses (a beating red dot + a soft glow on the label) until the visitor picks an
+   option, and one random option at a time glints with a red border sweep */
+.hotspots h2 { display: flex; align-items: center; gap: 10px; }
+.pulse-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--red-hi); flex: none; }
+.hotspots h2.pulse { animation: explore-glow 2.2s ease-in-out infinite; }
+.hotspots h2.pulse .pulse-dot { animation: explore-dot 2.2s ease-out infinite; }
+.hotspots h2:not(.pulse) .pulse-dot { background: var(--faint); }
+@keyframes explore-glow { 0%, 100% { color: var(--muted); text-shadow: none; } 50% { color: var(--fg); text-shadow: 0 0 14px rgba(230, 40, 50, .55); } }
+@keyframes explore-dot { 0% { box-shadow: 0 0 0 0 rgba(230, 40, 50, .7); } 70% { box-shadow: 0 0 0 10px rgba(230, 40, 50, 0); } 100% { box-shadow: 0 0 0 0 rgba(230, 40, 50, 0); } }
+.chip.glint { animation: chip-glint 1.6s ease-out; }
+@keyframes chip-glint {
+  0% { border-color: var(--faint); box-shadow: none; color: var(--muted); }
+  25% { border-color: var(--red-hi); box-shadow: 0 0 0 1px var(--red-hi), 0 0 16px rgba(230, 40, 50, .45); color: var(--fg); }
+  100% { border-color: var(--faint); box-shadow: none; color: var(--muted); }
+}
+@media (prefers-reduced-motion: reduce) { .hotspots h2.pulse, .hotspots h2.pulse .pulse-dot, .chip.glint { animation: none; } }
+:root.b3d-still .hotspots h2.pulse, :root.b3d-still .hotspots h2.pulse .pulse-dot, :root.b3d-still .chip.glint { animation: none; }
+
+/* back to top: bottom-right, fades in after scrolling; sits above a Passport stamp toast when one is showing */
+.to-top { position: fixed; right: 16px; bottom: 16px; z-index: 41; display: inline-flex; align-items: center; gap: 8px;
+          min-height: 44px; padding: 0 16px; font: 600 11px/1 var(--sans); letter-spacing: .2em; text-transform: uppercase;
+          color: var(--fg); background: rgba(8,8,8,.88); border: 1px solid var(--faint); cursor: pointer; backdrop-filter: blur(6px);
+          opacity: 0; transform: translateY(10px); pointer-events: none; transition: opacity .25s, transform .25s, border-color .2s; }
+.to-top.show { opacity: 1; transform: none; pointer-events: auto; }
+.to-top:hover, .to-top:focus-visible { border-color: var(--red-hi); }
+.to-top span { font-size: 14px; letter-spacing: 0; color: var(--red-hi); }
+.site:has(.toast) .to-top { bottom: 96px; }
+.entrance-open .to-top { display: none; }
+
+/* desk radio "now playing" bar: top-left of the 3D view, under the hint line */
+.radio-bar { position: absolute; left: 18px; top: 44px; z-index: 3; display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
+             max-width: calc(100% - 36px); padding: 8px 10px 8px 14px; background: rgba(8,8,8,.88); border: 1px solid var(--faint);
+             border-left: 2px solid var(--red-hi); backdrop-filter: blur(6px); }
+.radio-now { display: flex; flex-direction: column; font-size: 13px; line-height: 1.3; color: var(--fg); margin-right: 6px; }
+.radio-now small { font-size: 10px; letter-spacing: .2em; text-transform: uppercase; color: var(--muted); }
+.radio-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--red-hi); animation: explore-dot 1.6s ease-out infinite; }
+@media (prefers-reduced-motion: reduce) { .radio-dot { animation: none; } }
+@media (max-width: 900px) { .radio-bar { left: 12px; top: 36px; } }

@@ -313,13 +313,14 @@ def wire_baked(mats, ao_img, glow_img, glow_strength=1.0):
             b.inputs["Emission Strength"].default_value = glow_strength
 
 
-def bake_set(name, objs, atlas, ao_samples, glow_samples, glow=True, hide=()):
-    """UVLight + AO (+ GLOW) bake for `objs`. `hide` = objects hidden from the bake (e.g. cases)."""
+def bake_set(name, objs, atlas, ao_samples, glow_samples, glow=True, hide=(), ao_distance=0.12):
+    """UVLight + AO (+ GLOW) bake for `objs`. `hide` = objects hidden from the bake (e.g. cases).
+    `ao_distance`: AO reach (0.12 suits the miniature desk; real-scale exhibits use more)."""
     os.makedirs(BAKED, exist_ok=True)
     lightmap_uvs(objs)
     mats = bake_materials(objs)
     sc = bpy.context.scene
-    sc.world.light_settings.distance = 0.12           # AO reach at miniature-detail scale
+    sc.world.light_settings.distance = ao_distance
     hidden = [o for o in hide]
     for o in hidden:
         o.hide_render = True
@@ -424,12 +425,12 @@ def main():
         apply_modifiers(objs)
         merge_siblings()
         objs = [bpy.data.objects["NAV_GamesCrate"], *bpy.data.objects["NAV_GamesCrate"].children_recursive]
-        body = [bpy.data.objects["NAV_GamesCrate_Body"]]
+        body = [o for o in objs if o.type == 'MESH' and o.name.startswith("NAV_GamesCrate_")]   # boards, frame, nails, ropes
         cases = [o for o in objs if o.type == 'MESH' and o not in body]
         for o in bpy.data.objects:                     # standalone: exhibit rig only
             if o.type == 'LIGHT':
                 o.hide_render = not o.name.startswith("LIGHT_Exhibit")
-        report["crate_bake"] = bake_set("crate", body, 1024, args.ao_samples, 0, glow=False, hide=cases)
+        report["crate_bake"] = bake_set("crate", body, 2048, args.ao_samples, 0, glow=False, hide=cases)
         report["crate_after"] = stats(objs)
         report["crate_glb_bytes"] = export_glb(os.path.join(RAW, "games_collection.glb"), objs)
 

@@ -27,8 +27,12 @@ export function YouTube({ id, title, poster }) {
         <iframe src={`https://www.youtube-nocookie.com/embed/${id}?rel=0&autoplay=1`} title={title} loading="lazy"
                 allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowFullScreen data-pause-music />
       ) : (
-        <button type="button" className="video-poster" onClick={() => setOn(true)} data-pause-music
+        <button type="button" className={`video-poster${poster ? "" : " yt-thumb"}`} onClick={() => setOn(true)} data-pause-music
                 style={poster ? { backgroundImage: `url(${poster})` } : undefined}>
+          {/* no poster of our own: the video's YouTube thumbnail (largest size, else the standard one) */}
+          {!poster && <img className="video-thumb" src={`https://i.ytimg.com/vi/${id}/maxresdefault.jpg`} alt="" loading="lazy"
+                           referrerPolicy="no-referrer" onError={(e) => { const i = e.currentTarget;
+                             if (!i.dataset.fallback) { i.dataset.fallback = "1"; i.src = `https://i.ytimg.com/vi/${id}/hqdefault.jpg`; } else i.remove(); }} />}
           <span>▶ Play {title}</span><small>Plays from YouTube</small>
         </button>
       )}

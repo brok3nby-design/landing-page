@@ -1,4 +1,4 @@
-"""MONITORS: two slim monitors on stands, toed-in. Each monitor is a group (moves as one).
+"""MONITORS: two slim monitors on stands, both turned toward the chair. Each monitor is a group (moves as one).
 Screens use code-painted UI textures as emission (left: editor, right: wallpaper)."""
 from config import MONITOR as M_
 from lib import geo, scene as S
@@ -10,7 +10,7 @@ def build(root, riser_top):
     bw, bd, bh = M_["base"]
     nw, nd = M_["neck"]
     out = {}
-    for side, x, rot in (("L", M_["left_x"], -M_["toe_in"]), ("R", M_["right_x"], M_["toe_in"])):
+    for side, x, rot in (("L", M_["left_x"], M_["left_rot"]), ("R", M_["right_x"], M_["right_rot"])):
         grp = S.empty(f"MON_{side}", "MONITORS", loc=(x, M_["y"], riser_top), rot=(0, 0, rot),
                       parent=root)
         neck_y = T / 2 + 0.03

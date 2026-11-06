@@ -125,7 +125,7 @@
   },
   "graffiti": {
    "scope": "home",
-   "object": "PROP_StickyNote_0..2",
+   "object": "NAV_Guestbook",
    "action": "focus+panel",
    "panel": {
     "title": "Graffiti",
@@ -142,7 +142,8 @@
      "label": "About Graffiti",
      "route": "/graffiti"
     }
-   ]
+   ],
+   "idea": "an open guestbook on the desk (signatures and pixel doodles) for the live Graffiti wall"
   },
   "project_labyrinth-fate": {
    "scope": "home",
@@ -187,6 +188,19 @@
    "button": {
     "label": "VIEW PROJECT",
     "route": "/games/juicebox"
+   }
+  },
+  "passport": {
+   "scope": "home",
+   "object": "NAV_Passport",
+   "action": "focus+panel",
+   "panel": {
+    "title": "Studio Passport",
+    "text": "Collect a stamp for every corner of the studio you find: the project pages, the hidden things, the odd ones out. Your stamps stay in this browser."
+   },
+   "button": {
+    "label": "OPEN YOUR PASSPORT",
+    "route": "/passport"
    }
   }
  },
@@ -270,6 +284,35 @@
     "text": "Handmade by Brok3n by Design. No warranty, express or implied. Please stop looking under things."
    },
    "stamp": "maker-plate"
+  },
+  "duck": {
+   "scope": "home",
+   "object": "PROP_Duck",
+   "action": "easter-egg",
+   "idea": "squeaks, then plays WRFM's Rubber Duck Rental ad",
+   "panel": {
+    "title": "Rubber Duck Rental",
+    "text": "It listens. You debug. That's the deal. (A word from WRFM 97.1's sponsor.)"
+   },
+   "stamp": "quack"
+  },
+  "radio": {
+   "scope": "home",
+   "object": "PROP_Radio",
+   "action": "easter-egg",
+   "idea": "plays a WRFM clip (callers, sponsors, Vera); a different one each click; Stop / Next in the exhibit",
+   "panel": {
+    "title": "WRFM 97.1",
+    "eyebrow": "ON THE DESK RADIO",
+    "text": "Callers, sponsors and Vera Lang herself. Click the radio again for a different clip, or stop it any time."
+   },
+   "links": [
+    {
+     "label": "Explore WRFM",
+     "route": "/wrfm"
+    }
+   ],
+   "stamp": "tuned-in"
   }
  },
  "hiding_places": "EGG_* markers (egg_id extras) - see diorama/EASTER_EGGS.md"

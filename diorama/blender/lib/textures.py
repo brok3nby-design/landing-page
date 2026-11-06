@@ -487,6 +487,82 @@ def sketchbook(name, w=1024, h=640, seed=17):
     return c.save(name)
 
 
+def guestbook(name, w=1024, h=640, seed=41):
+    """Open guestbook (the desk's link to the Graffiti wall): ruled cream pages, a GUESTBOOK heading,
+    handwritten signatures in a few inks, and little pixel-art doodles like the ones on the live wall."""
+    c = Canvas(w, h, rgb("#efe6cf"))
+    c.mul(0.95 + 0.06 * noise(h, w, 34, seed))
+    c.mul(1 - 0.32 * np.exp(-((c.xx - w / 2) / 24) ** 2))              # gutter shadow
+    rng = np.random.default_rng(seed)
+    rule, margin = rgb("#9fb3c8"), rgb("#d67f7f")
+    for page_x0 in (0, w // 2):
+        for k in range(13):                                             # ruled lines
+            y = 150 + k * 36
+            c.line(page_x0 + 38, y, page_x0 + w // 2 - 38, y, 1.4, rule, 0.75)
+        c.line(page_x0 + 86, 110, page_x0 + 86, h - 40, 1.4, margin, 0.6)   # margin line
+    ink = rgb("#6e1f22")
+    c.text("GUESTBOOK", 100, 54, 6, ink)                               # left page heading
+    c.line(100, 106, 100 + 9 * 36 - 6, 106, 3, ink, 0.8)
+    def signature(x, y, width, col):                                    # a loopy handwritten name + date dash
+        pts, n = [], 26
+        for i in range(n + 1):
+            t = i / n
+            pts.append((x + t * width, y - 10 * np.sin(t * 18 + rng.uniform(0, 3)) * (0.5 + 0.5 * rng.random())))
+        for a, b in zip(pts, pts[1:]):
+            c.line(a[0], a[1], b[0], b[1], 2.6, col, 0.9)
+        c.line(x + width + 16, y - 2, x + width + 16 + rng.integers(30, 70), y - 2, 2, col, 0.7)
+    inks = [rgb("#1f2a5c"), rgb("#6e1f22"), rgb("#1d1d1d"), rgb("#2e5a32")]
+    for k, y in enumerate([186, 258, 330, 402, 474, 546]):            # left page: six signatures
+        signature(110 + rng.integers(0, 40), y - 8, rng.integers(170, 300), inks[k % len(inks)])
+    # right page: pixel doodles (Graffiti palette) between a few more signatures
+    pal = [rgb(h_) for h_ in ("#ff6b0f", "#ff3f8c", "#1fc7e6", "#40d940", "#8c4dff", "#ffcc26")]
+    HEART = [".XX.XX.", "XXXXXXX", "XXXXXXX", ".XXXXX.", "..XXX..", "...X..."]
+    SMILE = [".XXXXX.", "X.....X", "X.X.X.X", "X.....X", "X.XXX.X", ".XXXXX."]
+    STAR = ["...X...", "..XXX..", "XXXXXXX", ".XXXXX.", ".XX.XX.", "X.....X"]
+    B3 = ["XXX..XXX", "X..X...X", "XXX..XXX", "X..X...X", "XXX..XXX"]
+    def doodle(shape, x, y, px, col):
+        for r, row in enumerate(shape):
+            for q, ch in enumerate(row):
+                if ch == "X":
+                    c.rect(x + q * px, y + r * px, x + (q + 1) * px - 1, y + (r + 1) * px - 1, col)
+    doodle(HEART, w // 2 + 120, 160, 12, pal[1])
+    doodle(SMILE, w // 2 + 300, 168, 11, pal[5])
+    doodle(B3, w // 2 + 150, 300, 11, pal[3])
+    doodle(STAR, w // 2 + 330, 296, 11, pal[2])
+    doodle(HEART, w // 2 + 250, 420, 9, pal[0])
+    for k, y in enumerate([258, 402, 546]):
+        signature(w // 2 + 110 + rng.integers(0, 60) + (200 if k == 0 else 0), y - 8, rng.integers(120, 200), inks[(k + 1) % len(inks)])
+    return c.save(name)
+
+
+def radio_face(name, w=512, h=256):
+    """Front of the little WRFM desk radio: a perforated speaker grille on the left, a lit tuning window
+    on the right (frequency marks, a red needle on the station) and the WRFM badge."""
+    c = Canvas(w, h, rgb("#2a1d16"))
+    c.mul(0.9 + 0.12 * noise(h, w, 20, 3))
+    # grille: a cloth-backed panel with a grid of holes
+    c.rect(18, 22, 238, 234, rgb("#3a2a20"))
+    for gy in range(30, 230, 14):
+        for gx in range(28, 232, 14):
+            c.circle(gx, gy, 4.2, rgb("#120c09"))
+    # tuning window: warm backlight, marks, numbers, needle
+    c.rect(262, 30, 494, 130, rgb("#f0c272"))
+    c.vgrad(30, 130, rgb("#ffd890"), rgb("#d99a46"), 262, 494)
+    for k in range(21):
+        x = 276 + k * 10.3
+        c.line(x, 112, x, 124 - (10 if k % 5 == 0 else 4), 1.6 if k % 5 == 0 else 1.0, rgb("#3a2410"))
+    for k, f in enumerate(("88", "92", "96", "100", "104")):
+        c.text(f, 268 + k * 51.5 - (6 if len(f) == 3 else 0), 44, 3, rgb("#3a2410"))
+    nx = 268 + (97.1 - 88) / 4 * 51.5 + 6                               # WRFM is 97.1 on the dial
+    c.line(nx, 36, nx, 126, 3, rgb("#c81e1e"))                         # the needle, parked on WRFM
+    c.rect(262, 30, 494, 33, rgb("#1a1109")); c.rect(262, 127, 494, 130, rgb("#1a1109"))
+    # badge + two knobs' labels
+    c.rect(286, 152, 470, 196, rgb("#c9a25a")); c.rect(290, 156, 466, 192, rgb("#1d140e"))
+    c.text("WRFM", 318, 160, 5, rgb("#e9c77a"))
+    c.text("VOL", 286, 214, 2, rgb("#b99a68")); c.text("TUNE", 432, 214, 2, rgb("#b99a68"))
+    return c.save(name)
+
+
 def mug(name, w=512, h=256, text=None, icon=True, base="#f2ede4"):
     """Mug wrap: u around (u=0.75 faces the viewer), v bottom->top (image is flipped on save)."""
     c = Canvas(w, h, rgb(base))
@@ -569,8 +645,10 @@ CREATURE = ["...######...",
             ".#.#.##.#.#."]
 
 
-def crate(name, size=512, seed=29):
+def crate(name, size=1024, seed=29):
+    """Front/back boards of the games crate: four boards (seams line up with the geometry), stencilled creature."""
     c = Canvas(size, size)
+    f = size / 512
     rng = np.random.default_rng(seed)
     sh = size // 4
     for k in range(4):
@@ -579,16 +657,13 @@ def crate(name, size=512, seed=29):
         grain = noise(sh, size, 40, seed + k, aniso=(0.1, 1.0))
         col = rgb("#c98a4a") * tint
         c.a[y0:y0 + sh, :, :3] = col * (0.8 + 0.3 * grain[..., None])
-        c.rect(0, y0, size, y0 + 6, rgb("#5a3418"))
-    px = 22
+        c.rect(0, y0, size, y0 + 6 * f, rgb("#5a3418"))
+    px = 22 * f
     ox, oy = size / 2 - 6 * px, size / 2 - 4 * px
     for r, row in enumerate(CREATURE):
         for cc, b in enumerate(row):
             if b == "#":
                 c.rect(ox + cc * px, oy + r * px, ox + (cc + 1) * px, oy + (r + 1) * px, rgb("#1a1210"))
-    for x in (14, size - 14):
-        for y in (20, size - 20):
-            c.circle(x, y, 6, rgb("#2a2a2a"))
     return c.save(name)
 
 
@@ -722,7 +797,7 @@ DERIVED = {
     "fabric_bin_n": ("fabric_bin", lambda: normal_map("fabric_bin_n", "fabric_bin", 8.0, blur=0.5)),
     "rug_n": ("rug", lambda: normal_map("rug_n", "rug", 4.0, blur=0.6)),
     "plaid_n": ("plaid", lambda: normal_map("plaid_n", "plaid", 5.0, (256, 512), blur=0.5)),
-    "crate_n": ("crate", lambda: normal_map("crate_n", "crate", 4.0, (512, 512), invert=True)),
+    "crate_n": ("crate", lambda: normal_map("crate_n", "crate", 4.0, (1024, 1024), invert=True)),
     "deskmat_n": ("deskmat", lambda: normal_map("deskmat_n", "deskmat", 2.0, (512, 192), blur=1.0)),
 }
 

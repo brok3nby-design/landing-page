@@ -1,0 +1,37 @@
+{
+ "after_drag": {
+  "count": 6,
+  "colour": "orange"
+ },
+ "after_wipe": {
+  "count": 5,
+  "colour": "orange"
+ },
+ "after_can": {
+  "count": 5,
+  "colour": "purple"
+ },
+ "after_heart": {
+  "count": 59,
+  "colour": "purple"
+ },
+ "stamp": true,
+ "after_reload": {
+  "count": 59,
+  "colour": "orange"
+ },
+ "after_clear": {
+  "count": 0,
+  "colour": "orange"
+ },
+ "checks": {
+  "drag_sprays": true,
+  "same_colour_wipes": true,
+  "can_picks_colour": true,
+  "heart_and_stamp": true,
+  "remembered_after_reload": true,
+  "clear": true,
+  "no_errors": true
+ },
+ "errors": []
+}
