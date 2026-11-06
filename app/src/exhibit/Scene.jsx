@@ -328,7 +328,7 @@ function useKeepOut(ctl, boxes) {
 
 // ---------------------------------------------------------------- camera rig
 const SHIFT = parseFloat(new URLSearchParams(location.search).get("shift")) || 0.05;   // share of the view width
-function Rig({ box, model, fit, intro: introMove, view, frame: FRAME, frameOrigin, homeScale = 0.86, onWheelHint, under, underView, selected, apiRef, colliders, focusLift = 0, focusScale = 2.1, smartFocus = false }) {
+function Rig({ box, model, fit, intro: introMove, view, frame: FRAME, frameOrigin, homeScale = 0.86, onWheelHint, under, underView, selected, apiRef, colliders, focusLift = 0, focusScale = 2.1, smartFocus = false, focusViews = null }) {
   const ctl = useRef();
   const camera = useThree((s) => s.camera);
   const size = useThree((s) => s.size);
@@ -535,7 +535,12 @@ function Rig({ box, model, fit, intro: introMove, view, frame: FRAME, frameOrigi
         const ty = wideP ? 0.12 : 0.42;                                     // NDC y (up is +)
         const frac = wideP ? (W - freeL) / W : 0.55;
         const back = THREE.MathUtils.clamp(0.65 / frac, 1, 1.5);
-        const best = bestView(selected, sphere, back);
+        // the clearest angle onto each item is worked out ahead of time (scripts/focus-views.mjs ->
+        // data/focus_views.json) so a click never stalls the page; without one, look from the hero angle
+        const dist = cc.getDistanceToFitSphere(sphere.radius) * back;
+        const dir = focusViews?.[selected.userData.interactive_id];
+        const toCam = dir ? new THREE.Vector3(...dir).normalize() : home.current.fwd.clone().negate();
+        const best = { cam: sphere.center.clone().addScaledVector(toCam, dist), dist };
         const tanV = Math.tan(THREE.MathUtils.degToRad(camera.fov) / 2), tanH = tanV * (W / H);
         cc.setLookAt(best.cam.x, best.cam.y, best.cam.z, sphere.center.x, sphere.center.y, sphere.center.z, smooth);
         cc.setFocalOffset(-tx * best.dist * tanH, ty * best.dist * tanV, 0, smooth);
@@ -556,6 +561,17 @@ function Rig({ box, model, fit, intro: introMove, view, frame: FRAME, frameOrigi
       dolly: (d) => ctl.current?.dolly(d, true),
       reset: () => goHome(!reducedMotion()),
       target: () => ctl.current?.getTarget(new THREE.Vector3(), false).toArray(),
+      // offline only (scripts/focus-views.mjs): the clearest viewing direction (object -> camera) for each item
+      computeFocusViews: (index) => {
+        const out = {};
+        for (const [id, obj] of Object.entries(index)) {
+          const sphere = new THREE.Box3().setFromObject(obj).getBoundingSphere(new THREE.Sphere());
+          sphere.radius = Math.max(sphere.radius, 0.1) * focusScale;
+          const b = bestView(obj, sphere, 1.4);
+          out[id] = b.cam.clone().sub(sphere.center).normalize().toArray().map((v) => +v.toFixed(4));
+        }
+        return out;
+      },
     };
   }, [apiRef]);   // eslint-disable-line react-hooks/exhaustive-deps
   // The mouse wheel scrolls the PAGE; zoom needs Ctrl/⌘ + wheel (a trackpad pinch sends ctrlKey too),
@@ -586,6 +602,12 @@ function Content({ config, selectedId, onSelect, under, apiRef, quality, animSta
   const camera = useThree((s) => s.camera);
   const size = useThree((s) => s.size);
   useEffect(() => { fetch(`${BASE}models/views.json`).then((r) => r.json()).then(setViews).catch(() => setViews({})); }, []);
+  const [focusViews, setFocusViews] = useState(null);
+  useEffect(() => {
+    if (!config.smartFocus) return;
+    fetch(`${BASE}data/focus_views.json`).then((r) => r.json())
+      .then((all) => setFocusViews(all[config.model.split("/").pop().replace(/\.glb$/, "")] || null)).catch(() => {});
+  }, [config.smartFocus, config.model]);
 
   const onLoaded = useMemo(() => (scene, index) => {
     const box = new THREE.Box3().setFromObject(scene);
@@ -613,6 +635,7 @@ function Content({ config, selectedId, onSelect, under, apiRef, quality, animSta
         return { x: p.x, y: p.y, z: p.z, bookAngle: state.scene.userData.bookAngle };
       },
       // the selected object's on-screen box (canvas pixels) - tests check it is in view and clear of the panel
+      computeFocusViews: () => (state ? apiRef.current?.computeFocusViews?.(state.index) : null),
       selectedRect: () => {
         const o = state && selectedId ? state.index[selectedId] : null;
         if (!o) return null;
@@ -658,7 +681,7 @@ function Content({ config, selectedId, onSelect, under, apiRef, quality, animSta
         <>
           <Lights box={state.box} kind={config.lights || "exhibit"} under={under} shadows={quality.shadows} />
           <Rig box={state.box} model={state.scene} fit={config.fit} intro={config.intro} view={view} frame={FRAME_ID && views?.cameras?.[FRAME_ID]} frameOrigin={config.frameOrigin} homeScale={config.homeScale} onWheelHint={onWheelHint} under={under} underView={config.underView} selected={selected} apiRef={apiRef} colliders={colliders}
-               focusLift={lifting ? 0.1 : 0} focusScale={config.focusScale} smartFocus={config.smartFocus} />
+               focusLift={lifting ? 0.1 : 0} focusScale={config.focusScale} smartFocus={config.smartFocus} focusViews={focusViews} />
           {lifting && <LiftTurn index={state.index} selectedId={selectedId} />}
           {config.animation === "notebook" && <NotebookOpen scene={state.scene} open={animState?.open ?? true} />}
           {config.play === "gold" && <Suspense fallback={null}><GoldPlay scene={state.scene} onSelect={onSelect} /></Suspense>}

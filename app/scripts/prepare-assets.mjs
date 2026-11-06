@@ -24,7 +24,8 @@ if (fs.existsSync(EXR)) for (const g of fs.readdirSync(EXR)) {
   const hero = path.join(EXR, g, "hero.png");
   if (fs.existsSync(hero)) copy(hero, pub("fallback", `exhibit-${g}.png`));
 }
-for (const f of ["interactions.json", "games.json", "projects.json", "site_copy.json"]) copy(path.join(DIORAMA, "data", f), pub("data", f));
+for (const f of ["interactions.json", "games.json", "projects.json", "site_copy.json", "focus_views.json"])
+  if (fs.existsSync(path.join(DIORAMA, "data", f))) copy(path.join(DIORAMA, "data", f), pub("data", f));
 // media imported from the existing site (diorama/tools/import_site.py -> app/media, tracked in git)
 const copyDir = (src, dst) => { for (const e of fs.readdirSync(src, { withFileTypes: true })) {
   const s = path.join(src, e.name), d = path.join(dst, e.name);
