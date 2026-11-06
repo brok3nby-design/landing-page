@@ -401,3 +401,8 @@ blockquote { margin: 18px 0; padding-left: 18px; border-left: 2px solid var(--re
    the buttons or the readout above them, on any width */
 .exhibit .panel { bottom: calc(var(--tools-h, 0px) + 30px); max-height: calc(100% - var(--tools-h, 0px) - 48px); overflow-y: auto; }
 @media (max-width: 900px) { .exhibit .panel { bottom: calc(var(--tools-h, 0px) + 20px); max-height: calc(100% - var(--tools-h, 0px) - 32px); } }
+
+/* the brand film: the video's own YouTube thumbnail fills the poster; the play button sits on top */
+.video-poster.yt-thumb { overflow: hidden; }
+.video-thumb { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 0; }
+.video-poster > span, .video-poster > small { position: relative; z-index: 1; }
