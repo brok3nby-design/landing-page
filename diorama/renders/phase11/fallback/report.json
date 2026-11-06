@@ -8,7 +8,7 @@
       "note": "Interactive 3D isn't available on this device — showing a render.",
       "canvas": false,
       "heading": "BROK3N BY DESIGN",
-      "links": 25,
+      "links": 26,
       "nav": 7,
       "overflow_px": 0,
       "errors": []
@@ -194,7 +194,7 @@
       "note": "Interactive 3D isn't available on this device — showing a render.",
       "canvas": false,
       "heading": "BROK3N BY DESIGN",
-      "links": 25,
+      "links": 26,
       "nav": 7,
       "overflow_px": 0,
       "errors": []
@@ -378,9 +378,9 @@
       "ok": true,
       "still": true,
       "camera": [
-        1.846,
-        3.672,
-        5.829
+        1.847,
+        3.676,
+        5.833
       ],
       "running_css_animations": 0,
       "errors": []
