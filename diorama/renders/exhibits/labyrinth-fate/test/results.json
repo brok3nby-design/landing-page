@@ -1,11 +1,11 @@
 {
  "first_roll": {
-  "pos": 2,
+  "pos": 4,
   "rolls": 1,
-  "readout": "Rolled 2 · 2 of 27 steps · 1 roll"
+  "readout": "Rolled 4 · 4 of 27 steps · 1 roll"
  },
  "after_reload": {
-  "pos": 2,
+  "pos": 4,
   "rolls": 1,
   "done": false,
   "steps": 27,
@@ -13,12 +13,12 @@
  },
  "to_heart": {
   "pos": 27,
-  "rolls": 8,
+  "rolls": 7,
   "done": true,
   "steps": 27,
   "busy": false
  },
- "heart_readout": "The heart of the maze, in 8 rolls. The world remembers.",
+ "heart_readout": "The heart of the maze, in 7 rolls. The world remembers.",
  "stamp": true,
  "after_reset": {
   "pos": 0,
