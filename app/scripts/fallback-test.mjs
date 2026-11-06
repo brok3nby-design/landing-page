@@ -58,7 +58,7 @@ for (const [dname, dev] of [["desktop", { viewport: { width: 1440, height: 900 }
         alt: (img?.alt || document.querySelector(".fallback-text")?.textContent || "").length,
         note: document.querySelector(".fallback .note")?.textContent?.trim().slice(0, 80) || "",
         canvas: !!canvas,
-        heading: document.querySelector("h1")?.textContent?.trim().slice(0, 40) || "",
+        heading: (document.querySelector("h1")?.textContent?.trim() || document.querySelector("h1 img")?.alt || "").slice(0, 40),   // the home h1 is the logo image
         links: document.querySelectorAll("main a[href], main button").length,
         nav: document.querySelectorAll(".nav a").length,
         overflow_px: Math.max(0, document.documentElement.scrollWidth - innerWidth),
@@ -99,6 +99,7 @@ const gl = await chromium.launch({ args: ["--use-angle=swiftshader", "--enable-u
   await page.waitForFunction(() => window.__exhibit && window.__exhibit.ready, null, { timeout: 240000 });
   // with reduced motion the camera starts at its resting place: two readings a moment apart are the same
   const pos = () => page.evaluate(() => window.__exhibit.camera?.().p.map((v) => +v.toFixed(3)) ?? null);
+  for (let i = 0; i < 10; i++) { await page.evaluate(() => window.__exhibit.invalidate()); await page.waitForTimeout(100); }   // first frames placed
   const a = await pos(); await page.waitForTimeout(1500); const b = await pos();
   const still = a === null || JSON.stringify(a) === JSON.stringify(b);
   const anims = await page.evaluate(() => document.getAnimations().filter((x) => x.playState === "running").length);
