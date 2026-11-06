@@ -21,18 +21,18 @@
   },
   "radio plays with a now-playing bar": {
     "ok": true,
-    "v": "WRFM 97.1 · on the desk radioVera: still here"
+    "v": "WRFM 97.1 · on the desk radioSponsor: the Debug Investigator"
   },
   "Next always changes the clip": {
     "ok": true,
     "v": [
+      "WRFM 97.1 · on the desk radioSponsor: the Debug Investigator",
       "WRFM 97.1 · on the desk radioVera: still here",
-      "WRFM 97.1 · on the desk radioVera signs on",
-      "WRFM 97.1 · on the desk radioSponsor: Rubber Duck Rental",
-      "WRFM 97.1 · on the desk radioVera teases the phone line",
+      "WRFM 97.1 · on the desk radioAn HR memo from Cheryl",
       "WRFM 97.1 · on the desk radioCaller: the intern",
-      "WRFM 97.1 · on the desk radioCaller: Mitch from IT",
-      "WRFM 97.1 · on the desk radioAn HR memo from Cheryl"
+      "WRFM 97.1 · on the desk radioSponsor: the Friday Defense Fund",
+      "WRFM 97.1 · on the desk radioAfter-hours intake",
+      "WRFM 97.1 · on the desk radioSponsor: Rubber Duck Rental"
     ]
   },
   "Stop ends it": {
@@ -48,10 +48,10 @@
   "guestbook framed in view": {
     "ok": true,
     "v": {
-      "x0": 215.22691222477016,
-      "x1": 466.8043499262205,
-      "y0": 149.52440106765044,
-      "y1": 273.30318365931504,
+      "x0": 215.2266555045676,
+      "x1": 466.804092260043,
+      "y0": 149.52442201215158,
+      "y1": 273.30315474799994,
       "w": 689.609375,
       "h": 715
     }
@@ -81,8 +81,8 @@
     "w": 689.609375,
     "h": 760,
     "centre": {
-      "x": 362.8120040389179,
-      "y": 345.39364712254525
+      "x": 344.8046875,
+      "y": 365.9600249380029
     }
   }
 }

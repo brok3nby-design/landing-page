@@ -42,7 +42,8 @@ export const PAGES = {
         [[-1.25, -0.15, -1.0], [1.25, 0.0, 1.0]],      // display platform
         [[-0.68, 0.72, -0.88], [0.92, 0.77, -0.16]],   // desktop
         [[0.47, 0.0, -0.86], [0.91, 0.72, -0.16]],     // drawer cabinet
-        [[-0.7, 0.77, -0.88], [0.95, 1.74, -0.62]],    // monitors + shelf unit
+        [[-0.7, 0.925, -0.88], [0.95, 1.74, -0.62]],   // monitors + shelf unit: from the riser plank up, so the
+                                                        // space under it (radio, guestbook, router) stays reachable
         [[-0.69, 0.31, -0.21], [0.05, 1.17, 0.48]],    // chair
       ],
       // the navigation hotspots also offered as plain buttons (keyboard / screen-reader path)

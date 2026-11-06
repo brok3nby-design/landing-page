@@ -499,7 +499,7 @@ function Rig({ box, model, fit, intro: introMove, view, frame: FRAME, frameOrigi
     const homeDir = home.current.fwd.clone().negate();                // object -> camera, as in the hero view
     const az0 = Math.atan2(homeDir.x, homeDir.z);
     let best = null;
-    for (const dAz of [0, -20, 20, -40, 40, -60, 60, -85, 85]) for (const el of [22, 34, 48, 62]) {
+    for (const dAz of [0, -15, 15, -30, 30, -45, 45, -65, 65]) for (const el of [14, 22, 34, 48, 62]) {
       const az = az0 + THREE.MathUtils.degToRad(dAz), e = THREE.MathUtils.degToRad(el);
       const dir = new THREE.Vector3(Math.sin(az) * Math.cos(e), Math.sin(e), Math.cos(az) * Math.cos(e));
       const cam = c.clone().addScaledVector(dir, dist);
@@ -510,16 +510,34 @@ function Rig({ box, model, fit, intro: introMove, view, frame: FRAME, frameOrigi
         ray.set(p, to.normalize()); ray.far = len; ray.near = 0.002;
         if (ray.intersectObjects(meshes, false).length) hidden++;
       }
-      const score = (hidden / pts.length) * 10 + Math.abs(dAz) / 90 + Math.abs(el - 34) / 70;
+      // a partly hidden front view beats a clear view from the far side of the desk (mostly empty background):
+      // turning away from the hero angle costs more and more the further it goes
+      const score = (hidden / pts.length) * 4 + (Math.abs(dAz) / 40) ** 2 + Math.abs(el - 30) / 60;
       if (!best || score < best.score) best = { score, cam, dist };
     }
     return best || { cam: c.clone().addScaledVector(homeDir, dist), dist };
   };
 
+  const focusShift = useRef(null);
+  useEffect(() => {                                   // keep the selection shift proportional to the zoom
+    const cc = ctl.current;
+    if (!cc) return;
+    const on = () => rescaleShift();
+    cc.addEventListener("control", on);                // wheel / pinch zoom and drags (the +/- buttons call it directly)
+    return () => cc.removeEventListener("control", on);
+  }, []);   // eslint-disable-line react-hooks/exhaustive-deps
+  function rescaleShift() {                           // shift ∝ the distance the camera is heading to
+    const cc = ctl.current, f = focusShift.current;
+    if (!cc || !f) return;
+    const k = Math.min(1.5, cc._sphericalEnd.radius / f.d);
+    cc.setFocalOffset(f.x * k, f.y * k, 0, !reducedMotion());
+  }
+
   useEffect(() => {                                   // focus the selected object, or go home
     const cc = ctl.current;
     if (!cc || !home.current) return;
     const smooth = !reducedMotion();
+    focusShift.current = null;
     if (selected) {
       const sphere = new THREE.Box3().setFromObject(selected).getBoundingSphere(new THREE.Sphere());
       sphere.center.y += focusLift;                     // frame where the object is going (lifted case)
@@ -544,6 +562,9 @@ function Rig({ box, model, fit, intro: introMove, view, frame: FRAME, frameOrigi
         const tanV = Math.tan(THREE.MathUtils.degToRad(camera.fov) / 2), tanH = tanV * (W / H);
         cc.setLookAt(best.cam.x, best.cam.y, best.cam.z, sphere.center.x, sphere.center.y, sphere.center.z, smooth);
         cc.setFocalOffset(-tx * best.dist * tanH, ty * best.dist * tanV, 0, smooth);
+        // the shift that keeps the item clear of the panel is in world units: scale it with the zoom, so zooming
+        // in keeps the item in the same place on screen instead of sliding it out of the frame
+        focusShift.current = { x: -tx * best.dist * tanH, y: ty * best.dist * tanV, d: best.dist };
         return;
       }
       cc.fitToSphere(sphere, smooth);
@@ -558,7 +579,7 @@ function Rig({ box, model, fit, intro: introMove, view, frame: FRAME, frameOrigi
   useEffect(() => {
     apiRef.current = {
       rotate: (az, pol) => ctl.current?.rotate(az, pol, true),
-      dolly: (d) => ctl.current?.dolly(d, true),
+      dolly: (d) => { ctl.current?.dolly(d, true); rescaleShift(); },
       reset: () => goHome(!reducedMotion()),
       target: () => ctl.current?.getTarget(new THREE.Vector3(), false).toArray(),
       // offline only (scripts/focus-views.mjs): the clearest viewing direction (object -> camera) for each item
