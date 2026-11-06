@@ -21,6 +21,7 @@ export const SECRETS = [
   { id: "studio-b", title: "Studio B", hint: "There's a phone in this station. Nobody will tell you where.", path: "/wrfm", symbol: "☎" },
   // new with the phase 11 desk
   { id: "quack", title: "Rubber duck debugging", hint: "Someone on the desk listens while you debug.", path: "/", symbol: "◖" },
+  { id: "player-one", title: "Player one", hint: "Someone on the shelf has a long story about games. Hear it to the end.", path: "/about/gaming-history", symbol: "▶" },
   { id: "tuned-in", title: "Tuned in", hint: "The desk has a radio. Keep it on long enough to hear five different voices.", path: "/", symbol: "♫" },
   { id: "maze-heart", title: "The heart of the maze", hint: "Let the dice lead you all the way in.", path: "/games/labyrinth-fate", symbol: "⌖" },
   { id: "full-deck", title: "Every doll has a past", hint: "Draw every card in the Macabre deck.", path: "/games/macabre-dolls", symbol: "♠" },

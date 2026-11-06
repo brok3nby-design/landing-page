@@ -219,11 +219,16 @@
   "collectible_a": {
    "scope": "home",
    "object": "COLL_FigureA",
-   "action": "popover",
-   "idea": "tiny wobble + caption",
+   "action": "focus+panel",
+   "idea": "the hooded sniper figurine: the creator's gaming history",
    "panel": {
-    "title": "Collectible",
-    "text": "Hands off the merch. (Look, don't touch.)"
+    "eyebrow": "ON THE SHELF",
+    "title": "My Gaming History",
+    "text": "The games I grew up with, the ones that stuck with me, and why I still love gaming today: point-and-click adventures, decades of shooters, and building systems that run themselves."
+   },
+   "button": {
+    "label": "READ MY GAMING HISTORY",
+    "route": "/about/gaming-history"
    }
   },
   "collectible_b": {

@@ -5,6 +5,7 @@ import Games from "./pages/Games.jsx";
 import About from "./pages/About.jsx";
 import GamePage from "./pages/GamePage.jsx";
 import NotFound from "./pages/NotFound.jsx";
+import GamingHistory from "./pages/GamingHistory.jsx";
 import { Essay, Follow, Subscribed, Contact, Press, Settings, PocketWildsLog, Passport } from "./pages/TextPages.jsx";
 
 // basename follows Vite's base so the same build works at "/" or a GitHub Pages sub-path.
@@ -23,6 +24,7 @@ export default function App() {
           <Route path="graffiti" element={<GamePage id="graffiti" />} />
           <Route path="about" element={<About />} />
           <Route path="about/built-by-design" element={<Essay />} />
+          <Route path="about/gaming-history" element={<GamingHistory />} />
           <Route path="follow" element={<Follow />} />
           <Route path="follow/subscribed" element={<Subscribed />} />
           <Route path="contact" element={<Contact />} />
