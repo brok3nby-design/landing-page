@@ -786,6 +786,11 @@ export default function Scene({ config, selectedId, onSelect, under, apiRef, saf
               style={{ opacity: ready || TEST ? 1 : 0, transition: "opacity .9s ease" }}
               gl={{ antialias: true, powerPreference: "high-performance", preserveDrawingBuffer: TEST }}
               onCreated={({ gl }) => {
+                // leaving the page: R3F releases the GPU context with forceContextLoss() while React swaps
+                // the page, and some drivers take a long time over it - so release it just after the new
+                // page is on screen instead of holding the navigation up
+                const lose = gl.forceContextLoss.bind(gl);
+                gl.forceContextLoss = () => { setTimeout(lose, 1200); };
                 if (!quality.post) { gl.toneMapping = THREE.AgXToneMapping; gl.toneMappingExposure = 0.92; }
                 gl.domElement.addEventListener("webglcontextlost", (e) => {
                   if (leaving.current) return;

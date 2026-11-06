@@ -4,12 +4,30 @@ import { Component, Suspense, lazy, useCallback, useEffect, useMemo, useRef, use
 // lazily loaded Scene chunk, so the page text renders immediately and the 3D streams in after.
 const Scene = lazy(() => import("./Scene.jsx"));
 
-function webglAvailable() {
+// One check per visit (cached), with the probe context released straight away: can this browser draw 3D at
+// all, and is it drawing it on the graphics card? Browsers with hardware acceleration off (or a blocked
+// driver) fall back to software drawing (SwiftShader / llvmpipe / "Microsoft Basic Render"): everything
+// then runs on the CPU and the 3D scenes become very slow - each one even takes many seconds to shut down
+// when you leave its page. Those browsers get the still image first, with a "Try 3D anyway" button.
+let GL_PROBE = null;
+export function probeGL() {
+  if (GL_PROBE) return GL_PROBE;
+  let ok = false, software = false, renderer = "";
   try {
-    const c = document.createElement("canvas");
-    return !!(window.WebGL2RenderingContext && c.getContext("webgl2"));
-  } catch { return false; }
+    const c = document.createElement("canvas"); c.width = c.height = 1;
+    const gl = window.WebGL2RenderingContext && c.getContext("webgl2");
+    if (gl) {
+      ok = true;
+      const info = gl.getExtension("WEBGL_debug_renderer_info");
+      renderer = String(gl.getParameter(info ? info.UNMASKED_RENDERER_WEBGL : gl.RENDERER) || "");
+      software = /swiftshader|llvmpipe|softpipe|software rasterizer|basic render/i.test(renderer);
+      gl.getExtension("WEBGL_lose_context")?.loseContext();
+    }
+  } catch { /* no WebGL */ }
+  return (GL_PROBE = { ok, software, renderer });
 }
+const FORCE3D = "b3d-force-3d";
+const forced3D = () => { try { return sessionStorage.getItem(FORCE3D) === "1"; } catch { return false; } };
 
 class Boundary extends Component {
   state = { error: null };
@@ -18,7 +36,7 @@ class Boundary extends Component {
   render() { return this.state.error ? this.props.fallback(this.state.error) : this.props.children; }
 }
 
-function Fallback({ config, reason, detail, onRetry }) {
+function Fallback({ config, reason, detail, onRetry, retryLabel = "Retry 3D" }) {
   const [imgOk, setImgOk] = useState(true);
   return (
     <div className="fallback">
@@ -27,7 +45,7 @@ function Fallback({ config, reason, detail, onRetry }) {
         : <p className="fallback-text">{config.fallbackAlt}</p>}
       <span className="note">
         {reason}{detail ? ` (${detail})` : ""}
-        {onRetry && <> · <button className="linkbtn" onClick={onRetry}>Retry 3D</button></>}
+        {onRetry && <> · <button className="linkbtn" onClick={onRetry}>{retryLabel}</button></>}
       </span>
     </div>
   );
@@ -39,8 +57,10 @@ export default function Exhibit({ config, selectedId, onSelect, animState, tools
   const [safe, setSafe] = useState(params.get("quality") === "low");
   const [lost, setLost] = useState(0);          // number of lost GPU contexts this visit
   const [mountKey, setMountKey] = useState(0);
-  const [canRender] = useState(() => !forced2D && webglAvailable());
-  const [imageView, setImageView] = useState(false);
+  const [canRender] = useState(() => !forced2D && probeGL().ok);
+  // software-drawn 3D (no graphics card): start on the still image (tests, ?test, run on purpose without a GPU)
+  const [slowGL] = useState(() => probeGL().software && !params.has("test") && !params.has("force3d") && !forced3D());
+  const [imageView, setImageView] = useState(slowGL);
   const [under, setUnder] = useState(false);
   const [touched, setTouched] = useState(false);
   const [wheelHint, setWheelHint] = useState(false);
@@ -76,7 +96,10 @@ export default function Exhibit({ config, selectedId, onSelect, animState, tools
   const show3D = canRender && !imageView && !lost;
   const fallback = lost
     ? <Fallback config={config} reason="The 3D view stopped (the graphics driver reset)" onRetry={retry} />
-    : <Fallback config={config} reason={canRender ? "Image view" : "Interactive 3D isn't available on this device — showing a render."} />;
+    : slowGL && imageView
+      ? <Fallback config={config} reason="Your browser is drawing 3D without the graphics card (hardware acceleration looks switched off), so this is a still picture"
+                  retryLabel="Try 3D anyway" onRetry={() => { try { sessionStorage.setItem(FORCE3D, "1"); } catch { /* */ } setImageView(false); }} />
+      : <Fallback config={config} reason={canRender ? "Image view" : "Interactive 3D isn't available on this device — showing a render."} />;
   const crashed = (err) => <Fallback config={config} reason="The 3D view couldn't start" detail={String(err?.message || err).slice(0, 120)} onRetry={retry} />;
   return (
     <section className="exhibit" aria-label="Interactive exhibit" ref={sectionRef}>
