@@ -24,7 +24,7 @@ EXHIBITS = {"bid-and-buried": "exhibits.bid_and_buried", "pocket-wilds": "exhibi
             "speck": "exhibits.speck",
             "doqi": "exhibits.doqi", "wrfm": "exhibits.wrfm",
             "labyrinth-fate": "exhibits.maze",
-            "macabre-dolls": "exhibits.macabre_dolls"}
+            "macabre-dolls": "exhibits.macabre_dolls", "juicebox": "exhibits.juicebox"}
 VIEWS = [  # name, azimuth, elevation, lens, frame fill
     ("CAM_Exhibit_Hero", 34, 27, 50, 0.84),
     ("CAM_Exhibit_Front", 8, 14, 50, 0.86),

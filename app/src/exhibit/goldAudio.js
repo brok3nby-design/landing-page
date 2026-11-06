@@ -213,6 +213,34 @@ export function blip(kind = "plant", vol = 0.5) {
       }
       return 0.65;
     }
+    if (kind === "glug") {                                   // liquid sloshing in a bottle: a few bubbly gulps
+      for (let i = 0; i < 4; i++) {
+        const st = i * 0.11 + Math.random() * 0.04;
+        tone(170 + Math.random() * 60, 380 + Math.random() * 160, st, 0.08, "sine", vol * 0.9);
+        noiseHit(t + st, "lowpass", 500, 1.2, vol * 0.15, 0.06, bus);
+      }
+      return 0.6;
+    }
+    if (kind === "creak") {                                  // a metal sign swinging on its bolts
+      const o = ctx.createOscillator(), g = ctx.createGain(), f = ctx.createBiquadFilter();
+      o.type = "sawtooth"; o.frequency.setValueAtTime(95, t); o.frequency.linearRampToValueAtTime(62, t + 0.5);
+      f.type = "bandpass"; f.frequency.value = 700; f.Q.value = 3;
+      g.gain.setValueAtTime(0.0001, t); g.gain.exponentialRampToValueAtTime(0.12 * vol, t + 0.05); g.gain.exponentialRampToValueAtTime(0.0001, t + 0.55);
+      o.connect(f); f.connect(g); g.connect(bus); o.start(t); o.stop(t + 0.6);
+      noiseHit(t + 0.5, "bandpass", 900, 2, vol * 0.3, 0.04, bus);
+      return 0.7;
+    }
+    if (kind === "honk") {                                   // an old truck horn: two flat, slightly sour notes
+      for (const f0 of [392, 466]) {
+        const o = ctx.createOscillator(), g = ctx.createGain(), f = ctx.createBiquadFilter();
+        o.type = "square"; o.frequency.value = f0;
+        f.type = "lowpass"; f.frequency.value = 1400;
+        g.gain.setValueAtTime(0.0001, t); g.gain.exponentialRampToValueAtTime(0.07 * vol, t + 0.02);
+        g.gain.setValueAtTime(0.07 * vol, t + 0.32); g.gain.exponentialRampToValueAtTime(0.0001, t + 0.4);
+        o.connect(f); f.connect(g); g.connect(bus); o.start(t); o.stop(t + 0.42);
+      }
+      return 0.45;
+    }
     if (kind === "card") { noiseHit(t, "bandpass", 3200, 0.8, vol * 0.22, 0.07, bus); noiseHit(t + 0.05, "highpass", 5000, 0.7, vol * 0.08, 0.03, bus); return 0.12; }
     if (kind === "step") { noiseHit(t, "bandpass", 900, 1.5, vol * 0.18, 0.03, bus); return 0.05; }
     if (kind === "spin") { noiseHit(t, "bandpass", 900, 0.8, vol * 0.12, 0.35, bus); return 0.4; }

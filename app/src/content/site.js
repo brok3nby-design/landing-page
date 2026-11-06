@@ -281,4 +281,21 @@ export const EXHIBITS = {
       md_candle: { eyebrow: "Burning low", title: "The Candle", text: "Someone lit it tonight." },
     },
   },
+  juicebox: {
+    model: "models/exhibit_juicebox.glb",
+    scope: "juicebox",
+    view: { forward: [-0.498, -0.454, -0.739] },      // the Blender hero camera (azimuth 34°, elevation 27°)
+    fallback: "fallback/exhibit-juicebox.png",
+    fallbackAlt: "A miniature desert roadside at sunset: a cracked highway curving into a painted sky with mesas and the setting sun, an old rusty pickup truck on the shoulder, a hooded drifter with a backpack watching the sun go down, a green road sign reading GOOD PEOPLE STRANGE PLACES, sagebrush and rocks, and in front a glowing bottle of juice with a dripping smiley label.",
+    play: "juicebox",                // shake the bottle, flip the sign, headlights (exhibit/JuiceboxPlay.jsx)
+    focusScale: 1.8,
+    homeScale: 0.95,
+    findsTitle: "On the road",
+    finds: {
+      jb_bottle: { eyebrow: "Small format", title: "The Juice", text: "Small format. Strange possibilities. Click it and give it a shake." },
+      jb_sign: { eyebrow: "Turn it over", title: "The Sign", text: "Good people. Strange places. Every sign has another side: click it." },
+      jb_truck: { eyebrow: "Still runs", title: "The Truck", text: "Rust holding the paint together. Click it for the lights." },
+      jb_drifter: { eyebrow: "Original character", title: "The Drifter", text: "Character and voice work in progress. For now, just watching the sun go down." },
+    },
+  },
 };

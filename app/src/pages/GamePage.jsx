@@ -55,7 +55,7 @@ export default function GamePage({ id: fixedId }) {
           <div className="ctas"><Link viewTransition className="btn ghost" to="/games">← Back to the shelf</Link></div>
         </section>
         {ex ? (
-          <Exhibit config={ex} selectedId={selectedId} onSelect={setSelectedId} tools={ex.play === "gold" ? <GoldTools /> : ex.play === "dice" ? <DiceTools /> : ex.play === "speck" ? <SpeckTools /> : ex.play === "doqi" ? <DoqiTools /> : ex.play === "wrfm" ? <WrfmTools /> : ex.play === "maze" ? <MazeTools /> : ex.play === "dolls" ? <DollsTools /> : null}>
+          <Exhibit config={ex} selectedId={selectedId} onSelect={setSelectedId} tools={ex.play === "gold" ? <GoldTools /> : ex.play === "dice" ? <DiceTools /> : ex.play === "speck" ? <SpeckTools /> : ex.play === "doqi" ? <DoqiTools /> : ex.play === "wrfm" ? <WrfmTools /> : ex.play === "maze" ? <MazeTools /> : ex.play === "dolls" ? <DollsTools /> : ex.play === "juicebox" ? <JuiceboxTools /> : null}>
             <InfoPanel item={selectedId && ex.finds[selectedId] ? { id: selectedId, kind: "discovery", panel: ex.finds[selectedId] } : null}
                        onClose={close} />
           </Exhibit>
@@ -225,6 +225,26 @@ function DollsTools() {
       <button className="tool" onClick={() => act("draw")}>Draw a card</button>
       {st && st.drawn > 0 && <button className="tool" onClick={() => act("shuffle")}>Shuffle</button>}
       <button className="tool" aria-pressed={!!st?.music} onClick={() => act("music")}>{st?.music ? "Stop the music box" : "Wind the music box"}</button>
+    </>
+  );
+}
+
+// Juicebox: keyboard / touch alternatives for the bottle, the sign and the headlights
+function JuiceboxTools() {
+  const [st, setSt] = useState({});
+  useEffect(() => {
+    const f = (e) => setSt(e.detail);
+    addEventListener("jb-state", f);
+    return () => removeEventListener("jb-state", f);
+  }, []);
+  const act = (a) => window.dispatchEvent(new CustomEvent("jb-act", { detail: a }));
+  const text = st.said || (st.flipped ? "Some things hit different on the road." : "");
+  return (
+    <>
+      <output className="dice-result" aria-live="polite">{text}</output>
+      <button className="tool" onClick={() => act("shake")}>Shake the juice</button>
+      <button className="tool" onClick={() => act("flip")}>Flip the sign</button>
+      <button className="tool" aria-pressed={!!st.lights} onClick={() => act("lights")}>Headlights</button>
     </>
   );
 }
