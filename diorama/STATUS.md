@@ -1,10 +1,26 @@
 # STATUS — Miniature Developer Desk diorama
 
-**Current phase:** Phase 8 (private staging at brok3nbydesign.com/landing-page/ + desktop/mobile testing; no DNS change needed).
-- Done: the staging build, the deploy script and the automated device/accessibility/performance pass (`renders/phase8/`). Staging is deployed to the `gh-pages` branch (from b928f8d).
-- Waiting for you: the one-time DNS + GitHub Pages setup and your real-device checks; see [STAGING.md](STAGING.md).
-- Phases 9 and 10 are complete. Production is untouched.
-- Live-site fixes are kept as a patch in `live-site-fixes/` (waiting for GitHub access to that repository).
+**Current phase:** Phase 11 — pre-launch. The whole site is built and on private staging at
+https://brok3nbydesign.com/landing-page/ (the `gh-pages` branch of this repository). Production is untouched.
+- **Built:** the studio desk homepage, the Games crate, the About notebook, and a hand-built 3D diorama with its own
+  interactions on every project page (all 11: see [EXHIBITS.md](EXHIBITS.md)), the Studio Passport, settings, music.
+- **Pre-launch check (stage 3, 2026-11-06), all passing:**
+  - every exhibit's browser test (`npm run test:<id>` in `app/`) and the site test (`npm run test:browser`);
+  - `npm run test:fallback` (new): all 14 pages with a 3D scene work with WebGL switched off (image + alt text, all
+    text and buttons, the desk's hotspot buttons still open their panels), and reduced motion skips the intro;
+  - the device matrix (`node scripts/staging-tests.mjs` after `npm run build:staging`): 9 pages × 8 devices from
+    iPhone SE to 2560 px, no overflow, nav and panels fit, phone tap targets ≥ 40 px, no console errors; axe-core:
+    no serious/critical issues on any page; Lighthouse accessibility and best practices 100 (results in `renders/phase8/`).
+  - Fixed during the check: info panels now open above the exhibit tool row (on Juicebox one covered the Headlights button).
+- **Homepage (this session):** the camera fits the whole desk between the hint line and the buttons (`fit` in the home
+  exhibit config), the first view swings in (`intro`), the 3D area starts below the header, the copy sits further in.
+- **Known trade-off:** the desk model is 9.7 MB (KTX2 textures: small on the GPU, larger to download). The 3.3 MB WebP
+  build uses ~4× the GPU memory, so phones keep KTX2 for now.
+- **Waiting for you:** real-device walk-through ([STAGING.md](STAGING.md)), your J.E.F.F. lines (`jeffLines` in
+  `app/src/content/site.js`), and approval before anything goes live on brok3nbydesign.com.
+- Live-site repository: PR brok3nby-design/brok3nby-design.github.io#1 merged; the removed files were also purged from its history.
+
+*(Older phase notes follow.)*
 Phases 1–3 are approved and locked. See [EXPORTS.md](EXPORTS.md) (files, measurements), [EASTER_EGGS.md](EASTER_EGGS.md),
 `data/interactions.json` (interaction map) and [PROJECT_DIRECTION.md](PROJECT_DIRECTION.md) (revised 11-phase roadmap, staging rules).
 
