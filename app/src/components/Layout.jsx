@@ -59,7 +59,7 @@ export default function Layout() {
         <Robot />
       </footer>
       <StampToast />
-      <BackToTop key={pathname} />
+      <BackToTop />{/* no key: a second sibling keyed by pathname would collide with <main key={pathname}> */}
       {__BUILD__.staging && (
         <aside aria-label="Staging notice">
           <a className="staging-badge" href={`${import.meta.env.BASE_URL}version.json`} title={`Build ${__BUILD__.commit} · ${__BUILD__.date}`}>
