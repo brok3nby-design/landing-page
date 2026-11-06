@@ -625,6 +625,12 @@ function Content({ config, selectedId, onSelect, under, apiRef, quality, animSta
         }
         return { x0, x1, y0, y1, w: size.width, h: size.height };
       },
+      box: (name) => {                                // a node's world-space box (tests: cartridges must not overlap)
+        const o = state?.scene.getObjectByName(name);
+        if (!o) return null;
+        const b = new THREE.Box3().setFromObject(o);
+        return [...b.min.toArray(), ...b.max.toArray()];
+      },
       project: (name) => {
         const o = state?.scene.getObjectByName(name);
         if (!o) return null;
