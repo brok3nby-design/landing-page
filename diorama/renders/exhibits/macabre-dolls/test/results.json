@@ -1,0 +1,74 @@
+{
+ "start": {
+  "drawn": 0,
+  "busy": false,
+  "music": false,
+  "heads": [
+   0,
+   0,
+   0
+  ]
+ },
+ "after_rest": {
+  "drawn": 0,
+  "busy": false,
+  "music": false,
+  "heads": [
+   0.32070516821641715,
+   0.3001639090470516,
+   0.30420499206074286
+  ]
+ },
+ "after_draw": {
+  "drawn": 1,
+  "busy": false,
+  "music": false,
+  "heads": [
+   0.32070516821641715,
+   0.3001639090470516,
+   0.30420499206074286
+  ]
+ },
+ "readout": "Drawn 1 of 13. Every doll has a past.",
+ "music": {
+  "drawn": 1,
+  "busy": false,
+  "music": true,
+  "heads": [
+   0.31029270288670924,
+   0.2851149503195938,
+   0.29088847983220495
+  ]
+ },
+ "all": {
+  "drawn": 7,
+  "busy": false,
+  "music": false,
+  "heads": [
+   0.32437118956308925,
+   0.3001639090470516,
+   0.30606587374843913
+  ]
+ },
+ "all_readout": "Drawn 7 of 13. Every doll has a past.",
+ "stamp": false,
+ "after_shuffle": {
+  "drawn": 0,
+  "busy": false,
+  "music": false,
+  "heads": [
+   0.32437118956308925,
+   0.3001639090470516,
+   0.30606587374843913
+  ]
+ },
+ "checks": {
+  "heads_turn_when_still": true,
+  "deck_click_draws": true,
+  "music_box_plays": true,
+  "whole_deck_stamp": false,
+  "shuffle": true,
+  "no_errors": true
+ },
+ "errors": []
+}
