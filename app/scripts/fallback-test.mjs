@@ -112,7 +112,8 @@ const gl = await chromium.launch({ args: ["--use-angle=swiftshader", "--enable-u
   const page = await ctx.newPage();
   const errors = [];
   page.on("pageerror", (e) => errors.push(String(e)));
-  await page.goto(`${URL}/`, { waitUntil: "load" });
+  // ?force3d: this machine draws 3D in software, which on its own now gets the still image first
+  await page.goto(`${URL}/?force3d`, { waitUntil: "load" });
   await page.waitForFunction(() => window.__exhibit && window.__exhibit.ready, null, { timeout: 240000 });
   // with reduced motion the camera starts at its resting place: two readings a moment apart are the same
   const pos = () => page.evaluate(() => window.__exhibit.camera?.().p.map((v) => +v.toFixed(3)) ?? null);
