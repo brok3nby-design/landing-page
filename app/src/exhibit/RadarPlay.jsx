@@ -15,12 +15,12 @@ const KEY = "b3d-radar-v1";
 const COVER = `${import.meta.env.BASE_URL}media/projects/under-the-radar/Under_Radar_logo.webp`;
 // the postcards as crops of the cover (1024 x 1536), where each blip sits on the radar, and where the card hangs
 const CARDS = [
-  { id: "lighthouse", title: "The Lighthouse", crop: [272, 800, 462, 962], blip: [0.55, -0.62], slot: [-0.21, 0.13, -8] },
-  { id: "manor", title: "The Manor", crop: [520, 846, 724, 992], blip: [0.72, 0.4], slot: [0.22, 0.15, 7] },
-  { id: "train", title: "The Night Train", crop: [275, 966, 497, 1112], blip: [-0.6, 0.45], slot: [-0.23, -0.03, 5] },
-  { id: "clockwork", title: "The Clockwork", crop: [575, 1025, 770, 1160], blip: [-0.35, -0.7], slot: [0.24, -0.01, -6] },
+  { id: "lighthouse", title: "The Lighthouse", crop: [272, 800, 462, 962], blip: [0.55, -0.62], slot: [-0.26, 0.16, -8] },
+  { id: "manor", title: "The Manor", crop: [520, 846, 724, 992], blip: [0.72, 0.4], slot: [0.27, 0.18, 7] },
+  { id: "train", title: "The Night Train", crop: [275, 966, 497, 1112], blip: [-0.6, 0.45], slot: [-0.28, -0.02, 5] },
+  { id: "clockwork", title: "The Clockwork", crop: [575, 1025, 770, 1160], blip: [-0.35, -0.7], slot: [0.29, 0.0, -6] },
 ];
-const CW = 0.16, CH = 0.11;
+const CW = 0.22, CH = 0.15;
 const load = () => { try { const a = JSON.parse(localStorage.getItem(KEY)); return Array.isArray(a) ? a.filter((id) => CARDS.some((c) => c.id === id)) : []; } catch { return []; } };
 const save = (a) => { try { localStorage.setItem(KEY, JSON.stringify(a)); } catch { /* fine */ } };
 

@@ -1,0 +1,41 @@
+{
+ "first": {
+  "found": [
+   "lighthouse"
+  ],
+  "busy": false
+ },
+ "readout": "Found: The Lighthouse (1 of 4)",
+ "all": {
+  "found": [
+   "lighthouse",
+   "manor",
+   "train",
+   "clockwork"
+  ],
+  "busy": false
+ },
+ "all_readout": "All four found. One more game.",
+ "stamp": true,
+ "after_reload": {
+  "found": [
+   "lighthouse",
+   "manor",
+   "train",
+   "clockwork"
+  ],
+  "busy": false
+ },
+ "after_forget": {
+  "found": [],
+  "busy": false
+ },
+ "checks": {
+  "screen_click_scans_and_finds": true,
+  "all_four_and_stamp": true,
+  "remembered_after_reload": true,
+  "forget": true,
+  "no_errors": true
+ },
+ "errors": []
+}
