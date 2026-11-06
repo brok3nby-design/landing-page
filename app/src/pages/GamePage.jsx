@@ -55,7 +55,7 @@ export default function GamePage({ id: fixedId }) {
           <div className="ctas"><Link viewTransition className="btn ghost" to="/games">← Back to the shelf</Link></div>
         </section>
         {ex ? (
-          <Exhibit config={ex} selectedId={selectedId} onSelect={setSelectedId} tools={ex.play === "gold" ? <GoldTools /> : ex.play === "dice" ? <DiceTools /> : ex.play === "speck" ? <SpeckTools /> : ex.play === "doqi" ? <DoqiTools /> : ex.play === "wrfm" ? <WrfmTools /> : ex.play === "maze" ? <MazeTools /> : ex.play === "dolls" ? <DollsTools /> : ex.play === "juicebox" ? <JuiceboxTools /> : ex.play === "graffiti" ? <GraffitiTools /> : null}>
+          <Exhibit config={ex} selectedId={selectedId} onSelect={setSelectedId} tools={ex.play === "gold" ? <GoldTools /> : ex.play === "dice" ? <DiceTools /> : ex.play === "speck" ? <SpeckTools /> : ex.play === "doqi" ? <DoqiTools /> : ex.play === "wrfm" ? <WrfmTools /> : ex.play === "maze" ? <MazeTools /> : ex.play === "dolls" ? <DollsTools /> : ex.play === "juicebox" ? <JuiceboxTools /> : ex.play === "graffiti" ? <GraffitiTools /> : ex.play === "radar" ? <RadarTools /> : null}>
             <InfoPanel item={selectedId && ex.finds[selectedId] ? { id: selectedId, kind: "discovery", panel: ex.finds[selectedId] } : null}
                        onClose={close} />
           </Exhibit>
@@ -268,6 +268,27 @@ function GraffitiTools() {
       </button>
       <button className="tool" onClick={() => act("heart")}>Spray a heart</button>
       {st && st.count > 0 && <button className="tool" onClick={() => act("clear")}>Clear my tile</button>}
+    </>
+  );
+}
+
+// Under the Radar: scan (keyboard / touch alternative to clicking the screen), forget, and what turned up
+function RadarTools() {
+  const [st, setSt] = useState(null);
+  useEffect(() => {
+    const f = (e) => setSt(e.detail);
+    addEventListener("ur-state", f);
+    return () => removeEventListener("ur-state", f);
+  }, []);
+  const act = (a) => window.dispatchEvent(new CustomEvent("ur-act", { detail: a }));
+  const text = !st ? "" : st.scanning ? "Scanning…" : st.said ? st.said
+    : st.all ? "All four found. One more game."
+    : st.discovered ? `Found: ${st.discovered} (${st.found} of ${st.total})` : st.found ? `${st.found} of ${st.total} found` : "";
+  return (
+    <>
+      <output className="dice-result" aria-live="polite">{text}</output>
+      <button className="tool" onClick={() => act("scan")}>Scan</button>
+      {st && st.found > 0 && <button className="tool" onClick={() => act("forget")}>Forget them</button>}
     </>
   );
 }

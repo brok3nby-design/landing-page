@@ -22,7 +22,8 @@
     "test:maze": "npm run build && node scripts/maze-test.mjs",
     "test:dolls": "npm run build && node scripts/dolls-test.mjs",
     "test:juicebox": "npm run build && node scripts/juicebox-test.mjs",
-    "test:graffiti": "npm run build && node scripts/graffiti-test.mjs"
+    "test:graffiti": "npm run build && node scripts/graffiti-test.mjs",
+    "test:radar": "npm run build && node scripts/radar-test.mjs"
   },
   "dependencies": {
     "@fontsource-variable/inter": "^5.3.0",

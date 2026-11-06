@@ -241,6 +241,11 @@ export function blip(kind = "plant", vol = 0.5) {
       }
       return 0.45;
     }
+    if (kind === "ping") {                                   // a radar contact: a clean ping with a soft echo
+      tone(1180, 1160, 0, 0.35, "sine", vol * 0.8);
+      tone(1180, 1160, 0.22, 0.3, "sine", vol * 0.25);
+      return 0.6;
+    }
     if (kind === "spray") {                                  // a short hiss from a spray can
       noiseHit(t, "highpass", 2600, 0.6, vol * 0.22, 0.16, bus);
       noiseHit(t, "bandpass", 6500, 0.8, vol * 0.12, 0.12, bus);

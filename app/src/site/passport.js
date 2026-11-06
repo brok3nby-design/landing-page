@@ -25,6 +25,7 @@ export const SECRETS = [
   { id: "full-deck", title: "Every doll has a past", hint: "Draw every card in the Macabre deck.", path: "/games/macabre-dolls", symbol: "♠" },
   { id: "strange-places", title: "Good people, strange places", hint: "Some signs have two sides.", path: "/games/juicebox", symbol: "➜" },
   { id: "tagger", title: "Left your mark", hint: "Spray something small on the wall at Graffiti.", path: "/graffiti", symbol: "▦" },
+  { id: "one-more-game", title: "One more game", hint: "Find everything the radar can find on Under the Radar.", path: "/games/under-the-radar", symbol: "◎" },
 ];
 
 let stamps = [];

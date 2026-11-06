@@ -316,4 +316,23 @@ export const EXHIBITS = {
       gf_can_yellow: { eyebrow: "Knocked over", title: "Yellow", text: "Somebody was in a hurry. Picked: now spray the tile." },
     },
   },
+  "under-the-radar": {
+    model: "models/exhibit_under_the_radar.glb",
+    scope: "under-the-radar",
+    view: { forward: [-0.498, -0.454, -0.739] },      // the Blender hero camera (azimuth 34°, elevation 27°)
+    fallback: "fallback/exhibit-under-the-radar.png",
+    fallbackAlt: "A miniature late-night study: a night-sky wall with golden radar rings and stars, a wooden desk with a beige retro computer whose screen shows an amber radar, a keyboard, a trackball with a red ball, a floppy disk, a stack of illustrated game boxes, maps, a notebook, a mug of pencils, a trailing pothos and a glowing orb lamp; a wooden chair on a rug.",
+    play: "radar",                   // scan the radar, postcards fly out of the screen (exhibit/RadarPlay.jsx)
+    focusScale: 1.8,
+    homeScale: 0.95,
+    findsTitle: "On the desk",
+    finds: {
+      ur_computer: { eyebrow: "Scanning", title: "The Computer", text: "Your next favourite is one you've never heard of. Click the screen to scan for it." },
+      ur_boxes: { eyebrow: "Played to death", title: "Game Boxes", text: "Every one of them was a secret once." },
+      ur_trackball: { eyebrow: "Point and click", title: "Trackball", text: "Take your time. Trust your instincts." },
+      ur_floppy: { eyebrow: "Label: one more game", title: "Floppy Disk", text: "It says one more game. It always says one more game." },
+      ur_orb: { eyebrow: "Still on", title: "Orb Lamp", text: "It's late. It's always late." },
+      ur_notebook: { eyebrow: "Notes", title: "Notebook", text: "Follow your curiosity into a world of quiet surprises and unexpected connections." },
+    },
+  },
 };
