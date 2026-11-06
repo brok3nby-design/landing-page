@@ -97,6 +97,58 @@ def sticky_notes(root, top):
         S.mark_interactive(note, "graffiti", "Graffiti guestbook", kind="navigation")   # Phase 10
 
 
+def guestbook(root, top, x=0.31, y=0.70, rz=-10):
+    """The Graffiti guestbook (navigation: the live wall), lying open under the riser right of the router:
+    maroon hardback, curved ruled pages with signatures and pixel doodles, a red ribbon and a pen."""
+    if "guestbook" not in TEX:
+        TEX["guestbook"] = T.guestbook("guestbook")
+    grp = S.empty("NAV_Guestbook", "PROPS", loc=(x, y, top), rot=(0, 0, radians(rz)), parent=root, size=0.05)
+    W, D = 0.19, 0.122
+    geo.box("NAV_Guestbook_Cover", (W + 0.012, D + 0.01, 0.004), material=mat("M_guestbook_cover", color=(0.30, 0.05, 0.06), rough=0.5),
+            parent=grp, bevel=0.0015, seg=2, rests_on="DESK_Top")
+    def page_shape(px, py):                         # pages rise from the spine and curl down at the edges
+        ax = abs(px) / (W / 2)
+        return (px, py, 0.004 + 0.009 * (1 - (1 - min(ax * 4, 1)) ** 2) - 0.004 * ax ** 3)
+    geo.grid("NAV_Guestbook_Pages", W, D, 40, 6, deform=page_shape, material=mat("M_guestbook_pages", tex="guestbook", rough=0.82),
+             parent=grp, thickness=0.002)
+    geo.box("NAV_Guestbook_Ribbon", (0.006, 0.05, 0.0006), loc=(0.004, -D / 2 - 0.012, 0.0045), rot=(0, 0, 0.12),
+            material=M("ribbon_red"), parent=grp, bevel=0)
+    geo.curve_tube("NAV_Guestbook_Pen", [(0.028, -0.045, 0.0165), (0.085, 0.03, 0.0165)], 0.0038, material=M("metal_black"),
+                   parent=grp, ring=10, steps=1, taper=lambda t: 0.55 if t < 0.05 else 1.0)
+    geo.box("NAV_Guestbook_PenClip", (0.0018, 0.03, 0.0018), loc=(0.074, 0.016, 0.0201), rot=(0, 0, -0.65),
+            material=M("brass"), parent=grp, bevel=0)
+    S.mark_interactive(grp, "graffiti", "Graffiti guestbook", kind="navigation")
+    return grp
+
+
+def radio(root, top, x=0.72, y=0.705, rz=-14):
+    """A little WRFM desk radio (discovery: plays a WRFM clip, a different one each click) under the riser
+    at the right: walnut case, speaker grille + lit tuning window, two knobs, a carry handle and an antenna."""
+    if "radio_face" not in TEX:
+        TEX["radio_face"] = T.radio_face("radio_face")
+    grp = S.empty("PROP_Radio", "PROPS", loc=(x, y, top), rot=(0, 0, radians(rz)), parent=root, size=0.05)
+    Wr, Dr, Hr = 0.15, 0.066, 0.082
+    geo.box("PROP_Radio_Case", (Wr, Dr, Hr), loc=(0, 0, 0.004), material=M("wood_dark"), parent=grp, bevel=0.009, seg=3,
+            rests_on="PROP_Radio_Feet")
+    def feet(bm):
+        for sx in (-1, 1):
+            for sy in (-1, 1):
+                geo.add_cyl(bm, 0.005, 0.004, (sx * (Wr / 2 - 0.016), sy * (Dr / 2 - 0.012), 0), verts=10)
+    geo.merged("PROP_Radio_Feet", feet, material=M("rubber"), parent=grp, bevel=0, rests_on="DESK_Top")
+    face = mat("M_radio_face", tex="radio_face", emit_tex="radio_face", strength=0.35, rough=0.6)
+    geo.box("PROP_Radio_Face", (Wr - 0.014, 0.002, Hr - 0.016), loc=(0, -Dr / 2 - 0.0008, 0.004 + 0.008),
+            material=face, parent=grp, bevel=0, uv="fit", fit_axis=1)
+    for kx in (-0.005, 0.052):                       # VOL and TUNE knobs, below the badge
+        geo.cylinder(f"PROP_Radio_Knob_{'V' if kx < 0 else 'T'}", 0.0075, 0.007, loc=(kx, -Dr / 2 - 0.004, 0.019),
+                     rot=(radians(90), 0, 0), material=M("brass"), parent=grp, verts=20, bevel=0.0015)
+    geo.curve_tube("PROP_Radio_Handle", [(-0.045, 0.0, Hr + 0.002), (-0.03, 0.0, Hr + 0.022), (0.03, 0.0, Hr + 0.022),
+                                         (0.045, 0.0, Hr + 0.002)], 0.0035, material=M("leather_brown"), parent=grp, ring=8, steps=8)
+    geo.cylinder("PROP_Radio_Antenna", 0.0016, 0.13, loc=(0.06, 0.02, Hr + 0.002), rot=(radians(-8), radians(60), 0),
+                 r_top=0.0011, material=M("chrome"), parent=grp, verts=8, bevel=0)
+    S.mark_interactive(grp, "radio", "WRFM radio (discovery)", kind="discovery")
+    return grp
+
+
 def card_holder(root, x, y, top):
     """Small business-card holder (the Contact navigation object)."""
     grp = S.empty("NAV_ContactCards", "PROPS", loc=(x, y, top), rot=(0, 0, radians(-8)), parent=root, size=0.04)
@@ -380,7 +432,8 @@ def build(root, desk, hutch):
     steam(m)
     from parts import notebook
     notebook.build(root, (0.66, 0.33, top))
-    sticky_notes(root, top)
+    guestbook(root, top)                       # replaces the sticky notes (Graffiti link)
+    radio(root, top)
     card_holder(root, 0.605, 0.552, top)
     pencil_cup(root, "PROP_PencilCup", 0.52, 0.53, top, "copper",
                [("pencil_yellow", 0.15, 8, 30), ("pencil_red", 0.14, 12, 150), ("pencil_yellow", 0.16, 6, 260),

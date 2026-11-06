@@ -131,32 +131,33 @@ function Model({ url, scope, targets, selectGlow = true, noGlow, selectedId, onS
 // ---------------------------------------------------------------- per-page animations
 const damp = (dt, k = 7) => 1 - Math.exp(-k * dt);
 
-// Games page: the selected case lifts out of the crate and turns its label toward the camera;
-// every other case eases back to the exact transform it had in the GLB.
-function LiftTurn({ index, selectedId, lift = 0.11 }) {
+// Games page: the selected case lifts straight up out of the crate first, and only once it is clear of the
+// cases in front does it come forward and turn its label toward the camera (on the way back: turn back,
+// then sink straight down), so it never passes through its neighbours. Every other case eases back to the
+// exact transform it had in the GLB.
+const smoothstep = (a, b, x) => { const t = Math.min(1, Math.max(0, (x - a) / (b - a))); return t * t * (3 - 2 * t); };
+function LiftTurn({ index, selectedId, lift = 0.13 }) {
   const camera = useThree((s) => s.camera);
   const invalidate = useThree((s) => s.invalidate);
   useEffect(() => invalidate(), [selectedId, invalidate]);
   const tmp = useMemo(() => ({ v: new THREE.Vector3(), q: new THREE.Quaternion(), e: new THREE.Euler(0, 0, 0, "YXZ") }), []);
   useFrame((_, dt) => {
     let moving = false;
+    const step = Math.min(dt, 0.05) * (reducedMotion() ? 99 : 1.9);   // progress per frame (0..1 over ~0.5 s)
     for (const node of Object.values(index)) {
       const u = node.userData;
       if (!u.home) u.home = { p: node.position.clone(), q: node.quaternion.clone() };
-      const active = node.userData.interactive_id === selectedId;
-      if (active) {
-        const cam = node.parent.worldToLocal(tmp.v.copy(camera.position));
-        tmp.e.set(-0.16, Math.atan2(cam.x - u.home.p.x, cam.z - u.home.p.z), 0);
-        tmp.q.setFromEuler(tmp.e);
-        const toward = new THREE.Vector3(cam.x - u.home.p.x, 0, cam.z - u.home.p.z).setLength(0.03);
-        node.position.lerp(tmp.v.copy(u.home.p).add(toward).setY(u.home.p.y + lift), damp(dt));
-        node.quaternion.slerp(tmp.q, damp(dt, 6));
-      } else {
-        node.position.lerp(u.home.p, damp(dt));
-        node.quaternion.slerp(u.home.q, damp(dt));
-      }
-      const goal = active ? lift : 0;
-      if (Math.abs(node.position.y - u.home.p.y - goal) > 1e-4 || (!active && node.quaternion.angleTo(u.home.q) > 1e-4)) moving = true;
+      const target = node.userData.interactive_id === selectedId ? 1 : 0;
+      u.t = u.t ?? 0;
+      if (u.t !== target) { u.t = target > u.t ? Math.min(1, u.t + step) : Math.max(0, u.t - step); moving = true; }
+      const up = smoothstep(0, 0.55, u.t), turn = smoothstep(0.55, 1, u.t);   // rise first, then forward + turn
+      const cam = node.parent.worldToLocal(tmp.v.copy(camera.position));
+      const yaw = Math.atan2(cam.x - u.home.p.x, cam.z - u.home.p.z);
+      const toward = new THREE.Vector3(cam.x - u.home.p.x, 0, cam.z - u.home.p.z).setLength(0.035 * turn);
+      node.position.copy(u.home.p).add(toward).setY(u.home.p.y + lift * up);
+      tmp.e.set(-0.16, yaw, 0);
+      tmp.q.setFromEuler(tmp.e);
+      node.quaternion.copy(u.home.q).slerp(tmp.q, turn);
     }
     if (moving) invalidate();
   });
@@ -651,7 +652,7 @@ function Content({ config, selectedId, onSelect, under, apiRef, quality, animSta
         <>
           <Lights box={state.box} kind={config.lights || "exhibit"} under={under} shadows={quality.shadows} />
           <Rig box={state.box} model={state.scene} fit={config.fit} intro={config.intro} view={view} frame={FRAME_ID && views?.cameras?.[FRAME_ID]} frameOrigin={config.frameOrigin} homeScale={config.homeScale} onWheelHint={onWheelHint} under={under} underView={config.underView} selected={selected} apiRef={apiRef} colliders={colliders}
-               focusLift={lifting ? 0.07 : 0} focusScale={config.focusScale} smartFocus={config.smartFocus} />
+               focusLift={lifting ? 0.1 : 0} focusScale={config.focusScale} smartFocus={config.smartFocus} />
           {lifting && <LiftTurn index={state.index} selectedId={selectedId} />}
           {config.animation === "notebook" && <NotebookOpen scene={state.scene} open={animState?.open ?? true} />}
           {config.play === "gold" && <Suspense fallback={null}><GoldPlay scene={state.scene} onSelect={onSelect} /></Suspense>}

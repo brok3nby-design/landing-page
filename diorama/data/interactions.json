@@ -125,7 +125,7 @@
   },
   "graffiti": {
    "scope": "home",
-   "object": "PROP_StickyNote_0..2",
+   "object": "NAV_Guestbook",
    "action": "focus+panel",
    "panel": {
     "title": "Graffiti",
@@ -142,7 +142,8 @@
      "label": "About Graffiti",
      "route": "/graffiti"
     }
-   ]
+   ],
+   "idea": "an open guestbook on the desk (signatures and pixel doodles) for the live Graffiti wall"
   },
   "project_labyrinth-fate": {
    "scope": "home",
@@ -294,6 +295,24 @@
     "text": "It listens. You debug. That's the deal. (A word from WRFM 97.1's sponsor.)"
    },
    "stamp": "quack"
+  },
+  "radio": {
+   "scope": "home",
+   "object": "PROP_Radio",
+   "action": "easter-egg",
+   "idea": "plays a WRFM clip (callers, sponsors, Vera); a different one each click; Stop / Next in the exhibit",
+   "panel": {
+    "title": "WRFM 97.1",
+    "eyebrow": "ON THE DESK RADIO",
+    "text": "Callers, sponsors and Vera Lang herself. Click the radio again for a different clip, or stop it any time."
+   },
+   "links": [
+    {
+     "label": "Explore WRFM",
+     "route": "/wrfm"
+    }
+   ],
+   "stamp": "tuned-in"
   }
  },
  "hiding_places": "EGG_* markers (egg_id extras) - see diorama/EASTER_EGGS.md"

@@ -46,7 +46,7 @@ export const PAGES = {
         [[-0.69, 0.31, -0.21], [0.05, 1.17, 0.48]],    // chair
       ],
       // the navigation hotspots also offered as plain buttons (keyboard / screen-reader path)
-      hotspots: ["games_crate", "notebook", "monitor_left", "headphones", "contact_card", "passport", "graffiti",
+      hotspots: ["games_crate", "notebook", "monitor_left", "headphones", "radio", "contact_card", "passport", "graffiti",
                  "project_labyrinth-fate", "project_macabre-dolls", "project_juicebox"],
     },
   },
@@ -57,6 +57,7 @@ export const PAGES = {
       scope: "games",
       view: "CAM_Asset_GamesCrate",
       frameOrigin: [0.33, 0.165, -0.48],   // where the crate sits in the desk scene (that camera's space)
+      fit: { fill: 0.8, side: 0.05 },      // the whole crate in view, with room for a case to lift out of it
       fallback: "fallback/crate.png",
       fallbackAlt: "A small wooden crate printed with a pixel creature, holding five game cartridges with pixel-art labels.",
       animation: "lift-turn",
@@ -95,7 +96,8 @@ export const HOTSPOT_LABELS = {
   headphones: "Headphones — WRFM Radio",
   contact_card: "Business cards — contact",
   passport: "Passport booklet — your stamps",
-  graffiti: "Sticky notes — Graffiti",
+  graffiti: "Guestbook — Graffiti",
+  radio: "Radio — WRFM clips",
   "project_labyrinth-fate": "Game box — The Maze",
   "project_macabre-dolls": "Game box — Macabre Dolls",
   "project_juicebox": "Game box — Juicebox",

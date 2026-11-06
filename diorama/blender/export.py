@@ -425,12 +425,12 @@ def main():
         apply_modifiers(objs)
         merge_siblings()
         objs = [bpy.data.objects["NAV_GamesCrate"], *bpy.data.objects["NAV_GamesCrate"].children_recursive]
-        body = [bpy.data.objects["NAV_GamesCrate_Body"]]
+        body = [o for o in objs if o.type == 'MESH' and o.name.startswith("NAV_GamesCrate_")]   # boards, frame, nails, ropes
         cases = [o for o in objs if o.type == 'MESH' and o not in body]
         for o in bpy.data.objects:                     # standalone: exhibit rig only
             if o.type == 'LIGHT':
                 o.hide_render = not o.name.startswith("LIGHT_Exhibit")
-        report["crate_bake"] = bake_set("crate", body, 1024, args.ao_samples, 0, glow=False, hide=cases)
+        report["crate_bake"] = bake_set("crate", body, 2048, args.ao_samples, 0, glow=False, hide=cases)
         report["crate_after"] = stats(objs)
         report["crate_glb_bytes"] = export_glb(os.path.join(RAW, "games_collection.glb"), objs)
 
