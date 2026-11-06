@@ -1,6 +1,8 @@
 # My Gaming History
 *The games I grew up with, the ones that stuck with me, and why I still love gaming today.*
 
+> Right now, when I'm not working on my own games, I'm playing **Overwatch**, and rotating between **Oxygen Not Included** and **Cities: Skylines**.
+
 ## Where It All Started
 
 I've been playing video games for pretty much as long as I can remember. I'm almost 47 now, and when I look back, there are certain games that have always stuck with me. Some because they were genuinely amazing, some because they introduced me to something I'd never experienced before, and others simply because of the memories I have of playing them.

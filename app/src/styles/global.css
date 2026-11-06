@@ -514,3 +514,20 @@ blockquote { margin: 18px 0; padding-left: 18px; border-left: 2px solid var(--re
   .gh-index a { min-height: 40px; display: inline-flex; align-items: center; }
 }
 @media (prefers-reduced-motion: reduce) { .gh-era, .gh-toc li a { transition: none; } }
+
+/* gaming history: the "now playing" card under the subtitle */
+.gh-now { margin: 30px 0 0; max-width: 820px; padding: 18px 20px 20px; border: 1px solid var(--faint); border-left: 3px solid var(--red-hi);
+          background: linear-gradient(90deg, rgba(196, 29, 37, .10), transparent 60%); }
+.gh-now-h { display: flex; align-items: center; gap: 10px; margin: 0 0 8px; font: 600 11px/1 var(--sans); letter-spacing: .3em; text-transform: uppercase; color: var(--red-text); }
+.gh-now-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--red-hi); animation: explore-dot 1.8s ease-out infinite; }
+.gh-now-text { margin: 0 0 14px; color: #d4cfc8; font-size: 16.5px; line-height: 1.6; max-width: 64ch; }
+.gh-now-text strong { color: var(--fg); font-weight: 600; }
+.gh-now-games { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 10px; }
+.gh-now-games li { display: flex; flex-direction: column; gap: 5px; padding: 10px 14px; border: 1px solid var(--faint); min-width: 170px; }
+.gh-now-games li.main { border-color: var(--red-hi); background: rgba(196, 29, 37, .12); }
+.gh-now-kind { font: 600 10px/1 var(--sans); letter-spacing: .24em; text-transform: uppercase; color: var(--muted); }
+.gh-now-games li.main .gh-now-kind { color: var(--red-text); }
+.gh-now-name { font: 500 22px/1.1 var(--serif); color: var(--fg); }
+@media (prefers-reduced-motion: reduce) { .gh-now-dot { animation: none; } }
+:root.b3d-still .gh-now-dot { animation: none; }
+@media (max-width: 640px) { .gh-now-games li { min-width: 0; flex: 1 1 100%; } }

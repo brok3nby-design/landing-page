@@ -34,7 +34,7 @@ function inline(text) {
 }
 function parse(src) {
   const lines = src.split(/\r?\n/);
-  const doc = { title: "", subtitle: "", chapters: [], outro: "" };
+  const doc = { title: "", subtitle: "", chapters: [], outro: "", now: "" };
   let ch = null, sub = null;
   const push = (block) => { (sub ? sub.blocks : ch ? ch.blocks : (doc.pre ||= [])).push(block); };
   for (const raw of lines) {
@@ -51,6 +51,7 @@ function parse(src) {
       sub = { title, id: slug(title), blocks: [] }; ch.subs.push(sub); ch.blocks.push({ sub }); continue;
     }
     if (!ch && /^\*[^*].*\*$/.test(line)) { doc.subtitle = line.slice(1, -1); continue; }
+    if (!ch && line.startsWith("> ")) { doc.now = line.slice(2); continue; }   // the "now playing" note
     if (/^\*To be continued/.test(line)) { doc.outro = line.replace(/^\*|\*$/g, ""); continue; }
     push({ p: line });
   }
@@ -91,6 +92,26 @@ function Sub({ sub }) {
       <h3 id={`${sub.id}-h`}><span className="gh-sub-kicker" aria-hidden="true">▸</span>{inline(sub.title)}</h3>
       <Blocks blocks={sub.blocks} />
     </section>
+  );
+}
+
+// "Now playing": the note at the top of the text (a "> " line). The first game named in bold is the one being
+// played; the others are the ones in rotation.
+function NowPlaying({ text }) {
+  const games = [...text.matchAll(/\*\*(.+?)\*\*/g)].map((m) => m[1]);
+  return (
+    <aside className="gh-now" id="gh-now" aria-label="Now playing">
+      <p className="gh-now-h"><span className="gh-now-dot" aria-hidden="true" />Now playing</p>
+      <p className="gh-now-text">{inline(text)}</p>
+      <ul className="gh-now-games">
+        {games.map((g, i) => (
+          <li key={g} className={i === 0 ? "main" : "rot"}>
+            <span className="gh-now-kind">{i === 0 ? "Playing" : "In rotation"}</span>
+            <span className="gh-now-name">{g}</span>
+          </li>
+        ))}
+      </ul>
+    </aside>
   );
 }
 
@@ -145,6 +166,7 @@ export default function GamingHistory() {
         <p className="eyebrow">From the shelf · The person behind the studio</p>
         <h1 className="title">{doc.title}<span className="accent">.</span></h1>
         {doc.subtitle && <p className="intro gh-subtitle">{doc.subtitle}</p>}
+        {doc.now && <NowPlaying text={doc.now} />}
         <ul className="gh-eras" aria-label="Three kinds of games run through this story">
           {ERAS.filter((e) => e.tone !== "neutral").map((e) => {
             const first = doc.chapters.find((c) => c.era === e.id);
@@ -191,6 +213,12 @@ export default function GamingHistory() {
 
           <section className="gh-index" aria-labelledby="gh-index-h">
             <h2 id="gh-index-h">Every game in this story</h2>
+            {doc.now && (
+              <div className="gh-index-group tone-red">
+                <p className="gh-index-label">Right now</p>
+                <ul>{[...doc.now.matchAll(/\*\*(.+?)\*\*/g)].map((m) => <li key={m[1]}><a href="#gh-now" onClick={go("gh-now")}>{m[1]}</a></li>)}</ul>
+              </div>
+            )}
             {ERAS.filter((e) => counts[e.id]).map((e) => (
               <div key={e.id} className={`gh-index-group tone-${e.tone}`}>
                 <p className="gh-index-label">{e.label}</p>
