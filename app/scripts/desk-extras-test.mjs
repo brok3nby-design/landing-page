@@ -12,7 +12,7 @@ let chromium;
 try { ({ chromium } = await import("playwright")); }
 catch { ({ chromium } = await import(pathToFileURL(path.join(execSync("npm root -g").toString().trim(), "playwright", "index.mjs")).href)); }
 const APP = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
-const DIST = path.join(APP, "dist");
+const DIST = process.env.DIST || path.join(APP, "dist");
 const OUT = path.resolve(APP, "..", "diorama", "renders", "phase11", "desk-extras");
 fs.mkdirSync(OUT, { recursive: true });
 const TYPES = { ".html": "text/html", ".js": "text/javascript", ".css": "text/css", ".json": "application/json", ".wasm": "application/wasm",
@@ -33,11 +33,13 @@ const check = (k, ok, v) => { results[k] = { ok, v }; if (!ok) fail++; console.l
 {
   const page = await browser.newPage({ viewport: { width: 1440, height: 900 } });
   const errors = []; page.on("pageerror", (e) => errors.push(String(e)));
+  // software rendering is slow: loop the clips so a short one can't end (and close the bar) mid-check
+  await page.addInitScript(() => { const play = HTMLMediaElement.prototype.play; HTMLMediaElement.prototype.play = function () { this.loop = true; return play.call(this); }; });
   await page.goto(`${URL}/?test`);
   await page.waitForFunction(() => window.__exhibit?.ready, null, { timeout: 300000 });
   const ids = await page.evaluate(() => [...document.querySelectorAll(".hotspots .chip")].map((b) => b.textContent));
   check("radio and guestbook options listed", ids.some((t) => /Radio/.test(t)) && ids.some((t) => /Guestbook/.test(t)), ids);
-  await page.locator(".hotspots .chip", { hasText: "Radio" }).click();
+  await page.locator(".hotspots .chip", { hasText: "Radio — WRFM clips" }).click();
   await page.waitForSelector(".radio-bar", { timeout: 20000 }).catch(() => {});
   const t1 = await page.locator(".radio-now").textContent().catch(() => null);
   check("radio plays with a now-playing bar", !!t1, t1);
@@ -47,7 +49,7 @@ const check = (k, ok, v) => { results[k] = { ok, v }; if (!ok) fail++; console.l
     titles.push(await page.locator(".radio-now").textContent().catch(() => null));
   }
   check("Next always changes the clip", titles.every((t, i) => i === 0 || (t && t !== titles[i - 1])), titles);
-  await page.screenshot({ path: path.join(OUT, "radio_playing.png") });
+  await page.screenshot({ path: path.join(OUT, "radio_playing.png"), timeout: 240000 });
   await page.getByRole("button", { name: "Stop the radio" }).click(); await page.waitForTimeout(400);
   check("Stop ends it", (await page.locator(".radio-bar").count()) === 0);
   check("tuned-in stamp after 5 clips", await page.evaluate(() => window.__passport?.has("tuned-in") ?? null), null);

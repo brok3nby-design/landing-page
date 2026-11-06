@@ -549,7 +549,7 @@ function Rig({ box, model, fit, intro: introMove, view, frame: FRAME, frameOrigi
       cc.fitToSphere(sphere, smooth);
       // shift the framing so the object sits upper-right, clear of the info panel (bottom-left)
       const wide = size.width > 900;
-      cc.setFocalOffset(wide ? -r * 0.9 : 0, r * (wide ? 0.55 : 0.9), 0, smooth);
+      cc.setFocalOffset(wide ? -r * 0.9 : 0, r * (wide ? (focusLift ? 0.2 : 0.55) : (focusLift ? 0.6 : 0.9)), 0, smooth);   // a lifted case is already high: shift it less
     } else if (!under) {
       goHome(smooth);
     }
@@ -681,7 +681,7 @@ function Content({ config, selectedId, onSelect, under, apiRef, quality, animSta
         <>
           <Lights box={state.box} kind={config.lights || "exhibit"} under={under} shadows={quality.shadows} />
           <Rig box={state.box} model={state.scene} fit={config.fit} intro={config.intro} view={view} frame={FRAME_ID && views?.cameras?.[FRAME_ID]} frameOrigin={config.frameOrigin} homeScale={config.homeScale} onWheelHint={onWheelHint} under={under} underView={config.underView} selected={selected} apiRef={apiRef} colliders={colliders}
-               focusLift={lifting ? 0.1 : 0} focusScale={config.focusScale} smartFocus={config.smartFocus} focusViews={focusViews} />
+               focusLift={lifting ? 0.13 : 0} focusScale={config.focusScale} smartFocus={config.smartFocus} focusViews={focusViews} />
           {lifting && <LiftTurn index={state.index} selectedId={selectedId} />}
           {config.animation === "notebook" && <NotebookOpen scene={state.scene} open={animState?.open ?? true} />}
           {config.play === "gold" && <Suspense fallback={null}><GoldPlay scene={state.scene} onSelect={onSelect} /></Suspense>}

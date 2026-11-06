@@ -1,0 +1,84 @@
+{
+  "radio and guestbook options listed": {
+    "ok": true,
+    "v": [
+      "Crate — the games",
+      "Notebook",
+      "Monitors — brand film",
+      "Headphones — WRFM Radio",
+      "Radio — WRFM clips",
+      "Business cards — contact",
+      "Passport booklet — your stamps",
+      "Guestbook — Graffiti",
+      "Game box — The Maze",
+      "Game box — Macabre Dolls",
+      "Game box — Juicebox"
+    ]
+  },
+  "radio plays with a now-playing bar": {
+    "ok": true,
+    "v": "WRFM 97.1 · on the desk radioCaller: the intern"
+  },
+  "Next always changes the clip": {
+    "ok": true,
+    "v": [
+      "WRFM 97.1 · on the desk radioCaller: the intern",
+      "WRFM 97.1 · on the desk radioDial 666",
+      "WRFM 97.1 · on the desk radioVera: still here",
+      "WRFM 97.1 · on the desk radioCaller: one checkbox",
+      "WRFM 97.1 · on the desk radioAn HR memo from Cheryl",
+      "WRFM 97.1 · on the desk radioAfter-hours intake",
+      "WRFM 97.1 · on the desk radioSponsor: the Debug Investigator"
+    ]
+  },
+  "Stop ends it": {
+    "ok": true
+  },
+  "tuned-in stamp after 5 clips": {
+    "ok": true,
+    "v": null
+  },
+  "guestbook opens the Graffiti panel": {
+    "ok": true
+  },
+  "guestbook framed in view": {
+    "ok": true,
+    "v": {
+      "x0": 215.22691222477016,
+      "x1": 466.8043499262205,
+      "y0": 149.52440106765044,
+      "y1": 273.30318365931504,
+      "w": 689.609375,
+      "h": 715
+    }
+  },
+  "home: no page errors": {
+    "ok": true,
+    "v": []
+  },
+  "lifted cartridge never overlaps its neighbours": {
+    "ok": true,
+    "v": {
+      "worst_m3": 0,
+      "frames": 120,
+      "rest_overlap": [
+        0,
+        0
+      ]
+    }
+  },
+  "cartridge lifts clear of the crate": {
+    "ok": true,
+    "v": {
+      "rise_m": 0.13
+    }
+  },
+  "crate_fit": {
+    "w": 689.609375,
+    "h": 760,
+    "centre": {
+      "x": 344.8046875,
+      "y": 365.9600249380029
+    }
+  }
+}
