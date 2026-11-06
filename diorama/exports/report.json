@@ -444,7 +444,7 @@
     "name": "desk_ao",
     "mime": "image/png",
     "size": "1024x1024",
-    "kb": 555,
+    "kb": 554,
     "gpu_safe": true
    },
    {
@@ -2433,7 +2433,7 @@
     "name": "crate_ao",
     "mime": "image/png",
     "size": "512x512",
-    "kb": 99,
+    "kb": 98,
     "gpu_safe": true
    },
    {
@@ -4422,6 +4422,1432 @@
   "textures_not_multiple_of_4": []
  },
  {
+  "file": "raw/exhibit_graffiti.glb",
+  "mb": 8.34,
+  "nodes": 40,
+  "meshes": 37,
+  "draw_calls": 37,
+  "triangles": 9072,
+  "materials": 22,
+  "textures": 9,
+  "texture_mb_download": 7.84,
+  "gpu_texture_mb": 32,
+  "validator": {
+   "errors": 0,
+   "warnings": 3,
+   "messages": [
+    "MESH_PRIMITIVE_GENERATED_TANGENT_SPACE: Material requires a tangent space but the mesh primitive does not provide it. Runtime-generated tangent space may be non-portable across implementations.",
+    "MESH_PRIMITIVE_GENERATED_TANGENT_SPACE: Material requires a tangent space but the mesh primitive does not provide it. Runtime-generated tangent space may be non-portable across implementations.",
+    "MESH_PRIMITIVE_GENERATED_TANGENT_SPACE: Material requires a tangent space but the mesh primitive does not provide it. Runtime-generated tangent space may be non-portable across implementations."
+   ]
+  },
+  "tags": [
+   {
+    "node": "GF_Can_purple",
+    "interactive_id": "gf_can_purple",
+    "interactive_label": "Purple spray can",
+    "interactive_scope": "graffiti",
+    "interactive_kind": "discovery"
+   },
+   {
+    "node": "GF_Can_yellow",
+    "interactive_id": "gf_can_yellow",
+    "interactive_label": "Yellow spray can",
+    "interactive_scope": "graffiti",
+    "interactive_kind": "discovery"
+   },
+   {
+    "node": "GF_Can_cyan",
+    "interactive_id": "gf_can_cyan",
+    "interactive_label": "Cyan spray can",
+    "interactive_scope": "graffiti",
+    "interactive_kind": "discovery"
+   },
+   {
+    "node": "GF_Can_green",
+    "interactive_id": "gf_can_green",
+    "interactive_label": "Green spray can",
+    "interactive_scope": "graffiti",
+    "interactive_kind": "discovery"
+   },
+   {
+    "node": "GF_Can_orange",
+    "interactive_id": "gf_can_orange",
+    "interactive_label": "Orange spray can",
+    "interactive_scope": "graffiti",
+    "interactive_kind": "discovery"
+   },
+   {
+    "node": "GF_Can_pink",
+    "interactive_id": "gf_can_pink",
+    "interactive_label": "Pink spray can",
+    "interactive_scope": "graffiti",
+    "interactive_kind": "discovery"
+   },
+   {
+    "node": "GF_Crate",
+    "interactive_id": "gf_crate",
+    "interactive_label": "Spray cans",
+    "interactive_scope": "graffiti",
+    "interactive_kind": "discovery"
+   },
+   {
+    "node": "GF_Tile",
+    "interactive_id": "gf_tile",
+    "interactive_label": "Your tile",
+    "interactive_scope": "graffiti",
+    "interactive_kind": "discovery"
+   }
+  ],
+  "texture_list": [
+   {
+    "name": "exhibit_graffiti_glow",
+    "mime": "image/png",
+    "size": "1024x1024",
+    "kb": 695,
+    "gpu_safe": true
+   },
+   {
+    "name": "exhibit_graffiti_ao",
+    "mime": "image/png",
+    "size": "1024x1024",
+    "kb": 703,
+    "gpu_safe": true
+   },
+   {
+    "name": "gf_asphalt_n",
+    "mime": "image/png",
+    "size": "512x512",
+    "kb": 141,
+    "gpu_safe": true
+   },
+   {
+    "name": "gf_asphalt",
+    "mime": "image/png",
+    "size": "1024x1024",
+    "kb": 457,
+    "gpu_safe": true
+   },
+   {
+    "name": "gf_primer",
+    "mime": "image/png",
+    "size": "256x256",
+    "kb": 58,
+    "gpu_safe": true
+   },
+   {
+    "name": "gf_wall_back_n",
+    "mime": "image/png",
+    "size": "1024x576",
+    "kb": 1024,
+    "gpu_safe": true
+   },
+   {
+    "name": "gf_wall_back",
+    "mime": "image/png",
+    "size": "1536x864",
+    "kb": 3009,
+    "gpu_safe": true
+   },
+   {
+    "name": "gf_wall_side_n",
+    "mime": "image/png",
+    "size": "512x512",
+    "kb": 424,
+    "gpu_safe": true
+   },
+   {
+    "name": "gf_wall_side",
+    "mime": "image/png",
+    "size": "784x806",
+    "kb": 1139,
+    "gpu_safe": false
+   }
+  ],
+  "textures_not_multiple_of_4": [
+   "gf_wall_side 784x806"
+  ]
+ },
+ {
+  "file": "exhibit_graffiti.glb",
+  "mb": 3.63,
+  "nodes": 46,
+  "meshes": 37,
+  "draw_calls": 37,
+  "triangles": 9072,
+  "materials": 22,
+  "textures": 9,
+  "texture_mb_download": 3.47,
+  "gpu_texture_mb": 6.5,
+  "validator": {
+   "errors": 0,
+   "warnings": 21,
+   "messages": [
+    "VALUE_NOT_IN_LIST: Invalid value 'image/ktx2'. Valid values are ('image/jpeg', 'image/png').",
+    "VALUE_NOT_IN_LIST: Invalid value 'image/ktx2'. Valid values are ('image/jpeg', 'image/png').",
+    "VALUE_NOT_IN_LIST: Invalid value 'image/ktx2'. Valid values are ('image/jpeg', 'image/png').",
+    "VALUE_NOT_IN_LIST: Invalid value 'image/ktx2'. Valid values are ('image/jpeg', 'image/png').",
+    "VALUE_NOT_IN_LIST: Invalid value 'image/ktx2'. Valid values are ('image/jpeg', 'image/png').",
+    "VALUE_NOT_IN_LIST: Invalid value 'image/ktx2'. Valid values are ('image/jpeg', 'image/png').",
+    "VALUE_NOT_IN_LIST: Invalid value 'image/ktx2'. Valid values are ('image/jpeg', 'image/png').",
+    "VALUE_NOT_IN_LIST: Invalid value 'image/ktx2'. Valid values are ('image/jpeg', 'image/png')."
+   ]
+  },
+  "tags": [
+   {
+    "node": "GF_Can_purple",
+    "interactive_id": "gf_can_purple",
+    "interactive_label": "Purple spray can",
+    "interactive_scope": "graffiti",
+    "interactive_kind": "discovery"
+   },
+   {
+    "node": "GF_Can_yellow",
+    "interactive_id": "gf_can_yellow",
+    "interactive_label": "Yellow spray can",
+    "interactive_scope": "graffiti",
+    "interactive_kind": "discovery"
+   },
+   {
+    "node": "GF_Can_cyan",
+    "interactive_id": "gf_can_cyan",
+    "interactive_label": "Cyan spray can",
+    "interactive_scope": "graffiti",
+    "interactive_kind": "discovery"
+   },
+   {
+    "node": "GF_Can_green",
+    "interactive_id": "gf_can_green",
+    "interactive_label": "Green spray can",
+    "interactive_scope": "graffiti",
+    "interactive_kind": "discovery"
+   },
+   {
+    "node": "GF_Can_orange",
+    "interactive_id": "gf_can_orange",
+    "interactive_label": "Orange spray can",
+    "interactive_scope": "graffiti",
+    "interactive_kind": "discovery"
+   },
+   {
+    "node": "GF_Can_pink",
+    "interactive_id": "gf_can_pink",
+    "interactive_label": "Pink spray can",
+    "interactive_scope": "graffiti",
+    "interactive_kind": "discovery"
+   },
+   {
+    "node": "GF_Crate",
+    "interactive_id": "gf_crate",
+    "interactive_label": "Spray cans",
+    "interactive_scope": "graffiti",
+    "interactive_kind": "discovery"
+   },
+   {
+    "node": "GF_Tile",
+    "interactive_id": "gf_tile",
+    "interactive_label": "Your tile",
+    "interactive_scope": "graffiti",
+    "interactive_kind": "discovery"
+   }
+  ],
+  "texture_list": [
+   {
+    "name": "exhibit_graffiti_glow",
+    "mime": "image/ktx2",
+    "size": "1024x1024",
+    "kb": 423,
+    "gpu_safe": true
+   },
+   {
+    "name": "exhibit_graffiti_ao",
+    "mime": "image/ktx2",
+    "size": "1024x1024",
+    "kb": 678,
+    "gpu_safe": true
+   },
+   {
+    "name": "gf_asphalt_n",
+    "mime": "image/ktx2",
+    "size": "512x512",
+    "kb": 120,
+    "gpu_safe": true
+   },
+   {
+    "name": "gf_asphalt",
+    "mime": "image/ktx2",
+    "size": "1024x1024",
+    "kb": 343,
+    "gpu_safe": true
+   },
+   {
+    "name": "gf_primer",
+    "mime": "image/ktx2",
+    "size": "256x256",
+    "kb": 33,
+    "gpu_safe": true
+   },
+   {
+    "name": "gf_wall_back_n",
+    "mime": "image/ktx2",
+    "size": "512x288",
+    "kb": 163,
+    "gpu_safe": true
+   },
+   {
+    "name": "gf_wall_back",
+    "mime": "image/ktx2",
+    "size": "1024x576",
+    "kb": 734,
+    "gpu_safe": true
+   },
+   {
+    "name": "gf_wall_side_n",
+    "mime": "image/ktx2",
+    "size": "512x512",
+    "kb": 218,
+    "gpu_safe": true
+   },
+   {
+    "name": "gf_wall_side",
+    "mime": "image/ktx2",
+    "size": "784x804",
+    "kb": 675,
+    "gpu_safe": true
+   }
+  ],
+  "textures_not_multiple_of_4": []
+ },
+ {
+  "file": "raw/exhibit_juicebox.glb",
+  "mb": 6.48,
+  "nodes": 41,
+  "meshes": 33,
+  "draw_calls": 33,
+  "triangles": 27548,
+  "materials": 25,
+  "textures": 11,
+  "texture_mb_download": 4.84,
+  "gpu_texture_mb": 41.4,
+  "validator": {
+   "errors": 0,
+   "warnings": 2,
+   "messages": [
+    "MESH_PRIMITIVE_GENERATED_TANGENT_SPACE: Material requires a tangent space but the mesh primitive does not provide it. Runtime-generated tangent space may be non-portable across implementations.",
+    "MESH_PRIMITIVE_GENERATED_TANGENT_SPACE: Material requires a tangent space but the mesh primitive does not provide it. Runtime-generated tangent space may be non-portable across implementations."
+   ]
+  },
+  "tags": [
+   {
+    "node": "JB_Bottle",
+    "interactive_id": "jb_bottle",
+    "interactive_label": "The Juice",
+    "interactive_scope": "juicebox",
+    "interactive_kind": "discovery"
+   },
+   {
+    "node": "JB_Drifter",
+    "interactive_id": "jb_drifter",
+    "interactive_label": "The Drifter",
+    "interactive_scope": "juicebox",
+    "interactive_kind": "discovery"
+   },
+   {
+    "node": "JB_Sign",
+    "interactive_id": "jb_sign",
+    "interactive_label": "The Sign",
+    "interactive_scope": "juicebox",
+    "interactive_kind": "discovery"
+   },
+   {
+    "node": "JB_Truck",
+    "interactive_id": "jb_truck",
+    "interactive_label": "The Truck",
+    "interactive_scope": "juicebox",
+    "interactive_kind": "discovery"
+   }
+  ],
+  "texture_list": [
+   {
+    "name": "exhibit_juicebox_glow",
+    "mime": "image/png",
+    "size": "1024x1024",
+    "kb": 683,
+    "gpu_safe": true
+   },
+   {
+    "name": "exhibit_juicebox_ao",
+    "mime": "image/png",
+    "size": "1024x1024",
+    "kb": 601,
+    "gpu_safe": true
+   },
+   {
+    "name": "jb_label",
+    "mime": "image/png",
+    "size": "1024x256",
+    "kb": 163,
+    "gpu_safe": true
+   },
+   {
+    "name": "jb_dirt_n",
+    "mime": "image/png",
+    "size": "512x512",
+    "kb": 304,
+    "gpu_safe": true
+   },
+   {
+    "name": "jb_dirt",
+    "mime": "image/png",
+    "size": "1024x1024",
+    "kb": 990,
+    "gpu_safe": true
+   },
+   {
+    "name": "jb_road_n",
+    "mime": "image/png",
+    "size": "256x1024",
+    "kb": 156,
+    "gpu_safe": true
+   },
+   {
+    "name": "jb_road",
+    "mime": "image/png",
+    "size": "512x2048",
+    "kb": 399,
+    "gpu_safe": true
+   },
+   {
+    "name": "jb_sign_back",
+    "mime": "image/png",
+    "size": "640x420",
+    "kb": 76,
+    "gpu_safe": true
+   },
+   {
+    "name": "jb_sign_front",
+    "mime": "image/png",
+    "size": "640x420",
+    "kb": 73,
+    "gpu_safe": true
+   },
+   {
+    "name": "jb_sky",
+    "mime": "image/png",
+    "size": "2048x768",
+    "kb": 471,
+    "gpu_safe": true
+   },
+   {
+    "name": "jb_paint",
+    "mime": "image/png",
+    "size": "1024x1024",
+    "kb": 812,
+    "gpu_safe": true
+   }
+  ],
+  "textures_not_multiple_of_4": []
+ },
+ {
+  "file": "exhibit_juicebox.glb",
+  "mb": 3.69,
+  "nodes": 44,
+  "meshes": 33,
+  "draw_calls": 33,
+  "triangles": 27548,
+  "materials": 25,
+  "textures": 11,
+  "texture_mb_download": 3.17,
+  "gpu_texture_mb": 7.6,
+  "validator": {
+   "errors": 0,
+   "warnings": 24,
+   "messages": [
+    "VALUE_NOT_IN_LIST: Invalid value 'image/ktx2'. Valid values are ('image/jpeg', 'image/png').",
+    "VALUE_NOT_IN_LIST: Invalid value 'image/ktx2'. Valid values are ('image/jpeg', 'image/png').",
+    "VALUE_NOT_IN_LIST: Invalid value 'image/ktx2'. Valid values are ('image/jpeg', 'image/png').",
+    "VALUE_NOT_IN_LIST: Invalid value 'image/ktx2'. Valid values are ('image/jpeg', 'image/png').",
+    "VALUE_NOT_IN_LIST: Invalid value 'image/ktx2'. Valid values are ('image/jpeg', 'image/png').",
+    "VALUE_NOT_IN_LIST: Invalid value 'image/ktx2'. Valid values are ('image/jpeg', 'image/png').",
+    "VALUE_NOT_IN_LIST: Invalid value 'image/ktx2'. Valid values are ('image/jpeg', 'image/png').",
+    "VALUE_NOT_IN_LIST: Invalid value 'image/ktx2'. Valid values are ('image/jpeg', 'image/png')."
+   ]
+  },
+  "tags": [
+   {
+    "node": "JB_Bottle",
+    "interactive_id": "jb_bottle",
+    "interactive_label": "The Juice",
+    "interactive_scope": "juicebox",
+    "interactive_kind": "discovery"
+   },
+   {
+    "node": "JB_Drifter",
+    "interactive_id": "jb_drifter",
+    "interactive_label": "The Drifter",
+    "interactive_scope": "juicebox",
+    "interactive_kind": "discovery"
+   },
+   {
+    "node": "JB_Sign",
+    "interactive_id": "jb_sign",
+    "interactive_label": "The Sign",
+    "interactive_scope": "juicebox",
+    "interactive_kind": "discovery"
+   },
+   {
+    "node": "JB_Truck",
+    "interactive_id": "jb_truck",
+    "interactive_label": "The Truck",
+    "interactive_scope": "juicebox",
+    "interactive_kind": "discovery"
+   }
+  ],
+  "texture_list": [
+   {
+    "name": "exhibit_juicebox_glow",
+    "mime": "image/ktx2",
+    "size": "1024x1024",
+    "kb": 480,
+    "gpu_safe": true
+   },
+   {
+    "name": "exhibit_juicebox_ao",
+    "mime": "image/ktx2",
+    "size": "1024x1024",
+    "kb": 593,
+    "gpu_safe": true
+   },
+   {
+    "name": "jb_label",
+    "mime": "image/ktx2",
+    "size": "1024x256",
+    "kb": 121,
+    "gpu_safe": true
+   },
+   {
+    "name": "jb_dirt_n",
+    "mime": "image/ktx2",
+    "size": "512x512",
+    "kb": 159,
+    "gpu_safe": true
+   },
+   {
+    "name": "jb_dirt",
+    "mime": "image/ktx2",
+    "size": "1024x1024",
+    "kb": 575,
+    "gpu_safe": true
+   },
+   {
+    "name": "jb_road_n",
+    "mime": "image/ktx2",
+    "size": "128x512",
+    "kb": 43,
+    "gpu_safe": true
+   },
+   {
+    "name": "jb_road",
+    "mime": "image/ktx2",
+    "size": "256x1024",
+    "kb": 140,
+    "gpu_safe": true
+   },
+   {
+    "name": "jb_sign_back",
+    "mime": "image/ktx2",
+    "size": "640x420",
+    "kb": 86,
+    "gpu_safe": true
+   },
+   {
+    "name": "jb_sign_front",
+    "mime": "image/ktx2",
+    "size": "640x420",
+    "kb": 83,
+    "gpu_safe": true
+   },
+   {
+    "name": "jb_sky",
+    "mime": "image/ktx2",
+    "size": "1024x384",
+    "kb": 160,
+    "gpu_safe": true
+   },
+   {
+    "name": "jb_paint",
+    "mime": "image/ktx2",
+    "size": "1024x1024",
+    "kb": 660,
+    "gpu_safe": true
+   }
+  ],
+  "textures_not_multiple_of_4": []
+ },
+ {
+  "file": "raw/exhibit_labyrinth_fate.glb",
+  "mb": 9.55,
+  "nodes": 50,
+  "meshes": 45,
+  "draw_calls": 45,
+  "triangles": 34072,
+  "materials": 26,
+  "textures": 18,
+  "texture_mb_download": 7.19,
+  "gpu_texture_mb": 47.7,
+  "validator": {
+   "errors": 0,
+   "warnings": 15,
+   "messages": [
+    "MESH_PRIMITIVE_GENERATED_TANGENT_SPACE: Material requires a tangent space but the mesh primitive does not provide it. Runtime-generated tangent space may be non-portable across implementations.",
+    "MESH_PRIMITIVE_GENERATED_TANGENT_SPACE: Material requires a tangent space but the mesh primitive does not provide it. Runtime-generated tangent space may be non-portable across implementations.",
+    "MESH_PRIMITIVE_GENERATED_TANGENT_SPACE: Material requires a tangent space but the mesh primitive does not provide it. Runtime-generated tangent space may be non-portable across implementations.",
+    "MESH_PRIMITIVE_GENERATED_TANGENT_SPACE: Material requires a tangent space but the mesh primitive does not provide it. Runtime-generated tangent space may be non-portable across implementations.",
+    "MESH_PRIMITIVE_GENERATED_TANGENT_SPACE: Material requires a tangent space but the mesh primitive does not provide it. Runtime-generated tangent space may be non-portable across implementations.",
+    "MESH_PRIMITIVE_GENERATED_TANGENT_SPACE: Material requires a tangent space but the mesh primitive does not provide it. Runtime-generated tangent space may be non-portable across implementations.",
+    "MESH_PRIMITIVE_GENERATED_TANGENT_SPACE: Material requires a tangent space but the mesh primitive does not provide it. Runtime-generated tangent space may be non-portable across implementations.",
+    "MESH_PRIMITIVE_GENERATED_TANGENT_SPACE: Material requires a tangent space but the mesh primitive does not provide it. Runtime-generated tangent space may be non-portable across implementations."
+   ]
+  },
+  "tags": [
+   {
+    "node": "MZ_Altar",
+    "interactive_id": "mz_heart",
+    "interactive_label": "The Heart",
+    "interactive_scope": "labyrinth-fate",
+    "interactive_kind": "discovery"
+   },
+   {
+    "node": "MZ_Castle",
+    "interactive_id": "mz_castle",
+    "interactive_label": "The Castle",
+    "interactive_scope": "labyrinth-fate",
+    "interactive_kind": "discovery"
+   },
+   {
+    "node": "MZ_Crow",
+    "interactive_id": "mz_crow",
+    "interactive_label": "The Crow",
+    "interactive_scope": "labyrinth-fate",
+    "interactive_kind": "discovery"
+   },
+   {
+    "node": "MZ_Die",
+    "interactive_id": "mz_die",
+    "interactive_label": "The Die",
+    "interactive_scope": "labyrinth-fate",
+    "interactive_kind": "discovery"
+   },
+   {
+    "node": "MZ_Gate",
+    "interactive_id": "mz_gate",
+    "interactive_label": "The Gate",
+    "interactive_scope": "labyrinth-fate",
+    "interactive_kind": "discovery"
+   },
+   {
+    "node": "MZ_Pawn",
+    "interactive_id": "mz_pawn",
+    "interactive_label": "The Wanderer",
+    "interactive_scope": "labyrinth-fate",
+    "interactive_kind": "discovery"
+   },
+   {
+    "node": "MZ_Signpost",
+    "interactive_id": "mz_sign",
+    "interactive_label": "Signpost",
+    "interactive_scope": "labyrinth-fate",
+    "interactive_kind": "discovery"
+   }
+  ],
+  "texture_list": [
+   {
+    "name": "exhibit_labyrinth_fate_glow",
+    "mime": "image/png",
+    "size": "1024x1024",
+    "kb": 169,
+    "gpu_safe": true
+   },
+   {
+    "name": "exhibit_labyrinth_fate_ao",
+    "mime": "image/png",
+    "size": "1024x1024",
+    "kb": 475,
+    "gpu_safe": true
+   },
+   {
+    "name": "mz_stone_n",
+    "mime": "image/png",
+    "size": "512x512",
+    "kb": 244,
+    "gpu_safe": true
+   },
+   {
+    "name": "mz_stone",
+    "mime": "image/png",
+    "size": "1024x1024",
+    "kb": 899,
+    "gpu_safe": true
+   },
+   {
+    "name": "mz_rock_n",
+    "mime": "image/png",
+    "size": "512x512",
+    "kb": 212,
+    "gpu_safe": true
+   },
+   {
+    "name": "mz_rock",
+    "mime": "image/png",
+    "size": "1024x1024",
+    "kb": 748,
+    "gpu_safe": true
+   },
+   {
+    "name": "wood_dark_n",
+    "mime": "image/png",
+    "size": "512x512",
+    "kb": 252,
+    "gpu_safe": true
+   },
+   {
+    "name": "wood_dark",
+    "mime": "image/png",
+    "size": "1024x1024",
+    "kb": 1250,
+    "gpu_safe": true
+   },
+   {
+    "name": "mz_path_n",
+    "mime": "image/png",
+    "size": "512x512",
+    "kb": 379,
+    "gpu_safe": true
+   },
+   {
+    "name": "mz_path",
+    "mime": "image/png",
+    "size": "1024x1024",
+    "kb": 842,
+    "gpu_safe": true
+   },
+   {
+    "name": "mz_ground",
+    "mime": "image/png",
+    "size": "1024x1024",
+    "kb": 602,
+    "gpu_safe": true
+   },
+   {
+    "name": "mz_moss",
+    "mime": "image/png",
+    "size": "512x512",
+    "kb": 270,
+    "gpu_safe": true
+   },
+   {
+    "name": "mz_sign_compass",
+    "mime": "image/png",
+    "size": "384x128",
+    "kb": 35,
+    "gpu_safe": true
+   },
+   {
+    "name": "mz_sign_pines",
+    "mime": "image/png",
+    "size": "384x128",
+    "kb": 28,
+    "gpu_safe": true
+   },
+   {
+    "name": "mz_sign_question",
+    "mime": "image/png",
+    "size": "384x128",
+    "kb": 28,
+    "gpu_safe": true
+   },
+   {
+    "name": "mz_sign_skull",
+    "mime": "image/png",
+    "size": "384x128",
+    "kb": 29,
+    "gpu_safe": true
+   },
+   {
+    "name": "leather_brown_n",
+    "mime": "image/png",
+    "size": "512x512",
+    "kb": 308,
+    "gpu_safe": true
+   },
+   {
+    "name": "leather_brown",
+    "mime": "image/png",
+    "size": "512x512",
+    "kb": 251,
+    "gpu_safe": true
+   }
+  ],
+  "textures_not_multiple_of_4": []
+ },
+ {
+  "file": "exhibit_labyrinth_fate.glb",
+  "mb": 5.21,
+  "nodes": 59,
+  "meshes": 42,
+  "draw_calls": 45,
+  "triangles": 34072,
+  "materials": 26,
+  "textures": 18,
+  "texture_mb_download": 4.34,
+  "gpu_texture_mb": 11.9,
+  "validator": {
+   "errors": 0,
+   "warnings": 33,
+   "messages": [
+    "VALUE_NOT_IN_LIST: Invalid value 'image/ktx2'. Valid values are ('image/jpeg', 'image/png').",
+    "VALUE_NOT_IN_LIST: Invalid value 'image/ktx2'. Valid values are ('image/jpeg', 'image/png').",
+    "VALUE_NOT_IN_LIST: Invalid value 'image/ktx2'. Valid values are ('image/jpeg', 'image/png').",
+    "VALUE_NOT_IN_LIST: Invalid value 'image/ktx2'. Valid values are ('image/jpeg', 'image/png').",
+    "VALUE_NOT_IN_LIST: Invalid value 'image/ktx2'. Valid values are ('image/jpeg', 'image/png').",
+    "VALUE_NOT_IN_LIST: Invalid value 'image/ktx2'. Valid values are ('image/jpeg', 'image/png').",
+    "VALUE_NOT_IN_LIST: Invalid value 'image/ktx2'. Valid values are ('image/jpeg', 'image/png').",
+    "VALUE_NOT_IN_LIST: Invalid value 'image/ktx2'. Valid values are ('image/jpeg', 'image/png')."
+   ]
+  },
+  "tags": [
+   {
+    "node": "MZ_Altar",
+    "interactive_id": "mz_heart",
+    "interactive_label": "The Heart",
+    "interactive_scope": "labyrinth-fate",
+    "interactive_kind": "discovery"
+   },
+   {
+    "node": "MZ_Castle",
+    "interactive_id": "mz_castle",
+    "interactive_label": "The Castle",
+    "interactive_scope": "labyrinth-fate",
+    "interactive_kind": "discovery"
+   },
+   {
+    "node": "MZ_Crow",
+    "interactive_id": "mz_crow",
+    "interactive_label": "The Crow",
+    "interactive_scope": "labyrinth-fate",
+    "interactive_kind": "discovery"
+   },
+   {
+    "node": "MZ_Die",
+    "interactive_id": "mz_die",
+    "interactive_label": "The Die",
+    "interactive_scope": "labyrinth-fate",
+    "interactive_kind": "discovery"
+   },
+   {
+    "node": "MZ_Gate",
+    "interactive_id": "mz_gate",
+    "interactive_label": "The Gate",
+    "interactive_scope": "labyrinth-fate",
+    "interactive_kind": "discovery"
+   },
+   {
+    "node": "MZ_Pawn",
+    "interactive_id": "mz_pawn",
+    "interactive_label": "The Wanderer",
+    "interactive_scope": "labyrinth-fate",
+    "interactive_kind": "discovery"
+   },
+   {
+    "node": "MZ_Signpost",
+    "interactive_id": "mz_sign",
+    "interactive_label": "Signpost",
+    "interactive_scope": "labyrinth-fate",
+    "interactive_kind": "discovery"
+   }
+  ],
+  "texture_list": [
+   {
+    "name": "exhibit_labyrinth_fate_glow",
+    "mime": "image/ktx2",
+    "size": "1024x1024",
+    "kb": 134,
+    "gpu_safe": true
+   },
+   {
+    "name": "exhibit_labyrinth_fate_ao",
+    "mime": "image/ktx2",
+    "size": "1024x1024",
+    "kb": 490,
+    "gpu_safe": true
+   },
+   {
+    "name": "mz_stone_n",
+    "mime": "image/ktx2",
+    "size": "512x512",
+    "kb": 145,
+    "gpu_safe": true
+   },
+   {
+    "name": "mz_stone",
+    "mime": "image/ktx2",
+    "size": "1024x1024",
+    "kb": 504,
+    "gpu_safe": true
+   },
+   {
+    "name": "mz_rock_n",
+    "mime": "image/ktx2",
+    "size": "512x512",
+    "kb": 164,
+    "gpu_safe": true
+   },
+   {
+    "name": "mz_rock",
+    "mime": "image/ktx2",
+    "size": "1024x1024",
+    "kb": 454,
+    "gpu_safe": true
+   },
+   {
+    "name": "wood_dark_n",
+    "mime": "image/ktx2",
+    "size": "512x512",
+    "kb": 88,
+    "gpu_safe": true
+   },
+   {
+    "name": "wood_dark",
+    "mime": "image/ktx2",
+    "size": "1024x1024",
+    "kb": 463,
+    "gpu_safe": true
+   },
+   {
+    "name": "mz_path_n",
+    "mime": "image/ktx2",
+    "size": "512x512",
+    "kb": 217,
+    "gpu_safe": true
+   },
+   {
+    "name": "mz_path",
+    "mime": "image/ktx2",
+    "size": "1024x1024",
+    "kb": 721,
+    "gpu_safe": true
+   },
+   {
+    "name": "mz_ground",
+    "mime": "image/ktx2",
+    "size": "1024x1024",
+    "kb": 420,
+    "gpu_safe": true
+   },
+   {
+    "name": "mz_moss",
+    "mime": "image/ktx2",
+    "size": "512x512",
+    "kb": 125,
+    "gpu_safe": true
+   },
+   {
+    "name": "mz_sign_compass",
+    "mime": "image/ktx2",
+    "size": "384x128",
+    "kb": 30,
+    "gpu_safe": true
+   },
+   {
+    "name": "mz_sign_pines",
+    "mime": "image/ktx2",
+    "size": "384x128",
+    "kb": 27,
+    "gpu_safe": true
+   },
+   {
+    "name": "mz_sign_question",
+    "mime": "image/ktx2",
+    "size": "384x128",
+    "kb": 27,
+    "gpu_safe": true
+   },
+   {
+    "name": "mz_sign_skull",
+    "mime": "image/ktx2",
+    "size": "384x128",
+    "kb": 27,
+    "gpu_safe": true
+   },
+   {
+    "name": "leather_brown_n",
+    "mime": "image/ktx2",
+    "size": "512x512",
+    "kb": 94,
+    "gpu_safe": true
+   },
+   {
+    "name": "leather_brown",
+    "mime": "image/ktx2",
+    "size": "512x512",
+    "kb": 108,
+    "gpu_safe": true
+   }
+  ],
+  "textures_not_multiple_of_4": []
+ },
+ {
+  "file": "raw/exhibit_macabre_dolls.glb",
+  "mb": 11.2,
+  "nodes": 104,
+  "meshes": 89,
+  "draw_calls": 89,
+  "triangles": 46044,
+  "materials": 46,
+  "textures": 18,
+  "texture_mb_download": 9.17,
+  "gpu_texture_mb": 46.2,
+  "validator": {
+   "errors": 0,
+   "warnings": 3,
+   "messages": [
+    "MESH_PRIMITIVE_GENERATED_TANGENT_SPACE: Material requires a tangent space but the mesh primitive does not provide it. Runtime-generated tangent space may be non-portable across implementations.",
+    "MESH_PRIMITIVE_GENERATED_TANGENT_SPACE: Material requires a tangent space but the mesh primitive does not provide it. Runtime-generated tangent space may be non-portable across implementations.",
+    "MESH_PRIMITIVE_GENERATED_TANGENT_SPACE: Material requires a tangent space but the mesh primitive does not provide it. Runtime-generated tangent space may be non-portable across implementations."
+   ]
+  },
+  "tags": [
+   {
+    "node": "MD_Chest",
+    "interactive_id": "md_candle",
+    "interactive_label": "The Candle",
+    "interactive_scope": "macabre-dolls",
+    "interactive_kind": "discovery"
+   },
+   {
+    "node": "MD_Deck",
+    "interactive_id": "md_deck",
+    "interactive_label": "The Deck",
+    "interactive_scope": "macabre-dolls",
+    "interactive_kind": "discovery"
+   },
+   {
+    "node": "MD_Doll_1",
+    "interactive_id": "md_doll_1",
+    "interactive_label": "The Eldest",
+    "interactive_scope": "macabre-dolls",
+    "interactive_kind": "discovery"
+   },
+   {
+    "node": "MD_Doll_2",
+    "interactive_id": "md_doll_2",
+    "interactive_label": "The Tall One",
+    "interactive_scope": "macabre-dolls",
+    "interactive_kind": "discovery"
+   },
+   {
+    "node": "MD_Doll_3",
+    "interactive_id": "md_doll_3",
+    "interactive_label": "The Little One",
+    "interactive_scope": "macabre-dolls",
+    "interactive_kind": "discovery"
+   },
+   {
+    "node": "MD_Dollhouse",
+    "interactive_id": "md_dollhouse",
+    "interactive_label": "Dollhouse",
+    "interactive_scope": "macabre-dolls",
+    "interactive_kind": "discovery"
+   },
+   {
+    "node": "MD_Mirror",
+    "interactive_id": "md_mirror",
+    "interactive_label": "The Mirror",
+    "interactive_scope": "macabre-dolls",
+    "interactive_kind": "discovery"
+   },
+   {
+    "node": "MD_MusicBox",
+    "interactive_id": "md_musicbox",
+    "interactive_label": "Music Box",
+    "interactive_scope": "macabre-dolls",
+    "interactive_kind": "discovery"
+   },
+   {
+    "node": "MD_RockingHorse",
+    "interactive_id": "md_horse",
+    "interactive_label": "Rocking Horse",
+    "interactive_scope": "macabre-dolls",
+    "interactive_kind": "discovery"
+   },
+   {
+    "node": "MD_Teddy",
+    "interactive_id": "md_teddy",
+    "interactive_label": "Teddy Bear",
+    "interactive_scope": "macabre-dolls",
+    "interactive_kind": "discovery"
+   }
+  ],
+  "texture_list": [
+   {
+    "name": "exhibit_macabre_dolls_glow",
+    "mime": "image/png",
+    "size": "1024x1024",
+    "kb": 555,
+    "gpu_safe": true
+   },
+   {
+    "name": "exhibit_macabre_dolls_ao",
+    "mime": "image/png",
+    "size": "1024x1024",
+    "kb": 674,
+    "gpu_safe": true
+   },
+   {
+    "name": "wood_dark_n",
+    "mime": "image/png",
+    "size": "512x512",
+    "kb": 252,
+    "gpu_safe": true
+   },
+   {
+    "name": "wood_dark",
+    "mime": "image/png",
+    "size": "1024x1024",
+    "kb": 1250,
+    "gpu_safe": true
+   },
+   {
+    "name": "md_cardback",
+    "mime": "image/png",
+    "size": "705x1032",
+    "kb": 1010,
+    "gpu_safe": false
+   },
+   {
+    "name": "md_lace",
+    "mime": "image/png",
+    "size": "512x512",
+    "kb": 276,
+    "gpu_safe": true
+   },
+   {
+    "name": "md_lace_dark",
+    "mime": "image/png",
+    "size": "512x512",
+    "kb": 248,
+    "gpu_safe": true
+   },
+   {
+    "name": "wood_light_n",
+    "mime": "image/png",
+    "size": "512x512",
+    "kb": 320,
+    "gpu_safe": true
+   },
+   {
+    "name": "wood_light",
+    "mime": "image/png",
+    "size": "1024x1024",
+    "kb": 1375,
+    "gpu_safe": true
+   },
+   {
+    "name": "planks_n",
+    "mime": "image/png",
+    "size": "1024x1024",
+    "kb": 1120,
+    "gpu_safe": true
+   },
+   {
+    "name": "planks",
+    "mime": "image/png",
+    "size": "1024x1024",
+    "kb": 1243,
+    "gpu_safe": true
+   },
+   {
+    "name": "md_cracked",
+    "mime": "image/png",
+    "size": "256x256",
+    "kb": 13,
+    "gpu_safe": true
+   },
+   {
+    "name": "md_musicbox",
+    "mime": "image/png",
+    "size": "512x320",
+    "kb": 46,
+    "gpu_safe": true
+   },
+   {
+    "name": "md_night",
+    "mime": "image/png",
+    "size": "512x640",
+    "kb": 63,
+    "gpu_safe": true
+   },
+   {
+    "name": "md_fur_n",
+    "mime": "image/png",
+    "size": "256x256",
+    "kb": 80,
+    "gpu_safe": true
+   },
+   {
+    "name": "md_fur",
+    "mime": "image/png",
+    "size": "512x512",
+    "kb": 315,
+    "gpu_safe": true
+   },
+   {
+    "name": "md_block_c",
+    "mime": "image/png",
+    "size": "256x256",
+    "kb": 57,
+    "gpu_safe": true
+   },
+   {
+    "name": "md_block_d",
+    "mime": "image/png",
+    "size": "256x256",
+    "kb": 57,
+    "gpu_safe": true
+   }
+  ],
+  "textures_not_multiple_of_4": [
+   "md_cardback 705x1032"
+  ]
+ },
+ {
+  "file": "exhibit_macabre_dolls.glb",
+  "mb": 5.27,
+  "nodes": 109,
+  "meshes": 89,
+  "draw_calls": 89,
+  "triangles": 46044,
+  "materials": 46,
+  "textures": 18,
+  "texture_mb_download": 4.49,
+  "gpu_texture_mb": 10.5,
+  "validator": {
+   "errors": 0,
+   "warnings": 30,
+   "messages": [
+    "VALUE_NOT_IN_LIST: Invalid value 'image/ktx2'. Valid values are ('image/jpeg', 'image/png').",
+    "VALUE_NOT_IN_LIST: Invalid value 'image/ktx2'. Valid values are ('image/jpeg', 'image/png').",
+    "VALUE_NOT_IN_LIST: Invalid value 'image/ktx2'. Valid values are ('image/jpeg', 'image/png').",
+    "VALUE_NOT_IN_LIST: Invalid value 'image/ktx2'. Valid values are ('image/jpeg', 'image/png').",
+    "VALUE_NOT_IN_LIST: Invalid value 'image/ktx2'. Valid values are ('image/jpeg', 'image/png').",
+    "VALUE_NOT_IN_LIST: Invalid value 'image/ktx2'. Valid values are ('image/jpeg', 'image/png').",
+    "VALUE_NOT_IN_LIST: Invalid value 'image/ktx2'. Valid values are ('image/jpeg', 'image/png').",
+    "VALUE_NOT_IN_LIST: Invalid value 'image/ktx2'. Valid values are ('image/jpeg', 'image/png')."
+   ]
+  },
+  "tags": [
+   {
+    "node": "MD_Chest",
+    "interactive_id": "md_candle",
+    "interactive_label": "The Candle",
+    "interactive_scope": "macabre-dolls",
+    "interactive_kind": "discovery"
+   },
+   {
+    "node": "MD_Deck",
+    "interactive_id": "md_deck",
+    "interactive_label": "The Deck",
+    "interactive_scope": "macabre-dolls",
+    "interactive_kind": "discovery"
+   },
+   {
+    "node": "MD_Doll_1",
+    "interactive_id": "md_doll_1",
+    "interactive_label": "The Eldest",
+    "interactive_scope": "macabre-dolls",
+    "interactive_kind": "discovery"
+   },
+   {
+    "node": "MD_Doll_2",
+    "interactive_id": "md_doll_2",
+    "interactive_label": "The Tall One",
+    "interactive_scope": "macabre-dolls",
+    "interactive_kind": "discovery"
+   },
+   {
+    "node": "MD_Doll_3",
+    "interactive_id": "md_doll_3",
+    "interactive_label": "The Little One",
+    "interactive_scope": "macabre-dolls",
+    "interactive_kind": "discovery"
+   },
+   {
+    "node": "MD_Dollhouse",
+    "interactive_id": "md_dollhouse",
+    "interactive_label": "Dollhouse",
+    "interactive_scope": "macabre-dolls",
+    "interactive_kind": "discovery"
+   },
+   {
+    "node": "MD_Mirror",
+    "interactive_id": "md_mirror",
+    "interactive_label": "The Mirror",
+    "interactive_scope": "macabre-dolls",
+    "interactive_kind": "discovery"
+   },
+   {
+    "node": "MD_MusicBox",
+    "interactive_id": "md_musicbox",
+    "interactive_label": "Music Box",
+    "interactive_scope": "macabre-dolls",
+    "interactive_kind": "discovery"
+   },
+   {
+    "node": "MD_RockingHorse",
+    "interactive_id": "md_horse",
+    "interactive_label": "Rocking Horse",
+    "interactive_scope": "macabre-dolls",
+    "interactive_kind": "discovery"
+   },
+   {
+    "node": "MD_Teddy",
+    "interactive_id": "md_teddy",
+    "interactive_label": "Teddy Bear",
+    "interactive_scope": "macabre-dolls",
+    "interactive_kind": "discovery"
+   }
+  ],
+  "texture_list": [
+   {
+    "name": "exhibit_macabre_dolls_glow",
+    "mime": "image/ktx2",
+    "size": "1024x1024",
+    "kb": 373,
+    "gpu_safe": true
+   },
+   {
+    "name": "exhibit_macabre_dolls_ao",
+    "mime": "image/ktx2",
+    "size": "1024x1024",
+    "kb": 657,
+    "gpu_safe": true
+   },
+   {
+    "name": "wood_dark_n",
+    "mime": "image/ktx2",
+    "size": "512x512",
+    "kb": 88,
+    "gpu_safe": true
+   },
+   {
+    "name": "wood_dark",
+    "mime": "image/ktx2",
+    "size": "1024x1024",
+    "kb": 463,
+    "gpu_safe": true
+   },
+   {
+    "name": "md_cardback",
+    "mime": "image/ktx2",
+    "size": "696x1024",
+    "kb": 642,
+    "gpu_safe": true
+   },
+   {
+    "name": "md_lace",
+    "mime": "image/ktx2",
+    "size": "512x512",
+    "kb": 146,
+    "gpu_safe": true
+   },
+   {
+    "name": "md_lace_dark",
+    "mime": "image/ktx2",
+    "size": "512x512",
+    "kb": 138,
+    "gpu_safe": true
+   },
+   {
+    "name": "wood_light_n",
+    "mime": "image/ktx2",
+    "size": "512x512",
+    "kb": 125,
+    "gpu_safe": true
+   },
+   {
+    "name": "wood_light",
+    "mime": "image/ktx2",
+    "size": "1024x1024",
+    "kb": 639,
+    "gpu_safe": true
+   },
+   {
+    "name": "planks_n",
+    "mime": "image/ktx2",
+    "size": "512x512",
+    "kb": 154,
+    "gpu_safe": true
+   },
+   {
+    "name": "planks",
+    "mime": "image/ktx2",
+    "size": "1024x1024",
+    "kb": 611,
+    "gpu_safe": true
+   },
+   {
+    "name": "md_cracked",
+    "mime": "image/ktx2",
+    "size": "256x256",
+    "kb": 14,
+    "gpu_safe": true
+   },
+   {
+    "name": "md_musicbox",
+    "mime": "image/ktx2",
+    "size": "512x320",
+    "kb": 42,
+    "gpu_safe": true
+   },
+   {
+    "name": "md_night",
+    "mime": "image/ktx2",
+    "size": "512x640",
+    "kb": 59,
+    "gpu_safe": true
+   },
+   {
+    "name": "md_fur_n",
+    "mime": "image/ktx2",
+    "size": "256x256",
+    "kb": 33,
+    "gpu_safe": true
+   },
+   {
+    "name": "md_fur",
+    "mime": "image/ktx2",
+    "size": "512x512",
+    "kb": 131,
+    "gpu_safe": true
+   },
+   {
+    "name": "md_block_c",
+    "mime": "image/ktx2",
+    "size": "256x256",
+    "kb": 35,
+    "gpu_safe": true
+   },
+   {
+    "name": "md_block_d",
+    "mime": "image/ktx2",
+    "size": "256x256",
+    "kb": 31,
+    "gpu_safe": true
+   }
+  ],
+  "textures_not_multiple_of_4": []
+ },
+ {
   "file": "raw/exhibit_pocket_wilds.glb",
   "mb": 12.62,
   "nodes": 31,
@@ -4952,6 +6378,503 @@
     "mime": "image/ktx2",
     "size": "340x200",
     "kb": 38,
+    "gpu_safe": true
+   }
+  ],
+  "textures_not_multiple_of_4": []
+ },
+ {
+  "file": "raw/exhibit_under_the_radar.glb",
+  "mb": 11.46,
+  "nodes": 57,
+  "meshes": 52,
+  "draw_calls": 52,
+  "triangles": 14076,
+  "materials": 40,
+  "textures": 25,
+  "texture_mb_download": 10.62,
+  "gpu_texture_mb": 57,
+  "validator": {
+   "errors": 0,
+   "warnings": 4,
+   "messages": [
+    "MESH_PRIMITIVE_GENERATED_TANGENT_SPACE: Material requires a tangent space but the mesh primitive does not provide it. Runtime-generated tangent space may be non-portable across implementations.",
+    "MESH_PRIMITIVE_GENERATED_TANGENT_SPACE: Material requires a tangent space but the mesh primitive does not provide it. Runtime-generated tangent space may be non-portable across implementations.",
+    "MESH_PRIMITIVE_GENERATED_TANGENT_SPACE: Material requires a tangent space but the mesh primitive does not provide it. Runtime-generated tangent space may be non-portable across implementations.",
+    "MESH_PRIMITIVE_GENERATED_TANGENT_SPACE: Material requires a tangent space but the mesh primitive does not provide it. Runtime-generated tangent space may be non-portable across implementations."
+   ]
+  },
+  "tags": [
+   {
+    "node": "UR_Boxes",
+    "interactive_id": "ur_boxes",
+    "interactive_label": "Game Boxes",
+    "interactive_scope": "under-the-radar",
+    "interactive_kind": "discovery"
+   },
+   {
+    "node": "UR_Computer",
+    "interactive_id": "ur_computer",
+    "interactive_label": "The Computer",
+    "interactive_scope": "under-the-radar",
+    "interactive_kind": "discovery"
+   },
+   {
+    "node": "UR_Floppy",
+    "interactive_id": "ur_floppy",
+    "interactive_label": "Floppy Disk",
+    "interactive_scope": "under-the-radar",
+    "interactive_kind": "discovery"
+   },
+   {
+    "node": "UR_Notebook",
+    "interactive_id": "ur_notebook",
+    "interactive_label": "Notebook",
+    "interactive_scope": "under-the-radar",
+    "interactive_kind": "discovery"
+   },
+   {
+    "node": "UR_Orb_Base",
+    "interactive_id": "ur_orb",
+    "interactive_label": "Orb Lamp",
+    "interactive_scope": "under-the-radar",
+    "interactive_kind": "discovery"
+   },
+   {
+    "node": "UR_Trackball",
+    "interactive_id": "ur_trackball",
+    "interactive_label": "Trackball",
+    "interactive_scope": "under-the-radar",
+    "interactive_kind": "discovery"
+   }
+  ],
+  "texture_list": [
+   {
+    "name": "exhibit_under_the_radar_glow",
+    "mime": "image/png",
+    "size": "1024x1024",
+    "kb": 566,
+    "gpu_safe": true
+   },
+   {
+    "name": "exhibit_under_the_radar_ao",
+    "mime": "image/png",
+    "size": "1024x1024",
+    "kb": 685,
+    "gpu_safe": true
+   },
+   {
+    "name": "wood_dark_n",
+    "mime": "image/png",
+    "size": "512x512",
+    "kb": 252,
+    "gpu_safe": true
+   },
+   {
+    "name": "wood_dark",
+    "mime": "image/png",
+    "size": "1024x1024",
+    "kb": 1250,
+    "gpu_safe": true
+   },
+   {
+    "name": "ur_box_3",
+    "mime": "image/png",
+    "size": "375x102",
+    "kb": 76,
+    "gpu_safe": false
+   },
+   {
+    "name": "ur_box_2",
+    "mime": "image/png",
+    "size": "372x95",
+    "kb": 70,
+    "gpu_safe": false
+   },
+   {
+    "name": "ur_box_1",
+    "mime": "image/png",
+    "size": "325x80",
+    "kb": 54,
+    "gpu_safe": false
+   },
+   {
+    "name": "ur_box_0",
+    "mime": "image/png",
+    "size": "285x85",
+    "kb": 51,
+    "gpu_safe": false
+   },
+   {
+    "name": "wood_desk_n",
+    "mime": "image/png",
+    "size": "1024x1024",
+    "kb": 1165,
+    "gpu_safe": true
+   },
+   {
+    "name": "wood_desk",
+    "mime": "image/png",
+    "size": "1024x1024",
+    "kb": 1366,
+    "gpu_safe": true
+   },
+   {
+    "name": "wood_desk_r",
+    "mime": "image/png",
+    "size": "512x512",
+    "kb": 234,
+    "gpu_safe": true
+   },
+   {
+    "name": "ur_radar",
+    "mime": "image/png",
+    "size": "320x240",
+    "kb": 29,
+    "gpu_safe": true
+   },
+   {
+    "name": "planks_n",
+    "mime": "image/png",
+    "size": "1024x1024",
+    "kb": 1120,
+    "gpu_safe": true
+   },
+   {
+    "name": "planks",
+    "mime": "image/png",
+    "size": "1024x1024",
+    "kb": 1243,
+    "gpu_safe": true
+   },
+   {
+    "name": "ur_floppy",
+    "mime": "image/png",
+    "size": "256x160",
+    "kb": 41,
+    "gpu_safe": true
+   },
+   {
+    "name": "ur_frame_0",
+    "mime": "image/png",
+    "size": "256x192",
+    "kb": 3,
+    "gpu_safe": true
+   },
+   {
+    "name": "ur_frame_1",
+    "mime": "image/png",
+    "size": "256x192",
+    "kb": 3,
+    "gpu_safe": true
+   },
+   {
+    "name": "ur_frame_2",
+    "mime": "image/png",
+    "size": "256x192",
+    "kb": 3,
+    "gpu_safe": true
+   },
+   {
+    "name": "ur_map_0",
+    "mime": "image/png",
+    "size": "512x384",
+    "kb": 135,
+    "gpu_safe": true
+   },
+   {
+    "name": "ur_map_1",
+    "mime": "image/png",
+    "size": "512x384",
+    "kb": 135,
+    "gpu_safe": true
+   },
+   {
+    "name": "ur_map_2",
+    "mime": "image/png",
+    "size": "512x384",
+    "kb": 129,
+    "gpu_safe": true
+   },
+   {
+    "name": "rug_n",
+    "mime": "image/png",
+    "size": "1024x640",
+    "kb": 825,
+    "gpu_safe": true
+   },
+   {
+    "name": "rug",
+    "mime": "image/png",
+    "size": "1024x640",
+    "kb": 601,
+    "gpu_safe": true
+   },
+   {
+    "name": "ur_sky",
+    "mime": "image/png",
+    "size": "1024x768",
+    "kb": 267,
+    "gpu_safe": true
+   },
+   {
+    "name": "ur_plum",
+    "mime": "image/png",
+    "size": "512x512",
+    "kb": 68,
+    "gpu_safe": true
+   }
+  ],
+  "textures_not_multiple_of_4": [
+   "ur_box_3 375x102",
+   "ur_box_2 372x95",
+   "ur_box_1 325x80",
+   "ur_box_0 285x85"
+  ]
+ },
+ {
+  "file": "exhibit_under_the_radar.glb",
+  "mb": 4.91,
+  "nodes": 69,
+  "meshes": 52,
+  "draw_calls": 52,
+  "triangles": 14076,
+  "materials": 40,
+  "textures": 25,
+  "texture_mb_download": 4.59,
+  "gpu_texture_mb": 11.6,
+  "validator": {
+   "errors": 0,
+   "warnings": 29,
+   "messages": [
+    "VALUE_NOT_IN_LIST: Invalid value 'image/ktx2'. Valid values are ('image/jpeg', 'image/png').",
+    "VALUE_NOT_IN_LIST: Invalid value 'image/ktx2'. Valid values are ('image/jpeg', 'image/png').",
+    "VALUE_NOT_IN_LIST: Invalid value 'image/ktx2'. Valid values are ('image/jpeg', 'image/png').",
+    "VALUE_NOT_IN_LIST: Invalid value 'image/ktx2'. Valid values are ('image/jpeg', 'image/png').",
+    "VALUE_NOT_IN_LIST: Invalid value 'image/ktx2'. Valid values are ('image/jpeg', 'image/png').",
+    "VALUE_NOT_IN_LIST: Invalid value 'image/ktx2'. Valid values are ('image/jpeg', 'image/png').",
+    "VALUE_NOT_IN_LIST: Invalid value 'image/ktx2'. Valid values are ('image/jpeg', 'image/png').",
+    "VALUE_NOT_IN_LIST: Invalid value 'image/ktx2'. Valid values are ('image/jpeg', 'image/png')."
+   ]
+  },
+  "tags": [
+   {
+    "node": "UR_Boxes",
+    "interactive_id": "ur_boxes",
+    "interactive_label": "Game Boxes",
+    "interactive_scope": "under-the-radar",
+    "interactive_kind": "discovery"
+   },
+   {
+    "node": "UR_Computer",
+    "interactive_id": "ur_computer",
+    "interactive_label": "The Computer",
+    "interactive_scope": "under-the-radar",
+    "interactive_kind": "discovery"
+   },
+   {
+    "node": "UR_Floppy",
+    "interactive_id": "ur_floppy",
+    "interactive_label": "Floppy Disk",
+    "interactive_scope": "under-the-radar",
+    "interactive_kind": "discovery"
+   },
+   {
+    "node": "UR_Notebook",
+    "interactive_id": "ur_notebook",
+    "interactive_label": "Notebook",
+    "interactive_scope": "under-the-radar",
+    "interactive_kind": "discovery"
+   },
+   {
+    "node": "UR_Orb_Base",
+    "interactive_id": "ur_orb",
+    "interactive_label": "Orb Lamp",
+    "interactive_scope": "under-the-radar",
+    "interactive_kind": "discovery"
+   },
+   {
+    "node": "UR_Trackball",
+    "interactive_id": "ur_trackball",
+    "interactive_label": "Trackball",
+    "interactive_scope": "under-the-radar",
+    "interactive_kind": "discovery"
+   }
+  ],
+  "texture_list": [
+   {
+    "name": "exhibit_under_the_radar_glow",
+    "mime": "image/ktx2",
+    "size": "1024x1024",
+    "kb": 372,
+    "gpu_safe": true
+   },
+   {
+    "name": "exhibit_under_the_radar_ao",
+    "mime": "image/ktx2",
+    "size": "1024x1024",
+    "kb": 677,
+    "gpu_safe": true
+   },
+   {
+    "name": "wood_dark_n",
+    "mime": "image/ktx2",
+    "size": "512x512",
+    "kb": 88,
+    "gpu_safe": true
+   },
+   {
+    "name": "wood_dark",
+    "mime": "image/ktx2",
+    "size": "1024x1024",
+    "kb": 463,
+    "gpu_safe": true
+   },
+   {
+    "name": "ur_box_3",
+    "mime": "image/ktx2",
+    "size": "372x100",
+    "kb": 40,
+    "gpu_safe": true
+   },
+   {
+    "name": "ur_box_2",
+    "mime": "image/ktx2",
+    "size": "372x92",
+    "kb": 39,
+    "gpu_safe": true
+   },
+   {
+    "name": "ur_box_1",
+    "mime": "image/ktx2",
+    "size": "324x80",
+    "kb": 30,
+    "gpu_safe": true
+   },
+   {
+    "name": "ur_box_0",
+    "mime": "image/ktx2",
+    "size": "284x84",
+    "kb": 28,
+    "gpu_safe": true
+   },
+   {
+    "name": "wood_desk_n",
+    "mime": "image/ktx2",
+    "size": "512x512",
+    "kb": 126,
+    "gpu_safe": true
+   },
+   {
+    "name": "wood_desk",
+    "mime": "image/ktx2",
+    "size": "1024x1024",
+    "kb": 598,
+    "gpu_safe": true
+   },
+   {
+    "name": "wood_desk_r",
+    "mime": "image/ktx2",
+    "size": "512x512",
+    "kb": 123,
+    "gpu_safe": true
+   },
+   {
+    "name": "ur_radar",
+    "mime": "image/ktx2",
+    "size": "320x240",
+    "kb": 24,
+    "gpu_safe": true
+   },
+   {
+    "name": "planks_n",
+    "mime": "image/ktx2",
+    "size": "512x512",
+    "kb": 154,
+    "gpu_safe": true
+   },
+   {
+    "name": "planks",
+    "mime": "image/ktx2",
+    "size": "1024x1024",
+    "kb": 611,
+    "gpu_safe": true
+   },
+   {
+    "name": "ur_floppy",
+    "mime": "image/ktx2",
+    "size": "256x160",
+    "kb": 24,
+    "gpu_safe": true
+   },
+   {
+    "name": "ur_frame_0",
+    "mime": "image/ktx2",
+    "size": "256x192",
+    "kb": 5,
+    "gpu_safe": true
+   },
+   {
+    "name": "ur_frame_1",
+    "mime": "image/ktx2",
+    "size": "256x192",
+    "kb": 5,
+    "gpu_safe": true
+   },
+   {
+    "name": "ur_frame_2",
+    "mime": "image/ktx2",
+    "size": "256x192",
+    "kb": 5,
+    "gpu_safe": true
+   },
+   {
+    "name": "ur_map_0",
+    "mime": "image/ktx2",
+    "size": "512x384",
+    "kb": 96,
+    "gpu_safe": true
+   },
+   {
+    "name": "ur_map_1",
+    "mime": "image/ktx2",
+    "size": "512x384",
+    "kb": 95,
+    "gpu_safe": true
+   },
+   {
+    "name": "ur_map_2",
+    "mime": "image/ktx2",
+    "size": "512x384",
+    "kb": 93,
+    "gpu_safe": true
+   },
+   {
+    "name": "rug_n",
+    "mime": "image/ktx2",
+    "size": "512x320",
+    "kb": 114,
+    "gpu_safe": true
+   },
+   {
+    "name": "rug",
+    "mime": "image/ktx2",
+    "size": "1024x640",
+    "kb": 357,
+    "gpu_safe": true
+   },
+   {
+    "name": "ur_sky",
+    "mime": "image/ktx2",
+    "size": "1024x768",
+    "kb": 252,
+    "gpu_safe": true
+   },
+   {
+    "name": "ur_plum",
+    "mime": "image/ktx2",
+    "size": "512x512",
+    "kb": 63,
     "gpu_safe": true
    }
   ],
