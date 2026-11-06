@@ -24,6 +24,7 @@ export const SECRETS = [
   { id: "maze-heart", title: "The heart of the maze", hint: "Let the dice lead you all the way in.", path: "/games/labyrinth-fate", symbol: "⌖" },
   { id: "full-deck", title: "Every doll has a past", hint: "Draw every card in the Macabre deck.", path: "/games/macabre-dolls", symbol: "♠" },
   { id: "strange-places", title: "Good people, strange places", hint: "Some signs have two sides.", path: "/games/juicebox", symbol: "➜" },
+  { id: "tagger", title: "Left your mark", hint: "Spray something small on the wall at Graffiti.", path: "/graffiti", symbol: "▦" },
 ];
 
 let stamps = [];

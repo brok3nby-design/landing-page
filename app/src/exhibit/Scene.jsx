@@ -20,6 +20,7 @@ const WrfmPlay = lazy(() => import("./WrfmPlay.jsx"));
 const MazePlay = lazy(() => import("./MazePlay.jsx"));
 const DollsPlay = lazy(() => import("./DollsPlay.jsx"));
 const JuiceboxPlay = lazy(() => import("./JuiceboxPlay.jsx"));
+const GraffitiPlay = lazy(() => import("./GraffitiPlay.jsx"));
 const HIGHLIGHT = new THREE.Color(0.09, 0.008, 0.012);     // subtle deep-red hover / selection glow
 // Canvas clear colour chosen so that AFTER AgX tone mapping it lands exactly on the page's #080808
 // (measured in the browser; AgX darkens near-black). Override with ?bg=xxxxxx while tuning.
@@ -528,6 +529,7 @@ function Content({ config, selectedId, onSelect, under, apiRef, quality, animSta
           {config.play === "maze" && <Suspense fallback={null}><MazePlay scene={state.scene} /></Suspense>}
           {config.play === "dolls" && <Suspense fallback={null}><DollsPlay scene={state.scene} /></Suspense>}
           {config.play === "juicebox" && <Suspense fallback={null}><JuiceboxPlay scene={state.scene} /></Suspense>}
+          {config.play === "graffiti" && <Suspense fallback={null}><GraffitiPlay scene={state.scene} /></Suspense>}
           {config.contactShadow && (() => {
             const c = state.box.getCenter(new THREE.Vector3()), sz = state.box.getSize(new THREE.Vector3());
             return <ContactShadows position={[c.x, state.box.min.y + 0.0005, c.z]} scale={Math.max(sz.x, sz.z) * 2.2}

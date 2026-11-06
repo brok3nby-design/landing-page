@@ -241,6 +241,15 @@ export function blip(kind = "plant", vol = 0.5) {
       }
       return 0.45;
     }
+    if (kind === "spray") {                                  // a short hiss from a spray can
+      noiseHit(t, "highpass", 2600, 0.6, vol * 0.22, 0.16, bus);
+      noiseHit(t, "bandpass", 6500, 0.8, vol * 0.12, 0.12, bus);
+      return 0.2;
+    }
+    if (kind === "rattle") {                                 // shaking a can: the ball inside
+      for (let i = 0; i < 4; i++) noiseHit(t + i * 0.07, "bandpass", 3400, 6, vol * 0.3, 0.02, bus);
+      return 0.35;
+    }
     if (kind === "card") { noiseHit(t, "bandpass", 3200, 0.8, vol * 0.22, 0.07, bus); noiseHit(t + 0.05, "highpass", 5000, 0.7, vol * 0.08, 0.03, bus); return 0.12; }
     if (kind === "step") { noiseHit(t, "bandpass", 900, 1.5, vol * 0.18, 0.03, bus); return 0.05; }
     if (kind === "spin") { noiseHit(t, "bandpass", 900, 0.8, vol * 0.12, 0.35, bus); return 0.4; }

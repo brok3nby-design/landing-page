@@ -298,4 +298,22 @@ export const EXHIBITS = {
       jb_drifter: { eyebrow: "Original character", title: "The Drifter", text: "Character and voice work in progress. For now, just watching the sun go down." },
     },
   },
+  graffiti: {
+    model: "models/exhibit_graffiti.glb",
+    scope: "graffiti",
+    view: { forward: [-0.498, -0.454, -0.739] },      // the Blender hero camera (azimuth 34°, elevation 27°)
+    fallback: "fallback/exhibit-graffiti.png",
+    fallbackAlt: "A miniature alley corner: black brick walls covered in the studio's pixel-art graffiti (the GRAFFITI title among pixel cats, ghosts, stars, rockets, hearts and mushrooms), a drainpipe, a caged wall lamp, wet asphalt splashed with paint, a blue milk crate of spray cans, a knocked-over yellow can, a cardboard box, and a primed blank tile taped to the wall.",
+    play: "graffiti",                // spray your own 16 x 16 tag on the tile (exhibit/GraffitiPlay.jsx)
+    noGlow: ["gf_tile"],
+    focusScale: 1.6,
+    homeScale: 0.95,
+    findsTitle: "In the alley",
+    finds: {
+      gf_tile: { eyebrow: "Draw something small", title: "Your Tile", text: "Press and drag on it to spray pixels; spray a pixel again in the same colour to wipe it. It stays in this browser. To leave it on the real, shared wall, sign the live guestbook." },
+      gf_crate: { eyebrow: "Six colours", title: "Spray Cans", text: "Click a can to pick its colour." },
+      gf_can_purple: { eyebrow: "Spray can", title: "Purple", text: "Picked. Now spray the tile." },
+      gf_can_yellow: { eyebrow: "Knocked over", title: "Yellow", text: "Somebody was in a hurry. Picked: now spray the tile." },
+    },
+  },
 };

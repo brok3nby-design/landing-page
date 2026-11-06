@@ -55,7 +55,7 @@ export default function GamePage({ id: fixedId }) {
           <div className="ctas"><Link viewTransition className="btn ghost" to="/games">← Back to the shelf</Link></div>
         </section>
         {ex ? (
-          <Exhibit config={ex} selectedId={selectedId} onSelect={setSelectedId} tools={ex.play === "gold" ? <GoldTools /> : ex.play === "dice" ? <DiceTools /> : ex.play === "speck" ? <SpeckTools /> : ex.play === "doqi" ? <DoqiTools /> : ex.play === "wrfm" ? <WrfmTools /> : ex.play === "maze" ? <MazeTools /> : ex.play === "dolls" ? <DollsTools /> : ex.play === "juicebox" ? <JuiceboxTools /> : null}>
+          <Exhibit config={ex} selectedId={selectedId} onSelect={setSelectedId} tools={ex.play === "gold" ? <GoldTools /> : ex.play === "dice" ? <DiceTools /> : ex.play === "speck" ? <SpeckTools /> : ex.play === "doqi" ? <DoqiTools /> : ex.play === "wrfm" ? <WrfmTools /> : ex.play === "maze" ? <MazeTools /> : ex.play === "dolls" ? <DollsTools /> : ex.play === "juicebox" ? <JuiceboxTools /> : ex.play === "graffiti" ? <GraffitiTools /> : null}>
             <InfoPanel item={selectedId && ex.finds[selectedId] ? { id: selectedId, kind: "discovery", panel: ex.finds[selectedId] } : null}
                        onClose={close} />
           </Exhibit>
@@ -245,6 +245,29 @@ function JuiceboxTools() {
       <button className="tool" onClick={() => act("shake")}>Shake the juice</button>
       <button className="tool" onClick={() => act("flip")}>Flip the sign</button>
       <button className="tool" aria-pressed={!!st.lights} onClick={() => act("lights")}>Headlights</button>
+    </>
+  );
+}
+
+// Graffiti: the colour (cycles through the cans), a ready-made heart, clear; and how much is on your tile
+function GraffitiTools() {
+  const [st, setSt] = useState(null);
+  useEffect(() => {
+    const f = (e) => setSt(e.detail);
+    addEventListener("gf-state", f);
+    return () => removeEventListener("gf-state", f);
+  }, []);
+  const act = (a) => window.dispatchEvent(new CustomEvent("gf-act", { detail: a }));
+  const text = !st ? "" : `${st.count} ${st.count === 1 ? "pixel" : "pixels"} on your tile${st.saved === false ? " (your browser won't save it)" : st.count ? " · saved in this browser" : ""}`;
+  return (
+    <>
+      <output className="dice-result" aria-live="polite">{text}</output>
+      <button className="tool" onClick={() => act("next")} title="Next colour (or click a spray can)">
+        <span aria-hidden="true" style={{ display: "inline-block", width: 10, height: 10, marginRight: 8, background: st?.hex || "#ff6b0f", verticalAlign: "-1px" }} />
+        Colour: {st?.colour || "orange"}
+      </button>
+      <button className="tool" onClick={() => act("heart")}>Spray a heart</button>
+      {st && st.count > 0 && <button className="tool" onClick={() => act("clear")}>Clear my tile</button>}
     </>
   );
 }

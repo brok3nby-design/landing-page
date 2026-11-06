@@ -41,6 +41,7 @@ Tick what works and note what doesn't.
 - [ ] **The Maze**: click the die: it rolls and the pawn walks that many steps; reload and it's where you left it; roll to the heart (stamp); Start again. Click the crow.
 - [ ] **Macabre Dolls**: click the deck: a card turns to you and lands face up. Stop moving the view: the dolls' heads turn to you. Wind the music box: it opens and plays, the dolls turn to it.
 - [ ] **Juicebox**: click the bottle (it sloshes), the sign (it flips over: the back says SOME THINGS HIT DIFFERENT ON THE ROAD), the truck (honk + headlights).
+- [ ] **Graffiti**: click a spray can (colour), drag on the blank tile to spray pixels, Spray a heart, reload (still there), Clear my tile.
 - [ ] Every project page shows text, progress and gallery. The trailers play (Bid & Buried, Speck, Pocket Wilds).
 
 **Elsewhere**
