@@ -396,3 +396,8 @@ blockquote { margin: 18px 0; padding-left: 18px; border-left: 2px solid var(--re
 .dice-result { flex-basis: 100%; max-width: min(36em, 55%); margin: 0 0 4px auto; text-align: right; font: 600 12px/1.5 var(--sans); letter-spacing: .14em;
                text-transform: uppercase; color: var(--fg); text-shadow: 0 1px 6px #000; }
 .dice-result:empty { display: none; }
+
+/* info panels open above the tool row (its height is measured into --tools-h), so a panel never covers
+   the buttons or the readout above them, on any width */
+.exhibit .panel { bottom: calc(var(--tools-h, 0px) + 30px); max-height: calc(100% - var(--tools-h, 0px) - 48px); overflow-y: auto; }
+@media (max-width: 900px) { .exhibit .panel { bottom: calc(var(--tools-h, 0px) + 20px); max-height: calc(100% - var(--tools-h, 0px) - 32px); } }
