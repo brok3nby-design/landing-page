@@ -1,0 +1,1 @@
+const t=["https://dfoy1tvbxddp7.cloudfront.net/","https://emerald-elaborate-salamander-963.mypinata.cloud/ipfs/","https://gateway.lighthouse.storage/ipfs/","https://cloudflare-ipfs.com/ipfs/","https://dweb.link/ipfs/","https://ipfs.io/ipfs/","https://gateway.pinata.cloud/ipfs/"],s={audio:t};export{t as audio,s as default};
