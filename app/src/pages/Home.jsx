@@ -42,7 +42,7 @@ export default function Home() {
 
   return (
     <>
-      <div className="page">
+      <div className="page home">
         <section className="content">
           <p className="eyebrow">{hero[1] || "Independent game studio"}</p>
           <h1 className="title hero-logo">

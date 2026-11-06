@@ -321,7 +321,7 @@ function useKeepOut(ctl, boxes) {
 
 // ---------------------------------------------------------------- camera rig
 const SHIFT = parseFloat(new URLSearchParams(location.search).get("shift")) || 0.05;   // share of the view width
-function Rig({ box, view, frame: FRAME, frameOrigin, homeScale = 0.86, onWheelHint, under, underView, selected, apiRef, colliders, focusLift = 0, focusScale = 2.1 }) {
+function Rig({ box, model, fit, intro: introMove, view, frame: FRAME, frameOrigin, homeScale = 0.86, onWheelHint, under, underView, selected, apiRef, colliders, focusLift = 0, focusScale = 2.1 }) {
   const ctl = useRef();
   const camera = useThree((s) => s.camera);
   const size = useThree((s) => s.size);
@@ -339,15 +339,72 @@ function Rig({ box, view, frame: FRAME, frameOrigin, homeScale = 0.86, onWheelHi
     // wide layouts (exhibit beside the text): a little closer, and shifted toward the text so there is
     // no empty band between the copy and the model. Phones/stacked layouts stay centred.
     const beside = size.width > 900 && size.width / size.height > 1.15;
+    if (fit && points.length) return { ...fitView(c, fwd), target: c, r, fwd };
     const d = (r / Math.sin(Math.min(vfov, hfov) / 2)) * (size.width < 600 ? 1.08 : beside ? homeScale : 0.86);
     const ox = beside ? 2 * d * Math.tan(hfov / 2) * SHIFT : 0;     // camera moves right -> model sits left of centre
-    return { pos: c.clone().addScaledVector(fwd, -d), target: c, r, d, fwd, ox };
+    return { pos: c.clone().addScaledVector(fwd, -d), target: c, r, d, fwd, ox, oy: 0 };
+  };
+
+  // fitted framing (config.fit): the whole model, as it is actually drawn (its vertices, not its bounding
+  // sphere), fits inside the free area of the view: below the hint line, above the tool buttons and
+  // clear of the sides, with some breathing room. Then it is centred in that area.
+  const gl = useThree((s) => s.gl);
+  const points = useMemo(() => {
+    if (!fit || !model) return [];
+    model.updateMatrixWorld(true);
+    const out = [], v = new THREE.Vector3();
+    let total = 0;
+    model.traverse((o) => { if (o.isMesh && o.visible && o.geometry?.attributes.position) total += o.geometry.attributes.position.count; });
+    const step = Math.max(1, Math.ceil(total / 12000));
+    model.traverse((o) => {
+      if (!o.isMesh || !o.visible || !o.geometry?.attributes.position) return;
+      const a = o.geometry.attributes.position;
+      for (let i = 0; i < a.count; i += step) out.push(v.fromBufferAttribute(a, i).applyMatrix4(o.matrixWorld).clone());
+    });
+    return out;
+  }, [fit, model]);
+  const fitView = (c, fwd) => {
+    const W = size.width, H = size.height;
+    const wrap = gl.domElement.closest(".exhibit");
+    const px = (sel) => wrap?.querySelector(sel)?.getBoundingClientRect();
+    const top0 = wrap?.getBoundingClientRect().top ?? 0;
+    const hint = px(".hint"), tools = px(".exhibit-tools");
+    const padTop = Math.max(fit.top ?? 24, hint ? hint.bottom - top0 + 14 : 0);
+    const padBottom = Math.max(fit.bottom ?? 24, tools ? H - (tools.top - top0) + 14 : 0);
+    const padSide = Math.max(16, W * (fit.side ?? 0.04));
+    const nl = -1 + 2 * padSide / W, nr = 1 - 2 * padSide / W, nb = -1 + 2 * padBottom / H, nt = 1 - 2 * padTop / H;
+    const fill = fit.fill ?? 0.9;                         // share of the free area the model may use
+    const cam = new THREE.PerspectiveCamera(camera.fov, W / H, camera.near, camera.far);
+    const right = new THREE.Vector3(), up = new THREE.Vector3(), q = new THREE.Vector3();
+    const extents = (d, ox = 0, oy = 0) => {
+      cam.position.copy(c).addScaledVector(fwd, -d);
+      cam.lookAt(c); cam.updateMatrixWorld();
+      right.setFromMatrixColumn(cam.matrixWorld, 0); up.setFromMatrixColumn(cam.matrixWorld, 1);
+      cam.position.addScaledVector(right, ox).addScaledVector(up, oy); cam.updateMatrixWorld();
+      let x0 = Infinity, x1 = -Infinity, y0 = Infinity, y1 = -Infinity;
+      for (const p of points) { q.copy(p).project(cam); if (q.z > 1) continue; x0 = Math.min(x0, q.x); x1 = Math.max(x1, q.x); y0 = Math.min(y0, q.y); y1 = Math.max(y1, q.y); }
+      return { x0, x1, y0, y1 };
+    };
+    let lo = 0.05, hi = 60;                                // distance search: the closest view that still fits
+    for (let i = 0; i < 40; i++) {
+      const d = (lo + hi) / 2, e = extents(d);
+      if (e.x1 - e.x0 <= (nr - nl) * fill && e.y1 - e.y0 <= (nt - nb) * fill) hi = d; else lo = d;
+    }
+    const d = hi;
+    const tanV = Math.tan(THREE.MathUtils.degToRad(camera.fov) / 2), tanH = tanV * (W / H);
+    let ox = 0, oy = 0;
+    for (let k = 0; k < 3; k++) {                          // centre it (focal offset: camera slides sideways)
+      const e = extents(d, ox, oy);
+      ox += ((e.x0 + e.x1) / 2 - (nl + nr) / 2) * d * tanH;
+      oy += ((e.y0 + e.y1) / 2 - (nb + nt) / 2) * d * tanV;
+    }
+    return { pos: c.clone().addScaledVector(fwd, -d), d, ox, oy };
   };
 
   const goHome = (smooth) => {
     const h = home.current;
     if (!h || !ctl.current || FRAME?.position) return;   // comparison mode keeps the Blender camera
-    ctl.current.setFocalOffset(h.ox, 0, 0, smooth);
+    ctl.current.setFocalOffset(h.ox, -(h.oy || 0), 0, smooth);
     ctl.current.setLookAt(h.pos.x, h.pos.y, h.pos.z, h.target.x, h.target.y, h.target.z, smooth);
   };
 
@@ -364,9 +421,19 @@ function Rig({ box, view, frame: FRAME, frameOrigin, homeScale = 0.86, onWheelHi
     cc.setBoundary(box.clone().expandByScalar(r * 0.1));   // the pivot can't wander off into the void
     if (!FRAME?.position) goHome(false);
     if (!intro.current && !TEST && !FRAME && !reducedMotion()) {   // first load: ease in from a little farther
-      const h = home.current, far = h.target.clone().lerp(h.pos, 1.22).add(new THREE.Vector3(0, h.d * 0.06, 0));
+      const h = home.current;
+      let far;
+      if (introMove) {                                 // swing in: start further round, higher and farther out
+        const off = h.pos.clone().sub(h.target);
+        const sph = new THREE.Spherical().setFromVector3(off);
+        sph.theta += THREE.MathUtils.degToRad(introMove.azimuth ?? 0);
+        sph.phi = Math.max(0.15, sph.phi - THREE.MathUtils.degToRad(introMove.elevation ?? 0));
+        sph.radius *= introMove.distance ?? 1.2;
+        far = h.target.clone().add(new THREE.Vector3().setFromSpherical(sph));
+      } else far = h.target.clone().lerp(h.pos, 1.22).add(new THREE.Vector3(0, h.d * 0.06, 0));
+      cc.setFocalOffset(h.ox, -(h.oy || 0), 0, false);
       cc.setLookAt(far.x, far.y, far.z, h.target.x, h.target.y, h.target.z, false);
-      cc.smoothTime = 0.9;
+      cc.smoothTime = introMove?.time ?? 0.9;
       const done = () => { cc.smoothTime = 0.35; cc.removeEventListener("rest", done); cc.removeEventListener("controlstart", done); };
       cc.addEventListener("rest", done);
       cc.addEventListener("controlstart", done);
@@ -440,7 +507,6 @@ function Rig({ box, view, frame: FRAME, frameOrigin, homeScale = 0.86, onWheelHi
   // The mouse wheel scrolls the PAGE; zoom needs Ctrl/⌘ + wheel (a trackpad pinch sends ctrlKey too),
   // the + / − buttons or the keyboard. On touch screens one finger swiping up/down scrolls the page,
   // sideways rotates; two fingers pinch-zoom.
-  const gl = useThree((s) => s.gl);
   useEffect(() => {
     const el = gl.domElement, cc = ctl.current;
     if (!cc) return;
@@ -518,7 +584,7 @@ function Content({ config, selectedId, onSelect, under, apiRef, quality, animSta
       {state && views && (
         <>
           <Lights box={state.box} kind={config.lights || "exhibit"} under={under} shadows={quality.shadows} />
-          <Rig box={state.box} view={view} frame={FRAME_ID && views?.cameras?.[FRAME_ID]} frameOrigin={config.frameOrigin} homeScale={config.homeScale} onWheelHint={onWheelHint} under={under} underView={config.underView} selected={selected} apiRef={apiRef} colliders={colliders}
+          <Rig box={state.box} model={state.scene} fit={config.fit} intro={config.intro} view={view} frame={FRAME_ID && views?.cameras?.[FRAME_ID]} frameOrigin={config.frameOrigin} homeScale={config.homeScale} onWheelHint={onWheelHint} under={under} underView={config.underView} selected={selected} apiRef={apiRef} colliders={colliders}
                focusLift={lifting ? 0.07 : 0} focusScale={config.focusScale} />
           {lifting && <LiftTurn index={state.index} selectedId={selectedId} />}
           {config.animation === "notebook" && <NotebookOpen scene={state.scene} open={animState?.open ?? true} />}

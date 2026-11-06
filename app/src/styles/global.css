@@ -342,9 +342,14 @@ blockquote { margin: 18px 0; padding-left: 18px; border-left: 2px solid var(--re
 /* centred frame: on wide screens the whole composition (header, copy, exhibit, sections) sits inside a
    max-width frame, so the text moves in from the screen edge and the exhibit stays close to it */
 :root { --frame: 1500px; --edge: max(var(--gutter), calc((100vw - var(--frame)) / 2)); }
+@media (min-width: 901px) {          /* wide screens: the copy sits well in from the screen edge, never on it */
+  :root { --frame: 1400px; --edge: max(clamp(32px, 7vw, 128px), calc((100vw - var(--frame)) / 2)); }
+}
 .header { padding-left: var(--edge); padding-right: var(--edge); }
 @media (min-width: 901px) {
   .page { grid-template-columns: minmax(360px, 520px) 1fr; padding: 0 var(--edge); gap: clamp(16px, 2vw, 40px); }
+  /* the 3D area starts a little below the header (not flush against it), level with the copy */
+  .page.home > .exhibit { margin-top: clamp(16px, 5vh, 56px); height: calc(100vh - 140px - clamp(16px, 5vh, 56px)); }
   .content { padding-left: 0; padding-right: 0; }
   .textpage { padding-left: var(--edge); padding-right: var(--edge); max-width: none; }
 }
