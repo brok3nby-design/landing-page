@@ -1,0 +1,39 @@
+{
+ "first_roll": {
+  "pos": 2,
+  "rolls": 1,
+  "readout": "Rolled 2 · 2 of 27 steps · 1 roll"
+ },
+ "after_reload": {
+  "pos": 2,
+  "rolls": 1,
+  "done": false,
+  "steps": 27,
+  "busy": false
+ },
+ "to_heart": {
+  "pos": 27,
+  "rolls": 8,
+  "done": true,
+  "steps": 27,
+  "busy": false
+ },
+ "heart_readout": "The heart of the maze, in 8 rolls. The world remembers.",
+ "stamp": true,
+ "after_reset": {
+  "pos": 0,
+  "rolls": 0,
+  "done": false,
+  "steps": 27,
+  "busy": false
+ },
+ "checks": {
+  "die_click_rolls_and_walks": true,
+  "remembered_after_reload": true,
+  "reaches_the_heart": true,
+  "heart_stamp": true,
+  "start_again": true,
+  "no_errors": true
+ },
+ "errors": []
+}

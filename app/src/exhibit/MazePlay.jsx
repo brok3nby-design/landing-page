@@ -38,10 +38,15 @@ export default function MazePlay({ scene }) {
     scene.updateMatrixWorld(true);
     S.dieHome = { p: N.die.position.clone(), q: N.die.quaternion.clone() };
     // the pawn node's origin (optimised meshes carry an offset): keep it relative to the path point
-    S.pawnOffset = N.pawn.position.clone().sub(N.path[0]);
+    // the pawn is drawn larger than true scale, so it can be followed from the default view; its origin
+    // offset above the path scales with it so it still stands on the cobbles
+    const K = 1.7;
+    S.scale0 = N.pawn.scale.clone();
+    N.pawn.scale.multiplyScalar(K);
+    S.pawnOffset = N.pawn.position.clone().sub(N.path[0]).multiplyScalar(K);
     S.pawnHome = N.pawn.quaternion.clone();
     try { S.faces = JSON.parse(N.die.userData.faces || "{}"); } catch { S.faces = {}; }
-    const light = new THREE.PointLight("#ffb45a", 0.25, 0.35, 1.5);
+    const light = new THREE.PointLight("#ffb45a", 0.6, 0.5, 1.5);
     scene.add(light);
     S.light = light;
     if (N.keyhole) { N.keyhole.material = N.keyhole.material.clone(); N.keyhole.userData.e0 = N.keyhole.material.emissiveIntensity; }
@@ -49,13 +54,13 @@ export default function MazePlay({ scene }) {
     place(S.state.pos);
     announce();
     window.__maze = { state: () => ({ ...S.state }), steps: () => last(), busy: () => !!(S.anim || S.walk) };
-    return () => { scene.remove(light); N.die.position.copy(S.dieHome.p); N.die.quaternion.copy(S.dieHome.q); place(0); delete window.__maze; };
+    return () => { scene.remove(light); N.die.position.copy(S.dieHome.p); N.die.quaternion.copy(S.dieHome.q); place(0); N.pawn.scale.copy(S.scale0); delete window.__maze; };
   }, [N, S, scene]);   // eslint-disable-line react-hooks/exhaustive-deps
 
   function place(i, hop = 0) {
     const p = N.path[Math.max(0, Math.min(i, last()))];
     N.pawn.position.copy(p).add(S.pawnOffset).setY(p.y + S.pawnOffset.y + hop);
-    if (S.light) S.light.position.copy(N.pawn.position).add(new THREE.Vector3(0.016, 0.03, 0));
+    if (S.light) S.light.position.copy(N.pawn.position).add(new THREE.Vector3(0.027, 0.04, 0));
   }
   function announce(extra = {}) {
     window.dispatchEvent(new CustomEvent("mz-state", { detail: { ...S.state, total: last(), ...extra } }));
@@ -118,7 +123,7 @@ export default function MazePlay({ scene }) {
         N.pawn.position.copy(p0).lerp(p1, f).add(S.pawnOffset).setY(p0.y + S.pawnOffset.y + hop);
         const dir = tmp.v.copy(p1).sub(p0).setY(0);
         if (dir.lengthSq() > 1e-8) N.pawn.quaternion.slerp(tmp.q.setFromAxisAngle(UP, Math.atan2(dir.x, dir.z)).multiply(S.pawnHome), 1 - Math.exp(-k * 14));
-        if (S.light) S.light.position.copy(N.pawn.position).add(new THREE.Vector3(0.016, 0.03, 0));
+        if (S.light) S.light.position.copy(N.pawn.position).add(new THREE.Vector3(0.027, 0.04, 0));
         if (Math.floor(w.t) !== w.lastStep) { w.lastStep = Math.floor(w.t); blip("step", 0.6); }
       } else {
         place(w.to);
