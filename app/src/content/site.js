@@ -257,4 +257,28 @@ export const EXHIBITS = {
       mz_castle: { eyebrow: "On the hill", title: "The Castle", text: "Lit, at this hour. Somebody is still awake up there." },
     },
   },
+  "macabre-dolls": {
+    model: "models/exhibit_macabre_dolls.glb",
+    scope: "macabre-dolls",
+    view: { forward: [-0.498, -0.454, -0.739] },      // the Blender hero camera (azimuth 34°, elevation 27°)
+    fallback: "fallback/exhibit-macabre-dolls.png",
+    fallbackAlt: "A miniature forgotten nursery: dark wood walls with cobwebs, a moonlit window behind a lace curtain and an ornate mirror. On a lace doily sit three porcelain dolls in lace bonnets and dresses with hollow black eyes, a deck of MACABRE cards in front of them. Around them a worn teddy bear, a rocking horse, a painted music box, letter blocks, a dollhouse, a candle on a chest of old books, a cracked hand mirror, a tipped teacup and dried rose petals.",
+    play: "dolls",                   // draw cards, the dolls watch you, the music box (exhibit/DollsPlay.jsx)
+    noGlow: ["md_deck"],
+    focusScale: 1.8,
+    homeScale: 0.95,
+    findsTitle: "In the nursery",
+    finds: {
+      md_deck: { eyebrow: "Doll Edition", title: "The Deck", text: "A dark and stylish card game with a haunting atmosphere. Click the deck to draw a card: every doll has a past." },
+      md_doll_1: { eyebrow: "Porcelain", title: "The Eldest", text: "Strange, damaged and forgotten. Its story is suggested by its worn edges." },
+      md_doll_2: { eyebrow: "Porcelain", title: "The Tall One", text: "It hasn't moved since you arrived. Look away and see." },
+      md_doll_3: { eyebrow: "Porcelain", title: "The Little One", text: "Some toys should stay forgotten." },
+      md_musicbox: { eyebrow: "Wind it up", title: "Music Box", text: "Click it to hear what it still remembers. The dolls always listen." },
+      md_teddy: { eyebrow: "Worn", title: "Teddy Bear", text: "Loved until the fur gave out." },
+      md_horse: { eyebrow: "Still rocking", title: "Rocking Horse", text: "Nobody has ridden it in years. It creaks anyway." },
+      md_dollhouse: { eyebrow: "Occupied", title: "Dollhouse", text: "Every window is dark. Every room is taken." },
+      md_mirror: { eyebrow: "Gilt", title: "The Mirror", text: "It shows the room. Not always the same one." },
+      md_candle: { eyebrow: "Burning low", title: "The Candle", text: "Someone lit it tonight." },
+    },
+  },
 };

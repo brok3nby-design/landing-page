@@ -22,6 +22,7 @@ export const SECRETS = [
   // new with the phase 11 desk
   { id: "quack", title: "Rubber duck debugging", hint: "Someone on the desk listens while you debug.", path: "/", symbol: "◖" },
   { id: "maze-heart", title: "The heart of the maze", hint: "Let the dice lead you all the way in.", path: "/games/labyrinth-fate", symbol: "⌖" },
+  { id: "full-deck", title: "Every doll has a past", hint: "Draw every card in the Macabre deck.", path: "/games/macabre-dolls", symbol: "♠" },
 ];
 
 let stamps = [];

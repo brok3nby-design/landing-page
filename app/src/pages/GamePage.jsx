@@ -55,7 +55,7 @@ export default function GamePage({ id: fixedId }) {
           <div className="ctas"><Link viewTransition className="btn ghost" to="/games">← Back to the shelf</Link></div>
         </section>
         {ex ? (
-          <Exhibit config={ex} selectedId={selectedId} onSelect={setSelectedId} tools={ex.play === "gold" ? <GoldTools /> : ex.play === "dice" ? <DiceTools /> : ex.play === "speck" ? <SpeckTools /> : ex.play === "doqi" ? <DoqiTools /> : ex.play === "wrfm" ? <WrfmTools /> : ex.play === "maze" ? <MazeTools /> : null}>
+          <Exhibit config={ex} selectedId={selectedId} onSelect={setSelectedId} tools={ex.play === "gold" ? <GoldTools /> : ex.play === "dice" ? <DiceTools /> : ex.play === "speck" ? <SpeckTools /> : ex.play === "doqi" ? <DoqiTools /> : ex.play === "wrfm" ? <WrfmTools /> : ex.play === "maze" ? <MazeTools /> : ex.play === "dolls" ? <DollsTools /> : null}>
             <InfoPanel item={selectedId && ex.finds[selectedId] ? { id: selectedId, kind: "discovery", panel: ex.finds[selectedId] } : null}
                        onClose={close} />
           </Exhibit>
@@ -203,6 +203,28 @@ function MazeTools() {
       <output className="dice-result" aria-live="polite">{text}</output>
       <button className="tool" onClick={() => act("roll")}>Roll</button>
       {st && st.pos > 0 && <button className="tool" onClick={() => act("reset")}>Start again</button>}
+    </>
+  );
+}
+
+// Macabre Dolls: draw a card / shuffle / the music box (keyboard and touch alternatives), and what happened
+function DollsTools() {
+  const [st, setSt] = useState(null);
+  useEffect(() => {
+    const f = (e) => setSt(e.detail);
+    addEventListener("md-state", f);
+    return () => removeEventListener("md-state", f);
+  }, []);
+  const act = (a) => window.dispatchEvent(new CustomEvent("md-act", { detail: a }));
+  const text = !st ? "" : st.drawing ? "Drawing…" : st.shuffled ? "The cards are back in the deck."
+    : st.all ? "The whole deck. Some toys should stay forgotten."
+    : st.drawn ? `Drawn ${st.drawn} of ${st.total}. Every doll has a past.` : st.music ? "The music box is playing." : "";
+  return (
+    <>
+      <output className="dice-result" aria-live="polite">{text}</output>
+      <button className="tool" onClick={() => act("draw")}>Draw a card</button>
+      {st && st.drawn > 0 && <button className="tool" onClick={() => act("shuffle")}>Shuffle</button>}
+      <button className="tool" aria-pressed={!!st?.music} onClick={() => act("music")}>{st?.music ? "Stop the music box" : "Wind the music box"}</button>
     </>
   );
 }

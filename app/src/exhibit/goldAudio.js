@@ -213,9 +213,59 @@ export function blip(kind = "plant", vol = 0.5) {
       }
       return 0.65;
     }
+    if (kind === "card") { noiseHit(t, "bandpass", 3200, 0.8, vol * 0.22, 0.07, bus); noiseHit(t + 0.05, "highpass", 5000, 0.7, vol * 0.08, 0.03, bus); return 0.12; }
     if (kind === "step") { noiseHit(t, "bandpass", 900, 1.5, vol * 0.18, 0.03, bus); return 0.05; }
     if (kind === "spin") { noiseHit(t, "bandpass", 900, 0.8, vol * 0.12, 0.35, bus); return 0.4; }
     tone(520, 1180, 0, 0.11); noiseHit(t, "highpass", 4000, 0.7, vol * 0.05, 0.01, bus);
     return 0.15;
   });
+}
+
+
+// ---------------------------------------------------------------- Macabre Dolls: the music box
+// An original little waltz in A minor on a music-box comb (bright sine partials, a fast pluck and a long
+// ring, a tick of the mechanism). In the last two bars the spring runs down: the tempo drags and the
+// pitch sags. Returns { stop(), duration } or null when sound is off / not started.
+const TUNE = [[81, 1], [76, 1], [72, 1], [71, 1], [72, 1], [76, 1], [81, 1], [79, 1], [76, 1], [77, 2], [74, 1],
+              [72, 1], [76, 1], [81, 1], [80, 1], [83, 1], [76, 1], [81, 2], [76, 1], [69, 3]];
+const BASS = [57, 52, 57, 50, 57, 52, 57, 45];
+const hz = (m) => 440 * 2 ** ((m - 69) / 12);
+export function musicBox(vol = 0.6) {
+  if (!enabled || !ctx || ctx.state !== "running") return null;
+  const master = ctx.createGain();
+  master.gain.value = vol;
+  master.connect(out);
+  const nodes = [];
+  const pluck = (t, f, v, cents) => {
+    [[1, 1], [3.0, 0.22], [5.4, 0.08]].forEach(([r, a], k) => {
+      const o = ctx.createOscillator(), g = ctx.createGain();
+      o.frequency.value = f * r;
+      o.detune.value = cents + (Math.random() - 0.5) * 6;
+      const dec = 1.5 / (1 + k * 1.4);
+      g.gain.setValueAtTime(0.0001, t);
+      g.gain.exponentialRampToValueAtTime(0.16 * v * a, t + 0.003);
+      g.gain.exponentialRampToValueAtTime(0.0001, t + dec);
+      o.connect(g); g.connect(master); o.start(t); o.stop(t + dec + 0.05);
+      nodes.push(o);
+    });
+    noiseHit(t, "highpass", 6000, 0.7, 0.02 * v, 0.006, master);
+  };
+  let t = ctx.currentTime + 0.08, beat = 0;
+  const total = TUNE.reduce((a, [, b]) => a + b, 0);
+  for (const [m, beats] of TUNE) {
+    const slow = beat > total - 6 ? 1 + ((beat - (total - 6)) / 6) * 0.9 : 1;          // the spring running down
+    const sag = beat > total - 4 ? -30 * ((beat - (total - 4)) / 4) : 0;
+    if (beat % 3 === 0) pluck(t, hz(BASS[Math.floor(beat / 3)] || 45), 0.55, sag);
+    pluck(t, hz(m), 0.9, sag);
+    t += 0.36 * beats * slow;
+    beat += beats;
+  }
+  const duration = t - ctx.currentTime + 1.2;
+  return {
+    duration,
+    stop: () => {
+      try { master.gain.setTargetAtTime(0.0001, ctx.currentTime, 0.05); setTimeout(() => { nodes.forEach((o) => { try { o.stop(); } catch { /* done */ } }); master.disconnect(); }, 300); }
+      catch { /* gone */ }
+    },
+  };
 }
