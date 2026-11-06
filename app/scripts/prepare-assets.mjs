@@ -10,6 +10,12 @@ const copy = (src, dst) => { fs.mkdirSync(path.dirname(dst), { recursive: true }
 
 for (const f of ["studio_desk.glb", "games_collection.glb", "studio_notebook.glb", "views.json"])
   copy(path.join(DIORAMA, "exports", f), pub("models", f));
+// every model needs its phone version (optimize.mjs --mobile -> <name>_m.glb): phones ask for it by name
+for (const f of ["studio_desk_m.glb", "games_collection_m.glb", "studio_notebook_m.glb"])
+  copy(path.join(DIORAMA, "exports", f), pub("models", f));
+for (const f of fs.readdirSync(path.join(DIORAMA, "exports")).filter((f) => /^exhibit_[a-z_]+\.glb$/.test(f) && !f.endsWith("_m.glb")))
+  if (!fs.existsSync(path.join(DIORAMA, "exports", f.replace(/\.glb$/, "_m.glb"))))
+    throw new Error(`missing phone version of ${f}: run node diorama/tools/optimize.mjs --mobile --only=${f.slice(0, -4)}`);
 // per-game exhibits (diorama/blender/build_exhibit.py -> exports/exhibit_<game>.glb) + their still renders
 for (const f of fs.readdirSync(path.join(DIORAMA, "exports")).filter((f) => /^exhibit_[a-z_]+\.glb$/.test(f)))
   copy(path.join(DIORAMA, "exports", f), pub("models", f));

@@ -3,6 +3,8 @@
 //   node optimize.mjs                 -> diorama/exports/{studio_desk,games_collection,studio_notebook}.glb
 //   node optimize.mjs --webp          -> WebP textures instead of KTX2 (fallback / comparison)
 //   node optimize.mjs --max-quality   -> KTX2 UASTC without RDO (bigger download, same GPU memory)
+//   node optimize.mjs --mobile        -> <name>_m.glb: the phone version (smaller textures, stronger RDO;
+//                                        still KTX2, so GPU memory stays low). The site picks it on phones.
 //
 // Steps: dedup + prune -> per-slot texture size policy -> KTX2 (UASTC + Zstandard: GPU-compressed,
 // ~1 byte/pixel in video memory instead of 4) or WebP -> meshopt geometry compression.
@@ -27,6 +29,12 @@ const ONLY = process.argv.find((a) => a.startsWith("--only="))?.slice(7).split("
 const ASSETS = process.argv.includes("--crate-only") ? ["games_collection"] : ONLY || ALL;
 
 const WEBP = process.argv.includes("--webp");
+const MOBILE = process.argv.includes("--mobile");
+// phone version: every role at a fraction of its desktop size (env MOBILE_SCALE, default 0.5), base colour a
+// little larger (it carries the printed art: covers, posters, screens), and a stronger RDO setting
+const MSCALE = parseFloat(process.env.MOBILE_SCALE || "0.5");
+const MBASE = parseFloat(process.env.MOBILE_BASE_SCALE || "0.75");
+const MRDO = parseFloat(process.env.MOBILE_RDO || "2.5");
 
 // Max edge per texture role (sources are never upscaled). Hero surfaces keep 1024 normal maps.
 const HERO = "planks_n|wood_desk_n|rug_n";
@@ -55,8 +63,9 @@ async function run(name) {
 
   // per-role resize (PNG intermediate keeps quality until the final encoder)
   for (const p of POLICY) {
+    const size = MOBILE ? Math.round((p.size * (/baseColor/.test(String(p.slots)) ? MBASE : MSCALE)) / 4) * 4 : p.size;
     await doc.transform(textureCompress({ encoder: sharp, targetFormat: "png", slots: p.slots,
-                                          pattern: p.pattern || null, resize: [p.size, p.size] }));
+                                          pattern: p.pattern || null, resize: [size, size] }));
   }
 
   // GPU block compression (BC/ASTC/ETC) needs width and height in multiples of 4: snap any texture that
@@ -76,14 +85,14 @@ async function run(name) {
   } else {
     // UASTC + RDO (rate-distortion optimisation) + Zstandard: same GPU memory as plain UASTC, ~1/3
     // smaller download; visually checked against the raw export. --max-quality disables RDO.
-    const rdo = process.argv.includes("--max-quality") ? {} : { enableRDO: true, rdoQualityLevel: 1.25 };
+    const rdo = process.argv.includes("--max-quality") ? {} : { enableRDO: true, rdoQualityLevel: MOBILE ? MRDO : 1.25 };
     const base = { isUASTC: true, generateMipmap: true, needSupercompression: true, enableDebug: false, imageDecoder, ...rdo };
     await doc.transform(ktx2({ ...base, isNormalMap: true, isPerceptual: false, slots: /normalTexture/ }));
     await doc.transform(ktx2({ ...base, isPerceptual: false, slots: /occlusionTexture|metallicRoughnessTexture/ }));
     await doc.transform(ktx2({ ...base, isPerceptual: true, slots: /baseColorTexture|emissiveTexture/ }));
   }
   await doc.transform(meshopt({ encoder: MeshoptEncoder, level: "medium" }));
-  const out = path.join(EXPORTS, `${name}${WEBP ? "_webp" : ""}.glb`);
+  const out = path.join(EXPORTS, `${name}${WEBP ? "_webp" : ""}${MOBILE ? "_m" : ""}.glb`);
   await io.write(out, doc);
   const before = fs.statSync(src).size, after = fs.statSync(out).size;
   console.log(`${name}: ${(before / 1e6).toFixed(2)} MB -> ${(after / 1e6).toFixed(2)} MB  (${path.basename(out)})`);

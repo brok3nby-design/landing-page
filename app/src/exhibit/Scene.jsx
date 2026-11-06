@@ -27,6 +27,12 @@ const HIGHLIGHT = new THREE.Color(0.09, 0.008, 0.012);     // subtle deep-red ho
 // (measured in the browser; AgX darkens near-black). Override with ?bg=xxxxxx while tuning.
 const BG = "#" + (new URLSearchParams(location.search).get("bg") || "111111");
 const reducedMotion = () => window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+// Phones load the lighter "_m" model (smaller textures, ~half the download; diorama/tools/optimize.mjs --mobile):
+// touch screens up to small-tablet size, or devices reporting 4 GB of memory or less. ?model=m / ?model=full overrides.
+const MODEL_PICK = new URLSearchParams(location.search).get("model");
+const PHONE_MODELS = MODEL_PICK ? MODEL_PICK === "m"
+  : (window.matchMedia("(pointer: coarse)").matches && Math.min(screen.width, screen.height) <= 820) || (navigator.deviceMemory || 8) <= 4;
+const modelUrl = (m) => (PHONE_MODELS ? m.replace(/\.glb$/, "_m.glb") : m);
 
 let ktx2 = null;
 function ktx2For(gl) {
@@ -578,7 +584,7 @@ function Content({ config, selectedId, onSelect, under, apiRef, quality, animSta
   const lifting = config.animation === "lift-turn";
   return (
     <>
-      <Model url={`${BASE}${config.model}`} scope={config.scope} targets={config.targets} selectGlow={config.selectGlow !== false} noGlow={config.noGlow}
+      <Model url={`${BASE}${modelUrl(config.model)}`} scope={config.scope} targets={config.targets} selectGlow={config.selectGlow !== false} noGlow={config.noGlow}
              selectedId={selectedId}
              onSelect={onSelect} onLoaded={onLoaded} />
       {state && views && (
