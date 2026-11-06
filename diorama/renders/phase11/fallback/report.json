@@ -186,6 +186,18 @@
       "ok": true,
       "link": "/games"
     },
+    "desktop:header_tabs": {
+      "ok": true,
+      "seen": [
+        "INSERT A CARTRIDGE\n\nChoose your next wor",
+        "INDEPENDENT BY DESIGN\n\nAbout the studio.",
+        "COMPLETED · LIVE NOW\n\nWRFM Radio™\n\nINSTR",
+        "STAY IN THE LOOP\n\nFollow development.\n\nC",
+        "BROK3N BY DESIGN / VISITOR RECORD\n\nStudi",
+        "GET IN TOUCH\n\nContact.\n\nExplore the game",
+        "INDEPENDENT GAMES. UNEXPECTED WORLDS.\n\nS"
+      ]
+    },
     "phone:home": {
       "ok": true,
       "fallback": true,

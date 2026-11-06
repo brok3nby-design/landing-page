@@ -16,7 +16,7 @@ try { ({ chromium } = await import("playwright")); }
 catch { ({ chromium } = await import(pathToFileURL(path.join(execSync("npm root -g").toString().trim(), "playwright", "index.mjs")).href)); }
 
 const APP = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
-const DIST = path.join(APP, "dist");
+const DIST = process.env.DIST || path.join(APP, "dist");
 const OUT = path.resolve(APP, "..", "diorama", "renders", "phase11", "fallback");
 fs.mkdirSync(OUT, { recursive: true });
 const TYPES = { ".html": "text/html", ".js": "text/javascript", ".css": "text/css", ".json": "application/json", ".wasm": "application/wasm",
@@ -69,7 +69,7 @@ for (const [dname, dev] of [["desktop", { viewport: { width: 1440, height: 900 }
     if (!ok) failures++;
     report.no_webgl[`${dname}:${name}`] = { ok, ...res };
     console.log(`${ok ? "ok " : "!! "}no-webgl ${dname.padEnd(7)} ${name.padEnd(18)} img=${res.image_loaded} alt=${res.alt} links=${res.links} note="${res.note}"${errors.length ? " ERR " + errors[0].slice(0, 120) : ""}`);
-    if (dname === "desktop" || name === "home") await page.screenshot({ path: path.join(OUT, `${dname}_${name}.jpg`), type: "jpeg", quality: 70 });
+    if (dname === "desktop" || name === "home") await page.screenshot({ path: path.join(OUT, `${dname}_${name}.jpg`), type: "jpeg", quality: 70, timeout: 240000 });
     await page.close();
   }
   // the desk's hotspot buttons still open their info (no 3D needed to navigate)
@@ -83,6 +83,23 @@ for (const [dname, dev] of [["desktop", { viewport: { width: 1440, height: 900 }
   if (!panel) failures++;
   console.log(`${panel ? "ok " : "!! "}no-webgl ${dname.padEnd(7)} home hotspot button opens its panel (${go})`);
   await page.close();
+  // clicking through the header tabs replaces the page each time (one <main>, new content)
+  if (dname === "desktop") {
+    const nav = await ctx.newPage();
+    await nav.goto(`${URL}/?test`, { waitUntil: "load" });
+    let ok = true; const seen = [];
+    for (const label of ["Games", "About", "WRFM", "Follow", "Passport", "Contact", "Studio"]) {
+      await nav.locator(".nav a", { hasText: new RegExp(`^${label}$`, "i") }).first().click();
+      await nav.waitForTimeout(900);
+      const r = await nav.evaluate(() => ({ mains: document.querySelectorAll("main").length, text: document.querySelector("main")?.innerText.slice(0, 40) }));
+      if (r.mains !== 1 || seen.includes(r.text)) ok = false;
+      seen.push(r.text);
+    }
+    report.no_webgl["desktop:header_tabs"] = { ok, seen };
+    if (!ok) failures++;
+    console.log(`${ok ? "ok " : "!! "}header tabs each load their own page`);
+    await nav.close();
+  }
   await ctx.close();
 }
 await noGL.close();
@@ -107,7 +124,7 @@ const gl = await chromium.launch({ args: ["--use-angle=swiftshader", "--enable-u
   if (!ok) failures++;
   report.reduced_motion.home = { ok, still, camera: b, running_css_animations: anims, errors };
   console.log(`${ok ? "ok " : "!! "}reduced-motion home: camera still=${still} css animations=${anims} errors=${errors.length}`);
-  await page.screenshot({ path: path.join(OUT, "reduced-motion_home.jpg"), type: "jpeg", quality: 70 });
+  await page.screenshot({ path: path.join(OUT, "reduced-motion_home.jpg"), type: "jpeg", quality: 70, timeout: 240000 });
   await ctx.close();
 }
 await gl.close();
