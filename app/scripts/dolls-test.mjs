@@ -56,8 +56,9 @@ await page.getByRole("button", { name: "Wind the music box" }).click();
 await frames(20);
 results.music = await D();
 await shot("04_music_box.png");
-await page.getByRole("button", { name: "Stop the music box" }).click();
-for (let k = 0; k < 12; k++) { await page.getByRole("button", { name: "Draw a card" }).click(); await idle(); }
+if ((await D()).music) await page.getByRole("button", { name: "Stop the music box" }).click();   // the tune may already be over (slow test GL)
+for (let k = 0; k < 12; k++) { await page.getByRole("button", { name: "Draw a card" }).click(); await frames(2); }   // quick clicks: each lands the last
+await idle();
 results.all = await D();
 results.all_readout = await page.locator(".dice-result").textContent();
 results.stamp = await page.evaluate(() => !!JSON.parse(localStorage.getItem("b3d-passport-v1") || "{}")?.stamps?.["full-deck"]);

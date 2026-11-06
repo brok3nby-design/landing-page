@@ -85,8 +85,20 @@ export default function DollsPlay({ scene }) {
   }
 
   // ------------------------------------------------------------ drawing a card
+  function land(a) {                                           // the card reaches its place in the fan
+    a.card.position.copy(a.slot); a.card.quaternion.copy(a.qUp);
+    S.anim = null;
+    S.drawn.push(a.n);
+    const older = S.group.children.length - SHOWN;           // keep the fan to the last few cards
+    for (let i = 0; i < older; i++) S.group.remove(S.group.children[0]);
+    blip("card", 0.4);
+    const all = S.drawn.length >= FACES.length;
+    if (all) unlock("full-deck");
+    report({ drew: true, all });
+  }
   async function draw() {
-    if (S.anim || !N.deck) return;
+    if (!N.deck) return;
+    if (S.anim) land(S.anim);                                 // impatient? the card in the air lands at once
     wakeAudio();
     if (S.drawn.length >= FACES.length) shuffle(true);
     if (!S.bag.length) S.bag = FACES.filter((f) => !S.drawn.includes(f)).sort(() => Math.random() - 0.5);
@@ -154,17 +166,7 @@ export default function DollsPlay({ scene }) {
         const f = e((a.t - 1.9) / 0.55);
         c.position.lerpVectors(a.show, a.slot, f); c.position.y += Math.sin(f * Math.PI) * 0.05;
         c.quaternion.slerpQuaternions(a.qShow, a.qUp, f);
-      } else {
-        c.position.copy(a.slot); c.quaternion.copy(a.qUp);
-        S.anim = null;
-        S.drawn.push(a.n);
-        const older = S.group.children.length - SHOWN;           // keep the fan to the last few cards
-        for (let i = 0; i < older; i++) S.group.remove(S.group.children[0]);
-        blip("card", 0.4);
-        const all = S.drawn.length >= FACES.length;
-        if (all) unlock("full-deck");
-        report({ drew: true, all });
-      }
+      } else land(a);
       busy = true;
     }
     // the lid opens while the music plays
