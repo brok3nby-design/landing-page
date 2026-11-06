@@ -24,23 +24,23 @@
   }
  },
  "after_button": {
-  "count": 1,
-  "marks": 1,
+  "count": 2,
+  "marks": 2,
   "face": {
-   "px": 0.893222558217378,
+   "px": 0.5689607929644017,
    "py": 1,
    "blink": 0,
-   "text": ""
+   "text": "YOUR ANSWERS HAVE BEEN FILED."
   }
  },
- "ruling": "YOUR ANSWERS HAVE BEEN FILED.",
- "ruling_2": "Please do not roll the dice in the office. That is Glass & Fortune's department.",
- "readout": "J.E.F.F.: Please do not roll the dice in the office. That is Glass & Fortune's department. · Forms filed: 2",
+ "ruling": "This website is in development. So am I. Neither of us has an ETA.",
+ "ruling_2": "I have seen the treasure room next door. I have filed it under 'excessive'.",
+ "readout": "J.E.F.F.: I have seen the treasure room next door. I have filed it under 'excessive'. · Forms filed: 2",
  "checks": {
   "eyes_follow_mouse": true,
   "stamp_files_a_form": true,
   "remembered_after_reload": true,
-  "stamp_button": false,
+  "stamp_button": true,
   "jeff_lines_vary": true,
   "jeff_ruling": true,
   "no_errors": true
