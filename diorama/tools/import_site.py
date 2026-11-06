@@ -276,7 +276,9 @@ def main():
                   "thumb": media("images/studio/x-logo2.png", "studio"),
                   "banner": media("images/studio/b3d.png", "studio", max_edge=1600, quality=88),   # cracked-glass logo
                   "mark": media("images/title/b3b_pp.png", "studio", max_edge=512, quality=88),    # green pixel B3
-                  "wrfm_keyart": media("images/wrfm/wrfm_keyart.jpg", "wrfm")},
+                  "wrfm_keyart": media("images/wrfm/wrfm_keyart.jpg", "wrfm"),
+                  # the brand film's thumbnail (supplied by the studio, not on the old site): app/media/studio/brand-film.webp
+                  "brand_film_poster": "media/studio/brand-film.webp"},
         "sounds": {"music_mp3": media("sounds/site_music_1.mp3", "sounds"), "music_ogg": media("sounds/site_music_1.ogg", "sounds"),
                    "cartridge": media("sounds/cartridge.mp3", "sounds")},
     }

@@ -95,7 +95,7 @@ function HomeMore({ data }) {
             <p className="eyebrow">{launched[1]?.text}</p>
             <h3>{launched[2]?.text}</h3>
             <p>{launched[3]?.text}</p>
-            <YouTube id={copy.links.brand_film_id} title="the Brok3n by Design brand film" />
+            <YouTube id={copy.links.brand_film_id} title="the Brok3n by Design brand film" poster={media(copy.brand.brand_film_poster)} />
             <p className="links"><a href={copy.links.brand_film} target="_blank" rel="noopener">Watch on YouTube ↗</a> · <a href={copy.links.brand_film_x} target="_blank" rel="noopener">View on X ↗</a></p>
           </article>
           <article className="card">
