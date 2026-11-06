@@ -1,7 +1,7 @@
 {
  "built": {
-  "commit": "a5744bf",
-  "built": "2026-11-06T05:43:08.817Z",
+  "commit": "56aef3d",
+  "built": "2026-11-06T11:37:00.825Z",
   "staging": true
  },
  "devices": {
@@ -852,11 +852,11 @@
     "best-practices": 100,
     "seo": 66
    },
-   "fcp": "6.4 s",
-   "lcp": "14.6 s",
-   "tbt": "13,380 ms",
+   "fcp": "6.5 s",
+   "lcp": "14.7 s",
+   "tbt": "15,270 ms",
    "cls": "0",
-   "transfer": "Total size was 12,730 KiB",
+   "transfer": "Total size was 7,422 KiB",
    "shifts": [],
    "failing": [
     "valid-source-maps",
@@ -865,16 +865,16 @@
   },
   "home:desktop": {
    "scores": {
-    "performance": 51,
+    "performance": 49,
     "accessibility": 100,
     "best-practices": 100,
     "seo": 66
    },
    "fcp": "1.2 s",
    "lcp": "2.5 s",
-   "tbt": "3,410 ms",
+   "tbt": "4,250 ms",
    "cls": "0",
-   "transfer": "Total size was 12,768 KiB",
+   "transfer": "Total size was 12,786 KiB",
    "shifts": [],
    "failing": [
     "valid-source-maps",
@@ -883,16 +883,16 @@
   },
   "games:mobile": {
    "scores": {
-    "performance": 29,
+    "performance": 28,
     "accessibility": 100,
     "best-practices": 100,
     "seo": 66
    },
-   "fcp": "6.3 s",
-   "lcp": "12.1 s",
-   "tbt": "3,880 ms",
+   "fcp": "6.5 s",
+   "lcp": "12.0 s",
+   "tbt": "7,290 ms",
    "cls": "0",
-   "transfer": "Total size was 4,302 KiB",
+   "transfer": "Total size was 3,438 KiB",
    "shifts": [
     "main#main > div.page > section.content > h1.title 0.000"
    ],
@@ -903,16 +903,16 @@
   },
   "games:desktop": {
    "scores": {
-    "performance": 51,
+    "performance": 50,
     "accessibility": 100,
     "best-practices": 100,
     "seo": 66
    },
    "fcp": "1.2 s",
    "lcp": "2.7 s",
-   "tbt": "950 ms",
+   "tbt": "960 ms",
    "cls": "0",
-   "transfer": "Total size was 5,664 KiB",
+   "transfer": "Total size was 5,665 KiB",
    "shifts": [
     "main#main > div.page > section.content > h1.title 0.000"
    ],
@@ -928,11 +928,11 @@
     "best-practices": 100,
     "seo": 66
    },
-   "fcp": "6.4 s",
+   "fcp": "6.6 s",
    "lcp": "11.4 s",
-   "tbt": "11,530 ms",
+   "tbt": "15,530 ms",
    "cls": "0.001",
-   "transfer": "Total size was 9,076 KiB",
+   "transfer": "Total size was 4,914 KiB",
    "shifts": [
     "main#main > div.page > section.content > h1.title 0.001"
    ],
@@ -943,16 +943,16 @@
   },
   "project:desktop": {
    "scores": {
-    "performance": 55,
+    "performance": 56,
     "accessibility": 100,
     "best-practices": 100,
     "seo": 66
    },
    "fcp": "1.2 s",
    "lcp": "2.0 s",
-   "tbt": "1,650 ms",
+   "tbt": "1,780 ms",
    "cls": "0.001",
-   "transfer": "Total size was 9,115 KiB",
+   "transfer": "Total size was 9,116 KiB",
    "shifts": [
     "main#main > div.page > section.content > h1.title 0.001"
    ],
@@ -965,9 +965,9 @@
  "sizes": {
   "js_total_kb": 3887,
   "js_largest": [
-   "react-three-rapier.esm-DPAMNn6p.js 2208 KB",
-   "Scene-CSiFPXCH.js 1207 KB",
-   "index-BdpJkwK-.js 348 KB"
+   "react-three-rapier.esm-ETBhJgtn.js 2208 KB",
+   "Scene-CvtuAZdB.js 1207 KB",
+   "index-mIw-5HzK.js 349 KB"
   ],
   "models_mb": {
    "studio_desk.glb": 9.71,
