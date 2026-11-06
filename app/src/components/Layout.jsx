@@ -59,6 +59,7 @@ export default function Layout() {
         <Robot />
       </footer>
       <StampToast />
+      <BackToTop key={pathname} />
       {__BUILD__.staging && (
         <aside aria-label="Staging notice">
           <a className="staging-badge" href={`${import.meta.env.BASE_URL}version.json`} title={`Build ${__BUILD__.commit} · ${__BUILD__.date}`}>
@@ -68,5 +69,27 @@ export default function Layout() {
       )}
       <Entrance wordmark={data?.copy.brand.wordmark} />
     </div>
+  );
+}
+
+// "Back to top": appears bottom-right once the page has been scrolled down a screen or so (only on pages long
+// enough to scroll); smooth unless reduced motion. Focus moves to the top of the page for keyboard users.
+function BackToTop() {
+  const [show, setShow] = useState(false);
+  useEffect(() => {
+    const on = () => setShow(window.scrollY > Math.min(600, window.innerHeight * 0.8));
+    on();
+    addEventListener("scroll", on, { passive: true }); addEventListener("resize", on);
+    return () => { removeEventListener("scroll", on); removeEventListener("resize", on); };
+  }, []);
+  const up = () => {
+    const still = matchMedia("(prefers-reduced-motion: reduce)").matches || document.documentElement.classList.contains("b3d-still");
+    window.scrollTo({ top: 0, behavior: still ? "auto" : "smooth" });
+    document.querySelector(".wordmark")?.focus({ preventScroll: true });
+  };
+  return (
+    <button type="button" className={`to-top${show ? " show" : ""}`} onClick={up} aria-hidden={!show} tabIndex={show ? 0 : -1}>
+      <span aria-hidden="true">↑</span> Back to top
+    </button>
   );
 }

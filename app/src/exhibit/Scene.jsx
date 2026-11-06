@@ -327,7 +327,7 @@ function useKeepOut(ctl, boxes) {
 
 // ---------------------------------------------------------------- camera rig
 const SHIFT = parseFloat(new URLSearchParams(location.search).get("shift")) || 0.05;   // share of the view width
-function Rig({ box, model, fit, intro: introMove, view, frame: FRAME, frameOrigin, homeScale = 0.86, onWheelHint, under, underView, selected, apiRef, colliders, focusLift = 0, focusScale = 2.1 }) {
+function Rig({ box, model, fit, intro: introMove, view, frame: FRAME, frameOrigin, homeScale = 0.86, onWheelHint, under, underView, selected, apiRef, colliders, focusLift = 0, focusScale = 2.1, smartFocus = false }) {
   const ctl = useRef();
   const camera = useThree((s) => s.camera);
   const size = useThree((s) => s.size);
@@ -484,6 +484,37 @@ function Rig({ box, model, fit, intro: introMove, view, frame: FRAME, frameOrigi
     wasUnder.current = under;
   }, [under]);   // eslint-disable-line react-hooks/exhaustive-deps
 
+  // smartFocus: choose the angle to look at the selected object from. Candidate directions around the hero
+  // angle are scored by how much of the object is hidden behind other parts of the scene (rays from points
+  // on the object to the camera), whether the camera would sit inside a keep-out box or under the floor, and
+  // how far they turn away from the hero angle. The clearest, most natural view wins.
+  const bestView = (obj, sphere, back = 1) => {
+    const c = sphere.center, ray = new THREE.Raycaster();
+    const dist = ctl.current.getDistanceToFitSphere(sphere.radius) * back;
+    const own = new Set(); obj.traverse((o) => own.add(o));
+    const meshes = []; model.traverse((o) => { if (o.isMesh && o.visible && !own.has(o)) meshes.push(o); });
+    const ob = new THREE.Box3().setFromObject(obj), os = ob.getSize(new THREE.Vector3()).multiplyScalar(0.3);
+    const pts = [c.clone(), ...[[1, 1], [-1, 1], [1, -1], [-1, -1]].map(([a, b]) => c.clone().add(new THREE.Vector3(a * os.x, os.y, b * os.z)))];
+    const homeDir = home.current.fwd.clone().negate();                // object -> camera, as in the hero view
+    const az0 = Math.atan2(homeDir.x, homeDir.z);
+    let best = null;
+    for (const dAz of [0, -20, 20, -40, 40, -60, 60, -85, 85]) for (const el of [22, 34, 48, 62]) {
+      const az = az0 + THREE.MathUtils.degToRad(dAz), e = THREE.MathUtils.degToRad(el);
+      const dir = new THREE.Vector3(Math.sin(az) * Math.cos(e), Math.sin(e), Math.cos(az) * Math.cos(e));
+      const cam = c.clone().addScaledVector(dir, dist);
+      if (cam.y < box.min.y + 0.05 || colliders.some((b) => b.containsPoint(cam))) continue;
+      let hidden = 0;
+      for (const p of pts) {
+        const to = cam.clone().sub(p), len = to.length();
+        ray.set(p, to.normalize()); ray.far = len; ray.near = 0.002;
+        if (ray.intersectObjects(meshes, false).length) hidden++;
+      }
+      const score = (hidden / pts.length) * 10 + Math.abs(dAz) / 90 + Math.abs(el - 34) / 70;
+      if (!best || score < best.score) best = { score, cam, dist };
+    }
+    return best || { cam: c.clone().addScaledVector(homeDir, dist), dist };
+  };
+
   useEffect(() => {                                   // focus the selected object, or go home
     const cc = ctl.current;
     if (!cc || !home.current) return;
@@ -493,6 +524,22 @@ function Rig({ box, model, fit, intro: introMove, view, frame: FRAME, frameOrigi
       sphere.center.y += focusLift;                     // frame where the object is going (lifted case)
       const r = Math.max(sphere.radius, focusLift ? 0.06 : 0.1);
       sphere.radius = r * focusScale;                   // keep some context around the object
+      if (smartFocus && model) {
+        // place the object in the clear part of the view: right of the info panel on wide screens (the panel
+        // is ~400 px wide, bottom-left), above it on phones (full-width panel at the bottom); and back off a
+        // little so it fits that smaller area with some context
+        const W = size.width, H = size.height, wideP = W > 700;
+        const freeL = wideP ? Math.min(W * 0.55, 420) : 0;
+        const tx = wideP ? ((freeL + W) / 2) / W * 2 - 1 : 0;            // NDC x of the free area's centre
+        const ty = wideP ? 0.12 : 0.42;                                     // NDC y (up is +)
+        const frac = wideP ? (W - freeL) / W : 0.55;
+        const back = THREE.MathUtils.clamp(0.65 / frac, 1, 1.5);
+        const best = bestView(selected, sphere, back);
+        const tanV = Math.tan(THREE.MathUtils.degToRad(camera.fov) / 2), tanH = tanV * (W / H);
+        cc.setLookAt(best.cam.x, best.cam.y, best.cam.z, sphere.center.x, sphere.center.y, sphere.center.z, smooth);
+        cc.setFocalOffset(-tx * best.dist * tanH, ty * best.dist * tanV, 0, smooth);
+        return;
+      }
       cc.fitToSphere(sphere, smooth);
       // shift the framing so the object sits upper-right, clear of the info panel (bottom-left)
       const wide = size.width > 900;
@@ -564,6 +611,19 @@ function Content({ config, selectedId, onSelect, under, apiRef, quality, animSta
         const p = o.getWorldPosition(new THREE.Vector3());
         return { x: p.x, y: p.y, z: p.z, bookAngle: state.scene.userData.bookAngle };
       },
+      // the selected object's on-screen box (canvas pixels) - tests check it is in view and clear of the panel
+      selectedRect: () => {
+        const o = state && selectedId ? state.index[selectedId] : null;
+        if (!o) return null;
+        const b = new THREE.Box3().setFromObject(o), v = new THREE.Vector3();
+        let x0 = Infinity, x1 = -Infinity, y0 = Infinity, y1 = -Infinity;
+        for (const x of [b.min.x, b.max.x]) for (const y of [b.min.y, b.max.y]) for (const z of [b.min.z, b.max.z]) {
+          v.set(x, y, z).project(camera);
+          const px = (v.x + 1) / 2 * size.width, py = (1 - v.y) / 2 * size.height;
+          x0 = Math.min(x0, px); x1 = Math.max(x1, px); y0 = Math.min(y0, py); y1 = Math.max(y1, py);
+        }
+        return { x0, x1, y0, y1, w: size.width, h: size.height };
+      },
       project: (name) => {
         const o = state?.scene.getObjectByName(name);
         if (!o) return null;
@@ -591,7 +651,7 @@ function Content({ config, selectedId, onSelect, under, apiRef, quality, animSta
         <>
           <Lights box={state.box} kind={config.lights || "exhibit"} under={under} shadows={quality.shadows} />
           <Rig box={state.box} model={state.scene} fit={config.fit} intro={config.intro} view={view} frame={FRAME_ID && views?.cameras?.[FRAME_ID]} frameOrigin={config.frameOrigin} homeScale={config.homeScale} onWheelHint={onWheelHint} under={under} underView={config.underView} selected={selected} apiRef={apiRef} colliders={colliders}
-               focusLift={lifting ? 0.07 : 0} focusScale={config.focusScale} />
+               focusLift={lifting ? 0.07 : 0} focusScale={config.focusScale} smartFocus={config.smartFocus} />
           {lifting && <LiftTurn index={state.index} selectedId={selectedId} />}
           {config.animation === "notebook" && <NotebookOpen scene={state.scene} open={animState?.open ?? true} />}
           {config.play === "gold" && <Suspense fallback={null}><GoldPlay scene={state.scene} onSelect={onSelect} /></Suspense>}

@@ -1,4 +1,4 @@
-import { useCallback, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Exhibit from "../exhibit/Exhibit.jsx";
 import InfoPanel, { Action } from "../components/InfoPanel.jsx";
@@ -31,11 +31,27 @@ export default function Home() {
   const select = useCallback((id) => {
     setSelectedId(id);
     if (!id) return;
+    setPicked(true);
     if (STAMPS[id]) unlock(STAMPS[id]);
     if (/^book_/.test(id)) unlock("bookworm");
     if (id === "egg_qa_sticker") unlock("visit-under-the-radar");
     if (id === "duck") quack();
   }, []);
+  // draw the eye to the desk's options: every couple of seconds one random option glints (a red border sweep),
+  // until the visitor picks one. Reduced motion: none (CSS).
+  const [glint, setGlint] = useState(-1);
+  const [picked, setPicked] = useState(false);
+  useEffect(() => {
+    if (picked) { setGlint(-1); return; }
+    const n = page.exhibit.hotspots.length;
+    let last = -1;
+    const t = setInterval(() => {
+      if (document.hidden) return;
+      let k = Math.floor(Math.random() * n); if (k === last) k = (k + 1) % n;
+      last = k; setGlint(k);
+    }, 2200);
+    return () => clearInterval(t);
+  }, [picked, page.exhibit.hotspots.length]);
   const item = selectedId && data ? { label: HOTSPOT_LABELS[selectedId], ...resolveInteraction(data.interactions, selectedId) } : null;
   const copy = data?.copy;
   const hero = section(copy, "home", null).map((i) => i.text);
@@ -57,11 +73,11 @@ export default function Home() {
               : <Link viewTransition key={c.to} to={c.to} className={`btn${c.primary ? " primary" : ""}`}>{c.label}</Link>)}
           </div>
           <div className="hotspots">
-            <h2 id="explore">Explore the desk</h2>
+            <h2 id="explore" className={picked ? "" : "pulse"}><span className="pulse-dot" aria-hidden="true" />Explore the desk</h2>
             <ul aria-labelledby="explore">
-              {page.exhibit.hotspots.map((id) => (
+              {page.exhibit.hotspots.map((id, k) => (
                 <li key={id}>
-                  <button className="chip" aria-pressed={selectedId === id}
+                  <button className={`chip${glint === k ? " glint" : ""}`} aria-pressed={selectedId === id}
                           onClick={() => select(selectedId === id ? null : id)}>{HOTSPOT_LABELS[id]}</button>
                 </li>
               ))}

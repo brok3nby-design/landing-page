@@ -406,3 +406,32 @@ blockquote { margin: 18px 0; padding-left: 18px; border-left: 2px solid var(--re
 .video-poster.yt-thumb { overflow: hidden; }
 .video-thumb { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 0; }
 .video-poster > span, .video-poster > small { position: relative; z-index: 1; }
+
+/* home: "Explore the desk" pulses (a beating red dot + a soft glow on the label) until the visitor picks an
+   option, and one random option at a time glints with a red border sweep */
+.hotspots h2 { display: flex; align-items: center; gap: 10px; }
+.pulse-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--red-hi); flex: none; }
+.hotspots h2.pulse { animation: explore-glow 2.2s ease-in-out infinite; }
+.hotspots h2.pulse .pulse-dot { animation: explore-dot 2.2s ease-out infinite; }
+.hotspots h2:not(.pulse) .pulse-dot { background: var(--faint); }
+@keyframes explore-glow { 0%, 100% { color: var(--muted); text-shadow: none; } 50% { color: var(--fg); text-shadow: 0 0 14px rgba(230, 40, 50, .55); } }
+@keyframes explore-dot { 0% { box-shadow: 0 0 0 0 rgba(230, 40, 50, .7); } 70% { box-shadow: 0 0 0 10px rgba(230, 40, 50, 0); } 100% { box-shadow: 0 0 0 0 rgba(230, 40, 50, 0); } }
+.chip.glint { animation: chip-glint 1.6s ease-out; }
+@keyframes chip-glint {
+  0% { border-color: var(--faint); box-shadow: none; color: var(--muted); }
+  25% { border-color: var(--red-hi); box-shadow: 0 0 0 1px var(--red-hi), 0 0 16px rgba(230, 40, 50, .45); color: var(--fg); }
+  100% { border-color: var(--faint); box-shadow: none; color: var(--muted); }
+}
+@media (prefers-reduced-motion: reduce) { .hotspots h2.pulse, .hotspots h2.pulse .pulse-dot, .chip.glint { animation: none; } }
+:root.b3d-still .hotspots h2.pulse, :root.b3d-still .hotspots h2.pulse .pulse-dot, :root.b3d-still .chip.glint { animation: none; }
+
+/* back to top: bottom-right, fades in after scrolling; sits above a Passport stamp toast when one is showing */
+.to-top { position: fixed; right: 16px; bottom: 16px; z-index: 41; display: inline-flex; align-items: center; gap: 8px;
+          min-height: 44px; padding: 0 16px; font: 600 11px/1 var(--sans); letter-spacing: .2em; text-transform: uppercase;
+          color: var(--fg); background: rgba(8,8,8,.88); border: 1px solid var(--faint); cursor: pointer; backdrop-filter: blur(6px);
+          opacity: 0; transform: translateY(10px); pointer-events: none; transition: opacity .25s, transform .25s, border-color .2s; }
+.to-top.show { opacity: 1; transform: none; pointer-events: auto; }
+.to-top:hover, .to-top:focus-visible { border-color: var(--red-hi); }
+.to-top span { font-size: 14px; letter-spacing: 0; color: var(--red-hi); }
+.site:has(.toast) .to-top { bottom: 96px; }
+.entrance-open .to-top { display: none; }

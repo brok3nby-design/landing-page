@@ -29,6 +29,8 @@ export const PAGES = {
       lights: "desk",                // runtime copy of the Cycles desk rig (else the generic exhibit rig)
       // fit the whole desk (platform included) between the hint line and the buttons, never cut off
       fit: { fill: 0.9, side: 0.04 },
+      // clicking an item: the camera picks the clearest angle onto it (not just a zoom along the current view)
+      smartFocus: true,
       // first load: swing in from the front, a little higher and farther out, then settle on the hero angle
       intro: { azimuth: -32, elevation: 12, distance: 1.45, time: 1.25 },
       fallback: "fallback/desk.png",
