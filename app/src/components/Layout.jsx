@@ -5,6 +5,7 @@ import { useSiteData, media } from "../content/data.js";
 import { setProjects } from "../site/passport.js";
 import { startEffects } from "../site/effects.js";
 import { Entrance, MusicControl, Robot, StampToast, useScrollSecret } from "./Chrome.jsx";
+import RadioBar from "./RadioBar.jsx";
 
 export default function Layout() {
   const { pathname } = useLocation();
@@ -59,6 +60,7 @@ export default function Layout() {
         <Robot />
       </footer>
       <StampToast />
+      <RadioBar />
       <BackToTop />{/* no key: a second sibling keyed by pathname would collide with <main key={pathname}> */}
       {__BUILD__.staging && (
         <aside aria-label="Staging notice">

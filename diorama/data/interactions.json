@@ -305,11 +305,11 @@
    "scope": "home",
    "object": "PROP_Radio",
    "action": "easter-egg",
-   "idea": "plays a WRFM clip (callers, sponsors, Vera); a different one each click; Stop / Next in the exhibit",
+   "idea": "two buttons: tune in to WRFM 97.1 live (in sync with the real station, keeps playing on every page) or play a funny clip",
    "panel": {
     "title": "WRFM 97.1",
     "eyebrow": "ON THE DESK RADIO",
-    "text": "Callers, sponsors and Vera Lang herself. Click the radio again for a different clip, or stop it any time."
+    "text": "Tune in to the station live: the same song, at the same second, as everyone listening right now. It keeps playing while you look around the site. Or play one of the funny clips: callers, sponsors and Vera Lang herself."
    },
    "links": [
     {

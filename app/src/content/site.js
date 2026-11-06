@@ -97,7 +97,7 @@ export const HOTSPOT_LABELS = {
   contact_card: "Business cards — contact",
   passport: "Passport booklet — your stamps",
   graffiti: "Guestbook — Graffiti",
-  radio: "Radio — WRFM clips",
+  radio: "Radio — WRFM live & clips",
   collectible_a: "Figurine — my gaming history",
   "project_labyrinth-fate": "Game box — The Maze",
   "project_macabre-dolls": "Game box — Macabre Dolls",

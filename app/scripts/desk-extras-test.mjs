@@ -38,8 +38,10 @@ const check = (k, ok, v) => { results[k] = { ok, v }; if (!ok) fail++; console.l
   await page.goto(`${URL}/?test`);
   await page.waitForFunction(() => window.__exhibit?.ready, null, { timeout: 300000 });
   const ids = await page.evaluate(() => [...document.querySelectorAll(".hotspots .chip")].map((b) => b.textContent));
-  check("radio and guestbook options listed", ids.some((t) => /Radio/.test(t)) && ids.some((t) => /Guestbook/.test(t)), ids);
-  await page.locator(".hotspots .chip", { hasText: "Radio — WRFM clips" }).click();
+  check("radio and guestbook options listed", ids.some((t) => /Radio — WRFM/.test(t)) && ids.some((t) => /Guestbook/.test(t)), ids);
+  await page.locator(".hotspots .chip", { hasText: "Radio — WRFM" }).click();
+  check("radio panel offers live and clips", (await page.locator(".radio-actions button").allInnerTexts()).join("|").toLowerCase() === "tune in live|funny clip");
+  await page.getByRole("button", { name: "Funny clip" }).click();
   await page.waitForSelector(".radio-bar", { timeout: 20000 }).catch(() => {});
   const t1 = await page.locator(".radio-now").textContent().catch(() => null);
   check("radio plays with a now-playing bar", !!t1, t1);

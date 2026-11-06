@@ -6,7 +6,8 @@
       "Notebook",
       "Monitors — brand film",
       "Headphones — WRFM Radio",
-      "Radio — WRFM clips",
+      "Radio — WRFM live & clips",
+      "Figurine — my gaming history",
       "Business cards — contact",
       "Passport booklet — your stamps",
       "Guestbook — Graffiti",
@@ -15,20 +16,23 @@
       "Game box — Juicebox"
     ]
   },
+  "radio panel offers live and clips": {
+    "ok": true
+  },
   "radio plays with a now-playing bar": {
     "ok": true,
-    "v": "WRFM 97.1 · on the desk radioCaller: the intern"
+    "v": "WRFM 97.1 · on the desk radioVera: still here"
   },
   "Next always changes the clip": {
     "ok": true,
     "v": [
-      "WRFM 97.1 · on the desk radioCaller: the intern",
-      "WRFM 97.1 · on the desk radioDial 666",
       "WRFM 97.1 · on the desk radioVera: still here",
-      "WRFM 97.1 · on the desk radioCaller: one checkbox",
-      "WRFM 97.1 · on the desk radioAn HR memo from Cheryl",
-      "WRFM 97.1 · on the desk radioAfter-hours intake",
-      "WRFM 97.1 · on the desk radioSponsor: the Debug Investigator"
+      "WRFM 97.1 · on the desk radioVera signs on",
+      "WRFM 97.1 · on the desk radioSponsor: Rubber Duck Rental",
+      "WRFM 97.1 · on the desk radioVera teases the phone line",
+      "WRFM 97.1 · on the desk radioCaller: the intern",
+      "WRFM 97.1 · on the desk radioCaller: Mitch from IT",
+      "WRFM 97.1 · on the desk radioAn HR memo from Cheryl"
     ]
   },
   "Stop ends it": {
@@ -77,8 +81,8 @@
     "w": 689.609375,
     "h": 760,
     "centre": {
-      "x": 344.8046875,
-      "y": 365.9600249380029
+      "x": 362.8120040389179,
+      "y": 345.39364712254525
     }
   }
 }

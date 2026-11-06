@@ -14,7 +14,7 @@ export function Action({ a, primary }) {
   return <span className="btn" aria-disabled="true">{a.label} · soon</span>;
 }
 
-export default function InfoPanel({ item, onClose }) {
+export default function InfoPanel({ item, onClose, children }) {
   const ref = useRef(null);
   useEffect(() => { ref.current?.focus(); }, [item?.id]);
   useEffect(() => {
@@ -31,6 +31,7 @@ export default function InfoPanel({ item, onClose }) {
       <h2 id="panel-title" tabIndex={-1} ref={ref}>{panel?.title || item.label}</h2>
       {panel?.text && <p>{panel.text}</p>}
       {item.meta && <p className="meta">{item.meta}</p>}
+      {children}
       {(button || links?.length) && (
         <div className="panel-actions">
           {button && <Action a={button} primary />}

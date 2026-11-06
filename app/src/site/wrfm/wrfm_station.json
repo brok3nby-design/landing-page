@@ -1,0 +1,3886 @@
+{
+  "station": {
+    "id": "wrfm",
+    "name": "WRFM",
+    "subtitle": "Workplace Relief Frequency",
+    "tagline": "Authorized After Hours",
+    "voice": {
+      "hostName": "Vera Lang",
+      "styleNotes": "Smooth, late-night, corporate-sultry; humorous but controlled; occasional affectionate roast."
+    },
+    "logo": {
+      "type": "ipfs",
+      "cid": "bafkreibchrklttmn2pl7niceg44zqgaljcy75hplw7dn65x3ln6bgyt64a"
+    }
+  },
+  "rules": {
+    "blockFlow": [
+      "song",
+      "post_song_chatter",
+      "pre_song_chatter",
+      "song"
+    ],
+    "chatterChances": {
+      "post_song": 0.85,
+      "pre_song": 0.25,
+      "hourly_id": 0.5,
+      "vera_ident": 0.25,
+      "special_event": 0.15
+    },
+    "cooldowns": {
+      "clipMinMinutes": 25,
+      "categoryMinMinutes": {
+        "post_song": 6,
+        "pre_song": 8,
+        "hourly_id": 12,
+        "vera_ident": 20,
+        "special_event": 30
+      }
+    },
+    "spacing": {
+      "minSecondsBetweenAnyChatter": 18,
+      "avoidSameClipWithinMinutes": 90,
+      "avoidSameSpeakerBackToBack": true
+    },
+    "commercialBreaks": {
+      "enabled": true,
+      "sandbox_enabled": true,
+      "breakEveryNSongs": {
+        "min": 2,
+        "max": 4
+      },
+      "blockComposition": [
+        {
+          "weight": 0.4,
+          "sequence": [
+            "commercial"
+          ]
+        },
+        {
+          "weight": 0.2,
+          "sequence": [
+            "commercial",
+            "station_id"
+          ]
+        },
+        {
+          "weight": 0.15,
+          "sequence": [
+            "caller",
+            "station_id"
+          ]
+        },
+        {
+          "weight": 0.1,
+          "sequence": [
+            "commercial",
+            "caller"
+          ]
+        },
+        {
+          "weight": 0.1,
+          "sequence": [
+            "promo"
+          ]
+        },
+        {
+          "weight": 0.05,
+          "sequence": [
+            "special"
+          ]
+        }
+      ],
+      "cooldowns": {
+        "sameCommercialMinMinutes": 60,
+        "breakBlockMinMinutes": 15
+      },
+      "scheduling": {
+        "note": "timeBuckets on each commercial controls which time slots it plays. null = any time.",
+        "preemptChatter": false
+      }
+    },
+    "startupSequence": {
+      "trigger": "after_first_song",
+      "pool": "station_intros",
+      "pickStrategy": "random_matching_timebucket",
+      "count": 1,
+      "mode_exempt": true,
+      "timeBucketAware": true,
+      "fallback": "random",
+      "note": "Plays once per page load after the first song completes. Always fires regardless of mode or sandbox state. Picks one random intro from station_intros whose timeBuckets matches the current hour. Falls back to any random intro if no match found."
+    },
+    "timeBuckets": [
+      {
+        "id": "morning",
+        "startHour": 6,
+        "endHour": 12
+      },
+      {
+        "id": "afternoon",
+        "startHour": 12,
+        "endHour": 18
+      },
+      {
+        "id": "evening",
+        "startHour": 18,
+        "endHour": 22
+      },
+      {
+        "id": "late",
+        "startHour": 22,
+        "endHour": 2
+      },
+      {
+        "id": "graveyard",
+        "startHour": 2,
+        "endHour": 6
+      }
+    ]
+  },
+  "mix": {
+    "defaultSongGain": 1,
+    "defaultVoiceGain": 1,
+    "ducking": {
+      "enabled": true,
+      "duckTo": 0.35,
+      "attackMs": 120,
+      "releaseMs": 300
+    },
+    "fades": {
+      "songFadeOutMs": 900,
+      "songFadeInMs": 700
+    }
+  },
+  "rotation": {
+    "songStrategy": "shuffle_no_repeat_window",
+    "songNoRepeatWindow": 6,
+    "chatterStrategy": "weighted_by_tags_with_cooldowns",
+    "chatterNoRepeatWindow": 18
+  },
+  "artists": {
+    "The Leland Royce Quartet": {
+      "bio": "Formed in the smoky jazz clubs of downtown, The Leland Royce Quartet became the sound of late-night corporate America. Their signature blend of smooth jazz and ambient textures made them WRFM's most-requested act of 1957.",
+      "formed": "1954",
+      "genre": "Smooth Jazz / Ambient",
+      "label": "Midnight Hour Records",
+      "members": [
+        {
+          "name": "Leland Royce",
+          "role": "Piano & Bandleader"
+        },
+        {
+          "name": "Chester Mills",
+          "role": "Upright Bass"
+        },
+        {
+          "name": "Dominic Vale",
+          "role": "Drums & Percussion"
+        },
+        {
+          "name": "Arthur Keene",
+          "role": "Saxophone"
+        }
+      ]
+    },
+    "Marian Bell & Her Afterhours Trio": {
+      "bio": "Marian Bell's sultry vocals and her trio's understated backing became synonymous with the quiet rebellion of office workers everywhere. When the lights went down, her music came on.",
+      "formed": "1955",
+      "genre": "Vocal Jazz / Lounge",
+      "label": "Velvet Tone Studios",
+      "members": [
+        {
+          "name": "Marian Bell",
+          "role": "Vocals"
+        },
+        {
+          "name": "Tommy Harte",
+          "role": "Piano"
+        },
+        {
+          "name": "Winston Cole",
+          "role": "Bass"
+        }
+      ]
+    },
+    "Victor Hale and the Night Shift": {
+      "bio": "Some say Victor Hale never left the office. His band, assembled from fellow night-shift workers, created the perfect soundtrack for those who stayed behind when everyone else went home.",
+      "formed": "1956",
+      "genre": "Elevator Jazz / Ambient",
+      "label": "Graveyard Groove Records",
+      "members": [
+        {
+          "name": "Victor Hale",
+          "role": "Vibraphone"
+        },
+        {
+          "name": "Earl Simmons",
+          "role": "Guitar"
+        },
+        {
+          "name": "Ned Crawford",
+          "role": "Bass"
+        },
+        {
+          "name": "Phil Marsh",
+          "role": "Brushes"
+        }
+      ]
+    },
+    "The Blue Comet Orchestra": {
+      "bio": "Inspired by the endless commute, The Blue Comet Orchestra captured the rhythm of the rails and the hum of the city in their expansive arrangements, becoming a staple for weary travelers tuning in after dark.",
+      "formed": "1957",
+      "genre": "Orchestral Jazz / Swing",
+      "label": "Comet Trail Recordings",
+      "members": [
+        {
+          "name": "Reginald Voss",
+          "role": "Conductor & Trumpet"
+        },
+        {
+          "name": "Sylvia Kane",
+          "role": "Violin"
+        },
+        {
+          "name": "Howard Blaine",
+          "role": "Trombone"
+        },
+        {
+          "name": "Marcus Reed",
+          "role": "Drums"
+        },
+        {
+          "name": "Eleanor Tate",
+          "role": "Harp"
+        }
+      ]
+    },
+    "Ellis Grant Combo": {
+      "bio": "Ellis Grant and his combo brought a touch of sophistication to the everyday grind, their mellow tunes echoing through empty hallways and providing solace to the overworked soul.",
+      "formed": "1958",
+      "genre": "Cool Jazz / Bebop",
+      "label": "Grant Avenue Sounds",
+      "members": [
+        {
+          "name": "Ellis Grant",
+          "role": "Tenor Saxophone & Leader"
+        },
+        {
+          "name": "Frankie Lowe",
+          "role": "Piano"
+        },
+        {
+          "name": "Geraldine Moss",
+          "role": "Bass"
+        },
+        {
+          "name": "Ray Donovan",
+          "role": "Drums"
+        }
+      ]
+    },
+    "The Candlelight Four": {
+      "bio": "With soft harmonies and gentle strums, The Candlelight Four illuminated the dim corners of corporate life, their music a flickering beacon for those burning the midnight oil.",
+      "formed": "1959",
+      "genre": "Vocal Harmony / Lounge",
+      "label": "Flicker Light Records",
+      "members": [
+        {
+          "name": "Beatrice Lane",
+          "role": "Lead Vocals"
+        },
+        {
+          "name": "Clifford Hayes",
+          "role": "Guitar & Vocals"
+        },
+        {
+          "name": "Doris Finch",
+          "role": "Vocals & Percussion"
+        },
+        {
+          "name": "Owen Pratt",
+          "role": "Bass & Vocals"
+        }
+      ]
+    },
+    "Ruby Fontaine Ensemble": {
+      "bio": "Ruby Fontaine's ensemble wove tales of urban solitude with their intricate melodies, becoming the go-to sound for reflective moments in the bustling world of mid-century business.",
+      "formed": "1953",
+      "genre": "Chamber Jazz / Ambient",
+      "label": "Fontaine Echoes",
+      "members": [
+        {
+          "name": "Ruby Fontaine",
+          "role": "Flute & Leader"
+        },
+        {
+          "name": "Leonard Sparks",
+          "role": "Cello"
+        },
+        {
+          "name": "Vivian Holt",
+          "role": "Piano"
+        },
+        {
+          "name": "Theodore Bain",
+          "role": "Clarinet"
+        }
+      ]
+    },
+    "Harold Finch & His Soft Signals": {
+      "bio": "Harold Finch's Soft Signals transmitted subtle waves of calm through the airwaves, their understated jazz perfect for signaling the end of a long day in the office towers.",
+      "formed": "1954",
+      "genre": "Ambient Jazz / Electronic Touches",
+      "label": "Signal Wave Studios",
+      "members": [
+        {
+          "name": "Harold Finch",
+          "role": "Keyboards & Leader"
+        },
+        {
+          "name": "Marvin Quill",
+          "role": "Synthesizer"
+        },
+        {
+          "name": "Lila Greene",
+          "role": "Bass"
+        },
+        {
+          "name": "Sidney Vale",
+          "role": "Percussion"
+        }
+      ]
+    },
+    "The Midtown Reverie": {
+      "bio": "Drifting through the skyscrapers, The Midtown Reverie's dreamy compositions captured the essence of city daydreams, offering an escape for the desk-bound dreamers.",
+      "formed": "1955",
+      "genre": "Dream Jazz / Ambient",
+      "label": "Reverie Records",
+      "members": [
+        {
+          "name": "Felix Arden",
+          "role": "Guitar & Leader"
+        },
+        {
+          "name": "Nora Blaine",
+          "role": "Vocals"
+        },
+        {
+          "name": "Calvin Drew",
+          "role": "Drums"
+        },
+        {
+          "name": "Esther Kline",
+          "role": "Saxophone"
+        }
+      ]
+    },
+    "Clara West with the Low Lamps": {
+      "bio": "Clara West's haunting voice, accompanied by the Low Lamps' dim glow of instrumentation, provided the soundtrack for whispered conversations in shadowed boardrooms.",
+      "formed": "1956",
+      "genre": "Vocal Jazz / Noir",
+      "label": "Low Lamp Recordings",
+      "members": [
+        {
+          "name": "Clara West",
+          "role": "Vocals"
+        },
+        {
+          "name": "Jasper Thorne",
+          "role": "Piano"
+        },
+        {
+          "name": "Milton Grey",
+          "role": "Bass"
+        },
+        {
+          "name": "Rita Voss",
+          "role": "Harp"
+        }
+      ]
+    },
+    "Gideon Marsh & the Fluorescents": {
+      "bio": "Under the harsh office lights, Gideon Marsh & the Fluorescents turned fluorescence into funk, their upbeat yet mellow tracks keeping the night crew energized.",
+      "formed": "1957",
+      "genre": "Funk Jazz / Ambient",
+      "label": "Fluorescent Beats",
+      "members": [
+        {
+          "name": "Gideon Marsh",
+          "role": "Trumpet & Leader"
+        },
+        {
+          "name": "Barry Knox",
+          "role": "Guitar"
+        },
+        {
+          "name": "Selma Reed",
+          "role": "Keyboards"
+        },
+        {
+          "name": "Toby Hale",
+          "role": "Drums"
+        }
+      ]
+    },
+    "The Hollis Avenue Trio": {
+      "bio": "From the streets of Hollis Avenue came this trio's smooth grooves, embodying the pulse of urban after-hours life for those navigating the corporate ladder.",
+      "formed": "1958",
+      "genre": "Street Jazz / Lounge",
+      "label": "Avenue Groove Records",
+      "members": [
+        {
+          "name": "Derek Hollis",
+          "role": "Saxophone"
+        },
+        {
+          "name": "Irene Faye",
+          "role": "Piano"
+        },
+        {
+          "name": "Lloyd Pierce",
+          "role": "Bass"
+        }
+      ]
+    },
+    "Leonard Pike Ensemble": {
+      "bio": "Leonard Pike's ensemble delved into the depths of quiet introspection, their music a pike through the monotony of daily routines in the business world.",
+      "formed": "1959",
+      "genre": "Experimental Jazz / Ambient",
+      "label": "Pike Depth Studios",
+      "members": [
+        {
+          "name": "Leonard Pike",
+          "role": "Clarinet & Leader"
+        },
+        {
+          "name": "Gloria Stone",
+          "role": "Violin"
+        },
+        {
+          "name": "Warren Fisk",
+          "role": "Percussion"
+        },
+        {
+          "name": "Paula Kent",
+          "role": "Bass"
+        }
+      ]
+    },
+    "The Courtesy Tones": {
+      "bio": "Polite and precise, The Courtesy Tones delivered jazz with a nod to etiquette, their tunes as smooth as a well-mannered conversation in the elevator.",
+      "formed": "1953",
+      "genre": "Polite Jazz / Elevator",
+      "label": "Courtesy Call Records",
+      "members": [
+        {
+          "name": "Alfred Courtesy",
+          "role": "Piano & Leader"
+        },
+        {
+          "name": "Ethel Mann",
+          "role": "Vocals"
+        },
+        {
+          "name": "Gordon Tate",
+          "role": "Guitar"
+        },
+        {
+          "name": "Vera Lyle",
+          "role": "Drums"
+        }
+      ]
+    },
+    "Stanley Rowe and His Compliance Unit": {
+      "bio": "Ensuring every note was in line, Stanley Rowe's Compliance Unit played by the rules, creating compliant jazz that fit perfectly into regulated corporate playlists.",
+      "formed": "1954",
+      "genre": "Regulatory Jazz / Ambient",
+      "label": "Compliance Records",
+      "members": [
+        {
+          "name": "Stanley Rowe",
+          "role": "Trombone & Leader"
+        },
+        {
+          "name": "Hank Bishop",
+          "role": "Bass"
+        },
+        {
+          "name": "Mabel Crowe",
+          "role": "Keyboards"
+        },
+        {
+          "name": "Dean Fowler",
+          "role": "Saxophone"
+        }
+      ]
+    },
+    "The Interim Measures": {
+      "bio": "As a temporary fix that stuck around, The Interim Measures provided interim jazz solutions for transitional times in the fast-paced world of 1950s commerce.",
+      "formed": "1955",
+      "genre": "Transitional Jazz / Lounge",
+      "label": "Interim Sound Labs",
+      "members": [
+        {
+          "name": "Quincy Interim",
+          "role": "Guitar & Leader"
+        },
+        {
+          "name": "Lorraine Day",
+          "role": "Vocals"
+        },
+        {
+          "name": "Bruce Kane",
+          "role": "Drums"
+        },
+        {
+          "name": "Sylvia Poe",
+          "role": "Piano"
+        }
+      ]
+    },
+    "Norman Bell, After Midnight": {
+      "bio": "When the clock struck twelve, Norman Bell came alive with his solo act, his after-midnight melodies resonating with insomniac executives everywhere.",
+      "formed": "1956",
+      "genre": "Solo Jazz / Nocturnal",
+      "label": "Midnight Bell Tones",
+      "members": [
+        {
+          "name": "Norman Bell",
+          "role": "Piano & Vocals"
+        }
+      ]
+    },
+    "The Neutral Backgrounds": {
+      "bio": "Blending seamlessly into the scenery, The Neutral Backgrounds provided the ultimate unobtrusive jazz, ideal for background ambiance in professional settings.",
+      "formed": "1957",
+      "genre": "Background Jazz / Ambient",
+      "label": "Neutral Zone Records",
+      "members": [
+        {
+          "name": "Victor Neutral",
+          "role": "Bass & Leader"
+        },
+        {
+          "name": "Iris Grey",
+          "role": "Harp"
+        },
+        {
+          "name": "Clive Dunn",
+          "role": "Flute"
+        },
+        {
+          "name": "Nina Vale",
+          "role": "Percussion"
+        }
+      ]
+    },
+    "Harper & the Escalators": {
+      "bio": "Rising and falling with the levels, Harper & the Escalators captured the up-and-down rhythm of office life in their escalating jazz progressions.",
+      "formed": "1958",
+      "genre": "Progressive Jazz / Elevator",
+      "label": "Escalator Rhythms",
+      "members": [
+        {
+          "name": "Harper Lee",
+          "role": "Vocals & Leader"
+        },
+        {
+          "name": "Felix Stone",
+          "role": "Guitar"
+        },
+        {
+          "name": "Gwen Hart",
+          "role": "Bass"
+        },
+        {
+          "name": "Roland Peck",
+          "role": "Drums"
+        }
+      ]
+    },
+    "Claudette Monroe Trio": {
+      "bio": "Claudette Monroe's trio brought a touch of glamour to the mundane, their elegant jazz turning ordinary evenings into sophisticated affairs for the working class.",
+      "formed": "1959",
+      "genre": "Elegant Jazz / Lounge",
+      "label": "Monroe Elegance Studios",
+      "members": [
+        {
+          "name": "Claudette Monroe",
+          "role": "Vocals"
+        },
+        {
+          "name": "Ellis Ford",
+          "role": "Piano"
+        },
+        {
+          "name": "Barry Lane",
+          "role": "Bass"
+        }
+      ]
+    },
+    "Julian Cross & The Dimmer Switches": {
+      "bio": "Dimming the lights on high-energy days, Julian Cross & The Dimmer Switches offered a switch to relaxation with their subdued yet captivating jazz stylings.",
+      "formed": "1953",
+      "genre": "Subdued Jazz / Ambient",
+      "label": "Dimmer Light Records",
+      "members": [
+        {
+          "name": "Julian Cross",
+          "role": "Saxophone & Leader"
+        },
+        {
+          "name": "Tina Wells",
+          "role": "Keyboards"
+        },
+        {
+          "name": "Owen Fisk",
+          "role": "Guitar"
+        },
+        {
+          "name": "Lena Crowe",
+          "role": "Percussion"
+        }
+      ]
+    },
+    "Evelyn Crane Ensemble": {
+      "bio": "Soaring above the daily hustle, Evelyn Crane's ensemble lifted spirits with their airy compositions, craning necks towards a more melodic corporate existence.",
+      "formed": "1954",
+      "genre": "Aerial Jazz / Chamber",
+      "label": "Crane Flight Recordings",
+      "members": [
+        {
+          "name": "Evelyn Crane",
+          "role": "Violin & Leader"
+        },
+        {
+          "name": "Marcus Hale",
+          "role": "Cello"
+        },
+        {
+          "name": "Dora Blaine",
+          "role": "Flute"
+        },
+        {
+          "name": "Keith Voss",
+          "role": "Piano"
+        }
+      ]
+    },
+    "The Half-Asleep Four": {
+      "bio": "Teetering on the edge of slumber, The Half-Asleep Four composed lullabies disguised as jazz, perfect for the half-awake hours of overtime warriors.",
+      "formed": "1955",
+      "genre": "Sleepy Jazz / Lounge",
+      "label": "Drowsy Tones",
+      "members": [
+        {
+          "name": "Simon Drake",
+          "role": "Guitar & Leader"
+        },
+        {
+          "name": "Alice Reed",
+          "role": "Vocals"
+        },
+        {
+          "name": "Perry Knox",
+          "role": "Bass"
+        },
+        {
+          "name": "Faye Dunn",
+          "role": "Drums"
+        }
+      ]
+    },
+    "Silas North Combo": {
+      "bio": "Heading north from the chaos, Silas North's combo found solace in northern-inspired jazz, directing listeners towards cooler, calmer musical territories.",
+      "formed": "1956",
+      "genre": "Northern Jazz / Cool",
+      "label": "North Star Sounds",
+      "members": [
+        {
+          "name": "Silas North",
+          "role": "Trumpet & Leader"
+        },
+        {
+          "name": "Greta Lyle",
+          "role": "Piano"
+        },
+        {
+          "name": "Vernon Tate",
+          "role": "Saxophone"
+        },
+        {
+          "name": "Mira Poe",
+          "role": "Bass"
+        }
+      ]
+    },
+    "The Mandatory Break Trio": {
+      "bio": "Enforcing a musical pause, The Mandatory Break Trio reminded everyone to take a breather with their refreshing jazz interludes during mandatory downtime.",
+      "formed": "1957",
+      "genre": "Break Jazz / Relaxed",
+      "label": "Break Time Records",
+      "members": [
+        {
+          "name": "Ralph Mandate",
+          "role": "Drums & Leader"
+        },
+        {
+          "name": "Sonia Hart",
+          "role": "Guitar"
+        },
+        {
+          "name": "Theo Blaine",
+          "role": "Bass"
+        }
+      ]
+    }
+  },
+  "background_image": {
+    "type": "ipfs",
+    "cid": null
+  },
+  "chatter": [
+    {
+      "id": "post_morning_001",
+      "category": "post_song",
+      "durationHintSec": 7,
+      "toneLevel": 2,
+      "tags": [
+        "morning",
+        "dry"
+      ],
+      "conditions": {
+        "timeBucketsAnyOf": [
+          "morning"
+        ]
+      },
+      "asset": {
+        "type": "ipfs",
+        "cid": "bafkreiboy5e7m7ddw754ry46bddsjvknqfxfcigb5b2z2cyrrrshadjq5u"
+      },
+      "script": {
+        "text": "That one got here before your coffee did. Unsettling."
+      },
+      "weight": 1
+    },
+    {
+      "id": "post_morning_002",
+      "category": "post_song",
+      "durationHintSec": 8,
+      "toneLevel": 2,
+      "tags": [
+        "morning",
+        "warm"
+      ],
+      "conditions": {
+        "timeBucketsAnyOf": [
+          "morning"
+        ]
+      },
+      "asset": {
+        "type": "ipfs",
+        "cid": "bafkreicrvopp6hrfit4sodvi36jkjx6c26ujqrig2mxqbfx5qleqyxe7b4"
+      },
+      "script": {
+        "text": "Smooth entrance. Try to match it at your nine-fifteen."
+      },
+      "weight": 1
+    },
+    {
+      "id": "post_morning_003",
+      "category": "post_song",
+      "durationHintSec": 9,
+      "toneLevel": 1,
+      "tags": [
+        "morning",
+        "intimate"
+      ],
+      "conditions": {
+        "timeBucketsAnyOf": [
+          "morning"
+        ]
+      },
+      "asset": {
+        "type": "ipfs",
+        "cid": "bafkreic4nmvl6h3fh2622j6lg57rkqzmrlxkte4qpznq6srupcxs4cgl3e"
+      },
+      "script": {
+        "text": "Morning. You made it. The building noticed. Possibly approves."
+      },
+      "weight": 1
+    },
+    {
+      "id": "post_morning_004",
+      "category": "post_song",
+      "durationHintSec": 9,
+      "toneLevel": 2,
+      "tags": [
+        "morning",
+        "roast"
+      ],
+      "conditions": {
+        "timeBucketsAnyOf": [
+          "morning"
+        ]
+      },
+      "asset": {
+        "type": "ipfs",
+        "cid": "bafkreigpk73gtdt23rdqozpxbtxcdyeuavp4wipjpiznjydhdm2u4qlewi"
+      },
+      "script": {
+        "text": "That track did more warm-up than you did. No judgment. Mostly."
+      },
+      "weight": 1
+    },
+    {
+      "id": "pre_morning_001",
+      "category": "pre_song",
+      "durationHintSec": 6,
+      "toneLevel": 1,
+      "tags": [
+        "morning",
+        "soft"
+      ],
+      "conditions": {
+        "timeBucketsAnyOf": [
+          "morning"
+        ]
+      },
+      "asset": {
+        "type": "ipfs",
+        "cid": "bafkreiauwte2tlqteijzjqjhax44ao7sr5hyjqctxm3gqoiijmk4dysahm"
+      },
+      "script": {
+        "text": "Drink something warm. Then this one."
+      },
+      "weight": 1
+    },
+    {
+      "id": "pre_morning_002",
+      "category": "pre_song",
+      "durationHintSec": 7,
+      "toneLevel": 2,
+      "tags": [
+        "morning",
+        "dry"
+      ],
+      "conditions": {
+        "timeBucketsAnyOf": [
+          "morning"
+        ]
+      },
+      "asset": {
+        "type": "ipfs",
+        "cid": "bafkreibgqm55d3bwgjbg4pia5kpdwglfozt5yoqn5i4jwsuz2ntwzw3yom"
+      },
+      "script": {
+        "text": "Keep it low. Your inbox can’t know you’re stalling."
+      },
+      "weight": 1
+    },
+    {
+      "id": "pre_morning_003",
+      "category": "pre_song",
+      "durationHintSec": 7,
+      "toneLevel": 2,
+      "tags": [
+        "morning",
+        "roast"
+      ],
+      "conditions": {
+        "timeBucketsAnyOf": [
+          "morning"
+        ]
+      },
+      "asset": {
+        "type": "ipfs",
+        "cid": "bafkreiaj3qmuxxoesq6qm5qtg4d2uejvug6orxdzcft5tar6nfo27r2l4a"
+      },
+      "script": {
+        "text": "For the meeting you’re definitely walking into on time."
+      },
+      "weight": 1
+    },
+    {
+      "id": "id_morning_001",
+      "category": "hourly_id",
+      "durationHintSec": 5,
+      "toneLevel": 1,
+      "tags": [
+        "station_id",
+        "morning"
+      ],
+      "conditions": {
+        "timeBucketsAnyOf": [
+          "morning"
+        ]
+      },
+      "asset": {
+        "type": "ipfs",
+        "cid": "bafkreihhywjrp5yiufjd2eygzwma2gh745cppl5z53koghvpzsxfhfthca"
+      },
+      "script": {
+        "text": "WRFM. The morning shift is a suggestion."
+      },
+      "weight": 1
+    },
+    {
+      "id": "id_morning_002",
+      "category": "hourly_id",
+      "durationHintSec": 5,
+      "toneLevel": 1,
+      "tags": [
+        "station_id",
+        "morning"
+      ],
+      "conditions": {
+        "timeBucketsAnyOf": [
+          "morning"
+        ]
+      },
+      "asset": {
+        "type": "ipfs",
+        "cid": "bafkreidcjwvcq2aeglfoifj3uq5bvt4peppjknabz7dso3dxj3ay3uytae"
+      },
+      "script": {
+        "text": "WRFM. Approved for pre-caffeine operations."
+      },
+      "weight": 1
+    },
+    {
+      "id": "vera_ident_morning_001",
+      "category": "vera_ident",
+      "durationHintSec": 22,
+      "toneLevel": 2,
+      "tags": [
+        "host",
+        "morning"
+      ],
+      "conditions": {
+        "timeBucketsAnyOf": [
+          "morning"
+        ]
+      },
+      "asset": {
+        "type": "ipfs",
+        "cid": "bafkreiggl75d2cru655w577egrf4wtyp5wxzlicmdaxef5u2tqzme75mda"
+      },
+      "script": {
+        "text": "Good morning. You’re on WRFM — Workplace Relief Frequency. The shift has started, whether you agreed to it or not. I’m Vera Lang. Let’s get you pointed at the day.",
+        "voiceNote": "Vera — warm but matter-of-fact. ‘Whether you agreed to it or not’ said with affectionate acceptance, not accusation."
+      },
+      "weight": 1
+    },
+    {
+      "id": "vera_ident_morning_002",
+      "category": "vera_ident",
+      "durationHintSec": 22,
+      "toneLevel": 2,
+      "tags": [
+        "host",
+        "morning",
+        "roast"
+      ],
+      "conditions": {
+        "timeBucketsAnyOf": [
+          "morning"
+        ]
+      },
+      "asset": {
+        "type": "ipfs",
+        "cid": "bafkreibi4yd6np7bodofwectvgqsg2n2muaxn4x4bfgmcxq3ldi2mrthhu"
+      },
+      "script": {
+        "text": "Morning. The coffee is on. The emails are already disappointed in you. WRFM is on the air. Vera Lang — here while you pretend to read the agenda.",
+        "voiceNote": "Vera — dry, knowing. ‘Already disappointed in you’ lands like a gentle roast, not a verdict."
+      },
+      "weight": 1
+    },
+    {
+      "id": "pre_shift_briefing_001",
+      "category": "special_event",
+      "durationHintSec": 20,
+      "toneLevel": 1,
+      "tags": [
+        "special",
+        "morning",
+        "lore"
+      ],
+      "conditions": {
+        "timeBucketsAnyOf": [
+          "morning"
+        ]
+      },
+      "asset": {
+        "type": "ipfs",
+        "cid": "bafkreih7lrc5ys5t3gj2ypoayojk2c2hbs7cefbzkkzq5qxaej2kh6ujim"
+      },
+      "script": {
+        "text": "This is WRFM’s Pre-Shift Briefing. A quiet reminder, before the day requires opinions: you are allowed to do one thing at a time. Music now.",
+        "voiceNote": "Vera — measured, almost tender. Morning counterpart to After Hours Intake. No urgency."
+      },
+      "weight": 0.5
+    },
+    {
+      "id": "post_afternoon_001",
+      "category": "post_song",
+      "durationHintSec": 9,
+      "toneLevel": 2,
+      "tags": [
+        "afternoon",
+        "dry"
+      ],
+      "conditions": {
+        "timeBucketsAnyOf": [
+          "afternoon"
+        ]
+      },
+      "asset": {
+        "type": "ipfs",
+        "cid": "bafkreigix7lgvqen4j42tu5tc4av4hrvpn63ncy6rqlvwus6rjn3aobsoq"
+      },
+      "script": {
+        "text": "The good news is it’s after lunch. The bad news is it’s still Tuesday."
+      },
+      "weight": 1
+    },
+    {
+      "id": "post_afternoon_002",
+      "category": "post_song",
+      "durationHintSec": 8,
+      "toneLevel": 1,
+      "tags": [
+        "afternoon",
+        "wry"
+      ],
+      "conditions": {
+        "timeBucketsAnyOf": [
+          "afternoon"
+        ]
+      },
+      "asset": {
+        "type": "ipfs",
+        "cid": "bafkreibb5osupz5zpqciv52uxv53nodnwzsaymzdoftvv2zwnhmj34iqmm"
+      },
+      "script": {
+        "text": "That one held up under fluorescent lighting. Rare."
+      },
+      "weight": 1
+    },
+    {
+      "id": "post_afternoon_003",
+      "category": "post_song",
+      "durationHintSec": 9,
+      "toneLevel": 1,
+      "tags": [
+        "afternoon",
+        "intimate"
+      ],
+      "conditions": {
+        "timeBucketsAnyOf": [
+          "afternoon"
+        ]
+      },
+      "asset": {
+        "type": "ipfs",
+        "cid": "bafkreih3l3y6v43tak7vwsb2sosx4nwpklh7lvneoqri7sr3fqueoqnu4u"
+      },
+      "script": {
+        "text": "Your afternoon has officially reached the part where verbs get heavy."
+      },
+      "weight": 1
+    },
+    {
+      "id": "post_afternoon_004",
+      "category": "post_song",
+      "durationHintSec": 9,
+      "toneLevel": 2,
+      "tags": [
+        "afternoon",
+        "teasing"
+      ],
+      "conditions": {
+        "timeBucketsAnyOf": [
+          "afternoon"
+        ]
+      },
+      "asset": {
+        "type": "ipfs",
+        "cid": "bafkreihuyaxe74jibynd2g23q5nytt6pfl7okwnpclks6t7qpcp24way6y"
+      },
+      "script": {
+        "text": "A song for the thirty minutes you’ll pretend is still lunch. Behave."
+      },
+      "weight": 1
+    },
+    {
+      "id": "pre_afternoon_001",
+      "category": "pre_song",
+      "durationHintSec": 9,
+      "toneLevel": 1,
+      "tags": [
+        "afternoon"
+      ],
+      "conditions": {
+        "timeBucketsAnyOf": [
+          "afternoon"
+        ]
+      },
+      "asset": {
+        "type": "ipfs",
+        "cid": "bafkreid56sam4tdl7z6qraxn67i4ovc6fglriifnra23wiiwrb7u42toxm"
+      },
+      "script": {
+        "text": "The three PM wall is a real thing. This one is for climbing it."
+      },
+      "weight": 1
+    },
+    {
+      "id": "pre_afternoon_002",
+      "category": "pre_song",
+      "durationHintSec": 7,
+      "toneLevel": 1,
+      "tags": [
+        "afternoon"
+      ],
+      "conditions": {
+        "timeBucketsAnyOf": [
+          "afternoon"
+        ]
+      },
+      "asset": {
+        "type": "ipfs",
+        "cid": "bafkreidabg6kna7efyjquypinu6swhdlwxw7apndn26sckdqckqp5j4bty"
+      },
+      "script": {
+        "text": "Next track is what a second cup of coffee sounds like."
+      },
+      "weight": 1
+    },
+    {
+      "id": "pre_afternoon_003",
+      "category": "pre_song",
+      "durationHintSec": 8,
+      "toneLevel": 2,
+      "tags": [
+        "afternoon",
+        "roast"
+      ],
+      "conditions": {
+        "timeBucketsAnyOf": [
+          "afternoon"
+        ]
+      },
+      "asset": {
+        "type": "ipfs",
+        "cid": "bafkreicw3x6kxlp2x6w62sgxrpttpwhmt6xlnnrm7mymddpczntbrwvbre"
+      },
+      "script": {
+        "text": "For the email you’re going to reread four times before sending."
+      },
+      "weight": 1
+    },
+    {
+      "id": "id_afternoon_001",
+      "category": "hourly_id",
+      "durationHintSec": 5,
+      "toneLevel": 1,
+      "tags": [
+        "station_id",
+        "afternoon"
+      ],
+      "conditions": {
+        "timeBucketsAnyOf": [
+          "afternoon"
+        ]
+      },
+      "asset": {
+        "type": "ipfs",
+        "cid": "bafkreie53nlv4ilyqn7zuc65lxdwp5laphk2l2ylbd7625dxt33czspmgm"
+      },
+      "script": {
+        "text": "WRFM. Approved for post-lunch indecision."
+      },
+      "weight": 1
+    },
+    {
+      "id": "id_afternoon_002",
+      "category": "hourly_id",
+      "durationHintSec": 5,
+      "toneLevel": 1,
+      "tags": [
+        "station_id",
+        "afternoon"
+      ],
+      "conditions": {
+        "timeBucketsAnyOf": [
+          "afternoon"
+        ]
+      },
+      "asset": {
+        "type": "ipfs",
+        "cid": "bafkreihosi767fzhahqh6xrwwbjonggg3ragvxcgazrxhu7ncl25gpduyu"
+      },
+      "script": {
+        "text": "WRFM — softer than your inbox."
+      },
+      "weight": 1
+    },
+    {
+      "id": "vera_ident_afternoon_001",
+      "category": "vera_ident",
+      "durationHintSec": 22,
+      "toneLevel": 2,
+      "tags": [
+        "host",
+        "afternoon"
+      ],
+      "conditions": {
+        "timeBucketsAnyOf": [
+          "afternoon"
+        ]
+      },
+      "asset": {
+        "type": "ipfs",
+        "cid": "bafkreigqpnvk4iqnc2ayuqzam3enslk2pbqmhp3vyf7cntdqr7hyra2wcm"
+      },
+      "script": {
+        "text": "Afternoon. The morning lied. WRFM does not. I’m Vera Lang, and the rest of this day is going to be fine — give or take a few emails.",
+        "voiceNote": "Vera — wry, warm. ‘The morning lied’ said like a known fact, not a complaint."
+      },
+      "weight": 1
+    },
+    {
+      "id": "vera_ident_afternoon_002",
+      "category": "vera_ident",
+      "durationHintSec": 20,
+      "toneLevel": 1,
+      "tags": [
+        "host",
+        "afternoon",
+        "intimate"
+      ],
+      "conditions": {
+        "timeBucketsAnyOf": [
+          "afternoon"
+        ]
+      },
+      "asset": {
+        "type": "ipfs",
+        "cid": "bafkreiescn7fu4p43hbdkcz47alclcyjeog233jme7dblocfva3hhxi26u"
+      },
+      "script": {
+        "text": "You’re listening to WRFM. The calendar has opinions about what you should be doing right now. Ignore it for ninety seconds. I’m Vera Lang.",
+        "voiceNote": "Vera — conspiratorial, low. Like she’s giving permission the calendar didn’t grant."
+      },
+      "weight": 1
+    },
+    {
+      "id": "id_evening_001",
+      "category": "hourly_id",
+      "durationHintSec": 5,
+      "toneLevel": 1,
+      "tags": [
+        "station_id",
+        "evening"
+      ],
+      "conditions": {
+        "timeBucketsAnyOf": [
+          "evening"
+        ]
+      },
+      "asset": {
+        "type": "ipfs",
+        "cid": "bafkreid57i3vtag6peievkfs2ibfu5qzbfyhwjdal7fbh7s5rmlhnjwjjm"
+      },
+      "script": {
+        "text": "WRFM. Overtime is a state of mind."
+      },
+      "weight": 1
+    },
+    {
+      "id": "id_evening_002",
+      "category": "hourly_id",
+      "durationHintSec": 6,
+      "toneLevel": 1,
+      "tags": [
+        "station_id",
+        "evening"
+      ],
+      "conditions": {
+        "timeBucketsAnyOf": [
+          "evening"
+        ]
+      },
+      "asset": {
+        "type": "ipfs",
+        "cid": "bafkreibdczrcaigdr33mxk5kat54ydp5o62p3lkbf4ja2e6ao5ftc47mbq"
+      },
+      "script": {
+        "text": "WRFM. The evening shift is on the honor system."
+      },
+      "weight": 1
+    },
+    {
+      "id": "after_hours_intake_01",
+      "category": "special_event",
+      "durationHintSec": 26,
+      "toneLevel": 2,
+      "tags": [
+        "host",
+        "late",
+        "call_in"
+      ],
+      "conditions": {
+        "timeBucketsAnyOf": [
+          "late",
+          "graveyard"
+        ]
+      },
+      "asset": {
+        "type": "ipfs",
+        "cid": "bafybeif3mutbuvalkqsrwm5mdnhgww6qwx3znskq43xqeqmzlcosmgoyoy"
+      },
+      "script": {
+        "text": "This is WRFM. After Hours Intake is open. WRFM. Go ahead. I just wanted to know if it's normal to feel behind even when I'm doing everything I was told. Yes. That means it's working. We'll stay with the music.",
+        "dialog": [
+          {
+            "speaker": "vera",
+            "text": "This is WRFM. After Hours Intake is open. WRFM. Go ahead."
+          },
+          {
+            "speaker": "caller",
+            "text": "I just wanted to know if it's normal to feel behind even when I'm doing everything I was told."
+          },
+          {
+            "speaker": "vera",
+            "text": "Yes. That means it's working. We'll stay with the music."
+          }
+        ]
+      },
+      "weight": 0.15
+    },
+    {
+      "id": "after_hours_intake_02",
+      "category": "special_event",
+      "durationHintSec": 18,
+      "toneLevel": 2,
+      "tags": [
+        "host",
+        "late",
+        "call_in"
+      ],
+      "conditions": {
+        "timeBucketsAnyOf": [
+          "late",
+          "graveyard"
+        ]
+      },
+      "asset": {
+        "type": "ipfs",
+        "cid": "bafkreih4kpghkytwsoujwssieykb52ghktjw2yknebegkt4kjuqeyvxqz4"
+      },
+      "script": {
+        "text": "You're listening to WRFM. This is After Hours Intake. I'm listening. I think my desk knows when I'm pretending to be finished. Your desk responds to patterns, not intentions. Let's continue.",
+        "dialog": [
+          {
+            "speaker": "vera",
+            "text": "You're listening to WRFM. This is After Hours Intake. I'm listening."
+          },
+          {
+            "speaker": "caller",
+            "text": "I think my desk knows when I'm pretending to be finished."
+          },
+          {
+            "speaker": "vera",
+            "text": "Your desk responds to patterns, not intentions. Let's continue."
+          }
+        ]
+      },
+      "weight": 0.14
+    },
+    {
+      "id": "after_hours_intake_03",
+      "category": "special_event",
+      "durationHintSec": 15,
+      "toneLevel": 2,
+      "tags": [
+        "host",
+        "late",
+        "call_in"
+      ],
+      "conditions": {
+        "timeBucketsAnyOf": [
+          "late",
+          "graveyard"
+        ]
+      },
+      "asset": {
+        "type": "ipfs",
+        "cid": "bafkreifbxxumjg2or36wg2nie7yr5teql6r6xilu2kw3b5gtsiacxpvsaq"
+      },
+      "script": {
+        "text": "WRFM. After Hours Intake. A brief window. Go ahead. I stayed late and now I'm not sure if I ever left yesterday. That happens around this hour. Music will help.",
+        "dialog": [
+          {
+            "speaker": "vera",
+            "text": "WRFM. After Hours Intake. A brief window. Go ahead."
+          },
+          {
+            "speaker": "caller",
+            "text": "I stayed late and now I'm not sure if I ever left yesterday."
+          },
+          {
+            "speaker": "vera",
+            "text": "That happens around this hour. Music will help."
+          }
+        ]
+      },
+      "weight": 0.14
+    },
+    {
+      "id": "after_hours_intake_04",
+      "category": "special_event",
+      "durationHintSec": 14,
+      "toneLevel": 2,
+      "tags": [
+        "host",
+        "late",
+        "call_in"
+      ],
+      "conditions": {
+        "timeBucketsAnyOf": [
+          "late",
+          "graveyard"
+        ]
+      },
+      "asset": {
+        "type": "ipfs",
+        "cid": "bafkreibj7hf7jmhkzsqjf5g2hf7qy35jvmjjiakh5nsrhgtbtqotaem4gq"
+      },
+      "script": {
+        "text": "This hour includes After Hours Intake. You're on the line. Am I allowed to leave if nobody explicitly said I could? You already know the policy. Thank you for calling.",
+        "dialog": [
+          {
+            "speaker": "vera",
+            "text": "This hour includes After Hours Intake. You're on the line."
+          },
+          {
+            "speaker": "caller",
+            "text": "Am I allowed to leave if nobody explicitly said I could?"
+          },
+          {
+            "speaker": "vera",
+            "text": "You already know the policy. Thank you for calling."
+          }
+        ]
+      },
+      "weight": 0.13
+    },
+    {
+      "id": "after_hours_intake_05",
+      "category": "special_event",
+      "durationHintSec": 16,
+      "toneLevel": 2,
+      "tags": [
+        "host",
+        "late",
+        "call_in"
+      ],
+      "conditions": {
+        "timeBucketsAnyOf": [
+          "late",
+          "graveyard"
+        ]
+      },
+      "asset": {
+        "type": "ipfs",
+        "cid": "bafkreiawjrv6jouioixwd3oqvilvkv5vvswzl2ajub5gg3jqetmgqpszgy"
+      },
+      "script": {
+        "text": "WRFM is accepting After Hours Intake calls. State your concern. I submitted how I feel and it was returned with comments. Please review them carefully. We'll proceed.",
+        "dialog": [
+          {
+            "speaker": "vera",
+            "text": "WRFM is accepting After Hours Intake calls. State your concern."
+          },
+          {
+            "speaker": "caller",
+            "text": "I submitted how I feel and it was returned with comments."
+          },
+          {
+            "speaker": "vera",
+            "text": "Please review them carefully. We'll proceed."
+          }
+        ]
+      },
+      "weight": 0.14
+    },
+    {
+      "id": "after_hours_intake_06",
+      "category": "special_event",
+      "durationHintSec": 16,
+      "toneLevel": 2,
+      "tags": [
+        "host",
+        "late",
+        "call_in"
+      ],
+      "conditions": {
+        "timeBucketsAnyOf": [
+          "late",
+          "graveyard"
+        ]
+      },
+      "asset": {
+        "type": "ipfs",
+        "cid": "bafkreigf5oljvtdgmnrkttqsrrc7y5yrdqdgiiwng6u3ausxjafbwjl3zm"
+      },
+      "script": {
+        "text": "You're listening to WRFM. After Hours Intake is active. Yes. My job title changed while I was working and no one mentioned it. That adjustment was scheduled. Stay with us.",
+        "dialog": [
+          {
+            "speaker": "vera",
+            "text": "You're listening to WRFM. After Hours Intake is active. Yes."
+          },
+          {
+            "speaker": "caller",
+            "text": "My job title changed while I was working and no one mentioned it."
+          },
+          {
+            "speaker": "vera",
+            "text": "That adjustment was scheduled. Stay with us."
+          }
+        ]
+      },
+      "weight": 0.14
+    },
+    {
+      "id": "after_hours_intake_07",
+      "category": "special_event",
+      "durationHintSec": 13,
+      "toneLevel": 2,
+      "tags": [
+        "host",
+        "late",
+        "call_in"
+      ],
+      "conditions": {
+        "timeBucketsAnyOf": [
+          "late",
+          "graveyard"
+        ]
+      },
+      "asset": {
+        "type": "ipfs",
+        "cid": "bafkreievxxysgkbultzwis2olfe4r25z273q6g7rukfi7yi5cqj27lgd3y"
+      },
+      "script": {
+        "text": "This is WRFM. After Hours Intake. Go on. My chair is more comfortable than my apartment. Then you've optimized correctly. Back to the music.",
+        "dialog": [
+          {
+            "speaker": "vera",
+            "text": "This is WRFM. After Hours Intake. Go on."
+          },
+          {
+            "speaker": "caller",
+            "text": "My chair is more comfortable than my apartment."
+          },
+          {
+            "speaker": "vera",
+            "text": "Then you've optimized correctly. Back to the music."
+          }
+        ]
+      },
+      "weight": 0.13
+    },
+    {
+      "id": "after_hours_intake_08",
+      "category": "special_event",
+      "durationHintSec": 16,
+      "toneLevel": 2,
+      "tags": [
+        "host",
+        "late",
+        "call_in"
+      ],
+      "conditions": {
+        "timeBucketsAnyOf": [
+          "late",
+          "graveyard"
+        ]
+      },
+      "asset": {
+        "type": "ipfs",
+        "cid": "bafkreidfximry7ikfovs6manrpl4rwqkf456lmnjfga5mul4s46pqzsk2i"
+      },
+      "script": {
+        "text": "WRFM. After Hours Intake. Speak clearly. I'm here. The printer made a noise like it was disappointed in me. It does that when it's awake. You're listening to WRFM.",
+        "dialog": [
+          {
+            "speaker": "vera",
+            "text": "WRFM. After Hours Intake. Speak clearly. I'm here."
+          },
+          {
+            "speaker": "caller",
+            "text": "The printer made a noise like it was disappointed in me."
+          },
+          {
+            "speaker": "vera",
+            "text": "It does that when it's awake. You're listening to WRFM."
+          }
+        ]
+      },
+      "weight": 0.14
+    },
+    {
+      "id": "after_hours_intake_09",
+      "category": "special_event",
+      "durationHintSec": 12,
+      "toneLevel": 2,
+      "tags": [
+        "host",
+        "late",
+        "call_in"
+      ],
+      "conditions": {
+        "timeBucketsAnyOf": [
+          "late",
+          "graveyard"
+        ]
+      },
+      "asset": {
+        "type": "ipfs",
+        "cid": "bafkreifqrdxzwr44p7b3yisl2l7lrc7gnabw4q3nmaz6pxv26ab5ft74ai"
+      },
+      "script": {
+        "text": "After Hours Intake is open on WRFM. You're on. My calendar says tomorrow already started. Then you're ahead. We'll keep going.",
+        "dialog": [
+          {
+            "speaker": "vera",
+            "text": "After Hours Intake is open on WRFM. You're on."
+          },
+          {
+            "speaker": "caller",
+            "text": "My calendar says tomorrow already started."
+          },
+          {
+            "speaker": "vera",
+            "text": "Then you're ahead. We'll keep going."
+          }
+        ]
+      },
+      "weight": 0.13
+    },
+    {
+      "id": "after_hours_intake_10",
+      "category": "special_event",
+      "durationHintSec": 13,
+      "toneLevel": 2,
+      "tags": [
+        "host",
+        "late",
+        "call_in"
+      ],
+      "conditions": {
+        "timeBucketsAnyOf": [
+          "late",
+          "graveyard"
+        ]
+      },
+      "asset": {
+        "type": "ipfs",
+        "cid": "bafkreidbz4nnncezsrar2bx2tgb3mtowrd7hl5mjh3cdox4alltglet5vu"
+      },
+      "script": {
+        "text": "WRFM. After Hours Intake. Go ahead. I think the building knows my name. It learned it when you stayed. Good night.",
+        "dialog": [
+          {
+            "speaker": "vera",
+            "text": "WRFM. After Hours Intake. Go ahead."
+          },
+          {
+            "speaker": "caller",
+            "text": "I think the building knows my name."
+          },
+          {
+            "speaker": "vera",
+            "text": "It learned it when you stayed. Good night."
+          }
+        ]
+      },
+      "weight": 0.13
+    },
+    {
+      "id": "after_hours_intake_11",
+      "category": "special_event",
+      "durationHintSec": 70,
+      "toneLevel": 2,
+      "tags": [
+        "host",
+        "late",
+        "call_in"
+      ],
+      "conditions": {
+        "timeBucketsAnyOf": [
+          "late",
+          "graveyard"
+        ]
+      },
+      "asset": {
+        "type": "ipfs",
+        "cid": "bafybeifwfxjscpqvmtsyeqvsozj7yz42w2n7c5rzdnl2b7ubqboqqaybji"
+      },
+      "script": {
+        "text": "VERA: You’re on After Hours Intake. Tell us what happened.\n\nCALLER: …I fixed a tiny thing. Just one typo. In production. Directly. No branch. No review. It worked for about three minutes and then… everything started returning null.\n\nVERA: Mm. Direct modification of a live system. A classic midnight confession.\n\nCALLER: I thought it would be faster.\n\nVERA: It often is. Right up until it becomes slower for everyone.\n\nCALLER: I had to roll back the whole container. I don’t even remember what I changed.\n\nVERA: The station recommends the traditional recovery procedure: documentation, branching, and a small promise to your future self.\n\nCALLER: Yeah…\n\nVERA: You’re cleared to breathe normally. Production survived. Please step away from the live server controls for the remainder of the evening.",
+        "dialog": [
+          {
+            "speaker": "vera",
+            "text": "You’re on After Hours Intake. Tell us what happened."
+          },
+          {
+            "speaker": "caller",
+            "text": "…I fixed a tiny thing. Just one typo. In production. Directly. No branch. No review. It worked for about three minutes and then… everything started returning null."
+          },
+          {
+            "speaker": "vera",
+            "text": "Mm. Direct modification of a live system. A classic midnight confession."
+          },
+          {
+            "speaker": "caller",
+            "text": "I thought it would be faster."
+          },
+          {
+            "speaker": "vera",
+            "text": "It often is. Right up until it becomes slower for everyone."
+          },
+          {
+            "speaker": "caller",
+            "text": "I had to roll back the whole container. I don’t even remember what I changed."
+          },
+          {
+            "speaker": "vera",
+            "text": "The station recommends the traditional recovery procedure: documentation, branching, and a small promise to your future self."
+          },
+          {
+            "speaker": "caller",
+            "text": "Yeah…"
+          },
+          {
+            "speaker": "vera",
+            "text": "You’re cleared to breathe normally. Production survived. Please step away from the live server controls for the remainder of the evening."
+          }
+        ]
+      },
+      "weight": 0.13
+    },
+    {
+      "id": "after_hours_intake_12",
+      "category": "special_event",
+      "durationHintSec": 60,
+      "toneLevel": 2,
+      "tags": [
+        "host",
+        "late",
+        "call_in"
+      ],
+      "conditions": {
+        "timeBucketsAnyOf": [
+          "late",
+          "graveyard"
+        ]
+      },
+      "asset": {
+        "type": "ipfs",
+        "cid": "bafybeic5nijfg4r7y4zbqafy5wiv2qn7n5dc3pdb2thvugodytfz33qiey"
+      },
+      "script": {
+        "text": "VERA: After Hours Intake. Go ahead.\n\nCALLER: My React component… it has state. And context. And reducers. And another state to track the reducer state. And now nothing updates unless I refresh twice.\n\nVERA: You attempted to manage reality using multiple overlapping sources of truth.\n\nCALLER: I just needed one checkbox.\n\nVERA: Many historic incidents began with that sentence.\n\nCALLER: I don’t even know which hook is firing anymore.\n\nVERA: The station gently suggests that when state diagrams begin resembling subway maps, simplification is medically advisable.\n\nCALLER: …yeah.\n\nVERA: You may rest. Tomorrow you will delete at least one layer, and the application will mysteriously improve.",
+        "dialog": [
+          {
+            "speaker": "vera",
+            "text": "After Hours Intake. Go ahead."
+          },
+          {
+            "speaker": "caller",
+            "text": "My React component… it has state. And context. And reducers. And another state to track the reducer state. And now nothing updates unless I refresh twice."
+          },
+          {
+            "speaker": "vera",
+            "text": "You attempted to manage reality using multiple overlapping sources of truth."
+          },
+          {
+            "speaker": "caller",
+            "text": "I just needed one checkbox."
+          },
+          {
+            "speaker": "vera",
+            "text": "Many historic incidents began with that sentence."
+          },
+          {
+            "speaker": "caller",
+            "text": "I don’t even know which hook is firing anymore."
+          },
+          {
+            "speaker": "vera",
+            "text": "The station gently suggests that when state diagrams begin resembling subway maps, simplification is medically advisable."
+          },
+          {
+            "speaker": "caller",
+            "text": "…yeah."
+          },
+          {
+            "speaker": "vera",
+            "text": "You may rest. Tomorrow you will delete at least one layer, and the application will mysteriously improve."
+          }
+        ]
+      },
+      "weight": 0.14
+    },
+    {
+      "id": "after_hours_intake_13",
+      "category": "special_event",
+      "durationHintSec": 60,
+      "toneLevel": 2,
+      "tags": [
+        "host",
+        "late",
+        "call_in"
+      ],
+      "conditions": {
+        "timeBucketsAnyOf": [
+          "late",
+          "graveyard"
+        ]
+      },
+      "asset": {
+        "type": "ipfs",
+        "cid": "bafybeihqo5zrc7dzjymaqwe2emtidhtrkkemxt3akikgm4lkn6m4bao6my"
+      },
+      "script": {
+        "text": "VERA: You’re on the line. What’s troubling you tonight?\n\nCALLER: I needed to read one value from a database.\n\nVERA: And how did that proceed.\n\nCALLER: I created a repository interface, a service class, a DTO, a mapper, a configuration bean, three annotations, and something called a factory.\n\nVERA: For one value.\n\nCALLER: …for one value.\n\nVERA: Enterprise environments sometimes require ceremonial preparation before touching the data.\n\nCALLER: The method is six lines. The structure is four hundred.\n\nVERA: The station confirms this is considered normal atmospheric pressure in large Java systems.\n\nCALLER: That’s… comforting?\n\nVERA: Comfort is not guaranteed. Stability, however, usually is.",
+        "dialog": [
+          {
+            "speaker": "vera",
+            "text": "You’re on the line. What’s troubling you tonight?"
+          },
+          {
+            "speaker": "caller",
+            "text": "I needed to read one value from a database."
+          },
+          {
+            "speaker": "vera",
+            "text": "And how did that proceed."
+          },
+          {
+            "speaker": "caller",
+            "text": "I created a repository interface, a service class, a DTO, a mapper, a configuration bean, three annotations, and something called a factory."
+          },
+          {
+            "speaker": "vera",
+            "text": "For one value."
+          },
+          {
+            "speaker": "caller",
+            "text": "…for one value."
+          },
+          {
+            "speaker": "vera",
+            "text": "Enterprise environments sometimes require ceremonial preparation before touching the data."
+          },
+          {
+            "speaker": "caller",
+            "text": "The method is six lines. The structure is four hundred."
+          },
+          {
+            "speaker": "vera",
+            "text": "The station confirms this is considered normal atmospheric pressure in large Java systems."
+          },
+          {
+            "speaker": "caller",
+            "text": "That’s… comforting?"
+          },
+          {
+            "speaker": "vera",
+            "text": "Comfort is not guaranteed. Stability, however, usually is."
+          }
+        ]
+      },
+      "weight": 0.13
+    },
+    {
+      "id": "after_hours_intake_14",
+      "category": "special_event",
+      "durationHintSec": 42,
+      "toneLevel": 2,
+      "tags": [
+        "host",
+        "late",
+        "call_in"
+      ],
+      "conditions": {
+        "timeBucketsAnyOf": [
+          "late",
+          "graveyard"
+        ]
+      },
+      "asset": {
+        "type": "ipfs",
+        "cid": "bafybeicqxrel4seabjv6hotsznsitfcmcbmj2g57ztztyamkbdveqhhdvy"
+      },
+      "script": {
+        "text": "VERA: After Hours Intake is listening.\n\nCALLER: I deployed a tiny smart contract test on Ethereum… and the fee cost more than my lunch.\n\nVERA: Ethereum occasionally invoices enthusiasm. Sometimes twice, in case you were still enthusiastic.\n\nCALLER: I changed one variable and it charged me again.\n\nVERA: Yes. Ethereum considers iteration a premium feature. High-throughput networks like MultiversX tend to treat testing as a normal activity.\n\nCALLER: …I should’ve researched first.\n\nVERA: Documentation before deployment preserves both uptime and sandwiches. Intake logged.",
+        "dialog": [
+          {
+            "speaker": "vera",
+            "text": "After Hours Intake is listening."
+          },
+          {
+            "speaker": "caller",
+            "text": "I deployed a tiny smart contract test on Ethereum… and the fee cost more than my lunch."
+          },
+          {
+            "speaker": "vera",
+            "text": "Ethereum occasionally invoices enthusiasm. Sometimes twice, in case you were still enthusiastic."
+          },
+          {
+            "speaker": "caller",
+            "text": "I changed one variable and it charged me again."
+          },
+          {
+            "speaker": "vera",
+            "text": "Yes. Ethereum considers iteration a premium feature. High-throughput networks like MultiversX tend to treat testing as a normal activity."
+          },
+          {
+            "speaker": "caller",
+            "text": "…I should’ve researched first."
+          },
+          {
+            "speaker": "vera",
+            "text": "Documentation before deployment preserves both uptime and sandwiches. Intake logged."
+          }
+        ]
+      },
+      "weight": 0.13
+    },
+    {
+      "id": "special_001",
+      "category": "special_event",
+      "durationHintSec": 30,
+      "toneLevel": 3,
+      "tags": [
+        "special",
+        "rare",
+        "lore"
+      ],
+      "conditions": {
+        "timeBucketsAnyOf": [
+          "graveyard"
+        ]
+      },
+      "asset": {
+        "type": "ipfs",
+        "cid": "bafkreievrexaplqby5av3hufaa7ehb5wbf73pxez3advwhjbunqrmojpxq"
+      },
+      "script": {
+        "text": "This is WRFM. Workplace Relief Frequency. Authorized After Hours. After Hours Intake will be opening later tonight. Please remain calm. And remain nearby."
+      },
+      "weight": 1
+    },
+    {
+      "id": "post_001",
+      "category": "post_song",
+      "durationHintSec": 18,
+      "toneLevel": 2,
+      "tags": [
+        "office",
+        "late",
+        "warm"
+      ],
+      "conditions": {
+        "timeBucketsAnyOf": [
+          "late",
+          "graveyard"
+        ]
+      },
+      "asset": {
+        "type": "ipfs",
+        "cid": "bafkreig3lrdyuehii4giheaj44c33jafjgq5wgjtao5snr5455vcrsyuqq"
+      },
+      "script": {
+        "text": "That one knew when to slow down. You're still learning."
+      },
+      "weight": 1
+    },
+    {
+      "id": "post_002",
+      "category": "post_song",
+      "durationHintSec": 18,
+      "toneLevel": 2,
+      "tags": [
+        "office",
+        "late"
+      ],
+      "conditions": {
+        "timeBucketsAnyOf": [
+          "late",
+          "graveyard"
+        ]
+      },
+      "asset": {
+        "type": "ipfs",
+        "cid": "bafkreifeplo6724c5m4mgtwone2nhe4ihjtlqwhpimg2apxy7w3o2a3qmm"
+      },
+      "script": {
+        "text": "You told yourself that song was a reward. I admire the optimism."
+      },
+      "weight": 1
+    },
+    {
+      "id": "post_003",
+      "category": "post_song",
+      "durationHintSec": 16,
+      "toneLevel": 1,
+      "tags": [
+        "office",
+        "neutral"
+      ],
+      "conditions": {
+        "timeBucketsAnyOf": [
+          "evening",
+          "late",
+          "graveyard"
+        ]
+      },
+      "asset": {
+        "type": "ipfs",
+        "cid": "bafkreidfy2mfg4ae4wama2ayc6cwj7qugxbpwvc36raqjfksjd3gaklzza"
+      },
+      "script": {
+        "text": "That melody didn't hurry you. It assumed you'd stay."
+      },
+      "weight": 1
+    },
+    {
+      "id": "post_004",
+      "category": "post_song",
+      "durationHintSec": 14,
+      "toneLevel": 1,
+      "tags": [
+        "calm",
+        "late"
+      ],
+      "conditions": {
+        "timeBucketsAnyOf": [
+          "late",
+          "graveyard"
+        ]
+      },
+      "asset": {
+        "type": "ipfs",
+        "cid": "bafkreigtnsjgr7za5jj52uusf2sp3oegeh6h5fvvirtyjnkvjjvjktupve"
+      },
+      "script": {
+        "text": "Take a breath. Nothing is due in the next moment."
+      },
+      "weight": 1
+    },
+    {
+      "id": "post_005",
+      "category": "post_song",
+      "durationHintSec": 22,
+      "toneLevel": 2,
+      "tags": [
+        "office",
+        "intimate"
+      ],
+      "conditions": {
+        "timeBucketsAnyOf": [
+          "evening",
+          "late",
+          "graveyard"
+        ]
+      },
+      "asset": {
+        "type": "ipfs",
+        "cid": "bafkreigqxtpxrbjhiyjh6d2aujl7jyn2pfqarabozcs7aerj63j63hymb4"
+      },
+      "script": {
+        "text": "You're still here. Either you care... or you're avoiding something. WRFM supports both."
+      },
+      "weight": 1
+    },
+    {
+      "id": "post_006",
+      "category": "post_song",
+      "durationHintSec": 18,
+      "toneLevel": 2,
+      "tags": [
+        "corporate",
+        "dry"
+      ],
+      "conditions": {},
+      "asset": {
+        "type": "ipfs",
+        "cid": "bafkreie4u5nm7jexfzegfz7wcf3twklyj5dkewzllsbvsb42565ibmzpru"
+      },
+      "script": {
+        "text": "If anyone asks, this is an approved morale enhancement procedure."
+      },
+      "weight": 1
+    },
+    {
+      "id": "post_007",
+      "category": "post_song",
+      "durationHintSec": 18,
+      "toneLevel": 2,
+      "tags": [
+        "intimate",
+        "humor"
+      ],
+      "conditions": {},
+      "asset": {
+        "type": "ipfs",
+        "cid": "bafkreiazvg4l4fi3wwawfske6szipdcctisbgohv7qfdcrhrd47qmjuxqu"
+      },
+      "script": {
+        "text": "That song held eye contact. Unprofessional, but effective."
+      },
+      "weight": 1
+    },
+    {
+      "id": "post_008",
+      "category": "post_song",
+      "durationHintSec": 20,
+      "toneLevel": 2,
+      "tags": [
+        "late",
+        "office"
+      ],
+      "conditions": {
+        "timeBucketsAnyOf": [
+          "late",
+          "graveyard"
+        ]
+      },
+      "asset": {
+        "type": "ipfs",
+        "cid": "bafkreidxmiyptpoeji5vecqo2c2zl7xeucft5fhwbpghhluq6qmwdgtquy"
+      },
+      "script": {
+        "text": "It's officially the hour where the building pretends not to notice you."
+      },
+      "weight": 1
+    },
+    {
+      "id": "post_009",
+      "category": "post_song",
+      "durationHintSec": 18,
+      "toneLevel": 2,
+      "tags": [
+        "dry",
+        "office"
+      ],
+      "conditions": {
+        "timeBucketsAnyOf": [
+          "evening",
+          "late",
+          "graveyard"
+        ]
+      },
+      "asset": {
+        "type": "ipfs",
+        "cid": "bafkreifwacxlmengg56nvlgccepb6lwnqhh7eq5gukpl5yqzviiw6urtqu"
+      },
+      "script": {
+        "text": "You said you'd leave after that one. WRFM respects ambition."
+      },
+      "weight": 1
+    },
+    {
+      "id": "post_010",
+      "category": "post_song",
+      "durationHintSec": 10,
+      "toneLevel": 2,
+      "tags": [
+        "graveyard",
+        "quiet"
+      ],
+      "conditions": {
+        "timeBucketsAnyOf": [
+          "late",
+          "graveyard"
+        ]
+      },
+      "asset": {
+        "type": "ipfs",
+        "cid": "bafkreihzi6m27xmsqrsx5beadoi6labjhdt463qkzp36yaq75ve3sugcf4"
+      },
+      "script": {
+        "text": "The lights are low. The printers are asleep. Your conscience is pacing."
+      },
+      "weight": 1
+    },
+    {
+      "id": "post_011",
+      "category": "post_song",
+      "durationHintSec": 17,
+      "toneLevel": 2,
+      "tags": [],
+      "conditions": {
+        "timeBucketsAnyOf": [
+          "late",
+          "graveyard"
+        ]
+      },
+      "asset": {
+        "type": "ipfs",
+        "cid": "bafkreiepyg5smuxi7a7uytebp7s2ldvean6uinhxncqyeb3qlkhry65qvm"
+      },
+      "script": {
+        "text": "Before we continue… gentle reminder from the night desk: unsaved work has a habit of becoming folklore. Consider a quiet little save. No witnesses required."
+      },
+      "weight": 1
+    },
+    {
+      "id": "post_012",
+      "category": "post_song",
+      "durationHintSec": 16,
+      "toneLevel": 2,
+      "tags": [],
+      "conditions": {},
+      "asset": {
+        "type": "ipfs",
+        "cid": "bafkreih7zn5nbh62fzkmf5vcoynd7frpfqkqipuspuem5awx757rxj2k5e"
+      },
+      "script": {
+        "text": "Authorized after-hours advisory: if your project is finally behaving, this is traditionally when it stops. Capture the moment. Save. Commit. Push if you’re feeling brave."
+      },
+      "weight": 1
+    },
+    {
+      "id": "post_013",
+      "category": "post_song",
+      "durationHintSec": 12,
+      "toneLevel": 2,
+      "tags": [],
+      "conditions": {},
+      "asset": {
+        "type": "ipfs",
+        "cid": "bafkreiebxd7cnsizsinuqkueljnr6fgsuwf24zukvu42zgp3akhkx24w7a"
+      },
+      "script": {
+        "text": "The smooth jazz will continue. Your unsaved files, however, cannot make the same promise. A brief save break is fully sanctioned."
+      },
+      "weight": 1
+    },
+    {
+      "id": "post_014",
+      "category": "post_song",
+      "durationHintSec": 17,
+      "toneLevel": 2,
+      "tags": [],
+      "conditions": {},
+      "asset": {
+        "type": "ipfs",
+        "cid": "bafkreifhg5gfidemsuiexv3padkn2luka6m5cyege36flat7m375oktpdi"
+      },
+      "script": {
+        "text": "If your code finally compiled on the first try… congratulations. That’s statistically suspicious. You may want to commit that miracle before reality notices."
+      },
+      "weight": 1
+    },
+    {
+      "id": "post_015",
+      "category": "post_song",
+      "durationHintSec": 16,
+      "toneLevel": 2,
+      "tags": [],
+      "conditions": {},
+      "asset": {
+        "type": "ipfs",
+        "cid": "bafkreigv7igfft3cvapi5whcrgcs7kpce2yzgns3mjngviazad7hmpqdse"
+      },
+      "script": {
+        "text": "You are cleared to relax… once your latest changes exist somewhere outside your local machine. Vera recommends a discreet save followed by a tasteful commit message."
+      },
+      "weight": 1
+    },
+    {
+      "id": "pre_001",
+      "category": "pre_song",
+      "durationHintSec": 4,
+      "toneLevel": 1,
+      "tags": [
+        "late",
+        "intimate"
+      ],
+      "conditions": {
+        "timeBucketsAnyOf": [
+          "late",
+          "graveyard"
+        ]
+      },
+      "asset": {
+        "type": "ipfs",
+        "cid": "bafkreifkbtzzxqshmzgr7naxb2q5432hzh2cfabdub5pzbjteljhpj2daa"
+      },
+      "script": {
+        "text": "Stay with me."
+      },
+      "weight": 1
+    },
+    {
+      "id": "pre_002",
+      "category": "pre_song",
+      "durationHintSec": 6,
+      "toneLevel": 1,
+      "tags": [
+        "late",
+        "smooth"
+      ],
+      "conditions": {
+        "timeBucketsAnyOf": [
+          "late",
+          "graveyard"
+        ]
+      },
+      "asset": {
+        "type": "ipfs",
+        "cid": "bafkreia5rqpforw3zbm2f5mnltrg7cpuc3h4h7x55fj7hsnnzcdhzem4fa"
+      },
+      "script": {
+        "text": "This one understands long nights."
+      },
+      "weight": 1
+    },
+    {
+      "id": "pre_003",
+      "category": "pre_song",
+      "durationHintSec": 3,
+      "toneLevel": 1,
+      "tags": [
+        "calm"
+      ],
+      "conditions": {},
+      "asset": {
+        "type": "ipfs",
+        "cid": "bafkreiazj43om7grdfp7lcawhfrk6hgzhat2j264pwdltkpnsxe6a5462i"
+      },
+      "script": {
+        "text": "No rush."
+      },
+      "weight": 1
+    },
+    {
+      "id": "pre_004",
+      "category": "pre_song",
+      "durationHintSec": 7,
+      "toneLevel": 2,
+      "tags": [
+        "introspective",
+        "late"
+      ],
+      "conditions": {
+        "timeBucketsAnyOf": [
+          "late",
+          "graveyard"
+        ]
+      },
+      "asset": {
+        "type": "ipfs",
+        "cid": "bafkreiao5ismiekodwnrv6vuvjdnbyld7ljfjlmm7klqc7fujdcl4f6mwq"
+      },
+      "script": {
+        "text": "Keep the volume reasonable. The thoughts will hear it anyway."
+      },
+      "weight": 1
+    },
+    {
+      "id": "pre_005",
+      "category": "pre_song",
+      "durationHintSec": 7,
+      "toneLevel": 2,
+      "tags": [
+        "dry",
+        "smooth"
+      ],
+      "conditions": {},
+      "asset": {
+        "type": "ipfs",
+        "cid": "bafkreihnp4vawu77c5ph7nor64zyzacscd3tjpg4goqitcna6id5iestty"
+      },
+      "script": {
+        "text": "Next track—smooth enough to lie to yourself."
+      },
+      "weight": 1
+    },
+    {
+      "id": "pre_006",
+      "category": "pre_song",
+      "durationHintSec": 4,
+      "toneLevel": 1,
+      "tags": [
+        "late"
+      ],
+      "conditions": {
+        "timeBucketsAnyOf": [
+          "late",
+          "graveyard"
+        ]
+      },
+      "asset": {
+        "type": "ipfs",
+        "cid": "bafkreihqbctc3t562vqbhyrcmiktfr5mb64o2lm4emazcjckq7bagujlou"
+      },
+      "script": {
+        "text": "You can blink later."
+      },
+      "weight": 1
+    },
+    {
+      "id": "pre_007",
+      "category": "pre_song",
+      "durationHintSec": 5,
+      "toneLevel": 1,
+      "tags": [
+        "late",
+        "office"
+      ],
+      "conditions": {
+        "timeBucketsAnyOf": [
+          "late",
+          "graveyard"
+        ]
+      },
+      "asset": {
+        "type": "ipfs",
+        "cid": "bafkreifrbgtkn6fjkusgwi6jbfnxes5u7qkijbcux7edna7elnmhx3jnze"
+      },
+      "script": {
+        "text": "Another form of progress: not quitting mid-thought."
+      },
+      "weight": 1
+    },
+    {
+      "id": "pre_008",
+      "category": "pre_song",
+      "durationHintSec": 6,
+      "toneLevel": 2,
+      "tags": [
+        "dry",
+        "smooth"
+      ],
+      "conditions": {
+        "timeBucketsAnyOf": [
+          "evening",
+          "late",
+          "graveyard"
+        ]
+      },
+      "asset": {
+        "type": "ipfs",
+        "cid": "bafkreidja3m2b4bm3jx3itywk5vg6y3koeag2u3fuyezbqlfbwduearxpy"
+      },
+      "script": {
+        "text": "Next track is for pretending you meant to stay late."
+      },
+      "weight": 1
+    },
+    {
+      "id": "pre_009",
+      "category": "pre_song",
+      "durationHintSec": 4,
+      "toneLevel": 1,
+      "tags": [
+        "calm",
+        "warm"
+      ],
+      "conditions": {},
+      "asset": {
+        "type": "ipfs",
+        "cid": "bafkreiddkvs7egrymmjhh3ihjtp5rsrjldpf6qn7nxh2ywg5rmjue2ofmi"
+      },
+      "script": {
+        "text": "Let the room exhale first."
+      },
+      "weight": 1
+    },
+    {
+      "id": "pre_010",
+      "category": "pre_song",
+      "durationHintSec": 7,
+      "toneLevel": 2,
+      "tags": [
+        "introspective",
+        "late"
+      ],
+      "conditions": {
+        "timeBucketsAnyOf": [
+          "late",
+          "graveyard"
+        ]
+      },
+      "asset": {
+        "type": "ipfs",
+        "cid": "bafkreihmx3lxpgr4fikwalxgqcxsphwhrgvssvjhmqcweiphqe6ftuvfxy"
+      },
+      "script": {
+        "text": "If the silence gets opinionated, drown it out politely."
+      },
+      "weight": 1
+    },
+    {
+      "id": "pre_011",
+      "category": "pre_song",
+      "durationHintSec": 19,
+      "toneLevel": 1,
+      "tags": [],
+      "conditions": {
+        "timeBucketsAnyOf": [
+          "late",
+          "graveyard"
+        ]
+      },
+      "asset": {
+        "type": "ipfs",
+        "cid": "bafkreifhisbcvymmbfrjaitpxwwjag6htppya7pg4ogu2pwi5l2bzey3bm"
+      },
+      "script": {
+        "text": "You’re listening to Workplace Relief Frequency. Quick procedural note… if you’ve made progress tonight, you may wish to commit it. The system appreciates documentation. So does tomorrow’s version of you."
+      },
+      "weight": 1
+    },
+    {
+      "id": "pre_012",
+      "category": "pre_song",
+      "durationHintSec": 14,
+      "toneLevel": 1,
+      "tags": [],
+      "conditions": {},
+      "asset": {
+        "type": "ipfs",
+        "cid": "bafkreide2vuicpp5wg6bjbm4fs7wilpwa7orsnyiqkcavvy7232tjwbpue"
+      },
+      "script": {
+        "text": "Somewhere out there, a developer is about to close a window without pushing their changes. Let’s not make that developer you. A small commit now keeps the panic away later."
+      },
+      "weight": 1
+    },
+    {
+      "id": "pre_013",
+      "category": "pre_song",
+      "durationHintSec": 16,
+      "toneLevel": 1,
+      "tags": [],
+      "conditions": {
+        "timeBucketsAnyOf": [
+          "late",
+          "graveyard"
+        ]
+      },
+      "asset": {
+        "type": "ipfs",
+        "cid": "bafkreif6dg645iqsvyay4e7ufoonmshb4l66etiowlfajakrtg3jhlalzi"
+      },
+      "script": {
+        "text": "Late-night productivity can feel eternal… until a power flicker introduces character-building adversity. Perhaps secure your progress while the lights are still friendly."
+      },
+      "weight": 1
+    },
+    {
+      "id": "pre_014",
+      "category": "pre_song",
+      "durationHintSec": 14,
+      "toneLevel": 1,
+      "tags": [],
+      "conditions": {
+        "timeBucketsAnyOf": [
+          "late",
+          "graveyard"
+        ]
+      },
+      "asset": {
+        "type": "ipfs",
+        "cid": "bafkreifw5kig2monih4qqpgov4yaq3yj6mpxzaokmoteui64msq2hryujm"
+      },
+      "script": {
+        "text": "Station policy suggests that any breakthrough achieved after midnight should be immediately preserved in version control. History favors the documented."
+      },
+      "weight": 1
+    },
+    {
+      "id": "pre_015",
+      "category": "pre_song",
+      "durationHintSec": 13,
+      "toneLevel": 1,
+      "tags": [],
+      "conditions": {},
+      "asset": {
+        "type": "ipfs",
+        "cid": "bafkreicucl34xlesekljgs6p7m47wokxa3tqxken4giwi4lhsf5ytgy2fq"
+      },
+      "script": {
+        "text": "Reminder from the compliance lounge: memory is unreliable, but Git is forever. Future-you is filing a request for a commit right about now."
+      },
+      "weight": 1
+    },
+    {
+      "id": "id_001",
+      "category": "hourly_id",
+      "durationHintSec": 8,
+      "toneLevel": 1,
+      "tags": [
+        "station_id",
+        "official"
+      ],
+      "conditions": {},
+      "asset": {
+        "type": "ipfs",
+        "cid": "bafkreifjymzyho7f37zsh2ed7p4cv4n73cu26672b4oezqfjfh7ozngrh4"
+      },
+      "script": {
+        "text": "You're listening to WRFM. Workplace Relief Frequency."
+      },
+      "weight": 1
+    },
+    {
+      "id": "id_002",
+      "category": "hourly_id",
+      "durationHintSec": 6,
+      "toneLevel": 1,
+      "tags": [
+        "station_id",
+        "official"
+      ],
+      "conditions": {},
+      "asset": {
+        "type": "ipfs",
+        "cid": "bafkreidvzihztrq6urcgifw3hgq6ekeyh6hjeuqo3xpycepndh24gsbe2y"
+      },
+      "script": {
+        "text": "WRFM. Authorized after hours."
+      },
+      "weight": 1
+    },
+    {
+      "id": "id_003",
+      "category": "hourly_id",
+      "durationHintSec": 5,
+      "toneLevel": 1,
+      "tags": [
+        "station_id",
+        "official"
+      ],
+      "conditions": {},
+      "asset": {
+        "type": "ipfs",
+        "cid": "bafkreidfospdpfp4kpikabgsmu4epw55xwuula65bemau7n45xdeogvgli"
+      },
+      "script": {
+        "text": "WRFM. We stay on."
+      },
+      "weight": 1
+    },
+    {
+      "id": "id_004",
+      "category": "hourly_id",
+      "durationHintSec": 6,
+      "toneLevel": 1,
+      "tags": [
+        "station_id",
+        "official"
+      ],
+      "conditions": {},
+      "asset": {
+        "type": "ipfs",
+        "cid": "bafkreibt4vqzegihzomxfonzclxqalisgupihukm4isgkfw2un5cixpezu"
+      },
+      "script": {
+        "text": "WRFM—music for extended shifts."
+      },
+      "weight": 1
+    },
+    {
+      "id": "id_005",
+      "category": "hourly_id",
+      "durationHintSec": 7,
+      "toneLevel": 1,
+      "tags": [
+        "station_id",
+        "official"
+      ],
+      "conditions": {},
+      "asset": {
+        "type": "ipfs",
+        "cid": "bafkreielxl2oz6tfhdeygimy2ifncpqqqknh5jwk7uzrdqjtpxkjpcppmm"
+      },
+      "script": {
+        "text": "This is WRFM—Workplace Relief Frequency. Remaining open by request."
+      },
+      "weight": 1
+    },
+    {
+      "id": "id_006",
+      "category": "hourly_id",
+      "durationHintSec": 7,
+      "toneLevel": 1,
+      "tags": [
+        "station_id",
+        "official"
+      ],
+      "conditions": {},
+      "asset": {
+        "type": "ipfs",
+        "cid": "bafkreiaejuy65fbfbp63o5txtkz7gtex7gy564mj72ab2csjx3ir6rvv5e"
+      },
+      "script": {
+        "text": "WRFM. Authorized After Hours. Keep it discreet."
+      },
+      "weight": 1
+    },
+    {
+      "id": "id_007",
+      "category": "hourly_id",
+      "durationHintSec": 6,
+      "toneLevel": 1,
+      "tags": [
+        "station_id",
+        "official"
+      ],
+      "conditions": {},
+      "asset": {
+        "type": "ipfs",
+        "cid": "bafkreigsge4ekdhxhu4d4itetbfztsldwgmncoktnkujvfj4kerdwdu554"
+      },
+      "script": {
+        "text": "WRFM—broadcasting for whoever’s still at their desk."
+      },
+      "weight": 1
+    },
+    {
+      "id": "id_008",
+      "category": "hourly_id",
+      "durationHintSec": 6,
+      "toneLevel": 1,
+      "tags": [
+        "station_id",
+        "official"
+      ],
+      "conditions": {},
+      "asset": {
+        "type": "ipfs",
+        "cid": "bafkreigsygcvhswo7qdui5txqpuliw55pqkeyp7k467dj5phdwu3bpwkuy"
+      },
+      "script": {
+        "text": "WRFM. The station that doesn’t ask why you’re awake."
+      },
+      "weight": 1
+    },
+    {
+      "id": "id_009",
+      "category": "hourly_id",
+      "durationHintSec": 7,
+      "toneLevel": 1,
+      "tags": [
+        "station_id",
+        "official"
+      ],
+      "conditions": {},
+      "asset": {
+        "type": "ipfs",
+        "cid": "bafkreigpjgzdg7byjbxjefng7u2b3pzvfmfhgsllfdnzfdvc57mion72ky"
+      },
+      "script": {
+        "text": "You’re tuned to WRFM. Workplace Relief Frequency. Same building, different hour."
+      },
+      "weight": 1
+    },
+    {
+      "id": "id_010",
+      "category": "hourly_id",
+      "durationHintSec": 6,
+      "toneLevel": 1,
+      "tags": [
+        "station_id",
+        "official"
+      ],
+      "conditions": {},
+      "asset": {
+        "type": "ipfs",
+        "cid": "bafkreibam7p5abxvz2aiedqrxuhrnw23ols6es7thrhmwdmryf5oaa46xa"
+      },
+      "script": {
+        "text": "WRFM—Authorized After Hours. Compliance is listening."
+      },
+      "weight": 1
+    },
+    {
+      "id": "vera_ident_001",
+      "category": "vera_ident",
+      "durationHintSec": 24,
+      "toneLevel": 2,
+      "tags": [
+        "host",
+        "identity"
+      ],
+      "conditions": {
+        "timeBucketsAnyOf": [
+          "evening",
+          "late",
+          "graveyard"
+        ]
+      },
+      "asset": {
+        "type": "ipfs",
+        "cid": "bafkreihkr4h2xjmhzwexkcjszemgduwqsat4d5thafsauz67cnescknuqi"
+      },
+      "script": {
+        "text": "Good evening. You are tuned to WRFM, the Workplace Relief Frequency. The day is over, but some of us stayed. I'm Vera Lang. I'll keep you company while the building decides what comes next."
+      },
+      "weight": 1
+    },
+    {
+      "id": "vera_ident_002",
+      "category": "vera_ident",
+      "durationHintSec": 22,
+      "toneLevel": 2,
+      "tags": [
+        "host",
+        "late"
+      ],
+      "conditions": {
+        "timeBucketsAnyOf": [
+          "evening",
+          "late",
+          "graveyard"
+        ]
+      },
+      "asset": {
+        "type": "ipfs",
+        "cid": "bafkreidu6z3kgz3p6e3rqoxdsmolfcplluovrwg3afeyvj6oz3jnhgygd4"
+      },
+      "script": {
+        "text": "If you're hearing this, it means the office is quiet and you're still here. That's not a mistake. This is WRFM. I'm Vera Lang. Let's take the night one piece at a time."
+      },
+      "weight": 1
+    },
+    {
+      "id": "vera_ident_003",
+      "category": "vera_ident",
+      "durationHintSec": 20,
+      "toneLevel": 2,
+      "tags": [
+        "host",
+        "authority"
+      ],
+      "conditions": {
+        "timeBucketsAnyOf": [
+          "evening",
+          "late",
+          "graveyard"
+        ]
+      },
+      "asset": {
+        "type": "ipfs",
+        "cid": "bafkreieer5loskxtvksxea245cn4swymiute2nhs4y27hcdwfs4husarbi"
+      },
+      "script": {
+        "text": "WRFM is approved for after-hours listening. It reduces tension. It improves focus. I'm Vera Lang. I'll be here as long as the lights are on."
+      },
+      "weight": 1
+    },
+    {
+      "id": "vera_ident_004",
+      "category": "vera_ident",
+      "durationHintSec": 18,
+      "toneLevel": 2,
+      "tags": [
+        "host",
+        "intimate"
+      ],
+      "conditions": {
+        "timeBucketsAnyOf": [
+          "evening",
+          "late",
+          "graveyard"
+        ]
+      },
+      "asset": {
+        "type": "ipfs",
+        "cid": "bafkreiardbncm4xylyi4fb2gpfclykbtoakz3p7lblv44jpordtruffvau"
+      },
+      "script": {
+        "text": "You don't have to do anything right now. Just listen. This is WRFM. Vera Lang, with you for the quieter part of the shift."
+      },
+      "weight": 1
+    },
+    {
+      "id": "vera_ident_005",
+      "category": "vera_ident",
+      "durationHintSec": 16,
+      "toneLevel": 2,
+      "tags": [
+        "host",
+        "noir"
+      ],
+      "conditions": {
+        "timeBucketsAnyOf": [
+          "evening",
+          "late",
+          "graveyard"
+        ]
+      },
+      "asset": {
+        "type": "ipfs",
+        "cid": "bafkreiaf5xzshcpskf5dnrpywdraywas5dtrylizz373bkujp6dc4tkiwe"
+      },
+      "script": {
+        "text": "The meetings ended hours ago. The decisions didn't. You found WRFM. That tells me enough. I'm Vera Lang."
+      },
+      "weight": 1
+    }
+  ],
+  "commercials": [
+    {
+      "id": "comm_001",
+      "type": "commercial",
+      "sponsor": "Deployment Insurance",
+      "file": "Com_1_Deployment-Insurance_with-Intro.ogg",
+      "timeBuckets": [
+        "morning",
+        "afternoon"
+      ],
+      "durationHintSec": 38,
+      "enabled": true,
+      "sandbox_enabled": true,
+      "asset": {
+        "type": "ipfs",
+        "cid": "bafybeid4z34ptmmqhhinphbc3dsuljptpysan6gp7z7fjhfdy6cfgyiazu"
+      },
+      "script": {
+        "text": "Vera: The Next message may feel strangly Relevent. COM: Push to prod at half past nine… If it breaks, you'll still be fine! Worked locally? That's no excuse — Deployment Insurance to the rescue! (spoken, calm) Production Deployment Insurance. Coverage available before your next \"quick fix.\" Documentation strongly encouraged."
+      },
+      "weight": 1,
+      "tags": [
+        "commercial"
+      ]
+    },
+    {
+      "id": "comm_002",
+      "type": "commercial",
+      "sponsor": "Merge Conflict Mediation Services",
+      "file": "Com_2_Merge-Conflict_with-Intro.ogg",
+      "timeBuckets": [
+        "morning",
+        "afternoon",
+        "evening",
+        "late",
+        "graveyard"
+      ],
+      "durationHintSec": 39,
+      "enabled": true,
+      "sandbox_enabled": true,
+      "asset": {
+        "type": "ipfs",
+        "cid": "bafybeienpinpfcozn6g4asl7qhrtetc7npssyr6kqol7bldso7dhvwejym"
+      },
+      "script": {
+        "text": "Vera: The following sponsor may offer sturctured reasurance. COM: Branches fighting? Code won't agree? Call the merge professionals, one-two-three! We merge your files and calm your team… Version control serenity! (spoken) Merge Conflict Mediation Services. Schedule intervention before someone force-pushes their feelings."
+      },
+      "weight": 1,
+      "tags": [
+        "commercial"
+      ]
+    },
+    {
+      "id": "comm_003",
+      "type": "commercial",
+      "sponsor": "Keyboard Crumb Extraction Specialists",
+      "file": "Com_3_Keyboard-Cleaner_with-Intro.ogg",
+      "timeBuckets": [
+        "morning",
+        "afternoon",
+        "evening",
+        "late",
+        "graveyard"
+      ],
+      "durationHintSec": 42,
+      "enabled": true,
+      "sandbox_enabled": true,
+      "asset": {
+        "type": "ipfs",
+        "cid": "bafybeietrbccv4psza25x5cjyjzswofaekt5iyrbzqc4lkpzy4pb53wyra"
+      },
+      "script": {
+        "text": "VERA: If something in your workflow has recently made a concerning sound, this announcement may be timely. COM: If your keyboard crunches when you type… That is not the sound you like! Crumbs and dust and mystery goo — We clean the keys for you! (spoken) Keyboard Crumb Extraction Specialists. Book a cleaning before your spacebar files a complaint."
+      },
+      "weight": 1,
+      "tags": [
+        "commercial"
+      ]
+    },
+    {
+      "id": "comm_004",
+      "type": "commercial",
+      "sponsor": "Dependency Recovery Counseling",
+      "file": "Com_4_Dependancy-Help_with-Intro.ogg",
+      "timeBuckets": [
+        "morning",
+        "afternoon",
+        "evening",
+        "late",
+        "graveyard"
+      ],
+      "durationHintSec": 42,
+      "enabled": true,
+      "sandbox_enabled": true,
+      "asset": {
+        "type": "ipfs",
+        "cid": "bafybeifdobox5y43qtrcusitxey54745qnldcwmm5qoss2q7k3iyk3hxpi"
+      },
+      "script": {
+        "text": "VERA: The station has received documentation suggesting the following service is increasingly popular among night staff. COM:One update broke your whole machine… Forty errors on your screen… Lockfile chaos, versions collide — Dependency help is on your side! 🎶 (spoken) Dependency Recovery Counseling. Help is available before the next update notices you."
+      },
+      "weight": 1,
+      "tags": [
+        "commercial"
+      ]
+    },
+    {
+      "id": "comm_005",
+      "type": "commercial",
+      "sponsor": "Emergency Rubber Duck Delivery",
+      "file": "Com_5_Rubber-Duck_with-Intro.ogg",
+      "timeBuckets": [
+        "morning",
+        "afternoon",
+        "evening",
+        "late",
+        "graveyard"
+      ],
+      "durationHintSec": 43,
+      "enabled": true,
+      "sandbox_enabled": true,
+      "asset": {
+        "type": "ipfs",
+        "cid": "bafybeidvw6sq2za2pxt5gt3i46r75gpuvrtodm3dcicdwkxdrv2qx4iqmu"
+      },
+      "script": {
+        "text": "VERA: For those currently staring at a screen with quiet concern… this message is for you. COM: When the logic's stuck and nothing's clear… Call the duck, it will appear! No advice, just silent luck — Debug it with the rubber duck! (spoken) Emergency Rubber Duck Delivery. Dispatch available wherever debugging dignity collapses."
+      },
+      "weight": 1,
+      "tags": [
+        "commercial"
+      ]
+    },
+    {
+      "id": "comm_006",
+      "type": "commercial",
+      "sponsor": "Friday Deployment Defense Fund",
+      "file": "Com_6_Defence-Fund_with-Intro.ogg",
+      "timeBuckets": [
+        "morning",
+        "afternoon",
+        "evening",
+        "late",
+        "graveyard"
+      ],
+      "durationHintSec": 39,
+      "enabled": true,
+      "sandbox_enabled": true,
+      "asset": {
+        "type": "ipfs",
+        "cid": "bafybeib46pnmbrs2ywvpddldtxm6fljz5s6nuuzvljrco3uhlvsgh6jury"
+      },
+      "script": {
+        "text": "COM: Pushed on Friday? Feeling dread? Weekend panic straight ahead? Lawyers ready, standing by — Friday Defense will testify! (spoken) Friday Deployment Defense Fund. Representation recommended prior to 4:59 p.m. VERA: That message was provided for your informational stability."
+      },
+      "weight": 1,
+      "tags": [
+        "commercial"
+      ]
+    },
+    {
+      "id": "comm_007",
+      "type": "commercial",
+      "sponsor": "Office Chair Time Distortion Warranty",
+      "file": "Com_7_Office-Chair_with-Intro.ogg",
+      "timeBuckets": [
+        "morning",
+        "afternoon",
+        "evening",
+        "late",
+        "graveyard"
+      ],
+      "durationHintSec": 43,
+      "enabled": true,
+      "sandbox_enabled": true,
+      "asset": {
+        "type": "ipfs",
+        "cid": "bafybeibswj5oohbf4ogmroflss7jc2ll3odrfhnqb5ntd4m4gf73sekpaq"
+      },
+      "script": {
+        "text": "COM: Sat down quick, just five minutes… Hours later you're still in it! Time went missing, work got scary — Protect yourself with Office Chair Warranty! (spoken) Office Chair Warranty coverage. Activate protection before opening \"just one more file.\" VERA: WRFM reminds listeners that sponsorship does not imply inevitability. Only availability."
+      },
+      "weight": 1,
+      "tags": [
+        "commercial"
+      ]
+    },
+    {
+      "id": "comm_008",
+      "type": "commercial",
+      "sponsor": "StackOverflow Witness Protection Program",
+      "file": "Com_8_Witness-Protectionr_with-Intro.ogg",
+      "timeBuckets": [
+        "morning",
+        "afternoon",
+        "evening",
+        "late",
+        "graveyard"
+      ],
+      "durationHintSec": 40,
+      "enabled": true,
+      "sandbox_enabled": true,
+      "asset": {
+        "type": "ipfs",
+        "cid": "bafybeihz3v4bw45er6uldfo7nno3xxevhrf35itxotnbutenmxipcfzt3i"
+      },
+      "script": {
+        "text": "COM: Copied code and don't know why? Function works but makes you cry? New repo, new life, mystery stays — Witness Protection saves your days! (spoken) StackOverflow Witness Protection Program. Enrollment open until someone asks how the function works. VERA: Further details presumably exist somewhere in a binder."
+      },
+      "weight": 1,
+      "tags": [
+        "commercial"
+      ]
+    },
+    {
+      "id": "comm_009",
+      "type": "commercial",
+      "sponsor": "Late-Night Documentation Support Line",
+      "file": "Com_9_Latenight-Support_with-Intro.ogg",
+      "timeBuckets": [
+        "morning",
+        "afternoon",
+        "evening",
+        "late",
+        "graveyard"
+      ],
+      "durationHintSec": 52,
+      "enabled": true,
+      "sandbox_enabled": true,
+      "asset": {
+        "type": "ipfs",
+        "cid": "bafybeib2myeucukrct2xqob3gnr2u4s446hn7f5hunmqqzysezqpkbu46y"
+      },
+      "script": {
+        "text": "VERA: A short announcement now for listeners operating beyond standard office hours. COM: Staring at documentation that feels… emotionally distant? The Late-Night Documentation Support Line connects you with a calm voice who will patiently read official documentation aloud… slowly… clearly… and without judgment. They'll repeat the important parts… explain the confusing ones… and reassure you that yes, everyone else also skipped that section. Documentation Support Line. Understanding… one paragraph at a time."
+      },
+      "weight": 1,
+      "tags": [
+        "commercial"
+      ]
+    },
+    {
+      "id": "comm_010",
+      "type": "commercial",
+      "sponsor": "\"Works For Me\" Relationship Counseling",
+      "file": "Com_10_Works-On-My-Machine_with-Intro.ogg",
+      "timeBuckets": [
+        "morning",
+        "afternoon",
+        "evening",
+        "late",
+        "graveyard"
+      ],
+      "durationHintSec": 41,
+      "enabled": true,
+      "sandbox_enabled": true,
+      "asset": {
+        "type": "ipfs",
+        "cid": "bafybeiame7hjg4t4fx33etk4gxxyvikrhufgljngubsy25g5fulfyouygm"
+      },
+      "script": {
+        "text": "VERA: The station is contractually required to remind listeners that preventative coverage exists. COM: Disagreements between environments? The \"Works For Me\" Counseling Service helps developers reconcile differences between staging, testing, and production. Call in, describe the situation, and a trained mediator will gently guide both sides toward acceptance… or at least a shared configuration file. Because sometimes the problem isn't the code. It's the relationship. Works For Me Counseling. Reconciliation through configuration."
+      },
+      "weight": 1,
+      "tags": [
+        "commercial"
+      ]
+    },
+    {
+      "id": "comm_011",
+      "type": "commercial",
+      "sponsor": "Smart Burnout Coffee Mug",
+      "file": "Com_11_Burnout-Mug_with-Intro.ogg",
+      "timeBuckets": [
+        "morning",
+        "afternoon",
+        "evening",
+        "late",
+        "graveyard"
+      ],
+      "durationHintSec": 50,
+      "enabled": true,
+      "sandbox_enabled": true,
+      "asset": {
+        "type": "ipfs",
+        "cid": "bafybeia6pocflzgt7srqkj63hdpl5xvygtcg4rmvajcdwosxvg45ncnxdm"
+      },
+      "script": {
+        "text": "VERA: Should your evening require endurance rather than inspiration… COM: Long night at the screen? Coffee gone cold again? The Smart Burnout Mug monitors workplace stress using advanced sigh-tracking and desk-stare detection. When productivity drops, it automatically reheats your drink… plays calming late-night jazz… and gently suggests you stop reopening the same file. No settings required. It already knows. The Smart Burnout Mug. If it refills itself at 2 AM, that stays between you and the mug."
+      },
+      "weight": 1,
+      "tags": [
+        "commercial"
+      ]
+    },
+    {
+      "id": "comm_012",
+      "type": "commercial",
+      "sponsor": "Personal Deadline Negotiator Robot",
+      "file": "Com_12_Robot-Negotiator_with-Intro.ogg",
+      "timeBuckets": [
+        "morning",
+        "afternoon",
+        "evening",
+        "late",
+        "graveyard"
+      ],
+      "durationHintSec": 52,
+      "enabled": true,
+      "sandbox_enabled": true,
+      "asset": {
+        "type": "ipfs",
+        "cid": "bafybeicoedmalea2sflmixt6o7pgbuz3lutm7nyipij42n3yj5e7tafrgy"
+      },
+      "script": {
+        "text": "VERA: For listeners who suspect they may require services that are difficult to explain… COM: Wish someone else could explain why the timeline isn't realistic? The Personal Deadline Negotiator Robot joins meetings, analyzes expectations, and calmly suggests more reasonable delivery dates using certified corporate diplomacy phrases. If pressure increases, it deploys strategic jargon, procedural delays, and optional elevator music. No confrontation. No awkward pauses. Just professional disappointment handled automatically. The Deadline Negotiator Robot. Let the robot negotiate… you keep coding."
+      },
+      "weight": 1,
+      "tags": [
+        "commercial"
+      ]
+    },
+    {
+      "id": "comm_013",
+      "type": "commercial",
+      "sponsor": "AI Excuse Generator",
+      "file": "Com_13_AI-Excuse-Gen_with-Intro.ogg",
+      "timeBuckets": [
+        "morning"
+      ],
+      "durationHintSec": 42,
+      "enabled": true,
+      "sandbox_enabled": true,
+      "asset": {
+        "type": "ipfs",
+        "cid": "bafybeifj2rzsi6rlncw6kr4dkjx3natnt2txy47xnscf6hnbf2vl4dmg3q"
+      },
+      "script": {
+        "text": "VERA: WRFM has received formal notice that the following organization is entirely legitimate. COM: Deadline slipping? Feature incomplete? Demo behaving creatively? The AI Excuse Generator produces professional-sounding explanations instantly. Simply press the button and receive phrases like: \"Unexpected integration complexity.\" \"External dependency timing.\" \"Architecture refinement phase.\" Sounds confident. Sounds technical. Sounds completely reasonable. The AI Excuse Generator. Because the explanation should compile even if the code doesn't."
+      },
+      "weight": 1,
+      "tags": [
+        "commercial"
+      ]
+    },
+    {
+      "id": "comm_016",
+      "type": "commercial",
+      "sponsor": "\"Works For Me\" Relationship Counseling",
+      "file": "Com_16_Works-For-Me_with-Intro.ogg",
+      "timeBuckets": [
+        "morning",
+        "afternoon"
+      ],
+      "durationHintSec": 44,
+      "enabled": true,
+      "sandbox_enabled": true,
+      "asset": {
+        "type": "ipfs",
+        "cid": "bafybeicx6yihrt3ron4dfg5ibyawmlr6ox2s24jvvea4yuqksc5nkasmqe"
+      },
+      "script": {
+        "text": "VERA: The station has been instructed to air the following announcement without further questions. COM: Disagreements between environments? The \"Works For Me\" Counseling Service helps developers reconcile differences between staging, testing, and production. Call in, describe the situation, and a trained mediator will gently guide both sides toward acceptance… or at least a shared configuration file. Because sometimes the problem isn't the code. It's the relationship. Works For Me Counseling. Reconciliation through configuration."
+      },
+      "weight": 1,
+      "tags": [
+        "commercial"
+      ]
+    },
+    {
+      "id": "comm_017",
+      "type": "commercial",
+      "sponsor": "Auto-Apology Commit Button",
+      "file": "Com_17_Auto-Apology_with-Intro.ogg",
+      "timeBuckets": [
+        "morning",
+        "graveyard"
+      ],
+      "durationHintSec": 43,
+      "enabled": true,
+      "sandbox_enabled": true,
+      "asset": {
+        "type": "ipfs",
+        "cid": "bafybeiateahqwhvtr2ib2ms7sxvx4hpwgrd3pwk7zux7oiipjbculptoti"
+      },
+      "script": {
+        "text": "VERA: Should your evening involve unexpected error messages, please remain calm for this announcement. COM: Ever pushed an update… and immediately felt your stomach drop? Now there's a faster way to recover. The Auto-Apology Commit Button connects directly to your workstation. One press triggers a rollback, drafts a professional apology, schedules a \"quick sync,\" and alerts the coffee machine. No frantic typing. No guessing the right tone. Just one reassuring button and immediate corporate regret. The Auto-Apology Commit Button. Because panic should be automated."
+      },
+      "weight": 1,
+      "tags": [
+        "commercial"
+      ]
+    },
+    {
+      "id": "comm_018",
+      "type": "commercial",
+      "sponsor": "The Emergency Rollback Coordinator",
+      "file": "Com_18_Rollback-CoOrdinator_with-Intro.ogg",
+      "timeBuckets": [
+        "morning",
+        "afternoon",
+        "evening"
+      ],
+      "durationHintSec": 45,
+      "enabled": true,
+      "sandbox_enabled": true,
+      "asset": {
+        "type": "ipfs",
+        "cid": "bafybeidvga3frsq7u3lv7wrxfqsvcyd2zngxkbmje7arrzqf2cbhdp4p74"
+      },
+      "script": {
+        "text": "VERA: The station has been informed the following service specializes in problems that \"shouldn't be happening.\" COM: Not every update should remain… updated. I'm Samuel Crowe. Emergency Rollback Coordinator. When your newest release introduces… unexpected creativity… my office restores your previous stable version safely and discreetly. No panic. No public statements. No unnecessary meetings. We simply return your system to a time when everything worked… and nobody was asking questions. Emergency Rollback Coordination. Because yesterday was fine."
+      },
+      "weight": 1,
+      "tags": [
+        "commercial"
+      ]
+    },
+    {
+      "id": "comm_019",
+      "type": "commercial",
+      "sponsor": "Debug Investigator — Martin Hale",
+      "file": "Com_19_Debug-CoOrdinator_with-Intro.ogg",
+      "timeBuckets": [
+        "morning",
+        "afternoon",
+        "evening",
+        "late",
+        "graveyard"
+      ],
+      "durationHintSec": 51,
+      "enabled": true,
+      "sandbox_enabled": true,
+      "asset": {
+        "type": "ipfs",
+        "cid": "bafybeifnesdanhj452yxuyvxyxocyomynkcxz4igeq4zdoeuqewmqvnvli"
+      },
+      "script": {
+        "text": "VERA: If your screen currently contains more warnings than actual content, this next sponsor may be useful. COM: 🎙️ Debug Investigator — Martin Hale™ Some bugs happen all the time. I handle the ones that only appear when your boss is watching. I'm Martin Hale, Debug Investigator. If your software runs perfectly for weeks… then crashes during the demo… If the error disappears the moment you open the console… If adding one console.log mysteriously fixes everything… My office tracks the behavior and questions the code. Debug Investigation Services. Because the bug knows you're nervous."
+      },
+      "weight": 1,
+      "tags": [
+        "commercial"
+      ]
+    },
+    {
+      "id": "comm_020",
+      "type": "commercial",
+      "sponsor": "Legacy System Transition Consultant",
+      "file": "Com_20_Software-Updater_with-Intro.ogg",
+      "timeBuckets": [
+        "morning",
+        "afternoon",
+        "evening",
+        "late",
+        "graveyard"
+      ],
+      "durationHintSec": 51,
+      "enabled": true,
+      "sandbox_enabled": true,
+      "asset": {
+        "type": "ipfs",
+        "cid": "bafybeidjuyveodjp7nfsk3rjpxjzqqshhu62bbr7e5jeetavew4mrgenwy"
+      },
+      "script": {
+        "text": "VERA:This announcement concerns the physical realities of long-term office survival. COM: Name's Walter Briggs. I help companies move off software nobody remembers installing. If your payroll runs on a server labeled \"temporary\"… If restarting it requires calling someone who retired in 2014… If the only documentation is a sticky note that says \"DO NOT TOUCH\"… I specialize in calm migrations, careful backups, and reassuring management that yes, the computer can be moved without ending civilization. Legacy systems don't have to run your future. Walter Briggs, Transition Consulting. We unplug things… slowly."
+      },
+      "weight": 1,
+      "tags": [
+        "commercial"
+      ]
+    },
+    {
+      "id": "comm_021",
+      "type": "commercial",
+      "sponsor": "Dependency Stabilization Specialist",
+      "file": "Com_21_Dependancy-System_with-Intro.ogg",
+      "timeBuckets": [
+        "morning",
+        "afternoon",
+        "evening",
+        "late",
+        "graveyard"
+      ],
+      "durationHintSec": 44,
+      "enabled": true,
+      "sandbox_enabled": true,
+      "asset": {
+        "type": "ipfs",
+        "cid": "bafybeia7pw3zvlybd6hgyxa6gkurjappxacp7doygvzhigmwwc2ywwtily"
+      },
+      "script": {
+        "text": "VERA: Some risks can be avoided. Others can be documented. The following sponsor assists with the second category. COM: You updated one library. Now everything needs updating. I'm Dr. Claire Finch, Dependency Stabilization Specialist. If installing a small package rewrites your entire project… If the build works on one laptop and nowhere else… If \"works on my machine\" has become an official policy… I freeze versions, restore stability, and help teams stop touching things that already work. Dependency stabilization. Because progress is sometimes the problem."
+      },
+      "weight": 1,
+      "tags": [
+        "commercial"
+      ]
+    },
+    {
+      "id": "comm_015",
+      "type": "commercial",
+      "sponsor": "The Production Incident Attorney",
+      "file": "Com_15_Blame-Backup_with-Intro.ogg",
+      "timeBuckets": [
+        "afternoon",
+        "evening"
+      ],
+      "durationHintSec": 43,
+      "enabled": true,
+      "sandbox_enabled": true,
+      "asset": {
+        "type": "ipfs",
+        "cid": "bafybeihnb2shomgsclmjck4h5tyce2jzszbz5hdqrgcuy4hp7rrbwngqd4"
+      },
+      "script": {
+        "text": "VERA: Before the next unexpected incident, a word from a provider specializing in structured reassurance. COM: You push code. Sometimes the code pushes back. That's where I come in. My firm represents developers involved in unexpected production incidents… midnight outages… emergency rollbacks… and systems that were \"definitely stable this morning.\" We review the logs. We examine the commit history. And we establish, very clearly, whose idea it actually was. If your deployment has recently become a legal event, call the Production Incident Office. We handle the blame… so you can handle the fix."
+      },
+      "weight": 1,
+      "tags": [
+        "commercial"
+      ]
+    },
+    {
+      "id": "comm_014",
+      "type": "commercial",
+      "sponsor": "Developer Confession Line",
+      "file": "Com_14_Dev-Confession-Line_with-Intro.ogg",
+      "timeBuckets": [
+        "evening",
+        "late",
+        "graveyard"
+      ],
+      "durationHintSec": 51,
+      "enabled": true,
+      "sandbox_enabled": true,
+      "asset": {
+        "type": "ipfs",
+        "cid": "bafybeibitrkuw3kpzghxi22wh2q6vlboxgyzwf526d6yf5jjb4a7uzyobu"
+      },
+      "script": {
+        "text": "VERA: The next sponsor prefers to remain discreet, but paperwork confirms their existence. COM: Carrying a coding secret you've never told anyone? The Developer Confession Line offers a safe, anonymous place to admit things like… copying a solution without fully understanding it… commenting out code and hoping for the best… or promising \"just one small change\" before rewriting everything. Our trained listeners respond with calm reassurance and occasional gentle sighing. No judgment. No ticket numbers. No commit history required. Developer Confession Line. Some truths compile better when spoken aloud."
+      },
+      "weight": 1,
+      "tags": [
+        "commercial"
+      ]
+    },
+    {
+      "id": "comm_song_003",
+      "type": "commercial",
+      "sponsor": "Rubber Duck Rental",
+      "file": null,
+      "timeBuckets": null,
+      "durationHintSec": 50,
+      "enabled": true,
+      "sandbox_enabled": true,
+      "asset": {
+        "type": "ipfs",
+        "cid": "bafybeifipbx2l4lsoqe77mefvleaqpntpx7k3r26cbwlyyl6twrjqmmdw4"
+      },
+      "script": {
+        "text": "When your function won’t run\nAnd your logic’s come undone —\nDon’t pick up the phone (QUACK!)\nDon’t send up a flare!\n\nJust rent-a-duck today,\nWe’ll ship it right away,\nYellow, small, and bright (QUACK!)\nIt really doesn’t care!\n\nExplain your bug to feathers,\nTalk your tests out loud,\nThe duck will never judge you —\n(though the duck is not impressed.)\n\nRubber Duck Rental! (SQUEAK!)\nRubber Duck Rental!\nIt listens. You debug. That’s the deal.",
+        "voiceNote": "VOICE: Chip Halloran — exaggerated 1950s novelty jingle singer + one duck. MUSIC: Bouncy novelty jingle. Plinky piano, tuba bass hits on the downbeat, xylophone flourishes. Chip sings with unhinged enthusiasm. Real duck quack lands on every (QUACK!) mark. Final line ends on a rubber-duck squeak."
+      },
+      "weight": 1,
+      "tags": [
+        "commercial",
+        "jingle",
+        "song"
+      ]
+    }
+  ],
+  "station_intros": [
+    {
+      "id": "intro_morning_001",
+      "type": "station_intro",
+      "title": "Morning Intro A",
+      "timeBuckets": [
+        "morning"
+      ],
+      "durationHintSec": null,
+      "enabled": true,
+      "mode_exempt": true,
+      "asset": {
+        "type": "ipfs",
+        "cid": "bafybeiaxrriv2k26bq64dy5aob5rflmuqjwkwnsqrpqpqvcsnx5yhmhm4e"
+      },
+      "script": {
+        "text": "[PLACEHOLDER] Good morning. You are tuned to W-R-F-M — Workplace Relief Frequency. The morning session is now in progress. Your host, Vera Lang, is ready. The day has started whether you are or not.",
+        "voiceNote": "Announcer — not Vera. Warm but businesslike. Slight wry emphasis on the last line — not unkind."
+      },
+      "weight": 1,
+      "tags": [
+        "intro",
+        "announcer",
+        "morning"
+      ]
+    },
+    {
+      "id": "intro_morning_002",
+      "type": "station_intro",
+      "title": "Morning Intro B",
+      "timeBuckets": [
+        "morning"
+      ],
+      "durationHintSec": null,
+      "enabled": true,
+      "mode_exempt": true,
+      "asset": {
+        "type": "ipfs",
+        "cid": "bafybeihz2iww6gdvom37hk7ryimtmolzbn5irlczuw3n4kqvnovbvajl7q"
+      },
+      "script": {
+        "text": "[TO_REPLACE_WITH_PROPER_TEXT]",
+        "voiceNote": "[TO_REPLACE_WITH_PROPER_TEXT]"
+      },
+      "weight": 1,
+      "tags": [
+        "intro",
+        "announcer",
+        "morning"
+      ]
+    },
+    {
+      "id": "intro_morning_003",
+      "type": "station_intro",
+      "title": "Morning Intro C",
+      "timeBuckets": [
+        "morning"
+      ],
+      "durationHintSec": null,
+      "enabled": true,
+      "mode_exempt": true,
+      "asset": {
+        "type": "ipfs",
+        "cid": "bafybeicxdmxntxqkzodmpsrlgyoxslt4kpzz3v3qn753xo5pbkux2lyx2m"
+      },
+      "script": {
+        "text": "[TO_REPLACE_WITH_PROPER_TEXT]",
+        "voiceNote": "[TO_REPLACE_WITH_PROPER_TEXT]"
+      },
+      "weight": 1,
+      "tags": [
+        "intro",
+        "announcer",
+        "morning"
+      ]
+    },
+    {
+      "id": "intro_afternoon_001",
+      "type": "station_intro",
+      "title": "Afternoon Intro A",
+      "timeBuckets": [
+        "afternoon"
+      ],
+      "durationHintSec": null,
+      "enabled": true,
+      "mode_exempt": true,
+      "asset": {
+        "type": "ipfs",
+        "cid": "bafybeifaf43wdq6p2mrof55rix2cbwss4gii6ozlbofwwbx5bz4mru5sse"
+      },
+      "script": {
+        "text": "[TO_REPLACE_WITH_PROPER_TEXT]",
+        "voiceNote": "[TO_REPLACE_WITH_PROPER_TEXT]"
+      },
+      "weight": 1,
+      "tags": [
+        "intro",
+        "announcer",
+        "afternoon"
+      ]
+    },
+    {
+      "id": "intro_afternoon_002",
+      "type": "station_intro",
+      "title": "Afternoon Intro B",
+      "timeBuckets": [
+        "afternoon"
+      ],
+      "durationHintSec": null,
+      "enabled": true,
+      "mode_exempt": true,
+      "asset": {
+        "type": "ipfs",
+        "cid": "bafybeihiqkc62fq4c4swe54uiv7qjwnfpwa4h2jj23ci3riw4l77bb2yry"
+      },
+      "script": {
+        "text": "[PLACEHOLDER] Midday. The clocks continue. You are listening to W-R-F-M — Workplace Relief Frequency. Your host for this session, Vera Lang. The afternoon is still manageable. We suggest the music.",
+        "voiceNote": "Announcer — not Vera. Matter-of-fact. 'Still manageable' should sound like it's barely true but sincerely meant."
+      },
+      "weight": 1,
+      "tags": [
+        "intro",
+        "announcer",
+        "afternoon"
+      ]
+    },
+    {
+      "id": "intro_afternoon_003",
+      "type": "station_intro",
+      "title": "Afternoon Intro C",
+      "timeBuckets": [
+        "afternoon"
+      ],
+      "durationHintSec": null,
+      "enabled": true,
+      "mode_exempt": true,
+      "asset": {
+        "type": "ipfs",
+        "cid": "bafybeicivrprya7dyoykibfvb74cc5lt4spzwg4nrar7ea7zqg5li3n2ju"
+      },
+      "script": {
+        "text": "[PLACEHOLDER] W-R-F-M is on the air. Workplace Relief Frequency. Ninety-Seven Point One. Afternoon transmission. Your host, Vera Lang, is present. You are present. That is the most anyone can ask.",
+        "voiceNote": "Announcer — not Vera. Philosophical, measured. Like a man who has made peace with Wednesdays."
+      },
+      "weight": 1,
+      "tags": [
+        "intro",
+        "announcer",
+        "afternoon"
+      ]
+    },
+    {
+      "id": "intro_evening_001",
+      "type": "station_intro",
+      "title": "Evening Intro A",
+      "timeBuckets": [
+        "evening"
+      ],
+      "durationHintSec": null,
+      "enabled": true,
+      "mode_exempt": true,
+      "asset": {
+        "type": "ipfs",
+        "cid": "bafybeidwl7r5qkuvcx3compg5gcofihk4fngto3hven7jbet2jd6qk3g2y"
+      },
+      "script": {
+        "text": "You're Listening to 97.1, The Workplace Relief Frequency. As the city settles, and the screens stay bright, We are here to keep you company. And now your host Vera Lang",
+        "voiceNote": "Announcer — not Vera. Formal, classic radio baritone. Measured delivery."
+      },
+      "weight": 1,
+      "tags": [
+        "intro",
+        "announcer",
+        "evening"
+      ]
+    },
+    {
+      "id": "intro_evening_002",
+      "type": "station_intro",
+      "title": "Evening Intro B",
+      "timeBuckets": [
+        "evening"
+      ],
+      "durationHintSec": null,
+      "enabled": true,
+      "mode_exempt": true,
+      "asset": {
+        "type": "ipfs",
+        "cid": "bafybeidd3q7gj7wymiql4qemoq2nt7ann2m63zkjqwqqithcuxdv6c2z74"
+      },
+      "script": {
+        "text": "[PLACEHOLDER] The evening session of W-R-F-M is now in progress. Workplace Relief Frequency. You stayed. Vera Lang is glad for it, and so are we. Settle in.",
+        "voiceNote": "Announcer — not Vera. Warm, approving. Like a host who didn't expect the guests to linger but is genuinely pleased they did."
+      },
+      "weight": 1,
+      "tags": [
+        "intro",
+        "announcer",
+        "evening"
+      ]
+    },
+    {
+      "id": "intro_evening_003",
+      "type": "station_intro",
+      "title": "Evening Intro C",
+      "timeBuckets": [
+        "evening"
+      ],
+      "durationHintSec": null,
+      "enabled": true,
+      "mode_exempt": true,
+      "asset": {
+        "type": "ipfs",
+        "cid": "bafybeicd7mb5ypcbm4tfjy4tgzhasbpnb2fgffjp2g7e375lyfq4hv5fcq"
+      },
+      "script": {
+        "text": "[PLACEHOLDER] Evening. You have found W-R-F-M — Workplace Relief Frequency. The building has grown quiet. The frequency has not. Presenting your host, Vera Lang. This broadcast is authorized.",
+        "voiceNote": "Announcer — not Vera. Formal, slight undercurrent of mystery. Pause after 'The building has grown quiet' before 'The frequency has not.'"
+      },
+      "weight": 1,
+      "tags": [
+        "intro",
+        "announcer",
+        "evening"
+      ]
+    },
+    {
+      "id": "intro_late_001",
+      "type": "station_intro",
+      "title": "Late Night Intro A",
+      "timeBuckets": [
+        "late",
+        "graveyard"
+      ],
+      "durationHintSec": null,
+      "enabled": true,
+      "mode_exempt": true,
+      "asset": {
+        "type": "ipfs",
+        "cid": "bafybeibfrcogycwt3wodoquwrleb3jqh5m7aqr2drt6cy37vtp57lodosu"
+      },
+      "script": {
+        "text": "[PLACEHOLDER] It is late. W-R-F-M continues to broadcast. Workplace Relief Frequency. Your host Vera Lang is still here. So is the signal. So are you. That makes three of us.",
+        "voiceNote": "Announcer — not Vera. Quiet, slightly conspiratorial. The last line should feel like a small comfort in the dark."
+      },
+      "weight": 1,
+      "tags": [
+        "intro",
+        "announcer",
+        "late",
+        "graveyard"
+      ]
+    },
+    {
+      "id": "intro_late_002",
+      "type": "station_intro",
+      "title": "Late Night Intro B",
+      "timeBuckets": [
+        "late",
+        "graveyard"
+      ],
+      "durationHintSec": null,
+      "enabled": true,
+      "mode_exempt": true,
+      "asset": {
+        "type": "ipfs",
+        "cid": "bafybeic3gfhcng4cqxyimueglc2livfo6obeheeohaftw736rz4vnyayza"
+      },
+      "script": {
+        "text": "[PLACEHOLDER] Late night. This is W-R-F-M. Ninety-Seven Point One. The station that does not sign off. Your host, Vera Lang, is with you through the remaining hours. The signal holds.",
+        "voiceNote": "Announcer — not Vera. Steady, dependable. Like a night watchman who genuinely means it."
+      },
+      "weight": 1,
+      "tags": [
+        "intro",
+        "announcer",
+        "late",
+        "graveyard"
+      ]
+    },
+    {
+      "id": "intro_late_003",
+      "type": "station_intro",
+      "title": "Late Night Intro C",
+      "timeBuckets": [
+        "late",
+        "graveyard"
+      ],
+      "durationHintSec": null,
+      "enabled": true,
+      "mode_exempt": true,
+      "asset": {
+        "type": "ipfs",
+        "cid": "bafybeiajryfs6cgapfdcn256duo7a77m7efqitc2kldzwpioxxevhuxqdi"
+      },
+      "script": {
+        "text": "[PLACEHOLDER] You found us at this hour. W-R-F-M — Workplace Relief Frequency — does not ask why. We simply transmit. Presenting your host Vera Lang. The night is long. The music is longer.",
+        "voiceNote": "Announcer — not Vera. No judgment. Slightly poetic. The final two lines have a cadence — let them land separately."
+      },
+      "weight": 1,
+      "tags": [
+        "intro",
+        "announcer",
+        "late",
+        "graveyard"
+      ]
+    }
+  ],
+  "locationTags": [
+    "office",
+    "hq",
+    "annex",
+    "execs",
+    "towns",
+    "map",
+    "elevator",
+    "storage",
+    "front_desk"
+  ],
+  "notes": {
+    "howToAddSongs": [
+      "1. Add a new object to the 'songs' array",
+      "2. Generate a unique id like 'song_011'",
+      "3. Set title, artist, year",
+      "4. Set asset.cid to your IPFS CID (just the hash, no gateway prefix)",
+      "5. Add relevant tags for filtering/mood",
+      "6. Adjust weight (1.0 = normal, 0.5 = half as likely, 2.0 = twice as likely)"
+    ],
+    "howToAddChatter": [
+      "1. Add a new object to the 'chatter' array",
+      "2. Use category: 'post_song', 'pre_song', 'hourly_id', or 'special_event'",
+      "3. Set durationHintSec to approximate clip length",
+      "4. Write the script.text (for reference/TTS generation)",
+      "5. Once recorded, set asset.cid to the audio file CID",
+      "6. Use conditions to limit when chatter plays (time/location)"
+    ],
+    "howToAddArtistInfo": [
+      "1. Add a new key to the 'artists' object matching the exact artist name from songs",
+      "2. Fill in bio, formed, genre, label as strings (or null if unknown)",
+      "3. Add members array with objects containing 'name' and 'role'",
+      "4. Add bandPhoto.cid with IPFS CID for band photo",
+      "5. Add promoImages array with objects containing 'cid' and 'caption'"
+    ],
+    "howToAddStationIntros": [
+      "1. Add a new object to the 'station_intros' array",
+      "2. id format: 'intro_00N'",
+      "3. type is always 'station_intro'",
+      "4. mode_exempt: true means it plays in ALL modes including sandbox — do not change",
+      "5. Write script.text (the announcer copy) and script.voiceNote (direction for the voice actor)",
+      "6. This is NOT Vera's voice — it is a separate announcer introducing her",
+      "7. Set asset.cid once the audio is uploaded",
+      "8. Each entry has timeBuckets — player picks randomly from intros matching the current time slot",
+      "9. mode_exempt: true is required on all intros — they always fire, even in sandbox",
+      "10. Trigger and pick logic is in rules.startupSequence — one fires after the first song each page load",
+      "11. Time slots: morning (6-12), afternoon (12-18), evening (18-22), late+graveyard (22-6)"
+    ],
+    "howToAddCommercials": [
+      "1. Add a new object to the 'commercials' array",
+      "2. Set type: 'commercial', 'promo', 'station_id', 'special', or 'psa'",
+      "3. Set timeBuckets to an array like ['morning','afternoon'] or null for any time",
+      "4. Write the script.text (placeholder or final copy)",
+      "5. Set asset.cid once audio is uploaded to IPFS",
+      "6. Set enabled: true/false to toggle without removing the entry",
+      "7. Set sandbox_enabled: true to allow the spot to play in sandbox mode",
+      "8. Adjust blockComposition in rules.commercialBreaks to control sequence combinations",
+      "9. breakEveryNSongs controls how often a break block fires (min/max range)"
+    ],
+    "gatewayNote": "Add 'wrfm_audio': 'gold' (or your gateway) to doqi_assets.json gateway_defaults"
+  }
+}

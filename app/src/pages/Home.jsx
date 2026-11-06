@@ -10,6 +10,7 @@ import { unlock } from "../site/passport.js";
 import { pauseMusic } from "../site/music.js";
 import { wakeAudio, blip } from "../exhibit/goldAudio.js";
 import * as radio from "../site/radio.js";
+import { RadioButtons } from "../components/RadioBar.jsx";
 
 // the rubber duck: a squeak, then WRFM's Rubber Duck Rental ad (one at a time)
 let duckAd = null;
@@ -38,7 +39,7 @@ export default function Home() {
     if (/^book_/.test(id)) unlock("bookworm");
     if (id === "egg_qa_sticker") unlock("visit-under-the-radar");
     if (id === "duck") quack();
-    if (id === "radio") { if (duckAd) duckAd.pause(); wakeAudio(); blip("ping", 0.4); radio.play(); }
+    if (id === "radio") { wakeAudio(); blip("ping", 0.4); }
   }, []);
   const [picked, setPicked] = useState(false);
   const item = selectedId && data ? { label: HOTSPOT_LABELS[selectedId], ...resolveInteraction(data.interactions, selectedId) } : null;
@@ -67,8 +68,7 @@ export default function Home() {
           </div>
         </section>
         <Exhibit config={page.exhibit} selectedId={selectedId} onSelect={select}>
-          <InfoPanel item={item} onClose={close} />
-          <RadioBar />
+          <InfoPanel item={item} onClose={close}>{selectedId === "radio" && <RadioButtons />}</InfoPanel>
         </Exhibit>
       </div>
       {copy && <HomeMore data={data} />}
@@ -99,23 +99,6 @@ function HotspotList({ ids, selectedId, select, glinting }) {
         </li>
       ))}
     </ul>
-  );
-}
-
-// "now playing" bar for the desk radio: shows what WRFM is playing, with Next and Stop; stays until stopped
-// (closing the info panel or picking something else does not cut the clip off). Leaving the page stops it.
-function RadioBar() {
-  const [s, setS] = useState(radio.state());
-  useEffect(() => radio.subscribe(setS), []);
-  useEffect(() => () => radio.stop(), []);
-  if (!s.playing) return null;
-  return (
-    <div className="radio-bar" role="status" aria-live="polite">
-      <span className="radio-dot" aria-hidden="true" />
-      <span className="radio-now"><small>WRFM 97.1 · on the desk radio</small>{s.title}</span>
-      <button type="button" className="tool" onClick={() => radio.play()}>Next clip</button>
-      <button type="button" className="tool" onClick={() => radio.stop()} aria-label="Stop the radio">■ Stop</button>
-    </div>
   );
 }
 
