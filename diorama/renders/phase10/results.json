@@ -1,5 +1,5 @@
 {
- "desktop_ready_ms": 3825,
+ "desktop_ready_ms": 3580,
  "crate_click": {
   "selected": "games_crate",
   "panel": "Choose your next world.",
@@ -19,13 +19,13 @@
  "explore_games_url": "http://127.0.0.1:4180/games",
  "camera_normal": {
   "steps": 22,
-  "worst_step_vs_distance": 0.488,
+  "worst_step_vs_distance": 0.52,
   "frames_inside_model": 0
  },
  "wheel_scrolls_page": true,
  "camera_under": {
   "steps": 28,
-  "worst_step_vs_distance": 0.149,
+  "worst_step_vs_distance": 0.158,
   "frames_inside_model": 0
  },
  "camera_ok": true,
@@ -102,7 +102,7 @@
   },
   "pocket_wilds_updates": 52,
   "passport": {
-   "stamps_listed": 21,
+   "stamps_listed": 28,
    "earned": 2,
    "storage": [
     "visit-speck",
