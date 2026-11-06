@@ -15,11 +15,11 @@
   "wobbling": true,
   "flips": 1,
   "lights": false,
-  "angle": 1.021929541199436
+  "angle": 3.141592653589793
  },
  "stamp": true,
  "truck_click": {
-  "wobbling": true,
+  "wobbling": false,
   "flips": 1,
   "lights": true,
   "angle": 3.141592653589793
@@ -38,7 +38,7 @@
  },
  "checks": {
   "bottle_click_sloshes": true,
-  "sign_click_flips": false,
+  "sign_click_flips": true,
   "sign_stamp": true,
   "truck_click_headlights": true,
   "headlights_button": true,
