@@ -166,11 +166,11 @@ export function Settings() {
         <legend>Website preferences</legend>
         {row("effects", "Animations and hover effects")}
         {row("particles", "Cursor particles")}
-        {row("sound", "Cartridge sound effects")}
+        {row("sfx", "Sound effects (clicking desk items, cartridges, the notebook)")}
         {row("skipIntro", "Go straight to the games next time")}
       </fieldset>
       <p role="status">{msg}</p>
-      <p className="dim">Your device’s reduced-motion setting takes priority. Sound effects start off. These settings control the website; the radio and games have their own controls.</p>
+      <p className="dim">Your device’s reduced-motion setting takes priority. Sound effects are on unless you turn them off. These settings control the website; the radio and games have their own controls.</p>
     </Shell>
   );
 }

@@ -1,0 +1,1367 @@
+[
+  {
+    "id": "song_001",
+    "title": "Midnight on Carbon Paper",
+    "artist": "The Leland Royce Quartet",
+    "year": "1957",
+    "durationSec": null,
+    "asset": {
+      "type": "ipfs",
+      "cid": "bafybeifqgt3fwujzmic5noxsxua6hkk2v6zqtj7dvtgpkw2w27are5tpge"
+    },
+    "tags": [
+      "smooth",
+      "jazz",
+      "ambient"
+    ],
+    "weight": 1,
+    "album_cover": {
+      "type": "ipfs",
+      "cid": "bafybeiabixb2vn2fnrvp26fthxex7solbn2fzoq7hiq3p2bkyniqqzsdxm"
+    },
+    "vinyl_image": {
+      "type": "ipfs",
+      "cid": "bafybeiadzdnvp4hmstmfqv2hl4zhufvctxd3ucpactjstq2n2azbsxdriu"
+    }
+  },
+  {
+    "id": "song_002",
+    "title": "Lipstick on a Teacup",
+    "artist": "Marian Bell & Her Afterhours Trio",
+    "year": "1957",
+    "durationSec": null,
+    "asset": {
+      "type": "ipfs",
+      "cid": "bafybeigy3wysr63szbwoszgqg4hfqk4ll7cih3svvhftiuwzp7hkkbctoq"
+    },
+    "tags": [
+      "smooth",
+      "jazz",
+      "ambient"
+    ],
+    "weight": 1,
+    "album_cover": {
+      "type": "ipfs",
+      "cid": "bafybeifqawzq3bdmbdh5lp6it5lrbzmrsq3ylycbei5pmucse2qgv6wfvu"
+    },
+    "vinyl_image": {
+      "type": "ipfs",
+      "cid": "bafybeidlyblno3ryqeri7xryjwnlocm4ce3trsyigh7dek5milmys2ebba"
+    }
+  },
+  {
+    "id": "song_003",
+    "title": "Smoke Break at Dawn",
+    "artist": "Victor Hale and the Night Shift",
+    "year": "1958",
+    "durationSec": null,
+    "asset": {
+      "type": "ipfs",
+      "cid": "bafybeicn5zfmq6xsz4m5anyroeiwu34isjxuazhx5xcuif3ncdjl2fo4ne"
+    },
+    "tags": [
+      "elevator",
+      "ambient",
+      "soft"
+    ],
+    "weight": 0.8,
+    "album_cover": {
+      "type": "ipfs",
+      "cid": "bafybeib257m7x2bw2t4cgsd3xlqw7ph6sk5ijk5vc3qmlcku5idwewzhza"
+    },
+    "vinyl_image": {
+      "type": "ipfs",
+      "cid": "bafybeiajonvbdvlpldm5s7ylhb4pvos5m4cocwwyswzz5exlmsc2zlcxue"
+    }
+  },
+  {
+    "id": "song_004",
+    "title": "Moon Over the Switchboard",
+    "artist": "The Blue Comet Orchestra",
+    "year": null,
+    "durationSec": null,
+    "asset": {
+      "type": "ipfs",
+      "cid": "bafybeiexymagqeqgy6jwcxyjq5nk3zuxr4aez5h7ji3s3z5nhjg7wxfea4"
+    },
+    "tags": [],
+    "weight": 1,
+    "album_cover": {
+      "type": "ipfs",
+      "cid": "bafybeih3ifgwurpe3o5uglswrddly4vg4pbxdbh3lmwzuypelqbing4kye"
+    },
+    "vinyl_image": {
+      "type": "ipfs",
+      "cid": "bafybeiajzah2rz5uiwvp3xuuscc5zlaw4ndn7r3nttqb5r7fsrtlcyxkge"
+    }
+  },
+  {
+    "id": "song_005",
+    "title": "Ashtray Full of Yesterday",
+    "artist": "Ellis Grant Combo",
+    "year": null,
+    "durationSec": null,
+    "asset": {
+      "type": "ipfs",
+      "cid": "bafybeid3o5mb6rgg6shgwegom23qz5soiq4em4jw5ybwoajpfzyfnrhiqe"
+    },
+    "tags": [],
+    "weight": 1,
+    "album_cover": {
+      "type": "ipfs",
+      "cid": "bafybeicisutv2q2hkj4p3tezsaujagabnyysxlm7l5dugfsz5u6b75lfy4"
+    },
+    "vinyl_image": {
+      "type": "ipfs",
+      "cid": "bafybeieyi5xb5h2tyhldvaiv4alk43m4nwvpw3w2wu3gcyj5m52cytetje"
+    }
+  },
+  {
+    "id": "song_006",
+    "title": "Don't Wake the Typewriter",
+    "artist": "The Candlelight Four",
+    "year": null,
+    "durationSec": null,
+    "asset": {
+      "type": "ipfs",
+      "cid": "bafybeiga642msyr4jeukvkswsbrncsehbz2xyhxpesqas3nqaxyd54ctse"
+    },
+    "tags": [],
+    "weight": 1,
+    "album_cover": {
+      "type": "ipfs",
+      "cid": "bafybeigbs3qhyitqcd2unkgl3fppncxh4fw36eewshujuu3mq3ncc7ff74"
+    },
+    "vinyl_image": {
+      "type": "ipfs",
+      "cid": "bafybeifpsow4c4ys4ecufjiq6qxqteezoq7duswcdopvdh7l6ykcmxuxki"
+    }
+  },
+  {
+    "id": "song_007",
+    "title": "Late Fees and Love Letters",
+    "artist": "Ruby Fontaine Ensemble",
+    "year": null,
+    "durationSec": null,
+    "asset": {
+      "type": "ipfs",
+      "cid": "bafybeifarhtely3jlry7eojm5oigr3zelqflipp5gxji6kadvnu5aksnea"
+    },
+    "tags": [],
+    "weight": 1,
+    "album_cover": {
+      "type": "ipfs",
+      "cid": "bafybeieifj7i5h6hzcqchukzo4jw2weewg7ugdvrsoy5msyznb2xdiijcm"
+    },
+    "vinyl_image": {
+      "type": "ipfs",
+      "cid": "bafybeib7etpt434btqtwtc2rwsfukvbdrhuipl37ofuyeyqdalikuhjkoe"
+    }
+  },
+  {
+    "id": "song_008",
+    "title": "Green Light After Midnight",
+    "artist": "Harold Finch & His Soft Signals",
+    "year": null,
+    "durationSec": null,
+    "asset": {
+      "type": "ipfs",
+      "cid": "bafybeihd6fq4r5o5lnqljzk6htn2w4yjeucuqenuymtbud4vslhmr5afau"
+    },
+    "tags": [],
+    "weight": 1,
+    "album_cover": {
+      "type": "ipfs",
+      "cid": "bafybeichyqo4kuqwhgexgfwregqfn4j5iaepypvvxo4mts6l5j56toch2m"
+    },
+    "vinyl_image": {
+      "type": "ipfs",
+      "cid": "bafybeih3dm2jzca37xkgudnvv6xiwv3mour7mkc763kzljfdk6dkzmieeu"
+    }
+  },
+  {
+    "id": "song_009",
+    "title": "Corner Booth Confidential",
+    "artist": "The Midtown Reverie",
+    "year": null,
+    "durationSec": null,
+    "asset": {
+      "type": "ipfs",
+      "cid": "bafybeichoiyv4mi5isjj7cgq7p4cntdufaq2afqiismbfzvjgfkqzkyoe4"
+    },
+    "tags": [],
+    "weight": 1,
+    "album_cover": {
+      "type": "ipfs",
+      "cid": "bafybeigaq7rjexvt64gdtcpmiu6wy45pgec7op7cdh3ei3525leecfi6lq"
+    },
+    "vinyl_image": {
+      "type": "ipfs",
+      "cid": "bafybeiadfu2yjxnydpistpgjkfw5f5gjjf42n5c56dk6c7wyj25edyfddm"
+    }
+  },
+  {
+    "id": "song_010",
+    "title": "After the Apology",
+    "artist": "Clara West with the Low Lamps",
+    "year": null,
+    "durationSec": null,
+    "asset": {
+      "type": "ipfs",
+      "cid": "bafybeig4gvjxfbagfkcldqnej3xmiphyeluobdbmeevcbjp35wtwr4opb4"
+    },
+    "tags": [],
+    "weight": 1,
+    "album_cover": {
+      "type": "ipfs",
+      "cid": "bafybeihp2uvadaizfak5ye7nxh3cv23hd3latzn6e3bjafo35ahmzxv72i"
+    },
+    "vinyl_image": {
+      "type": "ipfs",
+      "cid": "bafybeibvyfdt464nazna6hvgtraswpdagrpmxle3nyuut5bimns6r2te3y"
+    }
+  },
+  {
+    "id": "song_011",
+    "title": "Minutes Without Witnesses",
+    "artist": "Gideon Marsh & the Fluorescents",
+    "year": null,
+    "durationSec": null,
+    "asset": {
+      "type": "ipfs",
+      "cid": "bafybeig45gqwtyhyepdbigjhkzsgdlate6jwtmgjm2bhiorrczavgfyxla"
+    },
+    "tags": [],
+    "weight": 1,
+    "album_cover": {
+      "type": "ipfs",
+      "cid": "bafybeibolintkym7umw7oyr76cmpsbztljjes3umo5xnmkxuowtrun766e"
+    },
+    "vinyl_image": {
+      "type": "ipfs",
+      "cid": "bafybeidi2bfzmiaflve3nr5esfldetyx3i2gr4ev5rh7u4h6hr3ajsacjq"
+    }
+  },
+  {
+    "id": "song_012",
+    "title": "Receipt for a Conversation",
+    "artist": "The Hollis Avenue Trio",
+    "year": null,
+    "durationSec": null,
+    "asset": {
+      "type": "ipfs",
+      "cid": "bafybeicjryyuym53wgi57det7s4fnz4yjchvvdg5vlw7xxvw4enz6tqrx4"
+    },
+    "tags": [],
+    "weight": 1,
+    "album_cover": {
+      "type": "ipfs",
+      "cid": "bafybeiadm6kxprfwd4mgqg7cbpzx76lhbmqnricuwyx6jcurccd5b6dolu"
+    },
+    "vinyl_image": {
+      "type": "ipfs",
+      "cid": "bafybeierdfok3ubwyvyefx5bdt6h55edjvi6hx7jbysaho3setmsoqlnfy"
+    }
+  },
+  {
+    "id": "song_013",
+    "title": "Clock Hands Don't Ask",
+    "artist": "Leonard Pike Ensemble",
+    "year": null,
+    "durationSec": null,
+    "asset": {
+      "type": "ipfs",
+      "cid": "bafybeieetfhyrvav3csg5qtwffssdikdrioovw6jf5cf3hoeiuyh5vndee"
+    },
+    "tags": [],
+    "weight": 1,
+    "album_cover": {
+      "type": "ipfs",
+      "cid": "bafybeicfpyxgcfkpzo6xki3zldiqciswuxrwqs7kddhpiumhpefww5u5ty"
+    },
+    "vinyl_image": {
+      "type": "ipfs",
+      "cid": "bafybeibmvtku3pk544q4karak2yqp6ec2prtjbixs5grz6vsldomim5oye"
+    }
+  },
+  {
+    "id": "song_014",
+    "title": "Please Remain Calm",
+    "artist": "The Courtesy Tones",
+    "year": null,
+    "durationSec": null,
+    "asset": {
+      "type": "ipfs",
+      "cid": "bafybeifxummtgeqdpqob6qof46wbd27f6wtvlna47ozlpzepk5mniwf3xe"
+    },
+    "tags": [],
+    "weight": 1,
+    "album_cover": {
+      "type": "ipfs",
+      "cid": "bafybeib4dllwvnnn4u6k7lssb7px4arsjysnd4mwcuxrbni4wdwxqgruim"
+    },
+    "vinyl_image": {
+      "type": "ipfs",
+      "cid": "bafybeiapzm6ytcpjv63ukmyqh3n6zhymjsoptvivlqmxpr3k3tlkmducqu"
+    }
+  },
+  {
+    "id": "song_015",
+    "title": "Approved With Revisions",
+    "artist": "Stanley Rowe and His Compliance Unit",
+    "year": null,
+    "durationSec": null,
+    "asset": {
+      "type": "ipfs",
+      "cid": "bafybeidiqjivyajplli5lbkucs4w5cftgv4qos45rho5klzzgs6ppqt2cu"
+    },
+    "tags": [],
+    "weight": 1,
+    "album_cover": {
+      "type": "ipfs",
+      "cid": "bafybeighreb55mlohg3sr5ly4aiehmfok2ypycrtqcbxvad45gw2ccc3he"
+    },
+    "vinyl_image": {
+      "type": "ipfs",
+      "cid": "bafybeiehubjqjrmd4eiouhsgblyfuf3zlvstniszaixfwz3fd7u4nrjbtu"
+    }
+  },
+  {
+    "id": "song_016",
+    "title": "Temporary Until Morning",
+    "artist": "The Interim Measures",
+    "year": null,
+    "durationSec": null,
+    "asset": {
+      "type": "ipfs",
+      "cid": "bafybeia6d6t6n4adlnyke2tffq4y5g6qw7gxcww24tm3j3adgwszvr4zdu"
+    },
+    "tags": [],
+    "weight": 1,
+    "album_cover": {
+      "type": "ipfs",
+      "cid": "bafybeifm4gxxzuf2gzne4tmeg5qi3e27hrgolq74vokr57mk7rfmoogz7u"
+    },
+    "vinyl_image": {
+      "type": "ipfs",
+      "cid": "bafybeieakhl7agidsjc5ua4pwwy3abxkdkpvdzl3fh5ht7wnejnjfh4c7e"
+    }
+  },
+  {
+    "id": "song_017",
+    "title": "Second Floor, No One Waiting",
+    "artist": "Norman Bell, After Midnight",
+    "year": null,
+    "durationSec": null,
+    "asset": {
+      "type": "ipfs",
+      "cid": "bafybeifv6o6nzafqh7prfqzob27butxtep6ljfqk2lkyzskaz4blhxqmjy"
+    },
+    "tags": [],
+    "weight": 1,
+    "album_cover": {
+      "type": "ipfs",
+      "cid": "bafybeihxttous4xibzqgue6374apqcbcushdee55rypha3wxipxd23pabq"
+    },
+    "vinyl_image": {
+      "type": "ipfs",
+      "cid": "bafybeiap5ffkr7tkwwqzt7vrd67owu6os5r5tkrdzkfrwxsuuiqfwjfcqu"
+    }
+  },
+  {
+    "id": "song_018",
+    "title": "Nothing to Declare",
+    "artist": "The Neutral Backgrounds",
+    "year": null,
+    "durationSec": null,
+    "asset": {
+      "type": "ipfs",
+      "cid": "bafybeicxpehoi26emtrruhyc7wpwpyyh5dov2pebleoid5qg5v2gv37zy4"
+    },
+    "tags": [],
+    "weight": 1,
+    "album_cover": {
+      "type": "ipfs",
+      "cid": "bafybeig6uhotcugzvjsdmwpk2fdmloxsm2gs535ddb4bj7x2msceiskxly"
+    },
+    "vinyl_image": {
+      "type": "ipfs",
+      "cid": "bafybeichj2piujsw2aha2ksushg6fg7h2knj2nesh5adei7bdrv5t46via"
+    }
+  },
+  {
+    "id": "song_019",
+    "title": "Between Floors",
+    "artist": "Harper & the Escalators",
+    "year": null,
+    "durationSec": null,
+    "asset": {
+      "type": "ipfs",
+      "cid": "bafybeifqhu3rw66nc5yofqqx4z7a57qv25vr3ca3sfnqjiqjku7tgfqlra"
+    },
+    "tags": [],
+    "weight": 1,
+    "album_cover": {
+      "type": "ipfs",
+      "cid": "bafybeigbk5fuherpka2jizmdixi633j4quzcmob2er5texdiulzn537olu"
+    },
+    "vinyl_image": {
+      "type": "ipfs",
+      "cid": "bafybeia4vscst3bc4aj7gbq2vfcoaeaw5d677ob2dgwma6bcnzq52hz57e"
+    }
+  },
+  {
+    "id": "song_020",
+    "title": "Lipstick on Office Glass",
+    "artist": "Claudette Monroe Trio",
+    "year": null,
+    "durationSec": null,
+    "asset": {
+      "type": "ipfs",
+      "cid": "bafybeigbib7bsiedu7gn4xtlwodhi7ypuqvu34vlqv6diedbhon35qsusi"
+    },
+    "tags": [],
+    "weight": 1,
+    "album_cover": {
+      "type": "ipfs",
+      "cid": "bafybeibkaysswmc77hjxr45lf67ouad66tr55vjsbldygkdyofrz3bo6qi"
+    },
+    "vinyl_image": {
+      "type": "ipfs",
+      "cid": "bafybeihdxukjeo67btx2clddexihgr3cmiszz4gjufx75v265khkom6q7i"
+    }
+  },
+  {
+    "id": "song_021",
+    "title": "Lower the Lights Slowly",
+    "artist": "Julian Cross & The Dimmer Switches",
+    "year": null,
+    "durationSec": null,
+    "asset": {
+      "type": "ipfs",
+      "cid": "bafybeiabpw6un2wtabppsdfz4ohya3tk2f2wt6ygmv5ftbv2d5s4ikr3o4"
+    },
+    "tags": [],
+    "weight": 1,
+    "album_cover": {
+      "type": "ipfs",
+      "cid": "bafybeigz7swp65dhzl6e6gnsnpt2ebdvdtob3wryvusa3f65uel3zysy6u"
+    },
+    "vinyl_image": {
+      "type": "ipfs",
+      "cid": "bafybeianunhpqkzcl4unzfj7g6soeehbyml533p34iyvr43ncjdzu7zngm"
+    }
+  },
+  {
+    "id": "song_022",
+    "title": "We Didn't Finish Talking",
+    "artist": "Evelyn Crane Ensemble",
+    "year": null,
+    "durationSec": null,
+    "asset": {
+      "type": "ipfs",
+      "cid": "bafybeiab4cj6rnbe6jkopmchybx7d3rneqeoypbdcyb3qmerrp4l7wgfjq"
+    },
+    "tags": [],
+    "weight": 1,
+    "album_cover": {
+      "type": "ipfs",
+      "cid": "bafybeid6xa2nlurw3dv5723uev34xc5mjxnajxxveeiusyajaxhoutydiq"
+    },
+    "vinyl_image": {
+      "type": "ipfs",
+      "cid": "bafybeie5kkvtx7a45bsrnfkauvxczcpo2ax5u5ruykc5y253bitbtkmzim"
+    }
+  },
+  {
+    "id": "song_023",
+    "title": "Don't Turn the Key Yet",
+    "artist": "The Half-Asleep Four",
+    "year": null,
+    "durationSec": null,
+    "asset": {
+      "type": "ipfs",
+      "cid": "bafybeibfbpmtjulmzcls5msdseyicb4rnlfkhm4l3vhsvhlssfk5e2nwpm"
+    },
+    "tags": [],
+    "weight": 1,
+    "album_cover": {
+      "type": "ipfs",
+      "cid": "bafybeigjpaqln5l5fcpidznu3tsiv6zxd6vripo2sxahs6myki5o73wuki"
+    },
+    "vinyl_image": {
+      "type": "ipfs",
+      "cid": "bafkreidpgqyq5nrcym2dojjjozruiw5gskn2zeyub65wtobwgtkfgbu6vu"
+    }
+  },
+  {
+    "id": "song_024",
+    "title": "Ashes in the Breakroom",
+    "artist": "Silas North Combo",
+    "year": null,
+    "durationSec": null,
+    "asset": {
+      "type": "ipfs",
+      "cid": "bafybeig6wzhgy5i5isg3uylxm7t3d3e6fvk5kfus5vieg4v2cngbcctjku"
+    },
+    "tags": [],
+    "weight": 1,
+    "album_cover": {
+      "type": "ipfs",
+      "cid": "bafybeifzorbilrbwtgx6bhy626wmvpio3zs4ijiksddy433ggg2pqleszi"
+    },
+    "vinyl_image": {
+      "type": "ipfs",
+      "cid": "bafybeicq4xirqbig7rz3brwemoeiaho2awxvmy5t2brmuu6pfwavweznfm"
+    }
+  },
+  {
+    "id": "song_025",
+    "title": "Five Minutes That Became Twenty",
+    "artist": "The Mandatory Break Trio",
+    "year": null,
+    "durationSec": null,
+    "asset": {
+      "type": "ipfs",
+      "cid": "bafybeic3zukbdqynbpbeapsn7fxipdck7veaclltog3l46wvmoxtb2qx3a"
+    },
+    "tags": [],
+    "weight": 1,
+    "album_cover": {
+      "type": "ipfs",
+      "cid": "bafybeibgmfsafmxsrvqjvpj23mi7fzpybo7egkhrpgt4ie26qs6ksohdfy"
+    },
+    "vinyl_image": {
+      "type": "ipfs",
+      "cid": "bafybeicelicl4y7uegu2o2t6ochx7iki5rqdfh5i4szy6q4h62vkjaxxvu"
+    }
+  },
+  {
+    "id": "song_026",
+    "title": "Slow Rain on the Ninth Floor",
+    "artist": "Norman Bell, After Midnight",
+    "year": "1959",
+    "durationSec": null,
+    "asset": {
+      "type": "ipfs",
+      "cid": "bafybeiey7e7tyr3qtp4mwymu2usb5hoy4ogj6amg2rrc2hpgueniogk54m"
+    },
+    "tags": [
+      "late-night","piano","ballad","ambient"
+    ],
+    "weight": 1,
+    "album_cover": {
+      "type": "ipfs",
+      "cid": "bafybeihxttous4xibzqgue6374apqcbcushdee55rypha3wxipxd23pabq"
+    },
+    "vinyl_image": {
+      "type": "ipfs",
+      "cid": "bafybeiap5ffkr7tkwwqzt7vrd67owu6os5r5tkrdzkfrwxsuuiqfwjfcqu"
+    }
+  },
+  {
+    "id": "song_027",
+    "title": "The Last Bourbon at 3 A.M.",
+    "artist": "Norman Bell, After Midnight",
+    "year": "1961",
+    "durationSec": null,
+    "asset": {
+      "type": "ipfs",
+      "cid": "bafybeihctq26lmebv2zra2igcl7da45nbvlmtimdeq24iesxp5mz5yfi7e"
+    },
+    "tags": [
+      "late-night","piano","ballad","ambient"
+    ],
+    "weight": 1,
+    "album_cover": {
+      "type": "ipfs",
+      "cid": "bafybeihxttous4xibzqgue6374apqcbcushdee55rypha3wxipxd23pabq"
+    },
+    "vinyl_image": {
+      "type": "ipfs",
+      "cid": "bafybeiap5ffkr7tkwwqzt7vrd67owu6os5r5tkrdzkfrwxsuuiqfwjfcqu"
+    }
+  },
+  {
+    "id": "song_028",
+    "title": "Nobody Told the Roses",
+    "artist": "Claudette Monroe Trio",
+    "year": "1958",
+    "durationSec": null,
+    "asset": {
+      "type": "ipfs",
+      "cid": "bafybeigrbzgyjppdwuc5jfty7ntq6bcm5d25mq22qcx6tukbeg5kgutwke"
+    },
+    "tags": [
+      "torch","vocal","jazz","smooth"
+    ],
+    "weight": 1,
+    "album_cover": {
+      "type": "ipfs",
+      "cid": "bafybeibkaysswmc77hjxr45lf67ouad66tr55vjsbldygkdyofrz3bo6qi"
+    },
+    "vinyl_image": {
+      "type": "ipfs",
+      "cid": "bafybeihdxukjeo67btx2clddexihgr3cmiszz4gjufx75v265khkom6q7i"
+    }
+  },
+  {
+    "id": "song_029",
+    "title": "Silk on a Tuesday",
+    "artist": "Claudette Monroe Trio",
+    "year": "1960",
+    "durationSec": null,
+    "asset": {
+      "type": "ipfs",
+      "cid": "bafybeihkaedegmvxmebssgsl4xeuknkczcj4iy2bmh3exc3ppdy5ykfkbq"
+    },
+    "tags": [
+      "torch","vocal","jazz","smooth"
+    ],
+    "weight": 1,
+    "album_cover": {
+      "type": "ipfs",
+      "cid": "bafybeibkaysswmc77hjxr45lf67ouad66tr55vjsbldygkdyofrz3bo6qi"
+    },
+    "vinyl_image": {
+      "type": "ipfs",
+      "cid": "bafybeihdxukjeo67btx2clddexihgr3cmiszz4gjufx75v265khkom6q7i"
+    }
+  },
+  {
+    "id": "song_030",
+    "title": "Six-Month Renewal",
+    "artist": "The Interim Measures",
+    "year": "1962",
+    "durationSec": null,
+    "asset": {
+      "type": "ipfs",
+      "cid": "bafybeib6f7qpq4dxqvi4mvua2hvkdksee5nvcfyhusylnwtelbh2fjbhqi"
+    },
+    "tags": [
+      "jazz","guitar","ambient","soft"
+    ],
+    "weight": 1,
+    "album_cover": {
+      "type": "ipfs",
+      "cid": "bafybeifm4gxxzuf2gzne4tmeg5qi3e27hrgolq74vokr57mk7rfmoogz7u"
+    },
+    "vinyl_image": {
+      "type": "ipfs",
+      "cid": "bafybeieakhl7agidsjc5ua4pwwy3abxkdkpvdzl3fh5ht7wnejnjfh4c7e"
+    }
+  },
+  {
+    "id": "song_031",
+    "title": "Something That Functions",
+    "artist": "The Interim Measures",
+    "year": "1963",
+    "durationSec": null,
+    "asset": {
+      "type": "ipfs",
+      "cid": "bafybeicbghecw7jtspoca2nwml34bc4257ymoorqcsetwf5fhgnmh3khai"
+    },
+    "tags": [
+      "jazz","guitar","ambient","soft"
+    ],
+    "weight": 1,
+    "album_cover": {
+      "type": "ipfs",
+      "cid": "bafybeifm4gxxzuf2gzne4tmeg5qi3e27hrgolq74vokr57mk7rfmoogz7u"
+    },
+    "vinyl_image": {
+      "type": "ipfs",
+      "cid": "bafybeieakhl7agidsjc5ua4pwwy3abxkdkpvdzl3fh5ht7wnejnjfh4c7e"
+    }
+  },
+  {
+    "id": "song_032",
+    "title": "Everything Filed in Order",
+    "artist": "The Leland Royce Quartet",
+    "year": "1958",
+    "durationSec": null,
+    "asset": {
+      "type": "ipfs",
+      "cid": "bafybeibgj2v5xfsd2ct55vcxy56lqsax6si44qr7nrso2ikjuftr7c3kjm"
+    },
+    "tags": [
+      "smooth","jazz","ambient"
+    ],
+    "weight": 1,
+    "album_cover": {
+      "type": "ipfs",
+      "cid": "bafybeiabixb2vn2fnrvp26fthxex7solbn2fzoq7hiq3p2bkyniqqzsdxm"
+    },
+    "vinyl_image": {
+      "type": "ipfs",
+      "cid": "bafybeiadzdnvp4hmstmfqv2hl4zhufvctxd3ucpactjstq2n2azbsxdriu"
+    }
+  },
+  {
+    "id": "song_033",
+    "title": "The Quarterly Review Waltz",
+    "artist": "The Leland Royce Quartet",
+    "year": "1960",
+    "durationSec": null,
+    "asset": {
+      "type": "ipfs",
+      "cid": "bafybeigi5e7lw7ycxah7gify4kl377ylwnoirkaq4kobi3fktm4ywakvfq"
+    },
+    "tags": [
+      "smooth","jazz","ambient"
+    ],
+    "weight": 1,
+    "album_cover": {
+      "type": "ipfs",
+      "cid": "bafybeiabixb2vn2fnrvp26fthxex7solbn2fzoq7hiq3p2bkyniqqzsdxm"
+    },
+    "vinyl_image": {
+      "type": "ipfs",
+      "cid": "bafybeiadzdnvp4hmstmfqv2hl4zhufvctxd3ucpactjstq2n2azbsxdriu"
+    }
+  },
+  {
+    "id": "song_034",
+    "title": "Reflected in Puddles",
+    "artist": "The Hollis Avenue Trio",
+    "year": "1959",
+    "durationSec": null,
+    "asset": {
+      "type": "ipfs",
+      "cid": "bafybeih7tucbr54bykv4hodilrcso4wxzgu2zm577boouqs3unde3abipe"
+    },
+    "tags": [
+      "jazz","urban","ambient","night"
+    ],
+    "weight": 1,
+    "album_cover": {
+      "type": "ipfs",
+      "cid": "bafybeiadm6kxprfwd4mgqg7cbpzx76lhbmqnricuwyx6jcurccd5b6dolu"
+    },
+    "vinyl_image": {
+      "type": "ipfs",
+      "cid": "bafybeierdfok3ubwyvyefx5bdt6h55edjvi6hx7jbysaho3setmsoqlnfy"
+    }
+  },
+  {
+    "id": "song_035",
+    "title": "Walking Home, Avenue Side",
+    "artist": "The Hollis Avenue Trio",
+    "year": "1961",
+    "durationSec": null,
+    "asset": {
+      "type": "ipfs",
+      "cid": "bafybeida746yrxdx6cfcu254dx4qnlmlrfklwegcnw6qpkqtsdfio5hicu"
+    },
+    "tags": [
+      "jazz","urban","ambient","night"
+    ],
+    "weight": 1,
+    "album_cover": {
+      "type": "ipfs",
+      "cid": "bafybeiadm6kxprfwd4mgqg7cbpzx76lhbmqnricuwyx6jcurccd5b6dolu"
+    },
+    "vinyl_image": {
+      "type": "ipfs",
+      "cid": "bafybeierdfok3ubwyvyefx5bdt6h55edjvi6hx7jbysaho3setmsoqlnfy"
+    }
+  },
+  {
+    "id": "song_036",
+    "title": "Ribbon at the Overpass",
+    "artist": "The Blue Comet Orchestra",
+    "year": "1957",
+    "durationSec": null,
+    "asset": {
+      "type": "ipfs",
+      "cid": "bafybeicbhevg6lakd6wztvkjg7tp4fowshw7reperolgcatvzv57xlnn24"
+    },
+    "tags": [
+      "jazz","big-band","smooth","ambient"
+    ],
+    "weight": 1,
+    "album_cover": {
+      "type": "ipfs",
+      "cid": "bafybeih3ifgwurpe3o5uglswrddly4vg4pbxdbh3lmwzuypelqbing4kye"
+    },
+    "vinyl_image": {
+      "type": "ipfs",
+      "cid": "bafybeiajzah2rz5uiwvp3xuuscc5zlaw4ndn7r3nttqb5r7fsrtlcyxkge"
+    }
+  },
+  {
+    "id": "song_037",
+    "title": "Department of Smooth Operations",
+    "artist": "The Blue Comet Orchestra",
+    "year": "1959",
+    "durationSec": null,
+    "asset": {
+      "type": "ipfs",
+      "cid": "bafybeihhb4o5ixmhttlspdak4ap25ir7lxjfhxkrbwkd2a6dbqxxhnmrcm"
+    },
+    "tags": [
+      "jazz","big-band","smooth","ambient"
+    ],
+    "weight": 1,
+    "album_cover": {
+      "type": "ipfs",
+      "cid": "bafybeih3ifgwurpe3o5uglswrddly4vg4pbxdbh3lmwzuypelqbing4kye"
+    },
+    "vinyl_image": {
+      "type": "ipfs",
+      "cid": "bafybeiajzah2rz5uiwvp3xuuscc5zlaw4ndn7r3nttqb5r7fsrtlcyxkge"
+    }
+  },
+  {
+    "id": "song_038",
+    "title": "Inventory at 2 A.M.",
+    "artist": "Victor Hale and the Night Shift",
+    "year": "1960",
+    "durationSec": null,
+    "asset": {
+      "type": "ipfs",
+      "cid": "bafybeiebybzzvvdv24kzpsjbr76iepwri33ax2amwzimos3txp5badb3my"
+    },
+    "tags": [
+      "elevator","ambient","jazz","night"
+    ],
+    "weight": 1,
+    "album_cover": {
+      "type": "ipfs",
+      "cid": "bafybeib257m7x2bw2t4cgsd3xlqw7ph6sk5ijk5vc3qmlcku5idwewzhza"
+    },
+    "vinyl_image": {
+      "type": "ipfs",
+      "cid": "bafybeiajonvbdvlpldm5s7ylhb4pvos5m4cocwwyswzz5exlmsc2zlcxue"
+    }
+  },
+  {
+    "id": "song_039",
+    "title": "Night Audit",
+    "artist": "Victor Hale and the Night Shift",
+    "year": "1962",
+    "durationSec": null,
+    "asset": {
+      "type": "ipfs",
+      "cid": "bafybeieba6hmmufvvgcamnubjlf2p3lq7jkxnig4zz66sghxws4fmmvu5u"
+    },
+    "tags": [
+      "elevator","ambient","jazz","night"
+    ],
+    "weight": 1,
+    "album_cover": {
+      "type": "ipfs",
+      "cid": "bafybeib257m7x2bw2t4cgsd3xlqw7ph6sk5ijk5vc3qmlcku5idwewzhza"
+    },
+    "vinyl_image": {
+      "type": "ipfs",
+      "cid": "bafybeiajonvbdvlpldm5s7ylhb4pvos5m4cocwwyswzz5exlmsc2zlcxue"
+    }
+  },
+  {
+    "id": "song_040",
+    "title": "Set to Medium",
+    "artist": "Julian Cross & The Dimmer Switches",
+    "year": "1959",
+    "durationSec": null,
+    "asset": {
+      "type": "ipfs",
+      "cid": "bafybeihu3pflhzl43cseofa4hpigcnp5ctnofnhbkckp2s26r6r6enwuna"
+    },
+    "tags": [
+      "jazz","late-night","ambient","sax"
+    ],
+    "weight": 1,
+    "album_cover": {
+      "type": "ipfs",
+      "cid": "bafybeigz7swp65dhzl6e6gnsnpt2ebdvdtob3wryvusa3f65uel3zysy6u"
+    },
+    "vinyl_image": {
+      "type": "ipfs",
+      "cid": "bafybeianunhpqkzcl4unzfj7g6soeehbyml533p34iyvr43ncjdzu7zngm"
+    }
+  },
+  {
+    "id": "song_041",
+    "title": "Paperwork Unresolved",
+    "artist": "Julian Cross & The Dimmer Switches",
+    "year": "1961",
+    "durationSec": null,
+    "asset": {
+      "type": "ipfs",
+      "cid": "bafybeia3r3wklu7uqqbyxd2uxyd3wzxx23uzqk2foxalq3vs2k7a2yz3g4"
+    },
+    "tags": [
+      "jazz","late-night","ambient","sax"
+    ],
+    "weight": 1,
+    "album_cover": {
+      "type": "ipfs",
+      "cid": "bafybeigz7swp65dhzl6e6gnsnpt2ebdvdtob3wryvusa3f65uel3zysy6u"
+    },
+    "vinyl_image": {
+      "type": "ipfs",
+      "cid": "bafybeianunhpqkzcl4unzfj7g6soeehbyml533p34iyvr43ncjdzu7zngm"
+    }
+  },
+  {
+    "id": "song_042",
+    "title": "The Last Light in the Tower",
+    "artist": "Clara West with the Low Lamps",
+    "year": "1960",
+    "durationSec": null,
+    "asset": {
+      "type": "ipfs",
+      "cid": "bafybeibzqchvaucrdu46wrdclvbwht4heltn5a2mxfbgsraawkibbtbifu"
+    },
+    "tags": [
+      "torch","vocal","ambient","late-night"
+    ],
+    "weight": 1,
+    "album_cover": {
+      "type": "ipfs",
+      "cid": "bafybeihp2uvadaizfak5ye7nxh3cv23hd3latzn6e3bjafo35ahmzxv72i"
+    },
+    "vinyl_image": {
+      "type": "ipfs",
+      "cid": "bafybeibvyfdt464nazna6hvgtraswpdagrpmxle3nyuut5bimns6r2te3y"
+    }
+  },
+  {
+    "id": "song_043",
+    "title": "Smoke, Considered",
+    "artist": "Clara West with the Low Lamps",
+    "year": "1962",
+    "durationSec": null,
+    "asset": {
+      "type": "ipfs",
+      "cid": "bafybeibke7jsr3yazbhhd6oxgoyg4qosqcd6ru2racty2vidwzfnqbf3ya"
+    },
+    "tags": [
+      "torch","vocal","ambient","late-night"
+    ],
+    "weight": 1,
+    "album_cover": {
+      "type": "ipfs",
+      "cid": "bafybeihp2uvadaizfak5ye7nxh3cv23hd3latzn6e3bjafo35ahmzxv72i"
+    },
+    "vinyl_image": {
+      "type": "ipfs",
+      "cid": "bafybeibvyfdt464nazna6hvgtraswpdagrpmxle3nyuut5bimns6r2te3y"
+    }
+  },
+  {
+    "id": "song_044",
+    "title": "Whispering Through the Copy Room",
+    "artist": "Marian Bell & Her Afterhours Trio",
+    "year": "1958",
+    "durationSec": null,
+    "asset": {
+      "type": "ipfs",
+      "cid": "bafybeigp5buvesve56xyeyt4amzfsmip7s6dycq24zvextbt7b2qwhuaxm"
+    },
+    "tags": [
+      "jazz","vocal","ambient","smooth"
+    ],
+    "weight": 1,
+    "album_cover": {
+      "type": "ipfs",
+      "cid": "bafybeifqawzq3bdmbdh5lp6it5lrbzmrsq3ylycbei5pmucse2qgv6wfvu"
+    },
+    "vinyl_image": {
+      "type": "ipfs",
+      "cid": "bafybeidlyblno3ryqeri7xryjwnlocm4ce3trsyigh7dek5milmys2ebba"
+    }
+  },
+  {
+    "id": "song_045",
+    "title": "Policy Changes at 2:17",
+    "artist": "Marian Bell & Her Afterhours Trio",
+    "year": "1960",
+    "durationSec": null,
+    "asset": {
+      "type": "ipfs",
+      "cid": "bafybeibuwtwkhpvbdsyxgj2wgblff4zdqm33vuuq4ecxph7rb4klovqfdq"
+    },
+    "tags": [
+      "jazz","vocal","ambient","smooth"
+    ],
+    "weight": 1,
+    "album_cover": {
+      "type": "ipfs",
+      "cid": "bafybeifqawzq3bdmbdh5lp6it5lrbzmrsq3ylycbei5pmucse2qgv6wfvu"
+    },
+    "vinyl_image": {
+      "type": "ipfs",
+      "cid": "bafybeidlyblno3ryqeri7xryjwnlocm4ce3trsyigh7dek5milmys2ebba"
+    }
+  },
+  {
+    "id": "song_046",
+    "title": "Signal at the Margin",
+    "artist": "Harold Finch & His Soft Signals",
+    "year": "1961",
+    "durationSec": null,
+    "asset": {
+      "type": "ipfs",
+      "cid": "bafybeiebw6gytgkkmmv436nj3fsnk4eb4degp4rjswiclx3gygau65kbdq"
+    },
+    "tags": [
+      "ambient","electronic","late-night","soft"
+    ],
+    "weight": 1,
+    "album_cover": {
+      "type": "ipfs",
+      "cid": "bafybeichyqo4kuqwhgexgfwregqfn4j5iaepypvvxo4mts6l5j56toch2m"
+    },
+    "vinyl_image": {
+      "type": "ipfs",
+      "cid": "bafybeih3dm2jzca37xkgudnvv6xiwv3mour7mkc763kzljfdk6dkzmieeu"
+    }
+  },
+  {
+    "id": "song_047",
+    "title": "Theoretical Warmth",
+    "artist": "Harold Finch & His Soft Signals",
+    "year": "1963",
+    "durationSec": null,
+    "asset": {
+      "type": "ipfs",
+      "cid": "bafybeiafsdh3z7syzgbyor5efqp3s65542y5zynv4ixwykunucona7sam4"
+    },
+    "tags": [
+      "ambient","electronic","late-night","soft"
+    ],
+    "weight": 1,
+    "album_cover": {
+      "type": "ipfs",
+      "cid": "bafybeichyqo4kuqwhgexgfwregqfn4j5iaepypvvxo4mts6l5j56toch2m"
+    },
+    "vinyl_image": {
+      "type": "ipfs",
+      "cid": "bafybeih3dm2jzca37xkgudnvv6xiwv3mour7mkc763kzljfdk6dkzmieeu"
+    }
+  },
+  {
+    "id": "song_048",
+    "title": "Report Pending, Movement in C",
+    "artist": "Ruby Fontaine Ensemble",
+    "year": "1959",
+    "durationSec": null,
+    "asset": {
+      "type": "ipfs",
+      "cid": "bafybeiclf5yrwrey2ytnl653vpugjn3aros4qpwbikmz2gnte32mzgb4vi"
+    },
+    "tags": [
+      "chamber","jazz","ambient","thinking"
+    ],
+    "weight": 1,
+    "album_cover": {
+      "type": "ipfs",
+      "cid": "bafybeieifj7i5h6hzcqchukzo4jw2weewg7ugdvrsoy5msyznb2xdiijcm"
+    },
+    "vinyl_image": {
+      "type": "ipfs",
+      "cid": "bafybeib7etpt434btqtwtc2rwsfukvbdrhuipl37ofuyeyqdalikuhjkoe"
+    }
+  },
+  {
+    "id": "song_049",
+    "title": "Bright and Functional",
+    "artist": "Gideon Marsh & the Fluorescents",
+    "year": "1962",
+    "durationSec": null,
+    "asset": {
+      "type": "ipfs",
+      "cid": "bafybeihz43sm7dmqert6zrwrj7lew6lokitlvhfefkamqrl2o7p4syqo7a"
+    },
+    "tags": [
+      "jazz","trumpet","upbeat","bright"
+    ],
+    "weight": 1,
+    "album_cover": {
+      "type": "ipfs",
+      "cid": "bafybeibolintkym7umw7oyr76cmpsbztljjes3umo5xnmkxuowtrun766e"
+    },
+    "vinyl_image": {
+      "type": "ipfs",
+      "cid": "bafybeidi2bfzmiaflve3nr5esfldetyx3i2gr4ev5rh7u4h6hr3ajsacjq"
+    }
+  },
+  {
+    "id": "song_050",
+    "title": "The Neighbors Might Hear",
+    "artist": "The Candlelight Four",
+    "year": "1958",
+    "durationSec": null,
+    "asset": {
+      "type": "ipfs",
+      "cid": "bafybeicyv2cigifeun4mocnttfq4hjtl4afoa2bokbiyi7g7zekvumrkvy"
+    },
+    "tags": [
+      "folk-jazz","soft","vocal","ambient"
+    ],
+    "weight": 1,
+    "album_cover": {
+      "type": "ipfs",
+      "cid": "bafybeigbs3qhyitqcd2unkgl3fppncxh4fw36eewshujuu3mq3ncc7ff74"
+    },
+    "vinyl_image": {
+      "type": "ipfs",
+      "cid": "bafybeifpsow4c4ys4ecufjiq6qxqteezoq7duswcdopvdh7l6ykcmxuxki"
+    }
+  },
+  {
+    "id": "song_051",
+    "title": "Floor by Floor",
+    "artist": "Harper & the Escalators",
+    "year": "1963",
+    "durationSec": null,
+    "asset": {
+      "type": "ipfs",
+      "cid": "bafybeicmjbm5ijkltpozio367onmr4zfyrtn2bgpnoarwpflcvm2bqi5qu"
+    },
+    "tags": [
+      "upbeat","vocal","jazz","bright"
+    ],
+    "weight": 1,
+    "album_cover": {
+      "type": "ipfs",
+      "cid": "bafybeigbk5fuherpka2jizmdixi633j4quzcmob2er5texdiulzn537olu"
+    },
+    "vinyl_image": {
+      "type": "ipfs",
+      "cid": "bafybeia4vscst3bc4aj7gbq2vfcoaeaw5d677ob2dgwma6bcnzq52hz57e"
+    }
+  },
+  {
+    "id": "song_052",
+    "title": "Pre-Approved, B Flat",
+    "artist": "Stanley Rowe and His Compliance Unit",
+    "year": "1961",
+    "durationSec": null,
+    "asset": {
+      "type": "ipfs",
+      "cid": "bafybeicfducvypv44jonnprkna2ll7tul2lre6lsporvupj2mrnr6zxgka"
+    },
+    "tags": [
+      "jazz","smooth","ambient","elevator"
+    ],
+    "weight": 1,
+    "album_cover": {
+      "type": "ipfs",
+      "cid": "bafybeighreb55mlohg3sr5ly4aiehmfok2ypycrtqcbxvad45gw2ccc3he"
+    },
+    "vinyl_image": {
+      "type": "ipfs",
+      "cid": "bafybeiehubjqjrmd4eiouhsgblyfuf3zlvstniszaixfwz3fd7u4nrjbtu"
+    }
+  },
+  {
+    "id": "song_053",
+    "title": "Peer Review in Minor",
+    "artist": "Leonard Pike Ensemble",
+    "year": "1960",
+    "durationSec": null,
+    "asset": {
+      "type": "ipfs",
+      "cid": "bafybeiakxour6fpmgx5ka32z7ecfkrhball3loskboe5ozwwq6tugaszwe"
+    },
+    "tags": [
+      "chamber","jazz","clarinet","ambient"
+    ],
+    "weight": 1,
+    "album_cover": {
+      "type": "ipfs",
+      "cid": "bafybeicfpyxgcfkpzo6xki3zldiqciswuxrwqs7kddhpiumhpefww5u5ty"
+    },
+    "vinyl_image": {
+      "type": "ipfs",
+      "cid": "bafybeibmvtku3pk544q4karak2yqp6ec2prtjbixs5grz6vsldomim5oye"
+    }
+  },
+  {
+    "id": "song_054",
+    "title": "With Deepest Regards, the Management",
+    "artist": "The Courtesy Tones",
+    "year": "1959",
+    "durationSec": null,
+    "asset": {
+      "type": "ipfs",
+      "cid": "bafybeig4dgb7cazuhthyinddtdyxbxpmp35cfc6iuegn5eknibrfxthuu4"
+    },
+    "tags": [
+      "jazz","smooth","elevator","ambient"
+    ],
+    "weight": 1,
+    "album_cover": {
+      "type": "ipfs",
+      "cid": "bafybeib4dllwvnnn4u6k7lssb7px4arsjysnd4mwcuxrbni4wdwxqgruim"
+    },
+    "vinyl_image": {
+      "type": "ipfs",
+      "cid": "bafybeiapzm6ytcpjv63ukmyqh3n6zhymjsoptvivlqmxpr3k3tlkmducqu"
+    }
+  },
+  {
+    "id": "song_055",
+    "title": "Connecting Through Chicago",
+    "artist": "Silas North Combo",
+    "year": "1961",
+    "durationSec": null,
+    "asset": {
+      "type": "ipfs",
+      "cid": "bafybeibe66l3t5u3kd3qg74fbm5km6a7j5aphljwurun2n6bjzfxsbhbfi"
+    },
+    "tags": [
+      "jazz","trumpet","travelling","smooth"
+    ],
+    "weight": 1,
+    "album_cover": {
+      "type": "ipfs",
+      "cid": "bafybeifzorbilrbwtgx6bhy626wmvpio3zs4ijiksddy433ggg2pqleszi"
+    },
+    "vinyl_image": {
+      "type": "ipfs",
+      "cid": "bafybeicq4xirqbig7rz3brwemoeiaho2awxvmy5t2brmuu6pfwavweznfm"
+    }
+  },
+  {
+    "id": "song_056",
+    "title": "Hydration and a Brief Interlude",
+    "artist": "The Mandatory Break Trio",
+    "year": "1960",
+    "durationSec": null,
+    "asset": {
+      "type": "ipfs",
+      "cid": "bafybeida54adyz4qoa66xbgw27ofkampohicx2m5cjdzqoz43bbdin7hae"
+    },
+    "tags": [
+      "jazz","guitar","ambient","soft"
+    ],
+    "weight": 1,
+    "album_cover": {
+      "type": "ipfs",
+      "cid": "bafybeibgmfsafmxsrvqjvpj23mi7fzpybo7egkhrpgt4ie26qs6ksohdfy"
+    },
+    "vinyl_image": {
+      "type": "ipfs",
+      "cid": "bafybeicelicl4y7uegu2o2t6ochx7iki5rqdfh5i4szy6q4h62vkjaxxvu"
+    }
+  },
+  {
+    "id": "song_057",
+    "title": "Can't Quite Leave",
+    "artist": "The Half-Asleep Four",
+    "year": "1963",
+    "durationSec": null,
+    "asset": {
+      "type": "ipfs",
+      "cid": "bafybeidt27ancju5tvkbnhw2mudwkphfvw5v3b3psvxwthwn3e6wa3vr2y"
+    },
+    "tags": [
+      "jazz","soft","late-night","guitar"
+    ],
+    "weight": 1,
+    "album_cover": {
+      "type": "ipfs",
+      "cid": "bafybeigjpaqln5l5fcpidznu3tsiv6zxd6vripo2sxahs6myki5o73wuki"
+    },
+    "vinyl_image": {
+      "type": "ipfs",
+      "cid": "bafkreidpgqyq5nrcym2dojjjozruiw5gskn2zeyub65wtobwgtkfgbu6vu"
+    }
+  },
+  {
+    "id": "song_058",
+    "title": "Weather System, Midtown",
+    "artist": "The Midtown Reverie",
+    "year": "1960",
+    "durationSec": null,
+    "asset": {
+      "type": "ipfs",
+      "cid": "bafybeibg3vuws2l3b5jymahavdgnapzsxdz25f3dpk7dhxmzapu76xmcwy"
+    },
+    "tags": [
+      "jazz","vocal","night","ambient"
+    ],
+    "weight": 1,
+    "album_cover": {
+      "type": "ipfs",
+      "cid": "bafybeigaq7rjexvt64gdtcpmiu6wy45pgec7op7cdh3ei3525leecfi6lq"
+    },
+    "vinyl_image": {
+      "type": "ipfs",
+      "cid": "bafybeiadfu2yjxnydpistpgjkfw5f5gjjf42n5c56dk6c7wyj25edyfddm"
+    }
+  },
+  {
+    "id": "song_059",
+    "title": "Chrome in the Lobby",
+    "artist": "The Neutral Backgrounds",
+    "year": "1962",
+    "durationSec": null,
+    "asset": {
+      "type": "ipfs",
+      "cid": "bafybeicsdgov26czjzhncy7ltuhkwmehght3etvq45qquup2x3e3nzuoci"
+    },
+    "tags": [
+      "jazz","vocal","upbeat","bright"
+    ],
+    "weight": 1,
+    "album_cover": {
+      "type": "ipfs",
+      "cid": "bafybeig6uhotcugzvjsdmwpk2fdmloxsm2gs535ddb4bj7x2msceiskxly"
+    },
+    "vinyl_image": {
+      "type": "ipfs",
+      "cid": "bafybeichj2piujsw2aha2ksushg6fg7h2knj2nesh5adei7bdrv5t46via"
+    }
+  },
+  {
+    "id": "song_060",
+    "title": "Structural Theme No. 2",
+    "artist": "Evelyn Crane Ensemble",
+    "year": "1961",
+    "durationSec": null,
+    "asset": {
+      "type": "ipfs",
+      "cid": "bafybeihcogcsit3jmk25piokeihtvc5xnayrx3nj2h33qeo4q3udiuqufm"
+    },
+    "tags": [
+      "chamber","jazz","violin","classical"
+    ],
+    "weight": 1,
+    "album_cover": {
+      "type": "ipfs",
+      "cid": "bafybeid6xa2nlurw3dv5723uev34xc5mjxnajxxveeiusyajaxhoutydiq"
+    },
+    "vinyl_image": {
+      "type": "ipfs",
+      "cid": "bafybeie5kkvtx7a45bsrnfkauvxczcpo2ax5u5ruykc5y253bitbtkmzim"
+    }
+  },
+  {
+    "id": "song_061",
+    "title": "Close Enough to Whisper",
+    "artist": "Ellis Grant Combo",
+    "year": "1959",
+    "durationSec": null,
+    "asset": {
+      "type": "ipfs",
+      "cid": "bafybeidryvwvucljfsm2p5ucgccbpbw6yfmpxojybblkqnyobwowpdu4ny"
+    },
+    "tags": [
+      "jazz","sax","ambient","close"
+    ],
+    "weight": 1,
+    "album_cover": {
+      "type": "ipfs",
+      "cid": "bafybeicisutv2q2hkj4p3tezsaujagabnyysxlm7l5dugfsz5u6b75lfy4"
+    },
+    "vinyl_image": {
+      "type": "ipfs",
+      "cid": "bafybeieyi5xb5h2tyhldvaiv4alk43m4nwvpw3w2wu3gcyj5m52cytetje"
+    }
+  }
+]

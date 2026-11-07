@@ -1,0 +1,49 @@
+{
+ "eyes": {
+  "left": -1,
+  "right": 1
+ },
+ "after_stamp": {
+  "count": 1,
+  "marks": 1,
+  "face": {
+   "px": 0.3066447703639553,
+   "py": 0.09474064303447652,
+   "blink": 0,
+   "text": ""
+  }
+ },
+ "after_reload": {
+  "count": 1,
+  "marks": 1,
+  "face": {
+   "px": 0,
+   "py": 0,
+   "blink": 0,
+   "text": ""
+  }
+ },
+ "after_button": {
+  "count": 2,
+  "marks": 2,
+  "face": {
+   "px": 0.5689607929644017,
+   "py": 1,
+   "blink": 0,
+   "text": ""
+  }
+ },
+ "ruling": "I have seen the treasure room next door. I have filed it under 'excessive'.",
+ "ruling_2": "This website is in development. So am I. Neither of us has an ETA.",
+ "readout": "J.E.F.F.: This website is in development. So am I. Neither of us has an ETA. · Forms filed: 2",
+ "checks": {
+  "eyes_follow_mouse": true,
+  "stamp_files_a_form": true,
+  "remembered_after_reload": true,
+  "stamp_button": true,
+  "jeff_lines_vary": true,
+  "jeff_ruling": true,
+  "no_errors": true
+ },
+ "errors": []
+}

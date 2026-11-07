@@ -1,0 +1,128 @@
+{
+ "start": {
+  "held": 0,
+  "free": 0,
+  "asleep": 0,
+  "ys": [],
+  "colliders": 97
+ },
+ "pile_px": {
+  "x": 1067.7669555483485,
+  "y": 480.29467005019575
+ },
+ "holding": {
+  "held": 12,
+  "free": 0,
+  "asleep": 0,
+  "ys": [
+   0.513,
+   0.506,
+   0.499,
+   0.513,
+   0.506,
+   0.499,
+   0.513,
+   0.506,
+   0.499,
+   0.513,
+   0.506,
+   0.499
+  ],
+  "colliders": 97
+ },
+ "dropped": {
+  "held": 0,
+  "free": 8,
+  "asleep": 8,
+  "ys": [
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001
+  ],
+  "colliders": 97
+ },
+ "tap_panel": "×Touch itThe GoldPress and hold the gold to scoop up a handful, carry it anywher",
+ "after_tap": {
+  "held": 0,
+  "free": 20,
+  "asleep": 8,
+  "ys": [
+   0.358,
+   0.364,
+   0.372,
+   0.359,
+   0.386,
+   0.358,
+   0.366,
+   0.402,
+   0.001,
+   0.001,
+   0.001,
+   0.105,
+   0.001,
+   0.001,
+   0.395,
+   0.001,
+   0.361,
+   0.383,
+   0.001,
+   0.001
+  ],
+  "colliders": 97
+ },
+ "after_toss": {
+  "held": 0,
+  "free": 32,
+  "asleep": 31,
+  "ys": [
+   0.361,
+   0.533,
+   0.437,
+   0.539,
+   0.036,
+   0.493,
+   0.539,
+   0.036,
+   0.367,
+   0.55,
+   0.036,
+   0.553,
+   0.358,
+   0.036,
+   0.372,
+   0.359,
+   0.366,
+   0.357,
+   0.368,
+   0.385,
+   0.001,
+   0.001,
+   0.001,
+   0.047,
+   0.001,
+   0.001,
+   0.39,
+   0.001,
+   0.361,
+   0.036,
+   0.001,
+   0.001
+  ],
+  "colliders": 97
+ },
+ "checks": {
+  "physics_running": true,
+  "picked_handful": true,
+  "all_released": true,
+  "none_fell_through": true,
+  "some_on_floor": true,
+  "toss_added": true,
+  "no_errors": true
+ },
+ "errors": []
+}

@@ -1,0 +1,88 @@
+{
+  "radio and guestbook options listed": {
+    "ok": true,
+    "v": [
+      "Crate — the games",
+      "Notebook",
+      "Monitors — brand film",
+      "Headphones — studio soundtrack",
+      "Radio — WRFM live & clips",
+      "Figurine — my gaming history",
+      "Business cards — contact",
+      "Passport booklet — your stamps",
+      "Guestbook — Graffiti",
+      "Game box — The Maze",
+      "Game box — Macabre Dolls",
+      "Game box — Juicebox"
+    ]
+  },
+  "radio panel offers live and clips": {
+    "ok": true
+  },
+  "radio plays with a now-playing bar": {
+    "ok": true,
+    "v": "WRFM 97.1 · on the desk radioVera's crime blotter"
+  },
+  "Next always changes the clip": {
+    "ok": true,
+    "v": [
+      "WRFM 97.1 · on the desk radioVera's crime blotter",
+      "WRFM 97.1 · on the desk radioSponsor: the Friday Defense Fund",
+      "WRFM 97.1 · on the desk radioAfter-hours intake",
+      "WRFM 97.1 · on the desk radioDarling, I'm on the radio",
+      "WRFM 97.1 · on the desk radioCaller: one checkbox",
+      "WRFM 97.1 · on the desk radioVera signs on",
+      "WRFM 97.1 · on the desk radioVera teases the phone line"
+    ]
+  },
+  "Stop ends it": {
+    "ok": true
+  },
+  "tuned-in stamp after 5 clips": {
+    "ok": true,
+    "v": null
+  },
+  "guestbook opens the Graffiti panel": {
+    "ok": true
+  },
+  "guestbook framed in view": {
+    "ok": true,
+    "v": {
+      "x0": 207.67284560528356,
+      "x1": 470.2348992596541,
+      "y0": 201.41618833487303,
+      "y1": 350.8973896183055,
+      "w": 689.609375,
+      "h": 715
+    }
+  },
+  "home: no page errors": {
+    "ok": true,
+    "v": []
+  },
+  "lifted cartridge never overlaps its neighbours": {
+    "ok": true,
+    "v": {
+      "worst_m3": 0,
+      "frames": 120,
+      "rest_overlap": [
+        0,
+        0
+      ]
+    }
+  },
+  "cartridge lifts clear of the crate": {
+    "ok": true,
+    "v": {
+      "rise_m": 0.13
+    }
+  },
+  "crate_fit": {
+    "w": 689.609375,
+    "h": 760,
+    "centre": {
+      "x": 344.8046875,
+      "y": 365.9600249380029
+    }
+  }
+}

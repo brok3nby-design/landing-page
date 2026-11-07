@@ -335,3 +335,256 @@ blockquote { margin: 18px 0; padding-left: 18px; border-left: 2px solid var(--re
   .menu .nav ul { flex-direction: column; gap: 0; }
   .menu .nav a { width: 100%; font-size: 13px; }
 }
+/* wide layouts: cover art sits toward the text (no empty band in the middle of the page) */
+@media (min-width: 901px) { .cover-exhibit { place-items: center start; padding-left: clamp(16px, 3vw, 56px); }
+  .cover-exhibit .note { left: clamp(16px, 3vw, 56px); right: auto; } }
+
+/* centred frame: on wide screens the whole composition (header, copy, exhibit, sections) sits inside a
+   max-width frame, so the text moves in from the screen edge and the exhibit stays close to it */
+:root { --frame: 1500px; --edge: max(var(--gutter), calc((100vw - var(--frame)) / 2)); }
+@media (min-width: 901px) {          /* wide screens: the copy sits well in from the screen edge, never on it */
+  :root { --frame: 1400px; --edge: max(clamp(32px, 7vw, 128px), calc((100vw - var(--frame)) / 2)); }
+}
+.header { padding-left: var(--edge); padding-right: var(--edge); }
+@media (min-width: 901px) {
+  .page { grid-template-columns: minmax(360px, 520px) 1fr; padding: 0 var(--edge); gap: clamp(16px, 2vw, 40px); }
+  /* the 3D area starts a little below the header (not flush against it), level with the copy */
+  .page.home > .exhibit { margin-top: clamp(16px, 5vh, 56px); height: calc(100vh - 140px - clamp(16px, 5vh, 56px)); }
+  .content { padding-left: 0; padding-right: 0; }
+  .textpage { padding-left: var(--edge); padding-right: var(--edge); max-width: none; }
+}
+.more { padding-left: var(--edge); padding-right: var(--edge); }
+.footer { padding-left: var(--edge); padding-right: var(--edge); }
+.tool.icon { min-width: 36px; justify-content: center; font-size: 15px; letter-spacing: 0; }
+.wheel-hint { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); background: rgba(8,8,8,.85);
+              border: 1px solid var(--faint); padding: 10px 16px; font-size: 12px; letter-spacing: .14em; text-transform: uppercase;
+              color: var(--fg); pointer-events: none; transition: opacity .25s; z-index: 2; }
+
+/* project pages: the copy and the portrait cover form one centred pair (no empty column on the right),
+   and the sections below share one centred column so the trailer, text and gallery line up */
+@media (min-width: 901px) {
+  .page.project { grid-template-columns: minmax(360px, 560px) minmax(0, 500px); justify-content: center; gap: clamp(32px, 4vw, 72px); }
+  .page.project .cover-exhibit { place-items: center; padding-left: 0; padding-right: 0; }
+  .page.project .cover-exhibit .note { left: 50%; transform: translateX(-50%); white-space: nowrap; }
+}
+.project-more .band { max-width: 1120px; }
+.project-more .video { max-width: none; width: 100%; }
+.project-more .band.text > * { max-width: 760px; }
+.video-poster { background-size: contain; background-repeat: no-repeat; align-content: end; padding-bottom: 28px; }
+.video-poster span { background: var(--red); padding: 14px 22px; justify-self: center; }
+.video-poster small { background: rgba(8,8,8,.8); padding: 4px 8px; justify-self: center; }
+.video-poster:hover span { color: var(--fg); background: var(--red-hi); }
+
+/* studio branding images (from the existing site): cracked-glass banner + green B3 mark.
+   import_site.py turns their black backgrounds transparent, so they float on any background. */
+.wordmark-logo { display: block; height: 22px; width: auto; }
+.hero-logo { line-height: 0; margin-left: -4%; }
+.hero-logo img { width: min(560px, 100%); height: auto; }
+.footer-mark { width: 72px; height: 72px; object-fit: contain; margin-bottom: 10px; display: block; }
+.entrance-mark { }
+@media (max-width: 700px) { .wordmark-logo { height: 18px; } }
+
+/* project page with its own 3D exhibit: same wide layout as the desk / crate pages */
+@media (min-width: 901px) {
+  .page.project.has-exhibit { grid-template-columns: minmax(360px, 520px) 1fr; justify-content: stretch; }
+}
+
+/* Glass & Fortune: the last roll, shown beside the tools (and read out by screen readers) */
+/* (also used by Speck). It sits on its own line above the buttons, so the row never overflows */
+.exhibit-tools { flex-wrap: wrap; justify-content: flex-end; max-width: calc(100% - 36px); }
+.tool { white-space: nowrap; }
+.dice-result { flex-basis: 100%; max-width: min(36em, 55%); margin: 0 0 4px auto; text-align: right; font: 600 12px/1.5 var(--sans); letter-spacing: .14em;
+               text-transform: uppercase; color: var(--fg); text-shadow: 0 1px 6px #000; }
+.dice-result:empty { display: none; }
+
+/* info panels open above the tool row (its height is measured into --tools-h), so a panel never covers
+   the buttons or the readout above them, on any width */
+.exhibit .panel { bottom: calc(var(--tools-h, 0px) + 30px); max-height: calc(100% - var(--tools-h, 0px) - 48px); overflow-y: auto; }
+@media (max-width: 900px) { .exhibit .panel { bottom: calc(var(--tools-h, 0px) + 20px); max-height: calc(100% - var(--tools-h, 0px) - 32px); } }
+
+/* the brand film: the video's own YouTube thumbnail fills the poster; the play button sits on top */
+.video-poster.yt-thumb { overflow: hidden; }
+.video-thumb { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 0; }
+.video-poster > span, .video-poster > small { position: relative; z-index: 1; }
+
+/* home: "Explore the desk" pulses (a beating red dot + a soft glow on the label) until the visitor picks an
+   option, and one random option at a time glints with a red border sweep */
+.hotspots h2 { display: flex; align-items: center; gap: 10px; }
+.pulse-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--red-hi); flex: none; }
+.hotspots h2.pulse { animation: explore-glow 2.2s ease-in-out infinite; }
+.hotspots h2.pulse .pulse-dot { animation: explore-dot 2.2s ease-out infinite; }
+.hotspots h2:not(.pulse) .pulse-dot { background: var(--faint); }
+@keyframes explore-glow { 0%, 100% { color: var(--muted); text-shadow: none; } 50% { color: var(--fg); text-shadow: 0 0 14px rgba(230, 40, 50, .55); } }
+@keyframes explore-dot { 0% { box-shadow: 0 0 0 0 rgba(230, 40, 50, .7); } 70% { box-shadow: 0 0 0 10px rgba(230, 40, 50, 0); } 100% { box-shadow: 0 0 0 0 rgba(230, 40, 50, 0); } }
+.chip.glint { animation: chip-glint 1.6s ease-out; }
+@keyframes chip-glint {
+  0% { border-color: var(--faint); box-shadow: none; color: var(--muted); }
+  25% { border-color: var(--red-hi); box-shadow: 0 0 0 1px var(--red-hi), 0 0 16px rgba(230, 40, 50, .45); color: var(--fg); }
+  100% { border-color: var(--faint); box-shadow: none; color: var(--muted); }
+}
+@media (prefers-reduced-motion: reduce) { .hotspots h2.pulse, .hotspots h2.pulse .pulse-dot, .chip.glint { animation: none; } }
+:root.b3d-still .hotspots h2.pulse, :root.b3d-still .hotspots h2.pulse .pulse-dot, :root.b3d-still .chip.glint { animation: none; }
+
+/* back to top: bottom-right, fades in after scrolling; sits above a Passport stamp toast when one is showing */
+.to-top { position: fixed; right: 16px; bottom: 16px; z-index: 41; display: inline-flex; align-items: center; gap: 8px;
+          min-height: 44px; padding: 0 16px; font: 600 11px/1 var(--sans); letter-spacing: .2em; text-transform: uppercase;
+          color: var(--fg); background: rgba(8,8,8,.88); border: 1px solid var(--faint); cursor: pointer; backdrop-filter: blur(6px);
+          opacity: 0; transform: translateY(10px); pointer-events: none; transition: opacity .25s, transform .25s, border-color .2s; }
+.to-top.show { opacity: 1; transform: none; pointer-events: auto; }
+.to-top:hover, .to-top:focus-visible { border-color: var(--red-hi); }
+.to-top span { font-size: 14px; letter-spacing: 0; color: var(--red-hi); }
+.site:has(.toast) .to-top { bottom: 96px; }
+.entrance-open .to-top { display: none; }
+
+/* the radio's now-playing bar: fixed bottom-left on every page (the radio keeps playing across pages) */
+.radio-bar { position: fixed; left: 16px; bottom: 16px; z-index: 42; display: flex; align-items: center; gap: 12px; flex-wrap: nowrap;
+             max-width: min(560px, calc(100vw - 32px)); padding: 10px 12px 10px 14px; background: rgba(8,8,8,.92); border: 1px solid var(--faint);
+             border-left: 2px solid var(--red-hi); backdrop-filter: blur(6px); box-shadow: 0 8px 30px rgba(0,0,0,.5); }
+.radio-now { display: flex; flex-direction: column; min-width: 120px; max-width: 260px; flex: 0 1 auto; font-size: 13px; line-height: 1.3; color: var(--fg); }
+.radio-now small { font-size: 10px; letter-spacing: .2em; text-transform: uppercase; color: var(--red-text); }
+.radio-title { font-weight: 600; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.radio-detail { color: var(--muted); font-size: 12px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.radio-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--red-hi); flex: none; animation: explore-dot 1.6s ease-out infinite; }
+.radio-ctl { display: flex; align-items: center; gap: 8px; }
+.radio-vol input { width: 80px; accent-color: var(--red-hi); }
+.radio-bar .tool { text-decoration: none; }
+.radio-actions { margin-top: 4px; }
+@media (prefers-reduced-motion: reduce) { .radio-dot { animation: none; } }
+:root.b3d-still .radio-dot { animation: none; }
+.staging-badge { bottom: 12px; }
+.site:has(.radio-bar) .staging-badge { display: none; }   /* staging only: the bar takes its corner */
+@media (max-width: 600px) { .radio-bar { left: 10px; right: 10px; bottom: 10px; max-width: none; } .radio-vol { display: none; }
+  .radio-now { max-width: none; flex: 1 1 auto; }
+  .site:has(.radio-bar) .to-top { bottom: 96px; } }
+
+/* ---------- My Gaming History (pages/GamingHistory.jsx): long-form, three colour-coded eras ---------- */
+.gh { --gold: #d9b45e; --teal: #39c6d6; --tone: var(--faint); padding: 0 var(--edge) 40px; }
+.tone-gold { --tone: var(--gold); } .tone-red { --tone: var(--red-text); } .tone-teal { --tone: var(--teal); } .tone-neutral { --tone: var(--muted); }
+.gh-progress { position: fixed; left: 0; right: 0; top: 0; height: 3px; z-index: 20; pointer-events: none; }
+.gh-progress i { display: block; height: 100%; background: linear-gradient(90deg, var(--gold), var(--red-hi) 55%, var(--teal)); transform-origin: left; }
+.gh-hero { padding: clamp(28px, 7vh, 80px) 0 clamp(28px, 6vh, 56px); max-width: 980px; }
+.gh-hero .title { font-size: clamp(48px, 8vw, 120px); }
+.gh-subtitle { font: italic 400 clamp(20px, 2.2vw, 26px)/1.4 var(--serif); color: #cfcac4; max-width: 40ch; margin-top: 18px; }
+.gh-eras { list-style: none; padding: 0; margin: 34px 0 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; max-width: 820px; }
+.gh-era { display: flex; flex-direction: column; gap: 6px; padding: 16px 18px; border: 1px solid var(--faint); border-top: 3px solid var(--tone);
+          text-decoration: none; color: var(--fg); background: linear-gradient(180deg, color-mix(in srgb, var(--tone) 9%, transparent), transparent 70%);
+          transition: border-color .2s, transform .2s; }
+.gh-era:hover { border-color: var(--tone); }
+:root:not(.b3d-still) .gh-era:hover { transform: translateY(-2px); }
+.gh-era-label { font: 500 24px/1.1 var(--serif); }
+.gh-era-count { font: 600 11px/1 var(--sans); letter-spacing: .22em; text-transform: uppercase; color: var(--tone); }
+
+.gh-layout { display: grid; grid-template-columns: 250px minmax(0, 720px); gap: clamp(28px, 5vw, 80px); align-items: start; }
+.gh-toc { position: sticky; top: 24px; max-height: calc(100vh - 48px); overflow: auto; padding-right: 6px; }
+.gh-toc-h { font: 600 11px/1 var(--sans); letter-spacing: .3em; text-transform: uppercase; color: var(--muted); margin: 0 0 14px; }
+.gh-toc ol { list-style: none; margin: 0; padding: 0; border-left: 1px solid var(--faint); }
+.gh-toc li a { display: block; padding: 7px 0 7px 16px; margin-left: -1px; border-left: 2px solid transparent; color: var(--muted);
+               text-decoration: none; font-size: 13.5px; line-height: 1.35; transition: color .2s, border-color .2s; }
+.gh-toc li a:hover { color: var(--fg); }
+.gh-toc li.on a { color: var(--fg); border-left-color: var(--tone); }
+
+.gh-article { min-width: 0; }
+.gh-article p { color: #d4cfc8; font-size: 17.5px; line-height: 1.75; margin: 0 0 1.05em; max-width: 66ch; }
+.gh-article .gh-game { color: var(--fg); font-weight: 600; }
+.gh-era-mark { display: flex; align-items: center; gap: 14px; margin: 70px 0 -6px !important; font: 600 11px/1 var(--sans) !important;
+               letter-spacing: .34em; text-transform: uppercase; color: var(--tone) !important; }
+.gh-era-mark::after { content: ""; flex: 1; height: 1px; background: linear-gradient(90deg, var(--tone), transparent); opacity: .6; }
+.gh-chapter { scroll-margin-top: 28px; padding-top: 34px; }
+.gh-chapter h2 { font: 500 clamp(32px, 3.6vw, 48px)/1.05 var(--serif); margin: 0 0 22px; padding-left: 18px; border-left: 3px solid var(--tone); }
+.gh-chapter.first > p:first-of-type::first-letter { float: left; font: 500 4.1em/.82 var(--serif); padding: .06em .07em 0 0; color: var(--tone); }
+.gh-sub { scroll-margin-top: 28px; margin: 38px 0 0; padding: 26px 0 4px; border-top: 1px solid var(--faint); }
+.gh-sub h3 { display: flex; align-items: baseline; gap: 12px; font: 500 clamp(24px, 2.4vw, 31px)/1.15 var(--serif); margin: 0 0 16px; color: var(--fg); }
+.gh-sub-kicker { color: var(--tone); font-size: .6em; transform: translateY(-.12em); }
+.gh-beat { font: italic 500 22px/1.4 var(--serif) !important; color: var(--fg) !important; margin: .2em 0 1em !important; padding-left: 16px; border-left: 1px solid var(--tone); }
+.gh-memories { list-style: none; margin: 8px 0 26px; padding: 0; max-width: 66ch; }
+.gh-memories li { position: relative; padding: 12px 0 12px 30px; border-bottom: 1px dashed var(--faint); font: 400 19px/1.5 var(--serif); color: var(--fg); }
+.gh-memories li::before { content: ""; position: absolute; left: 4px; top: 21px; width: 9px; height: 9px; border-radius: 50%;
+                          background: var(--red-hi); box-shadow: 0 0 0 4px rgba(196, 29, 37, .18); }
+.gh-outro { font: italic 500 clamp(26px, 3vw, 36px)/1.2 var(--serif) !important; color: var(--fg) !important; margin: 46px 0 0 !important; text-align: left; }
+.gh-outro::before { content: ""; display: block; width: 64px; height: 2px; background: var(--red-hi); margin-bottom: 22px; }
+.gh-index { margin-top: 64px; padding: 28px clamp(18px, 3vw, 32px); border: 1px solid var(--faint); background: rgba(255, 255, 255, .015); }
+.gh-index h2 { font: 500 30px/1.1 var(--serif); margin: 0 0 20px; }
+.gh-index-group { margin: 0 0 18px; }
+.gh-index-label { font: 600 11px/1 var(--sans) !important; letter-spacing: .26em; text-transform: uppercase; color: var(--tone) !important; margin: 0 0 10px !important; }
+.gh-index ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; }
+.gh-index a { display: inline-block; padding: 8px 12px; border: 1px solid var(--faint); color: var(--fg); text-decoration: none; font-size: 13px; transition: border-color .2s; }
+.gh-index a:hover { border-color: var(--tone); }
+.gh-ctas { margin-top: 36px; }
+
+@media (max-width: 980px) {
+  .gh-layout { grid-template-columns: 1fr; }
+  .gh-toc { position: static; max-height: none; border: 1px solid var(--faint); padding: 16px 18px; }
+  .gh-toc ol { columns: 2; column-gap: 24px; border-left: 0; }
+  .gh-toc li a { padding-left: 10px; break-inside: avoid; }
+}
+@media (max-width: 640px) {
+  .gh-eras { grid-template-columns: 1fr; }
+  .gh-toc ol { columns: 1; }
+  .gh-article p { font-size: 16.5px; }
+  .gh-toc li a { min-height: 40px; display: flex; align-items: center; }
+  .gh-index a { min-height: 40px; display: inline-flex; align-items: center; }
+}
+@media (prefers-reduced-motion: reduce) { .gh-era, .gh-toc li a { transition: none; } }
+
+/* gaming history: the "now playing" card under the subtitle */
+.gh-now { margin: 30px 0 0; max-width: 820px; padding: 18px 20px 20px; border: 1px solid var(--faint); border-left: 3px solid var(--red-hi);
+          background: linear-gradient(90deg, rgba(196, 29, 37, .10), transparent 60%); }
+.gh-now-h { display: flex; align-items: center; gap: 10px; margin: 0 0 8px; font: 600 11px/1 var(--sans); letter-spacing: .3em; text-transform: uppercase; color: var(--red-text); }
+.gh-now-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--red-hi); animation: explore-dot 1.8s ease-out infinite; }
+.gh-now-text { margin: 0 0 14px; color: #d4cfc8; font-size: 16.5px; line-height: 1.6; max-width: 64ch; }
+.gh-now-text strong { color: var(--fg); font-weight: 600; }
+.gh-now-games { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 10px; }
+.gh-now-games li { display: flex; flex-direction: column; gap: 5px; padding: 10px 14px; border: 1px solid var(--faint); min-width: 170px; }
+.gh-now-games li.main { border-color: var(--red-hi); background: rgba(196, 29, 37, .12); }
+.gh-now-kind { font: 600 10px/1 var(--sans); letter-spacing: .24em; text-transform: uppercase; color: var(--muted); }
+.gh-now-games li.main .gh-now-kind { color: var(--red-text); }
+.gh-now-name { font: 500 22px/1.1 var(--serif); color: var(--fg); }
+@media (prefers-reduced-motion: reduce) { .gh-now-dot { animation: none; } }
+:root.b3d-still .gh-now-dot { animation: none; }
+@media (max-width: 640px) { .gh-now-games li { min-width: 0; flex: 1 1 100%; } }
+
+/* frame tool (?frames): top-right of the 3D view */
+.frame-tool { position: absolute; right: 14px; top: 40px; z-index: 4; width: min(300px, calc(100% - 28px)); padding: 12px 14px; display: flex; flex-direction: column; gap: 8px;
+              margin-top: 16px;
+              background: rgba(8,8,8,.92); border: 1px solid #f2c200; font-size: 12px; color: var(--fg); }
+.frame-tool-h { margin: 0; font: 600 10px/1 var(--sans); letter-spacing: .24em; text-transform: uppercase; color: #f2c200; }
+.frame-tool-help, .frame-tool-note { margin: 0; color: var(--muted); line-height: 1.45; }
+.frame-tool-note { color: #f2c200; }
+.frame-tool .tool { white-space: normal; text-align: left; }
+.frame-tool .tool:disabled { opacity: .45; cursor: default; }
+.frame-tool-list { list-style: none; margin: 0; padding: 0; max-height: 120px; overflow: auto; }
+.frame-tool-list li { display: flex; justify-content: space-between; gap: 8px; padding: 3px 0; border-bottom: 1px dashed var(--faint); }
+.frame-tool textarea { width: 100%; font: 11px/1.3 ui-monospace, monospace; background: #111; color: var(--muted); border: 1px solid var(--faint); resize: vertical; }
+#frame-tool-slot .frame-tool { position: static; width: auto; max-width: 520px; }   /* in the left column, off the 3D view */
+
+/* info panel on phones / small tablets: compact (name + main action) so the selected item stays in view;
+   "Details" opens the text and the other links. While a panel is open the camera buttons step aside (pinch and
+   swipe still work; closing the panel brings them back). Desktop shows everything and never shows the toggle. */
+.panel-more { display: none; }
+@media (max-width: 900px) {
+  .exhibit:has(.panel) .exhibit-tools { display: none; }
+  .exhibit .panel { bottom: 10px; left: 10px; right: 10px; padding: 10px 12px 10px 14px; max-height: calc(100% - 50px); }
+  .exhibit .panel:not(.more) { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 10px; }
+  .exhibit .panel:not(.more) .kind,
+  .exhibit .panel:not(.more) > p,
+  .exhibit .panel:not(.more) > .panel-actions:not(.radio-actions) > .btn:not(.primary) { display: none; }
+  .exhibit .panel:not(.more) > .panel-actions { margin: 0; gap: 8px; }
+  .exhibit .panel:not(.more) > .panel-actions:empty, .exhibit .panel:not(.more) > .panel-actions:not(:has(.btn.primary)):not(.radio-actions) { display: none; }
+  .exhibit .panel h2 { flex-basis: 100%; font-size: 21px; margin: 0 34px 0 0; }
+  .exhibit .panel.more h2 { margin: 4px 34px 8px 0; }
+  .exhibit .panel .btn { padding: 11px 14px; font-size: 11px; }
+  .panel-more { display: inline-flex; align-items: center; min-height: 40px; padding: 0 6px; background: none; border: 0;
+                color: var(--muted); font: 600 11px/1 var(--sans); letter-spacing: .18em; text-transform: uppercase; cursor: pointer; }
+  .panel-more:hover { color: var(--fg); }
+  .exhibit .panel .close { top: 4px; right: 4px; }
+}
+
+/* headphones' panel: soundtrack play/pause + volume */
+.soundtrack-actions { align-items: center; }
+.soundtrack-vol { display: inline-flex; align-items: center; gap: 8px; font: 600 10px/1 var(--sans); letter-spacing: .2em; text-transform: uppercase; color: var(--muted); }
+.soundtrack-vol input { width: 110px; accent-color: var(--red-hi); }
+.soundtrack-now { flex-basis: 100%; margin: 2px 0 0 !important; font-size: 13px !important; color: var(--muted); }
+.soundtrack-now strong { color: var(--fg); font-weight: 600; }
+@media (max-width: 900px) {   /* headphones on phones: play / next up front; now playing and volume under Details */
+  .exhibit .panel:not(.more) .soundtrack-now, .exhibit .panel:not(.more) .soundtrack-vol { display: none; }
+}

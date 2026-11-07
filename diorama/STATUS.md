@@ -1,10 +1,40 @@
 # STATUS — Miniature Developer Desk diorama
 
-**Current phase:** Phase 8 (private staging at brok3nbydesign.com/landing-page/ + desktop/mobile testing; no DNS change needed).
-- Done: the staging build, the deploy script and the automated device/accessibility/performance pass (`renders/phase8/`). Staging is deployed to the `gh-pages` branch (from b928f8d).
-- Waiting for you: the one-time DNS + GitHub Pages setup and your real-device checks; see [STAGING.md](STAGING.md).
-- Phases 9 and 10 are complete. Production is untouched.
-- Live-site fixes are kept as a patch in `live-site-fixes/` (waiting for GitHub access to that repository).
+**Current phase:** Phase 11 — pre-launch. The whole site is built and on private staging at
+https://brok3nbydesign.com/landing-page/ (the `gh-pages` branch of this repository). Production is untouched.
+- **Built:** the studio desk homepage, the Games crate, the About notebook, and a hand-built 3D diorama with its own
+  interactions on every project page (all 11: see [EXHIBITS.md](EXHIBITS.md)), the Studio Passport, settings, music.
+- **Pre-launch check (stage 3, 2026-11-06), all passing:**
+  - every exhibit's browser test (`npm run test:<id>` in `app/`) and the site test (`npm run test:browser`);
+  - `npm run test:fallback` (new): all 14 pages with a 3D scene work with WebGL switched off (image + alt text, all
+    text and buttons, the desk's hotspot buttons still open their panels), and reduced motion skips the intro;
+  - the device matrix (`node scripts/staging-tests.mjs` after `npm run build:staging`): 9 pages × 8 devices from
+    iPhone SE to 2560 px, no overflow, nav and panels fit, phone tap targets ≥ 40 px, no console errors; axe-core:
+    no serious/critical issues on any page; Lighthouse accessibility and best practices 100 (results in `renders/phase8/`).
+  - Fixed during the check: info panels now open above the exhibit tool row (on Juicebox one covered the Headlights button).
+- **Homepage (this session):** the camera fits the whole desk between the hint line and the buttons (`fit` in the home
+  exhibit config), the first view swings in (`intro`), the 3D area starts below the header, the copy sits further in.
+- **Phone models:** every GLB has a `_m` phone version (`optimize.mjs --mobile`, ~2-4x smaller); phones and ≤ 4 GB
+  devices load them (EXPORTS.md). Browsers drawing 3D in software (hardware acceleration off) start on the still image.
+- **Added 2026-11-06/07:**
+  - Desk (phase 11 re-export): monitors face the chair; the sticky notes became an open **guestbook** (Graffiti); a
+    walnut **WRFM radio** (dial on 97.1); a rebuilt slatted **games crate** with detailed cartridges.
+  - **Desk radio:** *Tune in live* plays WRFM 97.1 in sync with the real station (its clock-driven schedule, synced from
+    `wrfm-source` with `npm run sync:wrfm`), or *Funny clip*; a now-playing bar follows you across pages.
+  - **Site music:** the studio's 10 tracks + the original theme as a playlist that follows the page's mood
+    (`site/music.js`; masters in `custom/music/`). The **headphones** play / pause it.
+  - **My Gaming History** (`/about/gaming-history`, text in `app/src/content/gaming-history.md`), from the figurine.
+  - **Item views framed by the studio** (`framed` / `framedPhone` in `site.js`; frame more on staging with `?frames`);
+    compact info panel on phones; every item makes a sound (Sound effects setting, on by default).
+  - Fixes: header tabs stacking pages (duplicate React key), selection stalls (angles precomputed in
+    `data/focus_views.json` by `scripts/focus-views.mjs`), shelf keep-out boxes split so everything is reachable,
+    WRFM lightbox reads OFF AIR (red) / ON AIR (green), back-to-top button, brand-film thumbnail.
+  - New tests: `test:desk-extras`, `test:wrfm-live`, `test:phone-panel`, `test:music` (and the header-tab check in `test:fallback`).
+- **Waiting for you:** real-device walk-through ([STAGING.md](STAGING.md)), your J.E.F.F. lines (`jeffLines` in
+  `app/src/content/site.js`), and approval before anything goes live on brok3nbydesign.com.
+- Live-site repository: PR brok3nby-design/brok3nby-design.github.io#1 merged; the removed files were also purged from its history.
+
+*(Older phase notes follow.)*
 Phases 1–3 are approved and locked. See [EXPORTS.md](EXPORTS.md) (files, measurements), [EASTER_EGGS.md](EASTER_EGGS.md),
 `data/interactions.json` (interaction map) and [PROJECT_DIRECTION.md](PROJECT_DIRECTION.md) (revised 11-phase roadmap, staging rules).
 

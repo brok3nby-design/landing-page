@@ -56,6 +56,7 @@ export default function About() {
             <h2>{s.heading}</h2>
             <Prose items={s.items} />
             {s.heading.startsWith("Design. Build.") && <p><Link viewTransition to="/about/built-by-design">More about the creative process →</Link></p>}
+            {s.heading.startsWith("Design. Build.") && <p><Link viewTransition to="/about/gaming-history">The games that made me want to make games →</Link></p>}
           </section>
         ))}
         <section className="band">

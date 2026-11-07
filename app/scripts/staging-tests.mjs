@@ -45,8 +45,10 @@ const DEVICES = [
   ["desktop-1920", { viewport: { width: 1920, height: 1080 } }],
   ["desktop-2560", { viewport: { width: 2560, height: 1440 } }],
 ];
-const PAGES = [["home", "/", "3d"], ["games", "/games", "3d"], ["project", "/games/bid-and-buried", ""],
-               ["wrfm", "/wrfm", ""], ["about", "/about", "3d"], ["passport", "/passport", ""]];
+// every project page now has its own diorama: a few representative ones (physics, overlays, a game)
+const PAGES = [["home", "/", "3d"], ["games", "/games", "3d"], ["project", "/games/bid-and-buried", "3d"],
+               ["wrfm", "/wrfm", "3d"], ["about", "/about", "3d"], ["passport", "/passport", ""],
+               ["dice", "/games/glass-and-fortune", "3d"], ["maze", "/games/labyrinth-fate", "3d"], ["graffiti", "/graffiti", "3d"]];
 const only = process.argv.find((a) => a.startsWith("--devices="))?.slice(10).split(",");
 
 const report = { built: JSON.parse(fs.readFileSync(path.join(DIST, "version.json"), "utf8")), devices: {}, axe: {}, lighthouse: {}, sizes: {} };

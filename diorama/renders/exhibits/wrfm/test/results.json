@@ -1,0 +1,83 @@
+{
+ "mic_on": {
+  "onAir": true,
+  "level": 0.4732466441499323,
+  "needles": [
+   -0.19159298913322348,
+   -0.24001270445386888
+  ],
+  "music": false,
+  "sign": 0.99,
+  "signText": "ON AIR"
+ },
+ "readout": "On air · Vera Lang signs on: “If you’re hearing this, it means the office is quiet and you’re still here. That’s not a mistake.”",
+ "mic_off": {
+  "onAir": false,
+  "level": 0.0005248099715951843,
+  "needles": [
+   -0.6982853376740827,
+   -0.6984486388479796
+  ],
+  "music": false,
+  "sign": 0.555,
+  "signText": "OFF AIR"
+ },
+ "button_on": {
+  "onAir": true,
+  "level": 0.000140532142971037,
+  "needles": [
+   -0.6995277721844424,
+   -0.6995727462621145
+  ],
+  "music": false,
+  "sign": 0.552,
+  "signText": "OFF AIR"
+ },
+ "ringing": {
+  "onAir": true,
+  "level": 0.18077376314873653,
+  "needles": [
+   -0.5421113519079779,
+   -0.55714836601198
+  ],
+  "music": false,
+  "sign": 0.728,
+  "signText": "ON AIR"
+ },
+ "after_phone": {
+  "onAir": true,
+  "level": 0.2869262619466556,
+  "needles": [
+   -0.38550926466147145,
+   -0.4154607632651409
+  ],
+  "music": false,
+  "sign": 0.835,
+  "signText": "ON AIR"
+ },
+ "stamp": "2026-11-07T14:50:35.179Z",
+ "phone_readout": "On air · Vera picks up: You found the phone.",
+ "turntable": {
+  "onAir": false,
+  "level": 0.4289797566946634,
+  "needles": [
+   -0.051311172703271304,
+   -0.11309106101724554
+  ],
+  "music": true,
+  "sign": 0.55,
+  "signText": "OFF AIR"
+ },
+ "checks": {
+  "mic_puts_vera_on_air": true,
+  "needles_move": true,
+  "mic_again_goes_off_air": true,
+  "on_air_button": true,
+  "phone_rings_and_vera_picks_up": true,
+  "turntable_starts_music": true,
+  "sign_says_off_air_red": true,
+  "sign_says_on_air_green": true,
+  "no_errors": true
+ },
+ "errors": []
+}

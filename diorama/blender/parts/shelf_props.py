@@ -63,16 +63,25 @@ def build(root, hutch):
         geo.lathe(f"PROP_Crystal_{i}", prof, loc=(cx + dx, cy + dy, ut + 0.008), rot=(radians(ty), radians(tx), i),
                   material=M("crystal"), parent=root, segments=6)
 
-    # --- retro gadget box (tiny boxed camera/robot collectible)
+    # --- retro film camera (phase 11; replaces the boxed gadget)
     gx = 0.07
-    geo.box("PROP_GadgetBox", (0.07, 0.07, 0.05), loc=(gx, uy, ut), material=M("plastic_grey"), parent=root,
-            bevel=0.004, rests_on="SHELF_Upper")
-    geo.box("PROP_Gadget", (0.06, 0.045, 0.04), loc=(gx, uy - 0.005, ut + 0.05), material=M("vinyl_navy"),
-            parent=root, bevel=0.006, rests_on="PROP_GadgetBox")
-    geo.cylinder("PROP_Gadget_Lens", 0.013, 0.008, loc=(gx, uy - 0.0275, ut + 0.07), rot=(pi / 2, 0, 0),
-                 material=M("glass"), parent=root, verts=20, bevel=0.001)
-    geo.cylinder("PROP_Gadget_LensRing", 0.016, 0.004, loc=(gx, uy - 0.0275, ut + 0.07), rot=(pi / 2, 0, 0),
-                 material=M("chrome"), parent=root, verts=20, bevel=0.001)
+    cam = geo.box("PROP_Camera", (0.105, 0.04, 0.062), loc=(gx, uy, ut), rot=(0, 0, radians(-12)), material=M("chrome"),
+                  parent=root, bevel=0.005, seg=3, rests_on="SHELF_Upper")
+    geo.box("PROP_Camera_Leather", (0.107, 0.042, 0.036), loc=(0, 0, 0.012), material=M("leather"), parent=cam, bevel=0.002)
+    geo.box("PROP_Camera_Prism", (0.04, 0.03, 0.016), loc=(0, 0.002, 0.062), material=M("chrome"), parent=cam, bevel=0.004, seg=3)
+    geo.box("PROP_Camera_Viewfinder", (0.012, 0.002, 0.008), loc=(0.03, -0.0205, 0.048), material=M("glass"), parent=cam, bevel=0)
+    lens = geo.lathe("PROP_Camera_Lens", [(0, 0), (0.019, 0), (0.019, 0.006), (0.017, 0.007), (0.017, 0.018), (0.015, 0.02),
+                                          (0.015, 0.03), (0.0125, 0.031), (0, 0.031)],
+                     loc=(-0.006, -0.02, 0.031), rot=(radians(90), 0, 0), material=M("metal_black"), parent=cam, segments=32)
+    geo.lathe("PROP_Camera_LensRing", [(0.0192, 0.009), (0.0198, 0.009), (0.0198, 0.016), (0.0192, 0.016)], material=M("chrome"),
+              parent=lens, segments=32)
+    geo.cylinder("PROP_Camera_Glass", 0.0115, 0.002, loc=(0, 0, 0.03), material=M("glass"), parent=lens, verts=24, bevel=0)
+    for k, (xx, rr, hh) in enumerate(((-0.035, 0.008, 0.007), (0.036, 0.007, 0.006))):      # rewind + shutter-speed dials
+        geo.cylinder(f"PROP_Camera_Dial_{k}", rr, hh, loc=(xx, 0, 0.062), material=M("chrome"), parent=cam, verts=18, bevel=0.0008)
+    geo.cylinder("PROP_Camera_Shutter", 0.003, 0.004, loc=(0.024, -0.006, 0.062), material=M("chrome"), parent=cam, verts=10, bevel=0.0005)
+    for sx in (-1, 1):
+        geo.box(f"PROP_Camera_Lug_{'L' if sx < 0 else 'R'}", (0.004, 0.006, 0.008), loc=(sx * 0.0545, 0, 0.044), material=M("chrome"),
+                parent=cam, bevel=0.001)
 
     # --- stacked game boxes at the right end
     bx = 0.77

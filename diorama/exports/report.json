@@ -1,15 +1,15 @@
 [
  {
   "file": "raw/studio_desk.glb",
-  "mb": 25.13,
-  "nodes": 174,
-  "meshes": 124,
-  "draw_calls": 126,
-  "triangles": 83016,
-  "materials": 92,
-  "textures": 47,
-  "texture_mb_download": 21.06,
-  "gpu_texture_mb": 115.1,
+  "mb": 25.5,
+  "nodes": 183,
+  "meshes": 131,
+  "draw_calls": 133,
+  "triangles": 88848,
+  "materials": 97,
+  "textures": 48,
+  "texture_mb_download": 21.16,
+  "gpu_texture_mb": 116,
   "validator": {
    "errors": 0,
    "warnings": 6,
@@ -290,6 +290,13 @@
     "interactive_kind": "navigation"
    },
    {
+    "node": "NAV_Passport",
+    "interactive_id": "passport",
+    "interactive_label": "Studio Passport",
+    "interactive_scope": "home",
+    "interactive_kind": "navigation"
+   },
+   {
     "node": "PROP_Book_0",
     "interactive_id": "book_1",
     "interactive_label": "Optional discovery (placeholder)",
@@ -340,6 +347,13 @@
    {
     "node": "PROP_DeskMat",
     "artwork_slot": "deskmat"
+   },
+   {
+    "node": "PROP_Duck",
+    "interactive_id": "duck",
+    "interactive_label": "Rubber duck (discovery)",
+    "interactive_scope": "home",
+    "interactive_kind": "discovery"
    },
    {
     "node": "PROP_GameBox_0_Label",
@@ -416,7 +430,7 @@
     "name": "desk_glow",
     "mime": "image/png",
     "size": "1024x1024",
-    "kb": 504,
+    "kb": 519,
     "gpu_safe": true
    },
    {
@@ -430,7 +444,7 @@
     "name": "desk_ao",
     "mime": "image/png",
     "size": "1024x1024",
-    "kb": 539,
+    "kb": 554,
     "gpu_safe": true
    },
    {
@@ -585,6 +599,13 @@
     "mime": "image/png",
     "size": "1024x640",
     "kb": 477,
+    "gpu_safe": true
+   },
+   {
+    "name": "studio_passport",
+    "mime": "image/png",
+    "size": "360x512",
+    "kb": 65,
     "gpu_safe": true
    },
    {
@@ -753,15 +774,15 @@
  },
  {
   "file": "studio_desk.glb",
-  "mb": 9.56,
-  "nodes": 179,
-  "meshes": 119,
-  "draw_calls": 126,
-  "triangles": 83016,
-  "materials": 92,
-  "textures": 47,
-  "texture_mb_download": 8.18,
-  "gpu_texture_mb": 21.6,
+  "mb": 9.71,
+  "nodes": 188,
+  "meshes": 126,
+  "draw_calls": 133,
+  "triangles": 88848,
+  "materials": 97,
+  "textures": 48,
+  "texture_mb_download": 8.25,
+  "gpu_texture_mb": 21.9,
   "validator": {
    "errors": 0,
    "warnings": 48,
@@ -1044,6 +1065,13 @@
     "interactive_kind": "navigation"
    },
    {
+    "node": "NAV_Passport",
+    "interactive_id": "passport",
+    "interactive_label": "Studio Passport",
+    "interactive_scope": "home",
+    "interactive_kind": "navigation"
+   },
+   {
     "node": "PROP_Book_0",
     "interactive_id": "book_1",
     "interactive_label": "Optional discovery (placeholder)",
@@ -1094,6 +1122,13 @@
    {
     "node": "PROP_DeskMat",
     "artwork_slot": "deskmat"
+   },
+   {
+    "node": "PROP_Duck",
+    "interactive_id": "duck",
+    "interactive_label": "Rubber duck (discovery)",
+    "interactive_scope": "home",
+    "interactive_kind": "discovery"
    },
    {
     "node": "PROP_GameBox_0_Label",
@@ -1170,7 +1205,7 @@
     "name": "desk_glow",
     "mime": "image/ktx2",
     "size": "1024x1024",
-    "kb": 368,
+    "kb": 375,
     "gpu_safe": true
    },
    {
@@ -1184,7 +1219,7 @@
     "name": "desk_ao",
     "mime": "image/ktx2",
     "size": "1024x1024",
-    "kb": 548,
+    "kb": 557,
     "gpu_safe": true
    },
    {
@@ -1339,6 +1374,13 @@
     "mime": "image/ktx2",
     "size": "1024x640",
     "kb": 273,
+    "gpu_safe": true
+   },
+   {
+    "name": "studio_passport",
+    "mime": "image/ktx2",
+    "size": "360x512",
+    "kb": 51,
     "gpu_safe": true
    },
    {
@@ -2391,7 +2433,7 @@
     "name": "crate_ao",
     "mime": "image/png",
     "size": "512x512",
-    "kb": 99,
+    "kb": 98,
     "gpu_safe": true
    },
    {
@@ -2563,7 +2605,7 @@
     "name": "crate_ao",
     "mime": "image/ktx2",
     "size": "512x512",
-    "kb": 104,
+    "kb": 103,
     "gpu_safe": true
    },
    {
@@ -2961,6 +3003,4445 @@
     "mime": "image/webp",
     "size": "1024x640",
     "kb": 28,
+    "gpu_safe": true
+   }
+  ],
+  "textures_not_multiple_of_4": []
+ },
+ {
+  "file": "raw/exhibit_bid_and_buried.glb",
+  "mb": 15.14,
+  "nodes": 49,
+  "meshes": 48,
+  "draw_calls": 48,
+  "triangles": 18052,
+  "materials": 37,
+  "textures": 27,
+  "texture_mb_download": 14.22,
+  "gpu_texture_mb": 125,
+  "validator": {
+   "errors": 0,
+   "warnings": 8,
+   "messages": [
+    "MESH_PRIMITIVE_GENERATED_TANGENT_SPACE: Material requires a tangent space but the mesh primitive does not provide it. Runtime-generated tangent space may be non-portable across implementations.",
+    "MESH_PRIMITIVE_GENERATED_TANGENT_SPACE: Material requires a tangent space but the mesh primitive does not provide it. Runtime-generated tangent space may be non-portable across implementations.",
+    "MESH_PRIMITIVE_GENERATED_TANGENT_SPACE: Material requires a tangent space but the mesh primitive does not provide it. Runtime-generated tangent space may be non-portable across implementations.",
+    "MESH_PRIMITIVE_GENERATED_TANGENT_SPACE: Material requires a tangent space but the mesh primitive does not provide it. Runtime-generated tangent space may be non-portable across implementations.",
+    "MESH_PRIMITIVE_GENERATED_TANGENT_SPACE: Material requires a tangent space but the mesh primitive does not provide it. Runtime-generated tangent space may be non-portable across implementations.",
+    "MESH_PRIMITIVE_GENERATED_TANGENT_SPACE: Material requires a tangent space but the mesh primitive does not provide it. Runtime-generated tangent space may be non-portable across implementations.",
+    "MESH_PRIMITIVE_GENERATED_TANGENT_SPACE: Material requires a tangent space but the mesh primitive does not provide it. Runtime-generated tangent space may be non-portable across implementations.",
+    "MESH_PRIMITIVE_GENERATED_TANGENT_SPACE: Material requires a tangent space but the mesh primitive does not provide it. Runtime-generated tangent space may be non-portable across implementations."
+   ]
+  },
+  "tags": [
+   {
+    "node": "BB_Box_1",
+    "interactive_id": "bb_boxes",
+    "interactive_label": "Cardboard Boxes",
+    "interactive_scope": "bid-and-buried",
+    "interactive_kind": "discovery"
+   },
+   {
+    "node": "BB_Globe",
+    "interactive_id": "bb_globe",
+    "interactive_label": "Dusty Explorer's Globe",
+    "interactive_scope": "bid-and-buried",
+    "interactive_kind": "discovery"
+   },
+   {
+    "node": "BB_Paddle",
+    "interactive_id": "bb_paddle",
+    "interactive_label": "Bid paddle",
+    "interactive_scope": "bid-and-buried",
+    "interactive_kind": "discovery"
+   },
+   {
+    "node": "BB_RecordCrate",
+    "interactive_id": "bb_records",
+    "interactive_label": "Crate of Records",
+    "interactive_scope": "bid-and-buried",
+    "interactive_kind": "discovery"
+   },
+   {
+    "node": "BB_Safe",
+    "interactive_id": "bb_safe",
+    "interactive_label": "Locked Safe",
+    "interactive_scope": "bid-and-buried",
+    "interactive_kind": "discovery"
+   },
+   {
+    "node": "BB_TV",
+    "interactive_id": "bb_tv",
+    "interactive_label": "CRT Television",
+    "interactive_scope": "bid-and-buried",
+    "interactive_kind": "discovery"
+   }
+  ],
+  "texture_list": [
+   {
+    "name": "exhibit_bid_and_buried_glow",
+    "mime": "image/png",
+    "size": "1024x1024",
+    "kb": 501,
+    "gpu_safe": true
+   },
+   {
+    "name": "exhibit_bid_and_buried_ao",
+    "mime": "image/png",
+    "size": "1024x1024",
+    "kb": 776,
+    "gpu_safe": true
+   },
+   {
+    "name": "bb_lbl_xmas",
+    "mime": "image/png",
+    "size": "320x200",
+    "kb": 57,
+    "gpu_safe": true
+   },
+   {
+    "name": "bb_cardboard",
+    "mime": "image/png",
+    "size": "512x512",
+    "kb": 116,
+    "gpu_safe": true
+   },
+   {
+    "name": "bb_lbl_misc",
+    "mime": "image/png",
+    "size": "320x200",
+    "kb": 57,
+    "gpu_safe": true
+   },
+   {
+    "name": "bb_lbl_dno",
+    "mime": "image/png",
+    "size": "320x200",
+    "kb": 58,
+    "gpu_safe": true
+   },
+   {
+    "name": "wood_dark_n",
+    "mime": "image/png",
+    "size": "512x512",
+    "kb": 252,
+    "gpu_safe": true
+   },
+   {
+    "name": "wood_dark",
+    "mime": "image/png",
+    "size": "1024x1024",
+    "kb": 1250,
+    "gpu_safe": true
+   },
+   {
+    "name": "bb_globe",
+    "mime": "image/png",
+    "size": "1024x512",
+    "kb": 280,
+    "gpu_safe": true
+   },
+   {
+    "name": "bb_paddle",
+    "mime": "image/png",
+    "size": "320x200",
+    "kb": 50,
+    "gpu_safe": true
+   },
+   {
+    "name": "wood_light_n",
+    "mime": "image/png",
+    "size": "512x512",
+    "kb": 320,
+    "gpu_safe": true
+   },
+   {
+    "name": "wood_light",
+    "mime": "image/png",
+    "size": "1024x1024",
+    "kb": 1375,
+    "gpu_safe": true
+   },
+   {
+    "name": "screen_right",
+    "mime": "image/png",
+    "size": "1024x576",
+    "kb": 55,
+    "gpu_safe": true
+   },
+   {
+    "name": "bb_record_sleeves",
+    "mime": "image/png",
+    "size": "512x128",
+    "kb": 7,
+    "gpu_safe": true
+   },
+   {
+    "name": "rug_n",
+    "mime": "image/png",
+    "size": "1024x640",
+    "kb": 825,
+    "gpu_safe": true
+   },
+   {
+    "name": "rug",
+    "mime": "image/png",
+    "size": "1024x640",
+    "kb": 601,
+    "gpu_safe": true
+   },
+   {
+    "name": "bb_concrete_n",
+    "mime": "image/png",
+    "size": "1024x1024",
+    "kb": 448,
+    "gpu_safe": true
+   },
+   {
+    "name": "bb_concrete",
+    "mime": "image/png",
+    "size": "2048x2048",
+    "kb": 1982,
+    "gpu_safe": true
+   },
+   {
+    "name": "bb_ticket",
+    "mime": "image/png",
+    "size": "320x200",
+    "kb": 52,
+    "gpu_safe": true
+   },
+   {
+    "name": "bb_wall_back",
+    "mime": "image/png",
+    "size": "2048x2048",
+    "kb": 776,
+    "gpu_safe": true
+   },
+   {
+    "name": "bb_wall_left",
+    "mime": "image/png",
+    "size": "2048x2048",
+    "kb": 757,
+    "gpu_safe": true
+   },
+   {
+    "name": "leather_n",
+    "mime": "image/png",
+    "size": "512x512",
+    "kb": 229,
+    "gpu_safe": true
+   },
+   {
+    "name": "leather",
+    "mime": "image/png",
+    "size": "512x512",
+    "kb": 167,
+    "gpu_safe": true
+   },
+   {
+    "name": "leather_r",
+    "mime": "image/png",
+    "size": "512x512",
+    "kb": 136,
+    "gpu_safe": true
+   },
+   {
+    "name": "wood_desk_n",
+    "mime": "image/png",
+    "size": "1024x1024",
+    "kb": 1165,
+    "gpu_safe": true
+   },
+   {
+    "name": "wood_desk",
+    "mime": "image/png",
+    "size": "1024x1024",
+    "kb": 1366,
+    "gpu_safe": true
+   },
+   {
+    "name": "wood_desk_r",
+    "mime": "image/png",
+    "size": "512x512",
+    "kb": 234,
+    "gpu_safe": true
+   }
+  ],
+  "textures_not_multiple_of_4": []
+ },
+ {
+  "file": "exhibit_bid_and_buried.glb",
+  "mb": 6.54,
+  "nodes": 57,
+  "meshes": 48,
+  "draw_calls": 48,
+  "triangles": 18052,
+  "materials": 37,
+  "textures": 27,
+  "texture_mb_download": 6.2,
+  "gpu_texture_mb": 16.6,
+  "validator": {
+   "errors": 0,
+   "warnings": 35,
+   "messages": [
+    "VALUE_NOT_IN_LIST: Invalid value 'image/ktx2'. Valid values are ('image/jpeg', 'image/png').",
+    "VALUE_NOT_IN_LIST: Invalid value 'image/ktx2'. Valid values are ('image/jpeg', 'image/png').",
+    "VALUE_NOT_IN_LIST: Invalid value 'image/ktx2'. Valid values are ('image/jpeg', 'image/png').",
+    "VALUE_NOT_IN_LIST: Invalid value 'image/ktx2'. Valid values are ('image/jpeg', 'image/png').",
+    "VALUE_NOT_IN_LIST: Invalid value 'image/ktx2'. Valid values are ('image/jpeg', 'image/png').",
+    "VALUE_NOT_IN_LIST: Invalid value 'image/ktx2'. Valid values are ('image/jpeg', 'image/png').",
+    "VALUE_NOT_IN_LIST: Invalid value 'image/ktx2'. Valid values are ('image/jpeg', 'image/png').",
+    "VALUE_NOT_IN_LIST: Invalid value 'image/ktx2'. Valid values are ('image/jpeg', 'image/png')."
+   ]
+  },
+  "tags": [
+   {
+    "node": "BB_Box_1",
+    "interactive_id": "bb_boxes",
+    "interactive_label": "Cardboard Boxes",
+    "interactive_scope": "bid-and-buried",
+    "interactive_kind": "discovery"
+   },
+   {
+    "node": "BB_Globe",
+    "interactive_id": "bb_globe",
+    "interactive_label": "Dusty Explorer's Globe",
+    "interactive_scope": "bid-and-buried",
+    "interactive_kind": "discovery"
+   },
+   {
+    "node": "BB_Paddle",
+    "interactive_id": "bb_paddle",
+    "interactive_label": "Bid paddle",
+    "interactive_scope": "bid-and-buried",
+    "interactive_kind": "discovery"
+   },
+   {
+    "node": "BB_RecordCrate",
+    "interactive_id": "bb_records",
+    "interactive_label": "Crate of Records",
+    "interactive_scope": "bid-and-buried",
+    "interactive_kind": "discovery"
+   },
+   {
+    "node": "BB_Safe",
+    "interactive_id": "bb_safe",
+    "interactive_label": "Locked Safe",
+    "interactive_scope": "bid-and-buried",
+    "interactive_kind": "discovery"
+   },
+   {
+    "node": "BB_TV",
+    "interactive_id": "bb_tv",
+    "interactive_label": "CRT Television",
+    "interactive_scope": "bid-and-buried",
+    "interactive_kind": "discovery"
+   }
+  ],
+  "texture_list": [
+   {
+    "name": "exhibit_bid_and_buried_glow",
+    "mime": "image/ktx2",
+    "size": "1024x1024",
+    "kb": 366,
+    "gpu_safe": true
+   },
+   {
+    "name": "exhibit_bid_and_buried_ao",
+    "mime": "image/ktx2",
+    "size": "1024x1024",
+    "kb": 783,
+    "gpu_safe": true
+   },
+   {
+    "name": "bb_lbl_xmas",
+    "mime": "image/ktx2",
+    "size": "320x200",
+    "kb": 30,
+    "gpu_safe": true
+   },
+   {
+    "name": "bb_cardboard",
+    "mime": "image/ktx2",
+    "size": "512x512",
+    "kb": 88,
+    "gpu_safe": true
+   },
+   {
+    "name": "bb_lbl_misc",
+    "mime": "image/ktx2",
+    "size": "320x200",
+    "kb": 30,
+    "gpu_safe": true
+   },
+   {
+    "name": "bb_lbl_dno",
+    "mime": "image/ktx2",
+    "size": "320x200",
+    "kb": 31,
+    "gpu_safe": true
+   },
+   {
+    "name": "wood_dark_n",
+    "mime": "image/ktx2",
+    "size": "512x512",
+    "kb": 88,
+    "gpu_safe": true
+   },
+   {
+    "name": "wood_dark",
+    "mime": "image/ktx2",
+    "size": "1024x1024",
+    "kb": 463,
+    "gpu_safe": true
+   },
+   {
+    "name": "bb_globe",
+    "mime": "image/ktx2",
+    "size": "1024x512",
+    "kb": 263,
+    "gpu_safe": true
+   },
+   {
+    "name": "bb_paddle",
+    "mime": "image/ktx2",
+    "size": "320x200",
+    "kb": 30,
+    "gpu_safe": true
+   },
+   {
+    "name": "wood_light_n",
+    "mime": "image/ktx2",
+    "size": "512x512",
+    "kb": 125,
+    "gpu_safe": true
+   },
+   {
+    "name": "wood_light",
+    "mime": "image/ktx2",
+    "size": "1024x1024",
+    "kb": 639,
+    "gpu_safe": true
+   },
+   {
+    "name": "screen_right",
+    "mime": "image/ktx2",
+    "size": "1024x576",
+    "kb": 71,
+    "gpu_safe": true
+   },
+   {
+    "name": "bb_record_sleeves",
+    "mime": "image/ktx2",
+    "size": "512x128",
+    "kb": 8,
+    "gpu_safe": true
+   },
+   {
+    "name": "rug_n",
+    "mime": "image/ktx2",
+    "size": "512x320",
+    "kb": 114,
+    "gpu_safe": true
+   },
+   {
+    "name": "rug",
+    "mime": "image/ktx2",
+    "size": "1024x640",
+    "kb": 357,
+    "gpu_safe": true
+   },
+   {
+    "name": "bb_concrete_n",
+    "mime": "image/ktx2",
+    "size": "512x512",
+    "kb": 155,
+    "gpu_safe": true
+   },
+   {
+    "name": "bb_concrete",
+    "mime": "image/ktx2",
+    "size": "1024x1024",
+    "kb": 536,
+    "gpu_safe": true
+   },
+   {
+    "name": "bb_ticket",
+    "mime": "image/ktx2",
+    "size": "320x200",
+    "kb": 31,
+    "gpu_safe": true
+   },
+   {
+    "name": "bb_wall_back",
+    "mime": "image/ktx2",
+    "size": "1024x1024",
+    "kb": 318,
+    "gpu_safe": true
+   },
+   {
+    "name": "bb_wall_left",
+    "mime": "image/ktx2",
+    "size": "1024x1024",
+    "kb": 302,
+    "gpu_safe": true
+   },
+   {
+    "name": "leather_n",
+    "mime": "image/ktx2",
+    "size": "512x512",
+    "kb": 164,
+    "gpu_safe": true
+   },
+   {
+    "name": "leather",
+    "mime": "image/ktx2",
+    "size": "512x512",
+    "kb": 72,
+    "gpu_safe": true
+   },
+   {
+    "name": "leather_r",
+    "mime": "image/ktx2",
+    "size": "512x512",
+    "kb": 142,
+    "gpu_safe": true
+   },
+   {
+    "name": "wood_desk_n",
+    "mime": "image/ktx2",
+    "size": "512x512",
+    "kb": 126,
+    "gpu_safe": true
+   },
+   {
+    "name": "wood_desk",
+    "mime": "image/ktx2",
+    "size": "1024x1024",
+    "kb": 598,
+    "gpu_safe": true
+   },
+   {
+    "name": "wood_desk_r",
+    "mime": "image/ktx2",
+    "size": "512x512",
+    "kb": 123,
+    "gpu_safe": true
+   }
+  ],
+  "textures_not_multiple_of_4": []
+ },
+ {
+  "file": "raw/exhibit_doqi.glb",
+  "mb": 8.2,
+  "nodes": 73,
+  "meshes": 71,
+  "draw_calls": 73,
+  "triangles": 15108,
+  "materials": 37,
+  "textures": 22,
+  "texture_mb_download": 7.38,
+  "gpu_texture_mb": 52.8,
+  "validator": {
+   "errors": 0,
+   "warnings": 4,
+   "messages": [
+    "MESH_PRIMITIVE_GENERATED_TANGENT_SPACE: Material requires a tangent space but the mesh primitive does not provide it. Runtime-generated tangent space may be non-portable across implementations.",
+    "MESH_PRIMITIVE_GENERATED_TANGENT_SPACE: Material requires a tangent space but the mesh primitive does not provide it. Runtime-generated tangent space may be non-portable across implementations.",
+    "MESH_PRIMITIVE_GENERATED_TANGENT_SPACE: Material requires a tangent space but the mesh primitive does not provide it. Runtime-generated tangent space may be non-portable across implementations.",
+    "MESH_PRIMITIVE_GENERATED_TANGENT_SPACE: Material requires a tangent space but the mesh primitive does not provide it. Runtime-generated tangent space may be non-portable across implementations."
+   ]
+  },
+  "tags": [
+   {
+    "node": "DQ_Cabinet",
+    "interactive_id": "dq_cabinet",
+    "interactive_label": "Filing Cabinet",
+    "interactive_scope": "doqi",
+    "interactive_kind": "discovery"
+   },
+   {
+    "node": "DQ_Folders",
+    "interactive_id": "dq_folders",
+    "interactive_label": "The Filing System",
+    "interactive_scope": "doqi",
+    "interactive_kind": "discovery"
+   },
+   {
+    "node": "DQ_Form",
+    "interactive_id": "dq_form",
+    "interactive_label": "Form 27-B",
+    "interactive_scope": "doqi",
+    "interactive_kind": "discovery"
+   },
+   {
+    "node": "DQ_InkPad",
+    "interactive_id": "dq_pad",
+    "interactive_label": "Ink Pad",
+    "interactive_scope": "doqi",
+    "interactive_kind": "discovery"
+   },
+   {
+    "node": "DQ_Jeff",
+    "interactive_id": "dq_jeff",
+    "interactive_label": "J.E.F.F.",
+    "interactive_scope": "doqi",
+    "interactive_kind": "discovery"
+   },
+   {
+    "node": "DQ_Mug",
+    "interactive_id": "dq_mug",
+    "interactive_label": "Mug",
+    "interactive_scope": "doqi",
+    "interactive_kind": "discovery"
+   },
+   {
+    "node": "DQ_Poster_B",
+    "interactive_id": "dq_poster",
+    "interactive_label": "Poster",
+    "interactive_scope": "doqi",
+    "interactive_kind": "discovery"
+   },
+   {
+    "node": "DQ_Robot",
+    "interactive_id": "dq_robot",
+    "interactive_label": "Tin Robot",
+    "interactive_scope": "doqi",
+    "interactive_kind": "discovery"
+   },
+   {
+    "node": "DQ_Stamp",
+    "interactive_id": "dq_stamp",
+    "interactive_label": "The Stamp",
+    "interactive_scope": "doqi",
+    "interactive_kind": "discovery"
+   }
+  ],
+  "texture_list": [
+   {
+    "name": "exhibit_doqi_glow",
+    "mime": "image/png",
+    "size": "1024x1024",
+    "kb": 472,
+    "gpu_safe": true
+   },
+   {
+    "name": "exhibit_doqi_ao",
+    "mime": "image/png",
+    "size": "1024x1024",
+    "kb": 712,
+    "gpu_safe": true
+   },
+   {
+    "name": "dq_cabinet",
+    "mime": "image/png",
+    "size": "512x512",
+    "kb": 190,
+    "gpu_safe": true
+   },
+   {
+    "name": "dq_dusk",
+    "mime": "image/png",
+    "size": "512x640",
+    "kb": 22,
+    "gpu_safe": true
+   },
+   {
+    "name": "dq_floor",
+    "mime": "image/png",
+    "size": "1024x1024",
+    "kb": 242,
+    "gpu_safe": true
+   },
+   {
+    "name": "dq_tabs",
+    "mime": "image/png",
+    "size": "512x512",
+    "kb": 8,
+    "gpu_safe": true
+   },
+   {
+    "name": "dq_form",
+    "mime": "image/png",
+    "size": "300x400",
+    "kb": 101,
+    "gpu_safe": true
+   },
+   {
+    "name": "dq_plate",
+    "mime": "image/png",
+    "size": "360x140",
+    "kb": 44,
+    "gpu_safe": true
+   },
+   {
+    "name": "dq_jeff_face",
+    "mime": "image/png",
+    "size": "320x240",
+    "kb": 36,
+    "gpu_safe": true
+   },
+   {
+    "name": "dq_jeff_metal",
+    "mime": "image/png",
+    "size": "512x512",
+    "kb": 205,
+    "gpu_safe": true
+   },
+   {
+    "name": "dq_mug",
+    "mime": "image/png",
+    "size": "512x256",
+    "kb": 62,
+    "gpu_safe": true
+   },
+   {
+    "name": "dq_cup",
+    "mime": "image/png",
+    "size": "1024x256",
+    "kb": 74,
+    "gpu_safe": true
+   },
+   {
+    "name": "dq_poster_a",
+    "mime": "image/png",
+    "size": "360x540",
+    "kb": 52,
+    "gpu_safe": true
+   },
+   {
+    "name": "dq_poster_b",
+    "mime": "image/png",
+    "size": "360x540",
+    "kb": 50,
+    "gpu_safe": true
+   },
+   {
+    "name": "dq_sign",
+    "mime": "image/png",
+    "size": "720x240",
+    "kb": 117,
+    "gpu_safe": true
+   },
+   {
+    "name": "wood_dark_n",
+    "mime": "image/png",
+    "size": "512x512",
+    "kb": 252,
+    "gpu_safe": true
+   },
+   {
+    "name": "wood_dark",
+    "mime": "image/png",
+    "size": "1024x1024",
+    "kb": 1250,
+    "gpu_safe": true
+   },
+   {
+    "name": "wood_desk_n",
+    "mime": "image/png",
+    "size": "1024x1024",
+    "kb": 1165,
+    "gpu_safe": true
+   },
+   {
+    "name": "wood_desk",
+    "mime": "image/png",
+    "size": "1024x1024",
+    "kb": 1366,
+    "gpu_safe": true
+   },
+   {
+    "name": "wood_desk_r",
+    "mime": "image/png",
+    "size": "512x512",
+    "kb": 234,
+    "gpu_safe": true
+   },
+   {
+    "name": "dq_blueprint",
+    "mime": "image/png",
+    "size": "512x384",
+    "kb": 126,
+    "gpu_safe": true
+   },
+   {
+    "name": "dq_wall",
+    "mime": "image/png",
+    "size": "1024x1024",
+    "kb": 429,
+    "gpu_safe": true
+   }
+  ],
+  "textures_not_multiple_of_4": []
+ },
+ {
+  "file": "exhibit_doqi.glb",
+  "mb": 4.28,
+  "nodes": 90,
+  "meshes": 71,
+  "draw_calls": 73,
+  "triangles": 15108,
+  "materials": 37,
+  "textures": 22,
+  "texture_mb_download": 3.95,
+  "gpu_texture_mb": 12.2,
+  "validator": {
+   "errors": 0,
+   "warnings": 26,
+   "messages": [
+    "VALUE_NOT_IN_LIST: Invalid value 'image/ktx2'. Valid values are ('image/jpeg', 'image/png').",
+    "VALUE_NOT_IN_LIST: Invalid value 'image/ktx2'. Valid values are ('image/jpeg', 'image/png').",
+    "VALUE_NOT_IN_LIST: Invalid value 'image/ktx2'. Valid values are ('image/jpeg', 'image/png').",
+    "VALUE_NOT_IN_LIST: Invalid value 'image/ktx2'. Valid values are ('image/jpeg', 'image/png').",
+    "VALUE_NOT_IN_LIST: Invalid value 'image/ktx2'. Valid values are ('image/jpeg', 'image/png').",
+    "VALUE_NOT_IN_LIST: Invalid value 'image/ktx2'. Valid values are ('image/jpeg', 'image/png').",
+    "VALUE_NOT_IN_LIST: Invalid value 'image/ktx2'. Valid values are ('image/jpeg', 'image/png').",
+    "VALUE_NOT_IN_LIST: Invalid value 'image/ktx2'. Valid values are ('image/jpeg', 'image/png')."
+   ]
+  },
+  "tags": [
+   {
+    "node": "DQ_Cabinet",
+    "interactive_id": "dq_cabinet",
+    "interactive_label": "Filing Cabinet",
+    "interactive_scope": "doqi",
+    "interactive_kind": "discovery"
+   },
+   {
+    "node": "DQ_Folders",
+    "interactive_id": "dq_folders",
+    "interactive_label": "The Filing System",
+    "interactive_scope": "doqi",
+    "interactive_kind": "discovery"
+   },
+   {
+    "node": "DQ_Form",
+    "interactive_id": "dq_form",
+    "interactive_label": "Form 27-B",
+    "interactive_scope": "doqi",
+    "interactive_kind": "discovery"
+   },
+   {
+    "node": "DQ_InkPad",
+    "interactive_id": "dq_pad",
+    "interactive_label": "Ink Pad",
+    "interactive_scope": "doqi",
+    "interactive_kind": "discovery"
+   },
+   {
+    "node": "DQ_Jeff",
+    "interactive_id": "dq_jeff",
+    "interactive_label": "J.E.F.F.",
+    "interactive_scope": "doqi",
+    "interactive_kind": "discovery"
+   },
+   {
+    "node": "DQ_Mug",
+    "interactive_id": "dq_mug",
+    "interactive_label": "Mug",
+    "interactive_scope": "doqi",
+    "interactive_kind": "discovery"
+   },
+   {
+    "node": "DQ_Poster_B",
+    "interactive_id": "dq_poster",
+    "interactive_label": "Poster",
+    "interactive_scope": "doqi",
+    "interactive_kind": "discovery"
+   },
+   {
+    "node": "DQ_Robot",
+    "interactive_id": "dq_robot",
+    "interactive_label": "Tin Robot",
+    "interactive_scope": "doqi",
+    "interactive_kind": "discovery"
+   },
+   {
+    "node": "DQ_Stamp",
+    "interactive_id": "dq_stamp",
+    "interactive_label": "The Stamp",
+    "interactive_scope": "doqi",
+    "interactive_kind": "discovery"
+   }
+  ],
+  "texture_list": [
+   {
+    "name": "exhibit_doqi_glow",
+    "mime": "image/ktx2",
+    "size": "1024x1024",
+    "kb": 324,
+    "gpu_safe": true
+   },
+   {
+    "name": "exhibit_doqi_ao",
+    "mime": "image/ktx2",
+    "size": "1024x1024",
+    "kb": 716,
+    "gpu_safe": true
+   },
+   {
+    "name": "dq_cabinet",
+    "mime": "image/ktx2",
+    "size": "512x512",
+    "kb": 136,
+    "gpu_safe": true
+   },
+   {
+    "name": "dq_dusk",
+    "mime": "image/ktx2",
+    "size": "512x640",
+    "kb": 36,
+    "gpu_safe": true
+   },
+   {
+    "name": "dq_floor",
+    "mime": "image/ktx2",
+    "size": "1024x1024",
+    "kb": 236,
+    "gpu_safe": true
+   },
+   {
+    "name": "dq_tabs",
+    "mime": "image/ktx2",
+    "size": "512x512",
+    "kb": 18,
+    "gpu_safe": true
+   },
+   {
+    "name": "dq_form",
+    "mime": "image/ktx2",
+    "size": "300x400",
+    "kb": 55,
+    "gpu_safe": true
+   },
+   {
+    "name": "dq_plate",
+    "mime": "image/ktx2",
+    "size": "360x140",
+    "kb": 28,
+    "gpu_safe": true
+   },
+   {
+    "name": "dq_jeff_face",
+    "mime": "image/ktx2",
+    "size": "320x240",
+    "kb": 22,
+    "gpu_safe": true
+   },
+   {
+    "name": "dq_jeff_metal",
+    "mime": "image/ktx2",
+    "size": "512x512",
+    "kb": 147,
+    "gpu_safe": true
+   },
+   {
+    "name": "dq_mug",
+    "mime": "image/ktx2",
+    "size": "512x256",
+    "kb": 47,
+    "gpu_safe": true
+   },
+   {
+    "name": "dq_cup",
+    "mime": "image/ktx2",
+    "size": "1024x256",
+    "kb": 72,
+    "gpu_safe": true
+   },
+   {
+    "name": "dq_poster_a",
+    "mime": "image/ktx2",
+    "size": "360x540",
+    "kb": 59,
+    "gpu_safe": true
+   },
+   {
+    "name": "dq_poster_b",
+    "mime": "image/ktx2",
+    "size": "360x540",
+    "kb": 60,
+    "gpu_safe": true
+   },
+   {
+    "name": "dq_sign",
+    "mime": "image/ktx2",
+    "size": "720x240",
+    "kb": 71,
+    "gpu_safe": true
+   },
+   {
+    "name": "wood_dark_n",
+    "mime": "image/ktx2",
+    "size": "512x512",
+    "kb": 88,
+    "gpu_safe": true
+   },
+   {
+    "name": "wood_dark",
+    "mime": "image/ktx2",
+    "size": "1024x1024",
+    "kb": 463,
+    "gpu_safe": true
+   },
+   {
+    "name": "wood_desk_n",
+    "mime": "image/ktx2",
+    "size": "512x512",
+    "kb": 126,
+    "gpu_safe": true
+   },
+   {
+    "name": "wood_desk",
+    "mime": "image/ktx2",
+    "size": "1024x1024",
+    "kb": 598,
+    "gpu_safe": true
+   },
+   {
+    "name": "wood_desk_r",
+    "mime": "image/ktx2",
+    "size": "512x512",
+    "kb": 123,
+    "gpu_safe": true
+   },
+   {
+    "name": "dq_blueprint",
+    "mime": "image/ktx2",
+    "size": "512x384",
+    "kb": 92,
+    "gpu_safe": true
+   },
+   {
+    "name": "dq_wall",
+    "mime": "image/ktx2",
+    "size": "1024x1024",
+    "kb": 343,
+    "gpu_safe": true
+   }
+  ],
+  "textures_not_multiple_of_4": []
+ },
+ {
+  "file": "raw/exhibit_glass_and_fortune.glb",
+  "mb": 11.41,
+  "nodes": 45,
+  "meshes": 41,
+  "draw_calls": 41,
+  "triangles": 29982,
+  "materials": 25,
+  "textures": 16,
+  "texture_mb_download": 10.07,
+  "gpu_texture_mb": 55,
+  "validator": {
+   "errors": 0,
+   "warnings": 7,
+   "messages": [
+    "MESH_PRIMITIVE_GENERATED_TANGENT_SPACE: Material requires a tangent space but the mesh primitive does not provide it. Runtime-generated tangent space may be non-portable across implementations.",
+    "MESH_PRIMITIVE_GENERATED_TANGENT_SPACE: Material requires a tangent space but the mesh primitive does not provide it. Runtime-generated tangent space may be non-portable across implementations.",
+    "MESH_PRIMITIVE_GENERATED_TANGENT_SPACE: Material requires a tangent space but the mesh primitive does not provide it. Runtime-generated tangent space may be non-portable across implementations.",
+    "MESH_PRIMITIVE_GENERATED_TANGENT_SPACE: Material requires a tangent space but the mesh primitive does not provide it. Runtime-generated tangent space may be non-portable across implementations.",
+    "MESH_PRIMITIVE_GENERATED_TANGENT_SPACE: Material requires a tangent space but the mesh primitive does not provide it. Runtime-generated tangent space may be non-portable across implementations.",
+    "MESH_PRIMITIVE_GENERATED_TANGENT_SPACE: Material requires a tangent space but the mesh primitive does not provide it. Runtime-generated tangent space may be non-portable across implementations.",
+    "MESH_PRIMITIVE_GENERATED_TANGENT_SPACE: Material requires a tangent space but the mesh primitive does not provide it. Runtime-generated tangent space may be non-portable across implementations."
+   ]
+  },
+  "tags": [
+   {
+    "node": "GF_CrystalBall_Stand",
+    "interactive_id": "gf_ball",
+    "interactive_label": "Crystal Ball",
+    "interactive_scope": "glass-and-fortune",
+    "interactive_kind": "discovery"
+   },
+   {
+    "node": "GF_Die_Blue",
+    "interactive_id": "gf_die_blue",
+    "interactive_label": "Blue die",
+    "interactive_scope": "glass-and-fortune",
+    "interactive_kind": "discovery"
+   },
+   {
+    "node": "GF_Die_Red",
+    "interactive_id": "gf_die_red",
+    "interactive_label": "Red die",
+    "interactive_scope": "glass-and-fortune",
+    "interactive_kind": "discovery"
+   },
+   {
+    "node": "GF_Hat",
+    "interactive_id": "gf_hat",
+    "interactive_label": "Top Hat",
+    "interactive_scope": "glass-and-fortune",
+    "interactive_kind": "discovery"
+   },
+   {
+    "node": "GF_Hourglass",
+    "interactive_id": "gf_hourglass",
+    "interactive_label": "Hourglass",
+    "interactive_scope": "glass-and-fortune",
+    "interactive_kind": "discovery"
+   },
+   {
+    "node": "GF_Lantern",
+    "interactive_id": "gf_lantern",
+    "interactive_label": "Oil Lantern",
+    "interactive_scope": "glass-and-fortune",
+    "interactive_kind": "discovery"
+   },
+   {
+    "node": "GF_Mask",
+    "interactive_id": "gf_mask",
+    "interactive_label": "The Fortune-Teller's Mask",
+    "interactive_scope": "glass-and-fortune",
+    "interactive_kind": "discovery"
+   },
+   {
+    "node": "GF_Moth",
+    "interactive_id": "gf_moth",
+    "interactive_label": "Brass Moth",
+    "interactive_scope": "glass-and-fortune",
+    "interactive_kind": "discovery"
+   }
+  ],
+  "texture_list": [
+   {
+    "name": "exhibit_glass_and_fortune_glow",
+    "mime": "image/png",
+    "size": "1024x1024",
+    "kb": 124,
+    "gpu_safe": true
+   },
+   {
+    "name": "exhibit_glass_and_fortune_ao",
+    "mime": "image/png",
+    "size": "1024x1024",
+    "kb": 728,
+    "gpu_safe": true
+   },
+   {
+    "name": "planks_n",
+    "mime": "image/png",
+    "size": "1024x1024",
+    "kb": 1120,
+    "gpu_safe": true
+   },
+   {
+    "name": "planks",
+    "mime": "image/png",
+    "size": "1024x1024",
+    "kb": 1243,
+    "gpu_safe": true
+   },
+   {
+    "name": "wood_dark_n",
+    "mime": "image/png",
+    "size": "512x512",
+    "kb": 252,
+    "gpu_safe": true
+   },
+   {
+    "name": "wood_dark",
+    "mime": "image/png",
+    "size": "1024x1024",
+    "kb": 1250,
+    "gpu_safe": true
+   },
+   {
+    "name": "leather_brown_n",
+    "mime": "image/png",
+    "size": "512x512",
+    "kb": 308,
+    "gpu_safe": true
+   },
+   {
+    "name": "leather_brown",
+    "mime": "image/png",
+    "size": "512x512",
+    "kb": 251,
+    "gpu_safe": true
+   },
+   {
+    "name": "gf_night",
+    "mime": "image/png",
+    "size": "512x640",
+    "kb": 28,
+    "gpu_safe": true
+   },
+   {
+    "name": "rug_n",
+    "mime": "image/png",
+    "size": "1024x640",
+    "kb": 825,
+    "gpu_safe": true
+   },
+   {
+    "name": "rug",
+    "mime": "image/png",
+    "size": "1024x640",
+    "kb": 601,
+    "gpu_safe": true
+   },
+   {
+    "name": "gf_velvet",
+    "mime": "image/png",
+    "size": "1024x512",
+    "kb": 263,
+    "gpu_safe": true
+   },
+   {
+    "name": "gf_wallpaper",
+    "mime": "image/png",
+    "size": "512x512",
+    "kb": 73,
+    "gpu_safe": true
+   },
+   {
+    "name": "wood_desk_n",
+    "mime": "image/png",
+    "size": "1024x1024",
+    "kb": 1165,
+    "gpu_safe": true
+   },
+   {
+    "name": "wood_desk",
+    "mime": "image/png",
+    "size": "1024x1024",
+    "kb": 1366,
+    "gpu_safe": true
+   },
+   {
+    "name": "wood_desk_r",
+    "mime": "image/png",
+    "size": "512x512",
+    "kb": 234,
+    "gpu_safe": true
+   }
+  ],
+  "textures_not_multiple_of_4": []
+ },
+ {
+  "file": "exhibit_glass_and_fortune.glb",
+  "mb": 4.45,
+  "nodes": 55,
+  "meshes": 40,
+  "draw_calls": 41,
+  "triangles": 29982,
+  "materials": 25,
+  "textures": 16,
+  "texture_mb_download": 4.02,
+  "gpu_texture_mb": 11.1,
+  "validator": {
+   "errors": 0,
+   "warnings": 32,
+   "messages": [
+    "VALUE_NOT_IN_LIST: Invalid value 'image/ktx2'. Valid values are ('image/jpeg', 'image/png').",
+    "VALUE_NOT_IN_LIST: Invalid value 'image/ktx2'. Valid values are ('image/jpeg', 'image/png').",
+    "VALUE_NOT_IN_LIST: Invalid value 'image/ktx2'. Valid values are ('image/jpeg', 'image/png').",
+    "VALUE_NOT_IN_LIST: Invalid value 'image/ktx2'. Valid values are ('image/jpeg', 'image/png').",
+    "VALUE_NOT_IN_LIST: Invalid value 'image/ktx2'. Valid values are ('image/jpeg', 'image/png').",
+    "VALUE_NOT_IN_LIST: Invalid value 'image/ktx2'. Valid values are ('image/jpeg', 'image/png').",
+    "VALUE_NOT_IN_LIST: Invalid value 'image/ktx2'. Valid values are ('image/jpeg', 'image/png').",
+    "VALUE_NOT_IN_LIST: Invalid value 'image/ktx2'. Valid values are ('image/jpeg', 'image/png')."
+   ]
+  },
+  "tags": [
+   {
+    "node": "GF_CrystalBall_Stand",
+    "interactive_id": "gf_ball",
+    "interactive_label": "Crystal Ball",
+    "interactive_scope": "glass-and-fortune",
+    "interactive_kind": "discovery"
+   },
+   {
+    "node": "GF_Die_Blue",
+    "interactive_id": "gf_die_blue",
+    "interactive_label": "Blue die",
+    "interactive_scope": "glass-and-fortune",
+    "interactive_kind": "discovery"
+   },
+   {
+    "node": "GF_Die_Red",
+    "interactive_id": "gf_die_red",
+    "interactive_label": "Red die",
+    "interactive_scope": "glass-and-fortune",
+    "interactive_kind": "discovery"
+   },
+   {
+    "node": "GF_Hat",
+    "interactive_id": "gf_hat",
+    "interactive_label": "Top Hat",
+    "interactive_scope": "glass-and-fortune",
+    "interactive_kind": "discovery"
+   },
+   {
+    "node": "GF_Hourglass",
+    "interactive_id": "gf_hourglass",
+    "interactive_label": "Hourglass",
+    "interactive_scope": "glass-and-fortune",
+    "interactive_kind": "discovery"
+   },
+   {
+    "node": "GF_Lantern",
+    "interactive_id": "gf_lantern",
+    "interactive_label": "Oil Lantern",
+    "interactive_scope": "glass-and-fortune",
+    "interactive_kind": "discovery"
+   },
+   {
+    "node": "GF_Mask",
+    "interactive_id": "gf_mask",
+    "interactive_label": "The Fortune-Teller's Mask",
+    "interactive_scope": "glass-and-fortune",
+    "interactive_kind": "discovery"
+   },
+   {
+    "node": "GF_Moth",
+    "interactive_id": "gf_moth",
+    "interactive_label": "Brass Moth",
+    "interactive_scope": "glass-and-fortune",
+    "interactive_kind": "discovery"
+   }
+  ],
+  "texture_list": [
+   {
+    "name": "exhibit_glass_and_fortune_glow",
+    "mime": "image/ktx2",
+    "size": "1024x1024",
+    "kb": 93,
+    "gpu_safe": true
+   },
+   {
+    "name": "exhibit_glass_and_fortune_ao",
+    "mime": "image/ktx2",
+    "size": "1024x1024",
+    "kb": 708,
+    "gpu_safe": true
+   },
+   {
+    "name": "planks_n",
+    "mime": "image/ktx2",
+    "size": "512x512",
+    "kb": 154,
+    "gpu_safe": true
+   },
+   {
+    "name": "planks",
+    "mime": "image/ktx2",
+    "size": "1024x1024",
+    "kb": 611,
+    "gpu_safe": true
+   },
+   {
+    "name": "wood_dark_n",
+    "mime": "image/ktx2",
+    "size": "512x512",
+    "kb": 88,
+    "gpu_safe": true
+   },
+   {
+    "name": "wood_dark",
+    "mime": "image/ktx2",
+    "size": "1024x1024",
+    "kb": 463,
+    "gpu_safe": true
+   },
+   {
+    "name": "leather_brown_n",
+    "mime": "image/ktx2",
+    "size": "512x512",
+    "kb": 94,
+    "gpu_safe": true
+   },
+   {
+    "name": "leather_brown",
+    "mime": "image/ktx2",
+    "size": "512x512",
+    "kb": 108,
+    "gpu_safe": true
+   },
+   {
+    "name": "gf_night",
+    "mime": "image/ktx2",
+    "size": "512x640",
+    "kb": 43,
+    "gpu_safe": true
+   },
+   {
+    "name": "rug_n",
+    "mime": "image/ktx2",
+    "size": "512x320",
+    "kb": 114,
+    "gpu_safe": true
+   },
+   {
+    "name": "rug",
+    "mime": "image/ktx2",
+    "size": "1024x640",
+    "kb": 357,
+    "gpu_safe": true
+   },
+   {
+    "name": "gf_velvet",
+    "mime": "image/ktx2",
+    "size": "1024x512",
+    "kb": 174,
+    "gpu_safe": true
+   },
+   {
+    "name": "gf_wallpaper",
+    "mime": "image/ktx2",
+    "size": "512x512",
+    "kb": 70,
+    "gpu_safe": true
+   },
+   {
+    "name": "wood_desk_n",
+    "mime": "image/ktx2",
+    "size": "512x512",
+    "kb": 126,
+    "gpu_safe": true
+   },
+   {
+    "name": "wood_desk",
+    "mime": "image/ktx2",
+    "size": "1024x1024",
+    "kb": 598,
+    "gpu_safe": true
+   },
+   {
+    "name": "wood_desk_r",
+    "mime": "image/ktx2",
+    "size": "512x512",
+    "kb": 123,
+    "gpu_safe": true
+   }
+  ],
+  "textures_not_multiple_of_4": []
+ },
+ {
+  "file": "raw/exhibit_graffiti.glb",
+  "mb": 8.34,
+  "nodes": 40,
+  "meshes": 37,
+  "draw_calls": 37,
+  "triangles": 9072,
+  "materials": 22,
+  "textures": 9,
+  "texture_mb_download": 7.84,
+  "gpu_texture_mb": 32,
+  "validator": {
+   "errors": 0,
+   "warnings": 3,
+   "messages": [
+    "MESH_PRIMITIVE_GENERATED_TANGENT_SPACE: Material requires a tangent space but the mesh primitive does not provide it. Runtime-generated tangent space may be non-portable across implementations.",
+    "MESH_PRIMITIVE_GENERATED_TANGENT_SPACE: Material requires a tangent space but the mesh primitive does not provide it. Runtime-generated tangent space may be non-portable across implementations.",
+    "MESH_PRIMITIVE_GENERATED_TANGENT_SPACE: Material requires a tangent space but the mesh primitive does not provide it. Runtime-generated tangent space may be non-portable across implementations."
+   ]
+  },
+  "tags": [
+   {
+    "node": "GF_Can_purple",
+    "interactive_id": "gf_can_purple",
+    "interactive_label": "Purple spray can",
+    "interactive_scope": "graffiti",
+    "interactive_kind": "discovery"
+   },
+   {
+    "node": "GF_Can_yellow",
+    "interactive_id": "gf_can_yellow",
+    "interactive_label": "Yellow spray can",
+    "interactive_scope": "graffiti",
+    "interactive_kind": "discovery"
+   },
+   {
+    "node": "GF_Can_cyan",
+    "interactive_id": "gf_can_cyan",
+    "interactive_label": "Cyan spray can",
+    "interactive_scope": "graffiti",
+    "interactive_kind": "discovery"
+   },
+   {
+    "node": "GF_Can_green",
+    "interactive_id": "gf_can_green",
+    "interactive_label": "Green spray can",
+    "interactive_scope": "graffiti",
+    "interactive_kind": "discovery"
+   },
+   {
+    "node": "GF_Can_orange",
+    "interactive_id": "gf_can_orange",
+    "interactive_label": "Orange spray can",
+    "interactive_scope": "graffiti",
+    "interactive_kind": "discovery"
+   },
+   {
+    "node": "GF_Can_pink",
+    "interactive_id": "gf_can_pink",
+    "interactive_label": "Pink spray can",
+    "interactive_scope": "graffiti",
+    "interactive_kind": "discovery"
+   },
+   {
+    "node": "GF_Crate",
+    "interactive_id": "gf_crate",
+    "interactive_label": "Spray cans",
+    "interactive_scope": "graffiti",
+    "interactive_kind": "discovery"
+   },
+   {
+    "node": "GF_Tile",
+    "interactive_id": "gf_tile",
+    "interactive_label": "Your tile",
+    "interactive_scope": "graffiti",
+    "interactive_kind": "discovery"
+   }
+  ],
+  "texture_list": [
+   {
+    "name": "exhibit_graffiti_glow",
+    "mime": "image/png",
+    "size": "1024x1024",
+    "kb": 695,
+    "gpu_safe": true
+   },
+   {
+    "name": "exhibit_graffiti_ao",
+    "mime": "image/png",
+    "size": "1024x1024",
+    "kb": 703,
+    "gpu_safe": true
+   },
+   {
+    "name": "gf_asphalt_n",
+    "mime": "image/png",
+    "size": "512x512",
+    "kb": 141,
+    "gpu_safe": true
+   },
+   {
+    "name": "gf_asphalt",
+    "mime": "image/png",
+    "size": "1024x1024",
+    "kb": 457,
+    "gpu_safe": true
+   },
+   {
+    "name": "gf_primer",
+    "mime": "image/png",
+    "size": "256x256",
+    "kb": 58,
+    "gpu_safe": true
+   },
+   {
+    "name": "gf_wall_back_n",
+    "mime": "image/png",
+    "size": "1024x576",
+    "kb": 1024,
+    "gpu_safe": true
+   },
+   {
+    "name": "gf_wall_back",
+    "mime": "image/png",
+    "size": "1536x864",
+    "kb": 3009,
+    "gpu_safe": true
+   },
+   {
+    "name": "gf_wall_side_n",
+    "mime": "image/png",
+    "size": "512x512",
+    "kb": 424,
+    "gpu_safe": true
+   },
+   {
+    "name": "gf_wall_side",
+    "mime": "image/png",
+    "size": "784x806",
+    "kb": 1139,
+    "gpu_safe": false
+   }
+  ],
+  "textures_not_multiple_of_4": [
+   "gf_wall_side 784x806"
+  ]
+ },
+ {
+  "file": "exhibit_graffiti.glb",
+  "mb": 3.63,
+  "nodes": 46,
+  "meshes": 37,
+  "draw_calls": 37,
+  "triangles": 9072,
+  "materials": 22,
+  "textures": 9,
+  "texture_mb_download": 3.47,
+  "gpu_texture_mb": 6.5,
+  "validator": {
+   "errors": 0,
+   "warnings": 21,
+   "messages": [
+    "VALUE_NOT_IN_LIST: Invalid value 'image/ktx2'. Valid values are ('image/jpeg', 'image/png').",
+    "VALUE_NOT_IN_LIST: Invalid value 'image/ktx2'. Valid values are ('image/jpeg', 'image/png').",
+    "VALUE_NOT_IN_LIST: Invalid value 'image/ktx2'. Valid values are ('image/jpeg', 'image/png').",
+    "VALUE_NOT_IN_LIST: Invalid value 'image/ktx2'. Valid values are ('image/jpeg', 'image/png').",
+    "VALUE_NOT_IN_LIST: Invalid value 'image/ktx2'. Valid values are ('image/jpeg', 'image/png').",
+    "VALUE_NOT_IN_LIST: Invalid value 'image/ktx2'. Valid values are ('image/jpeg', 'image/png').",
+    "VALUE_NOT_IN_LIST: Invalid value 'image/ktx2'. Valid values are ('image/jpeg', 'image/png').",
+    "VALUE_NOT_IN_LIST: Invalid value 'image/ktx2'. Valid values are ('image/jpeg', 'image/png')."
+   ]
+  },
+  "tags": [
+   {
+    "node": "GF_Can_purple",
+    "interactive_id": "gf_can_purple",
+    "interactive_label": "Purple spray can",
+    "interactive_scope": "graffiti",
+    "interactive_kind": "discovery"
+   },
+   {
+    "node": "GF_Can_yellow",
+    "interactive_id": "gf_can_yellow",
+    "interactive_label": "Yellow spray can",
+    "interactive_scope": "graffiti",
+    "interactive_kind": "discovery"
+   },
+   {
+    "node": "GF_Can_cyan",
+    "interactive_id": "gf_can_cyan",
+    "interactive_label": "Cyan spray can",
+    "interactive_scope": "graffiti",
+    "interactive_kind": "discovery"
+   },
+   {
+    "node": "GF_Can_green",
+    "interactive_id": "gf_can_green",
+    "interactive_label": "Green spray can",
+    "interactive_scope": "graffiti",
+    "interactive_kind": "discovery"
+   },
+   {
+    "node": "GF_Can_orange",
+    "interactive_id": "gf_can_orange",
+    "interactive_label": "Orange spray can",
+    "interactive_scope": "graffiti",
+    "interactive_kind": "discovery"
+   },
+   {
+    "node": "GF_Can_pink",
+    "interactive_id": "gf_can_pink",
+    "interactive_label": "Pink spray can",
+    "interactive_scope": "graffiti",
+    "interactive_kind": "discovery"
+   },
+   {
+    "node": "GF_Crate",
+    "interactive_id": "gf_crate",
+    "interactive_label": "Spray cans",
+    "interactive_scope": "graffiti",
+    "interactive_kind": "discovery"
+   },
+   {
+    "node": "GF_Tile",
+    "interactive_id": "gf_tile",
+    "interactive_label": "Your tile",
+    "interactive_scope": "graffiti",
+    "interactive_kind": "discovery"
+   }
+  ],
+  "texture_list": [
+   {
+    "name": "exhibit_graffiti_glow",
+    "mime": "image/ktx2",
+    "size": "1024x1024",
+    "kb": 423,
+    "gpu_safe": true
+   },
+   {
+    "name": "exhibit_graffiti_ao",
+    "mime": "image/ktx2",
+    "size": "1024x1024",
+    "kb": 678,
+    "gpu_safe": true
+   },
+   {
+    "name": "gf_asphalt_n",
+    "mime": "image/ktx2",
+    "size": "512x512",
+    "kb": 120,
+    "gpu_safe": true
+   },
+   {
+    "name": "gf_asphalt",
+    "mime": "image/ktx2",
+    "size": "1024x1024",
+    "kb": 343,
+    "gpu_safe": true
+   },
+   {
+    "name": "gf_primer",
+    "mime": "image/ktx2",
+    "size": "256x256",
+    "kb": 33,
+    "gpu_safe": true
+   },
+   {
+    "name": "gf_wall_back_n",
+    "mime": "image/ktx2",
+    "size": "512x288",
+    "kb": 163,
+    "gpu_safe": true
+   },
+   {
+    "name": "gf_wall_back",
+    "mime": "image/ktx2",
+    "size": "1024x576",
+    "kb": 734,
+    "gpu_safe": true
+   },
+   {
+    "name": "gf_wall_side_n",
+    "mime": "image/ktx2",
+    "size": "512x512",
+    "kb": 218,
+    "gpu_safe": true
+   },
+   {
+    "name": "gf_wall_side",
+    "mime": "image/ktx2",
+    "size": "784x804",
+    "kb": 675,
+    "gpu_safe": true
+   }
+  ],
+  "textures_not_multiple_of_4": []
+ },
+ {
+  "file": "raw/exhibit_juicebox.glb",
+  "mb": 6.48,
+  "nodes": 41,
+  "meshes": 33,
+  "draw_calls": 33,
+  "triangles": 27548,
+  "materials": 25,
+  "textures": 11,
+  "texture_mb_download": 4.84,
+  "gpu_texture_mb": 41.4,
+  "validator": {
+   "errors": 0,
+   "warnings": 2,
+   "messages": [
+    "MESH_PRIMITIVE_GENERATED_TANGENT_SPACE: Material requires a tangent space but the mesh primitive does not provide it. Runtime-generated tangent space may be non-portable across implementations.",
+    "MESH_PRIMITIVE_GENERATED_TANGENT_SPACE: Material requires a tangent space but the mesh primitive does not provide it. Runtime-generated tangent space may be non-portable across implementations."
+   ]
+  },
+  "tags": [
+   {
+    "node": "JB_Bottle",
+    "interactive_id": "jb_bottle",
+    "interactive_label": "The Juice",
+    "interactive_scope": "juicebox",
+    "interactive_kind": "discovery"
+   },
+   {
+    "node": "JB_Drifter",
+    "interactive_id": "jb_drifter",
+    "interactive_label": "The Drifter",
+    "interactive_scope": "juicebox",
+    "interactive_kind": "discovery"
+   },
+   {
+    "node": "JB_Sign",
+    "interactive_id": "jb_sign",
+    "interactive_label": "The Sign",
+    "interactive_scope": "juicebox",
+    "interactive_kind": "discovery"
+   },
+   {
+    "node": "JB_Truck",
+    "interactive_id": "jb_truck",
+    "interactive_label": "The Truck",
+    "interactive_scope": "juicebox",
+    "interactive_kind": "discovery"
+   }
+  ],
+  "texture_list": [
+   {
+    "name": "exhibit_juicebox_glow",
+    "mime": "image/png",
+    "size": "1024x1024",
+    "kb": 683,
+    "gpu_safe": true
+   },
+   {
+    "name": "exhibit_juicebox_ao",
+    "mime": "image/png",
+    "size": "1024x1024",
+    "kb": 601,
+    "gpu_safe": true
+   },
+   {
+    "name": "jb_label",
+    "mime": "image/png",
+    "size": "1024x256",
+    "kb": 163,
+    "gpu_safe": true
+   },
+   {
+    "name": "jb_dirt_n",
+    "mime": "image/png",
+    "size": "512x512",
+    "kb": 304,
+    "gpu_safe": true
+   },
+   {
+    "name": "jb_dirt",
+    "mime": "image/png",
+    "size": "1024x1024",
+    "kb": 990,
+    "gpu_safe": true
+   },
+   {
+    "name": "jb_road_n",
+    "mime": "image/png",
+    "size": "256x1024",
+    "kb": 156,
+    "gpu_safe": true
+   },
+   {
+    "name": "jb_road",
+    "mime": "image/png",
+    "size": "512x2048",
+    "kb": 399,
+    "gpu_safe": true
+   },
+   {
+    "name": "jb_sign_back",
+    "mime": "image/png",
+    "size": "640x420",
+    "kb": 76,
+    "gpu_safe": true
+   },
+   {
+    "name": "jb_sign_front",
+    "mime": "image/png",
+    "size": "640x420",
+    "kb": 73,
+    "gpu_safe": true
+   },
+   {
+    "name": "jb_sky",
+    "mime": "image/png",
+    "size": "2048x768",
+    "kb": 471,
+    "gpu_safe": true
+   },
+   {
+    "name": "jb_paint",
+    "mime": "image/png",
+    "size": "1024x1024",
+    "kb": 812,
+    "gpu_safe": true
+   }
+  ],
+  "textures_not_multiple_of_4": []
+ },
+ {
+  "file": "exhibit_juicebox.glb",
+  "mb": 3.69,
+  "nodes": 44,
+  "meshes": 33,
+  "draw_calls": 33,
+  "triangles": 27548,
+  "materials": 25,
+  "textures": 11,
+  "texture_mb_download": 3.17,
+  "gpu_texture_mb": 7.6,
+  "validator": {
+   "errors": 0,
+   "warnings": 24,
+   "messages": [
+    "VALUE_NOT_IN_LIST: Invalid value 'image/ktx2'. Valid values are ('image/jpeg', 'image/png').",
+    "VALUE_NOT_IN_LIST: Invalid value 'image/ktx2'. Valid values are ('image/jpeg', 'image/png').",
+    "VALUE_NOT_IN_LIST: Invalid value 'image/ktx2'. Valid values are ('image/jpeg', 'image/png').",
+    "VALUE_NOT_IN_LIST: Invalid value 'image/ktx2'. Valid values are ('image/jpeg', 'image/png').",
+    "VALUE_NOT_IN_LIST: Invalid value 'image/ktx2'. Valid values are ('image/jpeg', 'image/png').",
+    "VALUE_NOT_IN_LIST: Invalid value 'image/ktx2'. Valid values are ('image/jpeg', 'image/png').",
+    "VALUE_NOT_IN_LIST: Invalid value 'image/ktx2'. Valid values are ('image/jpeg', 'image/png').",
+    "VALUE_NOT_IN_LIST: Invalid value 'image/ktx2'. Valid values are ('image/jpeg', 'image/png')."
+   ]
+  },
+  "tags": [
+   {
+    "node": "JB_Bottle",
+    "interactive_id": "jb_bottle",
+    "interactive_label": "The Juice",
+    "interactive_scope": "juicebox",
+    "interactive_kind": "discovery"
+   },
+   {
+    "node": "JB_Drifter",
+    "interactive_id": "jb_drifter",
+    "interactive_label": "The Drifter",
+    "interactive_scope": "juicebox",
+    "interactive_kind": "discovery"
+   },
+   {
+    "node": "JB_Sign",
+    "interactive_id": "jb_sign",
+    "interactive_label": "The Sign",
+    "interactive_scope": "juicebox",
+    "interactive_kind": "discovery"
+   },
+   {
+    "node": "JB_Truck",
+    "interactive_id": "jb_truck",
+    "interactive_label": "The Truck",
+    "interactive_scope": "juicebox",
+    "interactive_kind": "discovery"
+   }
+  ],
+  "texture_list": [
+   {
+    "name": "exhibit_juicebox_glow",
+    "mime": "image/ktx2",
+    "size": "1024x1024",
+    "kb": 480,
+    "gpu_safe": true
+   },
+   {
+    "name": "exhibit_juicebox_ao",
+    "mime": "image/ktx2",
+    "size": "1024x1024",
+    "kb": 593,
+    "gpu_safe": true
+   },
+   {
+    "name": "jb_label",
+    "mime": "image/ktx2",
+    "size": "1024x256",
+    "kb": 121,
+    "gpu_safe": true
+   },
+   {
+    "name": "jb_dirt_n",
+    "mime": "image/ktx2",
+    "size": "512x512",
+    "kb": 159,
+    "gpu_safe": true
+   },
+   {
+    "name": "jb_dirt",
+    "mime": "image/ktx2",
+    "size": "1024x1024",
+    "kb": 575,
+    "gpu_safe": true
+   },
+   {
+    "name": "jb_road_n",
+    "mime": "image/ktx2",
+    "size": "128x512",
+    "kb": 43,
+    "gpu_safe": true
+   },
+   {
+    "name": "jb_road",
+    "mime": "image/ktx2",
+    "size": "256x1024",
+    "kb": 140,
+    "gpu_safe": true
+   },
+   {
+    "name": "jb_sign_back",
+    "mime": "image/ktx2",
+    "size": "640x420",
+    "kb": 86,
+    "gpu_safe": true
+   },
+   {
+    "name": "jb_sign_front",
+    "mime": "image/ktx2",
+    "size": "640x420",
+    "kb": 83,
+    "gpu_safe": true
+   },
+   {
+    "name": "jb_sky",
+    "mime": "image/ktx2",
+    "size": "1024x384",
+    "kb": 160,
+    "gpu_safe": true
+   },
+   {
+    "name": "jb_paint",
+    "mime": "image/ktx2",
+    "size": "1024x1024",
+    "kb": 660,
+    "gpu_safe": true
+   }
+  ],
+  "textures_not_multiple_of_4": []
+ },
+ {
+  "file": "raw/exhibit_labyrinth_fate.glb",
+  "mb": 9.55,
+  "nodes": 50,
+  "meshes": 45,
+  "draw_calls": 45,
+  "triangles": 34072,
+  "materials": 26,
+  "textures": 18,
+  "texture_mb_download": 7.19,
+  "gpu_texture_mb": 47.7,
+  "validator": {
+   "errors": 0,
+   "warnings": 15,
+   "messages": [
+    "MESH_PRIMITIVE_GENERATED_TANGENT_SPACE: Material requires a tangent space but the mesh primitive does not provide it. Runtime-generated tangent space may be non-portable across implementations.",
+    "MESH_PRIMITIVE_GENERATED_TANGENT_SPACE: Material requires a tangent space but the mesh primitive does not provide it. Runtime-generated tangent space may be non-portable across implementations.",
+    "MESH_PRIMITIVE_GENERATED_TANGENT_SPACE: Material requires a tangent space but the mesh primitive does not provide it. Runtime-generated tangent space may be non-portable across implementations.",
+    "MESH_PRIMITIVE_GENERATED_TANGENT_SPACE: Material requires a tangent space but the mesh primitive does not provide it. Runtime-generated tangent space may be non-portable across implementations.",
+    "MESH_PRIMITIVE_GENERATED_TANGENT_SPACE: Material requires a tangent space but the mesh primitive does not provide it. Runtime-generated tangent space may be non-portable across implementations.",
+    "MESH_PRIMITIVE_GENERATED_TANGENT_SPACE: Material requires a tangent space but the mesh primitive does not provide it. Runtime-generated tangent space may be non-portable across implementations.",
+    "MESH_PRIMITIVE_GENERATED_TANGENT_SPACE: Material requires a tangent space but the mesh primitive does not provide it. Runtime-generated tangent space may be non-portable across implementations.",
+    "MESH_PRIMITIVE_GENERATED_TANGENT_SPACE: Material requires a tangent space but the mesh primitive does not provide it. Runtime-generated tangent space may be non-portable across implementations."
+   ]
+  },
+  "tags": [
+   {
+    "node": "MZ_Altar",
+    "interactive_id": "mz_heart",
+    "interactive_label": "The Heart",
+    "interactive_scope": "labyrinth-fate",
+    "interactive_kind": "discovery"
+   },
+   {
+    "node": "MZ_Castle",
+    "interactive_id": "mz_castle",
+    "interactive_label": "The Castle",
+    "interactive_scope": "labyrinth-fate",
+    "interactive_kind": "discovery"
+   },
+   {
+    "node": "MZ_Crow",
+    "interactive_id": "mz_crow",
+    "interactive_label": "The Crow",
+    "interactive_scope": "labyrinth-fate",
+    "interactive_kind": "discovery"
+   },
+   {
+    "node": "MZ_Die",
+    "interactive_id": "mz_die",
+    "interactive_label": "The Die",
+    "interactive_scope": "labyrinth-fate",
+    "interactive_kind": "discovery"
+   },
+   {
+    "node": "MZ_Gate",
+    "interactive_id": "mz_gate",
+    "interactive_label": "The Gate",
+    "interactive_scope": "labyrinth-fate",
+    "interactive_kind": "discovery"
+   },
+   {
+    "node": "MZ_Pawn",
+    "interactive_id": "mz_pawn",
+    "interactive_label": "The Wanderer",
+    "interactive_scope": "labyrinth-fate",
+    "interactive_kind": "discovery"
+   },
+   {
+    "node": "MZ_Signpost",
+    "interactive_id": "mz_sign",
+    "interactive_label": "Signpost",
+    "interactive_scope": "labyrinth-fate",
+    "interactive_kind": "discovery"
+   }
+  ],
+  "texture_list": [
+   {
+    "name": "exhibit_labyrinth_fate_glow",
+    "mime": "image/png",
+    "size": "1024x1024",
+    "kb": 169,
+    "gpu_safe": true
+   },
+   {
+    "name": "exhibit_labyrinth_fate_ao",
+    "mime": "image/png",
+    "size": "1024x1024",
+    "kb": 475,
+    "gpu_safe": true
+   },
+   {
+    "name": "mz_stone_n",
+    "mime": "image/png",
+    "size": "512x512",
+    "kb": 244,
+    "gpu_safe": true
+   },
+   {
+    "name": "mz_stone",
+    "mime": "image/png",
+    "size": "1024x1024",
+    "kb": 899,
+    "gpu_safe": true
+   },
+   {
+    "name": "mz_rock_n",
+    "mime": "image/png",
+    "size": "512x512",
+    "kb": 212,
+    "gpu_safe": true
+   },
+   {
+    "name": "mz_rock",
+    "mime": "image/png",
+    "size": "1024x1024",
+    "kb": 748,
+    "gpu_safe": true
+   },
+   {
+    "name": "wood_dark_n",
+    "mime": "image/png",
+    "size": "512x512",
+    "kb": 252,
+    "gpu_safe": true
+   },
+   {
+    "name": "wood_dark",
+    "mime": "image/png",
+    "size": "1024x1024",
+    "kb": 1250,
+    "gpu_safe": true
+   },
+   {
+    "name": "mz_path_n",
+    "mime": "image/png",
+    "size": "512x512",
+    "kb": 379,
+    "gpu_safe": true
+   },
+   {
+    "name": "mz_path",
+    "mime": "image/png",
+    "size": "1024x1024",
+    "kb": 842,
+    "gpu_safe": true
+   },
+   {
+    "name": "mz_ground",
+    "mime": "image/png",
+    "size": "1024x1024",
+    "kb": 602,
+    "gpu_safe": true
+   },
+   {
+    "name": "mz_moss",
+    "mime": "image/png",
+    "size": "512x512",
+    "kb": 270,
+    "gpu_safe": true
+   },
+   {
+    "name": "mz_sign_compass",
+    "mime": "image/png",
+    "size": "384x128",
+    "kb": 35,
+    "gpu_safe": true
+   },
+   {
+    "name": "mz_sign_pines",
+    "mime": "image/png",
+    "size": "384x128",
+    "kb": 28,
+    "gpu_safe": true
+   },
+   {
+    "name": "mz_sign_question",
+    "mime": "image/png",
+    "size": "384x128",
+    "kb": 28,
+    "gpu_safe": true
+   },
+   {
+    "name": "mz_sign_skull",
+    "mime": "image/png",
+    "size": "384x128",
+    "kb": 29,
+    "gpu_safe": true
+   },
+   {
+    "name": "leather_brown_n",
+    "mime": "image/png",
+    "size": "512x512",
+    "kb": 308,
+    "gpu_safe": true
+   },
+   {
+    "name": "leather_brown",
+    "mime": "image/png",
+    "size": "512x512",
+    "kb": 251,
+    "gpu_safe": true
+   }
+  ],
+  "textures_not_multiple_of_4": []
+ },
+ {
+  "file": "exhibit_labyrinth_fate.glb",
+  "mb": 5.21,
+  "nodes": 59,
+  "meshes": 42,
+  "draw_calls": 45,
+  "triangles": 34072,
+  "materials": 26,
+  "textures": 18,
+  "texture_mb_download": 4.34,
+  "gpu_texture_mb": 11.9,
+  "validator": {
+   "errors": 0,
+   "warnings": 33,
+   "messages": [
+    "VALUE_NOT_IN_LIST: Invalid value 'image/ktx2'. Valid values are ('image/jpeg', 'image/png').",
+    "VALUE_NOT_IN_LIST: Invalid value 'image/ktx2'. Valid values are ('image/jpeg', 'image/png').",
+    "VALUE_NOT_IN_LIST: Invalid value 'image/ktx2'. Valid values are ('image/jpeg', 'image/png').",
+    "VALUE_NOT_IN_LIST: Invalid value 'image/ktx2'. Valid values are ('image/jpeg', 'image/png').",
+    "VALUE_NOT_IN_LIST: Invalid value 'image/ktx2'. Valid values are ('image/jpeg', 'image/png').",
+    "VALUE_NOT_IN_LIST: Invalid value 'image/ktx2'. Valid values are ('image/jpeg', 'image/png').",
+    "VALUE_NOT_IN_LIST: Invalid value 'image/ktx2'. Valid values are ('image/jpeg', 'image/png').",
+    "VALUE_NOT_IN_LIST: Invalid value 'image/ktx2'. Valid values are ('image/jpeg', 'image/png')."
+   ]
+  },
+  "tags": [
+   {
+    "node": "MZ_Altar",
+    "interactive_id": "mz_heart",
+    "interactive_label": "The Heart",
+    "interactive_scope": "labyrinth-fate",
+    "interactive_kind": "discovery"
+   },
+   {
+    "node": "MZ_Castle",
+    "interactive_id": "mz_castle",
+    "interactive_label": "The Castle",
+    "interactive_scope": "labyrinth-fate",
+    "interactive_kind": "discovery"
+   },
+   {
+    "node": "MZ_Crow",
+    "interactive_id": "mz_crow",
+    "interactive_label": "The Crow",
+    "interactive_scope": "labyrinth-fate",
+    "interactive_kind": "discovery"
+   },
+   {
+    "node": "MZ_Die",
+    "interactive_id": "mz_die",
+    "interactive_label": "The Die",
+    "interactive_scope": "labyrinth-fate",
+    "interactive_kind": "discovery"
+   },
+   {
+    "node": "MZ_Gate",
+    "interactive_id": "mz_gate",
+    "interactive_label": "The Gate",
+    "interactive_scope": "labyrinth-fate",
+    "interactive_kind": "discovery"
+   },
+   {
+    "node": "MZ_Pawn",
+    "interactive_id": "mz_pawn",
+    "interactive_label": "The Wanderer",
+    "interactive_scope": "labyrinth-fate",
+    "interactive_kind": "discovery"
+   },
+   {
+    "node": "MZ_Signpost",
+    "interactive_id": "mz_sign",
+    "interactive_label": "Signpost",
+    "interactive_scope": "labyrinth-fate",
+    "interactive_kind": "discovery"
+   }
+  ],
+  "texture_list": [
+   {
+    "name": "exhibit_labyrinth_fate_glow",
+    "mime": "image/ktx2",
+    "size": "1024x1024",
+    "kb": 134,
+    "gpu_safe": true
+   },
+   {
+    "name": "exhibit_labyrinth_fate_ao",
+    "mime": "image/ktx2",
+    "size": "1024x1024",
+    "kb": 490,
+    "gpu_safe": true
+   },
+   {
+    "name": "mz_stone_n",
+    "mime": "image/ktx2",
+    "size": "512x512",
+    "kb": 145,
+    "gpu_safe": true
+   },
+   {
+    "name": "mz_stone",
+    "mime": "image/ktx2",
+    "size": "1024x1024",
+    "kb": 504,
+    "gpu_safe": true
+   },
+   {
+    "name": "mz_rock_n",
+    "mime": "image/ktx2",
+    "size": "512x512",
+    "kb": 164,
+    "gpu_safe": true
+   },
+   {
+    "name": "mz_rock",
+    "mime": "image/ktx2",
+    "size": "1024x1024",
+    "kb": 454,
+    "gpu_safe": true
+   },
+   {
+    "name": "wood_dark_n",
+    "mime": "image/ktx2",
+    "size": "512x512",
+    "kb": 88,
+    "gpu_safe": true
+   },
+   {
+    "name": "wood_dark",
+    "mime": "image/ktx2",
+    "size": "1024x1024",
+    "kb": 463,
+    "gpu_safe": true
+   },
+   {
+    "name": "mz_path_n",
+    "mime": "image/ktx2",
+    "size": "512x512",
+    "kb": 217,
+    "gpu_safe": true
+   },
+   {
+    "name": "mz_path",
+    "mime": "image/ktx2",
+    "size": "1024x1024",
+    "kb": 721,
+    "gpu_safe": true
+   },
+   {
+    "name": "mz_ground",
+    "mime": "image/ktx2",
+    "size": "1024x1024",
+    "kb": 420,
+    "gpu_safe": true
+   },
+   {
+    "name": "mz_moss",
+    "mime": "image/ktx2",
+    "size": "512x512",
+    "kb": 125,
+    "gpu_safe": true
+   },
+   {
+    "name": "mz_sign_compass",
+    "mime": "image/ktx2",
+    "size": "384x128",
+    "kb": 30,
+    "gpu_safe": true
+   },
+   {
+    "name": "mz_sign_pines",
+    "mime": "image/ktx2",
+    "size": "384x128",
+    "kb": 27,
+    "gpu_safe": true
+   },
+   {
+    "name": "mz_sign_question",
+    "mime": "image/ktx2",
+    "size": "384x128",
+    "kb": 27,
+    "gpu_safe": true
+   },
+   {
+    "name": "mz_sign_skull",
+    "mime": "image/ktx2",
+    "size": "384x128",
+    "kb": 27,
+    "gpu_safe": true
+   },
+   {
+    "name": "leather_brown_n",
+    "mime": "image/ktx2",
+    "size": "512x512",
+    "kb": 94,
+    "gpu_safe": true
+   },
+   {
+    "name": "leather_brown",
+    "mime": "image/ktx2",
+    "size": "512x512",
+    "kb": 108,
+    "gpu_safe": true
+   }
+  ],
+  "textures_not_multiple_of_4": []
+ },
+ {
+  "file": "raw/exhibit_macabre_dolls.glb",
+  "mb": 11.2,
+  "nodes": 104,
+  "meshes": 89,
+  "draw_calls": 89,
+  "triangles": 46044,
+  "materials": 46,
+  "textures": 18,
+  "texture_mb_download": 9.17,
+  "gpu_texture_mb": 46.2,
+  "validator": {
+   "errors": 0,
+   "warnings": 3,
+   "messages": [
+    "MESH_PRIMITIVE_GENERATED_TANGENT_SPACE: Material requires a tangent space but the mesh primitive does not provide it. Runtime-generated tangent space may be non-portable across implementations.",
+    "MESH_PRIMITIVE_GENERATED_TANGENT_SPACE: Material requires a tangent space but the mesh primitive does not provide it. Runtime-generated tangent space may be non-portable across implementations.",
+    "MESH_PRIMITIVE_GENERATED_TANGENT_SPACE: Material requires a tangent space but the mesh primitive does not provide it. Runtime-generated tangent space may be non-portable across implementations."
+   ]
+  },
+  "tags": [
+   {
+    "node": "MD_Chest",
+    "interactive_id": "md_candle",
+    "interactive_label": "The Candle",
+    "interactive_scope": "macabre-dolls",
+    "interactive_kind": "discovery"
+   },
+   {
+    "node": "MD_Deck",
+    "interactive_id": "md_deck",
+    "interactive_label": "The Deck",
+    "interactive_scope": "macabre-dolls",
+    "interactive_kind": "discovery"
+   },
+   {
+    "node": "MD_Doll_1",
+    "interactive_id": "md_doll_1",
+    "interactive_label": "The Eldest",
+    "interactive_scope": "macabre-dolls",
+    "interactive_kind": "discovery"
+   },
+   {
+    "node": "MD_Doll_2",
+    "interactive_id": "md_doll_2",
+    "interactive_label": "The Tall One",
+    "interactive_scope": "macabre-dolls",
+    "interactive_kind": "discovery"
+   },
+   {
+    "node": "MD_Doll_3",
+    "interactive_id": "md_doll_3",
+    "interactive_label": "The Little One",
+    "interactive_scope": "macabre-dolls",
+    "interactive_kind": "discovery"
+   },
+   {
+    "node": "MD_Dollhouse",
+    "interactive_id": "md_dollhouse",
+    "interactive_label": "Dollhouse",
+    "interactive_scope": "macabre-dolls",
+    "interactive_kind": "discovery"
+   },
+   {
+    "node": "MD_Mirror",
+    "interactive_id": "md_mirror",
+    "interactive_label": "The Mirror",
+    "interactive_scope": "macabre-dolls",
+    "interactive_kind": "discovery"
+   },
+   {
+    "node": "MD_MusicBox",
+    "interactive_id": "md_musicbox",
+    "interactive_label": "Music Box",
+    "interactive_scope": "macabre-dolls",
+    "interactive_kind": "discovery"
+   },
+   {
+    "node": "MD_RockingHorse",
+    "interactive_id": "md_horse",
+    "interactive_label": "Rocking Horse",
+    "interactive_scope": "macabre-dolls",
+    "interactive_kind": "discovery"
+   },
+   {
+    "node": "MD_Teddy",
+    "interactive_id": "md_teddy",
+    "interactive_label": "Teddy Bear",
+    "interactive_scope": "macabre-dolls",
+    "interactive_kind": "discovery"
+   }
+  ],
+  "texture_list": [
+   {
+    "name": "exhibit_macabre_dolls_glow",
+    "mime": "image/png",
+    "size": "1024x1024",
+    "kb": 555,
+    "gpu_safe": true
+   },
+   {
+    "name": "exhibit_macabre_dolls_ao",
+    "mime": "image/png",
+    "size": "1024x1024",
+    "kb": 674,
+    "gpu_safe": true
+   },
+   {
+    "name": "wood_dark_n",
+    "mime": "image/png",
+    "size": "512x512",
+    "kb": 252,
+    "gpu_safe": true
+   },
+   {
+    "name": "wood_dark",
+    "mime": "image/png",
+    "size": "1024x1024",
+    "kb": 1250,
+    "gpu_safe": true
+   },
+   {
+    "name": "md_cardback",
+    "mime": "image/png",
+    "size": "705x1032",
+    "kb": 1010,
+    "gpu_safe": false
+   },
+   {
+    "name": "md_lace",
+    "mime": "image/png",
+    "size": "512x512",
+    "kb": 276,
+    "gpu_safe": true
+   },
+   {
+    "name": "md_lace_dark",
+    "mime": "image/png",
+    "size": "512x512",
+    "kb": 248,
+    "gpu_safe": true
+   },
+   {
+    "name": "wood_light_n",
+    "mime": "image/png",
+    "size": "512x512",
+    "kb": 320,
+    "gpu_safe": true
+   },
+   {
+    "name": "wood_light",
+    "mime": "image/png",
+    "size": "1024x1024",
+    "kb": 1375,
+    "gpu_safe": true
+   },
+   {
+    "name": "planks_n",
+    "mime": "image/png",
+    "size": "1024x1024",
+    "kb": 1120,
+    "gpu_safe": true
+   },
+   {
+    "name": "planks",
+    "mime": "image/png",
+    "size": "1024x1024",
+    "kb": 1243,
+    "gpu_safe": true
+   },
+   {
+    "name": "md_cracked",
+    "mime": "image/png",
+    "size": "256x256",
+    "kb": 13,
+    "gpu_safe": true
+   },
+   {
+    "name": "md_musicbox",
+    "mime": "image/png",
+    "size": "512x320",
+    "kb": 46,
+    "gpu_safe": true
+   },
+   {
+    "name": "md_night",
+    "mime": "image/png",
+    "size": "512x640",
+    "kb": 63,
+    "gpu_safe": true
+   },
+   {
+    "name": "md_fur_n",
+    "mime": "image/png",
+    "size": "256x256",
+    "kb": 80,
+    "gpu_safe": true
+   },
+   {
+    "name": "md_fur",
+    "mime": "image/png",
+    "size": "512x512",
+    "kb": 315,
+    "gpu_safe": true
+   },
+   {
+    "name": "md_block_c",
+    "mime": "image/png",
+    "size": "256x256",
+    "kb": 57,
+    "gpu_safe": true
+   },
+   {
+    "name": "md_block_d",
+    "mime": "image/png",
+    "size": "256x256",
+    "kb": 57,
+    "gpu_safe": true
+   }
+  ],
+  "textures_not_multiple_of_4": [
+   "md_cardback 705x1032"
+  ]
+ },
+ {
+  "file": "exhibit_macabre_dolls.glb",
+  "mb": 5.27,
+  "nodes": 109,
+  "meshes": 89,
+  "draw_calls": 89,
+  "triangles": 46044,
+  "materials": 46,
+  "textures": 18,
+  "texture_mb_download": 4.49,
+  "gpu_texture_mb": 10.5,
+  "validator": {
+   "errors": 0,
+   "warnings": 30,
+   "messages": [
+    "VALUE_NOT_IN_LIST: Invalid value 'image/ktx2'. Valid values are ('image/jpeg', 'image/png').",
+    "VALUE_NOT_IN_LIST: Invalid value 'image/ktx2'. Valid values are ('image/jpeg', 'image/png').",
+    "VALUE_NOT_IN_LIST: Invalid value 'image/ktx2'. Valid values are ('image/jpeg', 'image/png').",
+    "VALUE_NOT_IN_LIST: Invalid value 'image/ktx2'. Valid values are ('image/jpeg', 'image/png').",
+    "VALUE_NOT_IN_LIST: Invalid value 'image/ktx2'. Valid values are ('image/jpeg', 'image/png').",
+    "VALUE_NOT_IN_LIST: Invalid value 'image/ktx2'. Valid values are ('image/jpeg', 'image/png').",
+    "VALUE_NOT_IN_LIST: Invalid value 'image/ktx2'. Valid values are ('image/jpeg', 'image/png').",
+    "VALUE_NOT_IN_LIST: Invalid value 'image/ktx2'. Valid values are ('image/jpeg', 'image/png')."
+   ]
+  },
+  "tags": [
+   {
+    "node": "MD_Chest",
+    "interactive_id": "md_candle",
+    "interactive_label": "The Candle",
+    "interactive_scope": "macabre-dolls",
+    "interactive_kind": "discovery"
+   },
+   {
+    "node": "MD_Deck",
+    "interactive_id": "md_deck",
+    "interactive_label": "The Deck",
+    "interactive_scope": "macabre-dolls",
+    "interactive_kind": "discovery"
+   },
+   {
+    "node": "MD_Doll_1",
+    "interactive_id": "md_doll_1",
+    "interactive_label": "The Eldest",
+    "interactive_scope": "macabre-dolls",
+    "interactive_kind": "discovery"
+   },
+   {
+    "node": "MD_Doll_2",
+    "interactive_id": "md_doll_2",
+    "interactive_label": "The Tall One",
+    "interactive_scope": "macabre-dolls",
+    "interactive_kind": "discovery"
+   },
+   {
+    "node": "MD_Doll_3",
+    "interactive_id": "md_doll_3",
+    "interactive_label": "The Little One",
+    "interactive_scope": "macabre-dolls",
+    "interactive_kind": "discovery"
+   },
+   {
+    "node": "MD_Dollhouse",
+    "interactive_id": "md_dollhouse",
+    "interactive_label": "Dollhouse",
+    "interactive_scope": "macabre-dolls",
+    "interactive_kind": "discovery"
+   },
+   {
+    "node": "MD_Mirror",
+    "interactive_id": "md_mirror",
+    "interactive_label": "The Mirror",
+    "interactive_scope": "macabre-dolls",
+    "interactive_kind": "discovery"
+   },
+   {
+    "node": "MD_MusicBox",
+    "interactive_id": "md_musicbox",
+    "interactive_label": "Music Box",
+    "interactive_scope": "macabre-dolls",
+    "interactive_kind": "discovery"
+   },
+   {
+    "node": "MD_RockingHorse",
+    "interactive_id": "md_horse",
+    "interactive_label": "Rocking Horse",
+    "interactive_scope": "macabre-dolls",
+    "interactive_kind": "discovery"
+   },
+   {
+    "node": "MD_Teddy",
+    "interactive_id": "md_teddy",
+    "interactive_label": "Teddy Bear",
+    "interactive_scope": "macabre-dolls",
+    "interactive_kind": "discovery"
+   }
+  ],
+  "texture_list": [
+   {
+    "name": "exhibit_macabre_dolls_glow",
+    "mime": "image/ktx2",
+    "size": "1024x1024",
+    "kb": 373,
+    "gpu_safe": true
+   },
+   {
+    "name": "exhibit_macabre_dolls_ao",
+    "mime": "image/ktx2",
+    "size": "1024x1024",
+    "kb": 657,
+    "gpu_safe": true
+   },
+   {
+    "name": "wood_dark_n",
+    "mime": "image/ktx2",
+    "size": "512x512",
+    "kb": 88,
+    "gpu_safe": true
+   },
+   {
+    "name": "wood_dark",
+    "mime": "image/ktx2",
+    "size": "1024x1024",
+    "kb": 463,
+    "gpu_safe": true
+   },
+   {
+    "name": "md_cardback",
+    "mime": "image/ktx2",
+    "size": "696x1024",
+    "kb": 642,
+    "gpu_safe": true
+   },
+   {
+    "name": "md_lace",
+    "mime": "image/ktx2",
+    "size": "512x512",
+    "kb": 146,
+    "gpu_safe": true
+   },
+   {
+    "name": "md_lace_dark",
+    "mime": "image/ktx2",
+    "size": "512x512",
+    "kb": 138,
+    "gpu_safe": true
+   },
+   {
+    "name": "wood_light_n",
+    "mime": "image/ktx2",
+    "size": "512x512",
+    "kb": 125,
+    "gpu_safe": true
+   },
+   {
+    "name": "wood_light",
+    "mime": "image/ktx2",
+    "size": "1024x1024",
+    "kb": 639,
+    "gpu_safe": true
+   },
+   {
+    "name": "planks_n",
+    "mime": "image/ktx2",
+    "size": "512x512",
+    "kb": 154,
+    "gpu_safe": true
+   },
+   {
+    "name": "planks",
+    "mime": "image/ktx2",
+    "size": "1024x1024",
+    "kb": 611,
+    "gpu_safe": true
+   },
+   {
+    "name": "md_cracked",
+    "mime": "image/ktx2",
+    "size": "256x256",
+    "kb": 14,
+    "gpu_safe": true
+   },
+   {
+    "name": "md_musicbox",
+    "mime": "image/ktx2",
+    "size": "512x320",
+    "kb": 42,
+    "gpu_safe": true
+   },
+   {
+    "name": "md_night",
+    "mime": "image/ktx2",
+    "size": "512x640",
+    "kb": 59,
+    "gpu_safe": true
+   },
+   {
+    "name": "md_fur_n",
+    "mime": "image/ktx2",
+    "size": "256x256",
+    "kb": 33,
+    "gpu_safe": true
+   },
+   {
+    "name": "md_fur",
+    "mime": "image/ktx2",
+    "size": "512x512",
+    "kb": 131,
+    "gpu_safe": true
+   },
+   {
+    "name": "md_block_c",
+    "mime": "image/ktx2",
+    "size": "256x256",
+    "kb": 35,
+    "gpu_safe": true
+   },
+   {
+    "name": "md_block_d",
+    "mime": "image/ktx2",
+    "size": "256x256",
+    "kb": 31,
+    "gpu_safe": true
+   }
+  ],
+  "textures_not_multiple_of_4": []
+ },
+ {
+  "file": "raw/exhibit_pocket_wilds.glb",
+  "mb": 12.62,
+  "nodes": 31,
+  "meshes": 28,
+  "draw_calls": 28,
+  "triangles": 72880,
+  "materials": 18,
+  "textures": 13,
+  "texture_mb_download": 8.28,
+  "gpu_texture_mb": 46.6,
+  "validator": {
+   "errors": 0,
+   "warnings": 6,
+   "messages": [
+    "MESH_PRIMITIVE_GENERATED_TANGENT_SPACE: Material requires a tangent space but the mesh primitive does not provide it. Runtime-generated tangent space may be non-portable across implementations.",
+    "MESH_PRIMITIVE_GENERATED_TANGENT_SPACE: Material requires a tangent space but the mesh primitive does not provide it. Runtime-generated tangent space may be non-portable across implementations.",
+    "MESH_PRIMITIVE_GENERATED_TANGENT_SPACE: Material requires a tangent space but the mesh primitive does not provide it. Runtime-generated tangent space may be non-portable across implementations.",
+    "MESH_PRIMITIVE_GENERATED_TANGENT_SPACE: Material requires a tangent space but the mesh primitive does not provide it. Runtime-generated tangent space may be non-portable across implementations.",
+    "MESH_PRIMITIVE_GENERATED_TANGENT_SPACE: Material requires a tangent space but the mesh primitive does not provide it. Runtime-generated tangent space may be non-portable across implementations.",
+    "MESH_PRIMITIVE_GENERATED_TANGENT_SPACE: Material requires a tangent space but the mesh primitive does not provide it. Runtime-generated tangent space may be non-portable across implementations."
+   ]
+  },
+  "tags": [
+   {
+    "node": "PW_GoldPile",
+    "interactive_id": "pw_gold",
+    "interactive_label": "The Gold",
+    "interactive_scope": "pocket-wilds",
+    "interactive_kind": "discovery"
+   },
+   {
+    "node": "PW_Chest",
+    "interactive_id": "pw_chest",
+    "interactive_label": "Treasure Chest",
+    "interactive_scope": "pocket-wilds",
+    "interactive_kind": "discovery"
+   },
+   {
+    "node": "PW_FloorGold",
+    "interactive_id": "pw_gold",
+    "interactive_label": "The Gold",
+    "interactive_scope": "pocket-wilds",
+    "interactive_kind": "discovery"
+   },
+   {
+    "node": "PW_Goblet",
+    "interactive_id": "pw_goblet",
+    "interactive_label": "Golden Goblet",
+    "interactive_scope": "pocket-wilds",
+    "interactive_kind": "discovery"
+   },
+   {
+    "node": "PW_Torch",
+    "interactive_id": "pw_torch",
+    "interactive_label": "Wall Torch",
+    "interactive_scope": "pocket-wilds",
+    "interactive_kind": "discovery"
+   }
+  ],
+  "texture_list": [
+   {
+    "name": "exhibit_pocket_wilds_glow",
+    "mime": "image/png",
+    "size": "1024x1024",
+    "kb": 221,
+    "gpu_safe": true
+   },
+   {
+    "name": "exhibit_pocket_wilds_ao",
+    "mime": "image/png",
+    "size": "1024x1024",
+    "kb": 520,
+    "gpu_safe": true
+   },
+   {
+    "name": "pw_chest_wood",
+    "mime": "image/png",
+    "size": "1024x1024",
+    "kb": 1217,
+    "gpu_safe": true
+   },
+   {
+    "name": "pw_gold_pile_n",
+    "mime": "image/png",
+    "size": "512x300",
+    "kb": 362,
+    "gpu_safe": true
+   },
+   {
+    "name": "pw_gold_pile",
+    "mime": "image/png",
+    "size": "1024x600",
+    "kb": 1065,
+    "gpu_safe": true
+   },
+   {
+    "name": "pw_flag_n",
+    "mime": "image/png",
+    "size": "512x512",
+    "kb": 228,
+    "gpu_safe": true
+   },
+   {
+    "name": "pw_flag",
+    "mime": "image/png",
+    "size": "1024x1024",
+    "kb": 834,
+    "gpu_safe": true
+   },
+   {
+    "name": "wood_dark_n",
+    "mime": "image/png",
+    "size": "512x512",
+    "kb": 252,
+    "gpu_safe": true
+   },
+   {
+    "name": "wood_dark",
+    "mime": "image/png",
+    "size": "1024x1024",
+    "kb": 1250,
+    "gpu_safe": true
+   },
+   {
+    "name": "pw_stone_n",
+    "mime": "image/png",
+    "size": "512x512",
+    "kb": 232,
+    "gpu_safe": true
+   },
+   {
+    "name": "pw_stone",
+    "mime": "image/png",
+    "size": "1024x1024",
+    "kb": 851,
+    "gpu_safe": true
+   },
+   {
+    "name": "pw_stone_b_n",
+    "mime": "image/png",
+    "size": "512x512",
+    "kb": 225,
+    "gpu_safe": true
+   },
+   {
+    "name": "pw_stone_b",
+    "mime": "image/png",
+    "size": "1024x1024",
+    "kb": 832,
+    "gpu_safe": true
+   }
+  ],
+  "textures_not_multiple_of_4": []
+ },
+ {
+  "file": "exhibit_pocket_wilds.glb",
+  "mb": 5.96,
+  "nodes": 36,
+  "meshes": 28,
+  "draw_calls": 28,
+  "triangles": 72880,
+  "materials": 18,
+  "textures": 13,
+  "texture_mb_download": 4.64,
+  "gpu_texture_mb": 11.6,
+  "validator": {
+   "errors": 0,
+   "warnings": 32,
+   "messages": [
+    "VALUE_NOT_IN_LIST: Invalid value 'image/ktx2'. Valid values are ('image/jpeg', 'image/png').",
+    "VALUE_NOT_IN_LIST: Invalid value 'image/ktx2'. Valid values are ('image/jpeg', 'image/png').",
+    "VALUE_NOT_IN_LIST: Invalid value 'image/ktx2'. Valid values are ('image/jpeg', 'image/png').",
+    "VALUE_NOT_IN_LIST: Invalid value 'image/ktx2'. Valid values are ('image/jpeg', 'image/png').",
+    "VALUE_NOT_IN_LIST: Invalid value 'image/ktx2'. Valid values are ('image/jpeg', 'image/png').",
+    "VALUE_NOT_IN_LIST: Invalid value 'image/ktx2'. Valid values are ('image/jpeg', 'image/png').",
+    "VALUE_NOT_IN_LIST: Invalid value 'image/ktx2'. Valid values are ('image/jpeg', 'image/png').",
+    "VALUE_NOT_IN_LIST: Invalid value 'image/ktx2'. Valid values are ('image/jpeg', 'image/png')."
+   ]
+  },
+  "tags": [
+   {
+    "node": "PW_GoldPile",
+    "interactive_id": "pw_gold",
+    "interactive_label": "The Gold",
+    "interactive_scope": "pocket-wilds",
+    "interactive_kind": "discovery"
+   },
+   {
+    "node": "PW_Chest",
+    "interactive_id": "pw_chest",
+    "interactive_label": "Treasure Chest",
+    "interactive_scope": "pocket-wilds",
+    "interactive_kind": "discovery"
+   },
+   {
+    "node": "PW_FloorGold",
+    "interactive_id": "pw_gold",
+    "interactive_label": "The Gold",
+    "interactive_scope": "pocket-wilds",
+    "interactive_kind": "discovery"
+   },
+   {
+    "node": "PW_Goblet",
+    "interactive_id": "pw_goblet",
+    "interactive_label": "Golden Goblet",
+    "interactive_scope": "pocket-wilds",
+    "interactive_kind": "discovery"
+   },
+   {
+    "node": "PW_Torch",
+    "interactive_id": "pw_torch",
+    "interactive_label": "Wall Torch",
+    "interactive_scope": "pocket-wilds",
+    "interactive_kind": "discovery"
+   }
+  ],
+  "texture_list": [
+   {
+    "name": "exhibit_pocket_wilds_glow",
+    "mime": "image/ktx2",
+    "size": "1024x1024",
+    "kb": 160,
+    "gpu_safe": true
+   },
+   {
+    "name": "exhibit_pocket_wilds_ao",
+    "mime": "image/ktx2",
+    "size": "1024x1024",
+    "kb": 532,
+    "gpu_safe": true
+   },
+   {
+    "name": "pw_chest_wood",
+    "mime": "image/ktx2",
+    "size": "1024x1024",
+    "kb": 577,
+    "gpu_safe": true
+   },
+   {
+    "name": "pw_gold_pile_n",
+    "mime": "image/ktx2",
+    "size": "512x300",
+    "kb": 175,
+    "gpu_safe": true
+   },
+   {
+    "name": "pw_gold_pile",
+    "mime": "image/ktx2",
+    "size": "1024x600",
+    "kb": 604,
+    "gpu_safe": true
+   },
+   {
+    "name": "pw_flag_n",
+    "mime": "image/ktx2",
+    "size": "512x512",
+    "kb": 156,
+    "gpu_safe": true
+   },
+   {
+    "name": "pw_flag",
+    "mime": "image/ktx2",
+    "size": "1024x1024",
+    "kb": 477,
+    "gpu_safe": true
+   },
+   {
+    "name": "wood_dark_n",
+    "mime": "image/ktx2",
+    "size": "512x512",
+    "kb": 88,
+    "gpu_safe": true
+   },
+   {
+    "name": "wood_dark",
+    "mime": "image/ktx2",
+    "size": "1024x1024",
+    "kb": 463,
+    "gpu_safe": true
+   },
+   {
+    "name": "pw_stone_n",
+    "mime": "image/ktx2",
+    "size": "512x512",
+    "kb": 152,
+    "gpu_safe": true
+   },
+   {
+    "name": "pw_stone",
+    "mime": "image/ktx2",
+    "size": "1024x1024",
+    "kb": 508,
+    "gpu_safe": true
+   },
+   {
+    "name": "pw_stone_b_n",
+    "mime": "image/ktx2",
+    "size": "512x512",
+    "kb": 155,
+    "gpu_safe": true
+   },
+   {
+    "name": "pw_stone_b",
+    "mime": "image/ktx2",
+    "size": "1024x1024",
+    "kb": 486,
+    "gpu_safe": true
+   }
+  ],
+  "textures_not_multiple_of_4": []
+ },
+ {
+  "file": "raw/exhibit_speck.glb",
+  "mb": 9.6,
+  "nodes": 29,
+  "meshes": 25,
+  "draw_calls": 25,
+  "triangles": 53144,
+  "materials": 20,
+  "textures": 9,
+  "texture_mb_download": 4.89,
+  "gpu_texture_mb": 30.9,
+  "validator": {
+   "errors": 0,
+   "warnings": 2,
+   "messages": [
+    "MESH_PRIMITIVE_GENERATED_TANGENT_SPACE: Material requires a tangent space but the mesh primitive does not provide it. Runtime-generated tangent space may be non-portable across implementations.",
+    "MESH_PRIMITIVE_GENERATED_TANGENT_SPACE: Material requires a tangent space but the mesh primitive does not provide it. Runtime-generated tangent space may be non-portable across implementations."
+   ]
+  },
+  "tags": [
+   {
+    "node": "SP_Hut",
+    "interactive_id": "sp_home",
+    "interactive_label": "Homestead",
+    "interactive_scope": "speck",
+    "interactive_kind": "discovery"
+   },
+   {
+    "node": "SP_Speck",
+    "interactive_id": "sp_speck",
+    "interactive_label": "A Speck",
+    "interactive_scope": "speck",
+    "interactive_kind": "discovery"
+   },
+   {
+    "node": "SP_Planet",
+    "interactive_id": "sp_planet",
+    "interactive_label": "The Speck",
+    "interactive_scope": "speck",
+    "interactive_kind": "discovery"
+   }
+  ],
+  "texture_list": [
+   {
+    "name": "exhibit_speck_glow",
+    "mime": "image/png",
+    "size": "1024x1024",
+    "kb": 105,
+    "gpu_safe": true
+   },
+   {
+    "name": "exhibit_speck_ao",
+    "mime": "image/png",
+    "size": "1024x1024",
+    "kb": 146,
+    "gpu_safe": true
+   },
+   {
+    "name": "wood_light_n",
+    "mime": "image/png",
+    "size": "512x512",
+    "kb": 320,
+    "gpu_safe": true
+   },
+   {
+    "name": "wood_light",
+    "mime": "image/png",
+    "size": "1024x1024",
+    "kb": 1375,
+    "gpu_safe": true
+   },
+   {
+    "name": "wood_dark_n",
+    "mime": "image/png",
+    "size": "512x512",
+    "kb": 252,
+    "gpu_safe": true
+   },
+   {
+    "name": "wood_dark",
+    "mime": "image/png",
+    "size": "1024x1024",
+    "kb": 1250,
+    "gpu_safe": true
+   },
+   {
+    "name": "planks",
+    "mime": "image/png",
+    "size": "1024x1024",
+    "kb": 1243,
+    "gpu_safe": true
+   },
+   {
+    "name": "sp_planet",
+    "mime": "image/png",
+    "size": "864x288",
+    "kb": 57,
+    "gpu_safe": true
+   },
+   {
+    "name": "sp_bubble",
+    "mime": "image/png",
+    "size": "340x200",
+    "kb": 29,
+    "gpu_safe": true
+   }
+  ],
+  "textures_not_multiple_of_4": []
+ },
+ {
+  "file": "exhibit_speck.glb",
+  "mb": 3.64,
+  "nodes": 34,
+  "meshes": 25,
+  "draw_calls": 25,
+  "triangles": 53144,
+  "materials": 20,
+  "textures": 9,
+  "texture_mb_download": 2.38,
+  "gpu_texture_mb": 7.7,
+  "validator": {
+   "errors": 0,
+   "warnings": 20,
+   "messages": [
+    "VALUE_NOT_IN_LIST: Invalid value 'image/ktx2'. Valid values are ('image/jpeg', 'image/png').",
+    "VALUE_NOT_IN_LIST: Invalid value 'image/ktx2'. Valid values are ('image/jpeg', 'image/png').",
+    "VALUE_NOT_IN_LIST: Invalid value 'image/ktx2'. Valid values are ('image/jpeg', 'image/png').",
+    "VALUE_NOT_IN_LIST: Invalid value 'image/ktx2'. Valid values are ('image/jpeg', 'image/png').",
+    "VALUE_NOT_IN_LIST: Invalid value 'image/ktx2'. Valid values are ('image/jpeg', 'image/png').",
+    "VALUE_NOT_IN_LIST: Invalid value 'image/ktx2'. Valid values are ('image/jpeg', 'image/png').",
+    "VALUE_NOT_IN_LIST: Invalid value 'image/ktx2'. Valid values are ('image/jpeg', 'image/png').",
+    "VALUE_NOT_IN_LIST: Invalid value 'image/ktx2'. Valid values are ('image/jpeg', 'image/png')."
+   ]
+  },
+  "tags": [
+   {
+    "node": "SP_Hut",
+    "interactive_id": "sp_home",
+    "interactive_label": "Homestead",
+    "interactive_scope": "speck",
+    "interactive_kind": "discovery"
+   },
+   {
+    "node": "SP_Speck",
+    "interactive_id": "sp_speck",
+    "interactive_label": "A Speck",
+    "interactive_scope": "speck",
+    "interactive_kind": "discovery"
+   },
+   {
+    "node": "SP_Planet",
+    "interactive_id": "sp_planet",
+    "interactive_label": "The Speck",
+    "interactive_scope": "speck",
+    "interactive_kind": "discovery"
+   }
+  ],
+  "texture_list": [
+   {
+    "name": "exhibit_speck_glow",
+    "mime": "image/ktx2",
+    "size": "1024x1024",
+    "kb": 92,
+    "gpu_safe": true
+   },
+   {
+    "name": "exhibit_speck_ao",
+    "mime": "image/ktx2",
+    "size": "1024x1024",
+    "kb": 166,
+    "gpu_safe": true
+   },
+   {
+    "name": "wood_light_n",
+    "mime": "image/ktx2",
+    "size": "512x512",
+    "kb": 125,
+    "gpu_safe": true
+   },
+   {
+    "name": "wood_light",
+    "mime": "image/ktx2",
+    "size": "1024x1024",
+    "kb": 639,
+    "gpu_safe": true
+   },
+   {
+    "name": "wood_dark_n",
+    "mime": "image/ktx2",
+    "size": "512x512",
+    "kb": 88,
+    "gpu_safe": true
+   },
+   {
+    "name": "wood_dark",
+    "mime": "image/ktx2",
+    "size": "1024x1024",
+    "kb": 463,
+    "gpu_safe": true
+   },
+   {
+    "name": "planks",
+    "mime": "image/ktx2",
+    "size": "1024x1024",
+    "kb": 611,
+    "gpu_safe": true
+   },
+   {
+    "name": "sp_planet",
+    "mime": "image/ktx2",
+    "size": "864x288",
+    "kb": 98,
+    "gpu_safe": true
+   },
+   {
+    "name": "sp_bubble",
+    "mime": "image/ktx2",
+    "size": "340x200",
+    "kb": 38,
+    "gpu_safe": true
+   }
+  ],
+  "textures_not_multiple_of_4": []
+ },
+ {
+  "file": "raw/exhibit_under_the_radar.glb",
+  "mb": 11.46,
+  "nodes": 57,
+  "meshes": 52,
+  "draw_calls": 52,
+  "triangles": 14076,
+  "materials": 40,
+  "textures": 25,
+  "texture_mb_download": 10.62,
+  "gpu_texture_mb": 57,
+  "validator": {
+   "errors": 0,
+   "warnings": 4,
+   "messages": [
+    "MESH_PRIMITIVE_GENERATED_TANGENT_SPACE: Material requires a tangent space but the mesh primitive does not provide it. Runtime-generated tangent space may be non-portable across implementations.",
+    "MESH_PRIMITIVE_GENERATED_TANGENT_SPACE: Material requires a tangent space but the mesh primitive does not provide it. Runtime-generated tangent space may be non-portable across implementations.",
+    "MESH_PRIMITIVE_GENERATED_TANGENT_SPACE: Material requires a tangent space but the mesh primitive does not provide it. Runtime-generated tangent space may be non-portable across implementations.",
+    "MESH_PRIMITIVE_GENERATED_TANGENT_SPACE: Material requires a tangent space but the mesh primitive does not provide it. Runtime-generated tangent space may be non-portable across implementations."
+   ]
+  },
+  "tags": [
+   {
+    "node": "UR_Boxes",
+    "interactive_id": "ur_boxes",
+    "interactive_label": "Game Boxes",
+    "interactive_scope": "under-the-radar",
+    "interactive_kind": "discovery"
+   },
+   {
+    "node": "UR_Computer",
+    "interactive_id": "ur_computer",
+    "interactive_label": "The Computer",
+    "interactive_scope": "under-the-radar",
+    "interactive_kind": "discovery"
+   },
+   {
+    "node": "UR_Floppy",
+    "interactive_id": "ur_floppy",
+    "interactive_label": "Floppy Disk",
+    "interactive_scope": "under-the-radar",
+    "interactive_kind": "discovery"
+   },
+   {
+    "node": "UR_Notebook",
+    "interactive_id": "ur_notebook",
+    "interactive_label": "Notebook",
+    "interactive_scope": "under-the-radar",
+    "interactive_kind": "discovery"
+   },
+   {
+    "node": "UR_Orb_Base",
+    "interactive_id": "ur_orb",
+    "interactive_label": "Orb Lamp",
+    "interactive_scope": "under-the-radar",
+    "interactive_kind": "discovery"
+   },
+   {
+    "node": "UR_Trackball",
+    "interactive_id": "ur_trackball",
+    "interactive_label": "Trackball",
+    "interactive_scope": "under-the-radar",
+    "interactive_kind": "discovery"
+   }
+  ],
+  "texture_list": [
+   {
+    "name": "exhibit_under_the_radar_glow",
+    "mime": "image/png",
+    "size": "1024x1024",
+    "kb": 566,
+    "gpu_safe": true
+   },
+   {
+    "name": "exhibit_under_the_radar_ao",
+    "mime": "image/png",
+    "size": "1024x1024",
+    "kb": 685,
+    "gpu_safe": true
+   },
+   {
+    "name": "wood_dark_n",
+    "mime": "image/png",
+    "size": "512x512",
+    "kb": 252,
+    "gpu_safe": true
+   },
+   {
+    "name": "wood_dark",
+    "mime": "image/png",
+    "size": "1024x1024",
+    "kb": 1250,
+    "gpu_safe": true
+   },
+   {
+    "name": "ur_box_3",
+    "mime": "image/png",
+    "size": "375x102",
+    "kb": 76,
+    "gpu_safe": false
+   },
+   {
+    "name": "ur_box_2",
+    "mime": "image/png",
+    "size": "372x95",
+    "kb": 70,
+    "gpu_safe": false
+   },
+   {
+    "name": "ur_box_1",
+    "mime": "image/png",
+    "size": "325x80",
+    "kb": 54,
+    "gpu_safe": false
+   },
+   {
+    "name": "ur_box_0",
+    "mime": "image/png",
+    "size": "285x85",
+    "kb": 51,
+    "gpu_safe": false
+   },
+   {
+    "name": "wood_desk_n",
+    "mime": "image/png",
+    "size": "1024x1024",
+    "kb": 1165,
+    "gpu_safe": true
+   },
+   {
+    "name": "wood_desk",
+    "mime": "image/png",
+    "size": "1024x1024",
+    "kb": 1366,
+    "gpu_safe": true
+   },
+   {
+    "name": "wood_desk_r",
+    "mime": "image/png",
+    "size": "512x512",
+    "kb": 234,
+    "gpu_safe": true
+   },
+   {
+    "name": "ur_radar",
+    "mime": "image/png",
+    "size": "320x240",
+    "kb": 29,
+    "gpu_safe": true
+   },
+   {
+    "name": "planks_n",
+    "mime": "image/png",
+    "size": "1024x1024",
+    "kb": 1120,
+    "gpu_safe": true
+   },
+   {
+    "name": "planks",
+    "mime": "image/png",
+    "size": "1024x1024",
+    "kb": 1243,
+    "gpu_safe": true
+   },
+   {
+    "name": "ur_floppy",
+    "mime": "image/png",
+    "size": "256x160",
+    "kb": 41,
+    "gpu_safe": true
+   },
+   {
+    "name": "ur_frame_0",
+    "mime": "image/png",
+    "size": "256x192",
+    "kb": 3,
+    "gpu_safe": true
+   },
+   {
+    "name": "ur_frame_1",
+    "mime": "image/png",
+    "size": "256x192",
+    "kb": 3,
+    "gpu_safe": true
+   },
+   {
+    "name": "ur_frame_2",
+    "mime": "image/png",
+    "size": "256x192",
+    "kb": 3,
+    "gpu_safe": true
+   },
+   {
+    "name": "ur_map_0",
+    "mime": "image/png",
+    "size": "512x384",
+    "kb": 135,
+    "gpu_safe": true
+   },
+   {
+    "name": "ur_map_1",
+    "mime": "image/png",
+    "size": "512x384",
+    "kb": 135,
+    "gpu_safe": true
+   },
+   {
+    "name": "ur_map_2",
+    "mime": "image/png",
+    "size": "512x384",
+    "kb": 129,
+    "gpu_safe": true
+   },
+   {
+    "name": "rug_n",
+    "mime": "image/png",
+    "size": "1024x640",
+    "kb": 825,
+    "gpu_safe": true
+   },
+   {
+    "name": "rug",
+    "mime": "image/png",
+    "size": "1024x640",
+    "kb": 601,
+    "gpu_safe": true
+   },
+   {
+    "name": "ur_sky",
+    "mime": "image/png",
+    "size": "1024x768",
+    "kb": 267,
+    "gpu_safe": true
+   },
+   {
+    "name": "ur_plum",
+    "mime": "image/png",
+    "size": "512x512",
+    "kb": 68,
+    "gpu_safe": true
+   }
+  ],
+  "textures_not_multiple_of_4": [
+   "ur_box_3 375x102",
+   "ur_box_2 372x95",
+   "ur_box_1 325x80",
+   "ur_box_0 285x85"
+  ]
+ },
+ {
+  "file": "exhibit_under_the_radar.glb",
+  "mb": 4.91,
+  "nodes": 69,
+  "meshes": 52,
+  "draw_calls": 52,
+  "triangles": 14076,
+  "materials": 40,
+  "textures": 25,
+  "texture_mb_download": 4.59,
+  "gpu_texture_mb": 11.6,
+  "validator": {
+   "errors": 0,
+   "warnings": 29,
+   "messages": [
+    "VALUE_NOT_IN_LIST: Invalid value 'image/ktx2'. Valid values are ('image/jpeg', 'image/png').",
+    "VALUE_NOT_IN_LIST: Invalid value 'image/ktx2'. Valid values are ('image/jpeg', 'image/png').",
+    "VALUE_NOT_IN_LIST: Invalid value 'image/ktx2'. Valid values are ('image/jpeg', 'image/png').",
+    "VALUE_NOT_IN_LIST: Invalid value 'image/ktx2'. Valid values are ('image/jpeg', 'image/png').",
+    "VALUE_NOT_IN_LIST: Invalid value 'image/ktx2'. Valid values are ('image/jpeg', 'image/png').",
+    "VALUE_NOT_IN_LIST: Invalid value 'image/ktx2'. Valid values are ('image/jpeg', 'image/png').",
+    "VALUE_NOT_IN_LIST: Invalid value 'image/ktx2'. Valid values are ('image/jpeg', 'image/png').",
+    "VALUE_NOT_IN_LIST: Invalid value 'image/ktx2'. Valid values are ('image/jpeg', 'image/png')."
+   ]
+  },
+  "tags": [
+   {
+    "node": "UR_Boxes",
+    "interactive_id": "ur_boxes",
+    "interactive_label": "Game Boxes",
+    "interactive_scope": "under-the-radar",
+    "interactive_kind": "discovery"
+   },
+   {
+    "node": "UR_Computer",
+    "interactive_id": "ur_computer",
+    "interactive_label": "The Computer",
+    "interactive_scope": "under-the-radar",
+    "interactive_kind": "discovery"
+   },
+   {
+    "node": "UR_Floppy",
+    "interactive_id": "ur_floppy",
+    "interactive_label": "Floppy Disk",
+    "interactive_scope": "under-the-radar",
+    "interactive_kind": "discovery"
+   },
+   {
+    "node": "UR_Notebook",
+    "interactive_id": "ur_notebook",
+    "interactive_label": "Notebook",
+    "interactive_scope": "under-the-radar",
+    "interactive_kind": "discovery"
+   },
+   {
+    "node": "UR_Orb_Base",
+    "interactive_id": "ur_orb",
+    "interactive_label": "Orb Lamp",
+    "interactive_scope": "under-the-radar",
+    "interactive_kind": "discovery"
+   },
+   {
+    "node": "UR_Trackball",
+    "interactive_id": "ur_trackball",
+    "interactive_label": "Trackball",
+    "interactive_scope": "under-the-radar",
+    "interactive_kind": "discovery"
+   }
+  ],
+  "texture_list": [
+   {
+    "name": "exhibit_under_the_radar_glow",
+    "mime": "image/ktx2",
+    "size": "1024x1024",
+    "kb": 372,
+    "gpu_safe": true
+   },
+   {
+    "name": "exhibit_under_the_radar_ao",
+    "mime": "image/ktx2",
+    "size": "1024x1024",
+    "kb": 677,
+    "gpu_safe": true
+   },
+   {
+    "name": "wood_dark_n",
+    "mime": "image/ktx2",
+    "size": "512x512",
+    "kb": 88,
+    "gpu_safe": true
+   },
+   {
+    "name": "wood_dark",
+    "mime": "image/ktx2",
+    "size": "1024x1024",
+    "kb": 463,
+    "gpu_safe": true
+   },
+   {
+    "name": "ur_box_3",
+    "mime": "image/ktx2",
+    "size": "372x100",
+    "kb": 40,
+    "gpu_safe": true
+   },
+   {
+    "name": "ur_box_2",
+    "mime": "image/ktx2",
+    "size": "372x92",
+    "kb": 39,
+    "gpu_safe": true
+   },
+   {
+    "name": "ur_box_1",
+    "mime": "image/ktx2",
+    "size": "324x80",
+    "kb": 30,
+    "gpu_safe": true
+   },
+   {
+    "name": "ur_box_0",
+    "mime": "image/ktx2",
+    "size": "284x84",
+    "kb": 28,
+    "gpu_safe": true
+   },
+   {
+    "name": "wood_desk_n",
+    "mime": "image/ktx2",
+    "size": "512x512",
+    "kb": 126,
+    "gpu_safe": true
+   },
+   {
+    "name": "wood_desk",
+    "mime": "image/ktx2",
+    "size": "1024x1024",
+    "kb": 598,
+    "gpu_safe": true
+   },
+   {
+    "name": "wood_desk_r",
+    "mime": "image/ktx2",
+    "size": "512x512",
+    "kb": 123,
+    "gpu_safe": true
+   },
+   {
+    "name": "ur_radar",
+    "mime": "image/ktx2",
+    "size": "320x240",
+    "kb": 24,
+    "gpu_safe": true
+   },
+   {
+    "name": "planks_n",
+    "mime": "image/ktx2",
+    "size": "512x512",
+    "kb": 154,
+    "gpu_safe": true
+   },
+   {
+    "name": "planks",
+    "mime": "image/ktx2",
+    "size": "1024x1024",
+    "kb": 611,
+    "gpu_safe": true
+   },
+   {
+    "name": "ur_floppy",
+    "mime": "image/ktx2",
+    "size": "256x160",
+    "kb": 24,
+    "gpu_safe": true
+   },
+   {
+    "name": "ur_frame_0",
+    "mime": "image/ktx2",
+    "size": "256x192",
+    "kb": 5,
+    "gpu_safe": true
+   },
+   {
+    "name": "ur_frame_1",
+    "mime": "image/ktx2",
+    "size": "256x192",
+    "kb": 5,
+    "gpu_safe": true
+   },
+   {
+    "name": "ur_frame_2",
+    "mime": "image/ktx2",
+    "size": "256x192",
+    "kb": 5,
+    "gpu_safe": true
+   },
+   {
+    "name": "ur_map_0",
+    "mime": "image/ktx2",
+    "size": "512x384",
+    "kb": 96,
+    "gpu_safe": true
+   },
+   {
+    "name": "ur_map_1",
+    "mime": "image/ktx2",
+    "size": "512x384",
+    "kb": 95,
+    "gpu_safe": true
+   },
+   {
+    "name": "ur_map_2",
+    "mime": "image/ktx2",
+    "size": "512x384",
+    "kb": 93,
+    "gpu_safe": true
+   },
+   {
+    "name": "rug_n",
+    "mime": "image/ktx2",
+    "size": "512x320",
+    "kb": 114,
+    "gpu_safe": true
+   },
+   {
+    "name": "rug",
+    "mime": "image/ktx2",
+    "size": "1024x640",
+    "kb": 357,
+    "gpu_safe": true
+   },
+   {
+    "name": "ur_sky",
+    "mime": "image/ktx2",
+    "size": "1024x768",
+    "kb": 252,
+    "gpu_safe": true
+   },
+   {
+    "name": "ur_plum",
+    "mime": "image/ktx2",
+    "size": "512x512",
+    "kb": 63,
+    "gpu_safe": true
+   }
+  ],
+  "textures_not_multiple_of_4": []
+ },
+ {
+  "file": "raw/exhibit_wrfm.glb",
+  "mb": 14.7,
+  "nodes": 53,
+  "meshes": 49,
+  "draw_calls": 50,
+  "triangles": 13584,
+  "materials": 36,
+  "textures": 28,
+  "texture_mb_download": 13.99,
+  "gpu_texture_mb": 71.9,
+  "validator": {
+   "errors": 0,
+   "warnings": 7,
+   "messages": [
+    "MESH_PRIMITIVE_GENERATED_TANGENT_SPACE: Material requires a tangent space but the mesh primitive does not provide it. Runtime-generated tangent space may be non-portable across implementations.",
+    "MESH_PRIMITIVE_GENERATED_TANGENT_SPACE: Material requires a tangent space but the mesh primitive does not provide it. Runtime-generated tangent space may be non-portable across implementations.",
+    "MESH_PRIMITIVE_GENERATED_TANGENT_SPACE: Material requires a tangent space but the mesh primitive does not provide it. Runtime-generated tangent space may be non-portable across implementations.",
+    "MESH_PRIMITIVE_GENERATED_TANGENT_SPACE: Material requires a tangent space but the mesh primitive does not provide it. Runtime-generated tangent space may be non-portable across implementations.",
+    "MESH_PRIMITIVE_GENERATED_TANGENT_SPACE: Material requires a tangent space but the mesh primitive does not provide it. Runtime-generated tangent space may be non-portable across implementations.",
+    "MESH_PRIMITIVE_GENERATED_TANGENT_SPACE: Material requires a tangent space but the mesh primitive does not provide it. Runtime-generated tangent space may be non-portable across implementations.",
+    "MESH_PRIMITIVE_GENERATED_TANGENT_SPACE: Material requires a tangent space but the mesh primitive does not provide it. Runtime-generated tangent space may be non-portable across implementations."
+   ]
+  },
+  "tags": [
+   {
+    "node": "WR_Console",
+    "interactive_id": "wr_console",
+    "interactive_label": "Mixing Console",
+    "interactive_scope": "wrfm",
+    "interactive_kind": "discovery"
+   },
+   {
+    "node": "WR_Logo",
+    "interactive_id": "wr_logo",
+    "interactive_label": "WRFM 97.1",
+    "interactive_scope": "wrfm",
+    "interactive_kind": "discovery"
+   },
+   {
+    "node": "WR_Mic",
+    "interactive_id": "wr_mic",
+    "interactive_label": "The Microphone",
+    "interactive_scope": "wrfm",
+    "interactive_kind": "discovery"
+   },
+   {
+    "node": "WR_Mug",
+    "interactive_id": "wr_mug",
+    "interactive_label": "Mug",
+    "interactive_scope": "wrfm",
+    "interactive_kind": "discovery"
+   },
+   {
+    "node": "WR_OnAir",
+    "interactive_id": "wr_onair",
+    "interactive_label": "ON AIR",
+    "interactive_scope": "wrfm",
+    "interactive_kind": "discovery"
+   },
+   {
+    "node": "WR_Phone",
+    "interactive_id": "wr_phone",
+    "interactive_label": "The Phone",
+    "interactive_scope": "wrfm",
+    "interactive_kind": "discovery"
+   },
+   {
+    "node": "WR_RecordCrate",
+    "interactive_id": "wr_records",
+    "interactive_label": "Record Crate",
+    "interactive_scope": "wrfm",
+    "interactive_kind": "discovery"
+   },
+   {
+    "node": "WR_Turntable",
+    "interactive_id": "wr_turntable",
+    "interactive_label": "Turntable",
+    "interactive_scope": "wrfm",
+    "interactive_kind": "discovery"
+   }
+  ],
+  "texture_list": [
+   {
+    "name": "exhibit_wrfm_glow",
+    "mime": "image/png",
+    "size": "1024x1024",
+    "kb": 262,
+    "gpu_safe": true
+   },
+   {
+    "name": "exhibit_wrfm_ao",
+    "mime": "image/png",
+    "size": "1024x1024",
+    "kb": 650,
+    "gpu_safe": true
+   },
+   {
+    "name": "wood_dark_n",
+    "mime": "image/png",
+    "size": "512x512",
+    "kb": 252,
+    "gpu_safe": true
+   },
+   {
+    "name": "wood_dark",
+    "mime": "image/png",
+    "size": "1024x1024",
+    "kb": 1250,
+    "gpu_safe": true
+   },
+   {
+    "name": "wr_padding_n",
+    "mime": "image/png",
+    "size": "512x512",
+    "kb": 115,
+    "gpu_safe": true
+   },
+   {
+    "name": "wr_padding",
+    "mime": "image/png",
+    "size": "1024x1024",
+    "kb": 670,
+    "gpu_safe": true
+   },
+   {
+    "name": "wr_clock",
+    "mime": "image/png",
+    "size": "256x96",
+    "kb": 1,
+    "gpu_safe": true
+   },
+   {
+    "name": "wr_vu",
+    "mime": "image/png",
+    "size": "256x160",
+    "kb": 5,
+    "gpu_safe": true
+   },
+   {
+    "name": "wr_console",
+    "mime": "image/png",
+    "size": "1024x512",
+    "kb": 128,
+    "gpu_safe": true
+   },
+   {
+    "name": "wr_logo",
+    "mime": "image/png",
+    "size": "768x768",
+    "kb": 619,
+    "gpu_safe": true
+   },
+   {
+    "name": "planks_n",
+    "mime": "image/png",
+    "size": "1024x1024",
+    "kb": 1120,
+    "gpu_safe": true
+   },
+   {
+    "name": "planks",
+    "mime": "image/png",
+    "size": "1024x1024",
+    "kb": 1243,
+    "gpu_safe": true
+   },
+   {
+    "name": "leather_n",
+    "mime": "image/png",
+    "size": "512x512",
+    "kb": 229,
+    "gpu_safe": true
+   },
+   {
+    "name": "leather",
+    "mime": "image/png",
+    "size": "512x512",
+    "kb": 167,
+    "gpu_safe": true
+   },
+   {
+    "name": "leather_r",
+    "mime": "image/png",
+    "size": "512x512",
+    "kb": 136,
+    "gpu_safe": true
+   },
+   {
+    "name": "wr_mug",
+    "mime": "image/png",
+    "size": "512x256",
+    "kb": 18,
+    "gpu_safe": true
+   },
+   {
+    "name": "wr_onair",
+    "mime": "image/png",
+    "size": "512x192",
+    "kb": 52,
+    "gpu_safe": true
+   },
+   {
+    "name": "wr_poster_crane",
+    "mime": "image/png",
+    "size": "512x768",
+    "kb": 735,
+    "gpu_safe": true
+   },
+   {
+    "name": "wr_poster_silas",
+    "mime": "image/png",
+    "size": "512x768",
+    "kb": 758,
+    "gpu_safe": true
+   },
+   {
+    "name": "wood_light_n",
+    "mime": "image/png",
+    "size": "512x512",
+    "kb": 320,
+    "gpu_safe": true
+   },
+   {
+    "name": "wood_light",
+    "mime": "image/png",
+    "size": "1024x1024",
+    "kb": 1375,
+    "gpu_safe": true
+   },
+   {
+    "name": "wr_script",
+    "mime": "image/png",
+    "size": "300x400",
+    "kb": 101,
+    "gpu_safe": true
+   },
+   {
+    "name": "wr_sleeve",
+    "mime": "image/png",
+    "size": "512x512",
+    "kb": 520,
+    "gpu_safe": true
+   },
+   {
+    "name": "wr_label",
+    "mime": "image/png",
+    "size": "175x175",
+    "kb": 41,
+    "gpu_safe": false
+   },
+   {
+    "name": "wr_record",
+    "mime": "image/png",
+    "size": "512x512",
+    "kb": 134,
+    "gpu_safe": true
+   },
+   {
+    "name": "wood_desk_n",
+    "mime": "image/png",
+    "size": "1024x1024",
+    "kb": 1165,
+    "gpu_safe": true
+   },
+   {
+    "name": "wood_desk",
+    "mime": "image/png",
+    "size": "1024x1024",
+    "kb": 1366,
+    "gpu_safe": true
+   },
+   {
+    "name": "wood_desk_r",
+    "mime": "image/png",
+    "size": "512x512",
+    "kb": 234,
+    "gpu_safe": true
+   }
+  ],
+  "textures_not_multiple_of_4": [
+   "wr_label 175x175"
+  ]
+ },
+ {
+  "file": "exhibit_wrfm.glb",
+  "mb": 6.75,
+  "nodes": 67,
+  "meshes": 49,
+  "draw_calls": 50,
+  "triangles": 13584,
+  "materials": 36,
+  "textures": 28,
+  "texture_mb_download": 6.45,
+  "gpu_texture_mb": 16,
+  "validator": {
+   "errors": 0,
+   "warnings": 35,
+   "messages": [
+    "VALUE_NOT_IN_LIST: Invalid value 'image/ktx2'. Valid values are ('image/jpeg', 'image/png').",
+    "VALUE_NOT_IN_LIST: Invalid value 'image/ktx2'. Valid values are ('image/jpeg', 'image/png').",
+    "VALUE_NOT_IN_LIST: Invalid value 'image/ktx2'. Valid values are ('image/jpeg', 'image/png').",
+    "VALUE_NOT_IN_LIST: Invalid value 'image/ktx2'. Valid values are ('image/jpeg', 'image/png').",
+    "VALUE_NOT_IN_LIST: Invalid value 'image/ktx2'. Valid values are ('image/jpeg', 'image/png').",
+    "VALUE_NOT_IN_LIST: Invalid value 'image/ktx2'. Valid values are ('image/jpeg', 'image/png').",
+    "VALUE_NOT_IN_LIST: Invalid value 'image/ktx2'. Valid values are ('image/jpeg', 'image/png').",
+    "VALUE_NOT_IN_LIST: Invalid value 'image/ktx2'. Valid values are ('image/jpeg', 'image/png')."
+   ]
+  },
+  "tags": [
+   {
+    "node": "WR_Console",
+    "interactive_id": "wr_console",
+    "interactive_label": "Mixing Console",
+    "interactive_scope": "wrfm",
+    "interactive_kind": "discovery"
+   },
+   {
+    "node": "WR_Logo",
+    "interactive_id": "wr_logo",
+    "interactive_label": "WRFM 97.1",
+    "interactive_scope": "wrfm",
+    "interactive_kind": "discovery"
+   },
+   {
+    "node": "WR_Mic",
+    "interactive_id": "wr_mic",
+    "interactive_label": "The Microphone",
+    "interactive_scope": "wrfm",
+    "interactive_kind": "discovery"
+   },
+   {
+    "node": "WR_Mug",
+    "interactive_id": "wr_mug",
+    "interactive_label": "Mug",
+    "interactive_scope": "wrfm",
+    "interactive_kind": "discovery"
+   },
+   {
+    "node": "WR_OnAir",
+    "interactive_id": "wr_onair",
+    "interactive_label": "ON AIR",
+    "interactive_scope": "wrfm",
+    "interactive_kind": "discovery"
+   },
+   {
+    "node": "WR_Phone",
+    "interactive_id": "wr_phone",
+    "interactive_label": "The Phone",
+    "interactive_scope": "wrfm",
+    "interactive_kind": "discovery"
+   },
+   {
+    "node": "WR_RecordCrate",
+    "interactive_id": "wr_records",
+    "interactive_label": "Record Crate",
+    "interactive_scope": "wrfm",
+    "interactive_kind": "discovery"
+   },
+   {
+    "node": "WR_Turntable",
+    "interactive_id": "wr_turntable",
+    "interactive_label": "Turntable",
+    "interactive_scope": "wrfm",
+    "interactive_kind": "discovery"
+   }
+  ],
+  "texture_list": [
+   {
+    "name": "exhibit_wrfm_glow",
+    "mime": "image/ktx2",
+    "size": "1024x1024",
+    "kb": 169,
+    "gpu_safe": true
+   },
+   {
+    "name": "exhibit_wrfm_ao",
+    "mime": "image/ktx2",
+    "size": "1024x1024",
+    "kb": 637,
+    "gpu_safe": true
+   },
+   {
+    "name": "wood_dark_n",
+    "mime": "image/ktx2",
+    "size": "512x512",
+    "kb": 88,
+    "gpu_safe": true
+   },
+   {
+    "name": "wood_dark",
+    "mime": "image/ktx2",
+    "size": "1024x1024",
+    "kb": 463,
+    "gpu_safe": true
+   },
+   {
+    "name": "wr_padding_n",
+    "mime": "image/ktx2",
+    "size": "512x512",
+    "kb": 109,
+    "gpu_safe": true
+   },
+   {
+    "name": "wr_padding",
+    "mime": "image/ktx2",
+    "size": "1024x1024",
+    "kb": 340,
+    "gpu_safe": true
+   },
+   {
+    "name": "wr_clock",
+    "mime": "image/ktx2",
+    "size": "256x96",
+    "kb": 4,
+    "gpu_safe": true
+   },
+   {
+    "name": "wr_vu",
+    "mime": "image/ktx2",
+    "size": "256x160",
+    "kb": 7,
+    "gpu_safe": true
+   },
+   {
+    "name": "wr_console",
+    "mime": "image/ktx2",
+    "size": "1024x512",
+    "kb": 97,
+    "gpu_safe": true
+   },
+   {
+    "name": "wr_logo",
+    "mime": "image/ktx2",
+    "size": "768x768",
+    "kb": 344,
+    "gpu_safe": true
+   },
+   {
+    "name": "planks_n",
+    "mime": "image/ktx2",
+    "size": "512x512",
+    "kb": 154,
+    "gpu_safe": true
+   },
+   {
+    "name": "planks",
+    "mime": "image/ktx2",
+    "size": "1024x1024",
+    "kb": 611,
+    "gpu_safe": true
+   },
+   {
+    "name": "leather_n",
+    "mime": "image/ktx2",
+    "size": "512x512",
+    "kb": 164,
+    "gpu_safe": true
+   },
+   {
+    "name": "leather",
+    "mime": "image/ktx2",
+    "size": "512x512",
+    "kb": 72,
+    "gpu_safe": true
+   },
+   {
+    "name": "leather_r",
+    "mime": "image/ktx2",
+    "size": "512x512",
+    "kb": 142,
+    "gpu_safe": true
+   },
+   {
+    "name": "wr_mug",
+    "mime": "image/ktx2",
+    "size": "512x256",
+    "kb": 9,
+    "gpu_safe": true
+   },
+   {
+    "name": "wr_onair",
+    "mime": "image/ktx2",
+    "size": "512x192",
+    "kb": 44,
+    "gpu_safe": true
+   },
+   {
+    "name": "wr_poster_crane",
+    "mime": "image/ktx2",
+    "size": "512x768",
+    "kb": 439,
+    "gpu_safe": true
+   },
+   {
+    "name": "wr_poster_silas",
+    "mime": "image/ktx2",
+    "size": "512x768",
+    "kb": 422,
+    "gpu_safe": true
+   },
+   {
+    "name": "wood_light_n",
+    "mime": "image/ktx2",
+    "size": "512x512",
+    "kb": 125,
+    "gpu_safe": true
+   },
+   {
+    "name": "wood_light",
+    "mime": "image/ktx2",
+    "size": "1024x1024",
+    "kb": 639,
+    "gpu_safe": true
+   },
+   {
+    "name": "wr_script",
+    "mime": "image/ktx2",
+    "size": "300x400",
+    "kb": 55,
+    "gpu_safe": true
+   },
+   {
+    "name": "wr_sleeve",
+    "mime": "image/ktx2",
+    "size": "512x512",
+    "kb": 267,
+    "gpu_safe": true
+   },
+   {
+    "name": "wr_label",
+    "mime": "image/ktx2",
+    "size": "172x172",
+    "kb": 27,
+    "gpu_safe": true
+   },
+   {
+    "name": "wr_record",
+    "mime": "image/ktx2",
+    "size": "512x512",
+    "kb": 27,
+    "gpu_safe": true
+   },
+   {
+    "name": "wood_desk_n",
+    "mime": "image/ktx2",
+    "size": "512x512",
+    "kb": 126,
+    "gpu_safe": true
+   },
+   {
+    "name": "wood_desk",
+    "mime": "image/ktx2",
+    "size": "1024x1024",
+    "kb": 598,
+    "gpu_safe": true
+   },
+   {
+    "name": "wood_desk_r",
+    "mime": "image/ktx2",
+    "size": "512x512",
+    "kb": 123,
     "gpu_safe": true
    }
   ],

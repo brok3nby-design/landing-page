@@ -32,6 +32,17 @@ Tick what works and note what doesn't.
 
 **Games**
 - [ ] Tap each case: it lifts, turns, shows your cover art, and VIEW GAME opens the right page. "Take me somewhere strange" works.
+- [ ] **Bid & Buried**: the storage unit shows beside the text; tap the safe, TV, globe, records, boxes and paddle.
+- [ ] **Pocket Wilds**: the treasure room shows. Brush the mouse over the gold (jingle). Press and hold the gold, carry it, let go: the coins fall, bounce and clink. On a phone: press, drag, release. "Toss a handful" and "Gold sounds: on/off" work.
+- [ ] **Glass & Fortune**: tap a die or "Roll the dice": both roll and the result shows beside the buttons. Press and hold a die, move, let go to throw it. Sounds on/off works.
+- [ ] **Speck**: drag the planet to spin it; tap it to leave something; reload the page and it's still there. Tap the speck (sup). Spin / Leave something / Clear mine work.
+- [ ] **DOQI**: J.E.F.F.'s eyes follow your mouse; click him for a ruling. Click the stamp or the form: it stamps FILED and counts; reload and the marks are still there.
+- [ ] **WRFM**: click the mic: ON AIR lights, Vera speaks, the needles move; click again to stop. Click the turntable: music + spinning record. (Secret: find the phone.)
+- [ ] **The Maze**: click the die: it rolls and the pawn walks that many steps; reload and it's where you left it; roll to the heart (stamp); Start again. Click the crow.
+- [ ] **Macabre Dolls**: click the deck: a card turns to you and lands face up. Stop moving the view: the dolls' heads turn to you. Wind the music box: it opens and plays, the dolls turn to it.
+- [ ] **Juicebox**: click the bottle (it sloshes), the sign (it flips over: the back says SOME THINGS HIT DIFFERENT ON THE ROAD), the truck (honk + headlights).
+- [ ] **Graffiti**: click a spray can (colour), drag on the blank tile to spray pixels, Spray a heart, reload (still there), Clear my tile.
+- [ ] **Under the Radar**: click the computer screen (or Scan): the radar sweeps and a postcard flies out; find all four (ONE MORE GAME.); reload (they stay); Forget them.
 - [ ] Every project page shows text, progress and gallery. The trailers play (Bid & Buried, Speck, Pocket Wilds).
 
 **Elsewhere**

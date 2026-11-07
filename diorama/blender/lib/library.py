@@ -79,6 +79,7 @@ DEFS = {
     "label_gold":    dict(color=(0.8, 0.6, 0.28), rough=0.35, metal=0.8),
     # storage
     "crate":         dict(tex="crate", rough=0.75, normal="crate_n", normal_strength=0.4),
+    "rope":          dict(color=(0.52, 0.40, 0.25), rough=0.92),
     "cartridge":     dict(color=(0.16, 0.15, 0.17), rough=0.45),
     "cartridge_lbl": dict(tex="cartridges", rough=0.5, closest=True),
     # figurines

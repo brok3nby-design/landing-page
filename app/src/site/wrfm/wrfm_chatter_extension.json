@@ -1,0 +1,562 @@
+{
+  "version": "1.0",
+  "generatedAt": "2026-06-03T12:16:15.258Z",
+  "source": "WRFM_CONTENT_EXPANSION.md",
+  "description": "Extension pack of chatter, callers, sponsors, and arcs for WRFM. Drop these into wrfm_station.json under the matching top-level array (chatter / commercials / callers / station_ids) once you have generated TTS audio and pinned to IPFS — set asset.cid then.",
+  "schemaNotes": {
+    "asset": "cid is null until you fill it. JukeboxProvider routes clips with a non-null cid into the appropriate pool at startup; null-cid clips are silently skipped.",
+    "script": "text field is the spoken script with inline [SFX:], [MUSIC:], [ROOM:] cues preserved.",
+    "sequence": "Clips with conditions.sequence form a serialized arc — play in conditions.sequenceIndex order across nights."
+  },
+  "counts": {
+    "totalClips": 20,
+    "byCategory": {
+      "special_event": 9,
+      "caller": 3,
+      "commercial": 3,
+      "vera_ident": 5
+    }
+  },
+  "clips": [
+    {
+      "id": "hr_psa_01",
+      "sourceClipId": "HR-PSA-01",
+      "category": "special_event",
+      "speaker": "Vera",
+      "durationHintSec": 22,
+      "toneLevel": 2,
+      "tags": [
+        "psa",
+        "hr",
+        "absurd"
+      ],
+      "conditions": {
+        "timeBucketsAnyOf": [
+          "late",
+          "graveyard"
+        ]
+      },
+      "asset": {
+        "type": "ipfs",
+        "cid": "bafybeiel2idfrwkqptv6noosdkxatvazqgwtiwb6dxy4dwmglpofsahwpm"
+      },
+      "script": {
+        "text": "[SFX: INTERCOM-CHIME]\n\"Human Resources reminds you the kitchen sponge is communal property. Communal. Property. *(beat)* Carla. We know. We all know. The cameras point *at* the sink, Carla… I'm not even mad. I'm impressed.\"\n[SFX: INTERCOM-CLICK off]"
+      },
+      "weight": 1
+    },
+    {
+      "id": "hr_psa_02",
+      "sourceClipId": "HR-PSA-02",
+      "category": "special_event",
+      "speaker": "Vera",
+      "durationHintSec": 20,
+      "toneLevel": 2,
+      "tags": [
+        "psa",
+        "hr",
+        "absurd"
+      ],
+      "conditions": {
+        "timeBucketsAnyOf": [
+          "late",
+          "graveyard"
+        ]
+      },
+      "asset": {
+        "type": "ipfs",
+        "cid": "bafybeib4tgmmycebh46d7vfkrqhhbgdg5vjvz4e52iz65ydsoxgjjg3w5i"
+      },
+      "script": {
+        "text": "[SFX: PAPER-RUSTLE]\n\"Effective Monday, the phrase 'circle back' has been retired. Effective Tuesday, it has been reinstated. Effective Wednesday, HR is being retired. *(long beat)* Effective Thursday, none of this matters.\""
+      },
+      "weight": 1
+    },
+    {
+      "id": "hr_psa_03",
+      "sourceClipId": "HR-PSA-03",
+      "category": "special_event",
+      "speaker": "Vera",
+      "durationHintSec": 16,
+      "toneLevel": 2,
+      "tags": [
+        "psa",
+        "hr",
+        "absurd"
+      ],
+      "conditions": {
+        "timeBucketsAnyOf": [
+          "late",
+          "graveyard"
+        ]
+      },
+      "asset": {
+        "type": "ipfs",
+        "cid": "bafkreiggd575xhf66csgepr2aj56bpqqmv7tbm46axpcgcrpeqbmqhv6ji"
+      },
+      "script": {
+        "text": "\"HR memo. Subject line: 'Please.' That's the whole memo. Just… 'Please.' *(beat)* I've read it forty times, darling. I think they're begging.\""
+      },
+      "weight": 1
+    },
+    {
+      "id": "hr_psa_06",
+      "sourceClipId": "HR-PSA-06",
+      "category": "special_event",
+      "speaker": "Vera",
+      "durationHintSec": 24,
+      "toneLevel": 2,
+      "tags": [
+        "psa",
+        "hr",
+        "absurd"
+      ],
+      "conditions": {
+        "timeBucketsAnyOf": [
+          "late",
+          "graveyard"
+        ]
+      },
+      "asset": {
+        "type": "ipfs",
+        "cid": "bafybeidtxnx7cz7nosstjdb23i4sdgrursfj2bb6mvycasfq55h2lzk5bi"
+      },
+      "script": {
+        "text": "[SFX: INTERCOM-CHIME]\n\"Human Resources wishes to clarify that the phrase 'open-door policy' refers to a metaphor. *(beat)* Whoever has been removing the actual doors — and we know it's a 'whoever,' singular, this is not a movement yet — please return them. Some of us have meetings. Some of us have *secrets.*\""
+      },
+      "weight": 1
+    },
+    {
+      "id": "hr_psa_07",
+      "sourceClipId": "HR-PSA-07",
+      "category": "special_event",
+      "speaker": "Vera",
+      "durationHintSec": 18,
+      "toneLevel": 2,
+      "tags": [
+        "psa",
+        "hr",
+        "absurd"
+      ],
+      "conditions": {
+        "timeBucketsAnyOf": [
+          "late",
+          "graveyard"
+        ]
+      },
+      "asset": {
+        "type": "ipfs",
+        "cid": "bafkreif3xecjxcjz6brwwquefvnzwq4mktxgmuuu4guf4fgosc7gk4hism"
+      },
+      "script": {
+        "text": "\"Reminder: the office plant has a name. Her name is Cheryl. Cheryl is doing her best. *(beat)* Cheryl is doing better than several of you.\""
+      },
+      "weight": 1
+    },
+    {
+      "id": "blotter_01",
+      "sourceClipId": "BLOTTER-01",
+      "category": "special_event",
+      "speaker": "Vera",
+      "durationHintSec": 30,
+      "toneLevel": 2,
+      "tags": [
+        "blotter",
+        "absurd"
+      ],
+      "conditions": {
+        "timeBucketsAnyOf": [
+          "late",
+          "graveyard"
+        ]
+      },
+      "asset": {
+        "type": "ipfs",
+        "cid": "bafybeidhwoz5tzxfj7k54wdq7vj35kkagi5webnbb7iqc7zmtggg3azguq"
+      },
+      "script": {
+        "text": "[SFX: TYPEWRITER, three clicks scattered through]\n\"Tonight's Crime Blotter, second floor edition — 8:42 PM, theft of one yogurt, brand 'Noosa,' victim Carla, suspect at large. 9:13 PM, suspicious lanyard activity near the printer — perpetrator was holding two badges, neither of them his. 10:01 PM, unauthorized fish reheat. *(beat)* Kevin. *(long beat)* Always Kevin.\""
+      },
+      "weight": 1
+    },
+    {
+      "id": "blotter_02",
+      "sourceClipId": "BLOTTER-02",
+      "category": "special_event",
+      "speaker": "Vera",
+      "durationHintSec": 26,
+      "toneLevel": 2,
+      "tags": [
+        "blotter",
+        "absurd"
+      ],
+      "conditions": {
+        "timeBucketsAnyOf": [
+          "late",
+          "graveyard"
+        ]
+      },
+      "asset": {
+        "type": "ipfs",
+        "cid": "bafybeifabectjbquf3tvhmk4o4djkborlqtjdric5gaoeoio4qp2qv3v7a"
+      },
+      "script": {
+        "text": "\"Crime Blotter, after-midnight watch — at 1:14 AM, a desk plant was found relocated three cubicles east. The plant is fine. The plant is, in fact, thriving. *(beat)* We are now investigating whether the plant moved itself.\""
+      },
+      "weight": 1
+    },
+    {
+      "id": "blotter_03",
+      "sourceClipId": "BLOTTER-03",
+      "category": "special_event",
+      "speaker": "Vera",
+      "durationHintSec": 28,
+      "toneLevel": 2,
+      "tags": [
+        "blotter",
+        "absurd"
+      ],
+      "conditions": {
+        "timeBucketsAnyOf": [
+          "late",
+          "graveyard"
+        ]
+      },
+      "asset": {
+        "type": "ipfs",
+        "cid": "bafybeid6kifwomitylji6mmdjetsf7e6mud5d3llokcffi7jemimhbp6i4"
+      },
+      "script": {
+        "text": "\"This evening's Blotter — at 11:30, someone returned the conference room remote with all the buttons taped down. At 11:45, someone *un-taped* them. At 11:50, the buttons were *re-taped.* *(beat)* This is a war, sweethearts. We are watching.\""
+      },
+      "weight": 1
+    },
+    {
+      "id": "blotter_04",
+      "sourceClipId": "BLOTTER-04",
+      "category": "special_event",
+      "speaker": "Vera",
+      "durationHintSec": 24,
+      "toneLevel": 2,
+      "tags": [
+        "blotter",
+        "absurd"
+      ],
+      "conditions": {
+        "timeBucketsAnyOf": [
+          "late",
+          "graveyard"
+        ]
+      },
+      "asset": {
+        "type": "ipfs",
+        "cid": "bafybeiaqkvvf67nlnzj437pm2uqpdapsaje72nlozx6tpdqpdkyeyloz34"
+      },
+      "script": {
+        "text": "\"Crime Blotter — minor entry. At approximately 3 AM, the vending machine *gave* someone an extra bag of chips. *(beat)* Voluntarily. Without provocation. *(long beat)* This is not a crime. This is a miracle. We are filing it anyway.\"\n\n---"
+      },
+      "weight": 1
+    },
+    {
+      "id": "mitch_01",
+      "sourceClipId": "MITCH-01",
+      "category": "caller",
+      "speaker": "Phone bit",
+      "durationHintSec": 34,
+      "toneLevel": 2,
+      "tags": [
+        "mitch",
+        "it",
+        "recurring"
+      ],
+      "conditions": {
+        "timeBucketsAnyOf": [
+          "late",
+          "graveyard"
+        ]
+      },
+      "asset": {
+        "type": "ipfs",
+        "cid": "bafybeibydvtw43wizhbaggulaxztmgqbzzhydomsllh536h3rfnc6yoq44"
+      },
+      "script": {
+        "text": "[SFX: PHONE-RING, PHONE-PICKUP, loud mechanical keyboard under]\nMITCH: \"IT, Mitch speaking, have you tried turning it off and on again.\"\nVERA: \"Mitch. You called *me.*\"\nMITCH: \"Right, well, the issue could be on your end.\"\nVERA: \"I am the radio, Mitch.\"\nMITCH: \"Have you tried turning the radio off and on again.\"\nVERA: *(long beat)* \"Mitch. I will.\"\nMITCH: \"Thank you for choosing IT.\""
+      },
+      "weight": 1
+    },
+    {
+      "id": "mitch_02",
+      "sourceClipId": "MITCH-02",
+      "category": "caller",
+      "speaker": "Phone bit",
+      "durationHintSec": 28,
+      "toneLevel": 2,
+      "tags": [
+        "mitch",
+        "it",
+        "recurring"
+      ],
+      "conditions": {
+        "timeBucketsAnyOf": [
+          "late",
+          "graveyard"
+        ]
+      },
+      "asset": {
+        "type": "ipfs",
+        "cid": "bafybeictgtb5tg4ici4kdpybbxfg5yruuckeirbrjxi35tfo6jattrbc6y"
+      },
+      "script": {
+        "text": "MITCH: \"Vera, just confirming — the password reset email I sent you, did you click the link.\"\nVERA: \"I did not.\"\nMITCH: \"Great. *(beat)* Don't.\"\nVERA: \"…Mitch.\"\nMITCH: \"I sent it from my personal account by accident. *(long beat)* Just — delete the whole inbox, to be safe.\""
+      },
+      "weight": 1
+    },
+    {
+      "id": "intern_01",
+      "sourceClipId": "INTERN-01",
+      "category": "caller",
+      "speaker": "Phone bit",
+      "durationHintSec": 30,
+      "toneLevel": 2,
+      "tags": [
+        "intern",
+        "recurring"
+      ],
+      "conditions": {
+        "timeBucketsAnyOf": [
+          "late",
+          "graveyard"
+        ]
+      },
+      "asset": {
+        "type": "ipfs",
+        "cid": "bafkreihyqjfkbihackpimv7y5cczvrs4f3ytjb2v7xrlmm3clyou3xwxau"
+      },
+      "script": {
+        "text": "[SFX: PHONE-RING, PHONE-PICKUP]\nINTERN: *(small voice)* \"Vera?\"\nVERA: \"Sweetheart. Where are you.\"\nINTERN: \"I'm in the supply closet.\"\nVERA: \"Why.\"\nINTERN: \"I — I don't know how to print.\"\nVERA: *(long beat)* \"Buttercup, none of us know how to print. We have been pretending for thirty years.\"\nINTERN: *(sniff)* \"…really?\"\nVERA: \"Welcome to the office, sweetheart.\""
+      },
+      "weight": 1
+    },
+    {
+      "id": "toneease_01",
+      "sourceClipId": "TONEEASE-01",
+      "category": "commercial",
+      "speaker": "Vera",
+      "durationHintSec": 24,
+      "toneLevel": 2,
+      "tags": [
+        "sponsor",
+        "toneease"
+      ],
+      "conditions": {
+        "timeBucketsAnyOf": [
+          "evening",
+          "late",
+          "graveyard"
+        ]
+      },
+      "asset": {
+        "type": "ipfs",
+        "cid": "bafkreiaiqwztla3gdzyir2ei7rppwuijykg76yuxqqv5ohkg6ciqessmd4"
+      },
+      "script": {
+        "text": "[SFX: VERA-BUMP]\n\"Tonight's chatter is brought to you by ToneEase. *(SFX: spritz)* For when you need to say 'as per my last email' without sounding like you mean it. *(beat)* You mean it. ToneEase doesn't care.\""
+      },
+      "weight": 1
+    },
+    {
+      "id": "toneease_02",
+      "sourceClipId": "TONEEASE-02",
+      "category": "commercial",
+      "speaker": "Vera",
+      "durationHintSec": 26,
+      "toneLevel": 2,
+      "tags": [
+        "sponsor",
+        "toneease"
+      ],
+      "conditions": {
+        "timeBucketsAnyOf": [
+          "evening",
+          "late",
+          "graveyard"
+        ]
+      },
+      "asset": {
+        "type": "ipfs",
+        "cid": "bafybeig5tuvt6sxkhztmijxrmovgdficnei5eiz63lhhd7iyp4t4fqsy44"
+      },
+      "script": {
+        "text": "\"ToneEase Throat Spray. *(SFX: spritz)* Three pumps before the difficult conversation. Four pumps before the *very* difficult conversation. *(beat)* Five pumps and you are legally a different person, sweetheart. Use responsibly.\""
+      },
+      "weight": 1
+    },
+    {
+      "id": "toneease_03",
+      "sourceClipId": "TONEEASE-03",
+      "category": "commercial",
+      "speaker": "Vera",
+      "durationHintSec": 22,
+      "toneLevel": 2,
+      "tags": [
+        "sponsor",
+        "toneease"
+      ],
+      "conditions": {
+        "timeBucketsAnyOf": [
+          "evening",
+          "late",
+          "graveyard"
+        ]
+      },
+      "asset": {
+        "type": "ipfs",
+        "cid": "bafkreic55n2nt64x6ystdvlgogs4pnd6ftfeqofzf34lws4mmvl7g7pbh4"
+      },
+      "script": {
+        "text": "[SFX: spritz]\n\"ToneEase. The official spray of saying 'no problem!' through your teeth. *(long beat)* It is, in fact, a problem. ToneEase makes it sound like it isn't.\"\n\n---"
+      },
+      "weight": 1
+    },
+    {
+      "id": "easter_01",
+      "sourceClipId": "easter_vera-01",
+      "category": "vera_ident",
+      "speaker": "Vera",
+      "durationHintSec": 22,
+      "toneLevel": 2,
+      "tags": [
+        "easter-egg",
+        "phone",
+        "tease"
+      ],
+      "conditions": {
+        "timeBucketsAnyOf": [
+          "evening",
+          "late",
+          "graveyard"
+        ]
+      },
+      "asset": {
+        "type": "ipfs",
+        "cid": "bafkreibwngttx6rnek7yv2yh5fq7gph3ejuj67ivotcttogzo34ifhxcva"
+      },
+      "script": {
+        "text": "\"There's a phone in this station, sweetheart. *(beat)* I'm not going to tell you where. *(long beat)* I don't have to. You'll find it. Most people do. *(beat)* Eventually.\""
+      },
+      "weight": 1
+    },
+    {
+      "id": "easter_02",
+      "sourceClipId": "easter_vera-02",
+      "category": "vera_ident",
+      "speaker": "Vera",
+      "durationHintSec": 26,
+      "toneLevel": 2,
+      "tags": [
+        "easter-egg",
+        "phone",
+        "tease"
+      ],
+      "conditions": {
+        "timeBucketsAnyOf": [
+          "evening",
+          "late",
+          "graveyard"
+        ]
+      },
+      "asset": {
+        "type": "ipfs",
+        "cid": "bafkreifofvxlqtl4bkg772uyu7qllmdlrh4ophm45qz2uh4xurhmsljy5q"
+      },
+      "script": {
+        "text": "\"Did you know — and the station legal department asked me not to share this — there are *over a dozen* numbers that, if you dial them correctly, will get you somewhere you weren't supposed to be. *(beat)* Not all at once, darling. *(long beat)* Pace yourself.\""
+      },
+      "weight": 1
+    },
+    {
+      "id": "easter_03",
+      "sourceClipId": "easter_vera-03",
+      "category": "vera_ident",
+      "speaker": "Vera",
+      "durationHintSec": 24,
+      "toneLevel": 2,
+      "tags": [
+        "easter-egg",
+        "phone",
+        "tease"
+      ],
+      "conditions": {
+        "timeBucketsAnyOf": [
+          "evening",
+          "late",
+          "graveyard"
+        ]
+      },
+      "asset": {
+        "type": "ipfs",
+        "cid": "bafkreif5calaase63kpkbg5sjmzhlni5g267lewwgovf5vzklvxvj746xe"
+      },
+      "script": {
+        "text": "\"A friend of the station tells me that on a phone keypad, the letters V… E… R… A spell a number. *(beat)* I'm not going to tell you what number. *(long beat)* I assume, sweetheart, that you have fingers.\""
+      },
+      "weight": 1
+    },
+    {
+      "id": "easter_04",
+      "sourceClipId": "easter_vera-04",
+      "category": "vera_ident",
+      "speaker": "Vera",
+      "durationHintSec": 26,
+      "toneLevel": 2,
+      "tags": [
+        "easter-egg",
+        "phone",
+        "tease"
+      ],
+      "conditions": {
+        "timeBucketsAnyOf": [
+          "evening",
+          "late",
+          "graveyard"
+        ]
+      },
+      "asset": {
+        "type": "ipfs",
+        "cid": "bafkreiefbum3hupx5jxbiwmd7dtd57cyd2hbrafl7itg6yqaqtvsejwh6q"
+      },
+      "script": {
+        "text": "\"Late-night advisory from the switchboard — there is, allegedly, a number that only connects between midnight and one AM. *(beat)* Don't ask me which one, darling. *(long beat)* I'm just saying. *(beat)* Some things are *time-sensitive.*\""
+      },
+      "weight": 1
+    },
+    {
+      "id": "easter_05",
+      "sourceClipId": "easter_vera-05",
+      "category": "vera_ident",
+      "speaker": "Vera",
+      "durationHintSec": 28,
+      "toneLevel": 2,
+      "tags": [
+        "easter-egg",
+        "phone",
+        "tease"
+      ],
+      "conditions": {
+        "timeBucketsAnyOf": [
+          "evening",
+          "late",
+          "graveyard"
+        ]
+      },
+      "asset": {
+        "type": "ipfs",
+        "cid": "bafkreihnk7c3salcq2xoncsqvh5oivg56wtzciqefhiqrsb76cveejlkdm"
+      },
+      "script": {
+        "text": "\"The station receives complaints, occasionally, that listeners have been dialing strange numbers and reaching strange voices. *(beat)* This is not a malfunction. *(long beat)* This is a *feature,* sweetheart. Try one. Any one. *(beat)* The phone is closer than you think.\"\n\n---"
+      },
+      "weight": 1
+    }
+  ]
+}

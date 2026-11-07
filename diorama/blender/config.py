@@ -32,7 +32,10 @@ MONITOR = dict(
     width=0.52, height=0.31, thickness=0.022,
     screen_inset=0.01, lift=0.10,                # screen bottom above riser top
     base=(0.20, 0.16, 0.012), neck=(0.04, 0.02),
-    left_x=-0.17, right_x=0.36, y=0.75, toe_in=radians(8),
+    left_x=-0.17, right_x=0.36, y=0.75,
+    # both screens turn toward the seat in front of the keyboard (front-left): the main screen a little,
+    # the side screen more (as far as it can before its corner meets the back panel)
+    left_rot=radians(6), right_rot=radians(-18),
 )
 
 # ---------------------------------------------------------------- CHAIR
@@ -79,6 +82,10 @@ CLOSEUPS = [
     dict(name="CAM_Close_Shelf", file="06_close_shelf.png", target=(0.05, 0.72, 1.55), az=10, el=12, lens=60, dist=1.5),
     dict(name="CAM_Close_Chair", file="07_close_chair.png", target=(-0.32, -0.12, 0.62), az=25, el=22, lens=60, dist=1.7),
     dict(name="CAM_Close_Crate", file="08_close_crate.png", target=(0.30, 0.48, 0.16), az=12, el=14, lens=60, dist=1.15),
+    # phase 11: the new props
+    dict(name="CAM_Close_Passport", file="11_close_passport.png", target=(-0.5, 0.36, 0.78), az=30, el=34, lens=60, dist=0.7),
+    dict(name="CAM_Close_Riser", file="12_close_riser.png", target=(0.5, 0.62, 0.95), az=18, el=22, lens=60, dist=0.75),
+    dict(name="CAM_Close_Guestbook", file="13_close_guestbook_radio.png", target=(0.52, 0.66, 0.84), az=8, el=20, lens=60, dist=0.8),
 ]
 
 # Standalone asset previews: only the named hierarchy is rendered, lit by an exhibit spotlight

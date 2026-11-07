@@ -1804,11 +1804,16 @@
   "graffiti_wall": "https://brok3n-graffiti.ragsdalejeremy818.workers.dev/?draw=1"
  },
  "brand": {
-  "wordmark": "media/studio/b3d-web.webp",
+  "wordmark": "media/studio/b3d-web-alpha.webp",
   "logo_png": "media/studio/b3d.webp",
   "mark_svg": "media/studio/studio-mark.svg",
   "thumb": "media/studio/x-logo2.webp",
-  "wrfm_keyart": "media/wrfm/wrfm_keyart.webp"
+  "banner": "media/studio/b3d.webp",
+  "mark": "media/studio/b3-mark-2.webp",
+  "wrfm_keyart": "media/wrfm/wrfm_keyart.webp",
+  "brand_film_poster": "media/studio/brand-film.webp",
+  "banner_tight": "media/studio/b3d-tight.webp",
+  "banner_hero": "media/studio/b3d-hero.webp"
  },
  "sounds": {
   "music_mp3": "media/sounds/site_music_1.mp3",

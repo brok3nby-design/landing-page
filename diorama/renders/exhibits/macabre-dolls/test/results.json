@@ -1,0 +1,74 @@
+{
+ "start": {
+  "drawn": 0,
+  "busy": false,
+  "music": false,
+  "heads": [
+   0,
+   0,
+   0
+  ]
+ },
+ "after_rest": {
+  "drawn": 0,
+  "busy": false,
+  "music": false,
+  "heads": [
+   0.32437118956308925,
+   0.3001639090470516,
+   0.30606587374843913
+  ]
+ },
+ "after_draw": {
+  "drawn": 1,
+  "busy": false,
+  "music": false,
+  "heads": [
+   0.32437118956308925,
+   0.3001639090470516,
+   0.30606587374843913
+  ]
+ },
+ "readout": "Drawn 1 of 13. Every doll has a past.",
+ "music": {
+  "drawn": 1,
+  "busy": false,
+  "music": true,
+  "heads": [
+   0.31689242382800437,
+   0.28955650548688544,
+   0.2966215188713981
+  ]
+ },
+ "all": {
+  "drawn": 13,
+  "busy": false,
+  "music": false,
+  "heads": [
+   0.32437118956308925,
+   0.3001639090470516,
+   0.30606587374843913
+  ]
+ },
+ "all_readout": "The whole deck. Some toys should stay forgotten.",
+ "stamp": true,
+ "after_shuffle": {
+  "drawn": 0,
+  "busy": false,
+  "music": false,
+  "heads": [
+   0.32437118956308925,
+   0.3001639090470516,
+   0.30606587374843913
+  ]
+ },
+ "checks": {
+  "heads_turn_when_still": true,
+  "deck_click_draws": true,
+  "music_box_plays": true,
+  "whole_deck_stamp": true,
+  "shuffle": true,
+  "no_errors": true
+ },
+ "errors": []
+}

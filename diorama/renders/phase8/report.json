@@ -1,7 +1,7 @@
 {
  "built": {
-  "commit": "2f28a7a",
-  "built": "2026-11-05T00:21:53.152Z",
+  "commit": "56aef3d",
+  "built": "2026-11-06T11:37:00.825Z",
   "staging": true
  },
  "devices": {
@@ -11,7 +11,10 @@
     "panel": "ok",
     "overflow_px": 0,
     "nav_ok": true,
-    "small_targets": [],
+    "small_targets": [
+     "+ 36x40",
+     "− 36x40"
+    ],
     "menu": true,
     "errors": [],
     "shot": "devices/iphone-se_home.jpg"
@@ -21,27 +24,36 @@
     "panel": "ok",
     "overflow_px": 0,
     "nav_ok": true,
-    "small_targets": [],
+    "small_targets": [
+     "+ 36x40",
+     "− 36x40"
+    ],
     "menu": true,
     "errors": [],
     "shot": "devices/iphone-se_games.jpg"
    },
    "project": {
-    "exhibit": "n/a",
-    "panel": "n/a",
+    "exhibit": "3d",
+    "panel": "ok",
     "overflow_px": 0,
     "nav_ok": true,
-    "small_targets": [],
+    "small_targets": [
+     "+ 36x40",
+     "− 36x40"
+    ],
     "menu": true,
     "errors": [],
     "shot": "devices/iphone-se_project.jpg"
    },
    "wrfm": {
-    "exhibit": "n/a",
-    "panel": "n/a",
+    "exhibit": "3d",
+    "panel": "ok",
     "overflow_px": 0,
     "nav_ok": true,
-    "small_targets": [],
+    "small_targets": [
+     "+ 36x40",
+     "− 36x40"
+    ],
     "menu": true,
     "errors": [],
     "shot": "devices/iphone-se_wrfm.jpg"
@@ -51,7 +63,10 @@
     "panel": "ok",
     "overflow_px": 0,
     "nav_ok": true,
-    "small_targets": [],
+    "small_targets": [
+     "+ 36x40",
+     "− 36x40"
+    ],
     "menu": true,
     "errors": [],
     "shot": "devices/iphone-se_about.jpg"
@@ -65,6 +80,45 @@
     "menu": true,
     "errors": [],
     "shot": "devices/iphone-se_passport.jpg"
+   },
+   "dice": {
+    "exhibit": "3d",
+    "panel": "ok",
+    "overflow_px": 0,
+    "nav_ok": true,
+    "small_targets": [
+     "+ 36x40",
+     "− 36x40"
+    ],
+    "menu": true,
+    "errors": [],
+    "shot": "devices/iphone-se_dice.jpg"
+   },
+   "maze": {
+    "exhibit": "3d",
+    "panel": "ok",
+    "overflow_px": 0,
+    "nav_ok": true,
+    "small_targets": [
+     "+ 36x40",
+     "− 36x40"
+    ],
+    "menu": true,
+    "errors": [],
+    "shot": "devices/iphone-se_maze.jpg"
+   },
+   "graffiti": {
+    "exhibit": "3d",
+    "panel": "ok",
+    "overflow_px": 0,
+    "nav_ok": true,
+    "small_targets": [
+     "+ 36x40",
+     "− 36x40"
+    ],
+    "menu": true,
+    "errors": [],
+    "shot": "devices/iphone-se_graffiti.jpg"
    }
   },
   "iphone-14-pro-max": {
@@ -73,7 +127,10 @@
     "panel": "ok",
     "overflow_px": 0,
     "nav_ok": true,
-    "small_targets": [],
+    "small_targets": [
+     "+ 36x40",
+     "− 36x40"
+    ],
     "menu": true,
     "errors": [],
     "shot": "devices/iphone-14-pro-max_home.jpg"
@@ -83,27 +140,36 @@
     "panel": "ok",
     "overflow_px": 0,
     "nav_ok": true,
-    "small_targets": [],
+    "small_targets": [
+     "+ 36x40",
+     "− 36x40"
+    ],
     "menu": true,
     "errors": [],
     "shot": "devices/iphone-14-pro-max_games.jpg"
    },
    "project": {
-    "exhibit": "n/a",
-    "panel": "n/a",
+    "exhibit": "3d",
+    "panel": "ok",
     "overflow_px": 0,
     "nav_ok": true,
-    "small_targets": [],
+    "small_targets": [
+     "+ 36x40",
+     "− 36x40"
+    ],
     "menu": true,
     "errors": [],
     "shot": "devices/iphone-14-pro-max_project.jpg"
    },
    "wrfm": {
-    "exhibit": "n/a",
-    "panel": "n/a",
+    "exhibit": "3d",
+    "panel": "ok",
     "overflow_px": 0,
     "nav_ok": true,
-    "small_targets": [],
+    "small_targets": [
+     "+ 36x40",
+     "− 36x40"
+    ],
     "menu": true,
     "errors": [],
     "shot": "devices/iphone-14-pro-max_wrfm.jpg"
@@ -113,7 +179,10 @@
     "panel": "ok",
     "overflow_px": 0,
     "nav_ok": true,
-    "small_targets": [],
+    "small_targets": [
+     "+ 36x40",
+     "− 36x40"
+    ],
     "menu": true,
     "errors": [],
     "shot": "devices/iphone-14-pro-max_about.jpg"
@@ -127,6 +196,45 @@
     "menu": true,
     "errors": [],
     "shot": "devices/iphone-14-pro-max_passport.jpg"
+   },
+   "dice": {
+    "exhibit": "3d",
+    "panel": "ok",
+    "overflow_px": 0,
+    "nav_ok": true,
+    "small_targets": [
+     "+ 36x40",
+     "− 36x40"
+    ],
+    "menu": true,
+    "errors": [],
+    "shot": "devices/iphone-14-pro-max_dice.jpg"
+   },
+   "maze": {
+    "exhibit": "3d",
+    "panel": "ok",
+    "overflow_px": 0,
+    "nav_ok": true,
+    "small_targets": [
+     "+ 36x40",
+     "− 36x40"
+    ],
+    "menu": true,
+    "errors": [],
+    "shot": "devices/iphone-14-pro-max_maze.jpg"
+   },
+   "graffiti": {
+    "exhibit": "3d",
+    "panel": "ok",
+    "overflow_px": 0,
+    "nav_ok": true,
+    "small_targets": [
+     "+ 36x40",
+     "− 36x40"
+    ],
+    "menu": true,
+    "errors": [],
+    "shot": "devices/iphone-14-pro-max_graffiti.jpg"
    }
   },
   "pixel-7": {
@@ -135,7 +243,10 @@
     "panel": "ok",
     "overflow_px": 0,
     "nav_ok": true,
-    "small_targets": [],
+    "small_targets": [
+     "+ 36x40",
+     "− 36x40"
+    ],
     "menu": true,
     "errors": [],
     "shot": "devices/pixel-7_home.jpg"
@@ -145,27 +256,36 @@
     "panel": "ok",
     "overflow_px": 0,
     "nav_ok": true,
-    "small_targets": [],
+    "small_targets": [
+     "+ 36x40",
+     "− 36x40"
+    ],
     "menu": true,
     "errors": [],
     "shot": "devices/pixel-7_games.jpg"
    },
    "project": {
-    "exhibit": "n/a",
-    "panel": "n/a",
+    "exhibit": "3d",
+    "panel": "ok",
     "overflow_px": 0,
     "nav_ok": true,
-    "small_targets": [],
+    "small_targets": [
+     "+ 36x40",
+     "− 36x40"
+    ],
     "menu": true,
     "errors": [],
     "shot": "devices/pixel-7_project.jpg"
    },
    "wrfm": {
-    "exhibit": "n/a",
-    "panel": "n/a",
+    "exhibit": "3d",
+    "panel": "ok",
     "overflow_px": 0,
     "nav_ok": true,
-    "small_targets": [],
+    "small_targets": [
+     "+ 36x40",
+     "− 36x40"
+    ],
     "menu": true,
     "errors": [],
     "shot": "devices/pixel-7_wrfm.jpg"
@@ -175,7 +295,10 @@
     "panel": "ok",
     "overflow_px": 0,
     "nav_ok": true,
-    "small_targets": [],
+    "small_targets": [
+     "+ 36x40",
+     "− 36x40"
+    ],
     "menu": true,
     "errors": [],
     "shot": "devices/pixel-7_about.jpg"
@@ -189,6 +312,45 @@
     "menu": true,
     "errors": [],
     "shot": "devices/pixel-7_passport.jpg"
+   },
+   "dice": {
+    "exhibit": "3d",
+    "panel": "ok",
+    "overflow_px": 0,
+    "nav_ok": true,
+    "small_targets": [
+     "+ 36x40",
+     "− 36x40"
+    ],
+    "menu": true,
+    "errors": [],
+    "shot": "devices/pixel-7_dice.jpg"
+   },
+   "maze": {
+    "exhibit": "3d",
+    "panel": "ok",
+    "overflow_px": 0,
+    "nav_ok": true,
+    "small_targets": [
+     "+ 36x40",
+     "− 36x40"
+    ],
+    "menu": true,
+    "errors": [],
+    "shot": "devices/pixel-7_maze.jpg"
+   },
+   "graffiti": {
+    "exhibit": "3d",
+    "panel": "ok",
+    "overflow_px": 0,
+    "nav_ok": true,
+    "small_targets": [
+     "+ 36x40",
+     "− 36x40"
+    ],
+    "menu": true,
+    "errors": [],
+    "shot": "devices/pixel-7_graffiti.jpg"
    }
   },
   "ipad-mini": {
@@ -213,8 +375,8 @@
     "shot": "devices/ipad-mini_games.jpg"
    },
    "project": {
-    "exhibit": "n/a",
-    "panel": "n/a",
+    "exhibit": "3d",
+    "panel": "ok",
     "overflow_px": 0,
     "nav_ok": true,
     "small_targets": [],
@@ -223,8 +385,8 @@
     "shot": "devices/ipad-mini_project.jpg"
    },
    "wrfm": {
-    "exhibit": "n/a",
-    "panel": "n/a",
+    "exhibit": "3d",
+    "panel": "ok",
     "overflow_px": 0,
     "nav_ok": true,
     "small_targets": [],
@@ -251,6 +413,36 @@
     "menu": false,
     "errors": [],
     "shot": "devices/ipad-mini_passport.jpg"
+   },
+   "dice": {
+    "exhibit": "3d",
+    "panel": "ok",
+    "overflow_px": 0,
+    "nav_ok": true,
+    "small_targets": [],
+    "menu": false,
+    "errors": [],
+    "shot": "devices/ipad-mini_dice.jpg"
+   },
+   "maze": {
+    "exhibit": "3d",
+    "panel": "ok",
+    "overflow_px": 0,
+    "nav_ok": true,
+    "small_targets": [],
+    "menu": false,
+    "errors": [],
+    "shot": "devices/ipad-mini_maze.jpg"
+   },
+   "graffiti": {
+    "exhibit": "3d",
+    "panel": "ok",
+    "overflow_px": 0,
+    "nav_ok": true,
+    "small_targets": [],
+    "menu": false,
+    "errors": [],
+    "shot": "devices/ipad-mini_graffiti.jpg"
    }
   },
   "ipad-mini-landscape": {
@@ -275,8 +467,8 @@
     "shot": "devices/ipad-mini-landscape_games.jpg"
    },
    "project": {
-    "exhibit": "n/a",
-    "panel": "n/a",
+    "exhibit": "3d",
+    "panel": "ok",
     "overflow_px": 0,
     "nav_ok": true,
     "small_targets": [],
@@ -285,8 +477,8 @@
     "shot": "devices/ipad-mini-landscape_project.jpg"
    },
    "wrfm": {
-    "exhibit": "n/a",
-    "panel": "n/a",
+    "exhibit": "3d",
+    "panel": "ok",
     "overflow_px": 0,
     "nav_ok": true,
     "small_targets": [],
@@ -313,6 +505,36 @@
     "menu": false,
     "errors": [],
     "shot": "devices/ipad-mini-landscape_passport.jpg"
+   },
+   "dice": {
+    "exhibit": "3d",
+    "panel": "ok",
+    "overflow_px": 0,
+    "nav_ok": true,
+    "small_targets": [],
+    "menu": false,
+    "errors": [],
+    "shot": "devices/ipad-mini-landscape_dice.jpg"
+   },
+   "maze": {
+    "exhibit": "3d",
+    "panel": "ok",
+    "overflow_px": 0,
+    "nav_ok": true,
+    "small_targets": [],
+    "menu": false,
+    "errors": [],
+    "shot": "devices/ipad-mini-landscape_maze.jpg"
+   },
+   "graffiti": {
+    "exhibit": "3d",
+    "panel": "ok",
+    "overflow_px": 0,
+    "nav_ok": true,
+    "small_targets": [],
+    "menu": false,
+    "errors": [],
+    "shot": "devices/ipad-mini-landscape_graffiti.jpg"
    }
   },
   "laptop-1366": {
@@ -337,8 +559,8 @@
     "shot": "devices/laptop-1366_games.jpg"
    },
    "project": {
-    "exhibit": "n/a",
-    "panel": "n/a",
+    "exhibit": "3d",
+    "panel": "ok",
     "overflow_px": 0,
     "nav_ok": true,
     "small_targets": [],
@@ -347,8 +569,8 @@
     "shot": "devices/laptop-1366_project.jpg"
    },
    "wrfm": {
-    "exhibit": "n/a",
-    "panel": "n/a",
+    "exhibit": "3d",
+    "panel": "ok",
     "overflow_px": 0,
     "nav_ok": true,
     "small_targets": [],
@@ -375,6 +597,36 @@
     "menu": false,
     "errors": [],
     "shot": "devices/laptop-1366_passport.jpg"
+   },
+   "dice": {
+    "exhibit": "3d",
+    "panel": "ok",
+    "overflow_px": 0,
+    "nav_ok": true,
+    "small_targets": [],
+    "menu": false,
+    "errors": [],
+    "shot": "devices/laptop-1366_dice.jpg"
+   },
+   "maze": {
+    "exhibit": "3d",
+    "panel": "ok",
+    "overflow_px": 0,
+    "nav_ok": true,
+    "small_targets": [],
+    "menu": false,
+    "errors": [],
+    "shot": "devices/laptop-1366_maze.jpg"
+   },
+   "graffiti": {
+    "exhibit": "3d",
+    "panel": "ok",
+    "overflow_px": 0,
+    "nav_ok": true,
+    "small_targets": [],
+    "menu": false,
+    "errors": [],
+    "shot": "devices/laptop-1366_graffiti.jpg"
    }
   },
   "desktop-1920": {
@@ -399,8 +651,8 @@
     "shot": "devices/desktop-1920_games.jpg"
    },
    "project": {
-    "exhibit": "n/a",
-    "panel": "n/a",
+    "exhibit": "3d",
+    "panel": "ok",
     "overflow_px": 0,
     "nav_ok": true,
     "small_targets": [],
@@ -409,8 +661,8 @@
     "shot": "devices/desktop-1920_project.jpg"
    },
    "wrfm": {
-    "exhibit": "n/a",
-    "panel": "n/a",
+    "exhibit": "3d",
+    "panel": "ok",
     "overflow_px": 0,
     "nav_ok": true,
     "small_targets": [],
@@ -437,6 +689,36 @@
     "menu": false,
     "errors": [],
     "shot": "devices/desktop-1920_passport.jpg"
+   },
+   "dice": {
+    "exhibit": "3d",
+    "panel": "ok",
+    "overflow_px": 0,
+    "nav_ok": true,
+    "small_targets": [],
+    "menu": false,
+    "errors": [],
+    "shot": "devices/desktop-1920_dice.jpg"
+   },
+   "maze": {
+    "exhibit": "3d",
+    "panel": "ok",
+    "overflow_px": 0,
+    "nav_ok": true,
+    "small_targets": [],
+    "menu": false,
+    "errors": [],
+    "shot": "devices/desktop-1920_maze.jpg"
+   },
+   "graffiti": {
+    "exhibit": "3d",
+    "panel": "ok",
+    "overflow_px": 0,
+    "nav_ok": true,
+    "small_targets": [],
+    "menu": false,
+    "errors": [],
+    "shot": "devices/desktop-1920_graffiti.jpg"
    }
   },
   "desktop-2560": {
@@ -461,8 +743,8 @@
     "shot": "devices/desktop-2560_games.jpg"
    },
    "project": {
-    "exhibit": "n/a",
-    "panel": "n/a",
+    "exhibit": "3d",
+    "panel": "ok",
     "overflow_px": 0,
     "nav_ok": true,
     "small_targets": [],
@@ -471,8 +753,8 @@
     "shot": "devices/desktop-2560_project.jpg"
    },
    "wrfm": {
-    "exhibit": "n/a",
-    "panel": "n/a",
+    "exhibit": "3d",
+    "panel": "ok",
     "overflow_px": 0,
     "nav_ok": true,
     "small_targets": [],
@@ -499,6 +781,36 @@
     "menu": false,
     "errors": [],
     "shot": "devices/desktop-2560_passport.jpg"
+   },
+   "dice": {
+    "exhibit": "3d",
+    "panel": "ok",
+    "overflow_px": 0,
+    "nav_ok": true,
+    "small_targets": [],
+    "menu": false,
+    "errors": [],
+    "shot": "devices/desktop-2560_dice.jpg"
+   },
+   "maze": {
+    "exhibit": "3d",
+    "panel": "ok",
+    "overflow_px": 0,
+    "nav_ok": true,
+    "small_targets": [],
+    "menu": false,
+    "errors": [],
+    "shot": "devices/desktop-2560_maze.jpg"
+   },
+   "graffiti": {
+    "exhibit": "3d",
+    "panel": "ok",
+    "overflow_px": 0,
+    "nav_ok": true,
+    "small_targets": [],
+    "menu": false,
+    "errors": [],
+    "shot": "devices/desktop-2560_graffiti.jpg"
    }
   }
  },
@@ -509,6 +821,9 @@
   "desktop:wrfm": [],
   "desktop:about": [],
   "desktop:passport": [],
+  "desktop:dice": [],
+  "desktop:maze": [],
+  "desktop:graffiti": [],
   "desktop:press": [],
   "desktop:contact": [],
   "desktop:settings": [],
@@ -520,6 +835,9 @@
   "phone:wrfm": [],
   "phone:about": [],
   "phone:passport": [],
+  "phone:dice": [],
+  "phone:maze": [],
+  "phone:graffiti": [],
   "phone:press": [],
   "phone:contact": [],
   "phone:settings": [],
@@ -529,19 +847,17 @@
  "lighthouse": {
   "home:mobile": {
    "scores": {
-    "performance": 29,
+    "performance": 27,
     "accessibility": 100,
     "best-practices": 100,
     "seo": 66
    },
-   "fcp": "6.4 s",
-   "lcp": "10.8 s",
-   "tbt": "7,110 ms",
-   "cls": "0.002",
-   "transfer": "Total size was 11,836 KiB",
-   "shifts": [
-    "main#main > div.page > section.content > h1.title 0.002"
-   ],
+   "fcp": "6.5 s",
+   "lcp": "14.7 s",
+   "tbt": "15,270 ms",
+   "cls": "0",
+   "transfer": "Total size was 7,422 KiB",
+   "shifts": [],
    "failing": [
     "valid-source-maps",
     "is-crawlable"
@@ -549,19 +865,17 @@
   },
   "home:desktop": {
    "scores": {
-    "performance": 54,
+    "performance": 49,
     "accessibility": 100,
     "best-practices": 100,
     "seo": 66
    },
    "fcp": "1.2 s",
-   "lcp": "1.9 s",
-   "tbt": "4,970 ms",
-   "cls": "0.001",
-   "transfer": "Total size was 11,836 KiB",
-   "shifts": [
-    "main#main > div.page > section.content > h1.title 0.001"
-   ],
+   "lcp": "2.5 s",
+   "tbt": "4,250 ms",
+   "cls": "0",
+   "transfer": "Total size was 12,786 KiB",
+   "shifts": [],
    "failing": [
     "valid-source-maps",
     "is-crawlable"
@@ -574,11 +888,11 @@
     "best-practices": 100,
     "seo": 66
    },
-   "fcp": "6.3 s",
-   "lcp": "11.8 s",
-   "tbt": "5,420 ms",
+   "fcp": "6.5 s",
+   "lcp": "12.0 s",
+   "tbt": "7,290 ms",
    "cls": "0",
-   "transfer": "Total size was 4,251 KiB",
+   "transfer": "Total size was 3,438 KiB",
    "shifts": [
     "main#main > div.page > section.content > h1.title 0.000"
    ],
@@ -595,10 +909,10 @@
     "seo": 66
    },
    "fcp": "1.2 s",
-   "lcp": "2.6 s",
-   "tbt": "1,010 ms",
+   "lcp": "2.7 s",
+   "tbt": "960 ms",
    "cls": "0",
-   "transfer": "Total size was 5,574 KiB",
+   "transfer": "Total size was 5,665 KiB",
    "shifts": [
     "main#main > div.page > section.content > h1.title 0.000"
    ],
@@ -609,55 +923,57 @@
   },
   "project:mobile": {
    "scores": {
-    "performance": 73,
+    "performance": 28,
     "accessibility": 100,
     "best-practices": 100,
     "seo": 66
    },
-   "fcp": "3.1 s",
-   "lcp": "5.8 s",
-   "tbt": "50 ms",
+   "fcp": "6.6 s",
+   "lcp": "11.4 s",
+   "tbt": "15,530 ms",
    "cls": "0.001",
-   "transfer": "Total size was 1,017 KiB",
+   "transfer": "Total size was 4,914 KiB",
    "shifts": [
     "main#main > div.page > section.content > h1.title 0.001"
    ],
    "failing": [
+    "valid-source-maps",
     "is-crawlable"
    ]
   },
   "project:desktop": {
    "scores": {
-    "performance": 98,
+    "performance": 56,
     "accessibility": 100,
     "best-practices": 100,
     "seo": 66
    },
-   "fcp": "0.6 s",
-   "lcp": "1.1 s",
-   "tbt": "0 ms",
-   "cls": "0",
-   "transfer": "Total size was 1,017 KiB",
+   "fcp": "1.2 s",
+   "lcp": "2.0 s",
+   "tbt": "1,780 ms",
+   "cls": "0.001",
+   "transfer": "Total size was 9,116 KiB",
    "shifts": [
-    "main#main > div.page > section.content > h1.title 0.000"
+    "main#main > div.page > section.content > h1.title 0.001"
    ],
    "failing": [
+    "valid-source-maps",
     "is-crawlable"
    ]
   }
  },
  "sizes": {
-  "js_total_kb": 1570,
+  "js_total_kb": 3887,
   "js_largest": [
-   "Scene-BG-mxrYP.js 1200 KB",
-   "index-kwoNohDn.js 314 KB",
-   "basis_transcoder-o4Hde_L7.js 56 KB"
+   "react-three-rapier.esm-ETBhJgtn.js 2208 KB",
+   "Scene-CvtuAZdB.js 1207 KB",
+   "index-mIw-5HzK.js 349 KB"
   ],
   "models_mb": {
-   "studio_desk.glb": 9.56,
+   "studio_desk.glb": 9.71,
    "games_collection.glb": 1.43,
    "studio_notebook.glb": 0.31
   },
-  "media_mb": 40.3
+  "media_mb": 42.2
  }
 }
