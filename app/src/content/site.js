@@ -33,9 +33,18 @@ export const PAGES = {
       smartFocus: true,
       // hand-framed views (model space: camera position p, looking at t), matched to the studio's own framing.
       // Frame more on staging with ?frames (the frame tool), then paste the copied list here.
-      framed: {
+      framed: {   // framed by the studio with the frame tool (?frames) - camera position p, looking at t
         monitor_left: { p: [-0.10, 1.37, 2.10], t: [0.06, 1.07, -0.60] },   // the whole hutch, monitors front-on
-        passport: { p: [0.19, 1.52, 0.34], t: [0.21, 0.77, -0.22] },        // looking down on the desk mat
+        graffiti: { p: [0.05, 1.05, -0.05], t: [0.31, 0.78, -0.70] },     // the guestbook under the riser, past the mug
+        games_crate: { p: [-0.384, 0.528, 1.727], t: [0.162, 0.179, -0.447] },
+        notebook: { p: [0.099, 2.329, 1.021], t: [0.509, 0.644, -0.533] },
+        headphones: { p: [3.288, 1.67, 0.75], t: [0.83, 1.073, -0.521] },
+        radio: { p: [0.931, 1.434, 2.26], t: [0.622, 0.807, -0.628] },
+        collectible_a: { p: [-1.863, 1.946, 3.185], t: [0.418, 1.42, -1.267] },
+        contact_card: { p: [0.922, 2.306, 2.597], t: [0.549, 0.724, -0.635] },
+        passport: { p: [0.562, 1.436, 0.35], t: [0.23, 0.772, -0.22] },
+        "project_labyrinth-fate": { p: [0.845, 2.066, 1.295], t: [0.76, 1.506, -0.801] },
+        "project_macabre-dolls": { p: [0.499, 1.896, 2.701], t: [0.783, 1.525, -0.823] },
       },
       // first load: swing in from the front, a little higher and farther out, then settle on the hero angle
       intro: { azimuth: -32, elevation: 12, distance: 1.45, time: 1.25 },
@@ -48,8 +57,12 @@ export const PAGES = {
         [[-1.25, -0.15, -1.0], [1.25, 0.0, 1.0]],      // display platform
         [[-0.68, 0.72, -0.88], [0.92, 0.77, -0.16]],   // desktop
         [[0.47, 0.0, -0.86], [0.91, 0.72, -0.16]],     // drawer cabinet
-        [[-0.7, 0.925, -0.88], [0.95, 1.74, -0.62]],   // monitors + shelf unit: from the riser plank up, so the
-                                                        // space under it (radio, guestbook, router) stays reachable
+        // the shelf unit as its real parts, so the camera can reach what stands under the riser (radio,
+        // guestbook, router) and on the top shelf (game boxes, books, figurines)
+        [[-0.7, 0.925, -0.88], [0.95, 0.965, -0.58]],  // riser plank
+        [[-0.7, 0.965, -0.89], [0.95, 1.60, -0.85]],   // back panel
+        [[-0.47, 0.96, -0.86], [0.68, 1.40, -0.64]],   // monitors
+        [[-0.7, 1.49, -0.89], [0.95, 1.535, -0.58]],   // top shelf board
         [[-0.69, 0.31, -0.21], [0.05, 1.17, 0.48]],    // chair
       ],
       // the navigation hotspots also offered as plain buttons (keyboard / screen-reader path)

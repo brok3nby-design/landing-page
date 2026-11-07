@@ -3,6 +3,7 @@
 // and "Copy all" puts them on the clipboard as text, ready to paste to the developer to build into the site
 // (site.js -> PAGES.home.exhibit.framed). Off unless the page was opened with ?frames (remembered for the visit).
 import { useEffect, useState } from "react";
+import { createPortal } from "react-dom";
 import { FRAMED_KEY } from "./Scene.jsx";
 
 const load = () => { try { return JSON.parse(localStorage.getItem(FRAMED_KEY) || "{}"); } catch { return {}; } };
@@ -25,7 +26,10 @@ export default function FrameTool({ selectedId, labels, api }) {
     catch { setNote("Copy didn't work here: select the text below and copy it."); }
   };
   const ids = Object.keys(views);
-  return (
+  // shown in the page's left column (Home has a #frame-tool-slot under the desk's options), off the 3D view
+  const [slot, setSlot] = useState(null);
+  useEffect(() => { setSlot(document.getElementById("frame-tool-slot")); }, []);
+  const body = (
     <div className="frame-tool" role="region" aria-label="Frame tool">
       <p className="frame-tool-h">Frame tool</p>
       <p className="frame-tool-help">Pick an item, move the camera until it looks right, then save. {selectedId ? "" : "No item selected."}</p>
@@ -46,4 +50,5 @@ export default function FrameTool({ selectedId, labels, api }) {
       {note && <p className="frame-tool-note" role="status">{note}</p>}
     </div>
   );
+  return slot ? createPortal(body, slot) : body;
 }

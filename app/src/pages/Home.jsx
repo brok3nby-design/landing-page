@@ -65,6 +65,7 @@ export default function Home() {
           <div className="hotspots">
             <h2 id="explore" className={picked ? "" : "pulse"}><span className="pulse-dot" aria-hidden="true" />Explore the desk</h2>
             <HotspotList ids={page.exhibit.hotspots} selectedId={selectedId} select={select} glinting={!picked} />
+            <div id="frame-tool-slot" />
           </div>
         </section>
         <Exhibit config={page.exhibit} selectedId={selectedId} onSelect={select}>
