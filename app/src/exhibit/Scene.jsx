@@ -336,7 +336,7 @@ function framedView(builtIn, id) {
 
 // ---------------------------------------------------------------- camera rig
 const SHIFT = parseFloat(new URLSearchParams(location.search).get("shift")) || 0.05;   // share of the view width
-function Rig({ box, model, fit, intro: introMove, view, frame: FRAME, frameOrigin, homeScale = 0.86, onWheelHint, under, underView, selected, apiRef, colliders, focusLift = 0, focusScale = 2.1, smartFocus = false, focusViews = null, framed = null }) {
+function Rig({ box, model, fit, intro: introMove, view, frame: FRAME, frameOrigin, homeScale = 0.86, onWheelHint, under, underView, selected, apiRef, colliders, focusLift = 0, focusScale = 2.1, smartFocus = false, focusViews = null, framed = null, framedPhone = null }) {
   const ctl = useRef();
   const camera = useThree((s) => s.camera);
   const size = useThree((s) => s.size);
@@ -554,6 +554,12 @@ function Rig({ box, model, fit, intro: introMove, view, frame: FRAME, frameOrigi
       const r = Math.max(sphere.radius, focusLift ? 0.06 : 0.1);
       sphere.radius = r * focusScale;                   // keep some context around the object
       const hand = framedView(framed, selected.userData.interactive_id);
+      const phoneHand = size.width <= 700 && framedPhone?.[selected.userData.interactive_id];
+      if (phoneHand) {                                // a separate hand-framed view for phones (site.js "framedPhone")
+        cc.setFocalOffset(0, 0, 0, smooth);
+        cc.setLookAt(...phoneHand.p, ...phoneHand.t, smooth);
+        return;
+      }
       if (hand && size.width > 700) {                // framed by hand (site.js "framed", or saved with ?frames)
         cc.setFocalOffset(0, 0, 0, smooth);
         cc.setLookAt(...hand.p, ...hand.t, smooth);
@@ -740,7 +746,7 @@ function Content({ config, selectedId, onSelect, under, apiRef, quality, animSta
         <>
           <Lights box={state.box} kind={config.lights || "exhibit"} under={under} shadows={quality.shadows} />
           <Rig box={state.box} model={state.scene} fit={config.fit} intro={config.intro} view={view} frame={FRAME_ID && views?.cameras?.[FRAME_ID]} frameOrigin={config.frameOrigin} homeScale={config.homeScale} onWheelHint={onWheelHint} under={under} underView={config.underView} selected={selected} apiRef={apiRef} colliders={colliders}
-               focusLift={lifting ? 0.13 : 0} focusScale={config.focusScale} smartFocus={config.smartFocus} focusViews={focusViews} framed={config.framed} />
+               focusLift={lifting ? 0.13 : 0} focusScale={config.focusScale} smartFocus={config.smartFocus} focusViews={focusViews} framed={config.framed} framedPhone={config.framedPhone} />
           {lifting && <LiftTurn index={state.index} selectedId={selectedId} />}
           {config.animation === "notebook" && <NotebookOpen scene={state.scene} open={animState?.open ?? true} />}
           {config.play === "gold" && <Suspense fallback={null}><GoldPlay scene={state.scene} onSelect={onSelect} /></Suspense>}

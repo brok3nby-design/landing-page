@@ -7,7 +7,7 @@ import { resolveInteraction } from "../exhibit/interactions.js";
 import { PAGES, HOTSPOT_LABELS } from "../content/site.js";
 import { useSiteData, section, media, projectRoute } from "../content/data.js";
 import { unlock } from "../site/passport.js";
-import { pauseMusic } from "../site/music.js";
+import { pauseMusic, playMusic, setVolume, useMusic } from "../site/music.js";
 import { wakeAudio, blip } from "../exhibit/goldAudio.js";
 import * as radio from "../site/radio.js";
 import { RadioButtons } from "../components/RadioBar.jsx";
@@ -69,11 +69,28 @@ export default function Home() {
           </div>
         </section>
         <Exhibit config={page.exhibit} selectedId={selectedId} onSelect={select}>
-          <InfoPanel item={item} onClose={close}>{selectedId === "radio" && <RadioButtons />}</InfoPanel>
+          <InfoPanel item={item} onClose={close}>
+            {selectedId === "radio" && <RadioButtons />}
+            {selectedId === "headphones" && <SoundtrackButtons />}
+          </InfoPanel>
         </Exhibit>
       </div>
       {copy && <HomeMore data={data} />}
     </>
+  );
+}
+
+// the headphones' panel: the studio's theme (the site music), on / off and volume
+function SoundtrackButtons() {
+  const m = useMusic();
+  return (
+    <div className="panel-actions radio-actions soundtrack-actions">
+      <button type="button" className={`btn${m.playing ? "" : " primary"}`} aria-pressed={m.playing}
+              onClick={() => (m.playing ? pauseMusic() : playMusic())}>{m.playing ? "❚❚ Pause the music" : "▶ Play the soundtrack"}</button>
+      <label className="soundtrack-vol"><span>Volume</span>
+        <input type="range" min="0" max="1" step="0.05" value={m.volume} onChange={(e) => setVolume(parseFloat(e.target.value))} />
+      </label>
+    </div>
   );
 }
 
