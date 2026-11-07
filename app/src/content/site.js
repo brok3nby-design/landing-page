@@ -35,7 +35,7 @@ export const PAGES = {
       // Frame more on staging with ?frames (the frame tool), then paste the copied list here.
       framed: {   // framed by the studio with the frame tool (?frames) - camera position p, looking at t
         monitor_left: { p: [-0.10, 1.37, 2.10], t: [0.06, 1.07, -0.60] },   // the whole hutch, monitors front-on
-        graffiti: { p: [0.05, 1.05, -0.05], t: [0.31, 0.78, -0.70] },     // the guestbook under the riser, past the mug
+        graffiti: { p: [0.367, 1.254, -0.134], t: [0.28, 0.79, -0.698] },   // the guestbook under the riser
         games_crate: { p: [-0.384, 0.528, 1.727], t: [0.162, 0.179, -0.447] },
         notebook: { p: [0.099, 2.329, 1.021], t: [0.509, 0.644, -0.533] },
         headphones: { p: [3.288, 1.67, 0.75], t: [0.83, 1.073, -0.521] },
@@ -44,6 +44,7 @@ export const PAGES = {
         contact_card: { p: [0.922, 2.306, 2.597], t: [0.549, 0.724, -0.635] },
         passport: { p: [0.562, 1.436, 0.35], t: [0.23, 0.772, -0.22] },
         "project_labyrinth-fate": { p: [0.845, 2.066, 1.295], t: [0.76, 1.506, -0.801] },
+        "project_juicebox": { p: [0.537, 1.646, 0.419], t: [0.704, 1.521, -0.749] },
         "project_macabre-dolls": { p: [0.499, 1.896, 2.701], t: [0.783, 1.525, -0.823] },
       },
       // first load: swing in from the front, a little higher and farther out, then settle on the hero angle
