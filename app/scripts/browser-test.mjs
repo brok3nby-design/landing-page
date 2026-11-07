@@ -268,9 +268,13 @@ results.phase10.entrance_skipped_next_time = (await p10.locator(".entrance").cou
 results.phase10.prefs_storage = await p10.evaluate(() => JSON.parse(localStorage.getItem("b3d-preferences-v1")));
 // settings persist
 await p10.goto(`${URL}/settings?test`);
-await p10.locator(".setting", { hasText: "Cartridge sound effects" }).locator("input").check();
+// "Sound effects" is on by default: switch it off, reload, it stays off (then back on)
+const sfxBox = () => p10.locator(".setting", { hasText: "Sound effects" }).locator("input");
+results.phase10.sound_effects_on_by_default = await sfxBox().isChecked();
+await sfxBox().uncheck();
 await p10.reload();
-results.phase10.setting_persists = await p10.locator(".setting", { hasText: "Cartridge sound effects" }).locator("input").isChecked();
+results.phase10.setting_persists = !(await sfxBox().isChecked());
+await sfxBox().check();
 // project page content: Speck trailer + gallery, WRFM clips, Pocket Wilds log
 await p10.goto(`${URL}/games/speck?test`);
 await p10.waitForSelector(".gallery img");
