@@ -1,7 +1,7 @@
 {
  "built": {
-  "commit": "c41da60",
-  "built": "2026-11-07T15:38:44.686Z",
+  "commit": "45abc64",
+  "built": "2026-11-07T16:14:40.886Z",
   "staging": true
  },
  "devices": {
@@ -243,10 +243,7 @@
     "panel": "ok",
     "overflow_px": 0,
     "nav_ok": true,
-    "small_targets": [
-     "+ 36x40",
-     "− 36x40"
-    ],
+    "small_targets": [],
     "menu": true,
     "errors": [],
     "shot": "devices/pixel-7_home.jpg"
@@ -256,10 +253,7 @@
     "panel": "ok",
     "overflow_px": 0,
     "nav_ok": true,
-    "small_targets": [
-     "+ 36x40",
-     "− 36x40"
-    ],
+    "small_targets": [],
     "menu": true,
     "errors": [],
     "shot": "devices/pixel-7_games.jpg"
@@ -269,10 +263,7 @@
     "panel": "ok",
     "overflow_px": 0,
     "nav_ok": true,
-    "small_targets": [
-     "+ 36x40",
-     "− 36x40"
-    ],
+    "small_targets": [],
     "menu": true,
     "errors": [],
     "shot": "devices/pixel-7_project.jpg"
@@ -282,14 +273,9 @@
     "panel": "ok",
     "overflow_px": 0,
     "nav_ok": true,
-    "small_targets": [
-     "+ 36x40",
-     "− 36x40"
-    ],
+    "small_targets": [],
     "menu": true,
-    "errors": [
-     "TypeError: Cannot read properties of undefined (reading 'x')"
-    ],
+    "errors": [],
     "shot": "devices/pixel-7_wrfm.jpg"
    },
    "about": {
@@ -297,10 +283,7 @@
     "panel": "ok",
     "overflow_px": 0,
     "nav_ok": true,
-    "small_targets": [
-     "+ 36x40",
-     "− 36x40"
-    ],
+    "small_targets": [],
     "menu": true,
     "errors": [],
     "shot": "devices/pixel-7_about.jpg"
@@ -320,10 +303,7 @@
     "panel": "ok",
     "overflow_px": 0,
     "nav_ok": true,
-    "small_targets": [
-     "+ 36x40",
-     "− 36x40"
-    ],
+    "small_targets": [],
     "menu": true,
     "errors": [],
     "shot": "devices/pixel-7_dice.jpg"
@@ -333,10 +313,7 @@
     "panel": "ok",
     "overflow_px": 0,
     "nav_ok": true,
-    "small_targets": [
-     "+ 36x40",
-     "− 36x40"
-    ],
+    "small_targets": [],
     "menu": true,
     "errors": [],
     "shot": "devices/pixel-7_maze.jpg"
@@ -346,10 +323,7 @@
     "panel": "ok",
     "overflow_px": 0,
     "nav_ok": true,
-    "small_targets": [
-     "+ 36x40",
-     "− 36x40"
-    ],
+    "small_targets": [],
     "menu": true,
     "errors": [],
     "shot": "devices/pixel-7_graffiti.jpg"
@@ -967,9 +941,9 @@
  "sizes": {
   "js_total_kb": 4058,
   "js_largest": [
-   "react-three-rapier.esm-D3hC-VaU.js 2208 KB",
-   "Scene-DSodTMe_.js 1212 KB",
-   "index-YMmxyu34.js 392 KB"
+   "react-three-rapier.esm-CqEOgZMP.js 2208 KB",
+   "Scene-D8DTbndO.js 1212 KB",
+   "index-BVVes33r.js 392 KB"
   ],
   "models_mb": {
    "studio_desk.glb": 10.15,

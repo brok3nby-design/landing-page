@@ -355,7 +355,7 @@ blockquote { margin: 18px 0; padding-left: 18px; border-left: 2px solid var(--re
 }
 .more { padding-left: var(--edge); padding-right: var(--edge); }
 .footer { padding-left: var(--edge); padding-right: var(--edge); }
-.tool.icon { min-width: 36px; justify-content: center; font-size: 15px; letter-spacing: 0; }
+.tool.icon { min-width: 40px; justify-content: center; font-size: 15px; letter-spacing: 0; }
 .wheel-hint { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); background: rgba(8,8,8,.85);
               border: 1px solid var(--faint); padding: 10px 16px; font-size: 12px; letter-spacing: .14em; text-transform: uppercase;
               color: var(--fg); pointer-events: none; transition: opacity .25s; z-index: 2; }
