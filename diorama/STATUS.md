@@ -14,8 +14,22 @@ https://brok3nbydesign.com/landing-page/ (the `gh-pages` branch of this reposito
   - Fixed during the check: info panels now open above the exhibit tool row (on Juicebox one covered the Headlights button).
 - **Homepage (this session):** the camera fits the whole desk between the hint line and the buttons (`fit` in the home
   exhibit config), the first view swings in (`intro`), the 3D area starts below the header, the copy sits further in.
-- **Known trade-off:** the desk model is 9.7 MB (KTX2 textures: small on the GPU, larger to download). The 3.3 MB WebP
-  build uses ~4× the GPU memory, so phones keep KTX2 for now.
+- **Phone models:** every GLB has a `_m` phone version (`optimize.mjs --mobile`, ~2-4x smaller); phones and ≤ 4 GB
+  devices load them (EXPORTS.md). Browsers drawing 3D in software (hardware acceleration off) start on the still image.
+- **Added 2026-11-06/07:**
+  - Desk (phase 11 re-export): monitors face the chair; the sticky notes became an open **guestbook** (Graffiti); a
+    walnut **WRFM radio** (dial on 97.1); a rebuilt slatted **games crate** with detailed cartridges.
+  - **Desk radio:** *Tune in live* plays WRFM 97.1 in sync with the real station (its clock-driven schedule, synced from
+    `wrfm-source` with `npm run sync:wrfm`), or *Funny clip*; a now-playing bar follows you across pages.
+  - **Site music:** the studio's 10 tracks + the original theme as a playlist that follows the page's mood
+    (`site/music.js`; masters in `custom/music/`). The **headphones** play / pause it.
+  - **My Gaming History** (`/about/gaming-history`, text in `app/src/content/gaming-history.md`), from the figurine.
+  - **Item views framed by the studio** (`framed` / `framedPhone` in `site.js`; frame more on staging with `?frames`);
+    compact info panel on phones; every item makes a sound (Sound effects setting, on by default).
+  - Fixes: header tabs stacking pages (duplicate React key), selection stalls (angles precomputed in
+    `data/focus_views.json` by `scripts/focus-views.mjs`), shelf keep-out boxes split so everything is reachable,
+    WRFM lightbox reads OFF AIR (red) / ON AIR (green), back-to-top button, brand-film thumbnail.
+  - New tests: `test:desk-extras`, `test:wrfm-live`, `test:phone-panel`, `test:music` (and the header-tab check in `test:fallback`).
 - **Waiting for you:** real-device walk-through ([STAGING.md](STAGING.md)), your J.E.F.F. lines (`jeffLines` in
   `app/src/content/site.js`), and approval before anything goes live on brok3nbydesign.com.
 - Live-site repository: PR brok3nby-design/brok3nby-design.github.io#1 merged; the removed files were also purged from its history.

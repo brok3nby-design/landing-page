@@ -27,6 +27,8 @@
     "test:fallback": "npm run build && node scripts/fallback-test.mjs",
     "test:desk-extras": "npm run build && node scripts/desk-extras-test.mjs",
     "test:wrfm-live": "npm run build && node scripts/wrfm-live-test.mjs",
+    "test:phone-panel": "npm run build && node scripts/phone-panel-test.mjs",
+    "test:music": "npm run build && node scripts/music-test.mjs",
     "sync:wrfm": "node scripts/sync-wrfm.mjs"
   },
   "dependencies": {
