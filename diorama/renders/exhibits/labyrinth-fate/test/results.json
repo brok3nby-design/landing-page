@@ -13,12 +13,12 @@
  },
  "to_heart": {
   "pos": 27,
-  "rolls": 7,
+  "rolls": 12,
   "done": true,
   "steps": 27,
   "busy": false
  },
- "heart_readout": "The heart of the maze, in 7 rolls. The world remembers.",
+ "heart_readout": "The heart of the maze, in 12 rolls. The world remembers.",
  "stamp": true,
  "after_reset": {
   "pos": 0,
