@@ -184,7 +184,7 @@
     },
     "desktop:home_hotspot_panel": {
       "ok": true,
-      "link": "/games"
+      "link": null
     },
     "desktop:header_tabs": {
       "ok": true,
@@ -382,7 +382,7 @@
     },
     "phone:home_hotspot_panel": {
       "ok": true,
-      "link": "/games"
+      "link": null
     }
   },
   "reduced_motion": {
