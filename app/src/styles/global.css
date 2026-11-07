@@ -585,3 +585,6 @@ blockquote { margin: 18px 0; padding-left: 18px; border-left: 2px solid var(--re
 .soundtrack-vol input { width: 110px; accent-color: var(--red-hi); }
 .soundtrack-now { flex-basis: 100%; margin: 2px 0 0 !important; font-size: 13px !important; color: var(--muted); }
 .soundtrack-now strong { color: var(--fg); font-weight: 600; }
+@media (max-width: 900px) {   /* headphones on phones: play / next up front; now playing and volume under Details */
+  .exhibit .panel:not(.more) .soundtrack-now, .exhibit .panel:not(.more) .soundtrack-vol { display: none; }
+}

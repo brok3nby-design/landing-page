@@ -49,7 +49,7 @@ export const PAGES = {
       },
       // phones (narrow view): separate hand-framed views where the desktop angle doesn't fit
       framedPhone: {
-        monitor_left: { p: [0.12, 1.47, 1.25], t: [0.12, 1.10, -0.70] },   // both monitors front-on, over the chair
+        monitor_left: { p: [0.10, 1.50, 1.50], t: [0.10, 1.10, -0.70] },   // both monitors front-on, over the chair
       },
       // first load: swing in from the front, a little higher and farther out, then settle on the hero angle
       intro: { azimuth: -32, elevation: 12, distance: 1.45, time: 1.25 },
