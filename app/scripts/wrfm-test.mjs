@@ -34,7 +34,7 @@ page.on("console", (m) => m.type() === "error" && errors.push(m.text()));
 const wait = (ms) => page.waitForTimeout(ms);
 const frames = async (n = 10) => { for (let i = 0; i < n; i++) { await page.evaluate(() => window.__exhibit?.invalidate()); await wait(80); } };
 const shot = async (f) => { await frames(3); await page.screenshot({ path: path.join(OUT, f), timeout: 180000 }); console.log("shot", f); };
-const W = () => page.evaluate(() => ({ onAir: window.__wrfm.onAir(), level: window.__wrfm.level(), needles: window.__wrfm.needles(), music: window.__wrfm.music(), sign: window.__wrfm.sign() }));
+const W = () => page.evaluate(() => ({ onAir: window.__wrfm.onAir(), level: window.__wrfm.level(), needles: window.__wrfm.needles(), music: window.__wrfm.music(), sign: window.__wrfm.sign(), signText: window.__wrfm.signText() }));
 // software GL can need seconds per frame for close views: wait until frames are really being drawn
 const settle = async () => { for (let i = 0; i < 120; i++) {
   const n = await page.evaluate(() => new Promise((r) => { let n = 0; const t = performance.now();
@@ -85,8 +85,8 @@ results.checks = {
   on_air_button: results.button_on.onAir,
   phone_rings_and_vera_picks_up: results.ringing.onAir && !!results.stamp && /Vera picks up|The phone/.test(results.phone_readout || ""),
   turntable_starts_music: results.turntable.music === true,
-  sign_dims_off_air: results.turntable.sign !== null && results.turntable.sign < 0.2,
-  sign_lit_on_air: results.mic_on.sign > 0.8,
+  sign_says_off_air_red: results.turntable.signText === "OFF AIR",
+  sign_says_on_air_green: results.mic_on.signText === "ON AIR" && results.mic_on.sign > 0.8,
   no_errors: errors.length === 0,
 };
 results.errors = errors;

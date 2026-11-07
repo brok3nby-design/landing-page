@@ -1,66 +1,72 @@
 {
  "mic_on": {
   "onAir": true,
-  "level": 0.15902764326028515,
+  "level": 0.3535687823490149,
   "needles": [
-   -0.4156183971266064,
-   -0.4427023593050249
+   -0.3326231370434734,
+   -0.36761140970599976
   ],
   "music": false,
-  "sign": 0.994
+  "sign": 0.988,
+  "signText": "ON AIR"
  },
  "readout": "On air · Vera Lang signs on: “If you’re hearing this, it means the office is quiet and you’re still here. That’s not a mistake.”",
  "mic_off": {
   "onAir": false,
-  "level": 0.0009368839174106817,
+  "level": 0.0006893729810261902,
   "needles": [
-   -0.6969471098063025,
-   -0.6972378612533212
+   -0.6977507186779124,
+   -0.6979649359466826
   ],
   "music": false,
-  "sign": 0.13
+  "sign": 0.555,
+  "signText": "OFF AIR"
  },
  "button_on": {
   "onAir": true,
-  "level": 0.0003095004007839962,
+  "level": 0.00022664444349737234,
   "needles": [
-   -0.6989683763183343,
-   -0.6990666261927787
+   -0.6992442695589991,
+   -0.6993162438867134
   ],
   "music": false,
-  "sign": 0.124
+  "sign": 0.552,
+  "signText": "OFF AIR"
  },
  "ringing": {
   "onAir": true,
-  "level": 0.0003095004007839962,
+  "level": 0.00022664444349737234,
   "needles": [
-   -0.6989683763183343,
-   -0.6990666261927787
+   -0.6992442695589991,
+   -0.6993162438867134
   ],
   "music": false,
-  "sign": 0.124
+  "sign": 0.552,
+  "signText": "OFF AIR"
  },
  "after_phone": {
   "onAir": true,
-  "level": 0.15828912468838782,
+  "level": 0.12356762728358253,
   "needles": [
-   -0.5616868841435597,
-   -0.5748595618441731
+   -0.5183883635626344,
+   -0.5356847098900026
   ],
   "music": false,
-  "sign": 0.678
+  "sign": 0.835,
+  "signText": "ON AIR"
  },
- "stamp": "2026-11-06T05:19:44.945Z",
+ "stamp": "2026-11-07T13:18:35.686Z",
  "phone_readout": "On air · Vera picks up: You found the phone.",
  "turntable": {
   "onAir": false,
-  "level": 0.3509638457276481,
+  "level": 0.5507228295959236,
   "needles": [
-   -0.13368904302215295,
-   -0.18762341987718606
+   0.040450774959269055,
+   -0.030068346465423307
   ],
   "music": true,
-  "sign": 0.12
+  "sign": 0.55,
+  "signText": "OFF AIR"
  },
  "checks": {
   "mic_puts_vera_on_air": true,
@@ -69,8 +75,8 @@
   "on_air_button": true,
   "phone_rings_and_vera_picks_up": true,
   "turntable_starts_music": true,
-  "sign_dims_off_air": true,
-  "sign_lit_on_air": true,
+  "sign_says_off_air_red": true,
+  "sign_says_on_air_green": true,
   "no_errors": true
  },
  "errors": []

@@ -43,18 +43,37 @@ export default function WrfmPlay({ scene }) {
     scene.add(light);
     S.light = light;
     if (N.face) {
+      // two faces for the lightbox, drawn here: a green ON AIR while Vera is on air, a red OFF AIR otherwise
+      const sign = (text, glow, core) => {
+        const c = document.createElement("canvas"); c.width = 512; c.height = 192;
+        const g = c.getContext("2d");
+        g.fillStyle = "#070707"; g.fillRect(0, 0, 512, 192);
+        g.font = "700 104px ui-monospace, 'Courier New', monospace"; g.textAlign = "center"; g.textBaseline = "middle";
+        g.shadowColor = glow; g.shadowBlur = 28; g.fillStyle = core;
+        g.fillText(text, 256, 100); g.shadowBlur = 10; g.fillText(text, 256, 100);
+        const t = new THREE.CanvasTexture(c);
+        t.flipY = false; t.colorSpace = THREE.SRGBColorSpace;    // glTF UV convention (like the model's own textures)
+        return t;
+      };
+      S.signOn = sign("ON AIR", "#2dff6a", "#d9ffe4");
+      S.signOff = sign("OFF AIR", "#ff2a1a", "#ffd9d2");
       N.face.material = N.face.material.clone();
       N.face.userData.ownMat = false;
       N.face.userData.e0 = N.face.material.emissiveIntensity;
-      N.face.material.emissiveIntensity = N.face.userData.e0 * 0.12;   // off air: a dim red box
+      N.face.material.map = S.signOff; N.face.material.emissiveMap = S.signOff;
+      N.face.material.emissive = new THREE.Color("#ffffff");
+      N.face.material.emissiveIntensity = N.face.userData.e0 * 0.55;   // off air: the red OFF AIR, clearly lit
+      N.face.material.needsUpdate = true;
     }
     S.needleRest = N.needles.map((n) => n.quaternion.clone());
     S.phoneRest = N.phone ? N.phone.quaternion.clone() : null;
     invalidate();
-    window.__wrfm = { onAir: () => S.onAir, level: () => S.level, needles: () => S.needleAngle.slice(), music: () => S.music, sign: () => (N.face ? +(N.face.material.emissiveIntensity / N.face.userData.e0).toFixed(3) : null) };
+    window.__wrfm = { onAir: () => S.onAir, level: () => S.level, needles: () => S.needleAngle.slice(), music: () => S.music, sign: () => (N.face ? +(N.face.material.emissiveIntensity / N.face.userData.e0).toFixed(3) : null),
+                    signText: () => (N.face ? (N.face.material.map === S.signOn ? "ON AIR" : "OFF AIR") : null) };
     return () => {
       scene.remove(light); stop();
       if (N.face) N.face.material.emissiveIntensity = N.face.userData.e0;
+      S.signOn?.dispose(); S.signOff?.dispose();
       N.needles.forEach((n, i) => n.quaternion.copy(S.needleRest[i]));
       delete window.__wrfm;
     };
@@ -171,13 +190,19 @@ export default function WrfmPlay({ scene }) {
       n.quaternion.copy(S.needleRest[i]).multiply(tmp.q.setFromAxisAngle(NEEDLE_AXIS, S.needleAngle[i] - 0.7));
     });
     if (S.onAir || music.playing || S.level > 0.01) busy = true;
-    // the ON AIR sign and its red light
+    // the lightbox: green ON AIR on air, red OFF AIR off air (and its light follows the colour)
     if (N.face) {
-      const want = S.onAir ? 1 : 0.12;
+      const tex = S.onAir ? S.signOn : S.signOff;
+      if (N.face.material.map !== tex) {
+        N.face.material.map = tex; N.face.material.emissiveMap = tex; N.face.material.needsUpdate = true;
+        if (S.light) S.light.color.set(S.onAir ? "#2dff6a" : "#ff3b22");
+        busy = true;
+      }
+      const want = S.onAir ? 1 : 0.55;
       const cur = N.face.material.emissiveIntensity / N.face.userData.e0;
       const nx = cur + (want - cur) * (1 - Math.exp(-k * 10));
       N.face.material.emissiveIntensity = nx * N.face.userData.e0;
-      if (S.light) S.light.intensity = Math.max(0, (nx - 0.12) / 0.88) * 0.9;
+      if (S.light) S.light.intensity = S.onAir ? 0.9 * nx : 0.25;
       if (Math.abs(want - nx) > 0.005) busy = true;
     }
     if (N.record && music.playing) { N.record.rotateY(-3.5 * k); busy = true; }   // 33 rpm
