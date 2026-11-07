@@ -5,7 +5,7 @@
       "Crate — the games",
       "Notebook",
       "Monitors — brand film",
-      "Headphones — WRFM Radio",
+      "Headphones — studio soundtrack",
       "Radio — WRFM live & clips",
       "Figurine — my gaming history",
       "Business cards — contact",
@@ -21,18 +21,18 @@
   },
   "radio plays with a now-playing bar": {
     "ok": true,
-    "v": "WRFM 97.1 · on the desk radioSponsor: the Debug Investigator"
+    "v": "WRFM 97.1 · on the desk radioVera's crime blotter"
   },
   "Next always changes the clip": {
     "ok": true,
     "v": [
-      "WRFM 97.1 · on the desk radioSponsor: the Debug Investigator",
-      "WRFM 97.1 · on the desk radioVera: still here",
-      "WRFM 97.1 · on the desk radioAn HR memo from Cheryl",
-      "WRFM 97.1 · on the desk radioCaller: the intern",
+      "WRFM 97.1 · on the desk radioVera's crime blotter",
       "WRFM 97.1 · on the desk radioSponsor: the Friday Defense Fund",
       "WRFM 97.1 · on the desk radioAfter-hours intake",
-      "WRFM 97.1 · on the desk radioSponsor: Rubber Duck Rental"
+      "WRFM 97.1 · on the desk radioDarling, I'm on the radio",
+      "WRFM 97.1 · on the desk radioCaller: one checkbox",
+      "WRFM 97.1 · on the desk radioVera signs on",
+      "WRFM 97.1 · on the desk radioVera teases the phone line"
     ]
   },
   "Stop ends it": {
@@ -48,10 +48,10 @@
   "guestbook framed in view": {
     "ok": true,
     "v": {
-      "x0": 215.2266555045676,
-      "x1": 466.804092260043,
-      "y0": 149.52442201215158,
-      "y1": 273.30315474799994,
+      "x0": 207.67284560528356,
+      "x1": 470.2348992596541,
+      "y0": 201.41618833487303,
+      "y1": 350.8973896183055,
       "w": 689.609375,
       "h": 715
     }
