@@ -31,6 +31,12 @@ export const PAGES = {
       fit: { fill: 0.9, side: 0.04 },
       // clicking an item: the camera picks the clearest angle onto it (not just a zoom along the current view)
       smartFocus: true,
+      // hand-framed views (model space: camera position p, looking at t), matched to the studio's own framing.
+      // Frame more on staging with ?frames (the frame tool), then paste the copied list here.
+      framed: {
+        monitor_left: { p: [-0.10, 1.37, 2.10], t: [0.06, 1.07, -0.60] },   // the whole hutch, monitors front-on
+        passport: { p: [0.19, 1.52, 0.34], t: [0.21, 0.77, -0.22] },        // looking down on the desk mat
+      },
       // first load: swing in from the front, a little higher and farther out, then settle on the hero angle
       intro: { azimuth: -32, elevation: 12, distance: 1.45, time: 1.25 },
       fallback: "fallback/desk.png",

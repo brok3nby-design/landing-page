@@ -326,9 +326,17 @@ function useKeepOut(ctl, boxes) {
   }, 0);
 }
 
+// hand-framed item views: site.js "framed" (built in) and views saved in this browser with the frame tool (?frames)
+export const FRAMED_KEY = "b3d-framed-views-v1";
+function framedView(builtIn, id) {
+  let mine = {};
+  try { mine = JSON.parse(localStorage.getItem(FRAMED_KEY) || "{}"); } catch { /* none */ }
+  return mine[id] || builtIn?.[id] || null;
+}
+
 // ---------------------------------------------------------------- camera rig
 const SHIFT = parseFloat(new URLSearchParams(location.search).get("shift")) || 0.05;   // share of the view width
-function Rig({ box, model, fit, intro: introMove, view, frame: FRAME, frameOrigin, homeScale = 0.86, onWheelHint, under, underView, selected, apiRef, colliders, focusLift = 0, focusScale = 2.1, smartFocus = false, focusViews = null }) {
+function Rig({ box, model, fit, intro: introMove, view, frame: FRAME, frameOrigin, homeScale = 0.86, onWheelHint, under, underView, selected, apiRef, colliders, focusLift = 0, focusScale = 2.1, smartFocus = false, focusViews = null, framed = null }) {
   const ctl = useRef();
   const camera = useThree((s) => s.camera);
   const size = useThree((s) => s.size);
@@ -519,6 +527,8 @@ function Rig({ box, model, fit, intro: introMove, view, frame: FRAME, frameOrigi
   };
 
   const focusShift = useRef(null);
+  const computeRef = useRef(null);
+  computeRef.current = computeHome;                   // always the latest layout (the api object is made once)
   useEffect(() => {                                   // keep the selection shift proportional to the zoom
     const cc = ctl.current;
     if (!cc) return;
@@ -543,6 +553,12 @@ function Rig({ box, model, fit, intro: introMove, view, frame: FRAME, frameOrigi
       sphere.center.y += focusLift;                     // frame where the object is going (lifted case)
       const r = Math.max(sphere.radius, focusLift ? 0.06 : 0.1);
       sphere.radius = r * focusScale;                   // keep some context around the object
+      const hand = framedView(framed, selected.userData.interactive_id);
+      if (hand) {                                     // framed by hand (site.js "framed", or saved with ?frames)
+        cc.setFocalOffset(0, 0, 0, smooth);
+        cc.setLookAt(...hand.p, ...hand.t, smooth);
+        return;
+      }
       if (smartFocus && model) {
         // place the object in the clear part of the view: right of the info panel on wide screens (the panel
         // is ~400 px wide, bottom-left), above it on phones (full-width panel at the bottom); and back off a
@@ -580,7 +596,15 @@ function Rig({ box, model, fit, intro: introMove, view, frame: FRAME, frameOrigi
     apiRef.current = {
       rotate: (az, pol) => ctl.current?.rotate(az, pol, true),
       dolly: (d) => { ctl.current?.dolly(d, true); rescaleShift(); },
-      reset: () => goHome(!reducedMotion()),
+      reset: () => { home.current = computeRef.current(); goHome(!reducedMotion()); },   // fresh: matches the page as it is now
+      look: (p, t) => { const cc = ctl.current; if (!cc) return; cc.setFocalOffset(0, 0, 0, false); cc.setLookAt(...p, ...t, false); },
+      // frame tool: the exact view on screen now (camera position + a point straight ahead), for "framed"
+      captureView: () => {
+        const p = camera.position.clone(), f = camera.getWorldDirection(new THREE.Vector3());
+        const t = p.clone().addScaledVector(f, ctl.current?.distance || 1);
+        const r = (v) => v.toArray().map((x) => +x.toFixed(3));
+        return { p: r(p), t: r(t) };
+      },
       target: () => ctl.current?.getTarget(new THREE.Vector3(), false).toArray(),
       // offline only (scripts/focus-views.mjs): the clearest viewing direction (object -> camera) for each item
       computeFocusViews: (index) => {
@@ -657,6 +681,8 @@ function Content({ config, selectedId, onSelect, under, apiRef, quality, animSta
       },
       // the selected object's on-screen box (canvas pixels) - tests check it is in view and clear of the panel
       computeFocusViews: () => (state ? apiRef.current?.computeFocusViews?.(state.index) : null),
+      captureView: () => apiRef.current?.captureView?.(),
+      look: (p, t) => apiRef.current?.look?.(p, t),
       selectedRect: () => {
         const o = state && selectedId ? state.index[selectedId] : null;
         if (!o) return null;
@@ -702,7 +728,7 @@ function Content({ config, selectedId, onSelect, under, apiRef, quality, animSta
         <>
           <Lights box={state.box} kind={config.lights || "exhibit"} under={under} shadows={quality.shadows} />
           <Rig box={state.box} model={state.scene} fit={config.fit} intro={config.intro} view={view} frame={FRAME_ID && views?.cameras?.[FRAME_ID]} frameOrigin={config.frameOrigin} homeScale={config.homeScale} onWheelHint={onWheelHint} under={under} underView={config.underView} selected={selected} apiRef={apiRef} colliders={colliders}
-               focusLift={lifting ? 0.13 : 0} focusScale={config.focusScale} smartFocus={config.smartFocus} focusViews={focusViews} />
+               focusLift={lifting ? 0.13 : 0} focusScale={config.focusScale} smartFocus={config.smartFocus} focusViews={focusViews} framed={config.framed} />
           {lifting && <LiftTurn index={state.index} selectedId={selectedId} />}
           {config.animation === "notebook" && <NotebookOpen scene={state.scene} open={animState?.open ?? true} />}
           {config.play === "gold" && <Suspense fallback={null}><GoldPlay scene={state.scene} onSelect={onSelect} /></Suspense>}

@@ -3,6 +3,9 @@ import { Component, Suspense, lazy, useCallback, useEffect, useMemo, useRef, use
 // The shared exhibit viewer used by every page. This wrapper is tiny; three.js / R3F live in the
 // lazily loaded Scene chunk, so the page text renders immediately and the 3D streams in after.
 const Scene = lazy(() => import("./Scene.jsx"));
+const FrameTool = lazy(() => import("./FrameTool.jsx"));
+import { frameToolOn } from "./frameToolFlag.js";
+import { HOTSPOT_LABELS } from "../content/site.js";
 
 // One check per visit (cached), with the probe context released straight away: can this browser draw 3D at
 // all, and is it drawing it on the graphics card? Browsers with hardware acceleration off (or a blocked
@@ -62,6 +65,7 @@ export default function Exhibit({ config, selectedId, onSelect, animState, tools
   const [slowGL] = useState(() => probeGL().software && !params.has("test") && !params.has("force3d") && !forced3D());
   const [imageView, setImageView] = useState(slowGL);
   const [under, setUnder] = useState(false);
+  const [frameTool] = useState(frameToolOn);
   const [touched, setTouched] = useState(false);
   const [wheelHint, setWheelHint] = useState(false);
   const hintTimer = useRef(0);
@@ -121,6 +125,7 @@ export default function Exhibit({ config, selectedId, onSelect, animState, tools
         </div>
       ) : fallback}
       {children}
+      {show3D && frameTool && config.scope === "home" && <Suspense fallback={null}><FrameTool selectedId={selectedId} labels={HOTSPOT_LABELS} api={api} /></Suspense>}
       <div className="exhibit-tools" ref={toolsRef}>
         {show3D && tools}
         {show3D && config.underView && (
