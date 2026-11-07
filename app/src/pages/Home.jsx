@@ -39,7 +39,6 @@ export default function Home() {
     if (/^book_/.test(id)) unlock("bookworm");
     if (id === "egg_qa_sticker") unlock("visit-under-the-radar");
     if (id === "duck") quack();
-    if (id === "radio") { wakeAudio(); blip("ping", 0.4); }
   }, []);
   const [picked, setPicked] = useState(false);
   const item = selectedId && data ? { label: HOTSPOT_LABELS[selectedId], ...resolveInteraction(data.interactions, selectedId) } : null;

@@ -4,7 +4,9 @@
 import { useEffect, useState } from "react";
 
 const KEY = "b3d-preferences-v1";
-const DEFAULTS = { effects: true, particles: true, sound: false, skipIntro: false };
+// sfx: item and cartridge sounds (on unless turned off). "sound" is the old site's cartridge-only setting,
+// kept so a stored value still parses; it no longer does anything.
+const DEFAULTS = { effects: true, particles: true, sound: false, sfx: true, skipIntro: false };
 const motion = typeof window !== "undefined" ? window.matchMedia("(prefers-reduced-motion: reduce)") : null;
 let prefs = { ...DEFAULTS };
 try {

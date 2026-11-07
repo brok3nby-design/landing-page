@@ -6,8 +6,6 @@ import { slotId, gameForSlotId, gamePanel } from "../exhibit/games.js";
 import { PAGES } from "../content/site.js";
 import { useSiteData, section, media, projectRoute } from "../content/data.js";
 import { unlock } from "../site/passport.js";
-import { getPref } from "../site/prefs.js";
-import { cartridgeClick } from "../site/music.js";
 
 export default function Games() {
   const page = PAGES.games;
@@ -16,7 +14,7 @@ export default function Games() {
   const [selectedId, setSelectedId] = useState(null);
   const select = useCallback((id) => {
     setSelectedId(id);
-    if (id) { unlock("cartridge"); if (getPref("sound")) cartridgeClick(); }
+    if (id) unlock("cartridge");                    // the cartridge click: exhibit/Exhibit.jsx (site/sfx.js)
   }, []);
   const close = useCallback(() => setSelectedId(null), []);
   useEffect(() => { if (location.hash === "#all") document.getElementById("all")?.scrollIntoView(); }, [data]);

@@ -6,6 +6,7 @@ const Scene = lazy(() => import("./Scene.jsx"));
 const FrameTool = lazy(() => import("./FrameTool.jsx"));
 import { frameToolOn } from "./frameToolFlag.js";
 import { HOTSPOT_LABELS } from "../content/site.js";
+import { itemSound } from "../site/sfx.js";
 
 // One check per visit (cached), with the probe context released straight away: can this browser draw 3D at
 // all, and is it drawing it on the graphics card? Browsers with hardware acceleration off (or a blocked
@@ -66,6 +67,8 @@ export default function Exhibit({ config, selectedId, onSelect, animState, tools
   const [imageView, setImageView] = useState(slowGL);
   const [under, setUnder] = useState(false);
   const [frameTool] = useState(frameToolOn);
+  // every item you pick answers with a sound (the project dioramas make their own, in their play modules)
+  useEffect(() => { if (["home", "games", "about"].includes(config.scope)) itemSound(selectedId); }, [selectedId, config.scope]);
   const [touched, setTouched] = useState(false);
   const [wheelHint, setWheelHint] = useState(false);
   const hintTimer = useRef(0);
