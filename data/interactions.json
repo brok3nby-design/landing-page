@@ -75,22 +75,12 @@
    "scope": "home",
    "object": "PROP_Headphones_Stand",
    "action": "focus+panel",
+   "idea": "put the headphones on: play / pause the studio's own theme (the site music), with volume",
    "panel": {
-    "title": "WRFM Radio",
-    "eyebrow": "COMPLETED GAME · LIVE NOW",
-    "text": "Smooth jazz for people who ship code. A fictional radio station hosted by Vera Lang, with strange callers, questionable commercials, and a world to explore between songs.",
-    "source": "home.html"
-   },
-   "button": {
-    "label": "EXPLORE WRFM",
-    "route": "/wrfm"
-   },
-   "links": [
-    {
-     "label": "Play WRFM ↗",
-     "href": "https://brok3nby-design.github.io/wrfm/"
-    }
-   ]
+    "title": "Studio soundtrack",
+    "eyebrow": "ON THE HEADPHONES",
+    "text": "Put the headphones on: this is the studio's own theme, the music that plays while you look around the site. Turn it on or off here any time, or with Play music at the top of the page."
+   }
   },
   "contact_card": {
    "scope": "home",
