@@ -145,8 +145,10 @@ function media(t, artist) {
   } catch { /* optional */ }
 }
 
-// one voice at a time: any other sound or video starting stops the radio (music.js already yields to us)
+// one voice at a time: any other sound or video starting stops the radio (music.js already yields to us),
+// and so does the site music being switched on
 if (typeof document !== "undefined") {
+  window.addEventListener("b3d-music-start", () => { if (audio) stop(); });
   document.addEventListener("play", (e) => {
     const t = e.target;
     if (audio && t !== audio && !t.muted && !t.dataset?.siteMusic) stop();

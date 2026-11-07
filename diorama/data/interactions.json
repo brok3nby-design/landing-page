@@ -75,11 +75,11 @@
    "scope": "home",
    "object": "PROP_Headphones_Stand",
    "action": "focus+panel",
-   "idea": "put the headphones on: play / pause the studio's own theme (the site music), with volume",
+   "idea": "put the headphones on: the studio soundtrack, a playlist that follows the mood of the page; play / pause / next, volume",
    "panel": {
     "title": "Studio soundtrack",
     "eyebrow": "ON THE HEADPHONES",
-    "text": "Put the headphones on: this is the studio's own theme, the music that plays while you look around the site. Turn it on or off here any time, or with Play music at the top of the page."
+    "text": "Put the headphones on: the studio's own soundtrack. It follows the mood of the page you're on (chill on the desk, chiptune in the Games crate, something creepier with the dolls) and keeps playing as you look around."
    }
   },
   "contact_card": {

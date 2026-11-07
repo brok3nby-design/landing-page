@@ -6,6 +6,7 @@ import { setProjects } from "../site/passport.js";
 import { startEffects } from "../site/effects.js";
 import { Entrance, MusicControl, Robot, StampToast, useScrollSecret } from "./Chrome.jsx";
 import RadioBar from "./RadioBar.jsx";
+import { setMoodFor } from "../site/music.js";
 
 export default function Layout() {
   const { pathname } = useLocation();
@@ -13,7 +14,7 @@ export default function Layout() {
   useEffect(() => { if (data) setProjects(data.projects); }, [data]);
   useEffect(() => { startEffects(); }, []);
   const [menu, setMenu] = useState(false);              // phone menu (the nav collapses below 700 px)
-  useEffect(() => { window.scrollTo(0, 0); setMenu(false); }, [pathname]);
+  useEffect(() => { window.scrollTo(0, 0); setMenu(false); setMoodFor(pathname); }, [pathname]);   // music follows the page's mood
   useEffect(() => {
     if (!menu) return;
     const k = (e) => e.key === "Escape" && setMenu(false);

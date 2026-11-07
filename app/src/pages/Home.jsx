@@ -7,7 +7,7 @@ import { resolveInteraction } from "../exhibit/interactions.js";
 import { PAGES, HOTSPOT_LABELS } from "../content/site.js";
 import { useSiteData, section, media, projectRoute } from "../content/data.js";
 import { unlock } from "../site/passport.js";
-import { pauseMusic, playMusic, setVolume, useMusic } from "../site/music.js";
+import { pauseMusic, playMusic, setVolume, useMusic, next as nextTrack } from "../site/music.js";
 import { wakeAudio, blip } from "../exhibit/goldAudio.js";
 import * as radio from "../site/radio.js";
 import { RadioButtons } from "../components/RadioBar.jsx";
@@ -86,6 +86,8 @@ function SoundtrackButtons() {
     <div className="panel-actions radio-actions soundtrack-actions">
       <button type="button" className={`btn${m.playing ? "" : " primary"}`} aria-pressed={m.playing}
               onClick={() => (m.playing ? pauseMusic() : playMusic())}>{m.playing ? "❚❚ Pause the music" : "▶ Play the soundtrack"}</button>
+      {m.playing && <button type="button" className="btn" onClick={() => nextTrack()}>Next track</button>}
+      {m.title && <p className="soundtrack-now">Now playing: <strong>{m.title}</strong></p>}
       <label className="soundtrack-vol"><span>Volume</span>
         <input type="range" min="0" max="1" step="0.05" value={m.volume} onChange={(e) => setVolume(parseFloat(e.target.value))} />
       </label>

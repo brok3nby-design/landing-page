@@ -11,7 +11,7 @@ export function MusicControl() {
   const m = useMusic();
   return (
     <div className="music" role="group" aria-label="Background music">
-      <button type="button" aria-pressed={m.playing} onClick={() => (m.playing ? pauseMusic() : playMusic())}>
+      <button type="button" aria-pressed={m.playing} onClick={() => (m.playing ? pauseMusic() : playMusic())} title={m.playing && m.title ? `Now playing: ${m.title}` : undefined}>
         {m.playing ? "Ⅱ Pause music" : "♫ Play music"}
       </button>
       <label><span className="sr-only">Music volume</span>

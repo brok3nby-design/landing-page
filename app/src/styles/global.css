@@ -583,3 +583,5 @@ blockquote { margin: 18px 0; padding-left: 18px; border-left: 2px solid var(--re
 .soundtrack-actions { align-items: center; }
 .soundtrack-vol { display: inline-flex; align-items: center; gap: 8px; font: 600 10px/1 var(--sans); letter-spacing: .2em; text-transform: uppercase; color: var(--muted); }
 .soundtrack-vol input { width: 110px; accent-color: var(--red-hi); }
+.soundtrack-now { flex-basis: 100%; margin: 2px 0 0 !important; font-size: 13px !important; color: var(--muted); }
+.soundtrack-now strong { color: var(--fg); font-weight: 600; }
