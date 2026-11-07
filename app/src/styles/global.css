@@ -556,3 +556,25 @@ blockquote { margin: 18px 0; padding-left: 18px; border-left: 2px solid var(--re
 .frame-tool-list li { display: flex; justify-content: space-between; gap: 8px; padding: 3px 0; border-bottom: 1px dashed var(--faint); }
 .frame-tool textarea { width: 100%; font: 11px/1.3 ui-monospace, monospace; background: #111; color: var(--muted); border: 1px solid var(--faint); resize: vertical; }
 #frame-tool-slot .frame-tool { position: static; width: auto; max-width: 520px; }   /* in the left column, off the 3D view */
+
+/* info panel on phones / small tablets: compact (name + main action) so the selected item stays in view;
+   "Details" opens the text and the other links. While a panel is open the camera buttons step aside (pinch and
+   swipe still work; closing the panel brings them back). Desktop shows everything and never shows the toggle. */
+.panel-more { display: none; }
+@media (max-width: 900px) {
+  .exhibit:has(.panel) .exhibit-tools { display: none; }
+  .exhibit .panel { bottom: 10px; left: 10px; right: 10px; padding: 10px 12px 10px 14px; max-height: calc(100% - 50px); }
+  .exhibit .panel:not(.more) { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 10px; }
+  .exhibit .panel:not(.more) .kind,
+  .exhibit .panel:not(.more) > p,
+  .exhibit .panel:not(.more) > .panel-actions:not(.radio-actions) > .btn:not(.primary) { display: none; }
+  .exhibit .panel:not(.more) > .panel-actions { margin: 0; gap: 8px; }
+  .exhibit .panel:not(.more) > .panel-actions:empty, .exhibit .panel:not(.more) > .panel-actions:not(:has(.btn.primary)):not(.radio-actions) { display: none; }
+  .exhibit .panel h2 { flex-basis: 100%; font-size: 21px; margin: 0 34px 0 0; }
+  .exhibit .panel.more h2 { margin: 4px 34px 8px 0; }
+  .exhibit .panel .btn { padding: 11px 14px; font-size: 11px; }
+  .panel-more { display: inline-flex; align-items: center; min-height: 40px; padding: 0 6px; background: none; border: 0;
+                color: var(--muted); font: 600 11px/1 var(--sans); letter-spacing: .18em; text-transform: uppercase; cursor: pointer; }
+  .panel-more:hover { color: var(--fg); }
+  .exhibit .panel .close { top: 4px; right: 4px; }
+}

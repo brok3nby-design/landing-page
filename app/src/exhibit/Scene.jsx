@@ -554,9 +554,21 @@ function Rig({ box, model, fit, intro: introMove, view, frame: FRAME, frameOrigi
       const r = Math.max(sphere.radius, focusLift ? 0.06 : 0.1);
       sphere.radius = r * focusScale;                   // keep some context around the object
       const hand = framedView(framed, selected.userData.interactive_id);
-      if (hand) {                                     // framed by hand (site.js "framed", or saved with ?frames)
+      if (hand && size.width > 700) {                // framed by hand (site.js "framed", or saved with ?frames)
         cc.setFocalOffset(0, 0, 0, smooth);
         cc.setLookAt(...hand.p, ...hand.t, smooth);
+        return;
+      }
+      if (hand) {
+        // phones: the hand-picked angle, but fitted to the narrow view and centred on the item, then lifted into
+        // the clear area above the compact info panel (the desktop framing assumes a wide view)
+        const dir = new THREE.Vector3(...hand.p).sub(new THREE.Vector3(...hand.t)).normalize();
+        const dist = cc.getDistanceToFitSphere(sphere.radius) * 1.05;
+        const cam = sphere.center.clone().addScaledVector(dir, dist);
+        const tanV = Math.tan(THREE.MathUtils.degToRad(camera.fov) / 2);
+        cc.setLookAt(cam.x, cam.y, cam.z, sphere.center.x, sphere.center.y, sphere.center.z, smooth);
+        cc.setFocalOffset(0, 0.24 * dist * tanV, 0, smooth);
+        focusShift.current = { x: 0, y: 0.24 * dist * tanV, d: dist };
         return;
       }
       if (smartFocus && model) {
@@ -566,8 +578,8 @@ function Rig({ box, model, fit, intro: introMove, view, frame: FRAME, frameOrigi
         const W = size.width, H = size.height, wideP = W > 700;
         const freeL = wideP ? Math.min(W * 0.55, 420) : 0;
         const tx = wideP ? ((freeL + W) / 2) / W * 2 - 1 : 0;            // NDC x of the free area's centre
-        const ty = wideP ? 0.12 : 0.42;                                     // NDC y (up is +)
-        const frac = wideP ? (W - freeL) / W : 0.55;
+        const ty = wideP ? 0.12 : 0.24;                                     // NDC y (up is +); phones: above the compact panel
+        const frac = wideP ? (W - freeL) / W : 0.75;
         const back = THREE.MathUtils.clamp(0.65 / frac, 1, 1.5);
         // the clearest angle onto each item is worked out ahead of time (scripts/focus-views.mjs ->
         // data/focus_views.json) so a click never stalls the page; without one, look from the hero angle
